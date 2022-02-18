@@ -1,0 +1,33 @@
+using Gtk;
+
+int main (string[] args) {
+	Gtk.init(ref args);
+
+	var window = new Window();
+
+	var button = new Button.with_label("Click me!");
+
+	window.add(button);
+	window.show_all();
+
+	Gtk.main();
+	return 0;
+}
+----------------------------------------------------
+<span class="token keyword">using</span> Gtk<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	Gtk<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">ref</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">var</span> window <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Window</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">var</span> button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button<span class="token punctuation">.</span>with_label</span><span class="token punctuation">(</span><span class="token string">"Click me!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	window<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>button<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	window<span class="token punctuation">.</span><span class="token function">show_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	Gtk<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

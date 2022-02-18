@@ -1,0 +1,17 @@
+OUT PORTD,x
+ldi r17,PD06
+ldi	r19,(1<<DDB31)
+ldi	r19,(1<<DDA30)
+ldi	r19,(1<<DDL10)
+ldi	r19,(1<<DDZ05)
+ldi	r19,(1<<PD7)
+----------------------------------------------------
+<span class="token op-code keyword">OUT</span> <span class="token constant">PORTD</span><span class="token punctuation">,</span><span class="token register variable">x</span>
+<span class="token op-code keyword">ldi</span> <span class="token r-register variable">r17</span><span class="token punctuation">,</span><span class="token constant">PD06</span>
+<span class="token op-code keyword">ldi</span>	<span class="token r-register variable">r19</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDB31</span><span class="token punctuation">)</span>
+<span class="token op-code keyword">ldi</span>	<span class="token r-register variable">r19</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDA30</span><span class="token punctuation">)</span>
+<span class="token op-code keyword">ldi</span>	<span class="token r-register variable">r19</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDL10</span><span class="token punctuation">)</span>
+<span class="token op-code keyword">ldi</span>	<span class="token r-register variable">r19</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDZ05</span><span class="token punctuation">)</span>
+<span class="token op-code keyword">ldi</span>	<span class="token r-register variable">r19</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD7</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

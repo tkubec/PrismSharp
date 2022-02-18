@@ -1,0 +1,20 @@
+#include <Bridge.h>
+#define SOME_PIN 11
+----------------------------------------------------
+[
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "include"],
+		["string", "<Bridge.h>"]
+	]],
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "define"],
+		["macro-name", "SOME_PIN"],
+		["expression", [
+			["number", "11"]
+		]]
+	]]
+]
+
+----------------------------------------------------

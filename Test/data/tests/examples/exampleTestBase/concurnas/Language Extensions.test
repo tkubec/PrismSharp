@@ -1,0 +1,10 @@
+dcalc = mylisp||(+ 1 2 (* 2 3))|| // == 9
+
+myFortran || program hello
+          		print *, "Hello World!"
+       		 end program hello|| //prints "Hello World!"
+
+lotto = myAPL || x[⍋x←6?40] || //6 unique random numbers from 1 to 40
+
+--------------------------------------------------
+

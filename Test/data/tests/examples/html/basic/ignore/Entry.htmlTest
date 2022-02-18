@@ -1,0 +1,9 @@
+file[1-3].txt
+.configs/**
+!.configs/shared.cfg
+----------------------------------------------------
+<span class="token entry string">file<span class="token regex">[1-3]</span>.txt</span>
+<span class="token entry string">.configs<span class="token punctuation">/</span><span class="token operator">**</span></span>
+<span class="token entry string"><span class="token operator">!</span>.configs<span class="token punctuation">/</span>shared.cfg</span>
+
+----------------------------------------------------

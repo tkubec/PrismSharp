@@ -1,0 +1,153 @@
+module mymodule
+
+import external_module
+
+fn sqr(n int) int {
+	return n * n
+}
+
+fn run(value int, op fn (int) int) int {
+	return op(value)
+}
+
+fn main() {
+	println(run(5, sqr)) // "25"
+	// Anonymous functions can be declared inside other functions:
+	double_fn := fn (n int) int {
+		return n + n
+	}
+	println(run(5, double_fn)) // "10"
+	// Functions can be passed around without assigning them to variables:
+	res := run(5, fn (n int) int {
+		return n + n
+	})
+
+	external_module.say_hi()
+}
+----------------------------------------------------
+[
+	["keyword", "module"], " mymodule\n\n",
+
+	["keyword", "import"], " external_module\n\n",
+
+	["keyword", "fn"],
+	["function", "sqr"],
+	["punctuation", "("],
+	"n ",
+	["builtin", "int"],
+	["punctuation", ")"],
+	["builtin", "int"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" n ",
+	["operator", "*"],
+	" n\n",
+
+	["punctuation", "}"],
+
+	["keyword", "fn"],
+	["function", "run"],
+	["punctuation", "("],
+	"value ",
+	["builtin", "int"],
+	["punctuation", ","],
+	" op ",
+	["keyword", "fn"],
+	["punctuation", "("],
+	["builtin", "int"],
+	["punctuation", ")"],
+	["builtin", "int"],
+	["punctuation", ")"],
+	["builtin", "int"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["function", "op"],
+	["punctuation", "("],
+	"value",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "fn"],
+	["function", "main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "println"],
+	["punctuation", "("],
+	["function", "run"],
+	["punctuation", "("],
+	["number", "5"],
+	["punctuation", ","],
+	" sqr",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["comment", "// \"25\""],
+
+	["comment", "// Anonymous functions can be declared inside other functions:"],
+
+	"\n\tdouble_fn ",
+	["operator", ":="],
+	["keyword", "fn"],
+	["punctuation", "("],
+	"n ",
+	["builtin", "int"],
+	["punctuation", ")"],
+	["builtin", "int"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" n ",
+	["operator", "+"],
+	" n\n\t",
+
+	["punctuation", "}"],
+
+	["function", "println"],
+	["punctuation", "("],
+	["function", "run"],
+	["punctuation", "("],
+	["number", "5"],
+	["punctuation", ","],
+	" double_fn",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["comment", "// \"10\""],
+
+	["comment", "// Functions can be passed around without assigning them to variables:"],
+
+	"\n\tres ",
+	["operator", ":="],
+	["function", "run"],
+	["punctuation", "("],
+	["number", "5"],
+	["punctuation", ","],
+	["keyword", "fn"],
+	["punctuation", "("],
+	"n ",
+	["builtin", "int"],
+	["punctuation", ")"],
+	["builtin", "int"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" n ",
+	["operator", "+"],
+	" n\n\t",
+
+	["punctuation", "}"],
+	["punctuation", ")"],
+
+	"\n\n\texternal_module",
+	["punctuation", "."],
+	["function", "say_hi"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

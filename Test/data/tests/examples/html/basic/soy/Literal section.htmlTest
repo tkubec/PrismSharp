@@ -1,0 +1,9 @@
+{literal}
+This is not a {$variable}
+{/literal}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">literal</span><span class="token punctuation">}</span>
+This is <span class="token operator">not</span> a <span class="token punctuation">{</span><span class="token variable">$variable</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">literal</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

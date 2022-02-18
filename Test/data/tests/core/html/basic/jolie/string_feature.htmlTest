@@ -1,0 +1,55 @@
+""
+"10"
+"
+JOLIE preserves formatting.
+    This line will be indented.
+                    This line too.
+"
+
+jsonValue = "{
+    \"int\": 123,
+    \"bool\": true,
+    \"long\": 124,
+    \"double\": 123.4,
+    \"string\": \"string\",
+    \"void\": {},
+    \"array\": [123, true,\"ciccio\",124,{}],
+    \"obj\" : {
+        \"int\": 1243,
+        \"bool\": true,
+        \"long\": 1234,
+        \"double\": 1234.4,
+        \"string\": \"string\",
+        \"void\": {}
+        }
+    }"
+;
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"10"</span>
+<span class="token string">"
+JOLIE preserves formatting.
+    This line will be indented.
+                    This line too.
+"</span>
+
+jsonValue <span class="token operator">=</span> <span class="token string">"{
+    \"int\": 123,
+    \"bool\": true,
+    \"long\": 124,
+    \"double\": 123.4,
+    \"string\": \"string\",
+    \"void\": {},
+    \"array\": [123, true,\"ciccio\",124,{}],
+    \"obj\" : {
+        \"int\": 1243,
+        \"bool\": true,
+        \"long\": 1234,
+        \"double\": 1234.4,
+        \"string\": \"string\",
+        \"void\": {}
+        }
+    }"</span>
+<span class="token punctuation">;</span>
+
+----------------------------------------------------

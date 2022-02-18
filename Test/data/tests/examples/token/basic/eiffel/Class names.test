@@ -1,0 +1,26 @@
+deferred class
+    A [G]
+
+feature
+    items: G
+        deferred  end
+
+end
+----------------------------------------------------
+[
+	["keyword", "deferred"],
+	["keyword", "class"],
+
+	["class-name", "A"],
+	["punctuation", "["],
+	["class-name", "G"],
+	["punctuation", "]"],
+
+	["keyword", "feature"],
+	"\n    items", ["punctuation", ":"], ["class-name", "G"],
+	["keyword", "deferred"], ["keyword", "end"],
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

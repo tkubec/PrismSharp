@@ -1,0 +1,25 @@
+@namespace Basic
+{
+  @search @pattern GUID = Word(8) + [3 '-' + Word(4)] + '-' + Word(12);
+}
+
+@require "GUID.np";
+
+@namespace Basic
+{
+  @search @pattern GUID-in-Braces = '{' + GUID + '}';
+}
+----------------------------------------------------
+<span class="token keyword">@namespace</span> <span class="token namespace">Basic</span>
+<span class="token operator variation">{</span>
+  <span class="token keyword">@search</span> <span class="token keyword">@pattern</span> <span class="token pattern"><span class="token pattern-name class-name">GUID</span></span> <span class="token operator pattern-def">=</span> <span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span><span class="token punctuation">(</span><span class="token quantifier number">8</span><span class="token punctuation">)</span></span> <span class="token operator sequence">+</span> <span class="token operator repetition">[</span><span class="token quantifier number">3</span> <span class="token string">'-'</span> <span class="token operator sequence">+</span> <span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span><span class="token punctuation">(</span><span class="token quantifier number">4</span><span class="token punctuation">)</span></span><span class="token operator repetition">]</span> <span class="token operator sequence">+</span> <span class="token string">'-'</span> <span class="token operator sequence">+</span> <span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span><span class="token punctuation">(</span><span class="token quantifier number">12</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token operator variation">}</span>
+
+<span class="token keyword">@require</span> <span class="token string">"GUID.np"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">@namespace</span> <span class="token namespace">Basic</span>
+<span class="token operator variation">{</span>
+  <span class="token keyword">@search</span> <span class="token keyword">@pattern</span> <span class="token pattern"><span class="token pattern-name class-name">GUID-in-Braces</span></span> <span class="token operator pattern-def">=</span> <span class="token string">'{'</span> <span class="token operator sequence">+</span> <span class="token name">GUID</span> <span class="token operator sequence">+</span> <span class="token string">'}'</span><span class="token punctuation">;</span>
+<span class="token operator variation">}</span>
+
+----------------------------------------------------

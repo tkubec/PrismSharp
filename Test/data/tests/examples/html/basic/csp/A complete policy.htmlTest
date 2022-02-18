@@ -1,0 +1,15 @@
+default-src 'none';
+script-src my.cdn.com;
+img-src 'self' data:;
+child-src 'self' data: ms-appx-web:;
+block-all-mixed-content;
+report-uri https://my-reports.com/submit;
+----------------------------------------------------
+<span class="token directive property">default-src</span> <span class="token none keyword">'none'</span><span class="token punctuation">;</span>
+<span class="token directive property">script-src</span> <span class="token host url">my.cdn.com</span><span class="token punctuation">;</span>
+<span class="token directive property">img-src</span> <span class="token keyword safe">'self'</span> <span class="token scheme">data:</span><span class="token punctuation">;</span>
+<span class="token directive property">child-src</span> <span class="token keyword safe">'self'</span> <span class="token scheme">data:</span> <span class="token scheme">ms-appx-web:</span><span class="token punctuation">;</span>
+<span class="token directive property">block-all-mixed-content</span><span class="token punctuation">;</span>
+<span class="token directive property">report-uri</span> <span class="token host url">https://my-reports.com/submit</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

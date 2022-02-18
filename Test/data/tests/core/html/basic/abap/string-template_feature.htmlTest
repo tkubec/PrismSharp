@@ -1,0 +1,9 @@
+|foobar|
+|foo\|b\{a}r|
+|foo { bar } baz|
+----------------------------------------------------
+<span class="token token-operator punctuation">|</span><span class="token string-template string">foobar</span><span class="token token-operator punctuation">|</span>
+<span class="token token-operator punctuation">|</span><span class="token string-template string">foo\|b\{a}r</span><span class="token token-operator punctuation">|</span>
+<span class="token token-operator punctuation">|</span><span class="token string-template string">foo </span><span class="token token-operator punctuation">{</span> bar <span class="token token-operator punctuation">}</span><span class="token string-template string"> baz</span><span class="token token-operator punctuation">|</span>
+
+----------------------------------------------------

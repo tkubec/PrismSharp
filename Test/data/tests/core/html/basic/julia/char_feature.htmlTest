@@ -1,0 +1,23 @@
+'x'
+'\''
+'\u2200'
+'\x80'
+'\xe2\x88'
+'∀'
+
+# not a character
+A'b
+A'b''
+----------------------------------------------------
+<span class="token char">'x'</span>
+<span class="token char">'\''</span>
+<span class="token char">'\u2200'</span>
+<span class="token char">'\x80'</span>
+<span class="token char">'\xe2\x88'</span>
+<span class="token char">'∀'</span>
+
+<span class="token comment"># not a character</span>
+A<span class="token operator">'</span>b
+A<span class="token operator">'</span>b<span class="token operator">'</span><span class="token operator">'</span>
+
+----------------------------------------------------

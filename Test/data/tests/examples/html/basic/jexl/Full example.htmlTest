@@ -1,0 +1,13 @@
+[
+  fun(1,2),
+  { obj: "1" }.obj,
+  ctx|transform
+]|join(", ")
+----------------------------------------------------
+<span class="token punctuation">[</span>
+  <span class="token function">fun</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> obj<span class="token operator">:</span> <span class="token string">"1"</span> <span class="token punctuation">}</span><span class="token punctuation">.</span>obj<span class="token punctuation">,</span>
+  ctx<span class="token operator">|</span><span class="token transform function">transform</span>
+<span class="token punctuation">]</span><span class="token operator">|</span><span class="token transform function">join</span><span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

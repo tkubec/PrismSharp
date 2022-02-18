@@ -1,0 +1,24 @@
+USE: regexp
+R/ abcde?.*+\?\.\*\+\/\\\/idmsr-idmsr/idmsr-idmsr
+----------------------------------------------------
+[
+	["colon-syntax", "USE: regexp"],
+	["regexp", [
+		"R/ abcde",
+		["keyword", "?"],
+		["keyword", "."],
+		["keyword", "*"],
+		["keyword", "+"],
+		["variable", "\\?"],
+		["variable", "\\."],
+		["variable", "\\*"],
+		["variable", "\\+"],
+		["variable", "\\/"],
+		["variable", "\\\\"],
+		["variable", "\\/"],
+		"idmsr-idmsr/",
+		["operator", "idmsr-idmsr"]
+	]]
+]
+
+----------------------------------------------------

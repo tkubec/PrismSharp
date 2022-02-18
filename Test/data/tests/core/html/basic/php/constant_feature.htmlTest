@@ -1,0 +1,47 @@
+null
+_
+X
+AZ
+PRISM
+FOOBAR_42
+
+class Foo{
+	const BAR = 1;
+	const baz = 2;
+}
+
+Foo::BAR;
+Foo::baz;
+
+
+switch ($i) {
+	case NULL:
+		break;
+	case X:
+		break;
+}
+----------------------------------------------------
+<span class="token constant">null</span>
+<span class="token constant">_</span>
+<span class="token constant">X</span>
+<span class="token constant">AZ</span>
+<span class="token constant">PRISM</span>
+<span class="token constant">FOOBAR_42</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Foo</span><span class="token punctuation">{</span>
+	<span class="token keyword">const</span> <span class="token constant">BAR</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token constant">baz</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name static-context">Foo</span><span class="token operator">::</span><span class="token constant">BAR</span><span class="token punctuation">;</span>
+<span class="token class-name static-context">Foo</span><span class="token operator">::</span><span class="token constant">baz</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$i</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">case</span> <span class="token constant">NULL</span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token constant">X</span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

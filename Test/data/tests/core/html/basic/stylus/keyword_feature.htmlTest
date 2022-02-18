@@ -1,0 +1,13 @@
+for i in 1..5
+if a == 3
+z-index: 1 unless @z-index;
+return pair[1] if pair[0] == key for pair in hash
+if url == "http://example.com"	// comment
+----------------------------------------------------
+<span class="token statement"><span class="token keyword">for</span> i <span class="token operator">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">5</span></span>
+<span class="token statement"><span class="token keyword">if</span> a <span class="token operator">==</span> <span class="token number">3</span></span>
+<span class="token property-declaration"><span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token keyword">unless</span> <span class="token keyword">@z-index</span><span class="token punctuation">;</span></span>
+<span class="token statement"><span class="token keyword">return</span> pair<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">if</span> pair<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> key <span class="token keyword">for</span> pair <span class="token operator">in</span> hash</span>
+<span class="token statement"><span class="token keyword">if</span> url <span class="token operator">==</span> <span class="token string">"http://example.com"</span>	<span class="token comment">// comment</span></span>
+
+----------------------------------------------------

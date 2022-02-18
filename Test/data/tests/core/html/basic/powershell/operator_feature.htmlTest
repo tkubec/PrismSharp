@@ -1,0 +1,11 @@
+! -eq -ne -gt -ge -lt -le -shl -shr -not -band -and -bxor -bor -or
+-Like -Match -Contains -In -NotLike -NotMatch -NotContains -NotIn -Replace -Join
+-is -isNot -as
+-= += *= /= %= - + * / % -- ++
+----------------------------------------------------
+<span class="token operator">!</span> <span class="token operator">-eq</span> <span class="token operator">-ne</span> <span class="token operator">-gt</span> <span class="token operator">-ge</span> <span class="token operator">-lt</span> <span class="token operator">-le</span> <span class="token operator">-shl</span> <span class="token operator">-shr</span> <span class="token operator">-not</span> <span class="token operator">-band</span> <span class="token operator">-and</span> <span class="token operator">-bxor</span> <span class="token operator">-bor</span> <span class="token operator">-or</span>
+<span class="token operator">-Like</span> <span class="token operator">-Match</span> <span class="token operator">-Contains</span> <span class="token operator">-In</span> <span class="token operator">-NotLike</span> <span class="token operator">-NotMatch</span> <span class="token operator">-NotContains</span> <span class="token operator">-NotIn</span> <span class="token operator">-Replace</span> <span class="token operator">-Join</span>
+<span class="token operator">-is</span> <span class="token operator">-isNot</span> <span class="token operator">-as</span>
+<span class="token operator">-=</span> <span class="token operator">+=</span> <span class="token operator">*=</span> <span class="token operator">/=</span> <span class="token operator">%=</span> <span class="token operator">-</span> <span class="token operator">+</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">%</span> <span class="token operator">--</span> <span class="token operator">++</span>
+
+----------------------------------------------------

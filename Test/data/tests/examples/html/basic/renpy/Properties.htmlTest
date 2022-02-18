@@ -1,0 +1,9 @@
+style my_text is text:
+    size 40
+    font "gentium.ttf"
+----------------------------------------------------
+<span class="token keyword">style</span> my_text <span class="token keyword">is</span> <span class="token tag">text</span><span class="token punctuation">:</span>
+    <span class="token property">size</span> <span class="token number">40</span>
+    <span class="token property">font</span> <span class="token string">"gentium.ttf"</span>
+
+----------------------------------------------------

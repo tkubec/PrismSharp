@@ -1,0 +1,73 @@
+module Make_interval(Endpoint : Comparable) = struct
+
+    type t = | Interval of Endpoint.t * Endpoint.t
+             | Empty
+
+    (** [create low high] creates a new interval from [low] to
+        [high].  If [low > high], then the interval is empty *)
+    let create ~low ~high =
+      if Endpoint.compare low high > 0 then Empty
+      else Interval (low,high)
+
+    (** Returns true iff the interval is empty *)
+    let is_empty = function
+      | Empty -> true
+      | Interval _ -> false
+
+    (** [contains t x] returns true iff [x] is contained in the
+        interval [t] *)
+    let contains t x =
+      match t with
+      | Empty -> false
+      | Interval (l,h) ->
+        Endpoint.compare x l >= 0 && Endpoint.compare x h <= 0
+
+    (** [intersect t1 t2] returns the intersection of the two input
+        intervals *)
+    let intersect t1 t2 =
+      let min x y = if Endpoint.compare x y <= 0 then x else y in
+      let max x y = if Endpoint.compare x y >= 0 then x else y in
+      match t1,t2 with
+      | Empty, _ | _, Empty -> Empty
+      | Interval (l1,h1), Interval (l2,h2) ->
+        create ~low:(max l1 l2) ~high:(min h1 h2)
+
+  end ;;
+----------------------------------------------------
+<span class="token keyword">module</span> Make_interval<span class="token punctuation">(</span>Endpoint <span class="token punctuation">:</span> Comparable<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">struct</span>
+
+    <span class="token keyword">type</span> t <span class="token operator">=</span> <span class="token operator">|</span> Interval <span class="token keyword">of</span> Endpoint<span class="token punctuation">.</span>t <span class="token operator">*</span> Endpoint<span class="token punctuation">.</span>t
+             <span class="token operator">|</span> Empty
+
+    <span class="token comment">(** [create low high] creates a new interval from [low] to
+        [high].  If [low > high], then the interval is empty *)</span>
+    <span class="token keyword">let</span> create <span class="token label property">~low</span> <span class="token label property">~high</span> <span class="token operator">=</span>
+      <span class="token keyword">if</span> Endpoint<span class="token punctuation">.</span>compare low high <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">then</span> Empty
+      <span class="token keyword">else</span> Interval <span class="token punctuation">(</span>low<span class="token punctuation">,</span>high<span class="token punctuation">)</span>
+
+    <span class="token comment">(** Returns true iff the interval is empty *)</span>
+    <span class="token keyword">let</span> is_empty <span class="token operator">=</span> <span class="token keyword">function</span>
+      <span class="token operator">|</span> Empty <span class="token operator">-></span> <span class="token boolean">true</span>
+      <span class="token operator">|</span> Interval <span class="token punctuation">_</span> <span class="token operator">-></span> <span class="token boolean">false</span>
+
+    <span class="token comment">(** [contains t x] returns true iff [x] is contained in the
+        interval [t] *)</span>
+    <span class="token keyword">let</span> contains t x <span class="token operator">=</span>
+      <span class="token keyword">match</span> t <span class="token keyword">with</span>
+      <span class="token operator">|</span> Empty <span class="token operator">-></span> <span class="token boolean">false</span>
+      <span class="token operator">|</span> Interval <span class="token punctuation">(</span>l<span class="token punctuation">,</span>h<span class="token punctuation">)</span> <span class="token operator">-></span>
+        Endpoint<span class="token punctuation">.</span>compare x l <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> Endpoint<span class="token punctuation">.</span>compare x h <span class="token operator">&lt;=</span> <span class="token number">0</span>
+
+    <span class="token comment">(** [intersect t1 t2] returns the intersection of the two input
+        intervals *)</span>
+    <span class="token keyword">let</span> intersect t1 t2 <span class="token operator">=</span>
+      <span class="token keyword">let</span> min x y <span class="token operator">=</span> <span class="token keyword">if</span> Endpoint<span class="token punctuation">.</span>compare x y <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token keyword">then</span> x <span class="token keyword">else</span> y <span class="token keyword">in</span>
+      <span class="token keyword">let</span> max x y <span class="token operator">=</span> <span class="token keyword">if</span> Endpoint<span class="token punctuation">.</span>compare x y <span class="token operator">>=</span> <span class="token number">0</span> <span class="token keyword">then</span> x <span class="token keyword">else</span> y <span class="token keyword">in</span>
+      <span class="token keyword">match</span> t1<span class="token punctuation">,</span>t2 <span class="token keyword">with</span>
+      <span class="token operator">|</span> Empty<span class="token punctuation">,</span> <span class="token punctuation">_</span> <span class="token operator">|</span> <span class="token punctuation">_</span><span class="token punctuation">,</span> Empty <span class="token operator">-></span> Empty
+      <span class="token operator">|</span> Interval <span class="token punctuation">(</span>l1<span class="token punctuation">,</span>h1<span class="token punctuation">)</span><span class="token punctuation">,</span> Interval <span class="token punctuation">(</span>l2<span class="token punctuation">,</span>h2<span class="token punctuation">)</span> <span class="token operator">-></span>
+        create <span class="token label property">~low</span><span class="token punctuation">:</span><span class="token punctuation">(</span>max l1 l2<span class="token punctuation">)</span> <span class="token label property">~high</span><span class="token punctuation">:</span><span class="token punctuation">(</span>min h1 h2<span class="token punctuation">)</span>
+
+  <span class="token keyword">end</span> <span class="token punctuation">;;</span>
+
+----------------------------------------------------

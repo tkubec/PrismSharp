@@ -1,0 +1,75 @@
+[% IF foo = bar %]
+this
+[% ELSE %]
+that
+[% END %]
+[% FOREACH post IN q.listPosts(lingua = "de") %]
+  <a href="[% post.permalink %]">[% post.title | html %]</a>
+[% END %]
+----------------------------------------------------
+[
+	["delimiter", "[%"],
+	["keyword", "IF"],
+	["variable", "foo"],
+	["operator", "="],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["variable", "this"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "ELSE"],
+	" %",
+	["punctuation", "]"],
+
+	["variable", "that"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "END"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "FOREACH"],
+	["variable", "post"],
+	["keyword", "IN"],
+	["variable", "q"],
+	".",
+	["function", "listPosts"],
+	["punctuation", "("],
+	["variable", "lingua"],
+	["operator", "="],
+	["double-quoted-string", ["\"de\""]],
+	["punctuation", ")"],
+	" %",
+	["punctuation", "]"],
+
+	["operator", "<"],
+	["variable", "a"],
+	["variable", "href"],
+	["operator", "="],
+	["double-quoted-string", ["\"[% post.permalink %]\""]],
+	["operator", ">"],
+	["punctuation", "["],
+	"% ",
+	["variable", "post.title"],
+	["operator", "|"],
+	["variable", "html"],
+	" %",
+	["punctuation", "]"],
+	["operator", "<"],
+	"/",
+	["variable", "a"],
+	["operator", ">"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "END"],
+	["delimiter", "%]"]
+]
+
+----------------------------------------------------

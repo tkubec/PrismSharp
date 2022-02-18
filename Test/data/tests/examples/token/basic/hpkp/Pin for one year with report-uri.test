@@ -1,0 +1,27 @@
+pin-sha256="EpOpN/ahUF6jhWShDUdy+NvvtaGcu5F7qM6+x2mfkh4=";
+max-age=31536000;
+includeSubDomains;
+report-uri="https://my-reports.com/submit"
+----------------------------------------------------
+[
+	["directive", "pin-sha256"],
+	["operator", "="],
+	"\"EpOpN/ahUF6jhWShDUdy+NvvtaGcu5F7qM6+x2mfkh4",
+	["operator", "="],
+	"\"",
+	["punctuation", ";"],
+
+	["directive", "max-age"],
+	["operator", "="],
+	"31536000",
+	["punctuation", ";"],
+
+	["directive", "includeSubDomains"],
+	["punctuation", ";"],
+
+	["directive", "report-uri"],
+	["operator", "="],
+	"\"https://my-reports.com/submit\""
+]
+
+----------------------------------------------------

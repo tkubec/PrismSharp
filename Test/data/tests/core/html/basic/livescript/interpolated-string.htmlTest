@@ -1,0 +1,25 @@
+""""""
+"""Foo\"""bar"""
+"""Foo
+bar"""
+"""#foobar #{foo + 42}"""
+
+""
+"Foo\"bar"
+"Foo
+bar"
+"#foo #{ if /test/ == 'test' then 3 else 4}"
+----------------------------------------------------
+<span class="token interpolated-string"><span class="token string">""""""</span></span>
+<span class="token interpolated-string"><span class="token string">"""Foo\"""bar"""</span></span>
+<span class="token interpolated-string"><span class="token string">"""Foo
+bar"""</span></span>
+<span class="token interpolated-string"><span class="token string">"""</span><span class="token variable">#foobar</span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation variable">#{</span><span class="token identifier">foo</span> <span class="token operator">+</span> <span class="token number">42</span><span class="token interpolation-punctuation variable">}</span></span><span class="token string">"""</span></span>
+
+<span class="token interpolated-string"><span class="token string">""</span></span>
+<span class="token interpolated-string"><span class="token string">"Foo\"bar"</span></span>
+<span class="token interpolated-string"><span class="token string">"Foo
+bar"</span></span>
+<span class="token interpolated-string"><span class="token string">"</span><span class="token variable">#foo</span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation variable">#{</span> <span class="token keyword">if</span> <span class="token regex">/test/</span> <span class="token operator">==</span> <span class="token string">'test'</span> <span class="token keyword">then</span> <span class="token number">3</span> <span class="token keyword">else</span> <span class="token number">4</span><span class="token interpolation-punctuation variable">}</span></span><span class="token string">"</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+provider "aws" {
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
+  region     = "us-east-1"
+}
+----------------------------------------------------
+<span class="token keyword">provider<span class="token type variable"> "aws" </span></span><span class="token punctuation">{</span>
+  <span class="token property">access_key</span> <span class="token punctuation">=</span> <span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">var</span><span class="token punctuation">.</span><span class="token type variable">aws_access_key</span><span class="token punctuation">}</span></span>"</span>
+  <span class="token property">secret_key</span> <span class="token punctuation">=</span> <span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">var</span><span class="token punctuation">.</span><span class="token type variable">aws_secret_key</span><span class="token punctuation">}</span></span>"</span>
+  <span class="token property">region</span>     <span class="token punctuation">=</span> <span class="token string">"us-east-1"</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,57 @@
+""
+"fo\"obar"
+"foo\
+	bar"
+"foo
+bar"
+
+b""
+b"fo\"obar"
+
+r#""#
+r#"fo"obar"#
+r###"foo
+#
+bar"###
+
+br#""#
+br#"fo"obar"#
+br###"foo#bar"###
+
+r"(?x)
+(?P<year>\d{4})  # the year
+-
+(?P<month>\d{2}) # the month
+-
+(?P<day>\d{2})   # the day
+"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"obar"</span>
+<span class="token string">"foo\
+	bar"</span>
+<span class="token string">"foo
+bar"</span>
+
+<span class="token string">b""</span>
+<span class="token string">b"fo\"obar"</span>
+
+<span class="token string">r#""#</span>
+<span class="token string">r#"fo"obar"#</span>
+<span class="token string">r###"foo
+#
+bar"###</span>
+
+<span class="token string">br#""#</span>
+<span class="token string">br#"fo"obar"#</span>
+<span class="token string">br###"foo#bar"###</span>
+
+<span class="token string">r"(?x)
+(?P&lt;year>\d{4})  # the year
+-
+(?P&lt;month>\d{2}) # the month
+-
+(?P&lt;day>\d{2})   # the day
+"</span>
+
+----------------------------------------------------

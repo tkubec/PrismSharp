@@ -1,0 +1,17 @@
+struct SomeStructure {}
+enum SomeEnumeration {}
+class SomeClass: SomeSuperclass {
+    class var overrideableComputedTypeProperty: Int {
+        return 107
+    }
+}
+----------------------------------------------------
+<span class="token keyword">struct</span> <span class="token class-name">SomeStructure</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">enum</span> <span class="token class-name">SomeEnumeration</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">SomeClass</span><span class="token punctuation">:</span> <span class="token class-name">SomeSuperclass</span> <span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token keyword">var</span> overrideableComputedTypeProperty<span class="token punctuation">:</span> <span class="token class-name">Int</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">107</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

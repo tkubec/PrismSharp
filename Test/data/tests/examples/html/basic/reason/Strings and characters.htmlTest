@@ -1,0 +1,13 @@
+"This is a \"string\""
+'a'
+'\\'
+'\o123'
+'\x4a'
+----------------------------------------------------
+<span class="token string">"This is a \"string\""</span>
+<span class="token char">'a'</span>
+<span class="token char">'\\'</span>
+<span class="token char">'\o123'</span>
+<span class="token char">'\x4a'</span>
+
+----------------------------------------------------

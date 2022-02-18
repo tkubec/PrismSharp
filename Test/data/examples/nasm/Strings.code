@@ -1,0 +1,11 @@
+mov eax,'abcd'
+
+db    'hello'               ; string constant
+db    'h','e','l','l','o'   ; equivalent character constants
+dd    'ninechars'           ; doubleword string constant
+dd    'nine','char','s'     ; becomes three doublewords
+db    'ninechars',0,0,0     ; and really looks like this
+
+db `\u263a`            ; UTF-8 smiley face
+db `\xe2\x98\xba`      ; UTF-8 smiley face
+db 0E2h, 098h, 0BAh    ; UTF-8 smiley face

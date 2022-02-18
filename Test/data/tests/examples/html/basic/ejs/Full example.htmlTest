@@ -1,0 +1,33 @@
+<h1>Let's have fun!</h1>
+<%
+    const fruits = ["Apple", "Pear", "Orange", "Lemon"];
+    const random = Array.from({ length: 198 }).map(x => Math.random());
+%>
+
+<p>These fruits are amazing:</p>
+<ul><% for (const fruit of fruits) { %>
+  <li><%=fruit%>s</li><% } %>
+</ul>
+
+<p>Some random numbers:</p>
+
+<% random.forEach((c, i) => {
+%> <%- c.toFixed(10) + ((i + 1) % 6 === 0 ? " <br>\n": "") %><%});%>
+----------------------------------------------------
+<span class="token language-javascript"><span class="token operator">&lt;</span>h1<span class="token operator">></span>Let's have fun<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span>
+    <span class="token keyword">const</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Apple"</span><span class="token punctuation">,</span> <span class="token string">"Pear"</span><span class="token punctuation">,</span> <span class="token string">"Orange"</span><span class="token punctuation">,</span> <span class="token string">"Lemon"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> random <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">length</span><span class="token operator">:</span> <span class="token number">198</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">x</span> <span class="token operator">=></span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span>p<span class="token operator">></span>These fruits are amazing<span class="token operator">:</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token operator">&lt;</span>ul<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> fruit <span class="token keyword">of</span> fruits<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%=</span>fruit<span class="token operator">%</span><span class="token operator">></span>s<span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>p<span class="token operator">></span>Some random numbers<span class="token operator">:</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">%</span> random<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">c<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+<span class="token operator">%</span><span class="token operator">></span> <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> c<span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">6</span> <span class="token operator">===</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token string">" &lt;br>\n"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token delimiter punctuation">%></span>
+
+----------------------------------------------------

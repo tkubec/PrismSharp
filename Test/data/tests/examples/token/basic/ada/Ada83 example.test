@@ -1,0 +1,41 @@
+WITH ADA.TEXT_IO;
+
+--  Comments look like this.
+
+PROCEDURE TEST IS
+BEGIN
+   ADA.TEXT_IO.PUT_LINE ("Hello");   --  Comments look like this.
+END TEST;
+----------------------------------------------------
+[
+	["keyword", "WITH"],
+	["variable", "ADA"],
+	["punctuation", "."],
+	["variable", "TEXT_IO"],
+	["punctuation", ";"],
+
+	["comment", "--  Comments look like this."],
+
+	["keyword", "PROCEDURE"],
+	["variable", "TEST"],
+	["keyword", "IS"],
+
+	["keyword", "BEGIN"],
+
+	["variable", "ADA"],
+	["punctuation", "."],
+	["variable", "TEXT_IO"],
+	["punctuation", "."],
+	["variable", "PUT_LINE"],
+	["punctuation", "("],
+	["string", "\"Hello\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "--  Comments look like this."],
+
+	["keyword", "END"],
+	["variable", "TEST"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

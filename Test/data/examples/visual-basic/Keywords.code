@@ -1,0 +1,7 @@
+Function AddNumbers(ByVal X As Integer, ByVal Y As Integer)
+    AddNumbers = X + Y
+End Function
+Module Test
+    Sub Main()
+    End Sub
+End Module

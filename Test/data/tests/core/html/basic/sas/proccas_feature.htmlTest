@@ -1,0 +1,47 @@
+proc cas;
+   session casauto;
+   builtins.actionSetInfo result=results;
+   print results.setinfo[,{'actionset', 'label'}];
+run;
+quit;
+
+proc cas;
+  /* Testing a comment */
+  session casauto;
+  output log;
+  table.loadTable / path="iris.sashdat";
+  simple.summary result=iris / table={name="iris"};
+  tableIris=findtable(iris);
+  saveresult tableIris csv="sum.csv";
+run;
+quit;
+
+proc cas;
+  action table.fileinfo / path="%.csv";
+run;
+quit;
+----------------------------------------------------
+<span class="token step keyword">proc cas</span><span class="token punctuation">;</span><span class="token proc-cas">
+   <span class="token keyword">session</span> casauto<span class="token punctuation">;</span>
+   <span class="token cas-actions"><span class="token keyword">builtins.actionSetInfo</span> <span class="token argument keyword">result</span><span class="token operator">=</span><span class="token arg-value">results</span></span><span class="token punctuation">;</span>
+   <span class="token keyword">print</span> results<span class="token punctuation">.</span>setinfo<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">'actionset'</span><span class="token punctuation">,</span> <span class="token string">'label'</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token step keyword">run</span><span class="token punctuation">;</span>
+</span><span class="token step keyword">quit</span><span class="token punctuation">;</span>
+
+<span class="token step keyword">proc cas</span><span class="token punctuation">;</span><span class="token proc-cas">
+  <span class="token comment">/* Testing a comment */</span>
+  <span class="token keyword">session</span> casauto<span class="token punctuation">;</span>
+  <span class="token statement"><span class="token arg keyword">output</span> <span class="token arg keyword">log</span></span><span class="token punctuation">;</span>
+  <span class="token cas-actions"><span class="token keyword">table.loadTable</span> / <span class="token argument keyword">path</span><span class="token operator">=</span><span class="token string">"iris.sashdat"</span></span><span class="token punctuation">;</span>
+  <span class="token cas-actions"><span class="token keyword">simple.summary</span> <span class="token argument keyword">result</span><span class="token operator">=</span><span class="token arg-value">iris</span> / <span class="token argument keyword">table</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token argument keyword">name</span><span class="token operator">=</span><span class="token string">"iris"</span><span class="token punctuation">}</span></span><span class="token punctuation">;</span>
+  tableIris=<span class="token function keyword">findtable</span><span class="token punctuation">(</span>iris<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token statement-var"><span class="token statement"><span class="token keyword">saveresult</span> tableIris</span> <span class="token arg keyword">csv</span><span class="token operator">=</span><span class="token string">"sum.csv"</span></span><span class="token punctuation">;</span>
+<span class="token step keyword">run</span><span class="token punctuation">;</span>
+</span><span class="token step keyword">quit</span><span class="token punctuation">;</span>
+
+<span class="token step keyword">proc cas</span><span class="token punctuation">;</span><span class="token proc-cas">
+  <span class="token cas-actions"><span class="token action keyword">action</span> <span class="token keyword">table.fileinfo</span> / <span class="token argument keyword">path</span><span class="token operator">=</span><span class="token string">"%.csv"</span></span><span class="token punctuation">;</span>
+<span class="token step keyword">run</span><span class="token punctuation">;</span>
+</span><span class="token step keyword">quit</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

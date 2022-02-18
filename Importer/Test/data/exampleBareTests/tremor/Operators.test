@@ -1,0 +1,10 @@
+merge {} of
+  { "snot": "badger" }
+end;
+
+patch {} of
+  insert snot = "badger"
+end;
+
+--------------------------------------------------
+

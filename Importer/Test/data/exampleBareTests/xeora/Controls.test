@@ -1,0 +1,55 @@
+$C:ControlID$
+$C:ControlID:{ &lt;!-- Something --&gt; }:ControlID$
+$C:ControlID:{ &lt;!-- Something --&gt; }:ControlID:{ &lt;!-- Something (Alternative) --&gt; }:ControlID$
+
+Control with Parent
+$C[Control1]:Control2$
+$C[Control2]:Control3:{ &lt;!-- Something --&gt; }:Control3$
+$C[Control2]:Control3:{ &lt;!-- Something --&gt; }:Control3:{ &lt;!-- Something (Alternative) --&gt; }:Control3$
+
+Control with Parent & Leveling
+$C#1[ParentControlID]:ControlID:{ &lt;!-- Something --&gt; }:ControlID$
+
+All Control Tags has leveling specification;
+$C:LoopControl1:{
+	$#FirstLoopSQLField1$
+
+	$C:ControlID:{ &lt;!-- Something --&gt; }:ControlID$
+
+	$C:LoopControl2:{
+		$##FirstLoopSQLField1$
+		$#SecondLoopSQLField1$
+
+		$C#1:ControlID:{ &lt;!-- Something --&gt; }:ControlID$
+	}:LoopControl2$
+}:LoopControl1$
+
+XML setup on a Control in Controls.xml
+&lt;Control id="[ControlID]"&gt;
+	&lt;Type&gt;[ControlType]&lt;/Type&gt;
+
+	&lt;Bind&gt;[ThemeID|AddonID]?[ControlClass].[FunctionName],SomeOperatorTags(seperated with |)&lt;/Bind&gt;
+
+	&lt;BlockIDsToUpdate localupdate="True|False"&gt;
+		&lt;BlockID&gt;[BlockID]&lt;/BlockID&gt;
+		&lt;BlockID&gt;[BlockID]&lt;/BlockID&gt;
+		&lt;BlockID&gt;[BlockID]&lt;/BlockID&gt;
+	&lt;/BlockIDsToUpdate&gt;
+
+	&lt;DefaultButtonID&gt;[ControlID]&lt;/DefaultButtonID&gt;
+
+	&lt;Text&gt;[TextBox, Password value or Button Text]&lt;/Text&gt;
+
+	&lt;Content&gt;[Textarea Content]&lt;/Content&gt;
+
+	&lt;Source&gt;[Image URL]&lt;/Source&gt;
+
+	&lt;Url&gt;[Link URL]&lt;/Url&gt;
+
+	&lt;Attributes&gt;
+		&lt;Attribute key="[HTMLAttributeKey]"&gt;[AttributeValue]&lt;/Attributes&gt;
+	&lt;/Attributes&gt;
+&lt;/Control&gt;
+
+--------------------------------------------------
+

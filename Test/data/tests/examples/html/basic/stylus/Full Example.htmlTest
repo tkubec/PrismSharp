@@ -1,0 +1,145 @@
+/*!
+ * Adds the given numbers together.
+ */
+/*
+ * Adds the given numbers together.
+ */
+// I'm a comment!
+body {
+	font: 12px Helvetica, Arial, sans-serif;
+}
+a.button {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+body
+	font: 12px Helvetica, Arial, sans-serif;
+
+a.button:after
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+body
+	font: 12px Helvetica, Arial, sans-serif
+
+a.link > button#test, input[type=button], a:after
+	-webkit-border-radius: 5px
+	-moz-border-radius: 5px
+	border-radius: 5px
+
+font-size = 14px
+font = font-size "Lucida Grande", Arial
+
+body {
+	padding: 50px;
+	font: 14px/1.4 fonts;
+}
+
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	border-radius arguments
+
+body
+	font 12px Helvetica, Arial, sans-serif
+
+a.button
+	border-radius(5px)
+
+@media (max-width: 30em) {
+	body {
+		color: #fff;
+	}
+}
+
+@media (max-width: 500px)
+	.foo
+		color: #000
+
+	@media (min-width: 100px), (min-height: 200px)
+		.foo
+			color: #100
+
+sum(nums...)
+	sum = 0
+	sum += n for n in nums
+
+sum(1 2 3 4)
+// => 10
+----------------------------------------------------
+<span class="token selector">/*!</span>
+ * Adds the given numbers together<span class="token punctuation">.</span>
+ */
+<span class="token selector">/*</span>
+ * Adds the given numbers together<span class="token punctuation">.</span>
+ */
+<span class="token selector"><span class="token comment">// I'm a comment!</span>
+body <span class="token punctuation">{</span></span>
+	<span class="token property-declaration"><span class="token property">font</span><span class="token punctuation">:</span> <span class="token number">12</span><span class="token unit">px</span> Helvetica<span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+<span class="token selector">a.button <span class="token punctuation">{</span></span>
+	<span class="token property-declaration"><span class="token property">-webkit-border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span></span>
+	<span class="token property-declaration"><span class="token property">-moz-border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span></span>
+	<span class="token property-declaration"><span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">body</span>
+	<span class="token property-declaration"><span class="token property">font</span><span class="token punctuation">:</span> <span class="token number">12</span><span class="token unit">px</span> Helvetica<span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span></span>
+
+<span class="token selector">a.button:after</span>
+	<span class="token property-declaration"><span class="token property">-webkit-border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span></span>
+	<span class="token property-declaration"><span class="token property">-moz-border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span></span>
+	<span class="token property-declaration"><span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span></span>
+
+<span class="token selector">body</span>
+	<span class="token property-declaration"><span class="token property">font</span><span class="token punctuation">:</span> <span class="token number">12</span><span class="token unit">px</span> Helvetica<span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans-serif</span>
+
+<span class="token selector">a.link > button#test<span class="token punctuation">,</span> input[type=button]<span class="token punctuation">,</span> a:after</span>
+	<span class="token property-declaration"><span class="token property">-webkit-border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span></span>
+	<span class="token property-declaration"><span class="token property">-moz-border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span></span>
+	<span class="token property-declaration"><span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span></span>
+
+<span class="token variable-declaration"><span class="token variable">font-size</span> <span class="token operator">=</span> <span class="token number">14</span><span class="token unit">px</span></span>
+<span class="token variable-declaration"><span class="token variable">font</span> <span class="token operator">=</span> font-size <span class="token string">"Lucida Grande"</span><span class="token punctuation">,</span> Arial</span>
+
+<span class="token selector">body <span class="token punctuation">{</span></span>
+	<span class="token property-declaration"><span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">;</span></span>
+	<span class="token property-declaration"><span class="token property">font</span><span class="token punctuation">:</span> <span class="token number">14</span><span class="token unit">px</span><span class="token operator">/</span><span class="token number">1.4</span> fonts<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token func"><span class="token function">border-radius</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+	<span class="token property-declaration"><span class="token property">-webkit-border-radius</span> arguments</span>
+	<span class="token property-declaration"><span class="token property">-moz-border-radius</span> arguments</span>
+	<span class="token property-declaration"><span class="token property">border-radius</span> arguments</span>
+
+<span class="token selector">body</span>
+	<span class="token property-declaration"><span class="token property">font</span> <span class="token number">12</span><span class="token unit">px</span> Helvetica<span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans-serif</span>
+
+<span class="token selector">a.button</span>
+	<span class="token func"><span class="token function">border-radius</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">)</span></span>
+
+<span class="token atrule-declaration"><span class="token atrule">@media</span> <span class="token punctuation">(</span>max-width<span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">em</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+	<span class="token selector">body <span class="token punctuation">{</span></span>
+		<span class="token property-declaration"><span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#fff</span><span class="token punctuation">;</span></span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule-declaration"><span class="token atrule">@media</span> <span class="token punctuation">(</span>max-width<span class="token punctuation">:</span> <span class="token number">500</span><span class="token unit">px</span><span class="token punctuation">)</span></span>
+	<span class="token selector">.foo</span>
+		<span class="token property-declaration"><span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#000</span></span>
+
+	<span class="token atrule-declaration"><span class="token atrule">@media</span> <span class="token punctuation">(</span>min-width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>min-height<span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">)</span></span>
+		<span class="token selector">.foo</span>
+			<span class="token property-declaration"><span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#100</span></span>
+
+<span class="token func"><span class="token function">sum</span><span class="token punctuation">(</span>nums<span class="token operator">...</span><span class="token punctuation">)</span></span>
+	<span class="token variable-declaration"><span class="token variable">sum</span> <span class="token operator">=</span> <span class="token number">0</span></span>
+	<span class="token variable-declaration"><span class="token variable">sum</span> <span class="token operator">+=</span> n <span class="token keyword">for</span> n <span class="token operator">in</span> nums</span>
+
+<span class="token func"><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">)</span></span>
+<span class="token comment">// => 10</span>
+
+----------------------------------------------------

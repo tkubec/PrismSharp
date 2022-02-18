@@ -1,0 +1,9 @@
+'Single \'quoted\' string'
+"Double \"quoted\" string"
+----------------------------------------------------
+[
+	["string", "'Single \\'quoted\\' string'"],
+	["string", "\"Double \\\"quoted\\\" string\""]
+]
+
+----------------------------------------------------

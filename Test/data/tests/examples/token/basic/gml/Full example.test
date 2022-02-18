@@ -1,0 +1,132 @@
+if(instance_exists(_inst) || _inst==global){
+	if(_delay<=0){
+		_time+=1;
+		if(_time<_duration){
+			event_user(0);
+		}else{
+			if(_inst!=global){
+				variable_instance_set(_inst,_var_name,_start+_change);
+			}else{
+				variable_global_set(_var_name,_start+_change);
+			}
+			instance_destroy();
+		}
+	}else{
+		_delay-=1;
+	}
+}else{
+	instance_destroy();
+}
+----------------------------------------------------
+[
+	["keyword", "if"],
+	["punctuation", "("],
+	["function", "instance_exists"],
+	["punctuation", "("],
+	"_inst",
+	["punctuation", ")"],
+	["operator", "||"],
+	" _inst",
+	["operator", "=="],
+	["constant", "global"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"_delay",
+	["operator", "<="],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n\t\t_time",
+	["operator", "+="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"_time",
+	["operator", "<"],
+	"_duration",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "event_user"],
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"_inst",
+	["operator", "!="],
+	["constant", "global"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "variable_instance_set"],
+	["punctuation", "("],
+	"_inst",
+	["punctuation", ","],
+	"_var_name",
+	["punctuation", ","],
+	"_start",
+	["operator", "+"],
+	"_change",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["function", "variable_global_set"],
+	["punctuation", "("],
+	"_var_name",
+	["punctuation", ","],
+	"_start",
+	["operator", "+"],
+	"_change",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["function", "instance_destroy"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	"\n\t\t_delay",
+	["operator", "-="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["function", "instance_destroy"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

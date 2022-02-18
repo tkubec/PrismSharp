@@ -1,0 +1,31 @@
+*** Settings ***
+# foo
+
+*** Variables ***
+# foo
+
+*** Test Cases ***
+# foo
+
+*** Keywords ***
+# foo
+
+*** Tasks ***
+# foo
+----------------------------------------------------
+<span class="token settings section"><span class="token section-header keyword">*** Settings ***</span>
+<span class="token comment"># foo</span>
+</span>
+<span class="token variables section"><span class="token section-header keyword">*** Variables ***</span>
+<span class="token comment"># foo</span>
+</span>
+<span class="token test-cases section"><span class="token section-header keyword">*** Test Cases ***</span>
+<span class="token comment"># foo</span>
+</span>
+<span class="token keywords section"><span class="token section-header keyword">*** Keywords ***</span>
+<span class="token comment"># foo</span>
+</span>
+<span class="token tasks section"><span class="token section-header keyword">*** Tasks ***</span>
+<span class="token comment"># foo</span></span>
+
+----------------------------------------------------

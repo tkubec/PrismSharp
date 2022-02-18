@@ -1,0 +1,21 @@
+<Child {...this.props}>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			["class-name", "Child"]
+		]],
+		["spread", [
+			["punctuation", "{"],
+			["operator", "..."],
+			["keyword", "this"],
+			["punctuation", "."],
+			"props",
+			["punctuation", "}"]
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

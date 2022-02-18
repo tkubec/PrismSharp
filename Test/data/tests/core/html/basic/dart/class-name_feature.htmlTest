@@ -1,0 +1,47 @@
+class Foo with ns.Bar {
+    const Foo(this.bar);
+
+    final Bar bar;
+
+    Baz<ns.Bat> baz(ns.Bat bat) {
+        return Baz<ns.Bat>(bat);
+    }
+
+}
+
+class MyWidget extends SingleChildStatelessWidget {
+  MyWidget({Key key, Widget child}): super(key: key, child: child);
+
+  @override
+  Widget buildWithChild(BuildContext context, Widget child) {
+    return SomethingWidget(child: child);
+  }
+}
+
+var copy = Foo.Bar.from(foo);
+ID foo = something();
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token keyword">with</span> <span class="token class-name"><span class="token namespace">ns<span class="token punctuation">.</span></span>Bar</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">final</span> <span class="token class-name">Bar</span> bar<span class="token punctuation">;</span>
+
+    <span class="token class-name">Baz</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name"><span class="token namespace">ns<span class="token punctuation">.</span></span>Bat</span><span class="token punctuation">></span></span> <span class="token function">baz</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">ns<span class="token punctuation">.</span></span>Bat</span> bat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Baz</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name"><span class="token namespace">ns<span class="token punctuation">.</span></span>Bat</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>bat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyWidget</span> <span class="token keyword">extends</span> <span class="token class-name">SingleChildStatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token class-name">MyWidget</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token class-name">Key</span> key<span class="token punctuation">,</span> <span class="token class-name">Widget</span> child<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">,</span> child<span class="token punctuation">:</span> child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">buildWithChild</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">,</span> <span class="token class-name">Widget</span> child<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">SomethingWidget</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> copy <span class="token operator">=</span> <span class="token class-name">Foo.Bar</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ID</span> foo <span class="token operator">=</span> <span class="token function">something</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

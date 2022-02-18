@@ -1,0 +1,211 @@
+file {'ntp.conf':
+  path    => '/etc/ntp.conf',
+  ensure  => file,
+  content => template('ntp/ntp.conf'),
+  owner   => 'root',
+  mode    => '0644',
+}
+package {'ntp':
+  ensure => installed,
+  before => File['ntp.conf'],
+}
+service {'ntpd':
+  ensure    => running,
+  subscribe => File['ntp.conf'],
+}
+Package['ntp'] -> File['ntp.conf'] ~> Service['ntpd']
+
+$package_list = ['ntp', 'apache2', 'vim-nox', 'wget']
+$myhash = { key => { subkey => 'b' }}
+
+include ntp
+require ntp
+class {'ntp':}
+
+define apache::vhost ($port, $docroot, $servername = $title, $vhost_name = '*') {
+  include apache
+  include apache::params
+  $vhost_dir = $apache::params::vhost_dir
+  file { "${vhost_dir}/${servername}.conf":
+      content => template('apache/vhost-default.conf.erb'),
+      owner   => 'www',
+      group   => 'www',
+      mode    => '644',
+      require => Package['httpd'],
+      notify  => Service['httpd'],
+  }
+}
+
+apache::vhost {'homepages':
+  port    => 8081,
+  docroot => '/var/www-testhost',
+}
+Apache::Vhost['homepages']
+
+node 'www1.example.com' {
+  include common
+  include apache
+  include squid
+}
+node /^www\d+$/ {
+  include common
+}
+
+# comment
+/* comment */
+
+if $is_virtual {
+  warning( 'Tried to include class ntp on virtual machine; this node may be misclassified.' )
+}
+elsif $operatingsystem == 'Darwin' {
+  warning( 'This NTP module does not yet work on our Mac laptops.' )
+else {
+  include ntp
+}
+
+if $hostname =~ /^www(\d+)\./ {
+  notify { "Welcome web server $1": }
+}
+
+case $operatingsystem {
+  'Solaris':          { include role::solaris }
+  'RedHat', 'CentOS': { include role::redhat  }
+  /^(Debian|Ubuntu)$/:{ include role::debian  }
+  default:            { include role::generic }
+}
+$rootgroup = $osfamily ? {
+    'Solaris'          => 'wheel',
+    /(Darwin|FreeBSD)/ => 'wheel',
+    default            => 'root',
+}
+
+User <| groups == 'admin' |>
+Concat::Fragment <<| tag == "bacula-storage-dir-${bacula_director}" |>>
+
+Exec <| title == 'update_migrations' |> {
+  environment => 'RUBYLIB=/usr/lib/ruby/site_ruby/1.8/',
+}
+
+@user {'deploy':
+  uid     => 2004,
+  comment => 'Deployment User',
+  group   => www-data,
+  groups  => ["enterprise"],
+  tag     => [deploy, web],
+}
+
+@@nagios_service { "check_zfs${hostname}":
+  use                 => 'generic-service',
+  host_name           => "$fqdn",
+  check_command       => 'check_nrpe_1arg!check_zfs',
+  service_description => "check_zfs${hostname}",
+  target              => '/etc/nagios3/conf.d/nagios_service.cfg',
+  notify              => Service[$nagios::params::nagios_service],
+}
+----------------------------------------------------
+file <span class="token punctuation">{</span><span class="token string">'ntp.conf'</span><span class="token punctuation">:</span>
+  <span class="token attr-name">path</span>    <span class="token operator">=></span> <span class="token string">'/etc/ntp.conf'</span><span class="token punctuation">,</span>
+  <span class="token attr-name">ensure</span>  <span class="token operator">=></span> file<span class="token punctuation">,</span>
+  <span class="token attr-name">content</span> <span class="token operator">=></span> <span class="token function">template</span><span class="token punctuation">(</span><span class="token string">'ntp/ntp.conf'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token attr-name">owner</span>   <span class="token operator">=></span> <span class="token string">'root'</span><span class="token punctuation">,</span>
+  <span class="token attr-name">mode</span>    <span class="token operator">=></span> <span class="token string">'0644'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+package <span class="token punctuation">{</span><span class="token string">'ntp'</span><span class="token punctuation">:</span>
+  <span class="token attr-name">ensure</span> <span class="token operator">=></span> installed<span class="token punctuation">,</span>
+  <span class="token attr-name">before</span> <span class="token operator">=></span> File<span class="token punctuation">[</span><span class="token string">'ntp.conf'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+service <span class="token punctuation">{</span><span class="token string">'ntpd'</span><span class="token punctuation">:</span>
+  <span class="token attr-name">ensure</span>    <span class="token operator">=></span> running<span class="token punctuation">,</span>
+  <span class="token attr-name">subscribe</span> <span class="token operator">=></span> File<span class="token punctuation">[</span><span class="token string">'ntp.conf'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+Package<span class="token punctuation">[</span><span class="token string">'ntp'</span><span class="token punctuation">]</span> <span class="token operator">-></span> File<span class="token punctuation">[</span><span class="token string">'ntp.conf'</span><span class="token punctuation">]</span> <span class="token operator">~></span> Service<span class="token punctuation">[</span><span class="token string">'ntpd'</span><span class="token punctuation">]</span>
+
+<span class="token variable">$package_list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'ntp'</span><span class="token punctuation">,</span> <span class="token string">'apache2'</span><span class="token punctuation">,</span> <span class="token string">'vim-nox'</span><span class="token punctuation">,</span> <span class="token string">'wget'</span><span class="token punctuation">]</span>
+<span class="token variable">$myhash</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token attr-name">key</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token attr-name">subkey</span> <span class="token operator">=></span> <span class="token string">'b'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token function">include</span> ntp
+<span class="token function">require</span> ntp
+<span class="token keyword">class</span> <span class="token punctuation">{</span><span class="token string">'ntp'</span><span class="token punctuation">:</span><span class="token punctuation">}</span>
+
+<span class="token keyword">define</span> apache<span class="token punctuation">::</span>vhost <span class="token punctuation">(</span><span class="token variable">$port</span><span class="token punctuation">,</span> <span class="token variable">$docroot</span><span class="token punctuation">,</span> <span class="token variable">$servername</span> <span class="token operator">=</span> <span class="token variable">$title</span><span class="token punctuation">,</span> <span class="token variable">$vhost_name</span> <span class="token operator">=</span> <span class="token string">'*'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">include</span> apache
+  <span class="token function">include</span> apache<span class="token punctuation">::</span>params
+  <span class="token variable">$vhost_dir</span> <span class="token operator">=</span> <span class="token variable">$apache<span class="token punctuation">::</span>params<span class="token punctuation">::</span>vhost_dir</span>
+  file <span class="token punctuation">{</span> <span class="token string"><span class="token double-quoted">"<span class="token interpolation"><span class="token delimiter variable">$</span><span class="token punctuation">{</span><span class="token short-variable variable">vhost_dir</span><span class="token punctuation">}</span></span>/<span class="token interpolation"><span class="token delimiter variable">$</span><span class="token punctuation">{</span><span class="token short-variable variable">servername</span><span class="token punctuation">}</span></span>.conf"</span></span><span class="token punctuation">:</span>
+      <span class="token attr-name">content</span> <span class="token operator">=></span> <span class="token function">template</span><span class="token punctuation">(</span><span class="token string">'apache/vhost-default.conf.erb'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token attr-name">owner</span>   <span class="token operator">=></span> <span class="token string">'www'</span><span class="token punctuation">,</span>
+      <span class="token attr-name">group</span>   <span class="token operator">=></span> <span class="token string">'www'</span><span class="token punctuation">,</span>
+      <span class="token attr-name">mode</span>    <span class="token operator">=></span> <span class="token string">'644'</span><span class="token punctuation">,</span>
+      <span class="token attr-name">require</span> <span class="token operator">=></span> Package<span class="token punctuation">[</span><span class="token string">'httpd'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token attr-name">notify</span>  <span class="token operator">=></span> Service<span class="token punctuation">[</span><span class="token string">'httpd'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+apache<span class="token punctuation">::</span>vhost <span class="token punctuation">{</span><span class="token string">'homepages'</span><span class="token punctuation">:</span>
+  <span class="token attr-name">port</span>    <span class="token operator">=></span> <span class="token number">8081</span><span class="token punctuation">,</span>
+  <span class="token attr-name">docroot</span> <span class="token operator">=></span> <span class="token string">'/var/www-testhost'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+Apache<span class="token punctuation">::</span>Vhost<span class="token punctuation">[</span><span class="token string">'homepages'</span><span class="token punctuation">]</span>
+
+<span class="token keyword">node</span> <span class="token string">'www1.example.com'</span> <span class="token punctuation">{</span>
+  <span class="token function">include</span> common
+  <span class="token function">include</span> apache
+  <span class="token function">include</span> squid
+<span class="token punctuation">}</span>
+<span class="token keyword">node</span> <span class="token regex">/^www\d+$/</span> <span class="token punctuation">{</span>
+  <span class="token function">include</span> common
+<span class="token punctuation">}</span>
+
+<span class="token comment"># comment</span>
+<span class="token multiline-comment comment">/* comment */</span>
+
+<span class="token keyword">if</span> <span class="token variable">$is_virtual</span> <span class="token punctuation">{</span>
+  <span class="token function">warning</span><span class="token punctuation">(</span> <span class="token string">'Tried to include class ntp on virtual machine; this node may be misclassified.'</span> <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">elsif</span> <span class="token variable">$operatingsystem</span> <span class="token operator">==</span> <span class="token string">'Darwin'</span> <span class="token punctuation">{</span>
+  <span class="token function">warning</span><span class="token punctuation">(</span> <span class="token string">'This NTP module does not yet work on our Mac laptops.'</span> <span class="token punctuation">)</span>
+<span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token function">include</span> ntp
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token variable">$hostname</span> <span class="token operator">=~</span> <span class="token regex">/^www(\d+)\./</span> <span class="token punctuation">{</span>
+  notify <span class="token punctuation">{</span> <span class="token string"><span class="token double-quoted">"Welcome web server <span class="token interpolation variable">$1</span>"</span></span><span class="token punctuation">:</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">case</span> <span class="token variable">$operatingsystem</span> <span class="token punctuation">{</span>
+  <span class="token string">'Solaris'</span><span class="token punctuation">:</span>          <span class="token punctuation">{</span> <span class="token function">include</span> role<span class="token punctuation">::</span>solaris <span class="token punctuation">}</span>
+  <span class="token string">'RedHat'</span><span class="token punctuation">,</span> <span class="token string">'CentOS'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token function">include</span> role<span class="token punctuation">::</span>redhat  <span class="token punctuation">}</span>
+  <span class="token operator">/</span>^<span class="token punctuation">(</span>Debian<span class="token operator">|</span>Ubuntu<span class="token punctuation">)</span>$<span class="token operator">/</span><span class="token punctuation">:</span><span class="token punctuation">{</span> <span class="token function">include</span> role<span class="token punctuation">::</span>debian  <span class="token punctuation">}</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span>            <span class="token punctuation">{</span> <span class="token function">include</span> role<span class="token punctuation">::</span>generic <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$rootgroup</span> <span class="token operator">=</span> <span class="token variable">$osfamily</span> <span class="token operator">?</span> <span class="token punctuation">{</span>
+    <span class="token string">'Solaris'</span>          <span class="token operator">=></span> <span class="token string">'wheel'</span><span class="token punctuation">,</span>
+    <span class="token regex">/(Darwin|FreeBSD)/</span> <span class="token operator">=></span> <span class="token string">'wheel'</span><span class="token punctuation">,</span>
+    <span class="token attr-name">default</span>            <span class="token operator">=></span> <span class="token string">'root'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+User <span class="token operator">&lt;|</span> groups <span class="token operator">==</span> <span class="token string">'admin'</span> <span class="token operator">|></span>
+Concat<span class="token punctuation">::</span>Fragment <span class="token operator">&lt;&lt;|</span> <span class="token function">tag</span> <span class="token operator">==</span> <span class="token string"><span class="token double-quoted">"bacula-storage-dir-<span class="token interpolation"><span class="token delimiter variable">$</span><span class="token punctuation">{</span><span class="token short-variable variable">bacula_director</span><span class="token punctuation">}</span></span>"</span></span> <span class="token operator">|>></span>
+
+Exec <span class="token operator">&lt;|</span> title <span class="token operator">==</span> <span class="token string">'update_migrations'</span> <span class="token operator">|></span> <span class="token punctuation">{</span>
+  <span class="token attr-name">environment</span> <span class="token operator">=></span> <span class="token string">'RUBYLIB=/usr/lib/ruby/site_ruby/1.8/'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+@user <span class="token punctuation">{</span><span class="token string">'deploy'</span><span class="token punctuation">:</span>
+  <span class="token attr-name">uid</span>     <span class="token operator">=></span> <span class="token number">2004</span><span class="token punctuation">,</span>
+  <span class="token attr-name">comment</span> <span class="token operator">=></span> <span class="token string">'Deployment User'</span><span class="token punctuation">,</span>
+  <span class="token attr-name">group</span>   <span class="token operator">=></span> www<span class="token operator">-</span>data<span class="token punctuation">,</span>
+  <span class="token attr-name">groups</span>  <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token string"><span class="token double-quoted">"enterprise"</span></span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token attr-name">tag</span>     <span class="token operator">=></span> <span class="token punctuation">[</span>deploy<span class="token punctuation">,</span> web<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+@@nagios_service <span class="token punctuation">{</span> <span class="token string"><span class="token double-quoted">"check_zfs<span class="token interpolation"><span class="token delimiter variable">$</span><span class="token punctuation">{</span><span class="token short-variable variable">hostname</span><span class="token punctuation">}</span></span>"</span></span><span class="token punctuation">:</span>
+  <span class="token attr-name">use</span>                 <span class="token operator">=></span> <span class="token string">'generic-service'</span><span class="token punctuation">,</span>
+  <span class="token attr-name">host_name</span>           <span class="token operator">=></span> <span class="token string"><span class="token double-quoted">"<span class="token interpolation variable">$fqdn</span>"</span></span><span class="token punctuation">,</span>
+  <span class="token attr-name">check_command</span>       <span class="token operator">=></span> <span class="token string">'check_nrpe_1arg!check_zfs'</span><span class="token punctuation">,</span>
+  <span class="token attr-name">service_description</span> <span class="token operator">=></span> <span class="token string"><span class="token double-quoted">"check_zfs<span class="token interpolation"><span class="token delimiter variable">$</span><span class="token punctuation">{</span><span class="token short-variable variable">hostname</span><span class="token punctuation">}</span></span>"</span></span><span class="token punctuation">,</span>
+  <span class="token attr-name">target</span>              <span class="token operator">=></span> <span class="token string">'/etc/nagios3/conf.d/nagios_service.cfg'</span><span class="token punctuation">,</span>
+  <span class="token attr-name">notify</span>              <span class="token operator">=></span> Service<span class="token punctuation">[</span><span class="token variable">$nagios<span class="token punctuation">::</span>params<span class="token punctuation">::</span>nagios_service</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

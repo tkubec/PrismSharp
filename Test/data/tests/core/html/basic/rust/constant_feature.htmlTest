@@ -1,0 +1,13 @@
+MAX
+SOME_CONSTANT
+
+// not a constant
+T
+----------------------------------------------------
+<span class="token constant">MAX</span>
+<span class="token constant">SOME_CONSTANT</span>
+
+<span class="token comment">// not a constant</span>
+<span class="token class-name">T</span>
+
+----------------------------------------------------

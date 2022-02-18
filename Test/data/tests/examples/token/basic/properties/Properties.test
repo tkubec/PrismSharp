@@ -1,0 +1,19 @@
+some_key some_value
+some\ key\ with\ spaces : some value
+some_key = some \
+multiline value
+----------------------------------------------------
+[
+	["attr-name", "some_key"],
+	["attr-value", "some_value"],
+
+	["attr-name", "some\\ key\\ with\\ spaces"],
+	["punctuation", ":"],
+	["attr-value", "some value"],
+
+	["attr-name", "some_key"],
+	["punctuation", "="],
+	["attr-value", "some \\\nmultiline value"]
+]
+
+----------------------------------------------------

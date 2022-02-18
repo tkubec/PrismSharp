@@ -1,0 +1,39 @@
+Feature: Some terse yet descriptive text of what is desired
+    In order to realize a named business value
+    As an explicit system actor
+    I want to gain some beneficial outcome which furthers the goal
+
+    Additional text...
+
+    Scenario: Some determinable business situation
+    Given some precondition
+    And some other precondition
+    When some action by the actor
+    And some other action
+    And yet another action
+    Then some testable outcome is achieved
+    And something else we can check happens too
+
+    Scenario: A different situation
+    ...
+----------------------------------------------------
+<span class="token feature"><span class="token keyword">Feature:</span><span class="token important"> Some terse yet descriptive text of what is desired</span>
+    In order to realize a named business value
+    As an explicit system actor
+    I want to gain some beneficial outcome which furthers the goal
+</span>
+    Additional text...
+
+    <span class="token scenario"><span class="token keyword">Scenario:</span><span class="token important"> Some determinable business situation</span></span>
+    <span class="token atrule">Given</span> some precondition
+    <span class="token atrule">And</span> some other precondition
+    <span class="token atrule">When</span> some action by the actor
+    <span class="token atrule">And</span> some other action
+    <span class="token atrule">And</span> yet another action
+    <span class="token atrule">Then</span> some testable outcome is achieved
+    <span class="token atrule">And</span> something else we can check happens too
+
+    <span class="token scenario"><span class="token keyword">Scenario:</span><span class="token important"> A different situation</span></span>
+    ...
+
+----------------------------------------------------

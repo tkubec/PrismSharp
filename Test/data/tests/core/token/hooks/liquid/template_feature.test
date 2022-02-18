@@ -1,0 +1,57 @@
+{{ page.title }}
+
+{% if user %}
+  Hello {{ user.name }}!
+{% endif %}
+
+{{ "/my/fancy/url" | append: ".html" }}
+{{ "adam!" | capitalize | prepend: "Hello " }}
+
+{% assign my_variable = "tomato" -%}
+
+{%- if username and username.size > 10 -%}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["object", "page"],
+	["punctuation", "."],
+	"title }}\n\n{% ",
+	["keyword", "if"],
+	" user %}\n  Hello {{ user",
+	["punctuation", "."],
+	"name }}!\n{% ",
+	["keyword", "endif"],
+	" %}\n\n{{ ",
+	["string", "\"/my/fancy/url\""],
+	["operator", "|"],
+	["function", "append"],
+	["operator", ":"],
+	["string", "\".html\""],
+	" }}\n{{ ",
+	["string", "\"adam!\""],
+	["operator", "|"],
+	["function", "capitalize"],
+	["operator", "|"],
+	["function", "prepend"],
+	["operator", ":"],
+	["string", "\"Hello \""],
+	" }}\n\n{% ",
+	["keyword", "assign"],
+	" my_variable ",
+	["operator", "="],
+	["string", "\"tomato\""],
+	["operator", "-"],
+	"%}\n\n{%",
+	["operator", "-"],
+	["keyword", "if"],
+	" username ",
+	["operator", "and"],
+	" username",
+	["punctuation", "."],
+	["function", "size"],
+	["operator", ">"],
+	["number", "10"],
+	["delimiter", "-%}"]
+]
+
+----------------------------------------------------

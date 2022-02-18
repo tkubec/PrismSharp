@@ -1,0 +1,9 @@
+proc {Max X Y Z}
+{Browse Z}
+f(M Y)
+----------------------------------------------------
+<span class="token keyword">proc</span> <span class="token punctuation">{</span><span class="token function">Max</span> X Y Z<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token function">Browse</span> Z<span class="token punctuation">}</span>
+<span class="token function">f</span><span class="token punctuation">(</span>M Y<span class="token punctuation">)</span>
+
+----------------------------------------------------

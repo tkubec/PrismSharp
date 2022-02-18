@@ -1,0 +1,21 @@
+{% if some_condition %}
+Conditional block
+{% endif %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["tag", "if"],
+	["variable", "some_condition"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["variable", "Conditional"],
+	["variable", "block"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "endif"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

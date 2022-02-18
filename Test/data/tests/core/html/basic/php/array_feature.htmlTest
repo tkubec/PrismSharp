@@ -1,0 +1,47 @@
+$a = [
+	1 => [0, 1],
+	2 => [2, 3],
+	3 => [
+		[0, 1],
+		[2, 3]
+	]
+];
+
+$b = array(
+	Array(1, 2)
+);
+
+$c = [...$a, ...$b, [5, 6]];
+
+$d = [0, 1] + [2];
+
+[$e] = [2, 3];
+
+$f[] = 3;
+
+$g['key'] = 3;
+----------------------------------------------------
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+	<span class="token number">1</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	<span class="token number">2</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	<span class="token number">3</span> <span class="token operator">=></span> <span class="token punctuation">[</span>
+		<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+	<span class="token keyword">Array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token operator">...</span><span class="token variable">$b</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token variable">$d</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span><span class="token variable">$e</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token variable">$f</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+<span class="token variable">$g</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'key'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+	PREFIX aGeo: <http://example.org/geo#>
+
+	SELECT ?neighbor
+	WHERE { ?a aGeo:placeName "Grenoble" .
+					?a aGeo:location ?axLoc .
+					?a aGeo:location ?ayLoc .
+
+					?b aGeo:placeName ?neighbor .
+					?b aGeo:location ?bxLoc .
+					?b aGeo:location ?byLoc .
+
+					FILTER ( aGeo:distance(?axLoc, ?ayLoc, ?bxLoc, ?byLoc) < 10 ) .
+				}

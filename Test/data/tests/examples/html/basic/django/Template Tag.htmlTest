@@ -1,0 +1,9 @@
+{% if some_condition %}
+Conditional block
+{% endif %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token tag keyword">if</span> <span class="token variable">some_condition</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token variable">Conditional</span> <span class="token variable">block</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">endif</span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

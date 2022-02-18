@@ -1,0 +1,11 @@
+WITH ADA.TEXT_IO;
+
+--  Comments look like this.
+
+PROCEDURE TEST IS
+BEGIN
+   ADA.TEXT_IO.PUT_LINE ("Hello");   --  Comments look like this.
+END TEST;
+
+--------------------------------------------------
+

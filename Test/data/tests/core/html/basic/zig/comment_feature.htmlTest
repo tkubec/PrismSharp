@@ -1,0 +1,19 @@
+// normal comment
+
+/// A structure for storing a timestamp, with nanosecond precision (this is a
+/// multiline doc comment).
+
+//! This module provides functions for retrieving the current date and
+//! time with varying degrees of precision and accuracy. It does not
+//! depend on libc, but will use functions from it if available.
+----------------------------------------------------
+<span class="token comment">// normal comment</span>
+
+<span class="token comment doc-comment">/// A structure for storing a timestamp, with nanosecond precision (this is a</span>
+<span class="token comment doc-comment">/// multiline doc comment).</span>
+
+<span class="token comment doc-comment">//! This module provides functions for retrieving the current date and</span>
+<span class="token comment doc-comment">//! time with varying degrees of precision and accuracy. It does not</span>
+<span class="token comment doc-comment">//! depend on libc, but will use functions from it if available.</span>
+
+----------------------------------------------------

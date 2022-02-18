@@ -1,0 +1,8 @@
+"foo \"bar\" baz"
+'foo \'bar\' baz'
+&lt;&lt;STRING
+  here's some #{string} contents
+STRING
+
+--------------------------------------------------
+

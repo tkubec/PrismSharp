@@ -1,0 +1,59 @@
+function mandel(z)
+    c = z
+    maxiter = 80
+    for n = 1:maxiter
+        if abs(z) > 2
+            return n-1
+        end
+        z = z^2 + c
+    end
+    return maxiter
+end
+
+function randmatstat(t)
+    n = 5
+    v = zeros(t)
+    w = zeros(t)
+    for i = 1:t
+        a = randn(n,n)
+        b = randn(n,n)
+        c = randn(n,n)
+        d = randn(n,n)
+        P = [a b c d]
+        Q = [a b; c d]
+        v[i] = trace((P.'*P)^4)
+        w[i] = trace((Q.'*Q)^4)
+    end
+    std(v)/mean(v), std(w)/mean(w)
+end
+----------------------------------------------------
+<span class="token keyword">function</span> mandel<span class="token punctuation">(</span>z<span class="token punctuation">)</span>
+    c <span class="token operator">=</span> z
+    maxiter <span class="token operator">=</span> <span class="token number">80</span>
+    <span class="token keyword">for</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">:</span>maxiter
+        <span class="token keyword">if</span> abs<span class="token punctuation">(</span>z<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">2</span>
+            <span class="token keyword">return</span> n<span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">end</span>
+        z <span class="token operator">=</span> z<span class="token operator">^</span><span class="token number">2</span> <span class="token operator">+</span> c
+    <span class="token keyword">end</span>
+    <span class="token keyword">return</span> maxiter
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> randmatstat<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    n <span class="token operator">=</span> <span class="token number">5</span>
+    v <span class="token operator">=</span> zeros<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    w <span class="token operator">=</span> zeros<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">:</span>t
+        a <span class="token operator">=</span> randn<span class="token punctuation">(</span>n<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+        b <span class="token operator">=</span> randn<span class="token punctuation">(</span>n<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+        c <span class="token operator">=</span> randn<span class="token punctuation">(</span>n<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+        d <span class="token operator">=</span> randn<span class="token punctuation">(</span>n<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+        P <span class="token operator">=</span> <span class="token punctuation">[</span>a b c d<span class="token punctuation">]</span>
+        Q <span class="token operator">=</span> <span class="token punctuation">[</span>a b<span class="token punctuation">;</span> c d<span class="token punctuation">]</span>
+        v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> trace<span class="token punctuation">(</span><span class="token punctuation">(</span>P<span class="token punctuation">.</span><span class="token operator">'</span><span class="token operator">*</span>P<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">4</span><span class="token punctuation">)</span>
+        w<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> trace<span class="token punctuation">(</span><span class="token punctuation">(</span>Q<span class="token punctuation">.</span><span class="token operator">'</span><span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">4</span><span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+    std<span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token operator">/</span>mean<span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">,</span> std<span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token operator">/</span>mean<span class="token punctuation">(</span>w<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

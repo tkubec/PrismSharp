@@ -1,0 +1,743 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2019, ООО 1С-Софт
+// Все права защищены. Эта программа и сопроводительные материалы предоставляются 
+// в соответствии с условиями лицензии Attribution 4.0 International (CC BY 4.0)
+// Текст лицензии доступен по ссылке:
+// https://creativecommons.org/licenses/by/4.0/legalcode
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#Область СлужебныеПроцедурыИФункции
+
+////////////////////////////////////////////////////////////////////////////////
+//  Основные процедуры и функции поиска контактов.
+
+// Получает представление и всю контактную информацию контакта.
+//
+// Параметры:
+//  Контакт                 - ОпределяемыйТип.КонтактВзаимодействия - контакт для которого получается информация.
+//  Представление           - Строка - в данный параметр будет помещено полученное представление.
+//  СтрокаКИ                - Строка - в данный параметр будет помещено полученная контактная информация.
+//  ТипКонтактнойИнформации - Перечисления.ТипыКонтактнойИнформации - возможность установить отбор по типу получаемой
+//                                                                    контактной информации.
+//
+Процедура ПредставлениеИВсяКонтактнаяИнформациюКонтакта(Контакт, Представление, СтрокаКИ,ТипКонтактнойИнформации = Неопределено) Экспорт
+	
+	Представление = "";
+	СтрокаКИ = "";
+	Если Не ЗначениеЗаполнено(Контакт) 
+		ИЛИ ТипЗнч(Контакт) = Тип("СправочникСсылка.СтроковыеКонтактыВзаимодействий") Тогда
+		Контакт = Неопределено;
+		Возврат;
+	КонецЕсли;
+	
+	ИмяТаблицы = Контакт.Метаданные().Имя;
+	ИмяПоляДляНаименованияВладельца = Взаимодействия.ИмяПоляДляНаименованияВладельца(ИмяТаблицы);
+	
+	Запрос = Новый Запрос;
+	Запрос.Текст =
+	"ВЫБРАТЬ
+	|	СправочникКонтакт.Наименование          КАК Наименование,
+	|	" + ИмяПоляДляНаименованияВладельца + " КАК НаименованиеВладельца
+	|ИЗ
+	|	Справочник." + ИмяТаблицы + " КАК СправочникКонтакт
+	|ГДЕ
+	|	СправочникКонтакт.Ссылка = &Контакт
+	|";
+	
+	Запрос.УстановитьПараметр("Контакт", Контакт);
+	Запрос.УстановитьПараметр("ТипКонтактнойИнформации", ТипКонтактнойИнформации);
+	Выборка = Запрос.Выполнить().Выбрать();
+	Если Не Выборка.Следующий() Тогда
+		Возврат;
+	КонецЕсли;
+	
+	Представление = Выборка.Наименование;
+	
+	Если Не ПустаяСтрока(Выборка.НаименованиеВладельца) Тогда
+		Представление = Представление + " (" + Выборка.НаименованиеВладельца + ")";
+	КонецЕсли;
+	
+	МассивКонтактов = ОбщегоНазначенияКлиентСервер.ЗначениеВМассиве(Контакт);
+	ТаблицаКИ = УправлениеКонтактнойИнформацией.КонтактнаяИнформацияОбъектов(МассивКонтактов, ТипКонтактнойИнформации, Неопределено, ТекущаяДатаСеанса());
+	
+	Для Каждого СтрокаТаблицы Из ТаблицаКИ Цикл
+		Если СтрокаТаблицы.Тип <> Перечисления.ТипыКонтактнойИнформации.Другое Тогда
+			СтрокаКИ = СтрокаКИ + ?(ПустаяСтрока(СтрокаКИ), "", "; ") + СтрокаТаблицы.Представление;
+		КонецЕсли;
+	КонецЦикла;
+	
+КонецПроцедуры
+
+// Получает наименование и адреса электронной почты контакта.
+//
+// Параметры:
+//  Контакт - Ссылка - контакт, для которого получаются данные.
+//
+// Возвращаемое значение:
+//  Структура - содержит наименование контакта и список значений электронной почты контакта.
+//
+Функция НаименованиеИАдресаЭлектроннойПочтыКонтакта(Контакт) Экспорт
+	
+	Если Не ЗначениеЗаполнено(Контакт) 
+		Или ТипЗнч(Контакт) = Тип("СправочникСсылка.СтроковыеКонтактыВзаимодействий") Тогда
+		Возврат Неопределено;
+	КонецЕсли;
+	
+	МетаданныеКонтакта = Контакт.Метаданные();
+	
+	Если МетаданныеКонтакта.Иерархический Тогда
+		Если Контакт.ЭтоГруппа Тогда
+			Возврат Неопределено;
+		КонецЕсли;
+	КонецЕсли;
+	
+	МассивОписанияТиповКонтактов = ВзаимодействияКлиентСервер.ОписанияКонтактов();
+	ЭлементМассиваОписания = Неопределено;
+	Для Каждого ЭлементМассива Из МассивОписанияТиповКонтактов Цикл
+		
+		Если ЭлементМассива.Имя = МетаданныеКонтакта.Имя Тогда
+			ЭлементМассиваОписания = ЭлементМассива;
+			Прервать;
+		КонецЕсли;
+		
+	КонецЦикла;
+	
+	Если ЭлементМассиваОписания = Неопределено Тогда
+		Возврат Неопределено;
+	КонецЕсли;
+	
+	ИмяТаблицы = МетаданныеКонтакта.ПолноеИмя();
+	
+	ТекстЗапроса =
+	"ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	|	ЕСТЬNULL(ТаблицаКонтактнаяИнформация.АдресЭП,"""") КАК АдресЭП,
+	|	СправочникКонтакт." + ЭлементМассиваОписания.ИмяРеквизитаПредставлениеКонтакта + " КАК Наименование
+	|ИЗ
+	|	" + ИмяТаблицы + " КАК СправочникКонтакт
+	|		ЛЕВОЕ СОЕДИНЕНИЕ " + ИмяТаблицы + ".КонтактнаяИнформация КАК ТаблицаКонтактнаяИнформация
+	|		ПО (ТаблицаКонтактнаяИнформация.Ссылка = СправочникКонтакт.Ссылка)
+	|			И (ТаблицаКонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.АдресЭлектроннойПочты))
+	|ГДЕ
+	|	СправочникКонтакт.Ссылка = &Контакт
+	|ИТОГИ ПО
+	|	Наименование";
+	
+	Запрос = Новый Запрос;
+	Запрос.Текст = ТекстЗапроса;
+	Запрос.УстановитьПараметр("Контакт", Контакт);
+	Выборка = Запрос.Выполнить().Выбрать(ОбходРезультатаЗапроса.ПоГруппировкам);
+	
+	Если Не Выборка.Следующий() Тогда
+		Возврат Неопределено;
+	КонецЕсли;
+	
+	Адреса = Новый Структура("Наименование,Адреса", Выборка.Наименование, Новый СписокЗначений);
+	ВыборкаАдреса = Выборка.Выбрать();
+	Пока ВыборкаАдреса.Следующий() Цикл
+		Адреса.Адреса.Добавить(ВыборкаАдреса.АдресЭП);
+	КонецЦикла;
+	
+	Возврат Адреса;
+	
+КонецФункции
+
+// Получает адреса электронной почты контакта.
+//
+// Параметры:
+//  Контакт - ОпределяемыйТип.КонтактВзаимодействия - контакт, для которого получаются данные.
+//
+// Возвращаемое значение:
+//  Массив - массив структур содержащих адреса, виды и представления адресов.
+//
+Функция ПолучитьАдресаЭлектроннойПочтыКонтакта(Контакт, ВключатьНезаполненныеВиды = Ложь) Экспорт
+	
+	Если Не ЗначениеЗаполнено(Контакт) Тогда
+		Возврат Неопределено;
+	КонецЕсли;
+	
+	Запрос = Новый Запрос;
+	ИмяМетаданныхКонтакта = Контакт.Метаданные().Имя;
+	
+	Если ВключатьНезаполненныеВиды Тогда
+		
+		Запрос.Текст =
+		"ВЫБРАТЬ
+		|	ВидыКонтактнойИнформации.Ссылка КАК Вид,
+		|	ВидыКонтактнойИнформации.Наименование КАК ВидНаименование,
+		|	Контакты.Ссылка КАК Контакт
+		|ПОМЕСТИТЬ КонтактВидыКИ
+		|ИЗ
+		|	Справочник.ВидыКонтактнойИнформации КАК ВидыКонтактнойИнформации,
+		|	Справочник." + ИмяМетаданныхКонтакта + " КАК Контакты
+		|ГДЕ
+		|	ВидыКонтактнойИнформации.Родитель = &ГруппаВидаКонтактнойИнформации
+		|	И Контакты.Ссылка = &Контакт
+		|	И ВидыКонтактнойИнформации.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.АдресЭлектроннойПочты)
+		|;
+		|
+		|////////////////////////////////////////////////////////////////////////////////
+		|ВЫБРАТЬ
+		|	Представление(КонтактВидыКИ.Контакт) КАК Представление,
+		|	ЕСТЬNULL(КонтактнаяИнформация.АдресЭП, """") КАК АдресЭП,
+		|	КонтактВидыКИ.Вид,
+		|	КонтактВидыКИ.ВидНаименование
+		|ИЗ
+		|	КонтактВидыКИ КАК КонтактВидыКИ
+		|		ЛЕВОЕ СОЕДИНЕНИЕ Справочник." + ИмяМетаданныхКонтакта + ".КонтактнаяИнформация КАК КонтактнаяИнформация
+		|		ПО (КонтактнаяИнформация.Ссылка = КонтактВидыКИ.Контакт)
+		|			И (КонтактнаяИнформация.Вид = КонтактВидыКИ.Вид)";
+		
+		ГруппаВидаКонтактнойИнформации = УправлениеКонтактнойИнформацией.ВидКонтактнойИнформацииПоИмени("Справочник" + ИмяМетаданныхКонтакта);
+		Запрос.УстановитьПараметр("ГруппаВидаКонтактнойИнформации", ГруппаВидаКонтактнойИнформации);
+	Иначе
+		
+		Запрос.Текст =
+		"ВЫБРАТЬ
+		|	Таблицы.АдресЭП,
+		|	Таблицы.Вид,
+		|	Таблицы.Представление,
+		|	Таблицы.Вид.Наименование КАК ВидНаименование
+		|ИЗ
+		|	Справочник." + ИмяМетаданныхКонтакта + ".КонтактнаяИнформация КАК Таблицы
+		|ГДЕ
+		|	Таблицы.Ссылка = &Контакт
+		|	И Таблицы.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.АдресЭлектроннойПочты)";
+		
+	КонецЕсли;
+	
+	Запрос.УстановитьПараметр("Контакт", Контакт);
+	
+	Выборка = Запрос.Выполнить().Выбрать();
+	Если Выборка.Количество() = 0 Тогда
+		Возврат Новый Массив;
+	КонецЕсли;
+	
+	Результат = Новый Массив;
+	Пока Выборка.Следующий() Цикл
+		Адрес = Новый Структура;
+		Адрес.Вставить("АдресЭП",         Выборка.АдресЭП);
+		Адрес.Вставить("Вид",             Выборка.Вид);
+		Адрес.Вставить("Представление",   Выборка.Представление);
+		Адрес.Вставить("ВидНаименование", Выборка.ВидНаименование);
+		Результат.Добавить(Адрес);
+	КонецЦикла;
+	
+	Возврат Результат;
+	
+КонецФункции
+
+Функция ОтправитьПолучитьПочтуПользователяВФоне(УникальныйИдентификатор) Экспорт
+	
+	ПараметрыПроцедуры = Новый Структура;
+	
+	ПараметрыВыполнения = ДлительныеОперации.ПараметрыВыполненияВФоне(УникальныйИдентификатор);
+	ПараметрыВыполнения.НаименованиеФоновогоЗадания = НСтр("ru = 'Получение и отправка электронной почты пользователя'");
+	
+	ДлительнаяОперация = ДлительныеОперации.ВыполнитьВФоне("УправлениеЭлектроннойПочтой.ОтправитьЗагрузитьПочтуПользователя",
+		ПараметрыПроцедуры,	ПараметрыВыполнения);
+	Возврат ДлительнаяОперация;
+	
+КонецФункции
+
+////////////////////////////////////////////////////////////////////////////////
+//  Прочее
+
+// Устанавливает предмет для массива взаимодействий.
+//
+// Параметры:
+//  МассивВзаимодействий - Массив - массив взаимодействий для которых будет установлен предмет.
+//  Предмет  - Ссылка - предмет, на который будет выполнена замена.
+//  ПроверятьНаличиеДругихЦепочек - Булево - если Истина, то будет выполнена замена предмета и для взаимодействий,
+//                                           которые входят в  цепочки взаимодействий первым взаимодействием которых
+//                                           является взаимодействие входящее в массив.
+//
+Процедура УстановитьПредметДляМассиваВзаимодействий(МассивВзаимодействий, Предмет, ПроверятьНаличиеДругихЦепочек = Ложь) Экспорт
+
+	Если ПроверятьНаличиеДругихЦепочек Тогда
+		
+		Запрос = Новый Запрос;
+		Запрос.Текст = "ВЫБРАТЬ РАЗЛИЧНЫЕ
+		|	ПредметыВзаимодействий.Взаимодействие КАК Ссылка
+		|ИЗ
+		|	РегистрСведений.ПредметыПапкиВзаимодействий КАК ПредметыВзаимодействий
+		|ГДЕ
+		|	НЕ (НЕ ПредметыВзаимодействий.Предмет В (&МассивВзаимодействий)
+		|			И НЕ ПредметыВзаимодействий.Взаимодействие В (&МассивВзаимодействий))";
+		
+		Запрос.УстановитьПараметр("МассивВзаимодействий", МассивВзаимодействий);
+		МассивВзаимодействий = Запрос.Выполнить().Выгрузить().ВыгрузитьКолонку("Ссылка");
+		
+	КонецЕсли;
+	
+	НачатьТранзакцию();
+	Попытка
+		Блокировка = Новый БлокировкаДанных;
+		РегистрыСведений.ПредметыПапкиВзаимодействий.ЗаблокироватьПредметыПапокВзаимодействий(Блокировка, МассивВзаимодействий);
+		Блокировка.Заблокировать();
+		
+		Если ТипЗнч(Предмет) = Тип("РегистрСведенийКлючЗаписи.СостоянияПредметовВзаимодействий") Тогда
+			Предмет = Предмет.Предмет;
+		КонецЕсли;
+		
+		Запрос = Новый Запрос;
+		Запрос.Текст = "ВЫБРАТЬ РАЗЛИЧНЫЕ
+		|	ПредметыПапкиВзаимодействий.Предмет
+		|ИЗ
+		|	РегистрСведений.ПредметыПапкиВзаимодействий КАК ПредметыПапкиВзаимодействий
+		|ГДЕ
+		|	ПредметыПапкиВзаимодействий.Взаимодействие В(&МассивВзаимодействий)
+		|
+		|ОБЪЕДИНИТЬ ВСЕ
+		|
+		|ВЫБРАТЬ
+		|	&Предмет";
+		
+		Запрос.УстановитьПараметр("Предмет", Предмет);
+		Запрос.УстановитьПараметр("МассивВзаимодействий", МассивВзаимодействий);
+		
+		ВыборкаПредметы = Запрос.Выполнить().Выбрать();
+		
+		Для Каждого Взаимодействие Из МассивВзаимодействий Цикл
+			Взаимодействия.УстановитьПредмет(Взаимодействие, Предмет, Ложь);
+		КонецЦикла;
+		
+		Взаимодействия.РассчитатьРассмотреноПоПредметам(Взаимодействия.ТаблицаДанныхДляРасчетаРассмотрено(ВыборкаПредметы, "Предмет"));
+		ЗафиксироватьТранзакцию();
+	Исключение
+		ОтменитьТранзакцию();
+		ВызватьИсключение;
+	КонецПопытки;	
+КонецПроцедуры
+
+// Преобразует письмо в двоичные данные и подготавливает к сохранению на диск.
+//
+// Параметры:
+//  Письмо                  - ДокументСсылка.ЭлектронноеПисьмоВходящее,
+//                            ДокументСсылка.ЭлектронноеПисьмоИсходящее - письмо, которое подготавливается к сохранению.
+//  УникальныйИдентификатор - УникальныйИдентификатор - уникальный идентификатор формы, из которой была вызвана команда сохранения.
+//
+// Возвращаемое значение:
+//  Структура - структура, содержащая подготовленные данные письма.
+//
+Функция ДанныеПисьмаДляСохраненияКакФайл(Письмо, УникальныйИдентификатор) Экспорт
+
+	ДанныеФайла = СтруктураДанныхФайла();
+	
+	ДанныеПисьма = Взаимодействия.ИнтернетПочтовоеСообщениеИзПисьма(Письмо);
+	Если ДанныеПисьма <> Неопределено Тогда
+		
+		ДвоичныеДанные = ДанныеПисьма.ИнтернетПочтовоеСообщение.ПолучитьИсходныеДанные();
+		ДанныеФайла.СсылкаНаДвоичныеДанныеФайла = ПоместитьВоВременноеХранилище(ДвоичныеДанные, УникальныйИдентификатор);
+
+		ДанныеФайла.Наименование = Взаимодействия.ПредставлениеПисьма(ДанныеПисьма.ИнтернетПочтовоеСообщение.Тема,
+			ДанныеПисьма.ДатаПисьма);
+		
+		ДанныеФайла.Расширение  = "eml";
+		ДанныеФайла.ИмяФайла    = ДанныеФайла.Наименование + "." + ДанныеФайла.Расширение;
+		ДанныеФайла.Размер      = ДвоичныеДанные.Размер();
+		ПапкаДляСохранитьКак = ОбщегоНазначения.ХранилищеОбщихНастроекЗагрузить("НастройкиПрограммы", "ПапкаДляСохранитьКак");
+		ДанныеФайла.Вставить("ПапкаДляСохранитьКак", ПапкаДляСохранитьКак);
+		ДанныеФайла.ДатаМодификацииУниверсальная = ТекущаяДатаСеанса();
+		ДанныеФайла.ПолноеНаименованиеВерсии = ДанныеФайла.ИмяФайла;
+		
+	КонецЕсли;
+	
+	Возврат ДанныеФайла;
+
+КонецФункции
+
+Функция СтруктураДанныхФайла()
+
+	СтруктураДанныхФайла = Новый Структура;
+	СтруктураДанныхФайла.Вставить("СсылкаНаДвоичныеДанныеФайла",        "");
+	СтруктураДанныхФайла.Вставить("ОтносительныйПуть",                  "");
+	СтруктураДанныхФайла.Вставить("ДатаМодификацииУниверсальная",       Дата(1, 1, 1));
+	СтруктураДанныхФайла.Вставить("ИмяФайла",                           "");
+	СтруктураДанныхФайла.Вставить("Наименование",                       "");
+	СтруктураДанныхФайла.Вставить("Расширение",                         "");
+	СтруктураДанныхФайла.Вставить("Размер",                             "");
+	СтруктураДанныхФайла.Вставить("Редактирует",                        Неопределено);
+	СтруктураДанныхФайла.Вставить("ПодписанЭП",                         Ложь);
+	СтруктураДанныхФайла.Вставить("Зашифрован",                         Ложь);
+	СтруктураДанныхФайла.Вставить("ФайлРедактируется",                  Ложь);
+	СтруктураДанныхФайла.Вставить("ФайлРедактируетТекущийПользователь", Ложь);
+	СтруктураДанныхФайла.Вставить("ПолноеНаименованиеВерсии",           "");
+	
+	Возврат СтруктураДанныхФайла;
+
+КонецФункции 
+
+#КонецОбласти
+----------------------------------------------------
+<span class="token comment">///////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="token comment">// Copyright (c) 2019, ООО 1С-Софт</span>
+<span class="token comment">// Все права защищены. Эта программа и сопроводительные материалы предоставляются </span>
+<span class="token comment">// в соответствии с условиями лицензии Attribution 4.0 International (CC BY 4.0)</span>
+<span class="token comment">// Текст лицензии доступен по ссылке:</span>
+<span class="token comment">// https://creativecommons.org/licenses/by/4.0/legalcode</span>
+<span class="token comment">///////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="token directive important">#Область СлужебныеПроцедурыИФункции</span>
+
+<span class="token comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="token comment">//  Основные процедуры и функции поиска контактов.</span>
+
+<span class="token comment">// Получает представление и всю контактную информацию контакта.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Параметры:</span>
+<span class="token comment">//  Контакт                 - ОпределяемыйТип.КонтактВзаимодействия - контакт для которого получается информация.</span>
+<span class="token comment">//  Представление           - Строка - в данный параметр будет помещено полученное представление.</span>
+<span class="token comment">//  СтрокаКИ                - Строка - в данный параметр будет помещено полученная контактная информация.</span>
+<span class="token comment">//  ТипКонтактнойИнформации - Перечисления.ТипыКонтактнойИнформации - возможность установить отбор по типу получаемой</span>
+<span class="token comment">//                                                                    контактной информации.</span>
+<span class="token comment">//</span>
+<span class="token keyword">Процедура</span> ПредставлениеИВсяКонтактнаяИнформациюКонтакта<span class="token punctuation">(</span>Контакт<span class="token punctuation">,</span> Представление<span class="token punctuation">,</span> СтрокаКИ<span class="token punctuation">,</span>ТипКонтактнойИнформации <span class="token operator">=</span> <span class="token keyword">Неопределено</span><span class="token punctuation">)</span> <span class="token keyword">Экспорт</span>
+	
+	Представление <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+	СтрокаКИ <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+	<span class="token keyword">Если</span> <span class="token operator">Не</span> ЗначениеЗаполнено<span class="token punctuation">(</span>Контакт<span class="token punctuation">)</span> 
+		<span class="token operator">ИЛИ</span> ТипЗнч<span class="token punctuation">(</span>Контакт<span class="token punctuation">)</span> <span class="token operator">=</span> Тип<span class="token punctuation">(</span><span class="token string">"СправочникСсылка.СтроковыеКонтактыВзаимодействий"</span><span class="token punctuation">)</span> <span class="token keyword">Тогда</span>
+		Контакт <span class="token operator">=</span> <span class="token keyword">Неопределено</span><span class="token punctuation">;</span>
+		<span class="token keyword">Возврат</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	ИмяТаблицы <span class="token operator">=</span> Контакт<span class="token punctuation">.</span>Метаданные<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Имя<span class="token punctuation">;</span>
+	ИмяПоляДляНаименованияВладельца <span class="token operator">=</span> Взаимодействия<span class="token punctuation">.</span>ИмяПоляДляНаименованияВладельца<span class="token punctuation">(</span>ИмяТаблицы<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	Запрос <span class="token operator">=</span> <span class="token keyword">Новый</span> Запрос<span class="token punctuation">;</span>
+	Запрос<span class="token punctuation">.</span>Текст <span class="token operator">=</span>
+	<span class="token string">"ВЫБРАТЬ
+	|	СправочникКонтакт.Наименование          КАК Наименование,
+	|	"</span> <span class="token operator">+</span> ИмяПоляДляНаименованияВладельца <span class="token operator">+</span> <span class="token string">" КАК НаименованиеВладельца
+	|ИЗ
+	|	Справочник."</span> <span class="token operator">+</span> ИмяТаблицы <span class="token operator">+</span> <span class="token string">" КАК СправочникКонтакт
+	|ГДЕ
+	|	СправочникКонтакт.Ссылка = &amp;Контакт
+	|"</span><span class="token punctuation">;</span>
+	
+	Запрос<span class="token punctuation">.</span>УстановитьПараметр<span class="token punctuation">(</span><span class="token string">"Контакт"</span><span class="token punctuation">,</span> Контакт<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Запрос<span class="token punctuation">.</span>УстановитьПараметр<span class="token punctuation">(</span><span class="token string">"ТипКонтактнойИнформации"</span><span class="token punctuation">,</span> ТипКонтактнойИнформации<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Выборка <span class="token operator">=</span> Запрос<span class="token punctuation">.</span><span class="token keyword">Выполнить</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Выбрать<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">Если</span> <span class="token operator">Не</span> Выборка<span class="token punctuation">.</span>Следующий<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">Тогда</span>
+		<span class="token keyword">Возврат</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	Представление <span class="token operator">=</span> Выборка<span class="token punctuation">.</span>Наименование<span class="token punctuation">;</span>
+	
+	<span class="token keyword">Если</span> <span class="token operator">Не</span> ПустаяСтрока<span class="token punctuation">(</span>Выборка<span class="token punctuation">.</span>НаименованиеВладельца<span class="token punctuation">)</span> <span class="token keyword">Тогда</span>
+		Представление <span class="token operator">=</span> Представление <span class="token operator">+</span> <span class="token string">" ("</span> <span class="token operator">+</span> Выборка<span class="token punctuation">.</span>НаименованиеВладельца <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	МассивКонтактов <span class="token operator">=</span> ОбщегоНазначенияКлиентСервер<span class="token punctuation">.</span>ЗначениеВМассиве<span class="token punctuation">(</span>Контакт<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ТаблицаКИ <span class="token operator">=</span> УправлениеКонтактнойИнформацией<span class="token punctuation">.</span>КонтактнаяИнформацияОбъектов<span class="token punctuation">(</span>МассивКонтактов<span class="token punctuation">,</span> ТипКонтактнойИнформации<span class="token punctuation">,</span> <span class="token keyword">Неопределено</span><span class="token punctuation">,</span> ТекущаяДатаСеанса<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">Для</span> <span class="token keyword">Каждого</span> СтрокаТаблицы <span class="token keyword">Из</span> ТаблицаКИ <span class="token keyword">Цикл</span>
+		<span class="token keyword">Если</span> СтрокаТаблицы<span class="token punctuation">.</span>Тип <span class="token operator">&lt;</span><span class="token operator">></span> Перечисления<span class="token punctuation">.</span>ТипыКонтактнойИнформации<span class="token punctuation">.</span>Другое <span class="token keyword">Тогда</span>
+			СтрокаКИ <span class="token operator">=</span> СтрокаКИ <span class="token operator">+</span> ?<span class="token punctuation">(</span>ПустаяСтрока<span class="token punctuation">(</span>СтрокаКИ<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"; "</span><span class="token punctuation">)</span> <span class="token operator">+</span> СтрокаТаблицы<span class="token punctuation">.</span>Представление<span class="token punctuation">;</span>
+		<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЦикла</span><span class="token punctuation">;</span>
+	
+<span class="token keyword">КонецПроцедуры</span>
+
+<span class="token comment">// Получает наименование и адреса электронной почты контакта.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Параметры:</span>
+<span class="token comment">//  Контакт - Ссылка - контакт, для которого получаются данные.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Возвращаемое значение:</span>
+<span class="token comment">//  Структура - содержит наименование контакта и список значений электронной почты контакта.</span>
+<span class="token comment">//</span>
+<span class="token keyword">Функция</span> НаименованиеИАдресаЭлектроннойПочтыКонтакта<span class="token punctuation">(</span>Контакт<span class="token punctuation">)</span> <span class="token keyword">Экспорт</span>
+	
+	<span class="token keyword">Если</span> <span class="token operator">Не</span> ЗначениеЗаполнено<span class="token punctuation">(</span>Контакт<span class="token punctuation">)</span> 
+		<span class="token operator">Или</span> ТипЗнч<span class="token punctuation">(</span>Контакт<span class="token punctuation">)</span> <span class="token operator">=</span> Тип<span class="token punctuation">(</span><span class="token string">"СправочникСсылка.СтроковыеКонтактыВзаимодействий"</span><span class="token punctuation">)</span> <span class="token keyword">Тогда</span>
+		<span class="token keyword">Возврат</span> <span class="token keyword">Неопределено</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	МетаданныеКонтакта <span class="token operator">=</span> Контакт<span class="token punctuation">.</span>Метаданные<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">Если</span> МетаданныеКонтакта<span class="token punctuation">.</span>Иерархический <span class="token keyword">Тогда</span>
+		<span class="token keyword">Если</span> Контакт<span class="token punctuation">.</span>ЭтоГруппа <span class="token keyword">Тогда</span>
+			<span class="token keyword">Возврат</span> <span class="token keyword">Неопределено</span><span class="token punctuation">;</span>
+		<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	МассивОписанияТиповКонтактов <span class="token operator">=</span> ВзаимодействияКлиентСервер<span class="token punctuation">.</span>ОписанияКонтактов<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ЭлементМассиваОписания <span class="token operator">=</span> <span class="token keyword">Неопределено</span><span class="token punctuation">;</span>
+	<span class="token keyword">Для</span> <span class="token keyword">Каждого</span> ЭлементМассива <span class="token keyword">Из</span> МассивОписанияТиповКонтактов <span class="token keyword">Цикл</span>
+		
+		<span class="token keyword">Если</span> ЭлементМассива<span class="token punctuation">.</span>Имя <span class="token operator">=</span> МетаданныеКонтакта<span class="token punctuation">.</span>Имя <span class="token keyword">Тогда</span>
+			ЭлементМассиваОписания <span class="token operator">=</span> ЭлементМассива<span class="token punctuation">;</span>
+			<span class="token keyword">Прервать</span><span class="token punctuation">;</span>
+		<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+		
+	<span class="token keyword">КонецЦикла</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">Если</span> ЭлементМассиваОписания <span class="token operator">=</span> <span class="token keyword">Неопределено</span> <span class="token keyword">Тогда</span>
+		<span class="token keyword">Возврат</span> <span class="token keyword">Неопределено</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	ИмяТаблицы <span class="token operator">=</span> МетаданныеКонтакта<span class="token punctuation">.</span>ПолноеИмя<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	ТекстЗапроса <span class="token operator">=</span>
+	<span class="token string">"ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	|	ЕСТЬNULL(ТаблицаКонтактнаяИнформация.АдресЭП,"""") КАК АдресЭП,
+	|	СправочникКонтакт."</span> <span class="token operator">+</span> ЭлементМассиваОписания<span class="token punctuation">.</span>ИмяРеквизитаПредставлениеКонтакта <span class="token operator">+</span> <span class="token string">" КАК Наименование
+	|ИЗ
+	|	"</span> <span class="token operator">+</span> ИмяТаблицы <span class="token operator">+</span> <span class="token string">" КАК СправочникКонтакт
+	|		ЛЕВОЕ СОЕДИНЕНИЕ "</span> <span class="token operator">+</span> ИмяТаблицы <span class="token operator">+</span> <span class="token string">".КонтактнаяИнформация КАК ТаблицаКонтактнаяИнформация
+	|		ПО (ТаблицаКонтактнаяИнформация.Ссылка = СправочникКонтакт.Ссылка)
+	|			И (ТаблицаКонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.АдресЭлектроннойПочты))
+	|ГДЕ
+	|	СправочникКонтакт.Ссылка = &amp;Контакт
+	|ИТОГИ ПО
+	|	Наименование"</span><span class="token punctuation">;</span>
+	
+	Запрос <span class="token operator">=</span> <span class="token keyword">Новый</span> Запрос<span class="token punctuation">;</span>
+	Запрос<span class="token punctuation">.</span>Текст <span class="token operator">=</span> ТекстЗапроса<span class="token punctuation">;</span>
+	Запрос<span class="token punctuation">.</span>УстановитьПараметр<span class="token punctuation">(</span><span class="token string">"Контакт"</span><span class="token punctuation">,</span> Контакт<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Выборка <span class="token operator">=</span> Запрос<span class="token punctuation">.</span><span class="token keyword">Выполнить</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Выбрать<span class="token punctuation">(</span>ОбходРезультатаЗапроса<span class="token punctuation">.</span>ПоГруппировкам<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">Если</span> <span class="token operator">Не</span> Выборка<span class="token punctuation">.</span>Следующий<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">Тогда</span>
+		<span class="token keyword">Возврат</span> <span class="token keyword">Неопределено</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	Адреса <span class="token operator">=</span> <span class="token keyword">Новый</span> Структура<span class="token punctuation">(</span><span class="token string">"Наименование,Адреса"</span><span class="token punctuation">,</span> Выборка<span class="token punctuation">.</span>Наименование<span class="token punctuation">,</span> <span class="token keyword">Новый</span> СписокЗначений<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ВыборкаАдреса <span class="token operator">=</span> Выборка<span class="token punctuation">.</span>Выбрать<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">Пока</span> ВыборкаАдреса<span class="token punctuation">.</span>Следующий<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">Цикл</span>
+		Адреса<span class="token punctuation">.</span>Адреса<span class="token punctuation">.</span>Добавить<span class="token punctuation">(</span>ВыборкаАдреса<span class="token punctuation">.</span>АдресЭП<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЦикла</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">Возврат</span> Адреса<span class="token punctuation">;</span>
+	
+<span class="token keyword">КонецФункции</span>
+
+<span class="token comment">// Получает адреса электронной почты контакта.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Параметры:</span>
+<span class="token comment">//  Контакт - ОпределяемыйТип.КонтактВзаимодействия - контакт, для которого получаются данные.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Возвращаемое значение:</span>
+<span class="token comment">//  Массив - массив структур содержащих адреса, виды и представления адресов.</span>
+<span class="token comment">//</span>
+<span class="token keyword">Функция</span> ПолучитьАдресаЭлектроннойПочтыКонтакта<span class="token punctuation">(</span>Контакт<span class="token punctuation">,</span> ВключатьНезаполненныеВиды <span class="token operator">=</span> <span class="token keyword">Ложь</span><span class="token punctuation">)</span> <span class="token keyword">Экспорт</span>
+	
+	<span class="token keyword">Если</span> <span class="token operator">Не</span> ЗначениеЗаполнено<span class="token punctuation">(</span>Контакт<span class="token punctuation">)</span> <span class="token keyword">Тогда</span>
+		<span class="token keyword">Возврат</span> <span class="token keyword">Неопределено</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	Запрос <span class="token operator">=</span> <span class="token keyword">Новый</span> Запрос<span class="token punctuation">;</span>
+	ИмяМетаданныхКонтакта <span class="token operator">=</span> Контакт<span class="token punctuation">.</span>Метаданные<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Имя<span class="token punctuation">;</span>
+	
+	<span class="token keyword">Если</span> ВключатьНезаполненныеВиды <span class="token keyword">Тогда</span>
+		
+		Запрос<span class="token punctuation">.</span>Текст <span class="token operator">=</span>
+		<span class="token string">"ВЫБРАТЬ
+		|	ВидыКонтактнойИнформации.Ссылка КАК Вид,
+		|	ВидыКонтактнойИнформации.Наименование КАК ВидНаименование,
+		|	Контакты.Ссылка КАК Контакт
+		|ПОМЕСТИТЬ КонтактВидыКИ
+		|ИЗ
+		|	Справочник.ВидыКонтактнойИнформации КАК ВидыКонтактнойИнформации,
+		|	Справочник."</span> <span class="token operator">+</span> ИмяМетаданныхКонтакта <span class="token operator">+</span> <span class="token string">" КАК Контакты
+		|ГДЕ
+		|	ВидыКонтактнойИнформации.Родитель = &amp;ГруппаВидаКонтактнойИнформации
+		|	И Контакты.Ссылка = &amp;Контакт
+		|	И ВидыКонтактнойИнформации.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.АдресЭлектроннойПочты)
+		|;
+		|
+		|////////////////////////////////////////////////////////////////////////////////
+		|ВЫБРАТЬ
+		|	Представление(КонтактВидыКИ.Контакт) КАК Представление,
+		|	ЕСТЬNULL(КонтактнаяИнформация.АдресЭП, """") КАК АдресЭП,
+		|	КонтактВидыКИ.Вид,
+		|	КонтактВидыКИ.ВидНаименование
+		|ИЗ
+		|	КонтактВидыКИ КАК КонтактВидыКИ
+		|		ЛЕВОЕ СОЕДИНЕНИЕ Справочник."</span> <span class="token operator">+</span> ИмяМетаданныхКонтакта <span class="token operator">+</span> <span class="token string">".КонтактнаяИнформация КАК КонтактнаяИнформация
+		|		ПО (КонтактнаяИнформация.Ссылка = КонтактВидыКИ.Контакт)
+		|			И (КонтактнаяИнформация.Вид = КонтактВидыКИ.Вид)"</span><span class="token punctuation">;</span>
+		
+		ГруппаВидаКонтактнойИнформации <span class="token operator">=</span> УправлениеКонтактнойИнформацией<span class="token punctuation">.</span>ВидКонтактнойИнформацииПоИмени<span class="token punctuation">(</span><span class="token string">"Справочник"</span> <span class="token operator">+</span> ИмяМетаданныхКонтакта<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Запрос<span class="token punctuation">.</span>УстановитьПараметр<span class="token punctuation">(</span><span class="token string">"ГруппаВидаКонтактнойИнформации"</span><span class="token punctuation">,</span> ГруппаВидаКонтактнойИнформации<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">Иначе</span>
+		
+		Запрос<span class="token punctuation">.</span>Текст <span class="token operator">=</span>
+		<span class="token string">"ВЫБРАТЬ
+		|	Таблицы.АдресЭП,
+		|	Таблицы.Вид,
+		|	Таблицы.Представление,
+		|	Таблицы.Вид.Наименование КАК ВидНаименование
+		|ИЗ
+		|	Справочник."</span> <span class="token operator">+</span> ИмяМетаданныхКонтакта <span class="token operator">+</span> <span class="token string">".КонтактнаяИнформация КАК Таблицы
+		|ГДЕ
+		|	Таблицы.Ссылка = &amp;Контакт
+		|	И Таблицы.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.АдресЭлектроннойПочты)"</span><span class="token punctuation">;</span>
+		
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	Запрос<span class="token punctuation">.</span>УстановитьПараметр<span class="token punctuation">(</span><span class="token string">"Контакт"</span><span class="token punctuation">,</span> Контакт<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	Выборка <span class="token operator">=</span> Запрос<span class="token punctuation">.</span><span class="token keyword">Выполнить</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Выбрать<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">Если</span> Выборка<span class="token punctuation">.</span>Количество<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">Тогда</span>
+		<span class="token keyword">Возврат</span> <span class="token keyword">Новый</span> Массив<span class="token punctuation">;</span>
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	Результат <span class="token operator">=</span> <span class="token keyword">Новый</span> Массив<span class="token punctuation">;</span>
+	<span class="token keyword">Пока</span> Выборка<span class="token punctuation">.</span>Следующий<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">Цикл</span>
+		Адрес <span class="token operator">=</span> <span class="token keyword">Новый</span> Структура<span class="token punctuation">;</span>
+		Адрес<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"АдресЭП"</span><span class="token punctuation">,</span>         Выборка<span class="token punctuation">.</span>АдресЭП<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Адрес<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"Вид"</span><span class="token punctuation">,</span>             Выборка<span class="token punctuation">.</span>Вид<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Адрес<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"Представление"</span><span class="token punctuation">,</span>   Выборка<span class="token punctuation">.</span>Представление<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Адрес<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ВидНаименование"</span><span class="token punctuation">,</span> Выборка<span class="token punctuation">.</span>ВидНаименование<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Результат<span class="token punctuation">.</span>Добавить<span class="token punctuation">(</span>Адрес<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецЦикла</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">Возврат</span> Результат<span class="token punctuation">;</span>
+	
+<span class="token keyword">КонецФункции</span>
+
+<span class="token keyword">Функция</span> ОтправитьПолучитьПочтуПользователяВФоне<span class="token punctuation">(</span>УникальныйИдентификатор<span class="token punctuation">)</span> <span class="token keyword">Экспорт</span>
+	
+	ПараметрыПроцедуры <span class="token operator">=</span> <span class="token keyword">Новый</span> Структура<span class="token punctuation">;</span>
+	
+	ПараметрыВыполнения <span class="token operator">=</span> ДлительныеОперации<span class="token punctuation">.</span>ПараметрыВыполненияВФоне<span class="token punctuation">(</span>УникальныйИдентификатор<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ПараметрыВыполнения<span class="token punctuation">.</span>НаименованиеФоновогоЗадания <span class="token operator">=</span> НСтр<span class="token punctuation">(</span><span class="token string">"ru = 'Получение и отправка электронной почты пользователя'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	ДлительнаяОперация <span class="token operator">=</span> ДлительныеОперации<span class="token punctuation">.</span>ВыполнитьВФоне<span class="token punctuation">(</span><span class="token string">"УправлениеЭлектроннойПочтой.ОтправитьЗагрузитьПочтуПользователя"</span><span class="token punctuation">,</span>
+		ПараметрыПроцедуры<span class="token punctuation">,</span>	ПараметрыВыполнения<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">Возврат</span> ДлительнаяОперация<span class="token punctuation">;</span>
+	
+<span class="token keyword">КонецФункции</span>
+
+<span class="token comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="token comment">//  Прочее</span>
+
+<span class="token comment">// Устанавливает предмет для массива взаимодействий.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Параметры:</span>
+<span class="token comment">//  МассивВзаимодействий - Массив - массив взаимодействий для которых будет установлен предмет.</span>
+<span class="token comment">//  Предмет  - Ссылка - предмет, на который будет выполнена замена.</span>
+<span class="token comment">//  ПроверятьНаличиеДругихЦепочек - Булево - если Истина, то будет выполнена замена предмета и для взаимодействий,</span>
+<span class="token comment">//                                           которые входят в  цепочки взаимодействий первым взаимодействием которых</span>
+<span class="token comment">//                                           является взаимодействие входящее в массив.</span>
+<span class="token comment">//</span>
+<span class="token keyword">Процедура</span> УстановитьПредметДляМассиваВзаимодействий<span class="token punctuation">(</span>МассивВзаимодействий<span class="token punctuation">,</span> Предмет<span class="token punctuation">,</span> ПроверятьНаличиеДругихЦепочек <span class="token operator">=</span> <span class="token keyword">Ложь</span><span class="token punctuation">)</span> <span class="token keyword">Экспорт</span>
+
+	<span class="token keyword">Если</span> ПроверятьНаличиеДругихЦепочек <span class="token keyword">Тогда</span>
+		
+		Запрос <span class="token operator">=</span> <span class="token keyword">Новый</span> Запрос<span class="token punctuation">;</span>
+		Запрос<span class="token punctuation">.</span>Текст <span class="token operator">=</span> <span class="token string">"ВЫБРАТЬ РАЗЛИЧНЫЕ
+		|	ПредметыВзаимодействий.Взаимодействие КАК Ссылка
+		|ИЗ
+		|	РегистрСведений.ПредметыПапкиВзаимодействий КАК ПредметыВзаимодействий
+		|ГДЕ
+		|	НЕ (НЕ ПредметыВзаимодействий.Предмет В (&amp;МассивВзаимодействий)
+		|			И НЕ ПредметыВзаимодействий.Взаимодействие В (&amp;МассивВзаимодействий))"</span><span class="token punctuation">;</span>
+		
+		Запрос<span class="token punctuation">.</span>УстановитьПараметр<span class="token punctuation">(</span><span class="token string">"МассивВзаимодействий"</span><span class="token punctuation">,</span> МассивВзаимодействий<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		МассивВзаимодействий <span class="token operator">=</span> Запрос<span class="token punctuation">.</span><span class="token keyword">Выполнить</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Выгрузить<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ВыгрузитьКолонку<span class="token punctuation">(</span><span class="token string">"Ссылка"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	НачатьТранзакцию<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">Попытка</span>
+		Блокировка <span class="token operator">=</span> <span class="token keyword">Новый</span> БлокировкаДанных<span class="token punctuation">;</span>
+		РегистрыСведений<span class="token punctuation">.</span>ПредметыПапкиВзаимодействий<span class="token punctuation">.</span>ЗаблокироватьПредметыПапокВзаимодействий<span class="token punctuation">(</span>Блокировка<span class="token punctuation">,</span> МассивВзаимодействий<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Блокировка<span class="token punctuation">.</span>Заблокировать<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">Если</span> ТипЗнч<span class="token punctuation">(</span>Предмет<span class="token punctuation">)</span> <span class="token operator">=</span> Тип<span class="token punctuation">(</span><span class="token string">"РегистрСведенийКлючЗаписи.СостоянияПредметовВзаимодействий"</span><span class="token punctuation">)</span> <span class="token keyword">Тогда</span>
+			Предмет <span class="token operator">=</span> Предмет<span class="token punctuation">.</span>Предмет<span class="token punctuation">;</span>
+		<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+		
+		Запрос <span class="token operator">=</span> <span class="token keyword">Новый</span> Запрос<span class="token punctuation">;</span>
+		Запрос<span class="token punctuation">.</span>Текст <span class="token operator">=</span> <span class="token string">"ВЫБРАТЬ РАЗЛИЧНЫЕ
+		|	ПредметыПапкиВзаимодействий.Предмет
+		|ИЗ
+		|	РегистрСведений.ПредметыПапкиВзаимодействий КАК ПредметыПапкиВзаимодействий
+		|ГДЕ
+		|	ПредметыПапкиВзаимодействий.Взаимодействие В(&amp;МассивВзаимодействий)
+		|
+		|ОБЪЕДИНИТЬ ВСЕ
+		|
+		|ВЫБРАТЬ
+		|	&amp;Предмет"</span><span class="token punctuation">;</span>
+		
+		Запрос<span class="token punctuation">.</span>УстановитьПараметр<span class="token punctuation">(</span><span class="token string">"Предмет"</span><span class="token punctuation">,</span> Предмет<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Запрос<span class="token punctuation">.</span>УстановитьПараметр<span class="token punctuation">(</span><span class="token string">"МассивВзаимодействий"</span><span class="token punctuation">,</span> МассивВзаимодействий<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		ВыборкаПредметы <span class="token operator">=</span> Запрос<span class="token punctuation">.</span><span class="token keyword">Выполнить</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Выбрать<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">Для</span> <span class="token keyword">Каждого</span> Взаимодействие <span class="token keyword">Из</span> МассивВзаимодействий <span class="token keyword">Цикл</span>
+			Взаимодействия<span class="token punctuation">.</span>УстановитьПредмет<span class="token punctuation">(</span>Взаимодействие<span class="token punctuation">,</span> Предмет<span class="token punctuation">,</span> <span class="token keyword">Ложь</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">КонецЦикла</span><span class="token punctuation">;</span>
+		
+		Взаимодействия<span class="token punctuation">.</span>РассчитатьРассмотреноПоПредметам<span class="token punctuation">(</span>Взаимодействия<span class="token punctuation">.</span>ТаблицаДанныхДляРасчетаРассмотрено<span class="token punctuation">(</span>ВыборкаПредметы<span class="token punctuation">,</span> <span class="token string">"Предмет"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		ЗафиксироватьТранзакцию<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">Исключение</span>
+		ОтменитьТранзакцию<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">ВызватьИсключение</span><span class="token punctuation">;</span>
+	<span class="token keyword">КонецПопытки</span><span class="token punctuation">;</span>	
+<span class="token keyword">КонецПроцедуры</span>
+
+<span class="token comment">// Преобразует письмо в двоичные данные и подготавливает к сохранению на диск.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Параметры:</span>
+<span class="token comment">//  Письмо                  - ДокументСсылка.ЭлектронноеПисьмоВходящее,</span>
+<span class="token comment">//                            ДокументСсылка.ЭлектронноеПисьмоИсходящее - письмо, которое подготавливается к сохранению.</span>
+<span class="token comment">//  УникальныйИдентификатор - УникальныйИдентификатор - уникальный идентификатор формы, из которой была вызвана команда сохранения.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Возвращаемое значение:</span>
+<span class="token comment">//  Структура - структура, содержащая подготовленные данные письма.</span>
+<span class="token comment">//</span>
+<span class="token keyword">Функция</span> ДанныеПисьмаДляСохраненияКакФайл<span class="token punctuation">(</span>Письмо<span class="token punctuation">,</span> УникальныйИдентификатор<span class="token punctuation">)</span> <span class="token keyword">Экспорт</span>
+
+	ДанныеФайла <span class="token operator">=</span> СтруктураДанныхФайла<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	ДанныеПисьма <span class="token operator">=</span> Взаимодействия<span class="token punctuation">.</span>ИнтернетПочтовоеСообщениеИзПисьма<span class="token punctuation">(</span>Письмо<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">Если</span> ДанныеПисьма <span class="token operator">&lt;</span><span class="token operator">></span> <span class="token keyword">Неопределено</span> <span class="token keyword">Тогда</span>
+		
+		ДвоичныеДанные <span class="token operator">=</span> ДанныеПисьма<span class="token punctuation">.</span>ИнтернетПочтовоеСообщение<span class="token punctuation">.</span>ПолучитьИсходныеДанные<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		ДанныеФайла<span class="token punctuation">.</span>СсылкаНаДвоичныеДанныеФайла <span class="token operator">=</span> ПоместитьВоВременноеХранилище<span class="token punctuation">(</span>ДвоичныеДанные<span class="token punctuation">,</span> УникальныйИдентификатор<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		ДанныеФайла<span class="token punctuation">.</span>Наименование <span class="token operator">=</span> Взаимодействия<span class="token punctuation">.</span>ПредставлениеПисьма<span class="token punctuation">(</span>ДанныеПисьма<span class="token punctuation">.</span>ИнтернетПочтовоеСообщение<span class="token punctuation">.</span>Тема<span class="token punctuation">,</span>
+			ДанныеПисьма<span class="token punctuation">.</span>ДатаПисьма<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		ДанныеФайла<span class="token punctuation">.</span>Расширение  <span class="token operator">=</span> <span class="token string">"eml"</span><span class="token punctuation">;</span>
+		ДанныеФайла<span class="token punctuation">.</span>ИмяФайла    <span class="token operator">=</span> ДанныеФайла<span class="token punctuation">.</span>Наименование <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> ДанныеФайла<span class="token punctuation">.</span>Расширение<span class="token punctuation">;</span>
+		ДанныеФайла<span class="token punctuation">.</span>Размер      <span class="token operator">=</span> ДвоичныеДанные<span class="token punctuation">.</span>Размер<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		ПапкаДляСохранитьКак <span class="token operator">=</span> ОбщегоНазначения<span class="token punctuation">.</span>ХранилищеОбщихНастроекЗагрузить<span class="token punctuation">(</span><span class="token string">"НастройкиПрограммы"</span><span class="token punctuation">,</span> <span class="token string">"ПапкаДляСохранитьКак"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		ДанныеФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ПапкаДляСохранитьКак"</span><span class="token punctuation">,</span> ПапкаДляСохранитьКак<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		ДанныеФайла<span class="token punctuation">.</span>ДатаМодификацииУниверсальная <span class="token operator">=</span> ТекущаяДатаСеанса<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		ДанныеФайла<span class="token punctuation">.</span>ПолноеНаименованиеВерсии <span class="token operator">=</span> ДанныеФайла<span class="token punctuation">.</span>ИмяФайла<span class="token punctuation">;</span>
+		
+	<span class="token keyword">КонецЕсли</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">Возврат</span> ДанныеФайла<span class="token punctuation">;</span>
+
+<span class="token keyword">КонецФункции</span>
+
+<span class="token keyword">Функция</span> СтруктураДанныхФайла<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	СтруктураДанныхФайла <span class="token operator">=</span> <span class="token keyword">Новый</span> Структура<span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"СсылкаНаДвоичныеДанныеФайла"</span><span class="token punctuation">,</span>        <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ОтносительныйПуть"</span><span class="token punctuation">,</span>                  <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ДатаМодификацииУниверсальная"</span><span class="token punctuation">,</span>       Дата<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ИмяФайла"</span><span class="token punctuation">,</span>                           <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"Наименование"</span><span class="token punctuation">,</span>                       <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"Расширение"</span><span class="token punctuation">,</span>                         <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"Размер"</span><span class="token punctuation">,</span>                             <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"Редактирует"</span><span class="token punctuation">,</span>                        <span class="token keyword">Неопределено</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ПодписанЭП"</span><span class="token punctuation">,</span>                         <span class="token keyword">Ложь</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"Зашифрован"</span><span class="token punctuation">,</span>                         <span class="token keyword">Ложь</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ФайлРедактируется"</span><span class="token punctuation">,</span>                  <span class="token keyword">Ложь</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ФайлРедактируетТекущийПользователь"</span><span class="token punctuation">,</span> <span class="token keyword">Ложь</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	СтруктураДанныхФайла<span class="token punctuation">.</span>Вставить<span class="token punctuation">(</span><span class="token string">"ПолноеНаименованиеВерсии"</span><span class="token punctuation">,</span>           <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">Возврат</span> СтруктураДанныхФайла<span class="token punctuation">;</span>
+
+<span class="token keyword">КонецФункции</span> 
+
+<span class="token directive important">#КонецОбласти</span>
+
+----------------------------------------------------

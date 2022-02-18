@@ -1,0 +1,9 @@
+<div>{$foo}</div>
+<div class="{$foo}">
+___SMARTY1___{$foo}
+----------------------------------------------------
+<span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span>div <span class="token attr-name">class</span><span class="token operator">=</span><span class="token string">"<span class="token interpolation"><span class="token interpolation-punctuation punctuation">{</span><span class="token expression"><span class="token variable">$foo</span></span><span class="token interpolation-punctuation punctuation">}</span></span>"</span><span class="token operator">></span>
+___SMARTY1___<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

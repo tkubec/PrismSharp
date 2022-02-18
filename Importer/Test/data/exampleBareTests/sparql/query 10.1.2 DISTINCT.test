@@ -1,0 +1,5 @@
+	PREFIX foaf:    &lt;http://xmlns.com/foaf/0.1//&gt;
+SELECT DISTINCT ?name WHERE { ?x foaf:name ?name }
+
+--------------------------------------------------
+

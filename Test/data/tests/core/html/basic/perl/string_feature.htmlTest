@@ -1,0 +1,135 @@
+q//
+q/foobar/
+q/foo\/bar/
+q/foo
+bar/
+
+qq!!
+qq!foobar!
+qq!foo\!bar!
+qq!foo
+bar!
+
+qw__
+qx_foobar_
+qx_foo\_bar_
+qw_foo
+bar_
+
+qw??
+qw?foobar?
+qw?foo\?bar?
+qw?foo
+bar?
+
+q aa
+q afoob\ara
+q 4foobar4
+q pfoo
+barp
+
+qq()
+qq(foobar)
+qq(foo\(\)bar)
+qq(foo
+bar)
+
+qx{}
+qx{foobar}
+qx{foo\{\}bar}
+qx{foo
+bar}
+
+qw[]
+qw[foobar]
+qw[foo\[\]bar]
+qw[foo
+bar]
+
+q<>
+q<foobar>
+q<foo\<\>bar>
+q<foo
+bar>
+
+""
+"foo\"bar"
+"foo
+bar"
+
+''
+'foo\'bar'
+
+``
+`foo\`bar`
+`foo
+bar`
+----------------------------------------------------
+<span class="token string">q//</span>
+<span class="token string">q/foobar/</span>
+<span class="token string">q/foo\/bar/</span>
+<span class="token string">q/foo
+bar/</span>
+
+<span class="token string">qq!!</span>
+<span class="token string">qq!foobar!</span>
+<span class="token string">qq!foo\!bar!</span>
+<span class="token string">qq!foo
+bar!</span>
+
+<span class="token string">qw__</span>
+<span class="token string">qx_foobar_</span>
+<span class="token string">qx_foo\_bar_</span>
+<span class="token string">qw_foo
+bar_</span>
+
+<span class="token string">qw??</span>
+<span class="token string">qw?foobar?</span>
+<span class="token string">qw?foo\?bar?</span>
+<span class="token string">qw?foo
+bar?</span>
+
+<span class="token string">q aa</span>
+<span class="token string">q afoob\ara</span>
+<span class="token string">q 4foobar4</span>
+<span class="token string">q pfoo
+barp</span>
+
+<span class="token string">qq()</span>
+<span class="token string">qq(foobar)</span>
+<span class="token string">qq(foo\(\)bar)</span>
+<span class="token string">qq(foo
+bar)</span>
+
+<span class="token string">qx{}</span>
+<span class="token string">qx{foobar}</span>
+<span class="token string">qx{foo\{\}bar}</span>
+<span class="token string">qx{foo
+bar}</span>
+
+<span class="token string">qw[]</span>
+<span class="token string">qw[foobar]</span>
+<span class="token string">qw[foo\[\]bar]</span>
+<span class="token string">qw[foo
+bar]</span>
+
+<span class="token string">q&lt;></span>
+<span class="token string">q&lt;foobar></span>
+<span class="token string">q&lt;foo\&lt;\>bar></span>
+<span class="token string">q&lt;foo
+bar></span>
+
+<span class="token string">""</span>
+<span class="token string">"foo\"bar"</span>
+<span class="token string">"foo
+bar"</span>
+
+<span class="token string">''</span>
+<span class="token string">'foo\'bar'</span>
+
+<span class="token string">``</span>
+<span class="token string">`foo\`bar`</span>
+<span class="token string">`foo
+bar`</span>
+
+----------------------------------------------------

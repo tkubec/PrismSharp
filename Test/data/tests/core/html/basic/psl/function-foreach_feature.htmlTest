@@ -1,0 +1,7 @@
+function test() { return "a"; }
+foreach __single ";" entry (["a;b;c"]) { test(); }
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">"a"</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">foreach</span> <span class="token keyword">__single</span> <span class="token string">";"</span> <span class="token foreach-variable">entry</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"a;b;c"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

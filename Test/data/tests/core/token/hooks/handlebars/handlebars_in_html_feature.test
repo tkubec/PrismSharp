@@ -1,0 +1,73 @@
+{{aUserModel.name}}
+<div>{{listOfUsers.firstObject.name}}</div>
+{{if name "I have a name" "I have no name"}}
+<span data-has-name={{if name true}}></span>
+<div {{on "click" this.hello}} />
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["variable", "aUserModel"],
+	["punctuation", "."],
+	["variable", "name"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "<"],
+	["variable", "div"],
+	["punctuation", ">"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "listOfUsers"],
+	["punctuation", "."],
+	["variable", "firstObject"],
+	["punctuation", "."],
+	["variable", "name"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "<"],
+	["punctuation", "/"],
+	["variable", "div"],
+	["punctuation", ">"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "if"],
+	["variable", "name"],
+	["string", "\"I have a name\""],
+	["string", "\"I have no name\""],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "<"],
+	["variable", "span"],
+	["variable", "data-has-name"],
+	["punctuation", "="],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "if"],
+	["variable", "name"],
+	["boolean", "true"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", ">"],
+	["punctuation", "<"],
+	["punctuation", "/"],
+	["variable", "span"],
+	["punctuation", ">"],
+
+	["punctuation", "<"],
+	["variable", "div"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "on"],
+	["string", "\"click\""],
+	["variable", "this"],
+	["punctuation", "."],
+	["variable", "hello"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "/"],
+	["punctuation", ">"]
+]
+
+----------------------------------------------------

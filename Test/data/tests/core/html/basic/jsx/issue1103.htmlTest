@@ -1,0 +1,5 @@
+var myDivElement = <div foo="bar baz" />;
+----------------------------------------------------
+<span class="token keyword">var</span> myDivElement <span class="token operator">=</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">foo</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bar baz<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

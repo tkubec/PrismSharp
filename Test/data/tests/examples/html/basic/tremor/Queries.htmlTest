@@ -1,0 +1,37 @@
+define script fib
+	script
+        fn fib_(a, b, n) of
+            case (a, b, n) when n > 0 => recur(b, a + b, n - 1)
+            default => a
+        end;
+
+        fn fib(n) with
+            fib_(0, 1, n)
+        end;
+
+		{ "fib": fib(event.n) }
+	end;
+
+	create script fib;
+	select event.n from in into fib;
+	select event from fib into out;
+----------------------------------------------------
+<span class="token keyword">define</span> <span class="token keyword">script</span> fib
+	<span class="token keyword">script</span>
+        <span class="token keyword">fn</span> <span class="token function">fib_</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token keyword">of</span>
+            <span class="token function">case</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token keyword">when</span> n <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">=></span> <span class="token function">recur</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">+</span> b<span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token keyword">default</span> <span class="token operator">=></span> a
+        <span class="token keyword">end</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">fn</span> <span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token keyword">with</span>
+            <span class="token function">fib_</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+        <span class="token keyword">end</span><span class="token punctuation">;</span>
+
+		<span class="token punctuation">{</span> <span class="token interpolated-string"><span class="token string">"fib"</span></span><span class="token punctuation">:</span> <span class="token function">fib</span><span class="token punctuation">(</span><span class="token keyword">event</span><span class="token punctuation">.</span>n<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+	<span class="token keyword">end</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">create</span> <span class="token keyword">script</span> fib<span class="token punctuation">;</span>
+	<span class="token keyword">select</span> <span class="token keyword">event</span><span class="token punctuation">.</span>n <span class="token keyword">from</span> in <span class="token keyword">into</span> fib<span class="token punctuation">;</span>
+	<span class="token keyword">select</span> <span class="token keyword">event</span> <span class="token keyword">from</span> fib <span class="token keyword">into</span> out<span class="token punctuation">;</span>
+
+----------------------------------------------------

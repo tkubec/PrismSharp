@@ -1,0 +1,99 @@
+// CLK_ADDRESS_CLAMP_TO_EDGE = aaa|abcd|ddd
+constant sampler_t sampler = CLK_NORMALIZED_COORDS_FALSE | CLK_ADDRESS_CLAMP_TO_EDGE | CLK_FILTER_NEAREST;
+typedef float type_single;
+
+type_single filter_sum_single_3x3(read_only image2d_t imgIn,
+                                  constant float* filterKernel,
+                                  const int2 coordBase,
+                                  const int border)
+{
+    type_single sum = (type_single)(0.0f);
+    const int rows = get_image_height(imgIn);
+    const int cols = get_image_width(imgIn);
+    int2 coordCurrent;
+    int2 coordBorder;
+    float color;
+
+    // Image patch is row-wise accessed
+    // Filter kernel is centred in the middle
+    #pragma unroll
+    for (int y = -ROWS_HALF_3x3; y <= ROWS_HALF_3x3; ++y)       // Start at the top left corner of the filter
+    {
+        coordCurrent.y = coordBase.y + y;
+        #pragma unroll
+        for (int x = -COLS_HALF_3x3; x <= COLS_HALF_3x3; ++x)   // And end at the bottom right corner
+        {
+            coordCurrent.x = coordBase.x + x;
+            coordBorder = borderCoordinate(coordCurrent, rows, cols, border);
+            color = read_imagef(imgIn, sampler, coordBorder).x;
+
+            const int idx = (y + ROWS_HALF_3x3) * COLS_3x3 + x + COLS_HALF_3x3;
+            sum += color * filterKernel[idx];
+        }
+    }
+
+    return sum;
+}
+
+kernel void filter_single_3x3(read_only image2d_t imgIn,
+                              write_only image2d_t imgOut,
+                              constant float* filterKernel,
+                              const int border)
+{
+    int2 coordBase = (int2)(get_global_id(0), get_global_id(1));
+
+    type_single sum = filter_sum_single_3x3(imgIn, filterKernel, coordBase, border);
+
+    write_imagef(imgOut, coordBase, sum);
+}
+----------------------------------------------------
+<span class="token comment">// CLK_ADDRESS_CLAMP_TO_EDGE = aaa|abcd|ddd</span>
+<span class="token keyword">constant</span> <span class="token builtin-type keyword">sampler_t</span> sampler <span class="token operator">=</span> <span class="token constant-opencl-kernel constant">CLK_NORMALIZED_COORDS_FALSE</span> <span class="token operator">|</span> <span class="token constant-opencl-kernel constant">CLK_ADDRESS_CLAMP_TO_EDGE</span> <span class="token operator">|</span> <span class="token constant-opencl-kernel constant">CLK_FILTER_NEAREST</span><span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">float</span> type_single<span class="token punctuation">;</span>
+
+type_single <span class="token function">filter_sum_single_3x3</span><span class="token punctuation">(</span><span class="token keyword">read_only</span> <span class="token builtin-type keyword">image2d_t</span> imgIn<span class="token punctuation">,</span>
+                                  <span class="token keyword">constant</span> <span class="token keyword">float</span><span class="token operator">*</span> filterKernel<span class="token punctuation">,</span>
+                                  <span class="token keyword">const</span> <span class="token keyword">int2</span> coordBase<span class="token punctuation">,</span>
+                                  <span class="token keyword">const</span> <span class="token keyword">int</span> border<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    type_single sum <span class="token operator">=</span> <span class="token punctuation">(</span>type_single<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">0.0f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">int</span> rows <span class="token operator">=</span> <span class="token function">get_image_height</span><span class="token punctuation">(</span>imgIn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">int</span> cols <span class="token operator">=</span> <span class="token function">get_image_width</span><span class="token punctuation">(</span>imgIn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int2</span> coordCurrent<span class="token punctuation">;</span>
+    <span class="token keyword">int2</span> coordBorder<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> color<span class="token punctuation">;</span>
+
+    <span class="token comment">// Image patch is row-wise accessed</span>
+    <span class="token comment">// Filter kernel is centred in the middle</span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression">unroll</span></span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token operator">-</span>ROWS_HALF_3x3<span class="token punctuation">;</span> y <span class="token operator">&lt;=</span> ROWS_HALF_3x3<span class="token punctuation">;</span> <span class="token operator">++</span>y<span class="token punctuation">)</span>       <span class="token comment">// Start at the top left corner of the filter</span>
+    <span class="token punctuation">{</span>
+        coordCurrent<span class="token punctuation">.</span>y <span class="token operator">=</span> coordBase<span class="token punctuation">.</span>y <span class="token operator">+</span> y<span class="token punctuation">;</span>
+        <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression">unroll</span></span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token operator">-</span>COLS_HALF_3x3<span class="token punctuation">;</span> x <span class="token operator">&lt;=</span> COLS_HALF_3x3<span class="token punctuation">;</span> <span class="token operator">++</span>x<span class="token punctuation">)</span>   <span class="token comment">// And end at the bottom right corner</span>
+        <span class="token punctuation">{</span>
+            coordCurrent<span class="token punctuation">.</span>x <span class="token operator">=</span> coordBase<span class="token punctuation">.</span>x <span class="token operator">+</span> x<span class="token punctuation">;</span>
+            coordBorder <span class="token operator">=</span> <span class="token function">borderCoordinate</span><span class="token punctuation">(</span>coordCurrent<span class="token punctuation">,</span> rows<span class="token punctuation">,</span> cols<span class="token punctuation">,</span> border<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            color <span class="token operator">=</span> <span class="token function">read_imagef</span><span class="token punctuation">(</span>imgIn<span class="token punctuation">,</span> sampler<span class="token punctuation">,</span> coordBorder<span class="token punctuation">)</span><span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+
+            <span class="token keyword">const</span> <span class="token keyword">int</span> idx <span class="token operator">=</span> <span class="token punctuation">(</span>y <span class="token operator">+</span> ROWS_HALF_3x3<span class="token punctuation">)</span> <span class="token operator">*</span> COLS_3x3 <span class="token operator">+</span> x <span class="token operator">+</span> COLS_HALF_3x3<span class="token punctuation">;</span>
+            sum <span class="token operator">+=</span> color <span class="token operator">*</span> filterKernel<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">kernel</span> <span class="token keyword">void</span> <span class="token function">filter_single_3x3</span><span class="token punctuation">(</span><span class="token keyword">read_only</span> <span class="token builtin-type keyword">image2d_t</span> imgIn<span class="token punctuation">,</span>
+                              <span class="token keyword">write_only</span> <span class="token builtin-type keyword">image2d_t</span> imgOut<span class="token punctuation">,</span>
+                              <span class="token keyword">constant</span> <span class="token keyword">float</span><span class="token operator">*</span> filterKernel<span class="token punctuation">,</span>
+                              <span class="token keyword">const</span> <span class="token keyword">int</span> border<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int2</span> coordBase <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token function">get_global_id</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">get_global_id</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    type_single sum <span class="token operator">=</span> <span class="token function">filter_sum_single_3x3</span><span class="token punctuation">(</span>imgIn<span class="token punctuation">,</span> filterKernel<span class="token punctuation">,</span> coordBase<span class="token punctuation">,</span> border<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">write_imagef</span><span class="token punctuation">(</span>imgOut<span class="token punctuation">,</span> coordBase<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

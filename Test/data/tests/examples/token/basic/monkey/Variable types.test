@@ -1,0 +1,64 @@
+Local myVariable:Bool = True
+Local myVariable? = True
+Local myVariable:Int = 1024
+Local myVariable% = 1024
+Local myVariable:Float = 3.141516
+Local myVariable# = 3.141516
+Local myVariable:String = "Hello world"
+Local myVariable$ = "Hello world"
+----------------------------------------------------
+[
+	["keyword", "Local"],
+	" myVariable",
+	["punctuation", ":"],
+	["keyword", "Bool"],
+	["operator", "="],
+	["keyword", "True"],
+
+	["keyword", "Local"],
+	" myVariable",
+	["type-char", "?"],
+	["operator", "="],
+	["keyword", "True"],
+
+	["keyword", "Local"],
+	" myVariable",
+	["punctuation", ":"],
+	["keyword", "Int"],
+	["operator", "="],
+	["number", "1024"],
+
+	["keyword", "Local"],
+	" myVariable",
+	["type-char", "%"],
+	["operator", "="],
+	["number", "1024"],
+
+	["keyword", "Local"],
+	" myVariable",
+	["punctuation", ":"],
+	["keyword", "Float"],
+	["operator", "="],
+	["number", "3.141516"],
+
+	["keyword", "Local"],
+	" myVariable",
+	["type-char", "#"],
+	["operator", "="],
+	["number", "3.141516"],
+
+	["keyword", "Local"],
+	" myVariable",
+	["punctuation", ":"],
+	["keyword", "String"],
+	["operator", "="],
+	["string", "\"Hello world\""],
+
+	["keyword", "Local"],
+	" myVariable",
+	["type-char", "$"],
+	["operator", "="],
+	["string", "\"Hello world\""]
+]
+
+----------------------------------------------------

@@ -1,0 +1,23 @@
+{assign var=foo value='baa'}
+{include file='header.tpl'}
+{$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+{$title|truncate:40:'...'}
+{$myArray|@count}
+
+{math equation="height * width / division"
+   height=$row_height
+   width=$row_width
+   division=#col_div#}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">assign</span> <span class="token attr-name">var</span><span class="token operator">=</span><span class="token variable">foo</span> <span class="token attr-name">value</span><span class="token operator">=</span><span class="token string">'baa'</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>include <span class="token attr-name">file</span><span class="token operator">=</span><span class="token string">'header.tpl'</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$smarty</span><span class="token punctuation">.</span><span class="token variable">now</span><span class="token operator">|</span><span class="token function">date_format</span><span class="token punctuation">:</span><span class="token string">'%Y-%m-%d %H:%M:%S'</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$title</span><span class="token operator">|</span><span class="token function">truncate</span><span class="token punctuation">:</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">'...'</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$myArray</span><span class="token operator">|</span><span class="token function">@count</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>math <span class="token attr-name">equation</span><span class="token operator">=</span><span class="token string">"height * width / division"</span>
+   <span class="token attr-name">height</span><span class="token operator">=</span><span class="token variable">$row_height</span>
+   <span class="token attr-name">width</span><span class="token operator">=</span><span class="token variable">$row_width</span>
+   <span class="token attr-name">division</span><span class="token operator">=</span><span class="token variable">#col_div#</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

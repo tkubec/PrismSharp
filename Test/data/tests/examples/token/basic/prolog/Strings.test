@@ -1,0 +1,14 @@
+"This is a string."
+"This is a string \
+on multiple lines."
+"A string with \"quotes\" in it."
+"Another string with ""quotes"" in it."
+----------------------------------------------------
+[
+	["string", "\"This is a string.\""],
+	["string", "\"This is a string \\\non multiple lines.\""],
+	["string", "\"A string with \\\"quotes\\\" in it.\""],
+	["string", "\"Another string with \"\"quotes\"\" in it.\""]
+]
+
+----------------------------------------------------

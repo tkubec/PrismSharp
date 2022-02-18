@@ -1,0 +1,114 @@
+// Source: https://wren.io/
+
+System.print("Hello, world!")
+
+class Wren {
+  flyTo(city) {
+    System.print("Flying to %(city)")
+  }
+}
+
+var adjectives = Fiber.new {
+  ["small", "clean", "fast"].each {|word| Fiber.yield(word) }
+}
+
+while (!adjectives.isDone) System.print(adjectives.call())
+----------------------------------------------------
+[
+	["comment", "// Source: https://wren.io/"],
+
+	["class-name", "System"],
+	["punctuation", "."],
+	["function", "print"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"Hello, world!\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "class"],
+	["class-name", "Wren"],
+	["punctuation", "{"],
+
+	["function", "flyTo"],
+	["punctuation", "("],
+	"city",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["class-name", "System"],
+	["punctuation", "."],
+	["function", "print"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"Flying to "],
+		["interpolation", [
+			["interpolation-punctuation", "%("],
+			["expression", ["city"]],
+			["interpolation-punctuation", ")"]
+		]],
+		["string", "\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "var"],
+	" adjectives ",
+	["operator", "="],
+	["class-name", "Fiber"],
+	["punctuation", "."],
+	["function", "new"],
+	["punctuation", "{"],
+
+	["punctuation", "["],
+	["string-literal", [
+		["string", "\"small\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"clean\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"fast\""]
+	]],
+	["punctuation", "]"],
+	["punctuation", "."],
+	["function", "each"],
+	["punctuation", "{"],
+	["operator", "|"],
+	"word",
+	["operator", "|"],
+	["class-name", "Fiber"],
+	["punctuation", "."],
+	["function", "yield"],
+	["punctuation", "("],
+	"word",
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "while"],
+	["punctuation", "("],
+	["operator", "!"],
+	"adjectives",
+	["punctuation", "."],
+	"isDone",
+	["punctuation", ")"],
+	["class-name", "System"],
+	["punctuation", "."],
+	["function", "print"],
+	["punctuation", "("],
+	"adjectives",
+	["punctuation", "."],
+	["function", "call"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

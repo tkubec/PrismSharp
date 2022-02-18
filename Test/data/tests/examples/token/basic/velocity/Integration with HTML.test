@@ -1,0 +1,148 @@
+<html>
+  <body>
+    Hello $customer.Name!
+    <table>
+    #foreach( $mud in $mudsOnSpecial )
+      #if ( $customer.hasPurchased($mud) )
+        <tr>
+          <td>
+            $flogger.getPromo( $mud )
+          </td>
+        </tr>
+      #end
+    #end
+    </table>
+  </body>
+</html>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"html"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"body"
+		]],
+		["punctuation", ">"]
+	]],
+
+	"\n    Hello ",
+	["variable", [
+		"$customer",
+		["punctuation", "."],
+		"Name"
+	]],
+	"!\n    ",
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"table"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["directive", [
+		["keyword", ["#foreach"]],
+		["punctuation", "("],
+		["variable", ["$mud"]],
+		["keyword", ["in"]],
+		["variable", ["$mudsOnSpecial"]],
+		["punctuation", ")"]
+	]],
+
+	["directive", [
+		["keyword", ["#if"]],
+		["punctuation", "("],
+		["variable", [
+			"$customer",
+			["punctuation", "."],
+			["function", "hasPurchased"],
+			["punctuation", "("],
+			"$mud",
+			["punctuation", ")"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"tr"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"td"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["variable", [
+		"$flogger",
+		["punctuation", "."],
+		["function", "getPromo"],
+		["punctuation", "("],
+		" $mud ",
+		["punctuation", ")"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"td"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"tr"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["directive", [
+		["keyword", ["#end"]]
+	]],
+
+	["directive", [
+		["keyword", ["#end"]]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"table"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"body"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"html"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

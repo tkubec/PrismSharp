@@ -1,0 +1,13 @@
+[a: 1, b: 2]
+do: :this, else: :that
+where: foo,
+select: bar,
+attr?: a
+----------------------------------------------------
+<span class="token punctuation">[</span><span class="token attr-name">a:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token attr-name">b:</span> <span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token attr-name">do:</span> <span class="token atom symbol">:this</span><span class="token punctuation">,</span> <span class="token attr-name">else:</span> <span class="token atom symbol">:that</span>
+<span class="token attr-name">where:</span> foo<span class="token punctuation">,</span>
+<span class="token attr-name">select:</span> bar<span class="token punctuation">,</span>
+<span class="token attr-name">attr?:</span> a
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+@navigation[]
+$sections[^table::load[sections.cfg]]
+$sections.uri
+----------------------------------------------------
+<span class="token function">@navigation</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token variable">$sections</span><span class="token punctuation">[</span><span class="token function">^table<span class="token punctuation">::</span>load</span><span class="token punctuation">[</span>sections.cfg<span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token variable">$sections<span class="token punctuation">.</span>uri</span>
+
+----------------------------------------------------

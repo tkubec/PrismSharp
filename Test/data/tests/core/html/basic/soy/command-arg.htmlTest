@@ -1,0 +1,17 @@
+{alias long.namespace.root.projectx.foomodule.utils as fooUtils}
+{call myfeature.myTemplate /}
+{delcall aaa.bbb.myButton /}
+{delpackage MyExperiment}
+{deltemplate aaa.bbb.myButton}
+{namespace ns}
+{template .example}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">alias</span> <span class="token command-arg string">long<span class="token punctuation">.</span>namespace<span class="token punctuation">.</span>root<span class="token punctuation">.</span>projectx<span class="token punctuation">.</span>foomodule<span class="token punctuation">.</span>utils</span> <span class="token keyword">as</span> fooUtils<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">call</span> <span class="token command-arg string">myfeature<span class="token punctuation">.</span>myTemplate</span> <span class="token operator">/</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">delcall</span> <span class="token command-arg string">aaa<span class="token punctuation">.</span>bbb<span class="token punctuation">.</span>myButton</span> <span class="token operator">/</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">delpackage</span> <span class="token command-arg string">MyExperiment</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">deltemplate</span> <span class="token command-arg string">aaa<span class="token punctuation">.</span>bbb<span class="token punctuation">.</span>myButton</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">namespace</span> <span class="token command-arg string">ns</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">template</span> <span class="token command-arg string"><span class="token punctuation">.</span>example</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

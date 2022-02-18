@@ -1,0 +1,4 @@
+"The answer is ${21*2}"
+"The $foxtype ${foxcolor.join()} fox"
+/foo${21*2}baz/
+'No interpolation here : ${21*2}'

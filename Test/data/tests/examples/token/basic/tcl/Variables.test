@@ -1,0 +1,15 @@
+$foo
+$foo::bar_42
+$::baz
+${foobar}
+set foo::bar "baz"
+----------------------------------------------------
+[
+	"$", ["variable", "foo"],
+	"\n$", ["variable", "foo::bar_42"],
+	"\n$", ["variable", "::baz"],
+	"\n$", ["variable", "{foobar}"],
+	["keyword", "set"], ["variable", "foo::bar"], ["string", "\"baz\""]
+]
+
+----------------------------------------------------

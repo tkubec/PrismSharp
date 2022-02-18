@@ -1,0 +1,31 @@
+datalines;
+1993 2,819 1,120 422 391 63 98
+1994 2,477 1,160 500 172 47 70
+;
+
+lines;
+foo bar baz
+;
+
+cards;
+foo
+bar
+baz
+;
+----------------------------------------------------
+<span class="token datalines string"><span class="token keyword">datalines</span><span class="token punctuation">;</span>
+1993 2,819 1,120 422 391 63 98
+1994 2,477 1,160 500 172 47 70
+<span class="token punctuation">;</span></span>
+
+<span class="token datalines string"><span class="token keyword">lines</span><span class="token punctuation">;</span>
+foo bar baz
+<span class="token punctuation">;</span></span>
+
+<span class="token datalines string"><span class="token keyword">cards</span><span class="token punctuation">;</span>
+foo
+bar
+baz
+<span class="token punctuation">;</span></span>
+
+----------------------------------------------------

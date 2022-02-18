@@ -1,0 +1,53 @@
+@namespace Basic
+{
+  @search @pattern Url(Domain, Path, Query, Anchor) =
+    Method + Domain:Url.Domain + ?Port + ?Path:Url.Path +
+    ?Query:Url.Query + ?Anchor:Url.Anchor
+  @where {
+    Method = {'http', 'https' , 'ftp', 'mailto', 'file', 'data',
+      'irc'} + '://';
+    Domain = Word + [1+ '.' + Word + [0+ {Word, '_', '-'}]];
+    Port = ':' + Num;
+    Path = ?'/' + [0+ {Word, '/', '_', '+', '-', '%', '.'}];
+
+    Query = '?' + ?(Param + [0+ '&' + Param])
+    @where
+    {
+      Param = Identifier + '=' + Identifier
+      @where
+      {
+        Identifier = {Alpha, AlphaNum, '_'} + [0+ {Word, '_'}];
+      };
+    };
+
+    Anchor(Value) = '#' + Value:{Word};
+  };
+}
+----------------------------------------------------
+<span class="token keyword">@namespace</span> <span class="token namespace">Basic</span>
+<span class="token operator variation">{</span>
+  <span class="token keyword">@search</span> <span class="token keyword">@pattern</span> <span class="token pattern"><span class="token pattern-name class-name">Url</span><span class="token fields"><span class="token punctuation">(</span><span class="token field-name variable">Domain</span><span class="token punctuation">,</span> <span class="token field-name variable">Path</span><span class="token punctuation">,</span> <span class="token field-name variable">Query</span><span class="token punctuation">,</span> <span class="token field-name variable">Anchor</span><span class="token punctuation">)</span></span></span> <span class="token operator pattern-def">=</span>
+    <span class="token name">Method</span> <span class="token operator sequence">+</span> <span class="token field-capture"><span class="token field-name variable">Domain</span><span class="token colon">:</span></span><span class="token name">Url.Domain</span> <span class="token operator sequence">+</span> <span class="token operator optionality">?</span><span class="token name">Port</span> <span class="token operator sequence">+</span> <span class="token operator optionality">?</span><span class="token field-capture"><span class="token field-name variable">Path</span><span class="token colon">:</span></span><span class="token name">Url.Path</span> <span class="token operator sequence">+</span>
+    <span class="token operator optionality">?</span><span class="token field-capture"><span class="token field-name variable">Query</span><span class="token colon">:</span></span><span class="token name">Url.Query</span> <span class="token operator sequence">+</span> <span class="token operator optionality">?</span><span class="token field-capture"><span class="token field-name variable">Anchor</span><span class="token colon">:</span></span><span class="token name">Url.Anchor</span>
+  <span class="token keyword">@where</span> <span class="token operator variation">{</span>
+    <span class="token pattern"><span class="token pattern-name class-name">Method</span></span> <span class="token operator pattern-def">=</span> <span class="token operator variation">{</span><span class="token string">'http'</span><span class="token punctuation">,</span> <span class="token string">'https'</span> <span class="token punctuation">,</span> <span class="token string">'ftp'</span><span class="token punctuation">,</span> <span class="token string">'mailto'</span><span class="token punctuation">,</span> <span class="token string">'file'</span><span class="token punctuation">,</span> <span class="token string">'data'</span><span class="token punctuation">,</span>
+      <span class="token string">'irc'</span><span class="token operator variation">}</span> <span class="token operator sequence">+</span> <span class="token string">'://'</span><span class="token punctuation">;</span>
+    <span class="token pattern"><span class="token pattern-name class-name">Domain</span></span> <span class="token operator pattern-def">=</span> <span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span></span> <span class="token operator sequence">+</span> <span class="token operator repetition">[</span><span class="token quantifier number">1+</span> <span class="token string">'.'</span> <span class="token operator sequence">+</span> <span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span></span> <span class="token operator sequence">+</span> <span class="token operator repetition">[</span><span class="token quantifier number">0+</span> <span class="token operator variation">{</span><span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span></span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token punctuation">,</span> <span class="token string">'-'</span><span class="token operator variation">}</span><span class="token operator repetition">]</span><span class="token operator repetition">]</span><span class="token punctuation">;</span>
+    <span class="token pattern"><span class="token pattern-name class-name">Port</span></span> <span class="token operator pattern-def">=</span> <span class="token string">':'</span> <span class="token operator sequence">+</span> <span class="token standard-pattern"><span class="token standard-pattern-name builtin">Num</span></span><span class="token punctuation">;</span>
+    <span class="token pattern"><span class="token pattern-name class-name">Path</span></span> <span class="token operator pattern-def">=</span> <span class="token operator optionality">?</span><span class="token string">'/'</span> <span class="token operator sequence">+</span> <span class="token operator repetition">[</span><span class="token quantifier number">0+</span> <span class="token operator variation">{</span><span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span></span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token punctuation">,</span> <span class="token string">'+'</span><span class="token punctuation">,</span> <span class="token string">'-'</span><span class="token punctuation">,</span> <span class="token string">'%'</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token operator variation">}</span><span class="token operator repetition">]</span><span class="token punctuation">;</span>
+
+    <span class="token pattern"><span class="token pattern-name class-name">Query</span></span> <span class="token operator pattern-def">=</span> <span class="token string">'?'</span> <span class="token operator sequence">+</span> <span class="token operator optionality">?</span><span class="token punctuation">(</span><span class="token name">Param</span> <span class="token operator sequence">+</span> <span class="token operator repetition">[</span><span class="token quantifier number">0+</span> <span class="token string">'&amp;'</span> <span class="token operator sequence">+</span> <span class="token name">Param</span><span class="token operator repetition">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">@where</span>
+    <span class="token operator variation">{</span>
+      <span class="token pattern"><span class="token pattern-name class-name">Param</span></span> <span class="token operator pattern-def">=</span> <span class="token name">Identifier</span> <span class="token operator sequence">+</span> <span class="token string">'='</span> <span class="token operator sequence">+</span> <span class="token name">Identifier</span>
+      <span class="token keyword">@where</span>
+      <span class="token operator variation">{</span>
+        <span class="token pattern"><span class="token pattern-name class-name">Identifier</span></span> <span class="token operator pattern-def">=</span> <span class="token operator variation">{</span><span class="token standard-pattern"><span class="token standard-pattern-name builtin">Alpha</span></span><span class="token punctuation">,</span> <span class="token standard-pattern"><span class="token standard-pattern-name builtin">AlphaNum</span></span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token operator variation">}</span> <span class="token operator sequence">+</span> <span class="token operator repetition">[</span><span class="token quantifier number">0+</span> <span class="token operator variation">{</span><span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span></span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token operator variation">}</span><span class="token operator repetition">]</span><span class="token punctuation">;</span>
+      <span class="token operator variation">}</span><span class="token punctuation">;</span>
+    <span class="token operator variation">}</span><span class="token punctuation">;</span>
+
+    <span class="token pattern"><span class="token pattern-name class-name">Anchor</span><span class="token fields"><span class="token punctuation">(</span><span class="token field-name variable">Value</span><span class="token punctuation">)</span></span></span> <span class="token operator pattern-def">=</span> <span class="token string">'#'</span> <span class="token operator sequence">+</span> <span class="token field-capture"><span class="token field-name variable">Value</span><span class="token colon">:</span></span><span class="token operator variation">{</span><span class="token standard-pattern"><span class="token standard-pattern-name builtin">Word</span></span><span class="token operator variation">}</span><span class="token punctuation">;</span>
+  <span class="token operator variation">}</span><span class="token punctuation">;</span>
+<span class="token operator variation">}</span>
+
+----------------------------------------------------

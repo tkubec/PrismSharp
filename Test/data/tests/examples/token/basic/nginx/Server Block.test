@@ -1,0 +1,85 @@
+server { # simple reverse-proxy
+  listen       80;
+  server_name  domain2.com www.domain2.com;
+  access_log   logs/domain2.access.log  main;
+  
+  # serve static files
+  
+  location ~ ^/(images|javascript|js|css|flash|media|static)/  {
+    root    /var/www/virtual/big.server.com/htdocs;
+    expires 30d;
+  }
+
+  # pass requests for dynamic content to rails/turbogears/zope, et al
+  location / {
+    proxy_pass      http://127.0.0.1:8080;
+  }
+}
+----------------------------------------------------
+[
+	["directive", [
+		["keyword", "server"]
+	]],
+	["punctuation", "{"],
+	["comment", "# simple reverse-proxy"],
+
+	["directive", [
+		["keyword", "listen"],
+		["number", "80"]
+	]],
+	["punctuation", ";"],
+
+	["directive", [
+		["keyword", "server_name"],
+		"  domain2.com www.domain2.com"
+	]],
+	["punctuation", ";"],
+
+	["directive", [
+		["keyword", "access_log"],
+		"   logs/domain2.access.log  main"
+	]],
+	["punctuation", ";"],
+
+	["comment", "# serve static files"],
+
+	["directive", [
+		["keyword", "location"],
+		" ~ ^/(images|javascript|js|css|flash|media|static)/"
+	]],
+	["punctuation", "{"],
+
+	["directive", [
+		["keyword", "root"],
+		"    /var/www/virtual/big.server.com/htdocs"
+	]],
+	["punctuation", ";"],
+
+	["directive", [
+		["keyword", "expires"],
+		["number", "30d"]
+	]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# pass requests for dynamic content to rails/turbogears/zope, et al"],
+
+	["directive", [
+		["keyword", "location"],
+		" /"
+	]],
+	["punctuation", "{"],
+
+	["directive", [
+		["keyword", "proxy_pass"],
+		"      http://127.0.0.1:8080"
+	]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

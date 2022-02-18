@@ -1,0 +1,86 @@
+p(example1). An example
+
+p(#big-red). Red here
+
+p(example1#big-red2). Red here
+
+p{color:blue;margin:30px}. Spacey blue
+
+p[fr]. rouge
+----------------------------------------------------
+[
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "("],
+				["class-id", "example1"],
+				["punctuation", ")"]
+			]],
+			["punctuation", "."]
+		]],
+		" An example"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "("],
+				["class-id", "#big-red"],
+				["punctuation", ")"]
+			]],
+			["punctuation", "."]
+		]],
+		" Red here"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "("],
+				["class-id", "example1#big-red2"],
+				["punctuation", ")"]
+			]],
+			["punctuation", "."]
+		]],
+		" Red here"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["css", [
+					["punctuation", "{"],
+					["property", "color"],
+					["punctuation", ":"],
+					"blue",
+					["punctuation", ";"],
+					["property", "margin"],
+					["punctuation", ":"],
+					"30px",
+					["punctuation", "}"]
+				]]
+			]],
+			["punctuation", "."]
+		]],
+		" Spacey blue"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "["],
+				["lang", "fr"],
+				["punctuation", "]"]
+			]],
+			["punctuation", "."]
+		]],
+		" rouge"
+	]]
+]
+
+----------------------------------------------------

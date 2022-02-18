@@ -1,0 +1,17 @@
+=
+== >= <= > <
++ - * / %
+|
+
+and not or xor AND NOT OR XOR
+as by AS BY
+----------------------------------------------------
+<span class="token operator">=</span>
+<span class="token operator">==</span> <span class="token operator">>=</span> <span class="token operator">&lt;=</span> <span class="token operator">></span> <span class="token operator">&lt;</span>
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">%</span>
+<span class="token operator">|</span>
+
+<span class="token operator-word operator">and</span> <span class="token operator-word operator">not</span> <span class="token operator-word operator">or</span> <span class="token operator-word operator">xor</span> <span class="token operator-word operator">AND</span> <span class="token operator-word operator">NOT</span> <span class="token operator-word operator">OR</span> <span class="token operator-word operator">XOR</span>
+<span class="token operator-word operator">as</span> <span class="token operator-word operator">by</span> <span class="token operator-word operator">AS</span> <span class="token operator-word operator">BY</span>
+
+----------------------------------------------------

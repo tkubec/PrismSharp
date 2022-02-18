@@ -1,0 +1,48 @@
+Function AddNumbers(ByVal X As Integer, ByVal Y As Integer)
+    AddNumbers = X + Y
+End Function
+Module Test
+    Sub Main()
+    End Sub
+End Module
+----------------------------------------------------
+[
+	["keyword", "Function"],
+	" AddNumbers",
+	["punctuation", "("],
+	["keyword", "ByVal"],
+	" X ",
+	["keyword", "As"],
+	["keyword", "Integer"],
+	["punctuation", ","],
+	["keyword", "ByVal"],
+	" Y ",
+	["keyword", "As"],
+	["keyword", "Integer"],
+	["punctuation", ")"],
+
+	"\n    AddNumbers ",
+	["operator", "="],
+	" X ",
+	["operator", "+"],
+	" Y\n",
+
+	["keyword", "End"],
+	["keyword", "Function"],
+
+	["keyword", "Module"],
+	" Test\n    ",
+
+	["keyword", "Sub"],
+	" Main",
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "End"],
+	["keyword", "Sub"],
+
+	["keyword", "End"],
+	["keyword", "Module"]
+]
+
+----------------------------------------------------

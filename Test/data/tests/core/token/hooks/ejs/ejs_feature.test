@@ -1,0 +1,51 @@
+<% var foo = ''
+     , bar = false; %>
+
+<% if (bar) { %>
+  <%= foo + 'It\'s ' + output %>
+<% } %>
+----------------------------------------------------
+[
+	["delimiter", "<%"],
+	["language-javascript", [
+		["keyword", "var"],
+		" foo ",
+		["operator", "="],
+		["string", "''"],
+
+		["punctuation", ","],
+		" bar ",
+		["operator", "="],
+		["boolean", "false"],
+		["punctuation", ";"],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["keyword", "if"],
+		["punctuation", "("],
+		"bar",
+		["punctuation", ")"],
+		["punctuation", "{"],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%="],
+		" foo ",
+		["operator", "+"],
+		["string", "'It\\'s '"],
+		["operator", "+"],
+		" output ",
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["punctuation", "}"]
+	]],
+	["delimiter", "%>"]
+]
+
+----------------------------------------------------

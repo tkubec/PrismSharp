@@ -1,0 +1,25 @@
+@base <http://example.org/> .
+
+GRAPH <urn:newGraph> {
+	<urn:myClass> a rdfs:Class, <other-class> ;
+	= <urn:equivalentClass> .
+	<urn:myList> a rdf:List ;
+		rdf:value [ a <blankNode> ;
+			rdf:value ( <list> <of> <things> () [] )
+			] ;
+		.
+}
+----------------------------------------------------
+<span class="token keyword">@base</span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+
+<span class="token keyword">GRAPH</span> <span class="token url"><span class="token punctuation">&lt;</span>urn:newGraph<span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+	<span class="token url"><span class="token punctuation">&lt;</span>urn:myClass<span class="token punctuation">></span></span> <span class="token keyword">a</span> <span class="token function"><span class="token prefix">rdfs<span class="token punctuation">:</span></span><span class="token local-name">Class</span></span><span class="token punctuation">,</span> <span class="token url"><span class="token punctuation">&lt;</span>other-class<span class="token punctuation">></span></span> <span class="token punctuation">;</span>
+	<span class="token keyword">=</span> <span class="token url"><span class="token punctuation">&lt;</span>urn:equivalentClass<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+	<span class="token url"><span class="token punctuation">&lt;</span>urn:myList<span class="token punctuation">></span></span> <span class="token keyword">a</span> <span class="token function"><span class="token prefix">rdf<span class="token punctuation">:</span></span><span class="token local-name">List</span></span> <span class="token punctuation">;</span>
+		<span class="token function"><span class="token prefix">rdf<span class="token punctuation">:</span></span><span class="token local-name">value</span></span> <span class="token punctuation">[</span> <span class="token keyword">a</span> <span class="token url"><span class="token punctuation">&lt;</span>blankNode<span class="token punctuation">></span></span> <span class="token punctuation">;</span>
+			<span class="token function"><span class="token prefix">rdf<span class="token punctuation">:</span></span><span class="token local-name">value</span></span> <span class="token punctuation">(</span> <span class="token url"><span class="token punctuation">&lt;</span>list<span class="token punctuation">></span></span> <span class="token url"><span class="token punctuation">&lt;</span>of<span class="token punctuation">></span></span> <span class="token url"><span class="token punctuation">&lt;</span>things<span class="token punctuation">></span></span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>
+			<span class="token punctuation">]</span> <span class="token punctuation">;</span>
+		<span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

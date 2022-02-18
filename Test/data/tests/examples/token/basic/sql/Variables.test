@@ -1,0 +1,39 @@
+SET @variable = 1;
+SET @$_ = 2;
+SET @"quoted-variable" = 3;
+SET @'quoted-variable' = 3;
+SET @`quoted-variable` = 3;
+----------------------------------------------------
+[
+	["keyword", "SET"],
+	["variable", "@variable"],
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["keyword", "SET"],
+	["variable", "@$_"],
+	["operator", "="],
+	["number", "2"],
+	["punctuation", ";"],
+
+	["keyword", "SET"],
+	["variable", "@\"quoted-variable\""],
+	["operator", "="],
+	["number", "3"],
+	["punctuation", ";"],
+
+	["keyword", "SET"],
+	["variable", "@'quoted-variable'"],
+	["operator", "="],
+	["number", "3"],
+	["punctuation", ";"],
+
+	["keyword", "SET"],
+	["variable", "@`quoted-variable`"],
+	["operator", "="],
+	["number", "3"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

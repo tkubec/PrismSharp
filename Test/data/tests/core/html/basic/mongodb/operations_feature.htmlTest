@@ -1,0 +1,459 @@
+{
+	$eq: {},
+	$gt: {},
+	$gte: {},
+	$in: {},
+	$lt: {},
+	$lte: {},
+	$ne: {},
+	$nin: {},
+	$and: {},
+	$not: {},
+	$nor: {},
+	$or: {},
+	$exists: {},
+	$type: {},
+	$expr: {},
+	$jsonSchema: {},
+	$mod: {},
+	$regex: {},
+	$text: {},
+	$where: {},
+	$geoIntersects: {},
+	$geoWithin: {},
+	$near: {},
+	$nearSphere: {},
+	$all: {},
+	$elemMatch: {},
+	$size: {},
+	$bitsAllClear: {},
+	$bitsAllSet: {},
+	$bitsAnyClear: {},
+	$bitsAnySet: {},
+	$comment: {},
+	$elemMatch: {},
+	$meta: {},
+	$slice: {},
+	$currentDate: {},
+	$inc: {},
+	$min: {},
+	$max: {},
+	$mul: {},
+	$rename: {},
+	$set: {},
+	$setOnInsert: {},
+	$unset: {},
+	$addToSet: {},
+	$pop: {},
+	$pull: {},
+	$push: {},
+	$pullAll: {},
+	$each: {},
+	$position: {},
+	$slice: {},
+	$sort: {},
+	$bit: {},
+	$addFields: {},
+	$bucket: {},
+	$bucketAuto: {},
+	$collStats: {},
+	$count: {},
+	$currentOp: {},
+	$facet: {},
+	$geoNear: {},
+	$graphLookup: {},
+	$group: {},
+	$indexStats: {},
+	$limit: {},
+	$listLocalSessions: {},
+	$listSessions: {},
+	$lookup: {},
+	$match: {},
+	$merge: {},
+	$out: {},
+	$planCacheStats: {},
+	$project: {},
+	$redact: {},
+	$replaceRoot: {},
+	$replaceWith: {},
+	$sample: {},
+	$set: {},
+	$skip: {},
+	$sort: {},
+	$sortByCount: {},
+	$unionWith: {},
+	$unset: {},
+	$unwind: {},
+	$abs: {},
+	$accumulator: {},
+	$acos: {},
+	$acosh: {},
+	$add: {},
+	$addToSet: {},
+	$allElementsTrue: {},
+	$and: {},
+	$anyElementTrue: {},
+	$arrayElemAt: {},
+	$arrayToObject: {},
+	$asin: {},
+	$asinh: {},
+	$atan: {},
+	$atan2: {},
+	$atanh: {},
+	$avg: {},
+	$binarySize: {},
+	$bsonSize: {},
+	$ceil: {},
+	$cmp: {},
+	$concat: {},
+	$concatArrays: {},
+	$cond: {},
+	$convert: {},
+	$cos: {},
+	$dateFromParts: {},
+	$dateToParts: {},
+	$dateFromString: {},
+	$dateToString: {},
+	$dayOfMonth: {},
+	$dayOfWeek: {},
+	$dayOfYear: {},
+	$degreesToRadians: {},
+	$divide: {},
+	$eq: {},
+	$exp: {},
+	$filter: {},
+	$first: {},
+	$floor: {},
+	$function: {},
+	$gt: {},
+	$gte: {},
+	$hour: {},
+	$ifNull: {},
+	$in: {},
+	$indexOfArray: {},
+	$indexOfBytes: {},
+	$indexOfCP: {},
+	$isArray: {},
+	$isNumber: {},
+	$isoDayOfWeek: {},
+	$isoWeek: {},
+	$isoWeekYear: {},
+	$last: {},
+	$last: {},
+	$let: {},
+	$literal: {},
+	$ln: {},
+	$log: {},
+	$log10: {},
+	$lt: {},
+	$lte: {},
+	$ltrim: {},
+	$map: {},
+	$max: {},
+	$mergeObjects: {},
+	$meta: {},
+	$min: {},
+	$millisecond: {},
+	$minute: {},
+	$mod: {},
+	$month: {},
+	$multiply: {},
+	$ne: {},
+	$not: {},
+	$objectToArray: {},
+	$or: {},
+	$pow: {},
+	$push: {},
+	$radiansToDegrees: {},
+	$range: {},
+	$reduce: {},
+	$regexFind: {},
+	$regexFindAll: {},
+	$regexMatch: {},
+	$replaceOne: {},
+	$replaceAll: {},
+	$reverseArray: {},
+	$round: {},
+	$rtrim: {},
+	$second: {},
+	$setDifference: {},
+	$setEquals: {},
+	$setIntersection: {},
+	$setIsSubset: {},
+	$setUnion: {},
+	$size: {},
+	$sin: {},
+	$slice: {},
+	$split: {},
+	$sqrt: {},
+	$stdDevPop: {},
+	$stdDevSamp: {},
+	$strcasecmp: {},
+	$strLenBytes: {},
+	$strLenCP: {},
+	$substr: {},
+	$substrBytes: {},
+	$substrCP: {},
+	$subtract: {},
+	$sum: {},
+	$switch: {},
+	$tan: {},
+	$toBool: {},
+	$toDate: {},
+	$toDecimal: {},
+	$toDouble: {},
+	$toInt: {},
+	$toLong: {},
+	$toObjectId: {},
+	$toString: {},
+	$toLower: {},
+	$toUpper: {},
+	$trim: {},
+	$trunc: {},
+	$type: {},
+	$week: {},
+	$year: {},
+	$zip: {},
+	$comment: {},
+	$explain: {},
+	$hint: {},
+	$max: {},
+	$maxTimeMS: {},
+	$min: {},
+	$orderby: {},
+	$query: {},
+	$returnKey: {},
+	$showDiskLoc: {},
+	$natural: {},
+}
+----------------------------------------------------
+<span class="token punctuation">{</span>
+	<span class="token property"><span class="token keyword">$eq</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$gt</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$gte</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$in</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$lt</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$lte</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$ne</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$nin</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$and</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$not</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$nor</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$or</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$exists</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$type</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$expr</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$jsonSchema</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$mod</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$regex</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$text</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$where</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$geoIntersects</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$geoWithin</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$near</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$nearSphere</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$all</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$elemMatch</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$size</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$bitsAllClear</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$bitsAllSet</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$bitsAnyClear</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$bitsAnySet</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$comment</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$elemMatch</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$meta</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$slice</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$currentDate</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$inc</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$min</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$max</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$mul</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$rename</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$set</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$setOnInsert</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$unset</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$addToSet</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$pop</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$pull</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$push</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$pullAll</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$each</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$position</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$slice</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$sort</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$bit</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$addFields</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$bucket</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$bucketAuto</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$collStats</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$count</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$currentOp</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$facet</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$geoNear</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$graphLookup</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$group</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$indexStats</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$limit</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$listLocalSessions</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$listSessions</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$lookup</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$match</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$merge</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$out</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$planCacheStats</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$project</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$redact</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$replaceRoot</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$replaceWith</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$sample</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$set</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$skip</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$sort</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$sortByCount</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$unionWith</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$unset</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$unwind</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$abs</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$accumulator</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$acos</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$acosh</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$add</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$addToSet</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$allElementsTrue</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$and</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$anyElementTrue</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$arrayElemAt</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$arrayToObject</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$asin</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$asinh</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$atan</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$atan2</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$atanh</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$avg</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$binarySize</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$bsonSize</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$ceil</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$cmp</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$concat</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$concatArrays</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$cond</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$convert</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$cos</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$dateFromParts</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$dateToParts</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$dateFromString</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$dateToString</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$dayOfMonth</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$dayOfWeek</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$dayOfYear</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$degreesToRadians</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$divide</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$eq</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$exp</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$filter</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$first</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$floor</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$function</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$gt</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$gte</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$hour</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$ifNull</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$in</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$indexOfArray</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$indexOfBytes</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$indexOfCP</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$isArray</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$isNumber</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$isoDayOfWeek</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$isoWeek</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$isoWeekYear</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$last</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$last</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$let</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$literal</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$ln</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$log</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$log10</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$lt</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$lte</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$ltrim</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$map</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$max</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$mergeObjects</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$meta</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$min</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$millisecond</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$minute</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$mod</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$month</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$multiply</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$ne</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$not</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$objectToArray</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$or</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$pow</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$push</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$radiansToDegrees</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$range</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$reduce</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$regexFind</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$regexFindAll</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$regexMatch</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$replaceOne</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$replaceAll</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$reverseArray</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$round</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$rtrim</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$second</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$setDifference</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$setEquals</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$setIntersection</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$setIsSubset</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$setUnion</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$size</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$sin</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$slice</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$split</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$sqrt</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$stdDevPop</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$stdDevSamp</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$strcasecmp</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$strLenBytes</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$strLenCP</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$substr</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$substrBytes</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$substrCP</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$subtract</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$sum</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$switch</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$tan</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toBool</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toDate</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toDecimal</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toDouble</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toInt</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toLong</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toObjectId</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toString</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toLower</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$toUpper</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$trim</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$trunc</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$type</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$week</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$year</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$zip</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$comment</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$explain</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$hint</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$max</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$maxTimeMS</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$min</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$orderby</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$query</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$returnKey</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$showDiskLoc</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property"><span class="token keyword">$natural</span></span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

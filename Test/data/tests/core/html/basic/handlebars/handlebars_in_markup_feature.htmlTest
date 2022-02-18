@@ -1,0 +1,11 @@
+<div>{{{intro}}}</div>
+<div class="{{foo}}">
+___HANDLEBARS1___{{{intro}}}
+{{!<div></div>}}
+----------------------------------------------------
+<span class="token punctuation">&lt;</span><span class="token variable">div</span><span class="token punctuation">></span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">intro</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">&lt;</span><span class="token punctuation">/</span><span class="token variable">div</span><span class="token punctuation">></span>
+<span class="token punctuation">&lt;</span><span class="token variable">div</span> <span class="token variable">class</span><span class="token punctuation">=</span><span class="token string">"{{foo}}"</span><span class="token punctuation">></span>
+<span class="token variable">___HANDLEBARS1___</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">intro</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token comment">{{!&lt;div>&lt;/div>}}</span>
+
+----------------------------------------------------

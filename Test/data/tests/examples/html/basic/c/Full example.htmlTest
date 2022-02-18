@@ -1,0 +1,21 @@
+#include <stdio.h>
+main(int argc, char *argv[])
+{
+   int c;
+   printf("Number of command line arguments passed: %d\n", argc);
+   for ( c = 0 ; c < argc ; c++)
+      printf("%d. Command line argument passed is %s\n", c+1, argv[c]);
+   return 0;
+}
+----------------------------------------------------
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">int</span> c<span class="token punctuation">;</span>
+   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Number of command line arguments passed: %d\n"</span><span class="token punctuation">,</span> argc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span> c <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> c <span class="token operator">&lt;</span> argc <span class="token punctuation">;</span> c<span class="token operator">++</span><span class="token punctuation">)</span>
+      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d. Command line argument passed is %s\n"</span><span class="token punctuation">,</span> c<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> argv<span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

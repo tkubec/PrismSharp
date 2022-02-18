@@ -1,0 +1,111 @@
+cmake_minimum_required(VERSION 3.13)
+
+project(crypto)
+
+add_library(base INTERFACE)
+target_compile_features(base INTERFACE
+    cxx_std_17
+    )
+
+add_subdirectory(helpers)
+add_subdirectory(msg)
+
+add_library(analyzers-obj OBJECT
+    CryptoAnalyzer.cpp
+    )
+
+target_include_directories(analyzers-obj
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+
+find_package(predi REQUIRED)
+target_link_libraries(analyzers-obj
+    PUBLIC
+        base
+        predi::predi
+        crypto::helpers
+    )
+
+set_target_properties(analyzers-obj
+    PROPERTIES
+        POSITION_INDEPENDENT_CODE ON
+    )
+
+add_library(analyzers SHARED
+    $<TARGET_OBJECTS:analyzers-obj>
+    )
+
+target_link_libraries(analyzers PUBLIC analyzers-obj)
+
+add_executable(crypto
+    main.cpp
+    )
+
+target_link_libraries(crypto
+    PUBLIC
+        analyzers
+    PRIVATE
+        base
+        messages
+    )
+
+enable_testing()
+add_subdirectory(tests)
+----------------------------------------------------
+<span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.13</span><span class="token punctuation">)</span>
+
+<span class="token keyword">project</span><span class="token punctuation">(</span>crypto<span class="token punctuation">)</span>
+
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>base <span class="token namespace">INTERFACE</span><span class="token punctuation">)</span>
+<span class="token keyword">target_compile_features</span><span class="token punctuation">(</span>base <span class="token namespace">INTERFACE</span>
+    <span class="token property">cxx_std_17</span>
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">add_subdirectory</span><span class="token punctuation">(</span>helpers<span class="token punctuation">)</span>
+<span class="token keyword">add_subdirectory</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>analyzers-obj OBJECT
+    CryptoAnalyzer.cpp
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">target_include_directories</span><span class="token punctuation">(</span>analyzers-obj
+    <span class="token namespace">PUBLIC</span>
+        <span class="token punctuation">${</span><span class="token variable">CMAKE_CURRENT_SOURCE_DIR</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">find_package</span><span class="token punctuation">(</span>predi REQUIRED<span class="token punctuation">)</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span>analyzers-obj
+    <span class="token namespace">PUBLIC</span>
+        base
+        <span class="token inserted class-name">predi::predi</span>
+        <span class="token inserted class-name">crypto::helpers</span>
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>analyzers-obj
+    <span class="token namespace">PROPERTIES</span>
+        <span class="token property">POSITION_INDEPENDENT_CODE</span> <span class="token boolean">ON</span>
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>analyzers <span class="token namespace">SHARED</span>
+    <span class="token punctuation">$&lt;</span><span class="token namespace">TARGET_OBJECTS</span>:analyzers-obj<span class="token punctuation">></span>
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span>analyzers <span class="token namespace">PUBLIC</span> analyzers-obj<span class="token punctuation">)</span>
+
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span>crypto
+    main.cpp
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span>crypto
+    <span class="token namespace">PUBLIC</span>
+        analyzers
+    <span class="token namespace">PRIVATE</span>
+        base
+        messages
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">enable_testing</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_subdirectory</span><span class="token punctuation">(</span>tests<span class="token punctuation">)</span>
+
+----------------------------------------------------

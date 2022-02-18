@@ -1,0 +1,79 @@
+*** Test Cases ***
+Variables
+	Log    ${GREET}, ${NAME}!!
+	Login  &{USER}
+
+Environment variables for ${name}
+	Log    Current user: %{USER}
+	Run    %{JAVA_HOME}${/}javac
+
+Assign multiple
+	${a}    ${b}    ${c} =    Get Three
+	${first}    @{rest} =    Get Three
+	@{before}    ${last} =    Get Three
+	${begin}    @{middle}    ${end} =    Get Three
+
+*** Keywords ***
+With Positional
+	[Arguments]    ${positional}    @{}    ${named}
+	Log Many    ${positional}    ${named}
+
+With Free Named
+	[Arguments]    @{varargs}    ${named only}    &{free named}
+	Log Many    @{varargs}    ${named only}    &{free named}
+
+*** Settings ***
+Suite Setup     Some Keyword        @{KW ARGS}
+Suite Setup     ${KEYWORD}          @{KW ARGS}
+
+*** Variables ***
+${ANOTHER VARIABLE}    This is pretty easy!
+${INTEGER}             ${42}
+@{STRINGS}             one          two           kolme         four
+@{NUMBERS}             ${1}         ${INTEGER}    ${3.14}
+&{MAPPING}             one=${1}     two=${2}      three=${3}
+@{ANIMALS}             cat          dog
+&{FINNISH}             cat=kissa    dog=koira
+${MULTILINE}           SEPARATOR=\n    First line
+...                    Second line     Third line
+----------------------------------------------------
+<span class="token test-cases section"><span class="token section-header keyword">*** Test Cases ***</span>
+<span class="token test-name function">Variables</span>
+	<span class="token property">Log</span>    <span class="token variable"><span class="token punctuation">${</span>GREET<span class="token punctuation">}</span></span>, <span class="token variable"><span class="token punctuation">${</span>NAME<span class="token punctuation">}</span></span>!!
+	<span class="token property">Login</span>  <span class="token variable"><span class="token punctuation">&amp;{</span>USER<span class="token punctuation">}</span></span>
+
+<span class="token test-name function">Environment variables for <span class="token variable"><span class="token punctuation">${</span>name<span class="token punctuation">}</span></span></span>
+	<span class="token property">Log</span>    Current user: <span class="token variable"><span class="token punctuation">%{</span>USER<span class="token punctuation">}</span></span>
+	<span class="token property">Run</span>    <span class="token variable"><span class="token punctuation">%{</span>JAVA_HOME<span class="token punctuation">}</span></span><span class="token variable"><span class="token punctuation">${</span>/<span class="token punctuation">}</span></span>javac
+
+<span class="token test-name function">Assign multiple</span>
+	<span class="token property"><span class="token variable"><span class="token punctuation">${</span>a<span class="token punctuation">}</span></span></span>    <span class="token variable"><span class="token punctuation">${</span>b<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">${</span>c<span class="token punctuation">}</span></span> =    Get Three
+	<span class="token property"><span class="token variable"><span class="token punctuation">${</span>first<span class="token punctuation">}</span></span></span>    <span class="token variable"><span class="token punctuation">@{</span>rest<span class="token punctuation">}</span></span> =    Get Three
+	<span class="token property"><span class="token variable"><span class="token punctuation">@{</span>before<span class="token punctuation">}</span></span></span>    <span class="token variable"><span class="token punctuation">${</span>last<span class="token punctuation">}</span></span> =    Get Three
+	<span class="token property"><span class="token variable"><span class="token punctuation">${</span>begin<span class="token punctuation">}</span></span></span>    <span class="token variable"><span class="token punctuation">@{</span>middle<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">${</span>end<span class="token punctuation">}</span></span> =    Get Three
+</span>
+<span class="token keywords section"><span class="token section-header keyword">*** Keywords ***</span>
+<span class="token keyword-name function">With Positional</span>
+	<span class="token tag"><span class="token punctuation">[</span>Arguments<span class="token punctuation">]</span></span>    <span class="token variable"><span class="token punctuation">${</span>positional<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">@{</span><span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">${</span>named<span class="token punctuation">}</span></span>
+	<span class="token property">Log Many</span>    <span class="token variable"><span class="token punctuation">${</span>positional<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">${</span>named<span class="token punctuation">}</span></span>
+
+<span class="token keyword-name function">With Free Named</span>
+	<span class="token tag"><span class="token punctuation">[</span>Arguments<span class="token punctuation">]</span></span>    <span class="token variable"><span class="token punctuation">@{</span>varargs<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">${</span>named only<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">&amp;{</span>free named<span class="token punctuation">}</span></span>
+	<span class="token property">Log Many</span>    <span class="token variable"><span class="token punctuation">@{</span>varargs<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">${</span>named only<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">&amp;{</span>free named<span class="token punctuation">}</span></span>
+
+</span><span class="token settings section"><span class="token section-header keyword">*** Settings ***</span>
+<span class="token property">Suite Setup</span>     Some Keyword        <span class="token variable"><span class="token punctuation">@{</span>KW ARGS<span class="token punctuation">}</span></span>
+<span class="token property">Suite Setup</span>     <span class="token variable"><span class="token punctuation">${</span>KEYWORD<span class="token punctuation">}</span></span>          <span class="token variable"><span class="token punctuation">@{</span>KW ARGS<span class="token punctuation">}</span></span>
+</span>
+<span class="token variables section"><span class="token section-header keyword">*** Variables ***</span>
+<span class="token variable"><span class="token punctuation">${</span>ANOTHER VARIABLE<span class="token punctuation">}</span></span>    This is pretty easy!
+<span class="token variable"><span class="token punctuation">${</span>INTEGER<span class="token punctuation">}</span></span>             <span class="token variable"><span class="token punctuation">${</span>42<span class="token punctuation">}</span></span>
+<span class="token variable"><span class="token punctuation">@{</span>STRINGS<span class="token punctuation">}</span></span>             one          two           kolme         four
+<span class="token variable"><span class="token punctuation">@{</span>NUMBERS<span class="token punctuation">}</span></span>             <span class="token variable"><span class="token punctuation">${</span>1<span class="token punctuation">}</span></span>         <span class="token variable"><span class="token punctuation">${</span>INTEGER<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">${</span>3.14<span class="token punctuation">}</span></span>
+<span class="token variable"><span class="token punctuation">&amp;{</span>MAPPING<span class="token punctuation">}</span></span>             one=<span class="token variable"><span class="token punctuation">${</span>1<span class="token punctuation">}</span></span>     two=<span class="token variable"><span class="token punctuation">${</span>2<span class="token punctuation">}</span></span>      three=<span class="token variable"><span class="token punctuation">${</span>3<span class="token punctuation">}</span></span>
+<span class="token variable"><span class="token punctuation">@{</span>ANIMALS<span class="token punctuation">}</span></span>             cat          dog
+<span class="token variable"><span class="token punctuation">&amp;{</span>FINNISH<span class="token punctuation">}</span></span>             cat=kissa    dog=koira
+<span class="token variable"><span class="token punctuation">${</span>MULTILINE<span class="token punctuation">}</span></span>           SEPARATOR=\n    First line
+...                    Second line     Third line</span>
+
+----------------------------------------------------

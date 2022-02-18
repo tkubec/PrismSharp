@@ -1,0 +1,13 @@
+""
+"foo bar"
+
+print("log density before =", target());
+print("u[", n, "] = ", u[n]);
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo bar"</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"log density before ="</span><span class="token punctuation">,</span> <span class="token keyword">target</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"u["</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> <span class="token string">"] = "</span><span class="token punctuation">,</span> u<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

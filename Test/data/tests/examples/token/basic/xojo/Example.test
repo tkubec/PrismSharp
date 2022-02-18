@@ -1,0 +1,358 @@
+Dim g As Graphics
+Dim yOffSet As Integer
+g = OpenPrinterDialog()
+If g <> Nil Then
+  If MainDishMenu.ListIndex <> -1 Then
+    g.Bold = True
+    g.DrawString("Main Dish:",20,20)
+    g.Bold = False
+    g.DrawString(MainDishMenu.Text,100,20)
+    g.Bold = True
+    g.DrawString("Side Order:",20,40)
+    g.Bold = False
+    If FriesRadio.Value Then
+      g.DrawString(FriesRadio.Caption,100,40)
+    End If
+    If PotatoRadio.Value Then
+      g.DrawString(PotatoRadio.Caption,100,40)
+    End If
+    If OnionRingRadio.Value Then
+      g.DrawString(OnionRingRadio.Caption,100,40)
+    End If
+    yOffSet = 60
+    If CheeseCheckBox.Value Then
+      g.Bold = True
+      g.DrawString("Extra:",20,yOffSet)
+      g.Bold = False
+      g.DrawString(CheeseCheckBox.Caption,100,yOffSet)
+      yOffSet = yOffSet + 20
+    End If
+    If BaconCheckBox.Value Then
+      g.Bold = True
+      g.DrawString("Extra:",20,yOffSet)
+      g.Bold = False
+      g.DrawString(BaconCheckBox.Caption,100,yOffSet)
+      yOffSet = yOffSet + 20
+    End If
+    g.Bold = True
+    g.DrawString("Notes:",20,yOffSet)
+    g.Bold = False
+    g.DrawString(NotesField.Text,100,yOffSet,(g.Width-40))
+  End If
+End If
+----------------------------------------------------
+[
+	["keyword", "Dim"],
+	" g ",
+	["keyword", "As"],
+	" Graphics\n",
+
+	["keyword", "Dim"],
+	" yOffSet ",
+	["keyword", "As"],
+	["keyword", "Integer"],
+
+	"\ng ",
+	["operator", "="],
+	" OpenPrinterDialog",
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "If"],
+	" g ",
+	["operator", "<>"],
+	["keyword", "Nil"],
+	["keyword", "Then"],
+
+	["keyword", "If"],
+	" MainDishMenu",
+	["punctuation", "."],
+	"ListIndex ",
+	["operator", "<>"],
+	["operator", "-"],
+	["number", "1"],
+	["keyword", "Then"],
+
+	"\n    g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "True"],
+
+	"\n    g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	["string", "\"Main Dish:\""],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ")"],
+
+	"\n    g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "False"],
+
+	"\n    g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	"MainDishMenu",
+	["punctuation", "."],
+	["keyword", "Text"],
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ")"],
+
+	"\n    g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "True"],
+
+	"\n    g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	["string", "\"Side Order:\""],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ","],
+	["number", "40"],
+	["punctuation", ")"],
+
+	"\n    g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "False"],
+
+	["keyword", "If"],
+	" FriesRadio",
+	["punctuation", "."],
+	"Value ",
+	["keyword", "Then"],
+
+	"\n      g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	"FriesRadio",
+	["punctuation", "."],
+	"Caption",
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	["number", "40"],
+	["punctuation", ")"],
+
+	["keyword", "End"],
+	["keyword", "If"],
+
+	["keyword", "If"],
+	" PotatoRadio",
+	["punctuation", "."],
+	"Value ",
+	["keyword", "Then"],
+
+	"\n      g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	"PotatoRadio",
+	["punctuation", "."],
+	"Caption",
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	["number", "40"],
+	["punctuation", ")"],
+
+	["keyword", "End"],
+	["keyword", "If"],
+
+	["keyword", "If"],
+	" OnionRingRadio",
+	["punctuation", "."],
+	"Value ",
+	["keyword", "Then"],
+
+	"\n      g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	"OnionRingRadio",
+	["punctuation", "."],
+	"Caption",
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	["number", "40"],
+	["punctuation", ")"],
+
+	["keyword", "End"],
+	["keyword", "If"],
+
+	"\n    yOffSet ",
+	["operator", "="],
+	["number", "60"],
+
+	["keyword", "If"],
+	" CheeseCheckBox",
+	["punctuation", "."],
+	"Value ",
+	["keyword", "Then"],
+
+	"\n      g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "True"],
+
+	"\n      g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	["string", "\"Extra:\""],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ","],
+	"yOffSet",
+	["punctuation", ")"],
+
+	"\n      g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "False"],
+
+	"\n      g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	"CheeseCheckBox",
+	["punctuation", "."],
+	"Caption",
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	"yOffSet",
+	["punctuation", ")"],
+
+	"\n      yOffSet ",
+	["operator", "="],
+	" yOffSet ",
+	["operator", "+"],
+	["number", "20"],
+
+	["keyword", "End"],
+	["keyword", "If"],
+
+	["keyword", "If"],
+	" BaconCheckBox",
+	["punctuation", "."],
+	"Value ",
+	["keyword", "Then"],
+
+	"\n      g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "True"],
+
+	"\n      g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	["string", "\"Extra:\""],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ","],
+	"yOffSet",
+	["punctuation", ")"],
+
+	"\n      g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "False"],
+
+	"\n      g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	"BaconCheckBox",
+	["punctuation", "."],
+	"Caption",
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	"yOffSet",
+	["punctuation", ")"],
+
+	"\n      yOffSet ",
+	["operator", "="],
+	" yOffSet ",
+	["operator", "+"],
+	["number", "20"],
+
+	["keyword", "End"],
+	["keyword", "If"],
+
+	"\n    g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "True"],
+
+	"\n    g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	["string", "\"Notes:\""],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ","],
+	"yOffSet",
+	["punctuation", ")"],
+
+	"\n    g",
+	["punctuation", "."],
+	"Bold ",
+	["operator", "="],
+	["keyword", "False"],
+
+	"\n    g",
+	["punctuation", "."],
+	"DrawString",
+	["punctuation", "("],
+	"NotesField",
+	["punctuation", "."],
+	["keyword", "Text"],
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	"yOffSet",
+	["punctuation", ","],
+	["punctuation", "("],
+	"g",
+	["punctuation", "."],
+	"Width",
+	["operator", "-"],
+	["number", "40"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["keyword", "End"],
+	["keyword", "If"],
+
+	["keyword", "End"],
+	["keyword", "If"]
+]
+
+----------------------------------------------------

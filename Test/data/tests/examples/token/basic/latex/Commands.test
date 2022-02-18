@@ -1,0 +1,25 @@
+\begin{document}
+\documentstyle[twoside,epsfig]{article}
+\usepackage{epsfig,multicol}
+----------------------------------------------------
+[
+	["function", "\\begin"],
+	["punctuation", "{"],
+	["keyword", "document"],
+	["punctuation", "}"],
+
+	["function", "\\documentstyle"],
+	["punctuation", "["],
+	"twoside,epsfig",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	"article",
+	["punctuation", "}"],
+
+	["function", "\\usepackage"],
+	["punctuation", "{"],
+	["keyword", "epsfig,multicol"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

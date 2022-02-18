@@ -1,0 +1,11 @@
+@main-color: red;
+.foo {
+	background: @main-color;
+}
+----------------------------------------------------
+<span class="token atrule"><span class="token rule">@main-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></span>
+<span class="token selector">.foo</span> <span class="token punctuation">{</span>
+	<span class="token property">background</span><span class="token punctuation">:</span> <span class="token atrule"><span class="token rule">@main-color</span><span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

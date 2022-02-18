@@ -1,0 +1,468 @@
+// From http://help.autodesk.com/view/MAYAUL/2015/ENU/?guid=Example_scripts_Dynamics_Time_Playback
+// Alias Script File
+// MODIFY THIS AT YOUR OWN RISK
+//
+// Creation Date: 8 May 1996
+// Author: rh
+//
+// Description:
+// Playback from frame 0 to frame <n> and return the
+// 		the playback rate in frames/sec. If a negative frame
+// count is given, this indicates silent mode. In silent
+// mode, no output is printed.
+//
+// This version is intended for use in batch tests of dynamics.
+// It requests particle and rigid body positions every frame.
+//
+// RETURN
+// Frame rate in frames/sec
+//
+global proc float dynTimePlayback( float $frames )
+{
+ int $silent;
+ // Get the list of particle shapes.
+ //
+ string $particleObjects[] = `ls -type particle`;
+ int $particleCount = size( $particleObjects );
+ // Get the list of transforms.
+ // This will include rigid bodies.
+ //
+ string $transforms[] = `ls -tr`;
+ int $trCount = size( $transforms );
+ 	// Check for negative $frames. This indicates
+ // $silent mode.
+ //
+ if ($frames < 0)
+ {
+ $silent = 1;
+ $frames = -$frames;
+ }
+ else
+ {
+ $silent = 0;
+ }
+ // Setup the playback options.
+ //
+ playbackOptions -min 1 -max $frames -loop "once";
+ currentTime -edit 0;
+ // Playback the animation using the timerX command
+ // to compute the $elapsed time.
+ //
+ float $startTime, $elapsed;
+ $startTime = `timerX`;
+// play -wait;
+ int $i;
+ for ($i = 1; $i < $frames; $i++ )
+ {
+ // Set time
+ //
+ currentTime -e $i;
+ int $obj;
+ // Request count for every particle object.
+ //
+ for ($obj = 0; $obj < $particleCount; $obj++)
+ {
+			string $cmd = "getAttr " + $particleObjects[$obj]+".count";
+ eval( $cmd );
+ }
+ // Request position for every transform
+		// (includes every rigid body).
+ //
+ for ($obj = 0; $obj < $trCount; $obj++)
+ {
+ string $cmd = "getAttr " + $transforms[$obj]+".translate";
+ eval ($cmd);
+ }
+ }
+ $elapsed = `timerX -st $startTime`;
+ // Compute the playback frame $rate. Print results.
+ //
+ float $rate = ($elapsed == 0 ? 0.0 : $frames / $elapsed) ;
+ if ( ! $silent)
+ {
+ print( "Playback time: " + $elapsed + " secs\n" );
+ print( "Playback $rate: " + $rate + " $frames/sec\n" );
+ }
+ return ( $rate );
+} // timePlayback //
+----------------------------------------------------
+[
+	["comment", "// From http://help.autodesk.com/view/MAYAUL/2015/ENU/?guid=Example_scripts_Dynamics_Time_Playback"],
+
+	["comment", "// Alias Script File"],
+
+	["comment", "// MODIFY THIS AT YOUR OWN RISK"],
+
+	["comment", "//"],
+
+	["comment", "// Creation Date: 8 May 1996"],
+
+	["comment", "// Author: rh"],
+
+	["comment", "//"],
+
+	["comment", "// Description:"],
+
+	["comment", "// Playback from frame 0 to frame <n> and return the"],
+
+	["comment", "// \t\tthe playback rate in frames/sec. If a negative frame"],
+
+	["comment", "// count is given, this indicates silent mode. In silent"],
+
+	["comment", "// mode, no output is printed."],
+
+	["comment", "//"],
+
+	["comment", "// This version is intended for use in batch tests of dynamics."],
+
+	["comment", "// It requests particle and rigid body positions every frame."],
+
+	["comment", "//"],
+
+	["comment", "// RETURN"],
+
+	["comment", "// Frame rate in frames/sec"],
+
+	["comment", "//"],
+
+	["keyword", "global"],
+	["keyword", "proc"],
+	["keyword", "float"],
+	["function", "dynTimePlayback"],
+	["punctuation", "("],
+	["keyword", "float"],
+	["variable", "$frames"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "int"],
+	["variable", "$silent"],
+	["punctuation", ";"],
+
+	["comment", "// Get the list of particle shapes."],
+
+	["comment", "//"],
+
+	["keyword", "string"],
+	["variable", "$particleObjects"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["operator", "="],
+	["code", [
+		["delimiter", "`"],
+		["function", "ls"],
+		["flag", "-type"],
+		["function", "particle"],
+		["delimiter", "`"]
+	]],
+	["punctuation", ";"],
+
+	["keyword", "int"],
+	["variable", "$particleCount"],
+	["operator", "="],
+	["function", "size"],
+	["punctuation", "("],
+	["variable", "$particleObjects"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Get the list of transforms."],
+
+	["comment", "// This will include rigid bodies."],
+
+	["comment", "//"],
+
+	["keyword", "string"],
+	["variable", "$transforms"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["operator", "="],
+	["code", [
+		["delimiter", "`"],
+		["function", "ls"],
+		["flag", "-tr"],
+		["delimiter", "`"]
+	]],
+	["punctuation", ";"],
+
+	["keyword", "int"],
+	["variable", "$trCount"],
+	["operator", "="],
+	["function", "size"],
+	["punctuation", "("],
+	["variable", "$transforms"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Check for negative $frames. This indicates"],
+
+	["comment", "// $silent mode."],
+
+	["comment", "//"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$frames"],
+	["operator", "<"],
+	["number", "0"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$silent"],
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["variable", "$frames"],
+	["operator", "="],
+	["operator", "-"],
+	["variable", "$frames"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+
+	["punctuation", "{"],
+
+	["variable", "$silent"],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// Setup the playback options."],
+
+	["comment", "//"],
+
+	["function", "playbackOptions"],
+	["flag", "-min"],
+	["number", "1"],
+	["flag", "-max"],
+	["variable", "$frames"],
+	["flag", "-loop"],
+	["string", "\"once\""],
+	["punctuation", ";"],
+
+	["function", "currentTime"],
+	["flag", "-edit"],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["comment", "// Playback the animation using the timerX command"],
+
+	["comment", "// to compute the $elapsed time."],
+
+	["comment", "//"],
+
+	["keyword", "float"],
+	["variable", "$startTime"],
+	["punctuation", ","],
+	["variable", "$elapsed"],
+	["punctuation", ";"],
+
+	["variable", "$startTime"],
+	["operator", "="],
+	["code", [
+		["delimiter", "`"],
+		["function", "timerX"],
+		["delimiter", "`"]
+	]],
+	["punctuation", ";"],
+
+	["comment", "// play -wait;"],
+
+	["keyword", "int"],
+	["variable", "$i"],
+	["punctuation", ";"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["variable", "$i"],
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+	["variable", "$i"],
+	["operator", "<"],
+	["variable", "$frames"],
+	["punctuation", ";"],
+	["variable", "$i"],
+	["operator", "++"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["comment", "// Set time"],
+
+	["comment", "//"],
+
+	["function", "currentTime"],
+	["flag", "-e"],
+	["variable", "$i"],
+	["punctuation", ";"],
+
+	["keyword", "int"],
+	["variable", "$obj"],
+	["punctuation", ";"],
+
+	["comment", "// Request count for every particle object."],
+
+	["comment", "//"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["variable", "$obj"],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	["variable", "$obj"],
+	["operator", "<"],
+	["variable", "$particleCount"],
+	["punctuation", ";"],
+	["variable", "$obj"],
+	["operator", "++"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "string"],
+	["variable", "$cmd"],
+	["operator", "="],
+	["string", "\"getAttr \""],
+	["operator", "+"],
+	["variable", "$particleObjects"],
+	["punctuation", "["],
+	["variable", "$obj"],
+	["punctuation", "]"],
+	["operator", "+"],
+	["string", "\".count\""],
+	["punctuation", ";"],
+
+	["function", "eval"],
+	["punctuation", "("],
+	["variable", "$cmd"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// Request position for every transform"],
+
+	["comment", "// (includes every rigid body)."],
+
+	["comment", "//"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["variable", "$obj"],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	["variable", "$obj"],
+	["operator", "<"],
+	["variable", "$trCount"],
+	["punctuation", ";"],
+	["variable", "$obj"],
+	["operator", "++"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "string"],
+	["variable", "$cmd"],
+	["operator", "="],
+	["string", "\"getAttr \""],
+	["operator", "+"],
+	["variable", "$transforms"],
+	["punctuation", "["],
+	["variable", "$obj"],
+	["punctuation", "]"],
+	["operator", "+"],
+	["string", "\".translate\""],
+	["punctuation", ";"],
+
+	["function", "eval"],
+	["punctuation", "("],
+	["variable", "$cmd"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["variable", "$elapsed"],
+	["operator", "="],
+	["code", [
+		["delimiter", "`"],
+		["function", "timerX"],
+		["flag", "-st"],
+		["variable", "$startTime"],
+		["delimiter", "`"]
+	]],
+	["punctuation", ";"],
+
+	["comment", "// Compute the playback frame $rate. Print results."],
+
+	["comment", "//"],
+
+	["keyword", "float"],
+	["variable", "$rate"],
+	["operator", "="],
+	["punctuation", "("],
+	["variable", "$elapsed"],
+	["operator", "=="],
+	["number", "0"],
+	["punctuation", "?"],
+	["number", "0.0"],
+	["punctuation", ":"],
+	["variable", "$frames"],
+	["operator", "/"],
+	["variable", "$elapsed"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	["variable", "$silent"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["string", "\"Playback time: \""],
+	["operator", "+"],
+	["variable", "$elapsed"],
+	["operator", "+"],
+	["string", "\" secs\\n\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["string", "\"Playback $rate: \""],
+	["operator", "+"],
+	["variable", "$rate"],
+	["operator", "+"],
+	["string", "\" $frames/sec\\n\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"],
+	["punctuation", "("],
+	["variable", "$rate"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["comment", "// timePlayback //"]
+]
+
+----------------------------------------------------

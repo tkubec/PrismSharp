@@ -1,0 +1,1383 @@
+javax.servlet.ServletException: Something bad happened
+    at com.example.myproject.OpenSessionInViewFilter.doFilter(OpenSessionInViewFilter.java:60)
+    at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+    at com.example.myproject.ExceptionHandlerFilter.doFilter(ExceptionHandlerFilter.java:28)
+    at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+    at com.example.myproject.OutputBufferFilter.doFilter(OutputBufferFilter.java:33)
+    at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+    at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:388)
+    at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+    at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+    at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+    at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418)
+    at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+    at org.mortbay.jetty.Server.handle(Server.java:326)
+    at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+    at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:943)
+    at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:756)
+    at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218)
+    at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+    at org.mortbay.jetty.bio.SocketConnector$Connection.run(SocketConnector.java:228)
+    at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: com.example.myproject.MyProjectServletException
+    at com.example.myproject.MyServlet.doPost(MyServlet.java:169)
+    at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+    at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+    at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+    at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1166)
+    at com.example.myproject.OpenSessionInViewFilter.doFilter(OpenSessionInViewFilter.java:30)
+    ... 27 more
+Suppressed: org.hibernate.exception.ConstraintViolationException: could not insert: [com.example.myproject.MyEntity]
+    at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:96)
+    at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+    at org.hibernate.id.insert.AbstractSelectingDelegate.performInsert(AbstractSelectingDelegate.java:64)
+    at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2329)
+    at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2822)
+    at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:71)
+    at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:268)
+    at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:321)
+    at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:204)
+    at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:130)
+    at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:210)
+    at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:56)
+    at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:195)
+    at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:50)
+    at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:93)
+    at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:705)
+    at org.hibernate.impl.SessionImpl.save(SessionImpl.java:693)
+    at org.hibernate.impl.SessionImpl.save(SessionImpl.java:689)
+    at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+    at java.lang.reflect.Method.invoke(Method.java:597)
+    at org.hibernate.context.ThreadLocalSessionContext$TransactionProtectionWrapper.invoke(ThreadLocalSessionContext.java:344)
+    at $Proxy19.save(Unknown Source)
+    at com.example.myproject.MyEntityService.save(MyEntityService.java:59) <-- relevant call (see notes below)
+    at com.example.myproject.MyServlet.doPost(MyServlet.java:164)
+    ... 32 more
+Caused by: java.sql.SQLException: Violation of unique constraint MY_ENTITY_UK_1: duplicate value(s) for column(s) MY_COLUMN in statement [...]
+    at org.hsqldb.jdbc.Util.throwError(Unknown Source)
+    at org.hsqldb.jdbc.jdbcPreparedStatement.executeUpdate(Unknown Source)
+    at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
+    at org.hibernate.id.insert.AbstractSelectingDelegate.performInsert(AbstractSelectingDelegate.java:57)
+    ... 54 more
+----------------------------------------------------
+[
+	["summary", [
+		["exceptions", [
+			["namespace", "javax"],
+			["punctuation", "."],
+			["namespace", "servlet"],
+			["punctuation", "."],
+			["class-name", "ServletException"]
+		]],
+		["punctuation", ":"],
+		["message", "Something bad happened"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"com",
+			["punctuation", "."],
+			"example",
+			["punctuation", "."],
+			"myproject",
+			["punctuation", "."]
+		]],
+		["class-name", "OpenSessionInViewFilter"],
+		["punctuation", "."],
+		["function", "doFilter"],
+		["punctuation", "("],
+		["source", [
+			["file", "OpenSessionInViewFilter.java"],
+			["punctuation", ":"],
+			["line-number", "60"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."]
+		]],
+		["class-name", "ServletHandler$CachedChain"],
+		["punctuation", "."],
+		["function", "doFilter"],
+		["punctuation", "("],
+		["source", [
+			["file", "ServletHandler.java"],
+			["punctuation", ":"],
+			["line-number", "1157"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"com",
+			["punctuation", "."],
+			"example",
+			["punctuation", "."],
+			"myproject",
+			["punctuation", "."]
+		]],
+		["class-name", "ExceptionHandlerFilter"],
+		["punctuation", "."],
+		["function", "doFilter"],
+		["punctuation", "("],
+		["source", [
+			["file", "ExceptionHandlerFilter.java"],
+			["punctuation", ":"],
+			["line-number", "28"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."]
+		]],
+		["class-name", "ServletHandler$CachedChain"],
+		["punctuation", "."],
+		["function", "doFilter"],
+		["punctuation", "("],
+		["source", [
+			["file", "ServletHandler.java"],
+			["punctuation", ":"],
+			["line-number", "1157"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"com",
+			["punctuation", "."],
+			"example",
+			["punctuation", "."],
+			"myproject",
+			["punctuation", "."]
+		]],
+		["class-name", "OutputBufferFilter"],
+		["punctuation", "."],
+		["function", "doFilter"],
+		["punctuation", "("],
+		["source", [
+			["file", "OutputBufferFilter.java"],
+			["punctuation", ":"],
+			["line-number", "33"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."]
+		]],
+		["class-name", "ServletHandler$CachedChain"],
+		["punctuation", "."],
+		["function", "doFilter"],
+		["punctuation", "("],
+		["source", [
+			["file", "ServletHandler.java"],
+			["punctuation", ":"],
+			["line-number", "1157"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."]
+		]],
+		["class-name", "ServletHandler"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "ServletHandler.java"],
+			["punctuation", ":"],
+			["line-number", "388"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"security",
+			["punctuation", "."]
+		]],
+		["class-name", "SecurityHandler"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "SecurityHandler.java"],
+			["punctuation", ":"],
+			["line-number", "216"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."]
+		]],
+		["class-name", "SessionHandler"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "SessionHandler.java"],
+			["punctuation", ":"],
+			["line-number", "182"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"handler",
+			["punctuation", "."]
+		]],
+		["class-name", "ContextHandler"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "ContextHandler.java"],
+			["punctuation", ":"],
+			["line-number", "765"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"webapp",
+			["punctuation", "."]
+		]],
+		["class-name", "WebAppContext"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "WebAppContext.java"],
+			["punctuation", ":"],
+			["line-number", "418"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"handler",
+			["punctuation", "."]
+		]],
+		["class-name", "HandlerWrapper"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "HandlerWrapper.java"],
+			["punctuation", ":"],
+			["line-number", "152"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."]
+		]],
+		["class-name", "Server"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "Server.java"],
+			["punctuation", ":"],
+			["line-number", "326"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."]
+		]],
+		["class-name", "HttpConnection"],
+		["punctuation", "."],
+		["function", "handleRequest"],
+		["punctuation", "("],
+		["source", [
+			["file", "HttpConnection.java"],
+			["punctuation", ":"],
+			["line-number", "542"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."]
+		]],
+		["class-name", "HttpConnection$RequestHandler"],
+		["punctuation", "."],
+		["function", "content"],
+		["punctuation", "("],
+		["source", [
+			["file", "HttpConnection.java"],
+			["punctuation", ":"],
+			["line-number", "943"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."]
+		]],
+		["class-name", "HttpParser"],
+		["punctuation", "."],
+		["function", "parseNext"],
+		["punctuation", "("],
+		["source", [
+			["file", "HttpParser.java"],
+			["punctuation", ":"],
+			["line-number", "756"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."]
+		]],
+		["class-name", "HttpParser"],
+		["punctuation", "."],
+		["function", "parseAvailable"],
+		["punctuation", "("],
+		["source", [
+			["file", "HttpParser.java"],
+			["punctuation", ":"],
+			["line-number", "218"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."]
+		]],
+		["class-name", "HttpConnection"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "HttpConnection.java"],
+			["punctuation", ":"],
+			["line-number", "404"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"bio",
+			["punctuation", "."]
+		]],
+		["class-name", "SocketConnector$Connection"],
+		["punctuation", "."],
+		["function", "run"],
+		["punctuation", "("],
+		["source", [
+			["file", "SocketConnector.java"],
+			["punctuation", ":"],
+			["line-number", "228"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"thread",
+			["punctuation", "."]
+		]],
+		["class-name", "QueuedThreadPool$PoolThread"],
+		["punctuation", "."],
+		["function", "run"],
+		["punctuation", "("],
+		["source", [
+			["file", "QueuedThreadPool.java"],
+			["punctuation", ":"],
+			["line-number", "582"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["summary", [
+		["keyword", "Caused by"],
+		["punctuation", ":"],
+		["exceptions", [
+			["namespace", "com"],
+			["punctuation", "."],
+			["namespace", "example"],
+			["punctuation", "."],
+			["namespace", "myproject"],
+			["punctuation", "."],
+			["class-name", "MyProjectServletException"]
+		]]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"com",
+			["punctuation", "."],
+			"example",
+			["punctuation", "."],
+			"myproject",
+			["punctuation", "."]
+		]],
+		["class-name", "MyServlet"],
+		["punctuation", "."],
+		["function", "doPost"],
+		["punctuation", "("],
+		["source", [
+			["file", "MyServlet.java"],
+			["punctuation", ":"],
+			["line-number", "169"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"javax",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."],
+			"http",
+			["punctuation", "."]
+		]],
+		["class-name", "HttpServlet"],
+		["punctuation", "."],
+		["function", "service"],
+		["punctuation", "("],
+		["source", [
+			["file", "HttpServlet.java"],
+			["punctuation", ":"],
+			["line-number", "727"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"javax",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."],
+			"http",
+			["punctuation", "."]
+		]],
+		["class-name", "HttpServlet"],
+		["punctuation", "."],
+		["function", "service"],
+		["punctuation", "("],
+		["source", [
+			["file", "HttpServlet.java"],
+			["punctuation", ":"],
+			["line-number", "820"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."]
+		]],
+		["class-name", "ServletHolder"],
+		["punctuation", "."],
+		["function", "handle"],
+		["punctuation", "("],
+		["source", [
+			["file", "ServletHolder.java"],
+			["punctuation", ":"],
+			["line-number", "511"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"mortbay",
+			["punctuation", "."],
+			"jetty",
+			["punctuation", "."],
+			"servlet",
+			["punctuation", "."]
+		]],
+		["class-name", "ServletHandler$CachedChain"],
+		["punctuation", "."],
+		["function", "doFilter"],
+		["punctuation", "("],
+		["source", [
+			["file", "ServletHandler.java"],
+			["punctuation", ":"],
+			["line-number", "1166"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"com",
+			["punctuation", "."],
+			"example",
+			["punctuation", "."],
+			"myproject",
+			["punctuation", "."]
+		]],
+		["class-name", "OpenSessionInViewFilter"],
+		["punctuation", "."],
+		["function", "doFilter"],
+		["punctuation", "("],
+		["source", [
+			["file", "OpenSessionInViewFilter.java"],
+			["punctuation", ":"],
+			["line-number", "30"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["more", [
+		["punctuation", "..."],
+		["number", "27"],
+		["keyword", "more"]
+	]],
+
+	["summary", [
+		["keyword", "Suppressed"],
+		["punctuation", ":"],
+		["exceptions", [
+			["namespace", "org"],
+			["punctuation", "."],
+			["namespace", "hibernate"],
+			["punctuation", "."],
+			["namespace", "exception"],
+			["punctuation", "."],
+			["class-name", "ConstraintViolationException"]
+		]],
+		["punctuation", ":"],
+		["message", "could not insert: [com.example.myproject.MyEntity]"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"exception",
+			["punctuation", "."]
+		]],
+		["class-name", "SQLStateConverter"],
+		["punctuation", "."],
+		["function", "convert"],
+		["punctuation", "("],
+		["source", [
+			["file", "SQLStateConverter.java"],
+			["punctuation", ":"],
+			["line-number", "96"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"exception",
+			["punctuation", "."]
+		]],
+		["class-name", "JDBCExceptionHelper"],
+		["punctuation", "."],
+		["function", "convert"],
+		["punctuation", "("],
+		["source", [
+			["file", "JDBCExceptionHelper.java"],
+			["punctuation", ":"],
+			["line-number", "66"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"id",
+			["punctuation", "."],
+			"insert",
+			["punctuation", "."]
+		]],
+		["class-name", "AbstractSelectingDelegate"],
+		["punctuation", "."],
+		["function", "performInsert"],
+		["punctuation", "("],
+		["source", [
+			["file", "AbstractSelectingDelegate.java"],
+			["punctuation", ":"],
+			["line-number", "64"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"persister",
+			["punctuation", "."],
+			"entity",
+			["punctuation", "."]
+		]],
+		["class-name", "AbstractEntityPersister"],
+		["punctuation", "."],
+		["function", "insert"],
+		["punctuation", "("],
+		["source", [
+			["file", "AbstractEntityPersister.java"],
+			["punctuation", ":"],
+			["line-number", "2329"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"persister",
+			["punctuation", "."],
+			"entity",
+			["punctuation", "."]
+		]],
+		["class-name", "AbstractEntityPersister"],
+		["punctuation", "."],
+		["function", "insert"],
+		["punctuation", "("],
+		["source", [
+			["file", "AbstractEntityPersister.java"],
+			["punctuation", ":"],
+			["line-number", "2822"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"action",
+			["punctuation", "."]
+		]],
+		["class-name", "EntityIdentityInsertAction"],
+		["punctuation", "."],
+		["function", "execute"],
+		["punctuation", "("],
+		["source", [
+			["file", "EntityIdentityInsertAction.java"],
+			["punctuation", ":"],
+			["line-number", "71"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"engine",
+			["punctuation", "."]
+		]],
+		["class-name", "ActionQueue"],
+		["punctuation", "."],
+		["function", "execute"],
+		["punctuation", "("],
+		["source", [
+			["file", "ActionQueue.java"],
+			["punctuation", ":"],
+			["line-number", "268"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"event",
+			["punctuation", "."],
+			"def",
+			["punctuation", "."]
+		]],
+		["class-name", "AbstractSaveEventListener"],
+		["punctuation", "."],
+		["function", "performSaveOrReplicate"],
+		["punctuation", "("],
+		["source", [
+			["file", "AbstractSaveEventListener.java"],
+			["punctuation", ":"],
+			["line-number", "321"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"event",
+			["punctuation", "."],
+			"def",
+			["punctuation", "."]
+		]],
+		["class-name", "AbstractSaveEventListener"],
+		["punctuation", "."],
+		["function", "performSave"],
+		["punctuation", "("],
+		["source", [
+			["file", "AbstractSaveEventListener.java"],
+			["punctuation", ":"],
+			["line-number", "204"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"event",
+			["punctuation", "."],
+			"def",
+			["punctuation", "."]
+		]],
+		["class-name", "AbstractSaveEventListener"],
+		["punctuation", "."],
+		["function", "saveWithGeneratedId"],
+		["punctuation", "("],
+		["source", [
+			["file", "AbstractSaveEventListener.java"],
+			["punctuation", ":"],
+			["line-number", "130"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"event",
+			["punctuation", "."],
+			"def",
+			["punctuation", "."]
+		]],
+		["class-name", "DefaultSaveOrUpdateEventListener"],
+		["punctuation", "."],
+		["function", "saveWithGeneratedOrRequestedId"],
+		["punctuation", "("],
+		["source", [
+			["file", "DefaultSaveOrUpdateEventListener.java"],
+			["punctuation", ":"],
+			["line-number", "210"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"event",
+			["punctuation", "."],
+			"def",
+			["punctuation", "."]
+		]],
+		["class-name", "DefaultSaveEventListener"],
+		["punctuation", "."],
+		["function", "saveWithGeneratedOrRequestedId"],
+		["punctuation", "("],
+		["source", [
+			["file", "DefaultSaveEventListener.java"],
+			["punctuation", ":"],
+			["line-number", "56"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"event",
+			["punctuation", "."],
+			"def",
+			["punctuation", "."]
+		]],
+		["class-name", "DefaultSaveOrUpdateEventListener"],
+		["punctuation", "."],
+		["function", "entityIsTransient"],
+		["punctuation", "("],
+		["source", [
+			["file", "DefaultSaveOrUpdateEventListener.java"],
+			["punctuation", ":"],
+			["line-number", "195"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"event",
+			["punctuation", "."],
+			"def",
+			["punctuation", "."]
+		]],
+		["class-name", "DefaultSaveEventListener"],
+		["punctuation", "."],
+		["function", "performSaveOrUpdate"],
+		["punctuation", "("],
+		["source", [
+			["file", "DefaultSaveEventListener.java"],
+			["punctuation", ":"],
+			["line-number", "50"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"event",
+			["punctuation", "."],
+			"def",
+			["punctuation", "."]
+		]],
+		["class-name", "DefaultSaveOrUpdateEventListener"],
+		["punctuation", "."],
+		["function", "onSaveOrUpdate"],
+		["punctuation", "("],
+		["source", [
+			["file", "DefaultSaveOrUpdateEventListener.java"],
+			["punctuation", ":"],
+			["line-number", "93"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"impl",
+			["punctuation", "."]
+		]],
+		["class-name", "SessionImpl"],
+		["punctuation", "."],
+		["function", "fireSave"],
+		["punctuation", "("],
+		["source", [
+			["file", "SessionImpl.java"],
+			["punctuation", ":"],
+			["line-number", "705"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"impl",
+			["punctuation", "."]
+		]],
+		["class-name", "SessionImpl"],
+		["punctuation", "."],
+		["function", "save"],
+		["punctuation", "("],
+		["source", [
+			["file", "SessionImpl.java"],
+			["punctuation", ":"],
+			["line-number", "693"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"impl",
+			["punctuation", "."]
+		]],
+		["class-name", "SessionImpl"],
+		["punctuation", "."],
+		["function", "save"],
+		["punctuation", "("],
+		["source", [
+			["file", "SessionImpl.java"],
+			["punctuation", ":"],
+			["line-number", "689"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"sun",
+			["punctuation", "."],
+			"reflect",
+			["punctuation", "."]
+		]],
+		["class-name", "GeneratedMethodAccessor5"],
+		["punctuation", "."],
+		["function", "invoke"],
+		["punctuation", "("],
+		["source", [
+			["keyword", "Unknown Source"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"sun",
+			["punctuation", "."],
+			"reflect",
+			["punctuation", "."]
+		]],
+		["class-name", "DelegatingMethodAccessorImpl"],
+		["punctuation", "."],
+		["function", "invoke"],
+		["punctuation", "("],
+		["source", [
+			["file", "DelegatingMethodAccessorImpl.java"],
+			["punctuation", ":"],
+			["line-number", "25"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"java",
+			["punctuation", "."],
+			"lang",
+			["punctuation", "."],
+			"reflect",
+			["punctuation", "."]
+		]],
+		["class-name", "Method"],
+		["punctuation", "."],
+		["function", "invoke"],
+		["punctuation", "("],
+		["source", [
+			["file", "Method.java"],
+			["punctuation", ":"],
+			["line-number", "597"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"context",
+			["punctuation", "."]
+		]],
+		["class-name", "ThreadLocalSessionContext$TransactionProtectionWrapper"],
+		["punctuation", "."],
+		["function", "invoke"],
+		["punctuation", "("],
+		["source", [
+			["file", "ThreadLocalSessionContext.java"],
+			["punctuation", ":"],
+			["line-number", "344"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["class-name", "$Proxy19"],
+		["punctuation", "."],
+		["function", "save"],
+		["punctuation", "("],
+		["source", [
+			["keyword", "Unknown Source"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"com",
+			["punctuation", "."],
+			"example",
+			["punctuation", "."],
+			"myproject",
+			["punctuation", "."]
+		]],
+		["class-name", "MyEntityService"],
+		["punctuation", "."],
+		["function", "save"],
+		["punctuation", "("],
+		["source", [
+			["file", "MyEntityService.java"],
+			["punctuation", ":"],
+			["line-number", "59"]
+		]],
+		["punctuation", ")"]
+	]],
+	" <-- relevant call (see notes below)\n    ",
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"com",
+			["punctuation", "."],
+			"example",
+			["punctuation", "."],
+			"myproject",
+			["punctuation", "."]
+		]],
+		["class-name", "MyServlet"],
+		["punctuation", "."],
+		["function", "doPost"],
+		["punctuation", "("],
+		["source", [
+			["file", "MyServlet.java"],
+			["punctuation", ":"],
+			["line-number", "164"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["more", [
+		["punctuation", "..."],
+		["number", "32"],
+		["keyword", "more"]
+	]],
+
+	["summary", [
+		["keyword", "Caused by"],
+		["punctuation", ":"],
+		["exceptions", [
+			["namespace", "java"],
+			["punctuation", "."],
+			["namespace", "sql"],
+			["punctuation", "."],
+			["class-name", "SQLException"]
+		]],
+		["punctuation", ":"],
+		["message", "Violation of unique constraint MY_ENTITY_UK_1: duplicate value(s) for column(s) MY_COLUMN in statement [...]"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hsqldb",
+			["punctuation", "."],
+			"jdbc",
+			["punctuation", "."]
+		]],
+		["class-name", "Util"],
+		["punctuation", "."],
+		["function", "throwError"],
+		["punctuation", "("],
+		["source", [
+			["keyword", "Unknown Source"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hsqldb",
+			["punctuation", "."],
+			"jdbc",
+			["punctuation", "."]
+		]],
+		["class-name", "jdbcPreparedStatement"],
+		["punctuation", "."],
+		["function", "executeUpdate"],
+		["punctuation", "("],
+		["source", [
+			["keyword", "Unknown Source"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"com",
+			["punctuation", "."],
+			"mchange",
+			["punctuation", "."],
+			"v2",
+			["punctuation", "."],
+			"c3p0",
+			["punctuation", "."],
+			"impl",
+			["punctuation", "."]
+		]],
+		["class-name", "NewProxyPreparedStatement"],
+		["punctuation", "."],
+		["function", "executeUpdate"],
+		["punctuation", "("],
+		["source", [
+			["file", "NewProxyPreparedStatement.java"],
+			["punctuation", ":"],
+			["line-number", "105"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["stack-frame", [
+		["keyword", "at"],
+		["namespace", [
+			"org",
+			["punctuation", "."],
+			"hibernate",
+			["punctuation", "."],
+			"id",
+			["punctuation", "."],
+			"insert",
+			["punctuation", "."]
+		]],
+		["class-name", "AbstractSelectingDelegate"],
+		["punctuation", "."],
+		["function", "performInsert"],
+		["punctuation", "("],
+		["source", [
+			["file", "AbstractSelectingDelegate.java"],
+			["punctuation", ":"],
+			["line-number", "57"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["more", [
+		["punctuation", "..."],
+		["number", "54"],
+		["keyword", "more"]
+	]]
+]
+
+----------------------------------------------------

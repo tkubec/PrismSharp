@@ -1,0 +1,7 @@
+{{ true }}
+{{{ false }}}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token boolean">false</span> <span class="token delimiter punctuation">}}}</span>
+
+----------------------------------------------------

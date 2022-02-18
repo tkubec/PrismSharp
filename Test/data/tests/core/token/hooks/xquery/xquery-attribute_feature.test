@@ -1,0 +1,11 @@
+attribute foo
+attribute foo-bar
+attribute foo:bar
+----------------------------------------------------
+[
+	["builtin", "attribute"], ["xquery-attribute", "foo"],
+	["builtin", "attribute"], ["xquery-attribute", "foo-bar"],
+	["builtin", "attribute"], ["xquery-attribute", "foo:bar"]
+]
+
+----------------------------------------------------

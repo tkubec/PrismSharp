@@ -1,0 +1,34 @@
+{**}
+{* foo
+bar *}
+
+{* you cannot nest comments *}
+{* {* foo *} *}
+----------------------------------------------------
+[
+	["comment", "{**}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" foo\r\nbar ",
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" you cannot nest comments ",
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	["punctuation", "{"],
+	["operator", "*"],
+	" foo ",
+	["operator", "*"],
+	["punctuation", "}"],
+	["operator", "*"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+{-
+	This is a
+	multiline comment
+-}
+-- This is a singleline comment
+----------------------------------------------------
+<span class="token comment">{-
+	This is a
+	multiline comment
+-}</span>
+<span class="token comment">-- This is a singleline comment</span>
+
+----------------------------------------------------

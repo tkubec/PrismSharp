@@ -1,0 +1,69 @@
+source=monthly_data.csv
+| rename remote_ip AS ip
+| eval isLocal=if(cidrmatch("123.132.32.0/25",ip), "local", "not local")
+| eval error=case(status == 200, "OK", status == 404, "Not found", true(), "Other")
+  `comment("TODO: Add support for more status codes")`
+| sort amount
+----------------------------------------------------
+[
+	["property", "source"],
+	["operator", "="],
+	"monthly_data.csv\n",
+
+	["operator", "|"],
+	["keyword", "rename"],
+	" remote_ip ",
+	["operator-word", "AS"],
+	" ip\n",
+
+	["operator", "|"],
+	["keyword", "eval"],
+	["property", "isLocal"],
+	["operator", "="],
+	["function", "if"],
+	["punctuation", "("],
+	["function", "cidrmatch"],
+	["punctuation", "("],
+	["string", "\"123.132.32.0/25\""],
+	["punctuation", ","],
+	"ip",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"local\""],
+	["punctuation", ","],
+	["string", "\"not local\""],
+	["punctuation", ")"],
+
+	["operator", "|"],
+	["keyword", "eval"],
+	["property", "error"],
+	["operator", "="],
+	["function", "case"],
+	["punctuation", "("],
+	"status ",
+	["operator", "=="],
+	["number", "200"],
+	["punctuation", ","],
+	["string", "\"OK\""],
+	["punctuation", ","],
+	" status ",
+	["operator", "=="],
+	["number", "404"],
+	["punctuation", ","],
+	["string", "\"Not found\""],
+	["punctuation", ","],
+	["function", "true"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"Other\""],
+	["punctuation", ")"],
+
+	["comment", "`comment(\"TODO: Add support for more status codes\")`"],
+
+	["operator", "|"],
+	["keyword", "sort"],
+	" amount"
+]
+
+----------------------------------------------------

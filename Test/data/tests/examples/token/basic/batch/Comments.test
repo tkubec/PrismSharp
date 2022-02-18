@@ -1,0 +1,14 @@
+::
+:: Foo bar
+REM This is a comment too
+REM Multi-line ^
+comment
+----------------------------------------------------
+[
+	["comment", "::"],
+	["comment", ":: Foo bar"],
+	["comment", "REM This is a comment too"],
+	["comment", "REM Multi-line ^\ncomment"]
+]
+
+----------------------------------------------------

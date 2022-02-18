@@ -1,0 +1,27 @@
+""
+"foo"
+"foo\"bar\"baz"
+"\u2642\\"
+`hello`
+'test'
+"this is a multiline
+test
+that 
+can 
+be long"
+"This string \r\n Should also \\ \t"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo"</span>
+<span class="token string">"foo\"bar\"baz"</span>
+<span class="token string">"\u2642\\"</span>
+<span class="token string">`hello`</span>
+<span class="token string">'test'</span>
+<span class="token string">"this is a multiline
+test
+that 
+can 
+be long"</span>
+<span class="token string">"This string \r\n Should also \\ \t"</span>
+
+----------------------------------------------------

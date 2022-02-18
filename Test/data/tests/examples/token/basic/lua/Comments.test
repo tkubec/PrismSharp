@@ -1,0 +1,17 @@
+#!/usr/local/bin/lua
+--
+-- Single line comment
+--[[ Multi line
+comment ]]
+--[====[ Multi line
+comment ]====]
+----------------------------------------------------
+[
+	["comment", "#!/usr/local/bin/lua"],
+	["comment", "--"],
+	["comment", "-- Single line comment"],
+	["comment", "--[[ Multi line\ncomment ]]"],
+	["comment", "--[====[ Multi line\ncomment ]====]"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,17 @@
+""
+"a"
+"abc<d>"
+";"
+
+%s"abc"
+%i"abc"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"a"</span>
+<span class="token string">"abc&lt;d>"</span>
+<span class="token string">";"</span>
+
+<span class="token string"><span class="token punctuation">%s</span>"abc"</span>
+<span class="token string"><span class="token punctuation">%i</span>"abc"</span>
+
+----------------------------------------------------

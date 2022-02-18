@@ -1,0 +1,9 @@
+GET http://localhost:9999/foo.html HTTP/1.1
+Accept-Language: fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+----------------------------------------------------
+<span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">http://localhost:9999/foo.html</span> <span class="token http-version property">HTTP/1.1</span></span>
+<span class="token header"><span class="token header-name keyword">Accept-Language</span><span class="token punctuation">:</span> <span class="token header-value">fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3</span></span>
+<span class="token header"><span class="token header-name keyword">Accept-Encoding</span><span class="token punctuation">:</span> <span class="token header-value">gzip, deflate</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+foo=on
+foo=true
+foo=yes
+foo=off
+foo=false
+foo=no
+----------------------------------------------------
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value"><span class="token boolean">on</span></span>
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value"><span class="token boolean">true</span></span>
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value"><span class="token boolean">yes</span></span>
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value"><span class="token boolean">off</span></span>
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value"><span class="token boolean">false</span></span>
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value"><span class="token boolean">no</span></span>
+
+----------------------------------------------------

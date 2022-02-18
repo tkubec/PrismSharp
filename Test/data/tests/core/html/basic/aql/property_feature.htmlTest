@@ -1,0 +1,25 @@
+{ foo: … }
+{ 'foo': … }
+{ "foo": … }
+{ `foo`: … }
+{ ´foo´: … }
+
+// not a property
+LET opType = IS_NULL(OLD) ? "insert" : "update"
+
+LET foo = { CURRENT: 1, keep: 2, NEW: 3, OLD: 4, options: 5, prune: 6, search: 7, to: 8 }
+LET bar = foo[CURRENT] + foo.NEW + foo["OLD"] + foo[keep] + foo.options + foo["prune"] + foo.search + foo[to]
+----------------------------------------------------
+<span class="token punctuation">{</span> <span class="token property">foo</span><span class="token punctuation">:</span> … <span class="token punctuation">}</span>
+<span class="token punctuation">{</span> <span class="token property">'foo'</span><span class="token punctuation">:</span> … <span class="token punctuation">}</span>
+<span class="token punctuation">{</span> <span class="token property">"foo"</span><span class="token punctuation">:</span> … <span class="token punctuation">}</span>
+<span class="token punctuation">{</span> <span class="token property">`foo`</span><span class="token punctuation">:</span> … <span class="token punctuation">}</span>
+<span class="token punctuation">{</span> <span class="token property">´foo´</span><span class="token punctuation">:</span> … <span class="token punctuation">}</span>
+
+<span class="token comment">// not a property</span>
+<span class="token keyword">LET</span> opType <span class="token operator">=</span> <span class="token function">IS_NULL</span><span class="token punctuation">(</span><span class="token keyword">OLD</span><span class="token punctuation">)</span> <span class="token punctuation">?</span> <span class="token string">"insert"</span> <span class="token punctuation">:</span> <span class="token string">"update"</span>
+
+<span class="token keyword">LET</span> foo <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token property">CURRENT</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token property">keep</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token property">NEW</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token property">OLD</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token property">options</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token property">prune</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token property">search</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token property">to</span><span class="token punctuation">:</span> <span class="token number">8</span> <span class="token punctuation">}</span>
+<span class="token keyword">LET</span> bar <span class="token operator">=</span> foo<span class="token punctuation">[</span>CURRENT<span class="token punctuation">]</span> <span class="token operator">+</span> foo<span class="token punctuation">.</span>NEW <span class="token operator">+</span> foo<span class="token punctuation">[</span><span class="token string">"OLD"</span><span class="token punctuation">]</span> <span class="token operator">+</span> foo<span class="token punctuation">[</span>keep<span class="token punctuation">]</span> <span class="token operator">+</span> foo<span class="token punctuation">.</span>options <span class="token operator">+</span> foo<span class="token punctuation">[</span><span class="token string">"prune"</span><span class="token punctuation">]</span> <span class="token operator">+</span> foo<span class="token punctuation">.</span>search <span class="token operator">+</span> foo<span class="token punctuation">[</span>to<span class="token punctuation">]</span>
+
+----------------------------------------------------

@@ -1,0 +1,163 @@
+% 1. Title: Iris Plants Database
+%
+% 2. Sources:
+%      (a) Creator: R.A. Fisher
+%      (b) Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)
+%      (c) Date: July, 1988
+%
+@RELATION iris
+
+@ATTRIBUTE sepallength  NUMERIC
+@ATTRIBUTE sepalwidth   NUMERIC
+@ATTRIBUTE petallength  NUMERIC
+@ATTRIBUTE petalwidth   NUMERIC
+@ATTRIBUTE class        {Iris-setosa,Iris-versicolor,Iris-virginica}
+
+@DATA
+5.1,3.5,1.4,0.2,Iris-setosa
+4.9,3.0,1.4,0.2,Iris-setosa
+4.7,3.2,1.3,0.2,Iris-setosa
+4.6,3.1,1.5,0.2,Iris-setosa
+5.0,3.6,1.4,0.2,Iris-setosa
+5.4,3.9,1.7,0.4,Iris-setosa
+4.6,3.4,1.4,0.3,Iris-setosa
+5.0,3.4,1.5,0.2,Iris-setosa
+4.4,2.9,1.4,0.2,Iris-setosa
+4.9,3.1,1.5,0.1,Iris-setosa
+----------------------------------------------------
+[
+	["comment", "% 1. Title: Iris Plants Database"],
+	["comment", "%"],
+	["comment", "% 2. Sources:"],
+	["comment", "%      (a) Creator: R.A. Fisher"],
+	["comment", "%      (b) Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)"],
+	["comment", "%      (c) Date: July, 1988"],
+	["comment", "%"],
+	["keyword", "@RELATION"], " iris\n\n",
+
+	["keyword", "@ATTRIBUTE"],
+	" sepallength  NUMERIC\n",
+
+	["keyword", "@ATTRIBUTE"],
+	" sepalwidth   NUMERIC\n",
+
+	["keyword", "@ATTRIBUTE"],
+	" petallength  NUMERIC\n",
+
+	["keyword", "@ATTRIBUTE"],
+	" petalwidth   NUMERIC\n",
+
+	["keyword", "@ATTRIBUTE"],
+	" class        ",
+	["punctuation", "{"],
+	"Iris-setosa",
+	["punctuation", ","],
+	"Iris-versicolor",
+	["punctuation", ","],
+	"Iris-virginica",
+	["punctuation", "}"],
+
+	["keyword", "@DATA"],
+
+	["number", "5.1"],
+	["punctuation", ","],
+	["number", "3.5"],
+	["punctuation", ","],
+	["number", "1.4"],
+	["punctuation", ","],
+	["number", "0.2"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "4.9"],
+	["punctuation", ","],
+	["number", "3.0"],
+	["punctuation", ","],
+	["number", "1.4"],
+	["punctuation", ","],
+	["number", "0.2"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "4.7"],
+	["punctuation", ","],
+	["number", "3.2"],
+	["punctuation", ","],
+	["number", "1.3"],
+	["punctuation", ","],
+	["number", "0.2"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "4.6"],
+	["punctuation", ","],
+	["number", "3.1"],
+	["punctuation", ","],
+	["number", "1.5"],
+	["punctuation", ","],
+	["number", "0.2"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "5.0"],
+	["punctuation", ","],
+	["number", "3.6"],
+	["punctuation", ","],
+	["number", "1.4"],
+	["punctuation", ","],
+	["number", "0.2"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "5.4"],
+	["punctuation", ","],
+	["number", "3.9"],
+	["punctuation", ","],
+	["number", "1.7"],
+	["punctuation", ","],
+	["number", "0.4"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "4.6"],
+	["punctuation", ","],
+	["number", "3.4"],
+	["punctuation", ","],
+	["number", "1.4"],
+	["punctuation", ","],
+	["number", "0.3"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "5.0"],
+	["punctuation", ","],
+	["number", "3.4"],
+	["punctuation", ","],
+	["number", "1.5"],
+	["punctuation", ","],
+	["number", "0.2"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "4.4"],
+	["punctuation", ","],
+	["number", "2.9"],
+	["punctuation", ","],
+	["number", "1.4"],
+	["punctuation", ","],
+	["number", "0.2"],
+	["punctuation", ","],
+	"Iris-setosa\n",
+
+	["number", "4.9"],
+	["punctuation", ","],
+	["number", "3.1"],
+	["punctuation", ","],
+	["number", "1.5"],
+	["punctuation", ","],
+	["number", "0.1"],
+	["punctuation", ","],
+	"Iris-setosa"
+]
+
+----------------------------------------------------

@@ -1,0 +1,31 @@
+$XF:{AddonLib1?GlobalControls.SumNumbers,~FormField|=5}:XF$
+----------------------------------------------------
+[
+	["function-block", [
+		["punctuation", "$"],
+		"XF",
+		["punctuation", ":"],
+		["punctuation", "{"],
+		"AddonLib1",
+		["punctuation", "?"],
+		"GlobalControls",
+		["punctuation", "."],
+		"SumNumbers",
+		["variable", [
+			["punctuation", ","],
+			["operator", "~"],
+			"FormField"
+		]],
+		["variable", [
+			["punctuation", "|"],
+			["operator", "="],
+			"5"
+		]],
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"XF",
+		["punctuation", "$"]
+	]]
+]
+
+----------------------------------------------------

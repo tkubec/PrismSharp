@@ -1,0 +1,69 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.{js,py}]
+charset = utf-8
+
+# 4 space indentation
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
+
+# Indentation override for all JS under lib directory
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+# Matches the exact files either package.json or .travis.yml
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
+----------------------------------------------------
+<span class="token comment"># EditorConfig is awesome: https://EditorConfig.org</span>
+
+<span class="token comment"># top-most EditorConfig file</span>
+<span class="token key attr-name">root</span> <span class="token value attr-value"><span class="token punctuation">=</span> true</span>
+
+<span class="token comment"># Unix-style newlines with a newline ending every file</span>
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">end_of_line</span> <span class="token value attr-value"><span class="token punctuation">=</span> lf</span>
+<span class="token key attr-name">insert_final_newline</span> <span class="token value attr-value"><span class="token punctuation">=</span> true</span>
+
+<span class="token comment"># Matches multiple files with brace expansion notation</span>
+<span class="token comment"># Set default charset</span>
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token operator">*</span>.<span class="token punctuation">{</span>js<span class="token punctuation">,</span>py<span class="token punctuation">}</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">charset</span> <span class="token value attr-value"><span class="token punctuation">=</span> utf-8</span>
+
+<span class="token comment"># 4 space indentation</span>
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token operator">*</span>.py<span class="token punctuation">]</span></span>
+<span class="token key attr-name">indent_style</span> <span class="token value attr-value"><span class="token punctuation">=</span> space</span>
+<span class="token key attr-name">indent_size</span> <span class="token value attr-value"><span class="token punctuation">=</span> 4</span>
+
+<span class="token comment"># Tab indentation (no size specified)</span>
+<span class="token section keyword"><span class="token punctuation">[</span>Makefile<span class="token punctuation">]</span></span>
+<span class="token key attr-name">indent_style</span> <span class="token value attr-value"><span class="token punctuation">=</span> tab</span>
+
+<span class="token comment"># Indentation override for all JS under lib directory</span>
+<span class="token section keyword"><span class="token punctuation">[</span>lib/<span class="token operator">**</span>.js<span class="token punctuation">]</span></span>
+<span class="token key attr-name">indent_style</span> <span class="token value attr-value"><span class="token punctuation">=</span> space</span>
+<span class="token key attr-name">indent_size</span> <span class="token value attr-value"><span class="token punctuation">=</span> 2</span>
+
+<span class="token comment"># Matches the exact files either package.json or .travis.yml</span>
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token punctuation">{</span>package.json<span class="token punctuation">,</span>.travis.yml<span class="token punctuation">}</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">indent_style</span> <span class="token value attr-value"><span class="token punctuation">=</span> space</span>
+<span class="token key attr-name">indent_size</span> <span class="token value attr-value"><span class="token punctuation">=</span> 2</span>
+
+----------------------------------------------------

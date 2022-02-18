@@ -1,0 +1,11 @@
+""
+''
+"foo's"
+'"bar;'
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">''</span>
+<span class="token string">"foo's"</span>
+<span class="token string">'"bar;'</span>
+
+----------------------------------------------------

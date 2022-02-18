@@ -1,0 +1,17 @@
+"This is a string"
+"This is 
+multi
+line
+string"
+"${VAR}with${BAR}"
+"${FOO} with ${BAR}"
+----------------------------------------------------
+<span class="token string">"This is a string"</span>
+<span class="token string">"This is 
+multi
+line
+string"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">${</span><span class="token variable">VAR</span><span class="token punctuation">}</span></span>with<span class="token interpolation"><span class="token punctuation">${</span><span class="token variable">BAR</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">${</span><span class="token variable">FOO</span><span class="token punctuation">}</span></span> with <span class="token interpolation"><span class="token punctuation">${</span><span class="token variable">BAR</span><span class="token punctuation">}</span></span>"</span>
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+"Hello, world!" println
+A := Object clone    // creates a new, empty object named "A"
+factorial := method(n,
+    if(n == 0, return 1)
+    res := 1
+    Range 1 to(n) foreach(i, res = res * i)
+)

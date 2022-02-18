@@ -1,0 +1,13 @@
+"A string"
+    "A multi
+    line
+    string"
+    "A ${VARIABLE} insde a string"
+----------------------------------------------------
+<span class="token string">"A string"</span>
+    <span class="token string">"A multi
+    line
+    string"</span>
+    <span class="token string">"A <span class="token interpolation"><span class="token punctuation">${</span><span class="token variable">VARIABLE</span><span class="token punctuation">}</span></span> insde a string"</span>
+
+----------------------------------------------------

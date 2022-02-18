@@ -1,0 +1,29 @@
+* foo
++ bar
+- baz
+
+1. foo
+  2. bar
+42. baz
+
+1. list
+	1. nested list
+		- a
+		- b
+	2. foo
+----------------------------------------------------
+<span class="token list punctuation">*</span> foo
+<span class="token list punctuation">+</span> bar
+<span class="token list punctuation">-</span> baz
+
+<span class="token list punctuation">1.</span> foo
+  <span class="token list punctuation">2.</span> bar
+<span class="token list punctuation">42.</span> baz
+
+<span class="token list punctuation">1.</span> list
+	<span class="token list punctuation">1.</span> nested list
+		<span class="token list punctuation">-</span> a
+		<span class="token list punctuation">-</span> b
+	<span class="token list punctuation">2.</span> foo
+
+----------------------------------------------------

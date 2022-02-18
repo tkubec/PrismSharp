@@ -1,0 +1,11 @@
+'foobar'
+'foo''bar
+baz'
+''
+----------------------------------------------------
+<span class="token string">'foobar'</span>
+<span class="token string">'foo''bar
+baz'</span>
+<span class="token string">''</span>
+
+----------------------------------------------------

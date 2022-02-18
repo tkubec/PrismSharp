@@ -1,0 +1,257 @@
+/* Source: https://github.com/chrismalek/psoftToXML/blob/master/psftToXML.pcode */
+
+class psoftToXML
+	method RowsetToXML(&parentNode As XmlNode, &rowSetIn As Rowset) Returns XmlNode;
+	method RecordToXML(&parentNode As XmlNode, &recordIn As Record) Returns XmlNode;
+	method FieldToXML(&ParentNode As XmlNode, &fieldIn As Field) Returns XmlNode;
+	method RowToXML(&ParentNode As XmlNode, &rowIn As Row) Returns XmlNode;
+	method psoftToXML();
+	property array of string fieldsToSkip;
+private
+	instance string &psObjectTypeString;
+end-class;
+
+method psoftToXML
+	&psObjectTypeString = "PSOBJECTTYPE";
+	%This.fieldsToSkip = CreateArrayRept("", 0);
+end-method;
+
+method FieldToXML
+	/+ &ParentNode as XmlNode, +/
+	/+ &fieldIn as Field +/
+	/+ Returns XmlNode +/
+	Local XmlNode &outNode;
+
+	Local XmlNode &fldNode, &tempNode;
+
+	&fldNode = &ParentNode.AddElement(&fieldIn.Name);
+
+	&fldNode.AddAttribute("PSFIELDTYPE", &fieldIn.Type);
+	&fldNode.AddAttribute(%This.psObjectTypeString, "FIELD");
+
+	If &fieldIn.IsEditXlat Then
+		&fldNode.AddAttribute("LongTranslateValue", &fieldIn.LongTranslateValue);
+	End-If;
+
+	Evaluate &fieldIn.Type
+	When = "LONGCHAR"
+	When = "IMAGE"
+	When = "IMAGEREFERENCE"
+		If All(&fieldIn.Value) Then
+
+			&tempNode = &fldNode.AddCDataSection(&fieldIn.Value);
+		End-If;
+		Break;
+
+	When = "NUMBER";
+		&tempNode = &fldNode.AddText(&fieldIn.Value);
+		Break;
+	When-Other
+		If All(&fieldIn.Value) Then
+			&tempNode = &fldNode.AddText(&fieldIn.Value);
+		End-If;
+
+		Break;
+	End-Evaluate;
+
+	Return &outNode;
+end-method;
+
+
+method RecordToXML
+	/+ &parentNode as XmlNode, +/
+	/+ &recordIn as Record +/
+	/+ Returns XmlNode +/
+
+	Local XmlNode &outNode, &fieldNode;
+
+	Local integer &i;
+
+	&outNode = &parentNode.AddElement(&recordIn.Name);
+
+	&outNode.AddAttribute(%This.psObjectTypeString, "RECORD");
+
+	For &i = 1 To &recordIn.FieldCount
+
+		If %This.fieldsToSkip.Find(&recordIn.GetField(&i).Name) <= 0 Then
+			&fieldNode = %This.FieldToXML(&outNode, &recordIn.GetField(&i));
+		End-If;
+	End-For;
+
+	Return &outNode;
+end-method;
+
+
+method RowToXML
+	/+ &ParentNode as XmlNode, +/
+	/+ &rowIn as Row +/
+	/+ Returns XmlNode +/
+
+	Local XmlNode &outNode, &recNode;
+
+	Local integer &i;
+
+	&outNode = &ParentNode.AddElement("ROW");
+	&outNode.AddAttribute(&psObjectTypeString, "ROW");
+	&outNode.AddAttribute("RowNumber", String(&rowIn.RowNumber));
+
+	For &i = 1 To &rowIn.RecordCount
+		&recNode = %This.RecordToXML(&outNode, &rowIn.GetRecord(&i));
+	End-For;
+
+	Local XmlNode &rsNode;
+	For &i = 1 To &rowIn.ChildCount
+		&rsNode = %This.RowsetToXML(&outNode, &rowIn.GetRowset(&i));
+
+	End-For;
+
+	Return &outNode;
+end-method;
+
+
+method RowsetToXML
+	/+ &parentNode as XmlNode, +/
+	/+ &rowSetIn as Rowset +/
+	/+ Returns XmlNode +/
+
+	Local XmlNode &outNode, &rowNode;
+
+	Local integer &i;
+	&outNode = &parentNode.AddElement(&rowSetIn.DBRecordName);
+	&outNode.AddAttribute(&psObjectTypeString, "ROWSET");
+
+	For &i = 1 To &rowSetIn.ActiveRowCount
+		&rowNode = %This.RowToXML(&outNode, &rowSetIn.GetRow(&i));
+	End-For;
+	Return &outNode;
+end-method;
+----------------------------------------------------
+<span class="token comment">/* Source: https://github.com/chrismalek/psoftToXML/blob/master/psftToXML.pcode */</span>
+
+<span class="token keyword">class</span> <span class="token class-name">psoftToXML</span>
+	<span class="token keyword">method</span> <span class="token function-definition function">RowsetToXML</span><span class="token punctuation">(</span>&amp;parentNode <span class="token keyword">As</span> <span class="token class-name">XmlNode</span><span class="token punctuation">,</span> &amp;rowSetIn <span class="token keyword">As</span> <span class="token class-name">Rowset</span><span class="token punctuation">)</span> <span class="token keyword">Returns</span> <span class="token class-name">XmlNode</span><span class="token punctuation">;</span>
+	<span class="token keyword">method</span> <span class="token function-definition function">RecordToXML</span><span class="token punctuation">(</span>&amp;parentNode <span class="token keyword">As</span> <span class="token class-name">XmlNode</span><span class="token punctuation">,</span> &amp;recordIn <span class="token keyword">As</span> <span class="token class-name">Record</span><span class="token punctuation">)</span> <span class="token keyword">Returns</span> <span class="token class-name">XmlNode</span><span class="token punctuation">;</span>
+	<span class="token keyword">method</span> <span class="token function-definition function">FieldToXML</span><span class="token punctuation">(</span>&amp;ParentNode <span class="token keyword">As</span> <span class="token class-name">XmlNode</span><span class="token punctuation">,</span> &amp;fieldIn <span class="token keyword">As</span> <span class="token class-name">Field</span><span class="token punctuation">)</span> <span class="token keyword">Returns</span> <span class="token class-name">XmlNode</span><span class="token punctuation">;</span>
+	<span class="token keyword">method</span> <span class="token function-definition function">RowToXML</span><span class="token punctuation">(</span>&amp;ParentNode <span class="token keyword">As</span> <span class="token class-name">XmlNode</span><span class="token punctuation">,</span> &amp;rowIn <span class="token keyword">As</span> <span class="token class-name">Row</span><span class="token punctuation">)</span> <span class="token keyword">Returns</span> <span class="token class-name">XmlNode</span><span class="token punctuation">;</span>
+	<span class="token keyword">method</span> <span class="token function-definition function">psoftToXML</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">property</span> <span class="token class-name">array</span> <span class="token keyword">of</span> <span class="token class-name">string</span> fieldsToSkip<span class="token punctuation">;</span>
+<span class="token keyword">private</span>
+	<span class="token keyword">instance</span> <span class="token class-name">string</span> &amp;psObjectTypeString<span class="token punctuation">;</span>
+<span class="token keyword">end-class</span><span class="token punctuation">;</span>
+
+<span class="token keyword">method</span> <span class="token function-definition function">psoftToXML</span>
+	&amp;psObjectTypeString <span class="token operator">=</span> <span class="token string">"PSOBJECTTYPE"</span><span class="token punctuation">;</span>
+	<span class="token variable">%This</span><span class="token punctuation">.</span>fieldsToSkip <span class="token operator">=</span> <span class="token function">CreateArrayRept</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span>
+
+<span class="token keyword">method</span> <span class="token function-definition function">FieldToXML</span>
+	<span class="token comment">/+ &amp;ParentNode as XmlNode, +/</span>
+	<span class="token comment">/+ &amp;fieldIn as Field +/</span>
+	<span class="token comment">/+ Returns XmlNode +/</span>
+	<span class="token keyword">Local</span> <span class="token class-name">XmlNode</span> &amp;outNode<span class="token punctuation">;</span>
+
+	<span class="token keyword">Local</span> <span class="token class-name">XmlNode</span> &amp;fldNode<span class="token punctuation">,</span> &amp;tempNode<span class="token punctuation">;</span>
+
+	&amp;fldNode <span class="token operator">=</span> &amp;ParentNode<span class="token punctuation">.</span><span class="token function">AddElement</span><span class="token punctuation">(</span>&amp;fieldIn<span class="token punctuation">.</span>Name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	&amp;fldNode<span class="token punctuation">.</span><span class="token function">AddAttribute</span><span class="token punctuation">(</span><span class="token string">"PSFIELDTYPE"</span><span class="token punctuation">,</span> &amp;fieldIn<span class="token punctuation">.</span>Type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	&amp;fldNode<span class="token punctuation">.</span><span class="token function">AddAttribute</span><span class="token punctuation">(</span><span class="token variable">%This</span><span class="token punctuation">.</span>psObjectTypeString<span class="token punctuation">,</span> <span class="token string">"FIELD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">If</span> &amp;fieldIn<span class="token punctuation">.</span>IsEditXlat <span class="token keyword">Then</span>
+		&amp;fldNode<span class="token punctuation">.</span><span class="token function">AddAttribute</span><span class="token punctuation">(</span><span class="token string">"LongTranslateValue"</span><span class="token punctuation">,</span> &amp;fieldIn<span class="token punctuation">.</span>LongTranslateValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">End-If</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">Evaluate</span> &amp;fieldIn<span class="token punctuation">.</span>Type
+	<span class="token keyword">When</span> <span class="token operator">=</span> <span class="token string">"LONGCHAR"</span>
+	<span class="token keyword">When</span> <span class="token operator">=</span> <span class="token string">"IMAGE"</span>
+	<span class="token keyword">When</span> <span class="token operator">=</span> <span class="token string">"IMAGEREFERENCE"</span>
+		<span class="token keyword">If</span> <span class="token function">All</span><span class="token punctuation">(</span>&amp;fieldIn<span class="token punctuation">.</span><span class="token keyword">Value</span><span class="token punctuation">)</span> <span class="token keyword">Then</span>
+
+			&amp;tempNode <span class="token operator">=</span> &amp;fldNode<span class="token punctuation">.</span><span class="token function">AddCDataSection</span><span class="token punctuation">(</span>&amp;fieldIn<span class="token punctuation">.</span><span class="token keyword">Value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">End-If</span><span class="token punctuation">;</span>
+		Break<span class="token punctuation">;</span>
+
+	<span class="token keyword">When</span> <span class="token operator">=</span> <span class="token string">"NUMBER"</span><span class="token punctuation">;</span>
+		&amp;tempNode <span class="token operator">=</span> &amp;fldNode<span class="token punctuation">.</span><span class="token function">AddText</span><span class="token punctuation">(</span>&amp;fieldIn<span class="token punctuation">.</span><span class="token keyword">Value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Break<span class="token punctuation">;</span>
+	<span class="token keyword">When-Other</span>
+		<span class="token keyword">If</span> <span class="token function">All</span><span class="token punctuation">(</span>&amp;fieldIn<span class="token punctuation">.</span><span class="token keyword">Value</span><span class="token punctuation">)</span> <span class="token keyword">Then</span>
+			&amp;tempNode <span class="token operator">=</span> &amp;fldNode<span class="token punctuation">.</span><span class="token function">AddText</span><span class="token punctuation">(</span>&amp;fieldIn<span class="token punctuation">.</span><span class="token keyword">Value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">End-If</span><span class="token punctuation">;</span>
+
+		Break<span class="token punctuation">;</span>
+	<span class="token keyword">End-Evaluate</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">Return</span> &amp;outNode<span class="token punctuation">;</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">method</span> <span class="token function-definition function">RecordToXML</span>
+	<span class="token comment">/+ &amp;parentNode as XmlNode, +/</span>
+	<span class="token comment">/+ &amp;recordIn as Record +/</span>
+	<span class="token comment">/+ Returns XmlNode +/</span>
+
+	<span class="token keyword">Local</span> <span class="token class-name">XmlNode</span> &amp;outNode<span class="token punctuation">,</span> &amp;fieldNode<span class="token punctuation">;</span>
+
+	<span class="token keyword">Local</span> <span class="token class-name">integer</span> &amp;i<span class="token punctuation">;</span>
+
+	&amp;outNode <span class="token operator">=</span> &amp;parentNode<span class="token punctuation">.</span><span class="token function">AddElement</span><span class="token punctuation">(</span>&amp;recordIn<span class="token punctuation">.</span>Name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	&amp;outNode<span class="token punctuation">.</span><span class="token function">AddAttribute</span><span class="token punctuation">(</span><span class="token variable">%This</span><span class="token punctuation">.</span>psObjectTypeString<span class="token punctuation">,</span> <span class="token string">"RECORD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">For</span> &amp;i <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">To</span> &amp;recordIn<span class="token punctuation">.</span>FieldCount
+
+		<span class="token keyword">If</span> <span class="token variable">%This</span><span class="token punctuation">.</span>fieldsToSkip<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span>&amp;recordIn<span class="token punctuation">.</span><span class="token function">GetField</span><span class="token punctuation">(</span>&amp;i<span class="token punctuation">)</span><span class="token punctuation">.</span>Name<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token keyword">Then</span>
+			&amp;fieldNode <span class="token operator">=</span> <span class="token variable">%This</span><span class="token punctuation">.</span><span class="token function">FieldToXML</span><span class="token punctuation">(</span>&amp;outNode<span class="token punctuation">,</span> &amp;recordIn<span class="token punctuation">.</span><span class="token function">GetField</span><span class="token punctuation">(</span>&amp;i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">End-If</span><span class="token punctuation">;</span>
+	<span class="token keyword">End-For</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">Return</span> &amp;outNode<span class="token punctuation">;</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">method</span> <span class="token function-definition function">RowToXML</span>
+	<span class="token comment">/+ &amp;ParentNode as XmlNode, +/</span>
+	<span class="token comment">/+ &amp;rowIn as Row +/</span>
+	<span class="token comment">/+ Returns XmlNode +/</span>
+
+	<span class="token keyword">Local</span> <span class="token class-name">XmlNode</span> &amp;outNode<span class="token punctuation">,</span> &amp;recNode<span class="token punctuation">;</span>
+
+	<span class="token keyword">Local</span> <span class="token class-name">integer</span> &amp;i<span class="token punctuation">;</span>
+
+	&amp;outNode <span class="token operator">=</span> &amp;ParentNode<span class="token punctuation">.</span><span class="token function">AddElement</span><span class="token punctuation">(</span><span class="token string">"ROW"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	&amp;outNode<span class="token punctuation">.</span><span class="token function">AddAttribute</span><span class="token punctuation">(</span>&amp;psObjectTypeString<span class="token punctuation">,</span> <span class="token string">"ROW"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	&amp;outNode<span class="token punctuation">.</span><span class="token function">AddAttribute</span><span class="token punctuation">(</span><span class="token string">"RowNumber"</span><span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span>&amp;rowIn<span class="token punctuation">.</span>RowNumber<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">For</span> &amp;i <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">To</span> &amp;rowIn<span class="token punctuation">.</span>RecordCount
+		&amp;recNode <span class="token operator">=</span> <span class="token variable">%This</span><span class="token punctuation">.</span><span class="token function">RecordToXML</span><span class="token punctuation">(</span>&amp;outNode<span class="token punctuation">,</span> &amp;rowIn<span class="token punctuation">.</span><span class="token function">GetRecord</span><span class="token punctuation">(</span>&amp;i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">End-For</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">Local</span> <span class="token class-name">XmlNode</span> &amp;rsNode<span class="token punctuation">;</span>
+	<span class="token keyword">For</span> &amp;i <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">To</span> &amp;rowIn<span class="token punctuation">.</span>ChildCount
+		&amp;rsNode <span class="token operator">=</span> <span class="token variable">%This</span><span class="token punctuation">.</span><span class="token function">RowsetToXML</span><span class="token punctuation">(</span>&amp;outNode<span class="token punctuation">,</span> &amp;rowIn<span class="token punctuation">.</span><span class="token function">GetRowset</span><span class="token punctuation">(</span>&amp;i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">End-For</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">Return</span> &amp;outNode<span class="token punctuation">;</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">method</span> <span class="token function-definition function">RowsetToXML</span>
+	<span class="token comment">/+ &amp;parentNode as XmlNode, +/</span>
+	<span class="token comment">/+ &amp;rowSetIn as Rowset +/</span>
+	<span class="token comment">/+ Returns XmlNode +/</span>
+
+	<span class="token keyword">Local</span> <span class="token class-name">XmlNode</span> &amp;outNode<span class="token punctuation">,</span> &amp;rowNode<span class="token punctuation">;</span>
+
+	<span class="token keyword">Local</span> <span class="token class-name">integer</span> &amp;i<span class="token punctuation">;</span>
+	&amp;outNode <span class="token operator">=</span> &amp;parentNode<span class="token punctuation">.</span><span class="token function">AddElement</span><span class="token punctuation">(</span>&amp;rowSetIn<span class="token punctuation">.</span>DBRecordName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	&amp;outNode<span class="token punctuation">.</span><span class="token function">AddAttribute</span><span class="token punctuation">(</span>&amp;psObjectTypeString<span class="token punctuation">,</span> <span class="token string">"ROWSET"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">For</span> &amp;i <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">To</span> &amp;rowSetIn<span class="token punctuation">.</span>ActiveRowCount
+		&amp;rowNode <span class="token operator">=</span> <span class="token variable">%This</span><span class="token punctuation">.</span><span class="token function">RowToXML</span><span class="token punctuation">(</span>&amp;outNode<span class="token punctuation">,</span> &amp;rowSetIn<span class="token punctuation">.</span><span class="token function">GetRow</span><span class="token punctuation">(</span>&amp;i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">End-For</span><span class="token punctuation">;</span>
+	<span class="token keyword">Return</span> &amp;outNode<span class="token punctuation">;</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

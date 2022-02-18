@@ -1,0 +1,41 @@
+#user
+  if user.description
+    p.description= user.description
+  else if authorised
+    p.description.
+      User has no description,
+      why not add one...
+  else
+    p.description User has no description
+ul
+  each val in [1, 2, 3, 4, 5]
+    li= val
+case friends
+  when 0
+    p you have no friends
+  when 1
+    p you have a friend
+  default
+    p you have #{friends} friends
+----------------------------------------------------
+<span class="token tag"><span class="token attr-id">#user</span></span>
+  <span class="token flow-control"><span class="token branch keyword">if</span> user<span class="token punctuation">.</span>description</span>
+    <span class="token tag">p<span class="token attr-class">.description</span></span><span class="token punctuation">=</span><span class="token code"> user<span class="token punctuation">.</span>description</span>
+  <span class="token flow-control"><span class="token branch keyword">else</span> <span class="token keyword">if</span> authorised</span>
+    <span class="token tag">p<span class="token attr-class">.description</span></span><span class="token punctuation">.</span><span class="token multiline-plain-text">
+      User has no description,
+      why not add one...</span>
+  <span class="token flow-control"><span class="token branch keyword">else</span></span>
+    <span class="token tag">p<span class="token attr-class">.description</span></span> <span class="token plain-text">User has no description</span>
+<span class="token tag">ul</span>
+  <span class="token flow-control"><span class="token each"><span class="token keyword">each</span> val <span class="token keyword">in</span></span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span></span>
+    <span class="token tag">li</span><span class="token punctuation">=</span><span class="token code"> val</span>
+<span class="token flow-control"><span class="token branch keyword">case</span> friends</span>
+  <span class="token flow-control"><span class="token branch keyword">when</span> <span class="token number">0</span></span>
+    <span class="token tag">p</span> <span class="token plain-text">you have no friends</span>
+  <span class="token flow-control"><span class="token branch keyword">when</span> <span class="token number">1</span></span>
+    <span class="token tag">p</span> <span class="token plain-text">you have a friend</span>
+  <span class="token flow-control"><span class="token branch keyword">default</span></span>
+    <span class="token tag">p</span> <span class="token plain-text">you have #{friends} friends</span>
+
+----------------------------------------------------

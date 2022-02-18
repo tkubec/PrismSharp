@@ -1,0 +1,52 @@
+@mySelector: banner;
+.@{mySelector} {
+  font-weight: bold;
+}
+@property: color;
+.widget {
+  @{property}: #0ee;
+  background-@{property}: #999;
+}
+----------------------------------------------------
+[
+	["variable", [
+		"@mySelector",
+		["punctuation", ":"]
+	]],
+	" banner",
+	["punctuation", ";"],
+
+	["selector", [".@{mySelector}"]],
+	["punctuation", "{"],
+
+	["property", "font-weight"],
+	["punctuation", ":"],
+	" bold",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["variable", [
+		"@property",
+		["punctuation", ":"]
+	]],
+	" color",
+	["punctuation", ";"],
+
+	["selector", [".widget"]],
+	["punctuation", "{"],
+
+	["property", "@{property}"],
+	["punctuation", ":"],
+	" #0ee",
+	["punctuation", ";"],
+
+	["property", "background-@{property}"],
+	["punctuation", ":"],
+	" #999",
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,25 @@
+<div class="foo">
+	<% if true then %>
+		Hello <%= name %>,
+		Here are your items:
+		<% for i, item in pairs(items) do %>
+			 * <%= item -%>
+			<% --[[ comment block ]] %>
+		<% end %>
+		<%- "<b>this is not escaped</b>" %>
+	<% end %>
+</div>
+----------------------------------------------------
+<span class="token language-lua"><span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"foo"</span><span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token keyword">true</span> <span class="token keyword">then</span> <span class="token operator">%</span><span class="token operator">></span>
+		Hello <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">=</span> name <span class="token operator">%</span><span class="token operator">></span><span class="token punctuation">,</span>
+		Here are your items<span class="token punctuation">:</span>
+		<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">for</span> i<span class="token punctuation">,</span> item <span class="token keyword">in</span> <span class="token function">pairs</span><span class="token punctuation">(</span>items<span class="token punctuation">)</span> <span class="token keyword">do</span> <span class="token operator">%</span><span class="token operator">></span>
+			 <span class="token operator">*</span> <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">=</span> item <span class="token operator">-</span><span class="token operator">%</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token comment">--[[ comment block ]]</span> <span class="token operator">%</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">end</span> <span class="token operator">%</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token string">"&lt;b>this is not escaped&lt;/b>"</span> <span class="token operator">%</span><span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">end</span> <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></span>
+
+----------------------------------------------------

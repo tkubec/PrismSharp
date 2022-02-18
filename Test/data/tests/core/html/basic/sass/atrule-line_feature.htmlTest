@@ -1,0 +1,15 @@
+@mixin foobar
+@media (min-width: 600px)
+	@include foobar
+
+=foobar
++foobar
+----------------------------------------------------
+<span class="token atrule-line"><span class="token atrule">@mixin</span> foobar</span>
+<span class="token atrule-line"><span class="token atrule">@media</span> (min-width: 600px)</span>
+<span class="token atrule-line">	<span class="token atrule">@include</span> foobar</span>
+
+<span class="token atrule-line"><span class="token atrule">=</span>foobar</span>
+<span class="token atrule-line"><span class="token atrule">+</span>foobar</span>
+
+----------------------------------------------------

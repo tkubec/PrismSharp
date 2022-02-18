@@ -1,0 +1,19 @@
+// foobar
+/**/
+/* Single line comment */
+/* Multiline
+comment */
+/**
+Doc comment
+*/
+----------------------------------------------------
+<span class="token comment">// foobar</span>
+<span class="token comment">/**/</span>
+<span class="token comment">/* Single line comment */</span>
+<span class="token comment">/* Multiline
+comment */</span>
+<span class="token comment">/**
+Doc comment
+*/</span>
+
+----------------------------------------------------

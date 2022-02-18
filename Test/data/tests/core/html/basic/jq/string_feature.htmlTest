@@ -1,0 +1,11 @@
+"foo"
+"\""
+"Aa\r\n\t\b\f\u03bc"
+"inter\("pol" + "ation")"
+----------------------------------------------------
+<span class="token string">"foo"</span>
+<span class="token string">"\""</span>
+<span class="token string">"Aa\r\n\t\b\f\u03bc"</span>
+<span class="token string">"inter<span class="token interpolation"><span class="token punctuation">\(</span><span class="token content"><span class="token string">"pol"</span> <span class="token operator">+</span> <span class="token string">"ation"</span></span><span class="token punctuation">)</span></span>"</span>
+
+----------------------------------------------------

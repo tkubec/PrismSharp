@@ -1,0 +1,43 @@
+class Foo
+interface bar
+extends Foo
+implements bar
+trait Foo
+instanceof \bar
+new \Foo
+catch (bar)
+----------------------------------------------------
+[
+	"class ",
+	["class-name", ["Foo"]],
+
+	"\r\ninterface ",
+	["class-name", ["bar"]],
+
+	"\r\nextends ",
+	["class-name", ["Foo"]],
+
+	"\r\nimplements ",
+	["class-name", ["bar"]],
+
+	"\r\ntrait Foo\r\n",
+
+	["keyword", "instanceof"],
+	["class-name", [
+		["punctuation", "\\"],
+		"bar"
+	]],
+
+	["keyword", "new"],
+	["class-name", [
+		["punctuation", "\\"],
+		"Foo"
+	]],
+
+	["keyword", "catch"],
+	["punctuation", "("],
+	"bar",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

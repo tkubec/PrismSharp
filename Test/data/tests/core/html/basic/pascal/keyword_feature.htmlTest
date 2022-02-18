@@ -1,0 +1,137 @@
+absolute array asm
+begin case const
+constructor
+destructor
+do downto else
+end file for
+function goto
+if implementation
+inherited inline
+interface label
+nil object of
+operator packed
+procedure program
+record reintroduce
+repeat self
+set string then
+to type unit
+until uses var
+while with
+
+dispose exit false
+new true
+
+class dispinterface
+except exports
+finalization
+finally
+initialization
+inline library
+on out packed
+property raise
+resourcestring
+threadvar try
+
+absolute abstract
+alias assembler
+bitpacked break
+cdecl continue
+cppdecl cvar
+default deprecated
+dynamic enumerator
+experimental
+export external
+far far16
+forward generic
+helper implements
+index interrupt
+iochecks local
+message name near
+nodefault noreturn
+nostackframe
+oldfpccall
+otherwise
+overload override 
+pascal platform
+private protected
+public published
+read register
+reintroduce result
+safecall saveregisters
+softfloat specialize
+static stdcall
+stored strict
+unaligned
+unimplemented
+varargs virtual
+write
+----------------------------------------------------
+<span class="token keyword">absolute</span> <span class="token keyword">array</span> <span class="token keyword">asm</span>
+<span class="token keyword">begin</span> <span class="token keyword">case</span> <span class="token keyword">const</span>
+<span class="token keyword">constructor</span>
+<span class="token keyword">destructor</span>
+<span class="token keyword">do</span> <span class="token keyword">downto</span> <span class="token keyword">else</span>
+<span class="token keyword">end</span> <span class="token keyword">file</span> <span class="token keyword">for</span>
+<span class="token keyword">function</span> <span class="token keyword">goto</span>
+<span class="token keyword">if</span> <span class="token keyword">implementation</span>
+<span class="token keyword">inherited</span> <span class="token keyword">inline</span>
+<span class="token keyword">interface</span> <span class="token keyword">label</span>
+<span class="token keyword">nil</span> <span class="token keyword">object</span> <span class="token keyword">of</span>
+<span class="token keyword">operator</span> <span class="token keyword">packed</span>
+<span class="token keyword">procedure</span> <span class="token keyword">program</span>
+<span class="token keyword">record</span> <span class="token keyword">reintroduce</span>
+<span class="token keyword">repeat</span> <span class="token keyword">self</span>
+<span class="token keyword">set</span> <span class="token keyword">string</span> <span class="token keyword">then</span>
+<span class="token keyword">to</span> <span class="token keyword">type</span> <span class="token keyword">unit</span>
+<span class="token keyword">until</span> <span class="token keyword">uses</span> <span class="token keyword">var</span>
+<span class="token keyword">while</span> <span class="token keyword">with</span>
+
+<span class="token keyword">dispose</span> <span class="token keyword">exit</span> <span class="token keyword">false</span>
+<span class="token keyword">new</span> <span class="token keyword">true</span>
+
+<span class="token keyword">class</span> <span class="token keyword">dispinterface</span>
+<span class="token keyword">except</span> <span class="token keyword">exports</span>
+<span class="token keyword">finalization</span>
+<span class="token keyword">finally</span>
+<span class="token keyword">initialization</span>
+<span class="token keyword">inline</span> <span class="token keyword">library</span>
+<span class="token keyword">on</span> <span class="token keyword">out</span> <span class="token keyword">packed</span>
+<span class="token keyword">property</span> <span class="token keyword">raise</span>
+<span class="token keyword">resourcestring</span>
+<span class="token keyword">threadvar</span> <span class="token keyword">try</span>
+
+<span class="token keyword">absolute</span> <span class="token keyword">abstract</span>
+<span class="token keyword">alias</span> <span class="token keyword">assembler</span>
+<span class="token keyword">bitpacked</span> <span class="token keyword">break</span>
+<span class="token keyword">cdecl</span> <span class="token keyword">continue</span>
+<span class="token keyword">cppdecl</span> <span class="token keyword">cvar</span>
+<span class="token keyword">default</span> <span class="token keyword">deprecated</span>
+<span class="token keyword">dynamic</span> <span class="token keyword">enumerator</span>
+<span class="token keyword">experimental</span>
+<span class="token keyword">export</span> <span class="token keyword">external</span>
+<span class="token keyword">far</span> <span class="token keyword">far16</span>
+<span class="token keyword">forward</span> <span class="token keyword">generic</span>
+<span class="token keyword">helper</span> <span class="token keyword">implements</span>
+<span class="token keyword">index</span> <span class="token keyword">interrupt</span>
+<span class="token keyword">iochecks</span> <span class="token keyword">local</span>
+<span class="token keyword">message</span> <span class="token keyword">name</span> <span class="token keyword">near</span>
+<span class="token keyword">nodefault</span> <span class="token keyword">noreturn</span>
+<span class="token keyword">nostackframe</span>
+<span class="token keyword">oldfpccall</span>
+<span class="token keyword">otherwise</span>
+<span class="token keyword">overload</span> <span class="token keyword">override</span> 
+<span class="token keyword">pascal</span> <span class="token keyword">platform</span>
+<span class="token keyword">private</span> <span class="token keyword">protected</span>
+<span class="token keyword">public</span> <span class="token keyword">published</span>
+<span class="token keyword">read</span> <span class="token keyword">register</span>
+<span class="token keyword">reintroduce</span> <span class="token keyword">result</span>
+<span class="token keyword">safecall</span> <span class="token keyword">saveregisters</span>
+<span class="token keyword">softfloat</span> <span class="token keyword">specialize</span>
+<span class="token keyword">static</span> <span class="token keyword">stdcall</span>
+<span class="token keyword">stored</span> <span class="token keyword">strict</span>
+<span class="token keyword">unaligned</span>
+<span class="token keyword">unimplemented</span>
+<span class="token keyword">varargs</span> <span class="token keyword">virtual</span>
+<span class="token keyword">write</span>
+
+----------------------------------------------------

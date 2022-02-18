@@ -1,0 +1,13 @@
+Procedure.s Test(s.s)
+	Protected a$, b$, Result.s
+
+	Result = Mid(s, 1, 3)
+
+	ProcedureReturn Result
+EndProcedure
+
+Test()
+End
+
+--------------------------------------------------
+

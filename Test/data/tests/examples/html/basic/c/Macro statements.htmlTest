@@ -1,0 +1,9 @@
+# include <stdio.h>
+#define PG_locked   0
+#define PG_error    1
+----------------------------------------------------
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">PG_locked</span>   <span class="token expression"><span class="token number">0</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">PG_error</span>    <span class="token expression"><span class="token number">1</span></span></span>
+
+----------------------------------------------------

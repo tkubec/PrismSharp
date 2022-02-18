@@ -1,0 +1,85 @@
+Public Function findValue(ByVal arr() As Double,
+    ByVal searchValue As Double) As Double
+    Dim i As Integer = 0
+    While i <= UBound(arr) AndAlso arr(i) <> searchValue
+        ' If i is greater than UBound(arr), searchValue is not checked.
+        i += 1
+    End While
+    If i > UBound(arr) Then i = -1
+    Return i
+End Function
+----------------------------------------------------
+[
+	["keyword", "Public"],
+	["keyword", "Function"],
+	" findValue",
+	["punctuation", "("],
+	["keyword", "ByVal"],
+	" arr",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["keyword", "As"],
+	["keyword", "Double"],
+	["punctuation", ","],
+
+	["keyword", "ByVal"],
+	" searchValue ",
+	["keyword", "As"],
+	["keyword", "Double"],
+	["punctuation", ")"],
+	["keyword", "As"],
+	["keyword", "Double"],
+
+	["keyword", "Dim"],
+	" i ",
+	["keyword", "As"],
+	["keyword", "Integer"],
+	["operator", "="],
+	["number", "0"],
+
+	["keyword", "While"],
+	" i ",
+	["operator", "<="],
+	["function", "UBound"],
+	["punctuation", "("],
+	"arr",
+	["punctuation", ")"],
+	["keyword", "AndAlso"],
+	" arr",
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["operator", "<>"],
+	" searchValue\n        ",
+
+	["comment", "' If i is greater than UBound(arr), searchValue is not checked."],
+
+	"\n        i ",
+	["operator", "+"],
+	["operator", "="],
+	["number", "1"],
+
+	["keyword", "End"],
+	["keyword", "While"],
+
+	["keyword", "If"],
+	" i ",
+	["operator", ">"],
+	["function", "UBound"],
+	["punctuation", "("],
+	"arr",
+	["punctuation", ")"],
+	["keyword", "Then"],
+	" i ",
+	["operator", "="],
+	["operator", "-"],
+	["number", "1"],
+
+	["keyword", "Return"],
+	" i\n",
+
+	["keyword", "End"],
+	["keyword", "Function"]
+]
+
+----------------------------------------------------

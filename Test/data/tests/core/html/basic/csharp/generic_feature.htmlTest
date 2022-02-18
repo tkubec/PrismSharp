@@ -1,0 +1,7 @@
+void method<T, U>();
+method<int, char>();
+----------------------------------------------------
+<span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token generic-method"><span class="token function">method</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>T<span class="token punctuation">,</span> U<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token generic-method"><span class="token function">method</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

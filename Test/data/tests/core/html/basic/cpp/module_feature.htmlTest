@@ -1,0 +1,47 @@
+export module speech;
+
+export const char* get_phrase_en() {
+    return "Hello, world!";
+}
+
+export module speech;
+
+export import :english;
+export import :spanish;
+
+export module speech:english;
+
+import speech;
+import :PrivWidget;
+
+import <iostream>;
+import <cstdlib>;
+import "foo.h";
+import <baz.h>;
+
+module : private;
+----------------------------------------------------
+<span class="token keyword">export</span> <span class="token keyword">module</span> <span class="token module">speech</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">get_phrase_en</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"Hello, world!"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">module</span> <span class="token module">speech</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">import</span> <span class="token module"><span class="token operator">:</span>english</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">import</span> <span class="token module"><span class="token operator">:</span>spanish</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">module</span> <span class="token module">speech<span class="token operator">:</span>english</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token module">speech</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token module"><span class="token operator">:</span>PrivWidget</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token module"><span class="token string">&lt;iostream></span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token module"><span class="token string">&lt;cstdlib></span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token module"><span class="token string">"foo.h"</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token module"><span class="token string">&lt;baz.h></span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">module</span> <span class="token operator">:</span> <span class="token keyword">private</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

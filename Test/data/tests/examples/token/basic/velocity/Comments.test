@@ -1,0 +1,10 @@
+## Single line comment
+#* Multi-line
+comment *#
+----------------------------------------------------
+[
+	["velocity-comment", "## Single line comment"],
+	["velocity-comment", "#* Multi-line\ncomment *#"]
+]
+
+----------------------------------------------------

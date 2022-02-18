@@ -1,0 +1,18 @@
+defmodule MyServer do
+  @vsn 2
+end
+
+defmodule Math do
+  @moduledoc """
+  Provides math-related functions.
+
+      iex> Math.sum(1, 2)
+      3
+
+  """
+
+  @doc """
+  Calculates the sum of two numbers.
+  """
+  def sum(a, b), do: a + b
+end

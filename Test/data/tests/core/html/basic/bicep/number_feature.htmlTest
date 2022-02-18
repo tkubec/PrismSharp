@@ -1,0 +1,51 @@
+42
+3.14159
+4e10
+3.2E+6
+2.1e-10
+0b1101
+0o571
+0xbabe
+0xBABE
+
+NaN
+Infinity
+
+123n
+0x123n
+
+1_000_000_000_000
+1_000_000.220_720
+0b0101_0110_0011_1000
+0o12_34_56
+0x40_76_38_6A_73
+4_642_473_943_484_686_707n
+0.000_001
+1e10_000
+----------------------------------------------------
+<span class="token number">42</span>
+<span class="token number">3.14159</span>
+<span class="token number">4e10</span>
+<span class="token number">3.2E+6</span>
+<span class="token number">2.1e-10</span>
+<span class="token number">0</span>b1101
+<span class="token number">0</span>o571
+<span class="token number">0</span>xbabe
+<span class="token number">0</span>xBABE
+
+NaN
+Infinity
+
+<span class="token number">123</span>n
+<span class="token number">0</span>x123n
+
+<span class="token number">1</span>_000_000_000_000
+<span class="token number">1</span>_000_000<span class="token punctuation">.</span><span class="token number">220</span>_720
+<span class="token number">0</span>b0101_0110_0011_1000
+<span class="token number">0</span>o12_34_56
+<span class="token number">0</span>x40_76_38_6A_73
+<span class="token number">4</span>_642_473_943_484_686_707n
+<span class="token number">0.000</span>_001
+<span class="token number">1e10</span>_000
+
+----------------------------------------------------

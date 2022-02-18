@@ -1,0 +1,5 @@
+var foo = "foo", bar = "He \"said\" 'hi'!"
+----------------------------------------------------
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token string">"foo"</span><span class="token punctuation">,</span> bar <span class="token operator">=</span> <span class="token string">"He \"said\" 'hi'!"</span>
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+'static
+'foo
+'a
+'_
+<'a>
+----------------------------------------------------
+<span class="token lifetime-annotation symbol">'static</span>
+<span class="token lifetime-annotation symbol">'foo</span>
+<span class="token lifetime-annotation symbol">'a</span>
+<span class="token lifetime-annotation symbol">'_</span>
+<span class="token operator">&lt;</span><span class="token lifetime-annotation symbol">'a</span><span class="token operator">></span>
+
+----------------------------------------------------

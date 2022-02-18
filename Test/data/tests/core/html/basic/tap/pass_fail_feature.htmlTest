@@ -1,0 +1,11 @@
+not ok
+not ok 42 this is the description of the test
+ok
+ok 42 this is the description of the test
+----------------------------------------------------
+<span class="token fail">not ok</span>
+<span class="token fail">not ok 42 this is the description of the test</span>
+<span class="token pass">ok</span>
+<span class="token pass">ok 42 this is the description of the test</span>
+
+----------------------------------------------------

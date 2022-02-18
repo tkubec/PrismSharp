@@ -1,0 +1,53 @@
+In the Treehouse is a container called the cardboard box.
+The cardboard box is a closed container. The glass bottle is a transparent open container. The box is fixed in place and openable.
+
+Check photographing:
+    if the noun is the camera, say "Sadly impossible." instead.
+----------------------------------------------------
+[
+	["position", "In"],
+	["text", "the Treehouse"],
+	["verb", "is"],
+	["text", "a"],
+	["type", "container"],
+	["verb", "called"],
+	["text", "the cardboard box"],
+	["punctuation", "."],
+
+	["text", "The cardboard box"],
+	["verb", "is"],
+	["text", "a"],
+	["property", "closed"],
+	["type", "container"],
+	["punctuation", "."],
+	["text", "The glass bottle"],
+	["verb", "is"],
+	["text", "a"],
+	["property", "transparent"],
+	["property", "open"],
+	["type", "container"],
+	["punctuation", "."],
+	["text", "The box"],
+	["verb", "is"],
+	["property", "fixed in place"],
+	["text", "and"],
+	["property", "openable"],
+	["punctuation", "."],
+
+	["keyword", "Check"],
+	["text", "photographing"],
+	["punctuation", ":"],
+
+	["keyword", "if"],
+	["text", "the"],
+	["type", "noun"],
+	["verb", "is"],
+	["text", "the camera"],
+	["punctuation", ","],
+	["keyword", "say"],
+	["string", ["\"Sadly impossible.\""]],
+	["keyword", "instead"],
+	["punctuation", "."]
+]
+
+----------------------------------------------------

@@ -1,0 +1,4 @@
+tell application "Finder"
+text 1 thru 5 of "Bring me the mouse."
+set averageTemp to 63 as degrees Fahrenheit
+set circleArea to (pi * 7 * 7) as square yards

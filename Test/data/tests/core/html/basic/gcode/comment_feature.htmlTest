@@ -1,0 +1,9 @@
+; foo
+(Home some axes)
+G28 (here come the axes to be homed) X
+----------------------------------------------------
+<span class="token comment">; foo</span>
+<span class="token comment">(Home some axes)</span>
+<span class="token keyword">G28</span> <span class="token comment">(here come the axes to be homed)</span> <span class="token property">X</span>
+
+----------------------------------------------------

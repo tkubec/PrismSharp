@@ -1,0 +1,9 @@
+if has("mac")
+  nmap <D-j> <M-j>
+endif
+----------------------------------------------------
+<span class="token keyword">if</span> <span class="token function">has</span><span class="token punctuation">(</span><span class="token string">"mac"</span><span class="token punctuation">)</span>
+  nmap <span class="token operator">&lt;</span>D<span class="token operator">-</span><span class="token keyword">j</span><span class="token operator">></span> <span class="token operator">&lt;</span>M<span class="token operator">-</span><span class="token keyword">j</span><span class="token operator">></span>
+<span class="token keyword">endif</span>
+
+----------------------------------------------------

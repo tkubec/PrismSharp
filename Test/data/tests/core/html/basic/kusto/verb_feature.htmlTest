@@ -1,0 +1,17 @@
+Logs
+| where Timestamp > ago(1d)
+| join
+(
+    Events
+    | where continent == 'Europe'
+) on RequestId
+----------------------------------------------------
+Logs
+<span class="token operator">|</span> <span class="token verb keyword">where</span> Timestamp <span class="token operator">></span> <span class="token function">ago</span><span class="token punctuation">(</span><span class="token number">1d</span><span class="token punctuation">)</span>
+<span class="token operator">|</span> <span class="token verb keyword">join</span>
+<span class="token punctuation">(</span>
+    Events
+    <span class="token operator">|</span> <span class="token verb keyword">where</span> continent <span class="token operator">==</span> <span class="token string">'Europe'</span>
+<span class="token punctuation">)</span> <span class="token keyword">on</span> RequestId
+
+----------------------------------------------------

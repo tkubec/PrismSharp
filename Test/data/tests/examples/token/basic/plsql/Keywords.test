@@ -1,0 +1,174 @@
+CREATE OR REPLACE PROCEDURE
+hello_place (place_in IN VARCHAR2)
+IS
+  l_message  VARCHAR2 (100);
+BEGIN
+  l_message  := 'Hello ' || place_in;
+  DBMS_OUTPUT.put_line (l_message);
+END hello_place;
+
+DECLARE
+  l_dept_id
+  employees.department_id%TYPE := 10;
+BEGIN
+  DELETE FROM employees
+       WHERE department_id = l_dept_id;
+
+  DBMS_OUTPUT.put_line (SQL%ROWCOUNT);
+END;
+
+DECLARE
+  l_message   VARCHAR2 (100) := 'Hello';
+  l_message2  VARCHAR2 (100) := ' World!';
+BEGIN
+  IF SYSDATE >= TO_DATE ('01-JAN-2011')
+  THEN
+    l_message2 := l_message || l_message2;
+    DBMS_OUTPUT.put_line (l_message2);
+  ELSE
+    DBMS_OUTPUT.put_line (l_message);
+  END IF;
+END;
+----------------------------------------------------
+[
+	["keyword", "CREATE"],
+	["keyword", "OR"],
+	" REPLACE ",
+	["keyword", "PROCEDURE"],
+
+	"\nhello_place ",
+	["punctuation", "("],
+	"place_in ",
+	["keyword", "IN"],
+	" VARCHAR2",
+	["punctuation", ")"],
+
+	["keyword", "IS"],
+
+	"\n  l_message  VARCHAR2 ",
+	["punctuation", "("],
+	["number", "100"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "BEGIN"],
+
+	"\n  l_message  ",
+	["operator", ":="],
+	["string", "'Hello '"],
+	["operator", "||"],
+	" place_in",
+	["punctuation", ";"],
+
+	"\n  DBMS_OUTPUT",
+	["punctuation", "."],
+	"put_line ",
+	["punctuation", "("],
+	"l_message",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "END"],
+	" hello_place",
+	["punctuation", ";"],
+
+	["keyword", "DECLARE"],
+
+	"\n  l_dept_id\n  employees",
+	["punctuation", "."],
+	"department_id",
+	["operator", "%"],
+	["keyword", "TYPE"],
+	["operator", ":="],
+	["number", "10"],
+	["punctuation", ";"],
+
+	["keyword", "BEGIN"],
+
+	["keyword", "DELETE"],
+	["keyword", "FROM"],
+	" employees\n       ",
+
+	["keyword", "WHERE"],
+	" department_id ",
+	["operator", "="],
+	" l_dept_id",
+	["punctuation", ";"],
+
+	"\n\n  DBMS_OUTPUT",
+	["punctuation", "."],
+	"put_line ",
+	["punctuation", "("],
+	["keyword", "SQL"],
+	["operator", "%"],
+	"ROWCOUNT",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "END"],
+	["punctuation", ";"],
+
+	["keyword", "DECLARE"],
+
+	"\n  l_message   VARCHAR2 ",
+	["punctuation", "("],
+	["number", "100"],
+	["punctuation", ")"],
+	["operator", ":="],
+	["string", "'Hello'"],
+	["punctuation", ";"],
+
+	"\n  l_message2  VARCHAR2 ",
+	["punctuation", "("],
+	["number", "100"],
+	["punctuation", ")"],
+	["operator", ":="],
+	["string", "' World!'"],
+	["punctuation", ";"],
+
+	["keyword", "BEGIN"],
+
+	["keyword", "IF"],
+	" SYSDATE ",
+	["operator", ">="],
+	" TO_DATE ",
+	["punctuation", "("],
+	["string", "'01-JAN-2011'"],
+	["punctuation", ")"],
+
+	["keyword", "THEN"],
+
+	"\n    l_message2 ",
+	["operator", ":="],
+	" l_message ",
+	["operator", "||"],
+	" l_message2",
+	["punctuation", ";"],
+
+	"\n    DBMS_OUTPUT",
+	["punctuation", "."],
+	"put_line ",
+	["punctuation", "("],
+	"l_message2",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "ELSE"],
+
+	"\n    DBMS_OUTPUT",
+	["punctuation", "."],
+	"put_line ",
+	["punctuation", "("],
+	"l_message",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "END"],
+	["keyword", "IF"],
+	["punctuation", ";"],
+
+	["keyword", "END"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

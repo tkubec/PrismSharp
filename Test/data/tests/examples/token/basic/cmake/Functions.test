@@ -1,0 +1,15 @@
+user_defined_function()
+another_custom_function(argument)
+----------------------------------------------------
+[
+	["function", "user_defined_function"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["function", "another_custom_function"],
+	["punctuation", "("],
+	"argument",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

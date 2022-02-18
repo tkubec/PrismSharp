@@ -1,0 +1,22 @@
+`/* JS here */`
+`/*
+JS here */`
+----------------------------------------------------
+[
+	["inline-javascript", [
+		["delimiter", "`"],
+		["script", [
+			["comment", "/* JS here */"]
+		]],
+		["delimiter", "`"]
+	]],
+	["inline-javascript", [
+		["delimiter", "`"],
+		["script", [
+			["comment", "/*\r\nJS here */"]
+		]],
+		["delimiter", "`"]
+	]]
+]
+
+----------------------------------------------------

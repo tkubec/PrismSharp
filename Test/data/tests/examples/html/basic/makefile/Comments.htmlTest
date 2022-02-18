@@ -1,0 +1,7 @@
+# This is a comment
+include foo # This is another comment
+----------------------------------------------------
+<span class="token comment"># This is a comment</span>
+<span class="token keyword">include</span> foo <span class="token comment"># This is another comment</span>
+
+----------------------------------------------------

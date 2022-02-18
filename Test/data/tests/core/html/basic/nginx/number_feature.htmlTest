@@ -1,0 +1,27 @@
+worker_connections  4096;
+expires 30d;
+
+client_max_body_size    10m;
+client_body_buffer_size 128k;
+proxy_connect_timeout   90;
+proxy_send_timeout      90;
+proxy_read_timeout      90;
+proxy_buffers           32 4k;
+
+keepalive_timeout  75 20;
+return 404;
+----------------------------------------------------
+<span class="token directive"><span class="token keyword">worker_connections</span>  <span class="token number">4096</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">expires</span> <span class="token number">30d</span></span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">client_max_body_size</span>    <span class="token number">10m</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">client_body_buffer_size</span> <span class="token number">128k</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">proxy_connect_timeout</span>   <span class="token number">90</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">proxy_send_timeout</span>      <span class="token number">90</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">proxy_read_timeout</span>      <span class="token number">90</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">proxy_buffers</span>           <span class="token number">32</span> <span class="token number">4k</span></span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">keepalive_timeout</span>  <span class="token number">75</span> <span class="token number">20</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">return</span> <span class="token number">404</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

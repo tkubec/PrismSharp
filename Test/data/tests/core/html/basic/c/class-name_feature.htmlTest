@@ -1,0 +1,21 @@
+struct foo;
+enum bar;
+
+struct foo var;
+struct __attribute__ ((aligned (8))) S { short f[3]; };
+
+// by name
+uint32_t foo;
+static dtrace_helptrace_t *bar;
+----------------------------------------------------
+<span class="token keyword">struct</span> <span class="token class-name">foo</span><span class="token punctuation">;</span>
+<span class="token keyword">enum</span> <span class="token class-name">bar</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">foo</span> var<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token keyword">__attribute__</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">aligned</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token class-name">S</span> <span class="token punctuation">{</span> <span class="token keyword">short</span> f<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// by name</span>
+<span class="token class-name">uint32_t</span> foo<span class="token punctuation">;</span>
+<span class="token keyword">static</span> <span class="token class-name">dtrace_helptrace_t</span> <span class="token operator">*</span>bar<span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+# Single line comment
+=head1 Here There
+	Be Pods!
+=cut
+----------------------------------------------------
+[
+	["comment", "# Single line comment"],
+	["comment", "=head1 Here There\n\tBe Pods!\n=cut"]
+]
+
+----------------------------------------------------

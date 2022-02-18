@@ -1,0 +1,86 @@
+.foo (@bg: #f5f5f5, @color: #900) {
+  background: @bg;
+  color: @color;
+}
+.bar {
+  .foo();
+}
+.class1 {
+  .mixin(@margin: 20px; @color: #33acfe);
+}
+.class2 {
+  .mixin(#efca44; @padding: 40px);
+}
+----------------------------------------------------
+[
+	["selector", [
+		".foo (",
+		["variable", "@bg"],
+		": #f5f5f5, ",
+		["variable", "@color"],
+		": #900)"
+	]],
+	["punctuation", "{"],
+
+	["property", "background"],
+	["punctuation", ":"],
+	["variable", "@bg"],
+	["punctuation", ";"],
+
+	["property", "color"],
+	["punctuation", ":"],
+	["variable", "@color"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["selector", [".bar"]],
+	["punctuation", "{"],
+
+	["mixin-usage", ".foo"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["selector", [".class1"]],
+	["punctuation", "{"],
+
+	["mixin-usage", ".mixin"],
+	["punctuation", "("],
+	["variable", [
+		"@margin",
+		["punctuation", ":"]
+	]],
+	" 20px",
+	["punctuation", ";"],
+	["variable", [
+		"@color",
+		["punctuation", ":"]
+	]],
+	" #33acfe",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["selector", [".class2"]],
+	["punctuation", "{"],
+
+	["mixin-usage", ".mixin"],
+	["punctuation", "("],
+	"#efca44",
+	["punctuation", ";"],
+	["variable", [
+		"@padding",
+		["punctuation", ":"]
+	]],
+	" 40px",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

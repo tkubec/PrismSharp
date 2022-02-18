@@ -1,0 +1,19 @@
+#
+# foobar
+#=#
+#=
+ multi line
+  =#
+
+#= #= nested =# =#
+----------------------------------------------------
+<span class="token comment">#</span>
+<span class="token comment"># foobar</span>
+<span class="token comment">#=#</span>
+<span class="token comment">#=
+ multi line
+  =#</span>
+
+<span class="token comment">#= #= nested =# =#</span>
+
+----------------------------------------------------

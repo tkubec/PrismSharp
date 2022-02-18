@@ -1,0 +1,19 @@
+< <= <>
+> >=
++ += - -=
+* *= / /=
+& &=
+? ^
+And Or Not
+----------------------------------------------------
+[
+	["operator", "<"], ["operator", "<="], ["operator", "<>"],
+	["operator", ">"], ["operator", ">="],
+	["operator", "+"], ["operator", "+="], ["operator", "-"], ["operator", "-="],
+	["operator", "*"], ["operator", "*="], ["operator", "/"], ["operator", "/="],
+	["operator", "&"], ["operator", "&="],
+	["operator", "?"], ["operator", "^"],
+	["operator", "And"], ["operator", "Or"], ["operator", "Not"]
+]
+
+----------------------------------------------------

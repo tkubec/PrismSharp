@@ -1,0 +1,17 @@
+# double quote single line strings
+"foo \"bar\" baz"
+
+# heredocs or multiline strings
+"""
+{ "snot": "badger" }
+"""
+----------------------------------------------------
+<span class="token comment"># double quote single line strings</span>
+<span class="token interpolated-string"><span class="token string">"foo \"bar\" baz"</span></span>
+
+<span class="token comment"># heredocs or multiline strings</span>
+<span class="token interpolated-string"><span class="token string">"""
+{ "snot": "badger" }
+"""</span></span>
+
+----------------------------------------------------

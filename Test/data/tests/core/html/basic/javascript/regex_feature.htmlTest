@@ -1,0 +1,33 @@
+/foo bar/;
+/foo/dgimyus,
+/[\[\]]{2,4}(?:foo)*/;
+/foo"test"bar/;
+/foo\//;
+/[]/;
+/[\]/]/;
+1 / 4 + "/, not a regex";
+/ '1' '2' '3' '4' '5' /
+[/foo/]
+
+let a = /regex/m // comment
+let b = condition ? /regex/ : /another one/
+return /regex/;
+yield /regex/;
+----------------------------------------------------
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">foo bar</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">foo</span><span class="token regex-delimiter">/</span><span class="token regex-flags">dgimyus</span></span><span class="token punctuation">,</span>
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[\[\]]{2,4}(?:foo)*</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">foo"test"bar</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">foo\/</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[]</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[\]/]</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+<span class="token number">1</span> <span class="token operator">/</span> <span class="token number">4</span> <span class="token operator">+</span> <span class="token string">"/, not a regex"</span><span class="token punctuation">;</span>
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex"> '1' '2' '3' '4' '5' </span><span class="token regex-delimiter">/</span></span>
+<span class="token punctuation">[</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">foo</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">regex</span><span class="token regex-delimiter">/</span><span class="token regex-flags">m</span></span> <span class="token comment">// comment</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> condition <span class="token operator">?</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">regex</span><span class="token regex-delimiter">/</span></span> <span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">another one</span><span class="token regex-delimiter">/</span></span>
+<span class="token keyword">return</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">regex</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+<span class="token keyword">yield</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">regex</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

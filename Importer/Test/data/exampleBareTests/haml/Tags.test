@@ -1,0 +1,15 @@
+%div
+	%span
+%span(class="widget_#{@widget.number}")
+%div{:id => [@item.type, @item.number], :class => [@item.type, @item.urgency]}
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+%html{html_attrs('fr-fr')}
+%div[@user, :greeting]
+%img
+%pre>&lt;
+  foo
+  bar
+%img
+
+--------------------------------------------------
+

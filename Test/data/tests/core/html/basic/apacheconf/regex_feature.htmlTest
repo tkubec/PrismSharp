@@ -1,0 +1,9 @@
+^(.*)$
+^foo
+bar$
+----------------------------------------------------
+<span class="token regex">^(.*)$</span>
+<span class="token regex">^foo</span>
+<span class="token regex">bar$</span>
+
+----------------------------------------------------

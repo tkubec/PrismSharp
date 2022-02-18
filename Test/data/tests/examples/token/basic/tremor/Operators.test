@@ -1,0 +1,45 @@
+merge {} of
+  { "snot": "badger" }
+end;
+
+patch {} of
+  insert snot = "badger"
+end;
+----------------------------------------------------
+[
+	["keyword", "merge"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["keyword", "of"],
+
+	["punctuation", "{"],
+	["interpolated-string", [
+		["string", "\"snot\""]
+	]],
+	["punctuation", ":"],
+	["interpolated-string", [
+		["string", "\"badger\""]
+	]],
+	["punctuation", "}"],
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["keyword", "patch"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["keyword", "of"],
+
+	["keyword", "insert"],
+	" s",
+	["operator", "not"],
+	["operator", "="],
+	["interpolated-string", [
+		["string", "\"badger\""]
+	]],
+
+	["keyword", "end"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

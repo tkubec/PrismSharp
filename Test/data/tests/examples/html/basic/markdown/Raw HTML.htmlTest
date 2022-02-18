@@ -1,0 +1,11 @@
+> This is a quotation
+> Containing <strong>raw HTML</strong>
+
+<p>*Italic text inside HTML tag*</p>
+----------------------------------------------------
+<span class="token blockquote punctuation">></span> This is a quotation
+<span class="token blockquote punctuation">></span> Containing <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span>raw HTML<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token italic"><span class="token punctuation">*</span><span class="token content">Italic text inside HTML tag</span><span class="token punctuation">*</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

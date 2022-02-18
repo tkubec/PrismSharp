@@ -1,0 +1,13 @@
+font-weight:
+@{foobar} :
+background-@{foo}:
+box-shadow+:
+transform+_:
+----------------------------------------------------
+<span class="token property">font-weight</span><span class="token punctuation">:</span>
+<span class="token property">@{foobar}</span> <span class="token punctuation">:</span>
+<span class="token property">background-@{foo}</span><span class="token punctuation">:</span>
+<span class="token property">box-shadow+</span><span class="token punctuation">:</span>
+<span class="token property">transform+_</span><span class="token punctuation">:</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+{{ '' }}
+{{ "" }}
+{{ "ba\"r" }}
+{{ 'ba\'z' }}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> <span class="token string"><span class="token punctuation">'</span><span class="token punctuation">'</span></span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token string"><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token string"><span class="token punctuation">"</span>ba\"r<span class="token punctuation">"</span></span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token string"><span class="token punctuation">'</span>ba\'z<span class="token punctuation">'</span></span> <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+`${`a string`}`
+----------------------------------------------------
+[
+	["template-string", [
+		["template-punctuation", "`"],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["template-string", [
+				["template-punctuation", "`"],
+				["string", "a string"],
+				["template-punctuation", "`"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		["template-punctuation", "`"]
+	]]
+]
+
+----------------------------------------------------

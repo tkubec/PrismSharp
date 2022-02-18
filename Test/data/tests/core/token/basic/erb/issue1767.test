@@ -1,0 +1,49 @@
+<%# this is a block comment %>
+<%
+=begin %>
+	block comment
+	(both lines of both the begin and end tags must be at the start of their lines)
+<%
+=end %>
+
+<%# this is not %>
+	<%
+	=begin %>
+	not a comment
+	<%
+	=end %>
+----------------------------------------------------
+[
+	["delimiter", "<%"],
+	["ruby", [
+		["comment", "# this is a block comment %>"],
+
+		["operator", "<"],
+		["operator", "%"],
+
+		["comment", "=begin %>\n\tblock comment\n\t(both lines of both the begin and end tags must be at the start of their lines)\n<%\n=end"],
+		["string-literal", [
+			["string", "%>\n\n<%# this is not %>"]
+		]],
+
+		["operator", "<"],
+		["operator", "%"],
+
+		["operator", "="],
+		["keyword", "begin"],
+		["operator", "%"],
+		["operator", ">"],
+
+		["keyword", "not"],
+		" a comment\n\t",
+
+		["operator", "<"],
+		["operator", "%"],
+
+		["operator", "="],
+		["keyword", "end"]
+	]],
+	["delimiter", "%>"]
+]
+
+----------------------------------------------------

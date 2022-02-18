@@ -1,0 +1,5 @@
+[% "Hello, $name!" %]
+----------------------------------------------------
+<span class="token delimiter punctuation">[%</span> <span class="token double-quoted-string string">"Hello, <span class="token variable">$name</span>!"</span> <span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

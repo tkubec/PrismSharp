@@ -1,0 +1,9 @@
+graph ethane {}
+digraph foo {}
+subgraph bar {}
+----------------------------------------------------
+<span class="token keyword">graph</span> <span class="token graph-name class-name">ethane</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">digraph</span> <span class="token graph-name class-name">foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">subgraph</span> <span class="token graph-name class-name">bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

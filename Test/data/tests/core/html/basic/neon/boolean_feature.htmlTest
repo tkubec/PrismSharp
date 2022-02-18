@@ -1,0 +1,9 @@
+foo: true
+bar: false
+alt: [yes, no, YES, NO, TRUE, FALSE]
+----------------------------------------------------
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token key atrule">alt</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token boolean">yes</span><span class="token punctuation">,</span> <span class="token boolean">no</span><span class="token punctuation">,</span> <span class="token boolean">YES</span><span class="token punctuation">,</span> <span class="token boolean">NO</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">FALSE</span><span class="token punctuation">]</span>
+
+----------------------------------------------------

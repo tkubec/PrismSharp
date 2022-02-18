@@ -1,0 +1,15 @@
+//
+// Foobar
+#!/usr/bin/env io
+/* multiline
+comment
+*/
+----------------------------------------------------
+<span class="token comment">//</span>
+<span class="token comment">// Foobar</span>
+<span class="token comment">#!/usr/bin/env io</span>
+<span class="token comment">/* multiline
+comment
+*/</span>
+
+----------------------------------------------------

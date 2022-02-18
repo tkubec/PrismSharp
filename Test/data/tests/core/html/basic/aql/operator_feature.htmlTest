@@ -1,0 +1,23 @@
++ - * / %
+> >= <= < == != =
+!~ =~
+
+! && ||
+
+[**] [***] [****]
+
+..
+1..100
+----------------------------------------------------
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">%</span>
+<span class="token operator">></span> <span class="token operator">>=</span> <span class="token operator">&lt;=</span> <span class="token operator">&lt;</span> <span class="token operator">==</span> <span class="token operator">!=</span> <span class="token operator">=</span>
+<span class="token operator">!~</span> <span class="token operator">=~</span>
+
+<span class="token operator">!</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">||</span>
+
+<span class="token punctuation">[</span><span class="token operator">**</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">***</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">****</span><span class="token punctuation">]</span>
+
+<span class="token range operator">..</span>
+<span class="token number">1</span><span class="token range operator">..</span><span class="token number">100</span>
+
+----------------------------------------------------

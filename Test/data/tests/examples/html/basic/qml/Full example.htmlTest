@@ -1,0 +1,73 @@
+// https://code.qt.io/cgit/qt/qtdeclarative.git/tree/examples/qml/referenceexamples/valuesource/example.qml?h=5.14
+
+import People 1.0
+import QtQuick 2.0  // For QColor
+
+BirthdayParty {
+	HappyBirthdaySong on announcement { name: "Bob Jones" }
+
+	onPartyStarted: console.log("This party started rockin' at " + time);
+
+
+	host: Boy {
+		name: "Bob Jones"
+		shoe { size: 12; color: "white"; brand: "Nike"; price: 90.0 }
+	}
+
+	Boy {
+		name: "Leo Hodges"
+		BirthdayParty.rsvp: "2009-07-06"
+		shoe { size: 10; color: "black"; brand: "Reebok"; price: 59.95 }
+	}
+	Boy {
+		name: "Jack Smith"
+		shoe { size: 8; color: "blue"; brand: "Puma"; price: 19.95 }
+	}
+	Girl {
+		name: "Anne Brown"
+		BirthdayParty.rsvp: "2009-07-01"
+		shoe.size: 7
+		shoe.color: "red"
+		shoe.brand: "Marc Jacobs"
+		shoe.price: 699.99
+	}
+
+}
+----------------------------------------------------
+<span class="token comment">// https://code.qt.io/cgit/qt/qtdeclarative.git/tree/examples/qml/referenceexamples/valuesource/example.qml?h=5.14</span>
+
+<span class="token keyword">import</span> People 1.0
+<span class="token keyword">import</span> QtQuick 2.0  <span class="token comment">// For QColor</span>
+
+<span class="token class-name">BirthdayParty</span> <span class="token punctuation">{</span>
+	<span class="token class-name">HappyBirthdaySong</span> <span class="token keyword">on</span> announcement <span class="token punctuation">{</span> <span class="token property">name</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Bob Jones"</span> </span><span class="token punctuation">}</span>
+
+	<span class="token property">onPartyStarted</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"This party started rockin' at "</span> <span class="token operator">+</span> time<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+
+
+	<span class="token property">host</span><span class="token punctuation">:</span> <span class="token class-name">Boy</span> <span class="token punctuation">{</span>
+		<span class="token property">name</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Bob Jones"</span></span>
+		<span class="token class-name">shoe</span> <span class="token punctuation">{</span> <span class="token property">size</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">12</span></span><span class="token punctuation">;</span> <span class="token property">color</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"white"</span></span><span class="token punctuation">;</span> <span class="token property">brand</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Nike"</span></span><span class="token punctuation">;</span> <span class="token property">price</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">90.0</span> </span><span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token class-name">Boy</span> <span class="token punctuation">{</span>
+		<span class="token property">name</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Leo Hodges"</span></span>
+		<span class="token property">BirthdayParty.rsvp</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"2009-07-06"</span></span>
+		<span class="token class-name">shoe</span> <span class="token punctuation">{</span> <span class="token property">size</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">10</span></span><span class="token punctuation">;</span> <span class="token property">color</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"black"</span></span><span class="token punctuation">;</span> <span class="token property">brand</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Reebok"</span></span><span class="token punctuation">;</span> <span class="token property">price</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">59.95</span> </span><span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token class-name">Boy</span> <span class="token punctuation">{</span>
+		<span class="token property">name</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Jack Smith"</span></span>
+		<span class="token class-name">shoe</span> <span class="token punctuation">{</span> <span class="token property">size</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">8</span></span><span class="token punctuation">;</span> <span class="token property">color</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"blue"</span></span><span class="token punctuation">;</span> <span class="token property">brand</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Puma"</span></span><span class="token punctuation">;</span> <span class="token property">price</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">19.95</span> </span><span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token class-name">Girl</span> <span class="token punctuation">{</span>
+		<span class="token property">name</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Anne Brown"</span></span>
+		<span class="token property">BirthdayParty.rsvp</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"2009-07-01"</span></span>
+		<span class="token property">shoe.size</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">7</span></span>
+		<span class="token property">shoe.color</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"red"</span></span>
+		<span class="token property">shoe.brand</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Marc Jacobs"</span></span>
+		<span class="token property">shoe.price</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">699.99</span></span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

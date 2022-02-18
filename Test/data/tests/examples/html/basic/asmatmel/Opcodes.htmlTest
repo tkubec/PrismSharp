@@ -1,0 +1,15 @@
+LD
+OUT
+
+; lowercase
+ldi
+jmp label1
+----------------------------------------------------
+<span class="token op-code keyword">LD</span>
+<span class="token op-code keyword">OUT</span>
+
+<span class="token comment">; lowercase</span>
+<span class="token op-code keyword">ldi</span>
+<span class="token op-code keyword">jmp</span> label1
+
+----------------------------------------------------

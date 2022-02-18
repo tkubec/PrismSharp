@@ -1,0 +1,9 @@
+output "address" {
+  value = "${aws_instance.db.public_dns}"
+}
+----------------------------------------------------
+<span class="token keyword">output<span class="token type variable"> "address" </span></span><span class="token punctuation">{</span>
+  <span class="token property">value</span> <span class="token punctuation">=</span> <span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>aws_instance<span class="token punctuation">.</span>db<span class="token punctuation">.</span>public_dns<span class="token punctuation">}</span></span>"</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

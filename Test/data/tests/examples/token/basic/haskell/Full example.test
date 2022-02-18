@@ -1,0 +1,409 @@
+hGetLine h =
+  wantReadableHandle_ "Data.ByteString.hGetLine" h $
+    \ h_@Handle__{haByteBuffer} -> do
+      flushCharReadBuffer h_
+      buf <- readIORef haByteBuffer
+      if isEmptyBuffer buf
+         then fill h_ buf 0 []
+         else haveBuf h_ buf 0 []
+ where
+
+  fill h_@Handle__{haByteBuffer,haDevice} buf len xss =
+    len `seq` do
+    (r,buf') <- Buffered.fillReadBuffer haDevice buf
+    if r == 0
+       then do writeIORef haByteBuffer buf{ bufR=0, bufL=0 }
+               if len > 0
+                  then mkBigPS len xss
+                  else ioe_EOF
+       else haveBuf h_ buf' len xss
+
+  haveBuf h_@Handle__{haByteBuffer}
+          buf@Buffer{ bufRaw=raw, bufR=w, bufL=r }
+          len xss =
+    do
+        off <- findEOL r w raw
+        let new_len = len + off - r
+        xs <- mkPS raw r off
+
+      -- if eol == True, then off is the offset of the '\n'
+      -- otherwise off == w and the buffer is now empty.
+        if off /= w
+            then do if (w == off + 1)
+                            then writeIORef haByteBuffer buf{ bufL=0, bufR=0 }
+                            else writeIORef haByteBuffer buf{ bufL = off + 1 }
+                    mkBigPS new_len (xs:xss)
+            else do
+                 fill h_ buf{ bufL=0, bufR=0 } new_len (xs:xss)
+
+  -- find the end-of-line character, if there is one
+  findEOL r w raw
+        | r == w = return w
+        | otherwise =  do
+            c <- readWord8Buf raw r
+            if c == fromIntegral (ord '\n')
+                then return r -- NB. not r+1: don't include the '\n'
+                else findEOL (r+1) w raw
+
+mkPS :: RawBuffer Word8 -> Int -> Int -> IO ByteString
+mkPS buf start end =
+ create len $ \p ->
+   withRawBuffer buf $ \pbuf -> do
+   copyBytes p (pbuf `plusPtr` start) len
+ where
+   len = end - start
+----------------------------------------------------
+[
+	["hvariable", ["hGetLine"]],
+	["hvariable", ["h"]],
+	["operator", "="],
+
+	["hvariable", ["wantReadableHandle_"]],
+	["string", "\"Data.ByteString.hGetLine\""],
+	["hvariable", ["h"]],
+	["operator", "$"],
+
+	["operator", "\\"],
+	["hvariable", ["h_"]],
+	["operator", "@"],
+	["constant", ["Handle__"]],
+	["punctuation", "{"],
+	["hvariable", ["haByteBuffer"]],
+	["punctuation", "}"],
+	["operator", "->"],
+	["keyword", "do"],
+
+	["hvariable", ["flushCharReadBuffer"]],
+	["hvariable", ["h_"]],
+
+	["hvariable", ["buf"]],
+	["operator", "<-"],
+	["hvariable", ["readIORef"]],
+	["hvariable", ["haByteBuffer"]],
+
+	["keyword", "if"],
+	["hvariable", ["isEmptyBuffer"]],
+	["hvariable", ["buf"]],
+
+	["keyword", "then"],
+	["hvariable", ["fill"]],
+	["hvariable", ["h_"]],
+	["hvariable", ["buf"]],
+	["number", "0"],
+	["punctuation", "["],
+	["punctuation", "]"],
+
+	["keyword", "else"],
+	["hvariable", ["haveBuf"]],
+	["hvariable", ["h_"]],
+	["hvariable", ["buf"]],
+	["number", "0"],
+	["punctuation", "["],
+	["punctuation", "]"],
+
+	["keyword", "where"],
+
+	["hvariable", ["fill"]],
+	["hvariable", ["h_"]],
+	["operator", "@"],
+	["constant", ["Handle__"]],
+	["punctuation", "{"],
+	["hvariable", ["haByteBuffer"]],
+	["punctuation", ","],
+	["hvariable", ["haDevice"]],
+	["punctuation", "}"],
+	["hvariable", ["buf"]],
+	["hvariable", ["len"]],
+	["hvariable", ["xss"]],
+	["operator", "="],
+
+	["hvariable", ["len"]],
+	["operator", "`seq`"],
+	["keyword", "do"],
+
+	["punctuation", "("],
+	["hvariable", ["r"]],
+	["punctuation", ","],
+	["hvariable", ["buf'"]],
+	["punctuation", ")"],
+	["operator", "<-"],
+	["hvariable", [
+		"Buffered",
+		["punctuation", "."],
+		"fillReadBuffer"
+	]],
+	["hvariable", ["haDevice"]],
+	["hvariable", ["buf"]],
+
+	["keyword", "if"],
+	["hvariable", ["r"]],
+	["operator", "=="],
+	["number", "0"],
+
+	["keyword", "then"],
+	["keyword", "do"],
+	["hvariable", ["writeIORef"]],
+	["hvariable", ["haByteBuffer"]],
+	["hvariable", ["buf"]],
+	["punctuation", "{"],
+	["hvariable", ["bufR"]],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ","],
+	["hvariable", ["bufL"]],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["hvariable", ["len"]],
+	["operator", ">"],
+	["number", "0"],
+
+	["keyword", "then"],
+	["hvariable", ["mkBigPS"]],
+	["hvariable", ["len"]],
+	["hvariable", ["xss"]],
+
+	["keyword", "else"],
+	["hvariable", ["ioe_EOF"]],
+
+	["keyword", "else"],
+	["hvariable", ["haveBuf"]],
+	["hvariable", ["h_"]],
+	["hvariable", ["buf'"]],
+	["hvariable", ["len"]],
+	["hvariable", ["xss"]],
+
+	["hvariable", ["haveBuf"]],
+	["hvariable", ["h_"]],
+	["operator", "@"],
+	["constant", ["Handle__"]],
+	["punctuation", "{"],
+	["hvariable", ["haByteBuffer"]],
+	["punctuation", "}"],
+
+	["hvariable", ["buf"]],
+	["operator", "@"],
+	["constant", ["Buffer"]],
+	["punctuation", "{"],
+	["hvariable", ["bufRaw"]],
+	["operator", "="],
+	["hvariable", ["raw"]],
+	["punctuation", ","],
+	["hvariable", ["bufR"]],
+	["operator", "="],
+	["hvariable", ["w"]],
+	["punctuation", ","],
+	["hvariable", ["bufL"]],
+	["operator", "="],
+	["hvariable", ["r"]],
+	["punctuation", "}"],
+
+	["hvariable", ["len"]],
+	["hvariable", ["xss"]],
+	["operator", "="],
+
+	["keyword", "do"],
+
+	["hvariable", ["off"]],
+	["operator", "<-"],
+	["hvariable", ["findEOL"]],
+	["hvariable", ["r"]],
+	["hvariable", ["w"]],
+	["hvariable", ["raw"]],
+
+	["keyword", "let"],
+	["hvariable", ["new_len"]],
+	["operator", "="],
+	["hvariable", ["len"]],
+	["operator", "+"],
+	["hvariable", ["off"]],
+	["operator", "-"],
+	["hvariable", ["r"]],
+
+	["hvariable", ["xs"]],
+	["operator", "<-"],
+	["hvariable", ["mkPS"]],
+	["hvariable", ["raw"]],
+	["hvariable", ["r"]],
+	["hvariable", ["off"]],
+
+	["comment", "-- if eol == True, then off is the offset of the '\\n'"],
+
+	["comment", "-- otherwise off == w and the buffer is now empty."],
+
+	["keyword", "if"],
+	["hvariable", ["off"]],
+	["operator", "/="],
+	["hvariable", ["w"]],
+
+	["keyword", "then"],
+	["keyword", "do"],
+	["keyword", "if"],
+	["punctuation", "("],
+	["hvariable", ["w"]],
+	["operator", "=="],
+	["hvariable", ["off"]],
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["keyword", "then"],
+	["hvariable", ["writeIORef"]],
+	["hvariable", ["haByteBuffer"]],
+	["hvariable", ["buf"]],
+	["punctuation", "{"],
+	["hvariable", ["bufL"]],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ","],
+	["hvariable", ["bufR"]],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["hvariable", ["writeIORef"]],
+	["hvariable", ["haByteBuffer"]],
+	["hvariable", ["buf"]],
+	["punctuation", "{"],
+	["hvariable", ["bufL"]],
+	["operator", "="],
+	["hvariable", ["off"]],
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", "}"],
+
+	["hvariable", ["mkBigPS"]],
+	["hvariable", ["new_len"]],
+	["punctuation", "("],
+	["hvariable", ["xs"]],
+	["operator", ":"],
+	["hvariable", ["xss"]],
+	["punctuation", ")"],
+
+	["keyword", "else"],
+	["keyword", "do"],
+
+	["hvariable", ["fill"]],
+	["hvariable", ["h_"]],
+	["hvariable", ["buf"]],
+	["punctuation", "{"],
+	["hvariable", ["bufL"]],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ","],
+	["hvariable", ["bufR"]],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", "}"],
+	["hvariable", ["new_len"]],
+	["punctuation", "("],
+	["hvariable", ["xs"]],
+	["operator", ":"],
+	["hvariable", ["xss"]],
+	["punctuation", ")"],
+
+	["comment", "-- find the end-of-line character, if there is one"],
+
+	["hvariable", ["findEOL"]],
+	["hvariable", ["r"]],
+	["hvariable", ["w"]],
+	["hvariable", ["raw"]],
+
+	["operator", "|"],
+	["hvariable", ["r"]],
+	["operator", "=="],
+	["hvariable", ["w"]],
+	["operator", "="],
+	["builtin", "return"],
+	["hvariable", ["w"]],
+
+	["operator", "|"],
+	["builtin", "otherwise"],
+	["operator", "="],
+	["keyword", "do"],
+
+	["hvariable", ["c"]],
+	["operator", "<-"],
+	["hvariable", ["readWord8Buf"]],
+	["hvariable", ["raw"]],
+	["hvariable", ["r"]],
+
+	["keyword", "if"],
+	["hvariable", ["c"]],
+	["operator", "=="],
+	["builtin", "fromIntegral"],
+	["punctuation", "("],
+	["builtin", "ord"],
+	["char", "'\\n'"],
+	["punctuation", ")"],
+
+	["keyword", "then"],
+	["builtin", "return"],
+	["hvariable", ["r"]],
+	["comment", "-- NB. not r+1: don't include the '\\n'"],
+
+	["keyword", "else"],
+	["hvariable", ["findEOL"]],
+	["punctuation", "("],
+	["hvariable", ["r"]],
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ")"],
+	["hvariable", ["w"]],
+	["hvariable", ["raw"]],
+
+	["hvariable", ["mkPS"]],
+	["operator", "::"],
+	["constant", ["RawBuffer"]],
+	["constant", ["Word8"]],
+	["operator", "->"],
+	["constant", ["Int"]],
+	["operator", "->"],
+	["constant", ["Int"]],
+	["operator", "->"],
+	["constant", ["IO"]],
+	["constant", ["ByteString"]],
+
+	["hvariable", ["mkPS"]],
+	["hvariable", ["buf"]],
+	["hvariable", ["start"]],
+	["hvariable", ["end"]],
+	["operator", "="],
+
+	["hvariable", ["create"]],
+	["hvariable", ["len"]],
+	["operator", "$"],
+	["operator", "\\"],
+	["hvariable", ["p"]],
+	["operator", "->"],
+
+	["hvariable", ["withRawBuffer"]],
+	["hvariable", ["buf"]],
+	["operator", "$"],
+	["operator", "\\"],
+	["hvariable", ["pbuf"]],
+	["operator", "->"],
+	["keyword", "do"],
+
+	["hvariable", ["copyBytes"]],
+	["hvariable", ["p"]],
+	["punctuation", "("],
+	["hvariable", ["pbuf"]],
+	["operator", "`plusPtr`"],
+	["hvariable", ["start"]],
+	["punctuation", ")"],
+	["hvariable", ["len"]],
+
+	["keyword", "where"],
+
+	["hvariable", ["len"]],
+	["operator", "="],
+	["hvariable", ["end"]],
+	["operator", "-"],
+	["hvariable", ["start"]]
+]
+
+----------------------------------------------------

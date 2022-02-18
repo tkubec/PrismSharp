@@ -1,0 +1,178 @@
+{if ( $amount < 0 or $amount > 1000 ) and $volume >= #minVolAmt#}
+   ...
+{/if}
+{if count($var) gt 0}{/if}
+{if $var is even by 3}
+   ...
+{/if}
+
+{foreach from=$myArray item=i name=foo}
+	{$smarty.foreach.foo.index}|{$smarty.foreach.foo.iteration},
+{/foreach}
+
+<ul>
+{foreach from=$items key=myId item=i}
+  <li><a href="item.php?id={$myId}">{$i.no}: {$i.label}</li>
+{/foreach}
+</ul>
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$amount"],
+	["operator", "<"],
+	["number", "0"],
+	["operator", "or"],
+	["variable", "$amount"],
+	["operator", ">"],
+	["number", "1000"],
+	["punctuation", ")"],
+	["operator", "and"],
+	["variable", "$volume"],
+	["operator", ">="],
+	["variable", "#minVolAmt#"],
+	["punctuation", "}"],
+
+	["punctuation", "."],
+	["punctuation", "."],
+	["punctuation", "."],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"if",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"if ",
+	["function", "count"],
+	["punctuation", "("],
+	["variable", "$var"],
+	["punctuation", ")"],
+	["operator", "gt"],
+	["number", "0"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["operator", "/"],
+	"if",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"if ",
+	["variable", "$var"],
+	["operator", "is even by"],
+	["number", "3"],
+	["punctuation", "}"],
+
+	["punctuation", "."],
+	["punctuation", "."],
+	["punctuation", "."],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"if",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"foreach ",
+	["attr-name", "from"],
+	["operator", "="],
+	["variable", "$myArray"],
+	["attr-name", "item"],
+	["operator", "="],
+	["variable", "i"],
+	["attr-name", "name"],
+	["operator", "="],
+	["variable", "foo"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$smarty"],
+	["punctuation", "."],
+	["variable", "foreach"],
+	["punctuation", "."],
+	["variable", "foo"],
+	["punctuation", "."],
+	["variable", "index"],
+	["punctuation", "}"],
+	["operator", "|"],
+	["punctuation", "{"],
+	["variable", "$smarty"],
+	["punctuation", "."],
+	["variable", "foreach"],
+	["punctuation", "."],
+	["variable", "foo"],
+	["punctuation", "."],
+	["variable", "iteration"],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"foreach",
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"ul",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	"foreach ",
+	["attr-name", "from"],
+	["operator", "="],
+	["variable", "$items"],
+	["attr-name", "key"],
+	["operator", "="],
+	["variable", "myId"],
+	["attr-name", "item"],
+	["operator", "="],
+	["variable", "i"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"li",
+	["operator", ">"],
+	["operator", "<"],
+	"a ",
+	["attr-name", "href"],
+	["operator", "="],
+	["string", [
+		"\"item.php?id=",
+		["interpolation", [
+			["interpolation-punctuation", "{"],
+			["expression", [
+				["variable", "$myId"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		"\""
+	]],
+	["operator", ">"],
+	["punctuation", "{"],
+	["variable", "$i"],
+	["punctuation", "."],
+	["variable", "no"],
+	["punctuation", "}"],
+	["punctuation", ":"],
+	["punctuation", "{"],
+	["variable", "$i"],
+	["punctuation", "."],
+	["variable", "label"],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	"li",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"foreach",
+	["punctuation", "}"],
+
+	["operator", "<"],
+	["operator", "/"],
+	"ul",
+	["operator", ">"]
+]
+
+----------------------------------------------------

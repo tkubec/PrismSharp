@@ -1,0 +1,21 @@
+/foo[bar]/igm
+//
+foo |
+[bar]*
+//igmuy
+//
+foo #bar
+[baz] # foo bar
+//
+----------------------------------------------------
+<span class="token regex">/foo[bar]/igm</span>
+<span class="token regex">//
+foo |
+[bar]*
+//igmuy</span>
+<span class="token regex">//
+foo <span class="token comment">#bar</span>
+[baz] <span class="token comment"># foo bar</span>
+//</span>
+
+----------------------------------------------------

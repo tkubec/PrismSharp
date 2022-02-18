@@ -1,0 +1,1325 @@
+// Processing implementation of Game of Life by Joan Soler-Adillon
+// from https://processing.org/examples/gameoflife.html
+
+// Size of cells
+int cellSize = 5;
+
+// How likely for a cell to be alive at start (in percentage)
+float probabilityOfAliveAtStart = 15;
+
+// Variables for timer
+int interval = 100;
+int lastRecordedTime = 0;
+
+// Colors for active/inactive cells
+color alive = color(0, 200, 0);
+color dead = color(0);
+
+// Array of cells
+int[][] cells; 
+// Buffer to record the state of the cells and use this while changing the others in the interations
+int[][] cellsBuffer; 
+
+// Pause
+boolean pause = false;
+
+void setup() {
+  size (640, 360);
+
+  // Instantiate arrays 
+  cells = new int[width/cellSize][height/cellSize];
+  cellsBuffer = new int[width/cellSize][height/cellSize];
+
+  // This stroke will draw the background grid
+  stroke(48);
+
+  noSmooth();
+
+  // Initialization of cells
+  for (int x=0; x<width/cellSize; x++) {
+    for (int y=0; y<height/cellSize; y++) {
+      float state = random (100);
+      if (state > probabilityOfAliveAtStart) { 
+        state = 0;
+      }
+      else {
+        state = 1;
+      }
+      cells[x][y] = int(state); // Save state of each cell
+    }
+  }
+  background(0); // Fill in black in case cells don't cover all the windows
+}
+
+
+void draw() {
+
+  //Draw grid
+  for (int x=0; x<width/cellSize; x++) {
+    for (int y=0; y<height/cellSize; y++) {
+      if (cells[x][y]==1) {
+        fill(alive); // If alive
+      }
+      else {
+        fill(dead); // If dead
+      }
+      rect (x*cellSize, y*cellSize, cellSize, cellSize);
+    }
+  }
+  // Iterate if timer ticks
+  if (millis()-lastRecordedTime>interval) {
+    if (!pause) {
+      iteration();
+      lastRecordedTime = millis();
+    }
+  }
+
+  // Create  new cells manually on pause
+  if (pause && mousePressed) {
+    // Map and avoid out of bound errors
+    int xCellOver = int(map(mouseX, 0, width, 0, width/cellSize));
+    xCellOver = constrain(xCellOver, 0, width/cellSize-1);
+    int yCellOver = int(map(mouseY, 0, height, 0, height/cellSize));
+    yCellOver = constrain(yCellOver, 0, height/cellSize-1);
+
+    // Check against cells in buffer
+    if (cellsBuffer[xCellOver][yCellOver]==1) { // Cell is alive
+      cells[xCellOver][yCellOver]=0; // Kill
+      fill(dead); // Fill with kill color
+    }
+    else { // Cell is dead
+      cells[xCellOver][yCellOver]=1; // Make alive
+      fill(alive); // Fill alive color
+    }
+  } 
+  else if (pause && !mousePressed) { // And then save to buffer once mouse goes up
+    // Save cells to buffer (so we opeate with one array keeping the other intact)
+    for (int x=0; x<width/cellSize; x++) {
+      for (int y=0; y<height/cellSize; y++) {
+        cellsBuffer[x][y] = cells[x][y];
+      }
+    }
+  }
+}
+
+
+
+void iteration() { // When the clock ticks
+  // Save cells to buffer (so we opeate with one array keeping the other intact)
+  for (int x=0; x<width/cellSize; x++) {
+    for (int y=0; y<height/cellSize; y++) {
+      cellsBuffer[x][y] = cells[x][y];
+    }
+  }
+
+  // Visit each cell:
+  for (int x=0; x<width/cellSize; x++) {
+    for (int y=0; y<height/cellSize; y++) {
+      // And visit all the neighbours of each cell
+      int neighbours = 0; // We'll count the neighbours
+      for (int xx=x-1; xx<=x+1;xx++) {
+        for (int yy=y-1; yy<=y+1;yy++) {  
+          if (((xx>=0)&&(xx<width/cellSize))&&((yy>=0)&&(yy<height/cellSize))) { // Make sure you are not out of bounds
+            if (!((xx==x)&&(yy==y))) { // Make sure to to check against self
+              if (cellsBuffer[xx][yy]==1){
+                neighbours ++; // Check alive neighbours and count them
+              }
+            } // End of if
+          } // End of if
+        } // End of yy loop
+      } //End of xx loop
+      // We've checked the neigbours: apply rules!
+      if (cellsBuffer[x][y]==1) { // The cell is alive: kill it if necessary
+        if (neighbours < 2 || neighbours > 3) {
+          cells[x][y] = 0; // Die unless it has 2 or 3 neighbours
+        }
+      } 
+      else { // The cell is dead: make it live if necessary      
+        if (neighbours == 3 ) {
+          cells[x][y] = 1; // Only if it has 3 neighbours
+        }
+      } // End of if
+    } // End of y loop
+  } // End of x loop
+} // End of function
+
+void keyPressed() {
+  if (key=='r' || key == 'R') {
+    // Restart: reinitialization of cells
+    for (int x=0; x<width/cellSize; x++) {
+      for (int y=0; y<height/cellSize; y++) {
+        float state = random (100);
+        if (state > probabilityOfAliveAtStart) {
+          state = 0;
+        }
+        else {
+          state = 1;
+        }
+        cells[x][y] = int(state); // Save state of each cell
+      }
+    }
+  }
+  if (key==' ') { // On/off of pause
+    pause = !pause;
+  }
+  if (key=='c' || key == 'C') { // Clear all
+    for (int x=0; x<width/cellSize; x++) {
+      for (int y=0; y<height/cellSize; y++) {
+        cells[x][y] = 0; // Save all to zero
+      }
+    }
+  }
+}
+----------------------------------------------------
+[
+	["comment", "// Processing implementation of Game of Life by Joan Soler-Adillon"],
+	["comment", "// from https://processing.org/examples/gameoflife.html"],
+
+	["comment", "// Size of cells"],
+
+	["type", "int"],
+	" cellSize ",
+	["operator", "="],
+	["number", "5"],
+	["punctuation", ";"],
+
+	["comment", "// How likely for a cell to be alive at start (in percentage)"],
+
+	["type", "float"],
+	" probabilityOfAliveAtStart ",
+	["operator", "="],
+	["number", "15"],
+	["punctuation", ";"],
+
+	["comment", "// Variables for timer"],
+
+	["type", "int"],
+	" interval ",
+	["operator", "="],
+	["number", "100"],
+	["punctuation", ";"],
+
+	["type", "int"],
+	" lastRecordedTime ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["comment", "// Colors for active/inactive cells"],
+
+	["type", "color"],
+	" alive ",
+	["operator", "="],
+	["function", "color"],
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ","],
+	["number", "200"],
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["type", "color"],
+	" dead ",
+	["operator", "="],
+	["function", "color"],
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Array of cells"],
+
+	["type", "int"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" cells",
+	["punctuation", ";"],
+
+	["comment", "// Buffer to record the state of the cells and use this while changing the others in the interations"],
+
+	["type", "int"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" cellsBuffer",
+	["punctuation", ";"],
+
+	["comment", "// Pause"],
+
+	["type", "boolean"],
+	" pause ",
+	["operator", "="],
+	["boolean", "false"],
+	["punctuation", ";"],
+
+	["keyword", "void"],
+	["function", "setup"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "size"],
+	["punctuation", "("],
+	["number", "640"],
+	["punctuation", ","],
+	["number", "360"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Instantiate arrays "],
+
+	"\n  cells ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["int"]],
+	["punctuation", "["],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	"\n  cellsBuffer ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["int"]],
+	["punctuation", "["],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["comment", "// This stroke will draw the background grid"],
+
+	["function", "stroke"],
+	["punctuation", "("],
+	["number", "48"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "noSmooth"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Initialization of cells"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" x",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" x",
+	["operator", "<"],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" x",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" y",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" y",
+	["operator", "<"],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" y",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["type", "float"],
+	" state ",
+	["operator", "="],
+	["function", "random"],
+	["punctuation", "("],
+	["number", "100"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"state ",
+	["operator", ">"],
+	" probabilityOfAliveAtStart",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	" \n        state ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	"\n        state ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	"\n      cells",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "="],
+	["function", "int"],
+	["punctuation", "("],
+	"state",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// Save state of each cell"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["function", "background"],
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// Fill in black in case cells don't cover all the windows"],
+
+	["punctuation", "}"],
+
+	["keyword", "void"],
+	["function", "draw"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "//Draw grid"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" x",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" x",
+	["operator", "<"],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" x",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" y",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" y",
+	["operator", "<"],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" y",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"cells",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "=="],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "fill"],
+	["punctuation", "("],
+	"alive",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// If alive"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["function", "fill"],
+	["punctuation", "("],
+	"dead",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// If dead"],
+
+	["punctuation", "}"],
+
+	["function", "rect"],
+	["punctuation", "("],
+	"x",
+	["operator", "*"],
+	"cellSize",
+	["punctuation", ","],
+	" y",
+	["operator", "*"],
+	"cellSize",
+	["punctuation", ","],
+	" cellSize",
+	["punctuation", ","],
+	" cellSize",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["comment", "// Iterate if timer ticks"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["function", "millis"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "-"],
+	"lastRecordedTime",
+	["operator", ">"],
+	"interval",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	"pause",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "iteration"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n      lastRecordedTime ",
+	["operator", "="],
+	["function", "millis"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["comment", "// Create  new cells manually on pause"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"pause ",
+	["operator", "&&"],
+	" mousePressed",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// Map and avoid out of bound errors"],
+
+	["type", "int"],
+	" xCellOver ",
+	["operator", "="],
+	["function", "int"],
+	["punctuation", "("],
+	["function", "map"],
+	["punctuation", "("],
+	"mouseX",
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ","],
+	" width",
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ","],
+	" width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n    xCellOver ",
+	["operator", "="],
+	["function", "constrain"],
+	["punctuation", "("],
+	"xCellOver",
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ","],
+	" width",
+	["operator", "/"],
+	"cellSize",
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["type", "int"],
+	" yCellOver ",
+	["operator", "="],
+	["function", "int"],
+	["punctuation", "("],
+	["function", "map"],
+	["punctuation", "("],
+	"mouseY",
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ","],
+	" height",
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ","],
+	" height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n    yCellOver ",
+	["operator", "="],
+	["function", "constrain"],
+	["punctuation", "("],
+	"yCellOver",
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ","],
+	" height",
+	["operator", "/"],
+	"cellSize",
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Check against cells in buffer"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"cellsBuffer",
+	["punctuation", "["],
+	"xCellOver",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"yCellOver",
+	["punctuation", "]"],
+	["operator", "=="],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// Cell is alive"],
+
+	"\n      cells",
+	["punctuation", "["],
+	"xCellOver",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"yCellOver",
+	["punctuation", "]"],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	["comment", "// Kill"],
+
+	["function", "fill"],
+	["punctuation", "("],
+	"dead",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// Fill with kill color"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["punctuation", "{"],
+	["comment", "// Cell is dead"],
+
+	"\n      cells",
+	["punctuation", "["],
+	"xCellOver",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"yCellOver",
+	["punctuation", "]"],
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+	["comment", "// Make alive"],
+
+	["function", "fill"],
+	["punctuation", "("],
+	"alive",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// Fill alive color"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["keyword", "if"],
+	["punctuation", "("],
+	"pause ",
+	["operator", "&&"],
+	["operator", "!"],
+	"mousePressed",
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// And then save to buffer once mouse goes up"],
+
+	["comment", "// Save cells to buffer (so we opeate with one array keeping the other intact)"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" x",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" x",
+	["operator", "<"],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" x",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" y",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" y",
+	["operator", "<"],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" y",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n        cellsBuffer",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "="],
+	" cells",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "void"],
+	["function", "iteration"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// When the clock ticks"],
+
+	["comment", "// Save cells to buffer (so we opeate with one array keeping the other intact)"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" x",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" x",
+	["operator", "<"],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" x",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" y",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" y",
+	["operator", "<"],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" y",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n      cellsBuffer",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "="],
+	" cells",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["comment", "// Visit each cell:"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" x",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" x",
+	["operator", "<"],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" x",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" y",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" y",
+	["operator", "<"],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" y",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// And visit all the neighbours of each cell"],
+
+	["type", "int"],
+	" neighbours ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	["comment", "// We'll count the neighbours"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" xx",
+	["operator", "="],
+	"x",
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ";"],
+	" xx",
+	["operator", "<="],
+	"x",
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ";"],
+	"xx",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" yy",
+	["operator", "="],
+	"y",
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ";"],
+	" yy",
+	["operator", "<="],
+	"y",
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ";"],
+	"yy",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["punctuation", "("],
+	["punctuation", "("],
+	"xx",
+	["operator", ">="],
+	["number", "0"],
+	["punctuation", ")"],
+	["operator", "&&"],
+	["punctuation", "("],
+	"xx",
+	["operator", "<"],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator", "&&"],
+	["punctuation", "("],
+	["punctuation", "("],
+	"yy",
+	["operator", ">="],
+	["number", "0"],
+	["punctuation", ")"],
+	["operator", "&&"],
+	["punctuation", "("],
+	"yy",
+	["operator", "<"],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// Make sure you are not out of bounds"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	["punctuation", "("],
+	["punctuation", "("],
+	"xx",
+	["operator", "=="],
+	"x",
+	["punctuation", ")"],
+	["operator", "&&"],
+	["punctuation", "("],
+	"yy",
+	["operator", "=="],
+	"y",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// Make sure to to check against self"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"cellsBuffer",
+	["punctuation", "["],
+	"xx",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"yy",
+	["punctuation", "]"],
+	["operator", "=="],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n                neighbours ",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ";"],
+	["comment", "// Check alive neighbours and count them"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+	["comment", "// End of if"],
+
+	["punctuation", "}"],
+	["comment", "// End of if"],
+
+	["punctuation", "}"],
+	["comment", "// End of yy loop"],
+
+	["punctuation", "}"],
+	["comment", "//End of xx loop"],
+
+	["comment", "// We've checked the neigbours: apply rules!"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"cellsBuffer",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "=="],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// The cell is alive: kill it if necessary"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"neighbours ",
+	["operator", "<"],
+	["number", "2"],
+	["operator", "||"],
+	" neighbours ",
+	["operator", ">"],
+	["number", "3"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n          cells",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	["comment", "// Die unless it has 2 or 3 neighbours"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["punctuation", "{"],
+	["comment", "// The cell is dead: make it live if necessary      "],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"neighbours ",
+	["operator", "=="],
+	["number", "3"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n          cells",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+	["comment", "// Only if it has 3 neighbours"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+	["comment", "// End of if"],
+
+	["punctuation", "}"],
+	["comment", "// End of y loop"],
+
+	["punctuation", "}"],
+	["comment", "// End of x loop"],
+
+	["punctuation", "}"],
+	["comment", "// End of function"],
+
+	["keyword", "void"],
+	["function", "keyPressed"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"key",
+	["operator", "=="],
+	["string", "'r'"],
+	["operator", "||"],
+	" key ",
+	["operator", "=="],
+	["string", "'R'"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// Restart: reinitialization of cells"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" x",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" x",
+	["operator", "<"],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" x",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" y",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" y",
+	["operator", "<"],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" y",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["type", "float"],
+	" state ",
+	["operator", "="],
+	["function", "random"],
+	["punctuation", "("],
+	["number", "100"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"state ",
+	["operator", ">"],
+	" probabilityOfAliveAtStart",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n          state ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	"\n          state ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	"\n        cells",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "="],
+	["function", "int"],
+	["punctuation", "("],
+	"state",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// Save state of each cell"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"key",
+	["operator", "=="],
+	["string", "' '"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// On/off of pause"],
+
+	"\n    pause ",
+	["operator", "="],
+	["operator", "!"],
+	"pause",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"key",
+	["operator", "=="],
+	["string", "'c'"],
+	["operator", "||"],
+	" key ",
+	["operator", "=="],
+	["string", "'C'"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// Clear all"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" x",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" x",
+	["operator", "<"],
+	"width",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" x",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["type", "int"],
+	" y",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" y",
+	["operator", "<"],
+	"height",
+	["operator", "/"],
+	"cellSize",
+	["punctuation", ";"],
+	" y",
+	["operator", "+"],
+	["operator", "+"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n        cells",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"y",
+	["punctuation", "]"],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	["comment", "// Save all to zero"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

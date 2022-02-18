@@ -1,0 +1,149 @@
+{{ address }}
+{{ all_country_option_tags }}
+{{ article }}
+{{ block }}
+{{ blog }}
+{{ cart }}
+{{ checkout }}
+{{ collection }}
+{{ color }}
+{{ country }}
+{{ country_option_tags }}
+{{ currency }}
+{{ current_page }}
+{{ current_tags }}
+{{ customer }}
+{{ customer_address }}
+{{ date }}
+{{ discount_allocation }}
+{{ discount_application }}
+{{ external_video }}
+{{ filter }}
+{{ filter_value }}
+{{ font }}
+{{ forloop }}
+{{ fulfillment }}
+{{ generic_file }}
+{{ gift_card }}
+{{ group }}
+{{ handle }}
+{{ image }}
+{{ line_item }}
+{{ link }}
+{{ linklist }}
+{{ localization }}
+{{ location }}
+{{ measurement }}
+{{ media }}
+{{ metafield }}
+{{ model }}
+{{ model_source }}
+{{ order }}
+{{ page }}
+{{ page_description }}
+{{ page_image }}
+{{ page_title }}
+{{ part }}
+{{ policy }}
+{{ product }}
+{{ product_option }}
+{{ recommendations }}
+{{ request }}
+{{ robots }}
+{{ routes }}
+{{ rule }}
+{{ script }}
+{{ search }}
+{{ selling_plan }}
+{{ selling_plan_allocation }}
+{{ selling_plan_group }}
+{{ shipping_method }}
+{{ shop }}
+{{ shop_locale }}
+{{ sitemap }}
+{{ store_availability }}
+{{ tax_line }}
+{{ template }}
+{{ theme }}
+{{ transaction }}
+{{ unit_price_measurement }}
+{{ user_agent }}
+{{ variant }}
+{{ video }}
+{{ video_source }}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> <span class="token object">address</span> }}
+{{ <span class="token object">all_country_option_tags</span> }}
+{{ <span class="token object">article</span> }}
+{{ <span class="token object">block</span> }}
+{{ <span class="token object">blog</span> }}
+{{ <span class="token object">cart</span> }}
+{{ <span class="token object">checkout</span> }}
+{{ <span class="token object">collection</span> }}
+{{ <span class="token object">color</span> }}
+{{ <span class="token object">country</span> }}
+{{ <span class="token object">country_option_tags</span> }}
+{{ <span class="token object">currency</span> }}
+{{ <span class="token object">current_page</span> }}
+{{ <span class="token object">current_tags</span> }}
+{{ <span class="token object">customer</span> }}
+{{ <span class="token object">customer_address</span> }}
+{{ <span class="token object">date</span> }}
+{{ <span class="token object">discount_allocation</span> }}
+{{ <span class="token object">discount_application</span> }}
+{{ <span class="token object">external_video</span> }}
+{{ <span class="token object">filter</span> }}
+{{ <span class="token object">filter_value</span> }}
+{{ <span class="token object">font</span> }}
+{{ <span class="token object">forloop</span> }}
+{{ <span class="token object">fulfillment</span> }}
+{{ <span class="token object">generic_file</span> }}
+{{ <span class="token object">gift_card</span> }}
+{{ <span class="token object">group</span> }}
+{{ <span class="token object">handle</span> }}
+{{ <span class="token object">image</span> }}
+{{ <span class="token object">line_item</span> }}
+{{ <span class="token object">link</span> }}
+{{ <span class="token object">linklist</span> }}
+{{ <span class="token object">localization</span> }}
+{{ <span class="token object">location</span> }}
+{{ <span class="token object">measurement</span> }}
+{{ <span class="token object">media</span> }}
+{{ <span class="token object">metafield</span> }}
+{{ <span class="token object">model</span> }}
+{{ <span class="token object">model_source</span> }}
+{{ <span class="token object">order</span> }}
+{{ <span class="token object">page</span> }}
+{{ <span class="token object">page_description</span> }}
+{{ <span class="token object">page_image</span> }}
+{{ <span class="token object">page_title</span> }}
+{{ <span class="token object">part</span> }}
+{{ <span class="token object">policy</span> }}
+{{ <span class="token object">product</span> }}
+{{ <span class="token object">product_option</span> }}
+{{ <span class="token object">recommendations</span> }}
+{{ <span class="token object">request</span> }}
+{{ <span class="token object">robots</span> }}
+{{ <span class="token object">routes</span> }}
+{{ <span class="token object">rule</span> }}
+{{ <span class="token object">script</span> }}
+{{ <span class="token object">search</span> }}
+{{ <span class="token object">selling_plan</span> }}
+{{ <span class="token object">selling_plan_allocation</span> }}
+{{ <span class="token object">selling_plan_group</span> }}
+{{ <span class="token object">shipping_method</span> }}
+{{ <span class="token object">shop</span> }}
+{{ <span class="token object">shop_locale</span> }}
+{{ <span class="token object">sitemap</span> }}
+{{ <span class="token object">store_availability</span> }}
+{{ <span class="token object">tax_line</span> }}
+{{ <span class="token object">template</span> }}
+{{ <span class="token object">theme</span> }}
+{{ <span class="token object">transaction</span> }}
+{{ <span class="token object">unit_price_measurement</span> }}
+{{ <span class="token object">user_agent</span> }}
+{{ <span class="token object">variant</span> }}
+{{ <span class="token object">video</span> }}
+{{ <span class="token object">video_source</span> <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

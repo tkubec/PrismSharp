@@ -1,0 +1,69 @@
+footnote:[An example footnote.]
+indexterm:[Tigers,Big cats]
+
+http://www.docbook.org/[DocBook.org]
+include::chapt1.txt[tabsize=2]
+mailto:srackham@gmail.com[]
+
+image:screen-thumbnail.png[height=32,link="screen.png"]
+
+== Foo image:foo.jpg[] ==
+
+--
+footnote:[An example footnote.]
+indexterm:[Tigers,Big cats]
+
+http://www.docbook.org/[DocBook.org]
+include::chapt1.txt[tabsize=2]
+mailto:srackham@gmail.com[]
+
+image:screen-thumbnail.png[height=32,link="screen.png"]
+--
+
+|====
+|
+footnote:[An example footnote.]
+indexterm:[Tigers,Big cats]
+
+http://www.docbook.org/[DocBook.org]
+include::chapt1.txt[tabsize=2]
+mailto:srackham@gmail.com[]
+
+image:screen-thumbnail.png[height=32,link="screen.png"]
+|====
+----------------------------------------------------
+<span class="token macro"><span class="token function">footnote</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">An example footnote.</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">indexterm</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">Tigers</span><span class="token punctuation">,</span><span class="token attr-value">Big cats</span><span class="token punctuation">]</span></span></span>
+
+<span class="token macro"><span class="token function">http</span><span class="token punctuation">:</span>//www.docbook.org/<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">DocBook.org</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">include</span><span class="token punctuation">::</span>chapt1.txt<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">tabsize</span><span class="token operator">=</span><span class="token attr-value">2</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">mailto</span><span class="token punctuation">:</span>srackham@gmail.com<span class="token attributes"><span class="token punctuation">[</span><span class="token punctuation">]</span></span></span>
+
+<span class="token macro"><span class="token function">image</span><span class="token punctuation">:</span>screen-thumbnail.png<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">height</span><span class="token operator">=</span><span class="token attr-value">32</span><span class="token punctuation">,</span><span class="token variable">link</span><span class="token operator">=</span><span class="token string">"screen.png"</span><span class="token punctuation">]</span></span></span>
+
+<span class="token title important"><span class="token punctuation">==</span> Foo <span class="token macro"><span class="token function">image</span><span class="token punctuation">:</span>foo.jpg<span class="token attributes"><span class="token punctuation">[</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">==</span></span>
+
+<span class="token other-block"><span class="token punctuation">--</span>
+<span class="token macro"><span class="token function">footnote</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">An example footnote.</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">indexterm</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">Tigers</span><span class="token punctuation">,</span><span class="token attr-value">Big cats</span><span class="token punctuation">]</span></span></span>
+
+<span class="token macro"><span class="token function">http</span><span class="token punctuation">:</span>//www.docbook.org/<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">DocBook.org</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">include</span><span class="token punctuation">::</span>chapt1.txt<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">tabsize</span><span class="token operator">=</span><span class="token attr-value">2</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">mailto</span><span class="token punctuation">:</span>srackham@gmail.com<span class="token attributes"><span class="token punctuation">[</span><span class="token punctuation">]</span></span></span>
+
+<span class="token macro"><span class="token function">image</span><span class="token punctuation">:</span>screen-thumbnail.png<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">height</span><span class="token operator">=</span><span class="token attr-value">32</span><span class="token punctuation">,</span><span class="token variable">link</span><span class="token operator">=</span><span class="token string">"screen.png"</span><span class="token punctuation">]</span></span></span>
+<span class="token punctuation">--</span></span>
+
+<span class="token table"><span class="token punctuation">|====</span>
+<span class="token punctuation">|</span>
+<span class="token macro"><span class="token function">footnote</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">An example footnote.</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">indexterm</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">Tigers</span><span class="token punctuation">,</span><span class="token attr-value">Big cats</span><span class="token punctuation">]</span></span></span>
+
+<span class="token macro"><span class="token function">http</span><span class="token punctuation">:</span>//www.docbook.org/<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">DocBook.org</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">include</span><span class="token punctuation">::</span>chapt1.txt<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">tabsize</span><span class="token operator">=</span><span class="token attr-value">2</span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">mailto</span><span class="token punctuation">:</span>srackham@gmail.com<span class="token attributes"><span class="token punctuation">[</span><span class="token punctuation">]</span></span></span>
+
+<span class="token macro"><span class="token function">image</span><span class="token punctuation">:</span>screen-thumbnail.png<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">height</span><span class="token operator">=</span><span class="token attr-value">32</span><span class="token punctuation">,</span><span class="token variable">link</span><span class="token operator">=</span><span class="token string">"screen.png"</span><span class="token punctuation">]</span></span></span>
+<span class="token punctuation">|====</span></span>
+
+----------------------------------------------------

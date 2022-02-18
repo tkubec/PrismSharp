@@ -1,0 +1,13 @@
+$f
+$foo
+$foobar_42
+$$bar
+${$foo}
+----------------------------------------------------
+<span class="token variable">$f</span>
+<span class="token variable">$foo</span>
+<span class="token variable">$foobar_42</span>
+<span class="token variable">$$bar</span>
+<span class="token variable">$</span><span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

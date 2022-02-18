@@ -1,0 +1,29 @@
+A=0
+FOR I=1 TO 100 : A=A+I : NEXT
+PRINT A
+----------------------------------------------------
+[
+	"A",
+	["operator", "="],
+	["number", "0"],
+
+	["keyword", "FOR"],
+	" I",
+	["operator", "="],
+	["number", "1"],
+	["keyword", "TO"],
+	["number", "100"],
+	["punctuation", ":"],
+	" A",
+	["operator", "="],
+	"A",
+	["operator", "+"],
+	"I ",
+	["punctuation", ":"],
+	["keyword", "NEXT"],
+
+	["keyword", "PRINT"],
+	" A"
+]
+
+----------------------------------------------------

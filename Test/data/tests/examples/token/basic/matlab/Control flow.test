@@ -1,0 +1,135 @@
+if rem(a, 2) == 0
+    disp('a is even')
+    b = a/2;
+end
+switch dayString
+   case 'Monday'
+      disp('Start of the work week')
+   case 'Tuesday'
+      disp('Day 2')
+   case 'Wednesday'
+      disp('Day 3')
+   case 'Thursday'
+      disp('Day 4')
+   case 'Friday'
+      disp('Last day of the work week')
+   otherwise
+      disp('Weekend!')
+end
+n = 1;
+nFactorial = 1;
+while nFactorial < 1e100
+    n = n + 1;
+    nFactorial = nFactorial * n;
+end
+----------------------------------------------------
+[
+	["keyword", "if"],
+	["function", "rem"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ")"],
+	["operator", "=="],
+	["number", "0"],
+
+	["function", "disp"],
+	["punctuation", "("],
+	["string", "'a is even'"],
+	["punctuation", ")"],
+
+	"\n    b ",
+	["operator", "="],
+	" a",
+	["operator", "/"],
+	["number", "2"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+
+	["keyword", "switch"],
+	" dayString\n   ",
+
+	["keyword", "case"],
+	["string", "'Monday'"],
+
+	["function", "disp"],
+	["punctuation", "("],
+	["string", "'Start of the work week'"],
+	["punctuation", ")"],
+
+	["keyword", "case"],
+	["string", "'Tuesday'"],
+
+	["function", "disp"],
+	["punctuation", "("],
+	["string", "'Day 2'"],
+	["punctuation", ")"],
+
+	["keyword", "case"],
+	["string", "'Wednesday'"],
+
+	["function", "disp"],
+	["punctuation", "("],
+	["string", "'Day 3'"],
+	["punctuation", ")"],
+
+	["keyword", "case"],
+	["string", "'Thursday'"],
+
+	["function", "disp"],
+	["punctuation", "("],
+	["string", "'Day 4'"],
+	["punctuation", ")"],
+
+	["keyword", "case"],
+	["string", "'Friday'"],
+
+	["function", "disp"],
+	["punctuation", "("],
+	["string", "'Last day of the work week'"],
+	["punctuation", ")"],
+
+	["keyword", "otherwise"],
+
+	["function", "disp"],
+	["punctuation", "("],
+	["string", "'Weekend!'"],
+	["punctuation", ")"],
+
+	["keyword", "end"],
+
+	"\nn ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	"\nnFactorial ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["keyword", "while"],
+	" nFactorial ",
+	["operator", "<"],
+	["number", "1e100"],
+
+	"\n    n ",
+	["operator", "="],
+	" n ",
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ";"],
+
+	"\n    nFactorial ",
+	["operator", "="],
+	" nFactorial ",
+	["operator", "*"],
+	" n",
+	["punctuation", ";"],
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

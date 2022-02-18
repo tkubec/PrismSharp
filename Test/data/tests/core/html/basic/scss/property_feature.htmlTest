@@ -1,0 +1,17 @@
+$bg: background;
+$color: color;
+div {
+	$bg: none;
+	background-#{$color}: blue;
+	#{$bg}-repeat: no-repeat;
+}
+----------------------------------------------------
+<span class="token property"><span class="token variable">$bg</span></span><span class="token punctuation">:</span> background<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$color</span></span><span class="token punctuation">:</span> color<span class="token punctuation">;</span>
+<span class="token selector">div </span><span class="token punctuation">{</span>
+	<span class="token property"><span class="token variable">$bg</span></span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+	<span class="token property">background-<span class="token variable">#{$color}</span></span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+	<span class="token property"><span class="token variable">#{$bg}</span>-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

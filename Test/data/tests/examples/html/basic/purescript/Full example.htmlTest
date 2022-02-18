@@ -1,0 +1,65 @@
+module Codewars.Kata.SumFracts (sumFracts) where
+
+import Prelude
+
+import Data.Foldable (foldl)
+import Data.BigInt (BigInt, fromInt, toString)
+import Data.List (List, length)
+import Data.Tuple (Tuple(..))
+import Data.Maybe (Maybe(..))
+import Data.Ord (abs, signum)
+
+reduce :: Tuple BigInt BigInt -> Tuple BigInt BigInt
+reduce (Tuple num den) =
+  let gcd' = gcd num den
+      den' = den / gcd'
+   in Tuple (num / gcd' * (signum den')) (abs den')
+   
+sumFracts :: List (Tuple Int Int) -> Maybe String
+sumFracts fracts =
+  let fracts' = fracts <#> (\(Tuple n d) -> Tuple (fromInt n) (fromInt d)) >>> reduce
+      
+      den = foldl (\acc (Tuple _ d) -> lcm acc d) one fracts'
+      num = foldl (\acc (Tuple n d) -> acc + n * (den / d)) zero fracts'
+      
+      Tuple n d = reduce $ Tuple num den
+      
+   in if length fracts == 0
+        then Nothing
+        else if d == one
+                then Just $ toString n
+                else Just $ (toString n) >< " " >< (toString d)
+----------------------------------------------------
+<span class="token keyword">module</span> <span class="token constant">Codewars<span class="token punctuation">.</span>Kata<span class="token punctuation">.</span>SumFracts</span> <span class="token punctuation">(</span><span class="token hvariable">sumFracts</span><span class="token punctuation">)</span> <span class="token keyword">where</span>
+
+<span class="token import-statement"><span class="token keyword">import</span> Prelude</span>
+
+<span class="token import-statement"><span class="token keyword">import</span> Data<span class="token punctuation">.</span>Foldable</span> <span class="token punctuation">(</span><span class="token hvariable">foldl</span><span class="token punctuation">)</span>
+<span class="token import-statement"><span class="token keyword">import</span> Data<span class="token punctuation">.</span>BigInt</span> <span class="token punctuation">(</span><span class="token constant">BigInt</span><span class="token punctuation">,</span> <span class="token hvariable">fromInt</span><span class="token punctuation">,</span> <span class="token hvariable">toString</span><span class="token punctuation">)</span>
+<span class="token import-statement"><span class="token keyword">import</span> Data<span class="token punctuation">.</span>List</span> <span class="token punctuation">(</span><span class="token constant">List</span><span class="token punctuation">,</span> <span class="token hvariable">length</span><span class="token punctuation">)</span>
+<span class="token import-statement"><span class="token keyword">import</span> Data<span class="token punctuation">.</span>Tuple</span> <span class="token punctuation">(</span><span class="token constant">Tuple</span><span class="token punctuation">(</span><span class="token operator">..</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token import-statement"><span class="token keyword">import</span> Data<span class="token punctuation">.</span>Maybe</span> <span class="token punctuation">(</span><span class="token constant">Maybe</span><span class="token punctuation">(</span><span class="token operator">..</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token import-statement"><span class="token keyword">import</span> Data<span class="token punctuation">.</span>Ord</span> <span class="token punctuation">(</span><span class="token hvariable">abs</span><span class="token punctuation">,</span> <span class="token hvariable">signum</span><span class="token punctuation">)</span>
+
+<span class="token hvariable">reduce</span> <span class="token operator">::</span> <span class="token constant">Tuple</span> <span class="token constant">BigInt</span> <span class="token constant">BigInt</span> <span class="token operator">-></span> <span class="token constant">Tuple</span> <span class="token constant">BigInt</span> <span class="token constant">BigInt</span>
+<span class="token hvariable">reduce</span> <span class="token punctuation">(</span><span class="token constant">Tuple</span> <span class="token hvariable">num</span> <span class="token hvariable">den</span><span class="token punctuation">)</span> <span class="token operator">=</span>
+  <span class="token keyword">let</span> <span class="token builtin">gcd</span>' <span class="token operator">=</span> <span class="token builtin">gcd</span> <span class="token hvariable">num</span> <span class="token hvariable">den</span>
+      <span class="token hvariable">den'</span> <span class="token operator">=</span> <span class="token hvariable">den</span> <span class="token operator">/</span> <span class="token builtin">gcd</span>'
+   <span class="token keyword">in</span> <span class="token constant">Tuple</span> <span class="token punctuation">(</span><span class="token hvariable">num</span> <span class="token operator">/</span> <span class="token builtin">gcd</span>' <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token hvariable">signum</span> <span class="token hvariable">den'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token hvariable">abs</span> <span class="token hvariable">den'</span><span class="token punctuation">)</span>
+   
+<span class="token hvariable">sumFracts</span> <span class="token operator">::</span> <span class="token constant">List</span> <span class="token punctuation">(</span><span class="token constant">Tuple</span> <span class="token constant">Int</span> <span class="token constant">Int</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token constant">Maybe</span> <span class="token constant">String</span>
+<span class="token hvariable">sumFracts</span> <span class="token hvariable">fracts</span> <span class="token operator">=</span>
+  <span class="token keyword">let</span> <span class="token hvariable">fracts'</span> <span class="token operator">=</span> <span class="token hvariable">fracts</span> <span class="token operator">&lt;#></span> <span class="token punctuation">(</span><span class="token operator">\</span><span class="token punctuation">(</span><span class="token constant">Tuple</span> <span class="token hvariable">n</span> <span class="token hvariable">d</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token constant">Tuple</span> <span class="token punctuation">(</span><span class="token hvariable">fromInt</span> <span class="token hvariable">n</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token hvariable">fromInt</span> <span class="token hvariable">d</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">>>></span> <span class="token hvariable">reduce</span>
+      
+      <span class="token hvariable">den</span> <span class="token operator">=</span> <span class="token hvariable">foldl</span> <span class="token punctuation">(</span><span class="token operator">\</span><span class="token hvariable">acc</span> <span class="token punctuation">(</span><span class="token constant">Tuple</span> <span class="token hvariable">_</span> <span class="token hvariable">d</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token builtin">lcm</span> <span class="token hvariable">acc</span> <span class="token hvariable">d</span><span class="token punctuation">)</span> <span class="token builtin">one</span> <span class="token hvariable">fracts'</span>
+      <span class="token hvariable">num</span> <span class="token operator">=</span> <span class="token hvariable">foldl</span> <span class="token punctuation">(</span><span class="token operator">\</span><span class="token hvariable">acc</span> <span class="token punctuation">(</span><span class="token constant">Tuple</span> <span class="token hvariable">n</span> <span class="token hvariable">d</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token hvariable">acc</span> <span class="token operator">+</span> <span class="token hvariable">n</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token hvariable">den</span> <span class="token operator">/</span> <span class="token hvariable">d</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token builtin">zero</span> <span class="token hvariable">fracts'</span>
+      
+      <span class="token constant">Tuple</span> <span class="token hvariable">n</span> <span class="token hvariable">d</span> <span class="token operator">=</span> <span class="token hvariable">reduce</span> <span class="token operator">$</span> <span class="token constant">Tuple</span> <span class="token hvariable">num</span> <span class="token hvariable">den</span>
+      
+   <span class="token keyword">in</span> <span class="token keyword">if</span> <span class="token hvariable">length</span> <span class="token hvariable">fracts</span> <span class="token operator">==</span> <span class="token number">0</span>
+        <span class="token keyword">then</span> <span class="token constant">Nothing</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token hvariable">d</span> <span class="token operator">==</span> <span class="token builtin">one</span>
+                <span class="token keyword">then</span> <span class="token constant">Just</span> <span class="token operator">$</span> <span class="token hvariable">toString</span> <span class="token hvariable">n</span>
+                <span class="token keyword">else</span> <span class="token constant">Just</span> <span class="token operator">$</span> <span class="token punctuation">(</span><span class="token hvariable">toString</span> <span class="token hvariable">n</span><span class="token punctuation">)</span> <span class="token operator">>&lt;</span> <span class="token string">" "</span> <span class="token operator">>&lt;</span> <span class="token punctuation">(</span><span class="token hvariable">toString</span> <span class="token hvariable">d</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

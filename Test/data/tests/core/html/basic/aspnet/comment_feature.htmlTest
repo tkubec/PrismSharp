@@ -1,0 +1,11 @@
+<%----%>
+<%--foo--%>
+<%-- foo
+bar --%>
+----------------------------------------------------
+<span class="token asp-comment asp comment">&lt;%----%></span>
+<span class="token asp-comment asp comment">&lt;%--foo--%></span>
+<span class="token asp-comment asp comment">&lt;%-- foo
+bar --%></span>
+
+----------------------------------------------------

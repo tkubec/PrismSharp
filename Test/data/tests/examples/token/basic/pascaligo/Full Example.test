@@ -1,0 +1,375 @@
+function pop (const h : heap) : (heap * heap_element * nat) is
+	begin
+		const result : heap_element = get_top (h) ;
+		var s : nat := size(h) ;
+		const last : heap_element = get_force(s, h) ;
+		remove s from map h ;
+		h[1n] := last ;
+		s := size(h) ;
+		var i : nat := 0n ;
+		var largest : nat := 1n ;
+		var left : nat := 0n ;
+		var right : nat := 0n ;
+		var c : nat := 0n ;
+		while (largest =/= i) block {
+			c := c + 1n ;
+			i := largest ;
+			left := 2n * i ;
+			right := left + 1n ;
+			if (left <= s) then begin
+				if (heap_element_lt(get_force(left , h) , get_force(i , h))) then begin
+					largest := left ;
+					const tmp : heap_element = get_force(i , h) ;
+					h[i] := get_force(left , h) ;
+					h[left] := tmp ;
+				end else skip ;
+			end else if (right <= s) then begin
+				if (heap_element_lt(get_force(right , h) , get_force(i , h))) then begin
+					largest := right ;
+					const tmp : heap_element = get_force(i , h) ;
+					h[i] := get_force(right , h) ;
+					h[left] := tmp ;
+				end else skip ;
+			end else skip ;
+		}
+	end with (h , result , c)
+----------------------------------------------------
+[
+	["keyword", "function"],
+	["function", "pop"],
+	["punctuation", "("],
+	["keyword", "const"],
+	" h ",
+	["punctuation", ":"],
+	["class-name", ["heap"]],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["class-name", [
+		["punctuation", "("],
+		"heap ",
+		["operator", "*"],
+		" heap_element ",
+		["operator", "*"],
+		["builtin", "nat"],
+		["punctuation", ")"]
+	]],
+	["keyword", "is"],
+
+	["keyword", "begin"],
+
+	["keyword", "const"],
+	" result ",
+	["punctuation", ":"],
+	["class-name", ["heap_element"]],
+	["operator", "="],
+	["function", "get_top"],
+	["punctuation", "("],
+	"h",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" s ",
+	["punctuation", ":"],
+	["class-name", [
+		["builtin", "nat"]
+	]],
+	["operator", ":="],
+	["function", "size"],
+	["punctuation", "("],
+	"h",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" last ",
+	["punctuation", ":"],
+	["class-name", ["heap_element"]],
+	["operator", "="],
+	["function", "get_force"],
+	["punctuation", "("],
+	"s",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "remove"],
+	" s ",
+	["keyword", "from"],
+	["builtin", "map"],
+	" h ",
+	["punctuation", ";"],
+
+	"\n\t\th",
+	["punctuation", "["],
+	["number", "1n"],
+	["punctuation", "]"],
+	["operator", ":="],
+	" last ",
+	["punctuation", ";"],
+
+	"\n\t\ts ",
+	["operator", ":="],
+	["function", "size"],
+	["punctuation", "("],
+	"h",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" i ",
+	["punctuation", ":"],
+	["class-name", [
+		["builtin", "nat"]
+	]],
+	["operator", ":="],
+	["number", "0n"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" largest ",
+	["punctuation", ":"],
+	["class-name", [
+		["builtin", "nat"]
+	]],
+	["operator", ":="],
+	["number", "1n"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" left ",
+	["punctuation", ":"],
+	["class-name", [
+		["builtin", "nat"]
+	]],
+	["operator", ":="],
+	["number", "0n"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" right ",
+	["punctuation", ":"],
+	["class-name", [
+		["builtin", "nat"]
+	]],
+	["operator", ":="],
+	["number", "0n"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" c ",
+	["punctuation", ":"],
+	["class-name", [
+		["builtin", "nat"]
+	]],
+	["operator", ":="],
+	["number", "0n"],
+	["punctuation", ";"],
+
+	["keyword", "while"],
+	["punctuation", "("],
+	"largest ",
+	["operator", "=/="],
+	" i",
+	["punctuation", ")"],
+	["keyword", "block"],
+	["punctuation", "{"],
+
+	"\n\t\t\tc ",
+	["operator", ":="],
+	" c ",
+	["operator", "+"],
+	["number", "1n"],
+	["punctuation", ";"],
+
+	"\n\t\t\ti ",
+	["operator", ":="],
+	" largest ",
+	["punctuation", ";"],
+
+	"\n\t\t\tleft ",
+	["operator", ":="],
+	["number", "2n"],
+	["operator", "*"],
+	" i ",
+	["punctuation", ";"],
+
+	"\n\t\t\tright ",
+	["operator", ":="],
+	" left ",
+	["operator", "+"],
+	["number", "1n"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"left ",
+	["operator", "<="],
+	" s",
+	["punctuation", ")"],
+	["keyword", "then"],
+	["keyword", "begin"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["function", "heap_element_lt"],
+	["punctuation", "("],
+	["function", "get_force"],
+	["punctuation", "("],
+	"left ",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "get_force"],
+	["punctuation", "("],
+	"i ",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "then"],
+	["keyword", "begin"],
+
+	"\n\t\t\t\t\tlargest ",
+	["operator", ":="],
+	" left ",
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" tmp ",
+	["punctuation", ":"],
+	["class-name", ["heap_element"]],
+	["operator", "="],
+	["function", "get_force"],
+	["punctuation", "("],
+	"i ",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\t\th",
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["operator", ":="],
+	["function", "get_force"],
+	["punctuation", "("],
+	"left ",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\t\th",
+	["punctuation", "["],
+	"left",
+	["punctuation", "]"],
+	["operator", ":="],
+	" tmp ",
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["keyword", "else"],
+	["keyword", "skip"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["keyword", "else"],
+	["keyword", "if"],
+	["punctuation", "("],
+	"right ",
+	["operator", "<="],
+	" s",
+	["punctuation", ")"],
+	["keyword", "then"],
+	["keyword", "begin"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["function", "heap_element_lt"],
+	["punctuation", "("],
+	["function", "get_force"],
+	["punctuation", "("],
+	"right ",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "get_force"],
+	["punctuation", "("],
+	"i ",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "then"],
+	["keyword", "begin"],
+
+	"\n\t\t\t\t\tlargest ",
+	["operator", ":="],
+	" right ",
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" tmp ",
+	["punctuation", ":"],
+	["class-name", ["heap_element"]],
+	["operator", "="],
+	["function", "get_force"],
+	["punctuation", "("],
+	"i ",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\t\th",
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["operator", ":="],
+	["function", "get_force"],
+	["punctuation", "("],
+	"right ",
+	["punctuation", ","],
+	" h",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\t\th",
+	["punctuation", "["],
+	"left",
+	["punctuation", "]"],
+	["operator", ":="],
+	" tmp ",
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["keyword", "else"],
+	["keyword", "skip"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["keyword", "else"],
+	["keyword", "skip"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "end"],
+	["keyword", "with"],
+	["punctuation", "("],
+	"h ",
+	["punctuation", ","],
+	" result ",
+	["punctuation", ","],
+	" c",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

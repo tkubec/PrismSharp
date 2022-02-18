@@ -1,0 +1,29 @@
+java.lang.NullPointerException
+java.lang.NullPointerException: This is bad
+HighLevelException: MidLevelException: LowLevelException
+HighLevelException: MidLevelException: LowLevelException: This is bad
+
+Exception in thread "main" java.lang.RuntimeException: A test exception
+Exception in thread "main" HighLevelException: MidLevelException: LowLevelException: This is bad
+
+Caused by: Exception: This also includes causes and suppressed exceptions
+Caused by: MidLevelException: LowLevelException
+Caused by: com.example.myproject.MyProjectServletException
+
+Suppressed: java.lang.RuntimeException: could not insert: [com.example.myproject.MyEntity]
+----------------------------------------------------
+<span class="token summary"><span class="token exceptions"><span class="token namespace">java</span><span class="token punctuation">.</span><span class="token namespace">lang</span><span class="token punctuation">.</span><span class="token class-name">NullPointerException</span></span></span>
+<span class="token summary"><span class="token exceptions"><span class="token namespace">java</span><span class="token punctuation">.</span><span class="token namespace">lang</span><span class="token punctuation">.</span><span class="token class-name">NullPointerException</span></span><span class="token punctuation">:</span> <span class="token message string">This is bad</span></span>
+<span class="token summary"><span class="token exceptions"><span class="token class-name">HighLevelException</span></span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">MidLevelException</span></span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">LowLevelException</span></span></span>
+<span class="token summary"><span class="token exceptions"><span class="token class-name">HighLevelException</span></span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">MidLevelException</span></span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">LowLevelException</span></span><span class="token punctuation">:</span> <span class="token message string">This is bad</span></span>
+
+<span class="token summary"><span class="token keyword">Exception in thread</span> <span class="token string">"main"</span> <span class="token exceptions"><span class="token namespace">java</span><span class="token punctuation">.</span><span class="token namespace">lang</span><span class="token punctuation">.</span><span class="token class-name">RuntimeException</span></span><span class="token punctuation">:</span> <span class="token message string">A test exception</span></span>
+<span class="token summary"><span class="token keyword">Exception in thread</span> <span class="token string">"main"</span> <span class="token exceptions"><span class="token class-name">HighLevelException</span></span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">MidLevelException</span></span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">LowLevelException</span></span><span class="token punctuation">:</span> <span class="token message string">This is bad</span></span>
+
+<span class="token summary"><span class="token keyword">Caused by</span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">Exception</span></span><span class="token punctuation">:</span> <span class="token message string">This also includes causes and suppressed exceptions</span></span>
+<span class="token summary"><span class="token keyword">Caused by</span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">MidLevelException</span></span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token class-name">LowLevelException</span></span></span>
+<span class="token summary"><span class="token keyword">Caused by</span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token namespace">com</span><span class="token punctuation">.</span><span class="token namespace">example</span><span class="token punctuation">.</span><span class="token namespace">myproject</span><span class="token punctuation">.</span><span class="token class-name">MyProjectServletException</span></span></span>
+
+<span class="token summary"><span class="token keyword">Suppressed</span><span class="token punctuation">:</span> <span class="token exceptions"><span class="token namespace">java</span><span class="token punctuation">.</span><span class="token namespace">lang</span><span class="token punctuation">.</span><span class="token class-name">RuntimeException</span></span><span class="token punctuation">:</span> <span class="token message string">could not insert: [com.example.myproject.MyEntity]</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,47 @@
+Foobar
+======
+
+Foobar
+------
+
+Foobar
+~~~~~~
+
+Foobar
+^^^^^^
+
+Foo
++++
+
+= Foo bar baz =
+== Foo bar baz
+=== Foo bar baz ===
+==== Foo bar baz
+===== Foo bar baz =====
+
+.Foo bar baz
+----------------------------------------------------
+<span class="token title important">Foobar
+<span class="token punctuation">======</span></span>
+
+<span class="token title important">Foobar
+<span class="token punctuation">------</span></span>
+
+<span class="token title important">Foobar
+<span class="token punctuation">~~~~~~</span></span>
+
+<span class="token title important">Foobar
+<span class="token punctuation">^^^^^^</span></span>
+
+<span class="token title important">Foo
+<span class="token punctuation">+++</span></span>
+
+<span class="token title important"><span class="token punctuation">=</span> Foo bar baz <span class="token punctuation">=</span></span>
+<span class="token title important"><span class="token punctuation">==</span> Foo bar baz</span>
+<span class="token title important"><span class="token punctuation">===</span> Foo bar baz <span class="token punctuation">===</span></span>
+<span class="token title important"><span class="token punctuation">====</span> Foo bar baz</span>
+<span class="token title important"><span class="token punctuation">=====</span> Foo bar baz <span class="token punctuation">=====</span></span>
+
+<span class="token title important"><span class="token punctuation">.</span>Foo bar baz</span>
+
+----------------------------------------------------

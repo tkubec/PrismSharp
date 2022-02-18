@@ -1,0 +1,16 @@
+@namespace My { }
+@namespace My.Domain { }
+----------------------------------------------------
+[
+	["keyword", "@namespace"],
+	["namespace", "My"],
+	["operator", "{"],
+	["operator", "}"],
+
+	["keyword", "@namespace"],
+	["namespace", "My.Domain"],
+	["operator", "{"],
+	["operator", "}"]
+]
+
+----------------------------------------------------

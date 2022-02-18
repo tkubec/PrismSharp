@@ -1,0 +1,9 @@
+sum by (job) (
+	rate(http_requests_total[5m])
+)
+----------------------------------------------------
+<span class="token keyword">sum</span> <span class="token keyword">by</span> <span class="token vector-match"><span class="token punctuation">(</span><span class="token label-key attr-name">job</span><span class="token punctuation">)</span></span> <span class="token punctuation">(</span>
+	<span class="token function">rate</span><span class="token punctuation">(</span>http_requests_total<span class="token context-range"><span class="token punctuation">[</span><span class="token range-duration number">5m</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+----------------------------------------------------

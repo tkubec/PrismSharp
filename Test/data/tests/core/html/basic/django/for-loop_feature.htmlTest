@@ -1,0 +1,25 @@
+{% for value in values recursive %}
+    {% if loop.previtem is defined and value > loop.previtem %}
+        The value just increased!
+    {% endif %}
+    {{ value }}
+    {% if loop.nextitem is defined and loop.nextitem > value %}
+        The value will increase even more!
+    {% endif %}
+{% endfor %}
+
+{% for user in users if not user.hidden %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token tag keyword">for</span> <span class="token variable">value</span> <span class="token keyword">in</span> <span class="token variable">values</span> <span class="token keyword">recursive</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+    <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token keyword">loop</span><span class="token punctuation">.</span><span class="token variable">previtem</span> <span class="token keyword">is</span> <span class="token test function">defined</span> <span class="token keyword">and</span> <span class="token variable">value</span> <span class="token operator">></span> <span class="token keyword">loop</span><span class="token punctuation">.</span><span class="token variable">previtem</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+        <span class="token variable">The</span> <span class="token variable">value</span> <span class="token variable">just</span> <span class="token variable">increased</span>!
+    <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">endif</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">value</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token keyword">loop</span><span class="token punctuation">.</span><span class="token variable">nextitem</span> <span class="token keyword">is</span> <span class="token test function">defined</span> <span class="token keyword">and</span> <span class="token keyword">loop</span><span class="token punctuation">.</span><span class="token variable">nextitem</span> <span class="token operator">></span> <span class="token variable">value</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+        <span class="token variable">The</span> <span class="token variable">value</span> <span class="token variable">will</span> <span class="token variable">increase</span> <span class="token variable">even</span> <span class="token variable">more</span>!
+    <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">endif</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">endfor</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> <span class="token variable">user</span> <span class="token keyword">in</span> <span class="token variable">users</span> <span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token variable">user</span><span class="token punctuation">.</span><span class="token variable">hidden</span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

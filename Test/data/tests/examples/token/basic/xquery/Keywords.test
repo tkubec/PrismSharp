@@ -1,0 +1,31 @@
+xquery version "1.0";
+declare default element namespace "http://datypic.com/cat";
+declare boundary-space preserve;
+declare default collation "http://datypic.com/collation/custom";
+----------------------------------------------------
+[
+	["keyword", "xquery"],
+	["keyword", "version"],
+	["string", "\"1.0\""],
+	["punctuation", ";"],
+
+	["keyword", "declare"],
+	["keyword", "default"],
+	["builtin", "element"],
+	["keyword", "namespace"],
+	["string", "\"http://datypic.com/cat\""],
+	["punctuation", ";"],
+
+	["keyword", "declare"],
+	["keyword", "boundary-space"],
+	["keyword", "preserve"],
+	["punctuation", ";"],
+
+	["keyword", "declare"],
+	["keyword", "default"],
+	["keyword", "collation"],
+	["string", "\"http://datypic.com/collation/custom\""],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

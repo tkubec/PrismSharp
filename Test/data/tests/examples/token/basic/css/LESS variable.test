@@ -1,0 +1,27 @@
+@main-color: red;
+.foo {
+	background: @main-color;
+}
+----------------------------------------------------
+[
+	["atrule", [
+		["rule", "@main-color"],
+		["punctuation", ":"],
+		" red",
+		["punctuation", ";"]
+	]],
+
+	["selector", ".foo"],
+	["punctuation", "{"],
+
+	["property", "background"],
+	["punctuation", ":"],
+	["atrule", [
+		["rule", "@main-color"],
+		["punctuation", ";"]
+	]],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

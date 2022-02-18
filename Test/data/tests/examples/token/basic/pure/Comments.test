@@ -1,0 +1,12 @@
+#! shebang
+// Single line comment
+/* Multi-line
+comment */
+----------------------------------------------------
+[
+	["comment", "#! shebang"],
+	["comment", "// Single line comment"],
+	["comment", "/* Multi-line\ncomment */"]
+]
+
+----------------------------------------------------

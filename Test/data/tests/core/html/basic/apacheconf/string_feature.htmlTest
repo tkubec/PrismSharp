@@ -1,0 +1,9 @@
+"foo bar"
+'foo bar'
+"%{REMOTE_HOST}"
+----------------------------------------------------
+<span class="token string">"foo bar"</span>
+<span class="token string">'foo bar'</span>
+<span class="token string">"<span class="token variable">%{REMOTE_HOST}</span>"</span>
+
+----------------------------------------------------

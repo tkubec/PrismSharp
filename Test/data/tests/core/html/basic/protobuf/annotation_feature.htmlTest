@@ -1,0 +1,5 @@
+int32 foo = 1 [deprecated=true];
+----------------------------------------------------
+<span class="token builtin">int32</span> foo <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">[</span><span class="token annotation">deprecated</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

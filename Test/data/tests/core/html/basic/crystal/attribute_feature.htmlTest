@@ -1,0 +1,11 @@
+@[AlwaysInline]
+@[CallConvention("X86_StdCall")]
+@[MyAnnotation(key: "value", value: 123)]
+@[MyAnnotation("foo", 123, false)]
+----------------------------------------------------
+<span class="token attribute"><span class="token delimiter punctuation">@[</span><span class="token attribute class-name">AlwaysInline</span><span class="token delimiter punctuation">]</span></span>
+<span class="token attribute"><span class="token delimiter punctuation">@[</span><span class="token attribute class-name">CallConvention</span><span class="token args"><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"X86_StdCall"</span></span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span>
+<span class="token attribute"><span class="token delimiter punctuation">@[</span><span class="token attribute class-name">MyAnnotation</span><span class="token args"><span class="token punctuation">(</span><span class="token symbol">key</span><span class="token operator">:</span> <span class="token string-literal"><span class="token string">"value"</span></span><span class="token punctuation">,</span> <span class="token symbol">value</span><span class="token operator">:</span> <span class="token number">123</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span>
+<span class="token attribute"><span class="token delimiter punctuation">@[</span><span class="token attribute class-name">MyAnnotation</span><span class="token args"><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"foo"</span></span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span>
+
+----------------------------------------------------

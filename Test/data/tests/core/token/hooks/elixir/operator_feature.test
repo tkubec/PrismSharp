@@ -1,0 +1,68 @@
+in
+\\
+::
+..
+...
++ ++
+- -- ->
+*
+/
+^
+& &&
+| || |>
+< <= <> <-
+> >=
+! != !==
+= =~ == === =>
+----------------------------------------------------
+[
+	["operator", "in"],
+
+	["operator", "\\\\"],
+
+	["operator", "::"],
+
+	["operator", ".."],
+
+	["operator", "..."],
+
+	["operator", "+"],
+	["operator", "++"],
+
+	["operator", "-"],
+	["operator", "--"],
+	["operator", "->"],
+
+	["operator", "*"],
+
+	["operator", "/"],
+
+	["operator", "^"],
+
+	["operator", "&"],
+	["operator", "&&"],
+
+	["operator", "|"],
+	["operator", "||"],
+	["operator", "|>"],
+
+	["operator", "<"],
+	["operator", "<="],
+	["operator", "<>"],
+	["operator", "<-"],
+
+	["operator", ">"],
+	["operator", ">="],
+
+	["operator", "!"],
+	["operator", "!="],
+	["operator", "!=="],
+
+	["operator", "="],
+	["operator", "=~"],
+	["operator", "=="],
+	["operator", "==="],
+	["operator", "=>"]
+]
+
+----------------------------------------------------

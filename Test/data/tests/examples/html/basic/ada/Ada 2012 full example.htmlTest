@@ -1,0 +1,41 @@
+with Ada.Text_IO; Use Ada.Text_IO;
+
+--  Comments look like this.
+procedure Test is
+   procedure Bah with
+    Import        => True,   --  Shows the new aspect feature of the language.
+    Convention    => C,
+    External_Name => "bah";
+
+   type Things is range 1 .. 10;
+begin
+   Put_Line ("Hello");   --  Comments look like this.
+
+   Bah;  -- Call C function.
+
+   for Index in Things'Range loop
+      null;
+   end loop;
+end Test;
+----------------------------------------------------
+<span class="token keyword">with</span> <span class="token variable">Ada</span><span class="token punctuation">.</span><span class="token variable">Text_IO</span><span class="token punctuation">;</span> <span class="token keyword">Use</span> <span class="token variable">Ada</span><span class="token punctuation">.</span><span class="token variable">Text_IO</span><span class="token punctuation">;</span>
+
+<span class="token comment">--  Comments look like this.</span>
+<span class="token keyword">procedure</span> <span class="token variable">Test</span> <span class="token keyword">is</span>
+   <span class="token keyword">procedure</span> <span class="token variable">Bah</span> <span class="token keyword">with</span>
+    <span class="token variable">Import</span>        <span class="token operator">=></span> <span class="token boolean">True</span><span class="token punctuation">,</span>   <span class="token comment">--  Shows the new aspect feature of the language.</span>
+    <span class="token variable">Convention</span>    <span class="token operator">=></span> <span class="token variable">C</span><span class="token punctuation">,</span>
+    <span class="token variable">External_Name</span> <span class="token operator">=></span> <span class="token string">"bah"</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">type</span> <span class="token variable">Things</span> <span class="token keyword">is</span> <span class="token keyword">range</span> <span class="token number">1</span> <span class="token punctuation">..</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">begin</span>
+   <span class="token variable">Put_Line</span> <span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">--  Comments look like this.</span>
+
+   <span class="token variable">Bah</span><span class="token punctuation">;</span>  <span class="token comment">-- Call C function.</span>
+
+   <span class="token keyword">for</span> <span class="token variable">Index</span> <span class="token keyword">in</span> <span class="token variable">Things</span><span class="token attr-name">'Range</span> <span class="token keyword">loop</span>
+      <span class="token keyword">null</span><span class="token punctuation">;</span>
+   <span class="token keyword">end</span> <span class="token keyword">loop</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span> <span class="token variable">Test</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

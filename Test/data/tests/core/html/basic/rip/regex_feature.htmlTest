@@ -1,0 +1,11 @@
+/foobar/
+/fo[o](?=bar)/
+/\/\\\[\]/
+/(fo|o?)+b*ar?/
+----------------------------------------------------
+<span class="token regex">/foobar/</span>
+<span class="token regex">/fo[o](?=bar)/</span>
+<span class="token regex">/\/\\\[\]/</span>
+<span class="token regex">/(fo|o?)+b*ar?/</span>
+
+----------------------------------------------------

@@ -1,0 +1,37 @@
+// Source: https://github.com/mellinoe/veldrid/blob/d60e5a036add2123a15f0da02f1da65a80503d54/src/Veldrid.ImGui/Assets/HLSL/imgui-frag.hlsl
+
+struct PS_INPUT
+{
+	float4 pos : SV_POSITION;
+	float4 col : COLOR0;
+	float2 uv  : TEXCOORD0;
+};
+
+Texture2D FontTexture : register(t0);
+sampler FontSampler : register(s0);
+
+float4 FS(PS_INPUT input) : SV_Target
+{
+	float4 out_col = input.col * FontTexture.Sample(FontSampler, input.uv);
+	return out_col;
+}
+----------------------------------------------------
+<span class="token comment">// Source: https://github.com/mellinoe/veldrid/blob/d60e5a036add2123a15f0da02f1da65a80503d54/src/Veldrid.ImGui/Assets/HLSL/imgui-frag.hlsl</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">PS_INPUT</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">float4</span> pos <span class="token operator">:</span> SV_POSITION<span class="token punctuation">;</span>
+	<span class="token keyword">float4</span> col <span class="token operator">:</span> COLOR0<span class="token punctuation">;</span>
+	<span class="token keyword">float2</span> uv  <span class="token operator">:</span> TEXCOORD0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token class-name">Texture2D</span> FontTexture <span class="token operator">:</span> <span class="token keyword">register</span><span class="token punctuation">(</span>t0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">sampler</span> FontSampler <span class="token operator">:</span> <span class="token keyword">register</span><span class="token punctuation">(</span>s0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">float4</span> <span class="token function">FS</span><span class="token punctuation">(</span>PS_INPUT input<span class="token punctuation">)</span> <span class="token operator">:</span> SV_Target
+<span class="token punctuation">{</span>
+	<span class="token keyword">float4</span> out_col <span class="token operator">=</span> input<span class="token punctuation">.</span>col <span class="token operator">*</span> FontTexture<span class="token punctuation">.</span><span class="token function">Sample</span><span class="token punctuation">(</span>FontSampler<span class="token punctuation">,</span> input<span class="token punctuation">.</span>uv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> out_col<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

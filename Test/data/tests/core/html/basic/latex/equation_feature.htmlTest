@@ -1,0 +1,65 @@
+$foo$
+$a \dots
+b$
+$$foo$$
+$$a \dots
+b$$
+\(foo\)
+\(a \dots
+b\)
+\[foo\]
+\[a \dots
+b\]
+
+\begin{equation}foo\end{equation}
+\begin{equation}a \dots
+b\end{equation}
+\begin{math}foo\end{math}
+\begin{math}a \dots
+b\end{math}
+\begin{eqnarray}foo\end{eqnarray}
+\begin{eqnarray}a \dots
+b\end{eqnarray}
+\begin{align}foo\end{align}
+\begin{align*}a \dots
+b\end{align*}
+\begin{multline}foo\end{multline}
+\begin{multline}a \dots
+b\end{multline}
+\begin{gather}foo\end{gather}
+\begin{gather}a \dots
+b\end{gather}
+----------------------------------------------------
+<span class="token equation string">$foo$</span>
+<span class="token equation string">$a <span class="token equation-command regex">\dots</span>
+b$</span>
+<span class="token equation string">$$foo$$</span>
+<span class="token equation string">$$a <span class="token equation-command regex">\dots</span>
+b$$</span>
+<span class="token equation string">\(foo\)</span>
+<span class="token equation string">\(a <span class="token equation-command regex">\dots</span>
+b\)</span>
+<span class="token equation string">\[foo\]</span>
+<span class="token equation string">\[a <span class="token equation-command regex">\dots</span>
+b\]</span>
+
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">equation</span><span class="token punctuation">}</span><span class="token equation string">foo</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">equation</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">equation</span><span class="token punctuation">}</span><span class="token equation string">a <span class="token equation-command regex">\dots</span>
+b</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">equation</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">math</span><span class="token punctuation">}</span><span class="token equation string">foo</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">math</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">math</span><span class="token punctuation">}</span><span class="token equation string">a <span class="token equation-command regex">\dots</span>
+b</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">math</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">eqnarray</span><span class="token punctuation">}</span><span class="token equation string">foo</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">eqnarray</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">eqnarray</span><span class="token punctuation">}</span><span class="token equation string">a <span class="token equation-command regex">\dots</span>
+b</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">eqnarray</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">align</span><span class="token punctuation">}</span><span class="token equation string">foo</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">align</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">align*</span><span class="token punctuation">}</span><span class="token equation string">a <span class="token equation-command regex">\dots</span>
+b</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">align*</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">multline</span><span class="token punctuation">}</span><span class="token equation string">foo</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">multline</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">multline</span><span class="token punctuation">}</span><span class="token equation string">a <span class="token equation-command regex">\dots</span>
+b</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">multline</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">gather</span><span class="token punctuation">}</span><span class="token equation string">foo</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">gather</span><span class="token punctuation">}</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">gather</span><span class="token punctuation">}</span><span class="token equation string">a <span class="token equation-command regex">\dots</span>
+b</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">gather</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

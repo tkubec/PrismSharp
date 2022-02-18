@@ -1,0 +1,80 @@
+#include <stdio.h>
+main(int argc, char *argv[])
+{
+   int c;
+   printf("Number of command line arguments passed: %d\n", argc);
+   for ( c = 0 ; c < argc ; c++)
+      printf("%d. Command line argument passed is %s\n", c+1, argv[c]);
+   return 0;
+}
+----------------------------------------------------
+[
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "include"],
+		["string", "<stdio.h>"]
+	]],
+
+	["function", "main"],
+	["punctuation", "("],
+	["keyword", "int"],
+	" argc",
+	["punctuation", ","],
+	["keyword", "char"],
+	["operator", "*"],
+	"argv",
+	["punctuation", "["],
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "int"],
+	" c",
+	["punctuation", ";"],
+
+	["function", "printf"],
+	["punctuation", "("],
+	["string", "\"Number of command line arguments passed: %d\\n\""],
+	["punctuation", ","],
+	" argc",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	" c ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" c ",
+	["operator", "<"],
+	" argc ",
+	["punctuation", ";"],
+	" c",
+	["operator", "++"],
+	["punctuation", ")"],
+
+	["function", "printf"],
+	["punctuation", "("],
+	["string", "\"%d. Command line argument passed is %s\\n\""],
+	["punctuation", ","],
+	" c",
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ","],
+	" argv",
+	["punctuation", "["],
+	"c",
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

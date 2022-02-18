@@ -1,0 +1,7 @@
+type foo:type
+type _foo.-bar:type
+----------------------------------------------------
+<span class="token keyword">type</span> <span class="token namespace">foo</span><span class="token punctuation">:</span>type
+<span class="token keyword">type</span> <span class="token namespace">_foo.-bar</span><span class="token punctuation">:</span>type
+
+----------------------------------------------------

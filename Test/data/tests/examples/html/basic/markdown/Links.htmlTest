@@ -1,0 +1,13 @@
+[Prism](http://www.prismjs.com)
+[Prism](http://www.prismjs.com "Prism")
+
+[prism link]: http://www.prismjs.com (Prism)
+[Prism] [prism link]
+----------------------------------------------------
+<span class="token url">[<span class="token content">Prism</span>](<span class="token url">http://www.prismjs.com</span>)</span>
+<span class="token url">[<span class="token content">Prism</span>](<span class="token url">http://www.prismjs.com</span> <span class="token string">"Prism"</span>)</span>
+
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">prism link</span><span class="token punctuation">]</span><span class="token punctuation">:</span> http://www.prismjs.com <span class="token string">(Prism)</span></span>
+<span class="token url">[<span class="token content">Prism</span>] [<span class="token variable">prism link</span>]</span>
+
+----------------------------------------------------

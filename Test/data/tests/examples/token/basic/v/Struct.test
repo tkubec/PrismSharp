@@ -1,0 +1,63 @@
+struct Foo {
+	a int   // private immutable (default)
+mut:
+	b int   // private mutable
+	c int   // (you can list multiple fields with the same access modifier)
+pub:
+	d int   // public immutable (readonly)
+pub mut:
+	e int   // public, but mutable only in parent module
+__global:
+	f int   // public and mutable both inside and outside parent module
+}           // (not recommended to use, that's why the 'global' keyword
+			// starts with __)
+----------------------------------------------------
+[
+	["keyword", "struct"],
+	["class-name", "Foo"],
+	["punctuation", "{"],
+
+	"\n\ta ",
+	["builtin", "int"],
+	["comment", "// private immutable (default)"],
+
+	["keyword", "mut"],
+	["punctuation", ":"],
+
+	"\n\tb ",
+	["builtin", "int"],
+	["comment", "// private mutable"],
+
+	"\n\tc ",
+	["builtin", "int"],
+	["comment", "// (you can list multiple fields with the same access modifier)"],
+
+	["keyword", "pub"],
+	["punctuation", ":"],
+
+	"\n\td ",
+	["builtin", "int"],
+	["comment", "// public immutable (readonly)"],
+
+	["keyword", "pub"],
+	["keyword", "mut"],
+	["punctuation", ":"],
+
+	"\n\te ",
+	["builtin", "int"],
+	["comment", "// public, but mutable only in parent module"],
+
+	["keyword", "__global"],
+	["punctuation", ":"],
+
+	"\n\tf ",
+	["builtin", "int"],
+	["comment", "// public and mutable both inside and outside parent module"],
+
+	["punctuation", "}"],
+	["comment", "// (not recommended to use, that's why the 'global' keyword"],
+
+	["comment", "// starts with __)"]
+]
+
+----------------------------------------------------

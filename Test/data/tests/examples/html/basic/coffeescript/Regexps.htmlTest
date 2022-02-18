@@ -1,0 +1,13 @@
+/normal [r]egexp?/;
+/// ^(
+  mul\t[i-l]ine
+  regexp          # with embedded comment
+) ///
+----------------------------------------------------
+<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">normal [r]egexp?</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+<span class="token block-regex regex">/// ^(
+  mul\t[i-l]ine
+  regexp          <span class="token comment"># with embedded comment</span>
+) ///</span>
+
+----------------------------------------------------

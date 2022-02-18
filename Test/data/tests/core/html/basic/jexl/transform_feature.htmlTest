@@ -1,0 +1,29 @@
+"foo"|bar
+"foo"| bar
+"foo"
+|   
+bar
+
+foo|Ý
+
+foo|bar()
+foo|bar(1,2)
+foo|bar(
+1,2
+)
+----------------------------------------------------
+<span class="token string">"foo"</span><span class="token operator">|</span><span class="token transform function">bar</span>
+<span class="token string">"foo"</span><span class="token operator">|</span> <span class="token transform function">bar</span>
+<span class="token string">"foo"</span>
+<span class="token operator">|</span>   
+<span class="token transform function">bar</span>
+
+foo<span class="token operator">|</span><span class="token transform function">Ý</span>
+
+foo<span class="token operator">|</span><span class="token transform function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+foo<span class="token operator">|</span><span class="token transform function">bar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+foo<span class="token operator">|</span><span class="token transform function">bar</span><span class="token punctuation">(</span>
+<span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span>
+<span class="token punctuation">)</span>
+
+----------------------------------------------------

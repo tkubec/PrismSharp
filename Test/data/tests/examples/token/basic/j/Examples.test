@@ -1,0 +1,50 @@
+NB. Implementation of quicksort (tacit programming)
+
+quicksort=: (($:@(<#[), (=#[), $:@(>#[)) ({~ ?@#)) ^: (1<#)
+----------------------------------------------------
+[
+	["comment", "NB. Implementation of quicksort (tacit programming)"],
+
+	"\n\nquicksort",
+	["operator", "=:"],
+	["punctuation", "("],
+	["punctuation", "("],
+	["verb", "$:"],
+	["conjunction", "@"],
+	["punctuation", "("],
+	["verb", "<"],
+	["verb", "#"],
+	["verb", "["],
+	["punctuation", ")"],
+	["verb", ","],
+	["punctuation", "("],
+	["verb", "="],
+	["verb", "#"],
+	["verb", "["],
+	["punctuation", ")"],
+	["verb", ","],
+	["verb", "$:"],
+	["conjunction", "@"],
+	["punctuation", "("],
+	["verb", ">"],
+	["verb", "#"],
+	["verb", "["],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["verb", "{"],
+	["adverb", "~"],
+	["verb", "?"],
+	["conjunction", "@"],
+	["verb", "#"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["conjunction", "^:"],
+	["punctuation", "("],
+	["number", "1"],
+	["verb", "<"],
+	["verb", "#"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

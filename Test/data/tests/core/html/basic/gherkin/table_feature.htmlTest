@@ -1,0 +1,11 @@
+Examples: foo
+| start  | eat | left |
+|  <foo> |  5  |  7   |
+	|  20    |  5  |  15  |
+----------------------------------------------------
+<span class="token scenario"><span class="token keyword">Examples:</span><span class="token important"> foo</span></span><span class="token table-head">
+<span class="token punctuation">|</span><span class="token th variable"> start  </span><span class="token punctuation">|</span><span class="token th variable"> eat </span><span class="token punctuation">|</span><span class="token th variable"> left </span><span class="token punctuation">|</span></span><span class="token table-body">
+<span class="token punctuation">|</span>  <span class="token outline variable">&lt;foo></span> <span class="token punctuation">|</span><span class="token td string">  5  </span><span class="token punctuation">|</span><span class="token td string">  7   </span><span class="token punctuation">|</span>
+	<span class="token punctuation">|</span><span class="token td string">  20    </span><span class="token punctuation">|</span><span class="token td string">  5  </span><span class="token punctuation">|</span><span class="token td string">  15  </span><span class="token punctuation">|</span></span>
+
+----------------------------------------------------

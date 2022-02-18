@@ -1,0 +1,17 @@
+;;
+;; Foobar
+;; (; foobar ;)
+(;;)
+(;Foobar;)
+(;Foo ;;bar
+baz;)
+----------------------------------------------------
+<span class="token comment">;;</span>
+<span class="token comment">;; Foobar</span>
+<span class="token comment">;; (; foobar ;)</span>
+<span class="token comment">(;;)</span>
+<span class="token comment">(;Foobar;)</span>
+<span class="token comment">(;Foo ;;bar
+baz;)</span>
+
+----------------------------------------------------

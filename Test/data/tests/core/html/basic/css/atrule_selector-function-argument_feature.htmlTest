@@ -1,0 +1,13 @@
+@supports selector(::-webkit-foo) {
+	/* style to apply when the `::-webkit-foo` selector is actually supported,
+	 * instead of just being parsed as matching nothing because of Selectors 4
+	 * § Appendix B: https://drafts.csswg.org/selectors-4/#compat */
+}
+----------------------------------------------------
+<span class="token atrule"><span class="token rule">@supports</span> <span class="token function">selector</span><span class="token punctuation">(</span><span class="token selector-function-argument selector">::-webkit-foo</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+	<span class="token comment">/* style to apply when the `::-webkit-foo` selector is actually supported,
+	 * instead of just being parsed as matching nothing because of Selectors 4
+	 * § Appendix B: https://drafts.csswg.org/selectors-4/#compat */</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

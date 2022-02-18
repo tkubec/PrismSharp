@@ -1,0 +1,5 @@
+{% for key, value in {foo: 100, bar: 20} %}
+	def {{ key.id }}
+		{{ value }}
+	end
+{% end %}

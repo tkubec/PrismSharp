@@ -1,0 +1,13 @@
+++ foobar
+[
+	>.
+	<-,
+]
+----------------------------------------------------
+<span class="token increment inserted">+</span><span class="token increment inserted">+</span> <span class="token comment">foobar</span>
+<span class="token branching important">[</span>
+	<span class="token pointer keyword">></span><span class="token operator">.</span>
+	<span class="token pointer keyword">&lt;</span><span class="token decrement deleted">-</span><span class="token operator">,</span>
+<span class="token branching important">]</span>
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+I am <b>very</b> serious.
+
+<div style="background:#fff">Foo bar</div>
+----------------------------------------------------
+<span class="token phrase">I am </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">></span></span><span class="token phrase">very</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">></span></span> serious.
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">background</span><span class="token punctuation">:</span>#fff</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token phrase">Foo bar</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

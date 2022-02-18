@@ -1,0 +1,17 @@
+&Math.zero?(0)
+fun = &Math.zero?/1
+(&is_function/1).(fun)
+fun = &(&1 + 1)
+&List.flatten(&1, &2)
+
+fun = &Math.zero?/invalid
+----------------------------------------------------
+<span class="token operator">&amp;</span><span class="token module class-name">Math</span><span class="token punctuation">.</span><span class="token function">zero?</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+fun <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token module class-name">Math</span><span class="token punctuation">.</span><span class="token function">zero?</span><span class="token operator">/</span><span class="token number">1</span>
+<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token function">is_function</span><span class="token operator">/</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span>fun<span class="token punctuation">)</span>
+fun <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token punctuation">(</span><span class="token argument variable">&amp;1</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span><span class="token module class-name">List</span><span class="token punctuation">.</span><span class="token function">flatten</span><span class="token punctuation">(</span><span class="token argument variable">&amp;1</span><span class="token punctuation">,</span> <span class="token argument variable">&amp;2</span><span class="token punctuation">)</span>
+
+fun <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token module class-name">Math</span><span class="token punctuation">.</span>zero?<span class="token operator">/</span>invalid
+
+----------------------------------------------------

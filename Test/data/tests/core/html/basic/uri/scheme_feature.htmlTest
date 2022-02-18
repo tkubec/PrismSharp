@@ -1,0 +1,11 @@
+ftp://ftp.is.co.za/rfc/rfc1808.txt
+tel:+1-816-555-1212
+urn:oasis:names:specification:docbook:dtd:xml:4.1.2
+data:text/vnd-example+xyz;foo=bar;base64,R0lGODdh
+----------------------------------------------------
+<span class="token scheme">ftp<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">ftp.is.co.za</span></span><span class="token path"><span class="token path-separator">/</span>rfc<span class="token path-separator">/</span>rfc1808.txt</span>
+<span class="token scheme">tel<span class="token scheme-delimiter">:</span></span><span class="token path">+1-816-555-1212</span>
+<span class="token scheme">urn<span class="token scheme-delimiter">:</span></span><span class="token path">oasis:names:specification:docbook:dtd:xml:4.1.2</span>
+<span class="token scheme">data<span class="token scheme-delimiter">:</span></span><span class="token path">text<span class="token path-separator">/</span>vnd-example+xyz;foo=bar;base64,R0lGODdh</span>
+
+----------------------------------------------------

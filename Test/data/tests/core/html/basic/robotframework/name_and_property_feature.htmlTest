@@ -1,0 +1,41 @@
+*** Test Cases ***
+Another Test
+	Should Be Equal    ${MESSAGE}    Hello, world!
+
+*** Keywords ***
+My Keyword
+	Directory Should Exist    ${path}
+
+I have ${program} open
+	Start Program    ${program}
+
+Result should be ${expected}
+	${result} =    Get Result
+	Should Be Equal    ${result}    ${expected}
+
+*** Tasks ***
+Process invoice
+	Read information from PDF
+	Validate information
+----------------------------------------------------
+<span class="token test-cases section"><span class="token section-header keyword">*** Test Cases ***</span>
+<span class="token test-name function">Another Test</span>
+	<span class="token property">Should Be Equal</span>    <span class="token variable"><span class="token punctuation">${</span>MESSAGE<span class="token punctuation">}</span></span>    Hello, world!
+</span>
+<span class="token keywords section"><span class="token section-header keyword">*** Keywords ***</span>
+<span class="token keyword-name function">My Keyword</span>
+	<span class="token property">Directory Should Exist</span>    <span class="token variable"><span class="token punctuation">${</span>path<span class="token punctuation">}</span></span>
+
+<span class="token keyword-name function">I have <span class="token variable"><span class="token punctuation">${</span>program<span class="token punctuation">}</span></span> open</span>
+	<span class="token property">Start Program</span>    <span class="token variable"><span class="token punctuation">${</span>program<span class="token punctuation">}</span></span>
+
+<span class="token keyword-name function">Result should be <span class="token variable"><span class="token punctuation">${</span>expected<span class="token punctuation">}</span></span></span>
+	<span class="token property"><span class="token variable"><span class="token punctuation">${</span>result<span class="token punctuation">}</span></span> =</span>    Get Result
+	<span class="token property">Should Be Equal</span>    <span class="token variable"><span class="token punctuation">${</span>result<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">${</span>expected<span class="token punctuation">}</span></span>
+</span>
+<span class="token tasks section"><span class="token section-header keyword">*** Tasks ***</span>
+<span class="token task-name function">Process invoice</span>
+	<span class="token property">Read information from PDF</span>
+	<span class="token property">Validate information</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+:unquoted_symbol
+:"quoted symbol"
+:"a" # identical to :a
+:あ
+:question?
+:exclamation!
+----------------------------------------------------
+<span class="token symbol">:unquoted_symbol</span>
+<span class="token symbol">:"quoted symbol"</span>
+<span class="token symbol">:"a"</span> <span class="token comment"># identical to :a</span>
+<span class="token symbol">:あ</span>
+<span class="token symbol">:question?</span>
+<span class="token symbol">:exclamation!</span>
+
+----------------------------------------------------

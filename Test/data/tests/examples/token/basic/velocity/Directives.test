@@ -1,0 +1,99 @@
+#set($foo.bar[1] = 3)
+#if($a==1)true enough#{else}no way!#end
+#macro( d )
+<tr><td>$!bodyContent</td></tr>
+#end
+#@d()Hello!#end
+----------------------------------------------------
+[
+	["directive", [
+		["keyword", ["#set"]],
+		["punctuation", "("],
+		["variable", [
+			"$foo",
+			["punctuation", "."],
+			"bar",
+			["punctuation", "["],
+			["number", "1"],
+			["punctuation", "]"]
+		]],
+		["operator", "="],
+		["number", "3"],
+		["punctuation", ")"]
+	]],
+
+	["directive", [
+		["keyword", ["#if"]],
+		["punctuation", "("],
+		["variable", ["$a"]],
+		["operator", "=="],
+		["number", "1"],
+		["punctuation", ")"]
+	]],
+	"true enough",
+	["directive", [
+		["keyword", [
+			"#",
+			["punctuation", "{"],
+			"else",
+			["punctuation", "}"]
+		]]
+	]],
+	"no way!",
+	["directive", [
+		["keyword", ["#end"]]
+	]],
+
+	["directive", [
+		["keyword", ["#macro"]],
+		["punctuation", "("],
+		" d ",
+		["punctuation", ")"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"tr"
+		]],
+		["punctuation", ">"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"td"
+		]],
+		["punctuation", ">"]
+	]],
+	["variable", ["$!bodyContent"]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"td"
+		]],
+		["punctuation", ">"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"tr"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["directive", [
+		["keyword", ["#end"]]
+	]],
+
+	["directive", [
+		["keyword", ["#@d"]],
+		["punctuation", "("],
+		["punctuation", ")"]
+	]],
+	"Hello!",
+	["directive", [
+		["keyword", ["#end"]]
+	]]
+]
+
+----------------------------------------------------

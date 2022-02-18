@@ -1,0 +1,224 @@
+The |biohazard| symbol must be used on containers used to
+dispose of medical waste.
+
+.. |biohazard| image:: biohazard.png
+
+|Michael| and |Jon| are our widget-wranglers.
+
+.. |Michael| user:: mjones
+.. |Jon|     user:: jhl
+
+West led the |H| 3, covered by dummy's |H| Q, East's |H| K,
+and trumped in hand with the |S| 2.
+
+.. |H| image:: /images/heart.png
+   :height: 11
+   :width: 11
+.. |S| image:: /images/spade.png
+   :height: 11
+   :width: 11
+
+* |Red light| means stop.
+* |Green light| means go.
+* |Yellow light| means go really fast.
+
+.. |Red light|    image:: red_light.png
+.. |Green light|  image:: green_light.png
+.. |Yellow light| image:: yellow_light.png
+----------------------------------------------------
+[
+	"The ",
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "biohazard"],
+		["punctuation", "|"]
+	]],
+	" symbol must be used on containers used to\ndispose of medical waste.\n\n",
+
+	["punctuation", ".."],
+	["substitution-def", [
+		["substitution", [
+			["punctuation", "|"],
+			"biohazard",
+			["punctuation", "|"]
+		]],
+		["directive", [
+			"image",
+			["punctuation", "::"]
+		]]
+	]],
+	" biohazard.png\n\n",
+
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "Michael"],
+		["punctuation", "|"]
+	]],
+	" and ",
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "Jon"],
+		["punctuation", "|"]
+	]],
+	" are our widget-wranglers.\n\n",
+
+	["punctuation", ".."],
+	["substitution-def", [
+		["substitution", [
+			["punctuation", "|"],
+			"Michael",
+			["punctuation", "|"]
+		]],
+		["directive", [
+			"user",
+			["punctuation", "::"]
+		]]
+	]],
+	" mjones\n",
+
+	["punctuation", ".."],
+	["substitution-def", [
+		["substitution", [
+			["punctuation", "|"],
+			"Jon",
+			["punctuation", "|"]
+		]],
+		["directive", [
+			"user",
+			["punctuation", "::"]
+		]]
+	]],
+	" jhl\n\nWest led the ",
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "H"],
+		["punctuation", "|"]
+	]],
+	" 3, covered by dummy's ",
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "H"],
+		["punctuation", "|"]
+	]],
+	" Q, East's ",
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "H"],
+		["punctuation", "|"]
+	]],
+	" K,\nand trumped in hand with the ",
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "S"],
+		["punctuation", "|"]
+	]],
+	" 2.\n\n",
+
+	["punctuation", ".."],
+	["substitution-def", [
+		["substitution", [
+			["punctuation", "|"],
+			"H",
+			["punctuation", "|"]
+		]],
+		["directive", [
+			"image",
+			["punctuation", "::"]
+		]]
+	]],
+	" /images/heart.png\n   ",
+
+	["field", ":height:"],
+	" 11\n   ",
+
+	["field", ":width:"],
+	" 11\n",
+
+	["punctuation", ".."],
+	["substitution-def", [
+		["substitution", [
+			["punctuation", "|"],
+			"S",
+			["punctuation", "|"]
+		]],
+		["directive", [
+			"image",
+			["punctuation", "::"]
+		]]
+	]],
+	" /images/spade.png\n   ",
+
+	["field", ":height:"],
+	" 11\n   ",
+
+	["field", ":width:"],
+	" 11\n\n",
+
+	["list-bullet", "*"],
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "Red light"],
+		["punctuation", "|"]
+	]],
+	" means stop.\n",
+
+	["list-bullet", "*"],
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "Green light"],
+		["punctuation", "|"]
+	]],
+	" means go.\n",
+
+	["list-bullet", "*"],
+	["inline", [
+		["punctuation", "|"],
+		["substitution", "Yellow light"],
+		["punctuation", "|"]
+	]],
+	" means go really fast.\n\n",
+
+	["punctuation", ".."],
+	["substitution-def", [
+		["substitution", [
+			["punctuation", "|"],
+			"Red light",
+			["punctuation", "|"]
+		]],
+		["directive", [
+			"image",
+			["punctuation", "::"]
+		]]
+	]],
+	" red_light.png\n",
+
+	["punctuation", ".."],
+	["substitution-def", [
+		["substitution", [
+			["punctuation", "|"],
+			"Green light",
+			["punctuation", "|"]
+		]],
+		["directive", [
+			"image",
+			["punctuation", "::"]
+		]]
+	]],
+	" green_light.png\n",
+
+	["punctuation", ".."],
+	["substitution-def", [
+		["substitution", [
+			["punctuation", "|"],
+			"Yellow light",
+			["punctuation", "|"]
+		]],
+		["directive", [
+			"image",
+			["punctuation", "::"]
+		]]
+	]],
+	" yellow_light.png"
+]
+
+----------------------------------------------------

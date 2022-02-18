@@ -1,0 +1,21 @@
+submodule execd-ntp {
+
+	key name;
+
+	leaf stratum { type ntpStratum; default 10; }
+
+	leaf version { type int8 { range "1..4"; } default 4; }
+
+}
+----------------------------------------------------
+<span class="token keyword">submodule</span> execd-ntp <span class="token punctuation">{</span>
+
+	<span class="token keyword">key</span> name<span class="token punctuation">;</span>
+
+	<span class="token keyword">leaf</span> stratum <span class="token punctuation">{</span> <span class="token keyword">type</span> ntpStratum<span class="token punctuation">;</span> <span class="token keyword">default</span> 10<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+	<span class="token keyword">leaf</span> version <span class="token punctuation">{</span> <span class="token keyword">type</span> int8 <span class="token punctuation">{</span> <span class="token keyword">range</span> <span class="token string">"1..4"</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token keyword">default</span> 4<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

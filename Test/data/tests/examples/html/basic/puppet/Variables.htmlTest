@@ -1,0 +1,9 @@
+$foo
+$::foobar
+$foo::bar::baz
+----------------------------------------------------
+<span class="token variable">$foo</span>
+<span class="token variable">$<span class="token punctuation">::</span>foobar</span>
+<span class="token variable">$foo<span class="token punctuation">::</span>bar<span class="token punctuation">::</span>baz</span>
+
+----------------------------------------------------

@@ -1,0 +1,26 @@
+""
+''
+"foo ""bar"" baz"
+'foo ''bar'' baz'
+ITALICS_'foobar'
+"foo &
+	&bar"
+"foo &
+	! Comment
+	&bar"
+----------------------------------------------------
+[
+	["string", ["\"\""]],
+	["string", ["''"]],
+	["string", ["\"foo \"\"bar\"\" baz\""]],
+	["string", ["'foo ''bar'' baz'"]],
+	["string", ["ITALICS_'foobar'"]],
+	["string", ["\"foo &\n\t&bar\""]],
+	["string", [
+		"\"foo &\n\t",
+		["comment", "! Comment"],
+		"\n\t&bar\""
+	]]
+]
+
+----------------------------------------------------

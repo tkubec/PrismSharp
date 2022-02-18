@@ -1,0 +1,59 @@
+-- source: https://github.com/dhall-lang/dhall-lang/blob/master/Prelude/Optional/head.dhall
+
+{-
+Returns the first non-empty `Optional` value in a `List`
+-}
+let head
+    : ∀(a : Type) → List (Optional a) → Optional a
+    = λ(a : Type) →
+      λ(xs : List (Optional a)) →
+        List/fold
+          (Optional a)
+          xs
+          (Optional a)
+          ( λ(l : Optional a) →
+            λ(r : Optional a) →
+              merge { Some = λ(x : a) → Some x, None = r } l
+          )
+          (None a)
+
+let example0 = assert : head Natural [ None Natural, Some 1, Some 2 ] ≡ Some 1
+
+let example1 =
+      assert : head Natural [ None Natural, None Natural ] ≡ None Natural
+
+let example2 =
+      assert : head Natural ([] : List (Optional Natural)) ≡ None Natural
+
+in  head
+----------------------------------------------------
+<span class="token comment">-- source: https://github.com/dhall-lang/dhall-lang/blob/master/Prelude/Optional/head.dhall</span>
+
+<span class="token comment">{-
+Returns the first non-empty `Optional` value in a `List`
+-}</span>
+<span class="token keyword">let</span> head
+    <span class="token operator">:</span> <span class="token keyword">∀</span><span class="token punctuation">(</span>a <span class="token operator">:</span> <span class="token class-name">Type</span><span class="token punctuation">)</span> <span class="token operator">→</span> <span class="token class-name">List</span> <span class="token punctuation">(</span><span class="token class-name">Optional</span> a<span class="token punctuation">)</span> <span class="token operator">→</span> <span class="token class-name">Optional</span> a
+    <span class="token operator">=</span> <span class="token operator">λ</span><span class="token punctuation">(</span>a <span class="token operator">:</span> <span class="token class-name">Type</span><span class="token punctuation">)</span> <span class="token operator">→</span>
+      <span class="token operator">λ</span><span class="token punctuation">(</span>xs <span class="token operator">:</span> <span class="token class-name">List</span> <span class="token punctuation">(</span><span class="token class-name">Optional</span> a<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">→</span>
+        <span class="token class-name">List</span><span class="token punctuation">/</span>fold
+          <span class="token punctuation">(</span><span class="token class-name">Optional</span> a<span class="token punctuation">)</span>
+          xs
+          <span class="token punctuation">(</span><span class="token class-name">Optional</span> a<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span> <span class="token operator">λ</span><span class="token punctuation">(</span>l <span class="token operator">:</span> <span class="token class-name">Optional</span> a<span class="token punctuation">)</span> <span class="token operator">→</span>
+            <span class="token operator">λ</span><span class="token punctuation">(</span>r <span class="token operator">:</span> <span class="token class-name">Optional</span> a<span class="token punctuation">)</span> <span class="token operator">→</span>
+              <span class="token keyword">merge</span> <span class="token punctuation">{</span> <span class="token builtin">Some</span> <span class="token operator">=</span> <span class="token operator">λ</span><span class="token punctuation">(</span>x <span class="token operator">:</span> a<span class="token punctuation">)</span> <span class="token operator">→</span> <span class="token builtin">Some</span> x<span class="token punctuation">,</span> <span class="token builtin">None</span> <span class="token operator">=</span> r <span class="token punctuation">}</span> l
+          <span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token builtin">None</span> a<span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> example0 <span class="token operator">=</span> <span class="token keyword">assert</span> <span class="token operator">:</span> head <span class="token class-name">Natural</span> <span class="token punctuation">[</span> <span class="token builtin">None</span> <span class="token class-name">Natural</span><span class="token punctuation">,</span> <span class="token builtin">Some</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">Some</span> <span class="token number">2</span> <span class="token punctuation">]</span> <span class="token operator">≡</span> <span class="token builtin">Some</span> <span class="token number">1</span>
+
+<span class="token keyword">let</span> example1 <span class="token operator">=</span>
+      <span class="token keyword">assert</span> <span class="token operator">:</span> head <span class="token class-name">Natural</span> <span class="token punctuation">[</span> <span class="token builtin">None</span> <span class="token class-name">Natural</span><span class="token punctuation">,</span> <span class="token builtin">None</span> <span class="token class-name">Natural</span> <span class="token punctuation">]</span> <span class="token operator">≡</span> <span class="token builtin">None</span> <span class="token class-name">Natural</span>
+
+<span class="token keyword">let</span> example2 <span class="token operator">=</span>
+      <span class="token keyword">assert</span> <span class="token operator">:</span> head <span class="token class-name">Natural</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token class-name">List</span> <span class="token punctuation">(</span><span class="token class-name">Optional</span> <span class="token class-name">Natural</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">≡</span> <span class="token builtin">None</span> <span class="token class-name">Natural</span>
+
+<span class="token keyword">in</span>  head
+
+----------------------------------------------------

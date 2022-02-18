@@ -1,0 +1,11 @@
+""
+"foo \"bar\" baz"
+""" "Multi-line" strings
+are supported."""
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo \"bar\" baz"</span>
+<span class="token string">""" "Multi-line" strings
+are supported."""</span>
+
+----------------------------------------------------

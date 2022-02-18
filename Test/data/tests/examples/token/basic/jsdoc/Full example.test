@@ -1,0 +1,101 @@
+/**
+ * @typedef {object} Foo
+ * @property {string} bar
+ * @memberof Baz
+ */
+
+/**
+ * Trims the given string.
+ *
+ * @param {string} [str=""] the string.
+ * @returns {string} the trimmed string.
+ * @throws {TypeError} if the argument is not a string.
+ * @example trim(" hello ")
+ */
+function trim(str = "") {
+	if (typeof str != "string") {
+		throw new TypeError("str has to be a string");
+	}
+	return str.trim();
+}
+----------------------------------------------------
+[
+	"/**\n * ",
+	["keyword", "@typedef"],
+	["class-name", [
+		["punctuation", "{"],
+		"object",
+		["punctuation", "}"]
+	]],
+	["class-name", ["Foo"]],
+
+	"\n * ",
+	["keyword", "@property"],
+	["class-name", [
+		["punctuation", "{"],
+		"string",
+		["punctuation", "}"]
+	]],
+	["parameter", ["bar"]],
+
+	"\n * ",
+	["keyword", "@memberof"],
+	["class-name", ["Baz"]],
+
+	"\n */\n\n/**\n * Trims the given string.\n *\n * ",
+	["keyword", "@param"],
+	["class-name", [
+		["punctuation", "{"],
+		"string",
+		["punctuation", "}"]
+	]],
+	["optional-parameter", [
+		["punctuation", "["],
+		["parameter", ["str"]],
+		["punctuation", "="],
+		["code", [
+			["string", "\"\""]
+		]],
+		["punctuation", "]"]
+	]],
+	" the string.\n * ",
+	["keyword", "@returns"],
+	["class-name", [
+		["punctuation", "{"],
+		"string",
+		["punctuation", "}"]
+	]],
+	" the trimmed string.\n * ",
+	["keyword", "@throws"],
+	["class-name", [
+		["punctuation", "{"],
+		"TypeError",
+		["punctuation", "}"]
+	]],
+	" if the argument is not a string.\n * ",
+	["keyword", "@example"],
+	["example", [
+		["code", [
+			["function", "trim"],
+			["punctuation", "("],
+			["string", "\" hello \""],
+			["punctuation", ")"]
+		]]
+	]],
+
+	"\n */\nfunction trim(str = \"\") ",
+	["punctuation", "{"],
+
+	"\n\tif (typeof str != \"string\") ",
+	["punctuation", "{"],
+
+	"\n\t\tthrow new TypeError(\"str has to be a string\");\n\t",
+
+	["punctuation", "}"],
+
+	"\n\treturn str.trim();\n",
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

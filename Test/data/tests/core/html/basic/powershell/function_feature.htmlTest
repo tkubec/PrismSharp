@@ -1,0 +1,115 @@
+ac cat chdir clc cli clp clv compare copy cp cpi cpp cvpa dbp del diff dir ebp
+echo epal epcsv epsn erase fc fl ft fw gal gbp gc gci gcs gdr gi gl gm gp gps
+group gsv gu gv gwmi iex ii ipal ipcsv ipsn irm iwmi iwr kill lp ls measure mi
+mount move mp mv nal ndr ni nv ogv popd ps pushd pwd rbp rd rdr ren ri rm rmdir
+rni rnp rp rv rvpa rwmi sal saps sasv sbp sc select set shcm si sl sleep sls
+sort sp spps spsv start sv swmi tee trcm type write
+
+Add-Computer Add-Content Add-History Add-Member Add-PSSnapin Add-Type
+Checkpoint-Computer Clear-Content Clear-EventLog Clear-History Clear-Item
+Clear-ItemProperty Clear-Variable Compare-Object Complete-Transaction
+Connect-PSSession ConvertFrom-Csv ConvertFrom-Json ConvertFrom-StringData
+Convert-Path ConvertTo-Csv ConvertTo-Html ConvertTo-Json ConvertTo-Xml
+Copy-Item Copy-ItemProperty Debug-Process Disable-ComputerRestore
+Disable-PSBreakpoint Disable-PSRemoting Disable-PSSessionConfiguration
+Disconnect-PSSession Enable-ComputerRestore Enable-PSBreakpoint
+Enable-PSRemoting Enable-PSSessionConfiguration Enter-PSSession Exit-PSSession
+Export-Alias Export-Clixml Export-Console Export-Csv Export-FormatData
+Export-ModuleMember Export-PSSession ForEach-Object Format-Custom Format-List
+Format-Table Format-Wide Get-Alias Get-ChildItem Get-Command
+Get-ComputerRestorePoint Get-Content Get-ControlPanelItem Get-Culture Get-Date
+Get-Event Get-EventLog Get-EventSubscriber Get-FormatData Get-Help Get-History
+Get-Host Get-HotFix Get-Item Get-ItemProperty Get-Job Get-Location Get-Member
+Get-Module Get-Process Get-PSBreakpoint Get-PSCallStack Get-PSDrive
+Get-PSProvider Get-PSSession Get-PSSessionConfiguration Get-PSSnapin Get-Random
+Get-Service Get-TraceSource Get-Transaction Get-TypeData Get-UICulture
+Get-Unique Get-Variable Get-WmiObject Group-Object Import-Alias Import-Clixml
+Import-Csv Import-LocalizedData Import-Module Import-PSSession Invoke-Command
+Invoke-Expression Invoke-History Invoke-Item Invoke-RestMethod Invoke-WebRequest
+Invoke-WmiMethod Join-Path Limit-EventLog Measure-Command Measure-Object
+Move-Item Move-ItemProperty New-Alias New-Event New-EventLog New-Item
+New-ItemProperty New-Module New-ModuleManifest New-Object New-PSDrive
+New-PSSession New-PSSessionConfigurationFile New-PSSessionOption
+New-PSTransportOption New-Service New-TimeSpan New-Variable New-WebServiceProxy
+Out-Default Out-File Out-GridView Out-Host Out-Null Out-Printer Out-String
+Pop-Location Push-Location Read-Host Receive-Job Receive-PSSession
+Register-EngineEvent Register-ObjectEvent Register-PSSessionConfiguration
+Register-WmiEvent Remove-Computer Remove-Event Remove-EventLog Remove-Item
+Remove-ItemProperty Remove-Job Remove-Module Remove-PSBreakpoint Remove-PSDrive
+Remove-PSSession Remove-PSSnapin Remove-TypeData Remove-Variable
+Remove-WmiObject Rename-Computer Rename-Item Rename-ItemProperty
+Reset-ComputerMachinePassword Resolve-Path Restart-Computer Restart-Service
+Restore-Computer Resume-Job Resume-Service Save-Help Select-Object Select-String
+Select-Xml Send-MailMessage Set-Alias Set-Content Set-Date Set-Item
+Set-ItemProperty Set-Location Set-PSBreakpoint Set-PSDebug
+Set-PSSessionConfiguration Set-Service Set-StrictMode Set-TraceSource
+Set-Variable Set-WmiInstance Show-Command Show-ControlPanelItem Show-EventLog
+Sort-Object Split-Path Start-Job Start-Process Start-Service Start-Sleep
+Start-Transaction Stop-Computer Stop-Job Stop-Process Stop-Service Suspend-Job
+Suspend-Service Tee-Object Test-ComputerSecureChannel Test-Connection
+Test-ModuleManifest Test-Path Test-PSSessionConfigurationFile Trace-Command
+Unblock-File Undo-Transaction Unregister-Event
+Unregister-PSSessionConfiguration Update-FormatData Update-Help Update-List
+Update-TypeData Use-Transaction Wait-Event Wait-Job Wait-Process Where-Object
+Write-Debug Write-Error Write-EventLog Write-Host Write-Output Write-Progress
+Write-Verbose Write-Warning
+Get-AppxPackage
+----------------------------------------------------
+<span class="token function">ac</span> <span class="token function">cat</span> <span class="token function">chdir</span> <span class="token function">clc</span> <span class="token function">cli</span> <span class="token function">clp</span> <span class="token function">clv</span> <span class="token function">compare</span> <span class="token function">copy</span> <span class="token function">cp</span> <span class="token function">cpi</span> <span class="token function">cpp</span> <span class="token function">cvpa</span> <span class="token function">dbp</span> <span class="token function">del</span> <span class="token function">diff</span> <span class="token function">dir</span> <span class="token function">ebp</span>
+<span class="token function">echo</span> <span class="token function">epal</span> <span class="token function">epcsv</span> <span class="token function">epsn</span> <span class="token function">erase</span> <span class="token function">fc</span> <span class="token function">fl</span> <span class="token function">ft</span> <span class="token function">fw</span> <span class="token function">gal</span> <span class="token function">gbp</span> <span class="token function">gc</span> <span class="token function">gci</span> <span class="token function">gcs</span> <span class="token function">gdr</span> <span class="token function">gi</span> <span class="token function">gl</span> <span class="token function">gm</span> <span class="token function">gp</span> <span class="token function">gps</span>
+<span class="token function">group</span> <span class="token function">gsv</span> <span class="token function">gu</span> <span class="token function">gv</span> <span class="token function">gwmi</span> <span class="token function">iex</span> <span class="token function">ii</span> <span class="token function">ipal</span> <span class="token function">ipcsv</span> <span class="token function">ipsn</span> <span class="token function">irm</span> <span class="token function">iwmi</span> <span class="token function">iwr</span> <span class="token function">kill</span> <span class="token function">lp</span> <span class="token function">ls</span> <span class="token function">measure</span> <span class="token function">mi</span>
+<span class="token function">mount</span> <span class="token function">move</span> <span class="token function">mp</span> <span class="token function">mv</span> <span class="token function">nal</span> <span class="token function">ndr</span> <span class="token function">ni</span> <span class="token function">nv</span> <span class="token function">ogv</span> <span class="token function">popd</span> <span class="token function">ps</span> <span class="token function">pushd</span> <span class="token function">pwd</span> <span class="token function">rbp</span> <span class="token function">rd</span> <span class="token function">rdr</span> <span class="token function">ren</span> <span class="token function">ri</span> <span class="token function">rm</span> <span class="token function">rmdir</span>
+<span class="token function">rni</span> <span class="token function">rnp</span> <span class="token function">rp</span> <span class="token function">rv</span> <span class="token function">rvpa</span> <span class="token function">rwmi</span> <span class="token function">sal</span> <span class="token function">saps</span> <span class="token function">sasv</span> <span class="token function">sbp</span> <span class="token function">sc</span> <span class="token function">select</span> <span class="token function">set</span> <span class="token function">shcm</span> <span class="token function">si</span> <span class="token function">sl</span> <span class="token function">sleep</span> <span class="token function">sls</span>
+<span class="token function">sort</span> <span class="token function">sp</span> <span class="token function">spps</span> <span class="token function">spsv</span> <span class="token function">start</span> <span class="token function">sv</span> <span class="token function">swmi</span> <span class="token function">tee</span> <span class="token function">trcm</span> <span class="token function">type</span> <span class="token function">write</span>
+
+<span class="token function">Add-Computer</span> <span class="token function">Add-Content</span> <span class="token function">Add-History</span> <span class="token function">Add-Member</span> <span class="token function">Add-PSSnapin</span> <span class="token function">Add-Type</span>
+<span class="token function">Checkpoint-Computer</span> <span class="token function">Clear-Content</span> <span class="token function">Clear-EventLog</span> <span class="token function">Clear-History</span> <span class="token function">Clear-Item</span>
+<span class="token function">Clear-ItemProperty</span> <span class="token function">Clear-Variable</span> <span class="token function">Compare-Object</span> <span class="token function">Complete-Transaction</span>
+<span class="token function">Connect-PSSession</span> <span class="token function">ConvertFrom-Csv</span> <span class="token function">ConvertFrom-Json</span> <span class="token function">ConvertFrom-StringData</span>
+<span class="token function">Convert-Path</span> <span class="token function">ConvertTo-Csv</span> <span class="token function">ConvertTo-Html</span> <span class="token function">ConvertTo-Json</span> <span class="token function">ConvertTo-Xml</span>
+<span class="token function">Copy-Item</span> <span class="token function">Copy-ItemProperty</span> <span class="token function">Debug-Process</span> <span class="token function">Disable-ComputerRestore</span>
+<span class="token function">Disable-PSBreakpoint</span> <span class="token function">Disable-PSRemoting</span> <span class="token function">Disable-PSSessionConfiguration</span>
+<span class="token function">Disconnect-PSSession</span> <span class="token function">Enable-ComputerRestore</span> <span class="token function">Enable-PSBreakpoint</span>
+<span class="token function">Enable-PSRemoting</span> <span class="token function">Enable-PSSessionConfiguration</span> <span class="token function">Enter-PSSession</span> <span class="token function">Exit-PSSession</span>
+<span class="token function">Export-Alias</span> <span class="token function">Export-Clixml</span> <span class="token function">Export-Console</span> <span class="token function">Export-Csv</span> <span class="token function">Export-FormatData</span>
+<span class="token function">Export-ModuleMember</span> <span class="token function">Export-PSSession</span> <span class="token function">ForEach-Object</span> <span class="token function">Format-Custom</span> <span class="token function">Format-List</span>
+<span class="token function">Format-Table</span> <span class="token function">Format-Wide</span> <span class="token function">Get-Alias</span> <span class="token function">Get-ChildItem</span> <span class="token function">Get-Command</span>
+<span class="token function">Get-ComputerRestorePoint</span> <span class="token function">Get-Content</span> <span class="token function">Get-ControlPanelItem</span> <span class="token function">Get-Culture</span> <span class="token function">Get-Date</span>
+<span class="token function">Get-Event</span> <span class="token function">Get-EventLog</span> <span class="token function">Get-EventSubscriber</span> <span class="token function">Get-FormatData</span> <span class="token function">Get-Help</span> <span class="token function">Get-History</span>
+<span class="token function">Get-Host</span> <span class="token function">Get-HotFix</span> <span class="token function">Get-Item</span> <span class="token function">Get-ItemProperty</span> <span class="token function">Get-Job</span> <span class="token function">Get-Location</span> <span class="token function">Get-Member</span>
+<span class="token function">Get-Module</span> <span class="token function">Get-Process</span> <span class="token function">Get-PSBreakpoint</span> <span class="token function">Get-PSCallStack</span> <span class="token function">Get-PSDrive</span>
+<span class="token function">Get-PSProvider</span> <span class="token function">Get-PSSession</span> <span class="token function">Get-PSSessionConfiguration</span> <span class="token function">Get-PSSnapin</span> <span class="token function">Get-Random</span>
+<span class="token function">Get-Service</span> <span class="token function">Get-TraceSource</span> <span class="token function">Get-Transaction</span> <span class="token function">Get-TypeData</span> <span class="token function">Get-UICulture</span>
+<span class="token function">Get-Unique</span> <span class="token function">Get-Variable</span> <span class="token function">Get-WmiObject</span> <span class="token function">Group-Object</span> <span class="token function">Import-Alias</span> <span class="token function">Import-Clixml</span>
+<span class="token function">Import-Csv</span> <span class="token function">Import-LocalizedData</span> <span class="token function">Import-Module</span> <span class="token function">Import-PSSession</span> <span class="token function">Invoke-Command</span>
+<span class="token function">Invoke-Expression</span> <span class="token function">Invoke-History</span> <span class="token function">Invoke-Item</span> <span class="token function">Invoke-RestMethod</span> <span class="token function">Invoke-WebRequest</span>
+<span class="token function">Invoke-WmiMethod</span> <span class="token function">Join-Path</span> <span class="token function">Limit-EventLog</span> <span class="token function">Measure-Command</span> <span class="token function">Measure-Object</span>
+<span class="token function">Move-Item</span> <span class="token function">Move-ItemProperty</span> <span class="token function">New-Alias</span> <span class="token function">New-Event</span> <span class="token function">New-EventLog</span> <span class="token function">New-Item</span>
+<span class="token function">New-ItemProperty</span> <span class="token function">New-Module</span> <span class="token function">New-ModuleManifest</span> <span class="token function">New-Object</span> <span class="token function">New-PSDrive</span>
+<span class="token function">New-PSSession</span> <span class="token function">New-PSSessionConfigurationFile</span> <span class="token function">New-PSSessionOption</span>
+<span class="token function">New-PSTransportOption</span> <span class="token function">New-Service</span> <span class="token function">New-TimeSpan</span> <span class="token function">New-Variable</span> <span class="token function">New-WebServiceProxy</span>
+<span class="token function">Out-Default</span> <span class="token function">Out-File</span> <span class="token function">Out-GridView</span> <span class="token function">Out-Host</span> <span class="token function">Out-Null</span> <span class="token function">Out-Printer</span> <span class="token function">Out-String</span>
+<span class="token function">Pop-Location</span> <span class="token function">Push-Location</span> <span class="token function">Read-Host</span> <span class="token function">Receive-Job</span> <span class="token function">Receive-PSSession</span>
+<span class="token function">Register-EngineEvent</span> <span class="token function">Register-ObjectEvent</span> <span class="token function">Register-PSSessionConfiguration</span>
+<span class="token function">Register-WmiEvent</span> <span class="token function">Remove-Computer</span> <span class="token function">Remove-Event</span> <span class="token function">Remove-EventLog</span> <span class="token function">Remove-Item</span>
+<span class="token function">Remove-ItemProperty</span> <span class="token function">Remove-Job</span> <span class="token function">Remove-Module</span> <span class="token function">Remove-PSBreakpoint</span> <span class="token function">Remove-PSDrive</span>
+<span class="token function">Remove-PSSession</span> <span class="token function">Remove-PSSnapin</span> <span class="token function">Remove-TypeData</span> <span class="token function">Remove-Variable</span>
+<span class="token function">Remove-WmiObject</span> <span class="token function">Rename-Computer</span> <span class="token function">Rename-Item</span> <span class="token function">Rename-ItemProperty</span>
+<span class="token function">Reset-ComputerMachinePassword</span> <span class="token function">Resolve-Path</span> <span class="token function">Restart-Computer</span> <span class="token function">Restart-Service</span>
+<span class="token function">Restore-Computer</span> <span class="token function">Resume-Job</span> <span class="token function">Resume-Service</span> <span class="token function">Save-Help</span> <span class="token function">Select-Object</span> <span class="token function">Select-String</span>
+<span class="token function">Select-Xml</span> <span class="token function">Send-MailMessage</span> <span class="token function">Set-Alias</span> <span class="token function">Set-Content</span> <span class="token function">Set-Date</span> <span class="token function">Set-Item</span>
+<span class="token function">Set-ItemProperty</span> <span class="token function">Set-Location</span> <span class="token function">Set-PSBreakpoint</span> <span class="token function">Set-PSDebug</span>
+<span class="token function">Set-PSSessionConfiguration</span> <span class="token function">Set-Service</span> <span class="token function">Set-StrictMode</span> <span class="token function">Set-TraceSource</span>
+<span class="token function">Set-Variable</span> <span class="token function">Set-WmiInstance</span> <span class="token function">Show-Command</span> <span class="token function">Show-ControlPanelItem</span> <span class="token function">Show-EventLog</span>
+<span class="token function">Sort-Object</span> <span class="token function">Split-Path</span> <span class="token function">Start-Job</span> <span class="token function">Start-Process</span> <span class="token function">Start-Service</span> <span class="token function">Start-Sleep</span>
+<span class="token function">Start-Transaction</span> <span class="token function">Stop-Computer</span> <span class="token function">Stop-Job</span> <span class="token function">Stop-Process</span> <span class="token function">Stop-Service</span> <span class="token function">Suspend-Job</span>
+<span class="token function">Suspend-Service</span> <span class="token function">Tee-Object</span> <span class="token function">Test-ComputerSecureChannel</span> <span class="token function">Test-Connection</span>
+<span class="token function">Test-ModuleManifest</span> <span class="token function">Test-Path</span> <span class="token function">Test-PSSessionConfigurationFile</span> <span class="token function">Trace-Command</span>
+<span class="token function">Unblock-File</span> <span class="token function">Undo-Transaction</span> <span class="token function">Unregister-Event</span>
+<span class="token function">Unregister-PSSessionConfiguration</span> <span class="token function">Update-FormatData</span> <span class="token function">Update-Help</span> <span class="token function">Update-List</span>
+<span class="token function">Update-TypeData</span> <span class="token function">Use-Transaction</span> <span class="token function">Wait-Event</span> <span class="token function">Wait-Job</span> <span class="token function">Wait-Process</span> <span class="token function">Where-Object</span>
+<span class="token function">Write-Debug</span> <span class="token function">Write-Error</span> <span class="token function">Write-EventLog</span> <span class="token function">Write-Host</span> <span class="token function">Write-Output</span> <span class="token function">Write-Progress</span>
+<span class="token function">Write-Verbose</span> <span class="token function">Write-Warning</span>
+<span class="token function">Get-AppxPackage</span>
+
+----------------------------------------------------

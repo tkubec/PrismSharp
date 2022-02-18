@@ -1,0 +1,7 @@
+namespace Foo {}
+namespace Foo.Bar {}
+----------------------------------------------------
+<span class="token keyword">namespace</span> <span class="token namespace">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">namespace</span> <span class="token namespace">Foo<span class="token punctuation">.</span>Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

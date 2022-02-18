@@ -1,0 +1,17 @@
+Inline code between backticks `<p>Paragraph</p>`
+
+    some_code(); /* Indented
+    with four spaces */
+
+	some_code(); /* Indented
+	with a tab */
+----------------------------------------------------
+[
+	"Inline code between backticks ", ["code-snippet", "`<p>Paragraph</p>`"],
+
+	["code", "    some_code(); /* Indented\n    with four spaces */"],
+
+	["code", "\tsome_code(); /* Indented\n\twith a tab */"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,29 @@
+(lambda (x) (+ x 3))
+(apply vector 'a 'b '(c d e))
+----------------------------------------------------
+[
+	["punctuation", "("],
+	["keyword", "lambda"],
+	["punctuation", "("],
+	["lambda-parameter", "x"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["operator", "+"],
+	" x ",
+	["number", "3"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["builtin", "apply"],
+	" vector ",
+	["symbol", "'a"],
+	["symbol", "'b"],
+	["punctuation", "'"],
+	["punctuation", "("],
+	"c d e",
+	["punctuation", ")"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

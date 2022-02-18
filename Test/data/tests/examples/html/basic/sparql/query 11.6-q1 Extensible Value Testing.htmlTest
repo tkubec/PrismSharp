@@ -1,0 +1,29 @@
+PREFIX aGeo: <http://example.org/geo#>
+
+	SELECT ?neighbor
+	WHERE { ?a aGeo:placeName "Grenoble" .
+					?a aGeo:location ?axLoc .
+					?a aGeo:location ?ayLoc .
+
+					?b aGeo:placeName ?neighbor .
+					?b aGeo:location ?bxLoc .
+					?b aGeo:location ?byLoc .
+
+					FILTER ( aGeo:distance(?axLoc, ?ayLoc, ?bxLoc, ?byLoc) < 10 ) .
+				}
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">aGeo<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/geo#<span class="token punctuation">></span></span>
+
+	<span class="token keyword">SELECT</span> <span class="token variable">?neighbor</span>
+	<span class="token keyword">WHERE</span> <span class="token punctuation">{</span> <span class="token variable">?a</span> <span class="token function"><span class="token prefix">aGeo<span class="token punctuation">:</span></span><span class="token local-name">placeName</span></span> <span class="token string">"Grenoble"</span> <span class="token punctuation">.</span>
+					<span class="token variable">?a</span> <span class="token function"><span class="token prefix">aGeo<span class="token punctuation">:</span></span><span class="token local-name">location</span></span> <span class="token variable">?axLoc</span> <span class="token punctuation">.</span>
+					<span class="token variable">?a</span> <span class="token function"><span class="token prefix">aGeo<span class="token punctuation">:</span></span><span class="token local-name">location</span></span> <span class="token variable">?ayLoc</span> <span class="token punctuation">.</span>
+
+					<span class="token variable">?b</span> <span class="token function"><span class="token prefix">aGeo<span class="token punctuation">:</span></span><span class="token local-name">placeName</span></span> <span class="token variable">?neighbor</span> <span class="token punctuation">.</span>
+					<span class="token variable">?b</span> <span class="token function"><span class="token prefix">aGeo<span class="token punctuation">:</span></span><span class="token local-name">location</span></span> <span class="token variable">?bxLoc</span> <span class="token punctuation">.</span>
+					<span class="token variable">?b</span> <span class="token function"><span class="token prefix">aGeo<span class="token punctuation">:</span></span><span class="token local-name">location</span></span> <span class="token variable">?byLoc</span> <span class="token punctuation">.</span>
+
+					<span class="token keyword">FILTER</span> <span class="token punctuation">(</span> <span class="token function"><span class="token prefix">aGeo<span class="token punctuation">:</span></span><span class="token local-name">distance</span></span><span class="token punctuation">(</span><span class="token variable">?axLoc</span><span class="token punctuation">,</span> <span class="token variable">?ayLoc</span><span class="token punctuation">,</span> <span class="token variable">?bxLoc</span><span class="token punctuation">,</span> <span class="token variable">?byLoc</span><span class="token punctuation">)</span> &lt; <span class="token number">10</span> <span class="token punctuation">)</span> <span class="token punctuation">.</span>
+				<span class="token punctuation">}</span>
+
+----------------------------------------------------

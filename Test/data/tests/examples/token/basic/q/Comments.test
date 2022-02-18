@@ -1,0 +1,23 @@
+foo / This is a comment
+/ This is a comment too
+
+/
+Some multi-line
+comment here
+\
+
+\
+This comment will
+continue until the
+end of code
+----------------------------------------------------
+[
+	"foo ", ["comment", "/ This is a comment"],
+	["comment", "/ This is a comment too"],
+
+	["comment", "/\nSome multi-line\ncomment here\n\\"],
+
+	["comment", "\\\nThis comment will\ncontinue until the\nend of code"]
+]
+
+----------------------------------------------------

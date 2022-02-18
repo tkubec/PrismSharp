@@ -1,0 +1,13 @@
+rpc LotsOfReplies(HelloRequest) returns (stream HelloResponse);
+rpc BidiHello(stream HelloRequest) returns (stream HelloResponse);
+rpc CancelOperation(CancelOperationRequest) returns (google.protobuf.Empty) {
+	option (google.api.http) = { post: "/v1/{name=operations/**}:cancel" body: "*" };
+}
+----------------------------------------------------
+<span class="token keyword">rpc</span> <span class="token function">LotsOfReplies</span><span class="token punctuation">(</span><span class="token class-name">HelloRequest</span><span class="token punctuation">)</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token keyword">stream</span> <span class="token class-name">HelloResponse</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">rpc</span> <span class="token function">BidiHello</span><span class="token punctuation">(</span><span class="token keyword">stream</span> <span class="token class-name">HelloRequest</span><span class="token punctuation">)</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token keyword">stream</span> <span class="token class-name">HelloResponse</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">rpc</span> <span class="token function">CancelOperation</span><span class="token punctuation">(</span><span class="token class-name">CancelOperationRequest</span><span class="token punctuation">)</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token class-name">google.protobuf.Empty</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">option</span> <span class="token punctuation">(</span>google<span class="token punctuation">.</span>api<span class="token punctuation">.</span>http<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span> post<span class="token punctuation">:</span> <span class="token string">"/v1/{name=operations/**}:cancel"</span> body<span class="token punctuation">:</span> <span class="token string">"*"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

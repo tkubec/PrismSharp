@@ -1,0 +1,25 @@
+Foobar <1>
+<1> Foo
+1> Bar
+> Baz
+
+|====
+| Foobar <1>
+<1> Foo
+1> Bar
+> Baz
+|====
+----------------------------------------------------
+Foobar <span class="token callout symbol">&lt;1></span>
+<span class="token callout symbol">&lt;1></span> Foo
+<span class="token callout symbol">1></span> Bar
+<span class="token callout symbol">></span> Baz
+
+<span class="token table"><span class="token punctuation">|====</span>
+<span class="token punctuation">|</span> Foobar <span class="token callout symbol">&lt;1></span>
+<span class="token callout symbol">&lt;1></span> Foo
+<span class="token callout symbol">1></span> Bar
+<span class="token callout symbol">></span> Baz
+<span class="token punctuation">|====</span></span>
+
+----------------------------------------------------

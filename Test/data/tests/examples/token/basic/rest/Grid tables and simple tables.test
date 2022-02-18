@@ -1,0 +1,183 @@
++------------------------+------------+----------+----------+
+| Header row, column 1   | Header 2   | Header 3 | Header 4 |
+| (header rows optional) |            |          |          |
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | Cells may span columns.          |
++------------------------+------------+---------------------+
+| body row 3             | Cells may  | - Table cells       |
++------------------------+ span rows. | - contain           |
+| body row 4             |            | - body elements.    |
++------------------------+------------+---------------------+
+
+	+--------------+----------+-----------+-----------+
+	| row 1, col 1 | column 2 | column 3  | column 4  |
+	+--------------+----------+-----------+-----------+
+	| row 2        |                                  |
+	+--------------+----------+-----------+-----------+
+	| row 3        |          |           |           |
+	+--------------+----------+-----------+-----------+
+
+=====  =====  =======
+  A      B    A and B
+=====  =====  =======
+False  False  False
+True   False  False
+False  True   False
+True   True   True
+=====  =====  =======
+
+	=====  =====  ======
+	   Inputs     Output
+	------------  ------
+	  A      B    A or B
+	=====  =====  ======
+	False  False  False
+	True   False  True
+	False  True   True
+	True   True   True
+	=====  =====  ======
+----------------------------------------------------
+[
+	["table", [
+		["punctuation", "+------------------------+------------+----------+----------+"],
+
+		["punctuation", "|"],
+		" Header row, column 1   ",
+		["punctuation", "|"],
+		" Header 2   ",
+		["punctuation", "|"],
+		" Header 3 ",
+		["punctuation", "|"],
+		" Header 4 ",
+		["punctuation", "|"],
+
+		["punctuation", "|"],
+		" (header rows optional) ",
+		["punctuation", "|"],
+		["punctuation", "|"],
+		["punctuation", "|"],
+		["punctuation", "|"],
+
+		["punctuation", "+========================+============+==========+==========+"],
+
+		["punctuation", "|"],
+		" body row 1, column 1   ",
+		["punctuation", "|"],
+		" column 2   ",
+		["punctuation", "|"],
+		" column 3 ",
+		["punctuation", "|"],
+		" column 4 ",
+		["punctuation", "|"],
+
+		["punctuation", "+------------------------+------------+----------+----------+"],
+
+		["punctuation", "|"],
+		" body row 2             ",
+		["punctuation", "|"],
+		" Cells may span columns.          ",
+		["punctuation", "|"],
+
+		["punctuation", "+------------------------+------------+---------------------+"],
+
+		["punctuation", "|"],
+		" body row 3             ",
+		["punctuation", "|"],
+		" Cells may  ",
+		["punctuation", "|"],
+		" - Table cells       ",
+		["punctuation", "|"],
+
+		["punctuation", "+------------------------+"],
+		" span rows. ",
+		["punctuation", "|"],
+		" - contain           ",
+		["punctuation", "|"],
+
+		["punctuation", "|"],
+		" body row 4             ",
+		["punctuation", "|"],
+		["punctuation", "|"],
+		" - body elements.    ",
+		["punctuation", "|"],
+
+		["punctuation", "+------------------------+------------+---------------------+"]
+	]],
+
+	["table", [
+		["punctuation", "+--------------+----------+-----------+-----------+"],
+
+		["punctuation", "|"],
+		" row 1, col 1 ",
+		["punctuation", "|"],
+		" column 2 ",
+		["punctuation", "|"],
+		" column 3  ",
+		["punctuation", "|"],
+		" column 4  ",
+		["punctuation", "|"],
+
+		["punctuation", "+--------------+----------+-----------+-----------+"],
+
+		["punctuation", "|"],
+		" row 2        ",
+		["punctuation", "|"],
+		["punctuation", "|"],
+
+		["punctuation", "+--------------+----------+-----------+-----------+"],
+
+		["punctuation", "|"],
+		" row 3        ",
+		["punctuation", "|"],
+		["punctuation", "|"],
+		["punctuation", "|"],
+		["punctuation", "|"],
+
+		["punctuation", "+--------------+----------+-----------+-----------+"]
+	]],
+
+	["table", [
+		["punctuation", "====="],
+		["punctuation", "====="],
+		["punctuation", "======="],
+
+		"\n  A      B    A and B\n",
+
+		["punctuation", "====="],
+		["punctuation", "====="],
+		["punctuation", "======="],
+
+		"\nFalse  False  False\nTrue   False  False\nFalse  True   False\nTrue   True   True\n",
+
+		["punctuation", "====="],
+		["punctuation", "====="],
+		["punctuation", "======="]
+	]],
+
+	["table", [
+		["punctuation", "====="],
+		["punctuation", "====="],
+		["punctuation", "======"],
+
+		"\n\t   Inputs     Output\n\t",
+
+		["punctuation", "------------"],
+		["punctuation", "------"],
+
+		"\n\t  A      B    A or B\n\t",
+
+		["punctuation", "====="],
+		["punctuation", "====="],
+		["punctuation", "======"],
+
+		"\n\tFalse  False  False\n\tTrue   False  True\n\tFalse  True   True\n\tTrue   True   True\n\t",
+
+		["punctuation", "====="],
+		["punctuation", "====="],
+		["punctuation", "======"]
+	]]
+]
+
+----------------------------------------------------

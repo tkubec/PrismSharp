@@ -1,0 +1,15 @@
+- if(foo)
+
+p= 'This code is' + ' <escaped>!'
+
+span
+	!= 'Not escaped'
+----------------------------------------------------
+<span class="token punctuation">-</span><span class="token code"> <span class="token keyword">if</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span></span>
+
+<span class="token tag">p</span><span class="token punctuation">=</span><span class="token code"> <span class="token string">'This code is'</span> <span class="token operator">+</span> <span class="token string">' &lt;escaped>!'</span></span>
+
+<span class="token tag">span</span>
+	<span class="token punctuation">!=</span><span class="token code"> <span class="token string">'Not escaped'</span></span>
+
+----------------------------------------------------

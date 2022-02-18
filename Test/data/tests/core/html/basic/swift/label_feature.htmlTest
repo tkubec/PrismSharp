@@ -1,0 +1,11 @@
+gameLoop: while square != finalSquare {
+    break gameLoop
+    continue gameLoop
+}
+----------------------------------------------------
+<span class="token label important">gameLoop</span><span class="token punctuation">:</span> <span class="token keyword">while</span> square <span class="token operator">!=</span> finalSquare <span class="token punctuation">{</span>
+    <span class="token keyword">break</span><span class="token label important"> gameLoop</span>
+    <span class="token keyword">continue</span><span class="token label important"> gameLoop</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

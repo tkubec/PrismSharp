@@ -1,0 +1,348 @@
+// CLK_ADDRESS_CLAMP_TO_EDGE = aaa|abcd|ddd
+constant sampler_t sampler = CLK_NORMALIZED_COORDS_FALSE | CLK_ADDRESS_CLAMP_TO_EDGE | CLK_FILTER_NEAREST;
+typedef float type_single;
+
+type_single filter_sum_single_3x3(read_only image2d_t imgIn,
+                                  constant float* filterKernel,
+                                  const int2 coordBase,
+                                  const int border)
+{
+    type_single sum = (type_single)(0.0f);
+    const int rows = get_image_height(imgIn);
+    const int cols = get_image_width(imgIn);
+    int2 coordCurrent;
+    int2 coordBorder;
+    float color;
+
+    // Image patch is row-wise accessed
+    // Filter kernel is centred in the middle
+    #pragma unroll
+    for (int y = -ROWS_HALF_3x3; y <= ROWS_HALF_3x3; ++y)       // Start at the top left corner of the filter
+    {
+        coordCurrent.y = coordBase.y + y;
+        #pragma unroll
+        for (int x = -COLS_HALF_3x3; x <= COLS_HALF_3x3; ++x)   // And end at the bottom right corner
+        {
+            coordCurrent.x = coordBase.x + x;
+            coordBorder = borderCoordinate(coordCurrent, rows, cols, border);
+            color = read_imagef(imgIn, sampler, coordBorder).x;
+
+            const int idx = (y + ROWS_HALF_3x3) * COLS_3x3 + x + COLS_HALF_3x3;
+            sum += color * filterKernel[idx];
+        }
+    }
+
+    return sum;
+}
+
+kernel void filter_single_3x3(read_only image2d_t imgIn,
+                              write_only image2d_t imgOut,
+                              constant float* filterKernel,
+                              const int border)
+{
+    int2 coordBase = (int2)(get_global_id(0), get_global_id(1));
+
+    type_single sum = filter_sum_single_3x3(imgIn, filterKernel, coordBase, border);
+
+    write_imagef(imgOut, coordBase, sum);
+}
+----------------------------------------------------
+[
+	["comment", "// CLK_ADDRESS_CLAMP_TO_EDGE = aaa|abcd|ddd"],
+
+	["keyword", "constant"],
+	["builtin-type", "sampler_t"],
+	" sampler ",
+	["operator", "="],
+	["constant-opencl-kernel", "CLK_NORMALIZED_COORDS_FALSE"],
+	["operator", "|"],
+	["constant-opencl-kernel", "CLK_ADDRESS_CLAMP_TO_EDGE"],
+	["operator", "|"],
+	["constant-opencl-kernel", "CLK_FILTER_NEAREST"],
+	["punctuation", ";"],
+
+	["keyword", "typedef"],
+	["keyword", "float"],
+	" type_single",
+	["punctuation", ";"],
+
+	"\n\ntype_single ",
+	["function", "filter_sum_single_3x3"],
+	["punctuation", "("],
+	["keyword", "read_only"],
+	["builtin-type", "image2d_t"],
+	" imgIn",
+	["punctuation", ","],
+
+	["keyword", "constant"],
+	["keyword", "float"],
+	["operator", "*"],
+	" filterKernel",
+	["punctuation", ","],
+
+	["keyword", "const"],
+	["keyword", "int2"],
+	" coordBase",
+	["punctuation", ","],
+
+	["keyword", "const"],
+	["keyword", "int"],
+	" border",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n    type_single sum ",
+	["operator", "="],
+	["punctuation", "("],
+	"type_single",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["number", "0.0f"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["keyword", "int"],
+	" rows ",
+	["operator", "="],
+	["function", "get_image_height"],
+	["punctuation", "("],
+	"imgIn",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["keyword", "int"],
+	" cols ",
+	["operator", "="],
+	["function", "get_image_width"],
+	["punctuation", "("],
+	"imgIn",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "int2"],
+	" coordCurrent",
+	["punctuation", ";"],
+
+	["keyword", "int2"],
+	" coordBorder",
+	["punctuation", ";"],
+
+	["keyword", "float"],
+	" color",
+	["punctuation", ";"],
+
+	["comment", "// Image patch is row-wise accessed"],
+
+	["comment", "// Filter kernel is centred in the middle"],
+
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "pragma"],
+		["expression", ["unroll"]]
+	]],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["keyword", "int"],
+	" y ",
+	["operator", "="],
+	["operator", "-"],
+	"ROWS_HALF_3x3",
+	["punctuation", ";"],
+	" y ",
+	["operator", "<="],
+	" ROWS_HALF_3x3",
+	["punctuation", ";"],
+	["operator", "++"],
+	"y",
+	["punctuation", ")"],
+	["comment", "// Start at the top left corner of the filter"],
+
+	["punctuation", "{"],
+
+	"\n        coordCurrent",
+	["punctuation", "."],
+	"y ",
+	["operator", "="],
+	" coordBase",
+	["punctuation", "."],
+	"y ",
+	["operator", "+"],
+	" y",
+	["punctuation", ";"],
+
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "pragma"],
+		["expression", ["unroll"]]
+	]],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["keyword", "int"],
+	" x ",
+	["operator", "="],
+	["operator", "-"],
+	"COLS_HALF_3x3",
+	["punctuation", ";"],
+	" x ",
+	["operator", "<="],
+	" COLS_HALF_3x3",
+	["punctuation", ";"],
+	["operator", "++"],
+	"x",
+	["punctuation", ")"],
+	["comment", "// And end at the bottom right corner"],
+
+	["punctuation", "{"],
+
+	"\n            coordCurrent",
+	["punctuation", "."],
+	"x ",
+	["operator", "="],
+	" coordBase",
+	["punctuation", "."],
+	"x ",
+	["operator", "+"],
+	" x",
+	["punctuation", ";"],
+
+	"\n            coordBorder ",
+	["operator", "="],
+	["function", "borderCoordinate"],
+	["punctuation", "("],
+	"coordCurrent",
+	["punctuation", ","],
+	" rows",
+	["punctuation", ","],
+	" cols",
+	["punctuation", ","],
+	" border",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n            color ",
+	["operator", "="],
+	["function", "read_imagef"],
+	["punctuation", "("],
+	"imgIn",
+	["punctuation", ","],
+	" sampler",
+	["punctuation", ","],
+	" coordBorder",
+	["punctuation", ")"],
+	["punctuation", "."],
+	"x",
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["keyword", "int"],
+	" idx ",
+	["operator", "="],
+	["punctuation", "("],
+	"y ",
+	["operator", "+"],
+	" ROWS_HALF_3x3",
+	["punctuation", ")"],
+	["operator", "*"],
+	" COLS_3x3 ",
+	["operator", "+"],
+	" x ",
+	["operator", "+"],
+	" COLS_HALF_3x3",
+	["punctuation", ";"],
+
+	"\n            sum ",
+	["operator", "+="],
+	" color ",
+	["operator", "*"],
+	" filterKernel",
+	["punctuation", "["],
+	"idx",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"], " sum", ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "kernel"],
+	["keyword", "void"],
+	["function", "filter_single_3x3"],
+	["punctuation", "("],
+	["keyword", "read_only"],
+	["builtin-type", "image2d_t"],
+	" imgIn",
+	["punctuation", ","],
+
+	["keyword", "write_only"],
+	["builtin-type", "image2d_t"],
+	" imgOut",
+	["punctuation", ","],
+
+	["keyword", "constant"],
+	["keyword", "float"],
+	["operator", "*"],
+	" filterKernel",
+	["punctuation", ","],
+
+	["keyword", "const"],
+	["keyword", "int"],
+	" border",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "int2"],
+	" coordBase ",
+	["operator", "="],
+	["punctuation", "("],
+	["keyword", "int2"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["function", "get_global_id"],
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "get_global_id"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n    type_single sum ",
+	["operator", "="],
+	["function", "filter_sum_single_3x3"],
+	["punctuation", "("],
+	"imgIn",
+	["punctuation", ","],
+	" filterKernel",
+	["punctuation", ","],
+	" coordBase",
+	["punctuation", ","],
+	" border",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "write_imagef"],
+	["punctuation", "("],
+	"imgOut",
+	["punctuation", ","],
+	" coordBase",
+	["punctuation", ","],
+	" sum",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

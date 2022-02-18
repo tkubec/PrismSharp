@@ -1,0 +1,275 @@
+#!/usr/bin/env groovy
+package model
+
+import groovy.transform.CompileStatic
+import java.util.List as MyList
+
+trait Distributable {
+    void distribute(String version) {}
+}
+
+@CompileStatic
+class Distribution implements Distributable {
+    double number = 1234.234 / 567
+    def otherNumber = 3 / 4
+    boolean archivable = condition ?: true
+    def ternary = a ? b : c
+    String name = "Guillaume"
+    Closure description = null
+    List<DownloadPackage> packages = []
+    String regex = ~/.*foo.*/
+    String multi = '''
+        multi line string
+    ''' + """
+        now with double quotes and ${gstring}
+    """ + $/
+        even with dollar slashy strings
+    /$
+
+    /**
+     * description method
+     * @param cl the closure
+     */
+    void description(Closure cl) { this.description = cl }
+
+    void version(String name, Closure versionSpec) {
+        def closure = { println "hi" } as Runnable
+
+        MyList ml = [1, 2, [a: 1, b:2,c :3]]
+        for (ch in "name") {}
+
+        // single line comment
+        DownloadPackage pkg = new DownloadPackage(version: name)
+
+        check that: true
+
+        label:
+        def clone = versionSpec.rehydrate(pkg, pkg, pkg)
+        /*
+            now clone() in a multiline comment
+        */
+        clone()
+        packages.add(pkg)
+
+        assert 4 / 2 == 2
+    }
+}
+----------------------------------------------------
+[
+	["shebang", "#!/usr/bin/env groovy"],
+	["keyword", "package"], " model\n\n",
+
+	["keyword", "import"],
+	" groovy",
+	["punctuation", "."],
+	"transform",
+	["punctuation", "."],
+	"CompileStatic\n",
+
+	["keyword", "import"],
+	" java",
+	["punctuation", "."],
+	"util",
+	["punctuation", "."],
+	"List ",
+	["keyword", "as"],
+	" MyList\n\n",
+
+	["keyword", "trait"],
+	" Distributable ",
+	["punctuation", "{"],
+
+	["keyword", "void"],
+	["function", "distribute"],
+	["punctuation", "("],
+	"String version",
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["annotation", "@CompileStatic"],
+
+	["keyword", "class"],
+	["class-name", ["Distribution"]],
+	["keyword", "implements"],
+	["class-name", ["Distributable"]],
+	["punctuation", "{"],
+
+	["keyword", "double"],
+	" number ",
+	["operator", "="],
+	["number", "1234.234"],
+	["operator", "/"],
+	["number", "567"],
+
+	["keyword", "def"],
+	" otherNumber ",
+	["operator", "="],
+	["number", "3"],
+	["operator", "/"],
+	["number", "4"],
+
+	["keyword", "boolean"],
+	" archivable ",
+	["operator", "="],
+	" condition ",
+	["operator", "?:"],
+	["boolean", "true"],
+
+	["keyword", "def"],
+	" ternary ",
+	["operator", "="],
+	" a ",
+	["operator", "?"],
+	" b ",
+	["punctuation", ":"],
+	" c\n    String name ",
+	["operator", "="],
+	["string", "\"Guillaume\""],
+
+	"\n    Closure description ",
+	["operator", "="],
+	" null\n    List",
+	["operator", "<"],
+	"DownloadPackage",
+	["operator", ">"],
+	" packages ",
+	["operator", "="],
+	["punctuation", "["],
+	["punctuation", "]"],
+
+	"\n    String regex ",
+	["operator", "="],
+	["operator", "~"],
+	["string", "/.*foo.*/"],
+
+	"\n    String multi ",
+	["operator", "="],
+	["string", "'''\n        multi line string\n    '''"],
+	["operator", "+"],
+	["string", "\"\"\"\n        now with double quotes and ${gstring}\n    \"\"\""],
+	["operator", "+"],
+	["string", "$/\n        even with dollar slashy strings\n    /$"],
+
+	["comment", "/**\n     * description method\n     * @param cl the closure\n     */"],
+
+	["keyword", "void"],
+	["function", "description"],
+	["punctuation", "("],
+	"Closure cl",
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["keyword", "this"],
+	["punctuation", "."],
+	"description ",
+	["operator", "="],
+	" cl ",
+	["punctuation", "}"],
+
+	["keyword", "void"],
+	["function", "version"],
+	["punctuation", "("],
+	"String name",
+	["punctuation", ","],
+	" Closure versionSpec",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "def"],
+	" closure ",
+	["operator", "="],
+	["punctuation", "{"],
+	" println ",
+	["string", "\"hi\""],
+	["punctuation", "}"],
+	["keyword", "as"],
+	" Runnable\n\n        MyList ml ",
+	["operator", "="],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["punctuation", "["],
+	"a",
+	["punctuation", ":"],
+	["number", "1"],
+	["punctuation", ","],
+	" b",
+	["punctuation", ":"],
+	["number", "2"],
+	["punctuation", ","],
+	"c ",
+	["punctuation", ":"],
+	["number", "3"],
+	["punctuation", "]"],
+	["punctuation", "]"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	"ch ",
+	["keyword", "in"],
+	["string", "\"name\""],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["comment", "// single line comment"],
+
+	"\n        DownloadPackage pkg ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["DownloadPackage"]],
+	["punctuation", "("],
+	"version",
+	["punctuation", ":"],
+	" name",
+	["punctuation", ")"],
+
+	"\n\n        check that", ["punctuation", ":"], ["boolean", "true"],
+
+	"\n\n        label",
+	["punctuation", ":"],
+
+	["keyword", "def"],
+	" clone ",
+	["operator", "="],
+	" versionSpec",
+	["punctuation", "."],
+	["function", "rehydrate"],
+	["punctuation", "("],
+	"pkg",
+	["punctuation", ","],
+	" pkg",
+	["punctuation", ","],
+	" pkg",
+	["punctuation", ")"],
+
+	["comment", "/*\n            now clone() in a multiline comment\n        */"],
+
+	["function", "clone"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	"\n        packages",
+	["punctuation", "."],
+	["function", "add"],
+	["punctuation", "("],
+	"pkg",
+	["punctuation", ")"],
+
+	["keyword", "assert"],
+	["number", "4"],
+	["operator", "/"],
+	["number", "2"],
+	["operator", "=="],
+	["number", "2"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

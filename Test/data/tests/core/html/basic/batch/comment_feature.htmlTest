@@ -1,0 +1,13 @@
+::
+:: Foobar
+REM Foobar
+rem foo^
+bar
+----------------------------------------------------
+<span class="token comment">::</span>
+<span class="token comment">:: Foobar</span>
+<span class="token comment">REM Foobar</span>
+<span class="token comment">rem foo^
+bar</span>
+
+----------------------------------------------------

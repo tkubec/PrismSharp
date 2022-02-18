@@ -1,0 +1,12 @@
+# PSL Strings are properly rendered
+print("Hello, World!");
+
+# Escaped sequences are highlighted too
+print("Goodbye \H\H\H\H\H\H\H\HHello, World!\n");
+
+# Multi-line strings are supported
+print("multi
+line");
+
+--------------------------------------------------
+

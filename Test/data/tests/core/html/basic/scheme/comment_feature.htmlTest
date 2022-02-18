@@ -1,0 +1,27 @@
+;
+; foobar
+
+#;(foo bar)
+#; (foo)
+#;[foo bar]
+#; [foo]
+
+#|
+ comment
+ #| nested comment |#
+|#
+----------------------------------------------------
+<span class="token comment">;</span>
+<span class="token comment">; foobar</span>
+
+<span class="token comment">#;(foo bar)</span>
+<span class="token comment">#; (foo)</span>
+<span class="token comment">#;[foo bar]</span>
+<span class="token comment">#; [foo]</span>
+
+<span class="token comment">#|
+ comment
+ #| nested comment |#
+|#</span>
+
+----------------------------------------------------

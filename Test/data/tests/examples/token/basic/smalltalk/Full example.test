@@ -1,0 +1,260 @@
+Object>>method: num
+    "comment 123"
+    | var1 var2 |
+    (1 to: num) do: [:i | |var| ^i].
+    Klass with: var1.
+    Klass new.
+    arr := #('123' 123.345 #hello Transcript var $@).
+    arr := #().
+    var2 = arr at: 3.
+    ^ self abc
+
+heapExample
+    "HeapTest new heapExample"
+    "Multiline
+    decription"
+    | n rnd array time sorted |
+    n := 5000.
+    "# of elements to sort"
+    rnd := Random new.
+    array := (1 to: n)
+                collect: [:i | rnd next].
+    "First, the heap version"
+    time := Time
+                millisecondsToRun: [sorted := Heap withAll: array.
+    1
+        to: n
+        do: [:i |
+            sorted removeFirst.
+            sorted add: rnd next]].
+    Transcript cr; show: 'Time for Heap: ' , time printString , ' msecs'.
+    "The quicksort version"
+    time := Time
+                millisecondsToRun: [sorted := SortedCollection withAll: array.
+    1
+        to: n
+        do: [:i |
+            sorted removeFirst.
+            sorted add: rnd next]].
+    Transcript cr; show: 'Time for SortedCollection: ' , time printString , ' msecs'
+----------------------------------------------------
+[
+	"Object",
+	["operator", ">>"],
+	"method",
+	["punctuation", ":"],
+	" num\n    ",
+
+	["comment", "\"comment 123\""],
+
+	["temporary-variables", [
+		["punctuation", "|"],
+		["variable", "var1"],
+		["variable", "var2"],
+		["punctuation", "|"]
+	]],
+
+	["punctuation", "("],
+	["number", "1"],
+	" to",
+	["punctuation", ":"],
+	" num",
+	["punctuation", ")"],
+	" do",
+	["punctuation", ":"],
+	["punctuation", "["],
+	["block-arguments", [
+		["variable", ":i"],
+		["punctuation", "|"]
+	]],
+	["temporary-variables", [
+		["punctuation", "|"],
+		["variable", "var"],
+		["punctuation", "|"]
+	]],
+	["operator", "^"],
+	"i",
+	["punctuation", "]"],
+	["punctuation", "."],
+
+	"\n    Klass with",
+	["punctuation", ":"],
+	" var1",
+	["punctuation", "."],
+
+	"\n    Klass ",
+	["keyword", "new"],
+	["punctuation", "."],
+
+	"\n    arr ",
+	["operator", ":="],
+	["symbol", "#"],
+	["punctuation", "("],
+	["string", "'123'"],
+	["number", "123.345"],
+	["symbol", "#hello"],
+	" Transcript var ",
+	["char", "$@"],
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	"\n    arr ",
+	["operator", ":="],
+	["symbol", "#"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	"\n    var2 ",
+	["operator", "="],
+	" arr at",
+	["punctuation", ":"],
+	["number", "3"],
+	["punctuation", "."],
+
+	["operator", "^"],
+	["keyword", "self"],
+	" abc\n\nheapExample\n    ",
+
+	["comment", "\"HeapTest new heapExample\""],
+
+	["comment", "\"Multiline\n    decription\""],
+
+	["temporary-variables", [
+		["punctuation", "|"],
+		["variable", "n"],
+		["variable", "rnd"],
+		["variable", "array"],
+		["variable", "time"],
+		["variable", "sorted"],
+		["punctuation", "|"]
+	]],
+
+	"\n    n ",
+	["operator", ":="],
+	["number", "5000"],
+	["punctuation", "."],
+
+	["comment", "\"# of elements to sort\""],
+
+	"\n    rnd ",
+	["operator", ":="],
+	" Random ",
+	["keyword", "new"],
+	["punctuation", "."],
+
+	"\n    array ",
+	["operator", ":="],
+	["punctuation", "("],
+	["number", "1"],
+	" to",
+	["punctuation", ":"],
+	" n",
+	["punctuation", ")"],
+
+	"\n                collect",
+	["punctuation", ":"],
+	["punctuation", "["],
+	["block-arguments", [
+		["variable", ":i"],
+		["punctuation", "|"]
+	]],
+	" rnd next",
+	["punctuation", "]"],
+	["punctuation", "."],
+
+	["comment", "\"First, the heap version\""],
+
+	"\n    time ",
+	["operator", ":="],
+	" Time\n                millisecondsToRun",
+	["punctuation", ":"],
+	["punctuation", "["],
+	"sorted ",
+	["operator", ":="],
+	" Heap withAll",
+	["punctuation", ":"],
+	" array",
+	["punctuation", "."],
+
+	["number", "1"],
+
+	"\n        to",
+	["punctuation", ":"],
+	" n\n        do",
+	["punctuation", ":"],
+	["punctuation", "["],
+	["block-arguments", [
+		["variable", ":i"],
+		["punctuation", "|"]
+	]],
+
+	"\n            sorted removeFirst",
+	["punctuation", "."],
+
+	"\n            sorted add",
+	["punctuation", ":"],
+	" rnd next",
+	["punctuation", "]"],
+	["punctuation", "]"],
+	["punctuation", "."],
+
+	"\n    Transcript cr",
+	["punctuation", ";"],
+	" show",
+	["punctuation", ":"],
+	["string", "'Time for Heap: '"],
+	["operator", ","],
+	" time printString ",
+	["operator", ","],
+	["string", "' msecs'"],
+	["punctuation", "."],
+
+	["comment", "\"The quicksort version\""],
+
+	"\n    time ",
+	["operator", ":="],
+	" Time\n                millisecondsToRun",
+	["punctuation", ":"],
+	["punctuation", "["],
+	"sorted ",
+	["operator", ":="],
+	" SortedCollection withAll",
+	["punctuation", ":"],
+	" array",
+	["punctuation", "."],
+
+	["number", "1"],
+
+	"\n        to",
+	["punctuation", ":"],
+	" n\n        do",
+	["punctuation", ":"],
+	["punctuation", "["],
+	["block-arguments", [
+		["variable", ":i"],
+		["punctuation", "|"]
+	]],
+
+	"\n            sorted removeFirst",
+	["punctuation", "."],
+
+	"\n            sorted add",
+	["punctuation", ":"],
+	" rnd next",
+	["punctuation", "]"],
+	["punctuation", "]"],
+	["punctuation", "."],
+
+	"\n    Transcript cr",
+	["punctuation", ";"],
+	" show",
+	["punctuation", ":"],
+	["string", "'Time for SortedCollection: '"],
+	["operator", ","],
+	" time printString ",
+	["operator", ","],
+	["string", "' msecs'"]
+]
+
+----------------------------------------------------

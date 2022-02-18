@@ -1,0 +1,11 @@
+import QtQuick 2.9
+import QtQml.Models 2.2
+import Person 1.0
+import "componentCreation.js" as MyScript
+----------------------------------------------------
+<span class="token keyword">import</span> QtQuick 2.9
+<span class="token keyword">import</span> QtQml.Models 2.2
+<span class="token keyword">import</span> Person 1.0
+<span class="token keyword">import</span> <span class="token string">"componentCreation.js"</span> <span class="token keyword">as</span> MyScript
+
+----------------------------------------------------

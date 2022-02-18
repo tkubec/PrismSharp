@@ -1,0 +1,11 @@
+((3-(9-2))*4)
+^eval(4+2)
+
+<div class="foo-^eval(4+2)">
+----------------------------------------------------
+<span class="token expression"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span></span>
+<span class="token keyword">^eval</span><span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>foo-<span class="token keyword">^eval</span><span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

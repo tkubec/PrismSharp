@@ -1,0 +1,7 @@
+for (Int32 i = 0; i < count; i++)
+foreach (Foo e in Elements)
+----------------------------------------------------
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Int32</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token class-name">Foo</span> e <span class="token keyword">in</span> Elements<span class="token punctuation">)</span>
+
+----------------------------------------------------

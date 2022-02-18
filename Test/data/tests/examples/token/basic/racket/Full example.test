@@ -1,0 +1,120 @@
+; Source: https://github.com/mbutterick/pollen/blob/master/pollen/private/to-string.rkt
+
+#lang racket/base
+(provide (all-defined-out))
+
+(define (to-string x)
+  (cond
+    [(string? x) x]
+    [(or (null? x) (void? x)) ""]
+    [(or (symbol? x) (number? x) (path? x) (char? x)) (format "~a" x)]
+    ;; special handling for procedures, because if a procedure reaches this func,
+    ;; it usually indicates a failed attempt to use a tag function.
+    ;; meaning, it's more useful to raise an error.
+    [(procedure? x) (error 'pollen "Can't convert procedure ~a to string" x)]
+    [else (format "~v" x)]))
+----------------------------------------------------
+[
+	["comment", "; Source: https://github.com/mbutterick/pollen/blob/master/pollen/private/to-string.rkt"],
+
+	["lang", "#lang racket/base"],
+
+	["punctuation", "("],
+	["function", "provide"],
+	["punctuation", "("],
+	["function", "all-defined-out"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "define"],
+	["punctuation", "("],
+	["function", "to-string"],
+	" x",
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "cond"],
+
+	["punctuation", "["],
+	["punctuation", "("],
+	["builtin", "string?"],
+	" x",
+	["punctuation", ")"],
+	" x",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	["punctuation", "("],
+	["builtin", "or"],
+	["punctuation", "("],
+	["builtin", "null?"],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["function", "void?"],
+	" x",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["string", "\"\""],
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	["punctuation", "("],
+	["builtin", "or"],
+	["punctuation", "("],
+	["builtin", "symbol?"],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["builtin", "number?"],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["function", "path?"],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["builtin", "char?"],
+	" x",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["function", "format"],
+	["string", "\"~a\""],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "]"],
+
+	["comment", ";; special handling for procedures, because if a procedure reaches this func,"],
+
+	["comment", ";; it usually indicates a failed attempt to use a tag function."],
+
+	["comment", ";; meaning, it's more useful to raise an error."],
+
+	["punctuation", "["],
+	["punctuation", "("],
+	["builtin", "procedure?"],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["builtin", "error"],
+	["symbol", "'pollen"],
+	["string", "\"Can't convert procedure ~a to string\""],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	["keyword", "else"],
+	["punctuation", "("],
+	["function", "format"],
+	["string", "\"~v\""],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,17 @@
+"foo 'bar' baz"
+'foo "bar" baz'
+"""Multi-line
+string"""
+'''Multi-line
+string'''
+"String /containing/ slashes"
+----------------------------------------------------
+[
+	["string", "\"foo 'bar' baz\""],
+	["string", "'foo \"bar\" baz'"],
+	["string", "\"\"\"Multi-line\nstring\"\"\""],
+	["string", "'''Multi-line\nstring'''"],
+	["string", "\"String /containing/ slashes\""]
+]
+
+----------------------------------------------------

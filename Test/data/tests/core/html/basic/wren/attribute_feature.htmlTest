@@ -1,0 +1,39 @@
+#hidden = true
+class Example {}
+
+#key
+#key = value
+#group(
+  multiple,
+  lines = true,
+  lines = 0
+)
+class Example {
+  #test(skip = true, iterations = 32)
+  doStuff() {}
+}
+
+#doc = "not runtime data"
+#!runtimeAccess = true
+#!maxIterations = 16
+----------------------------------------------------
+<span class="token attribute keyword">#hidden</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token attribute keyword">#key</span>
+<span class="token attribute keyword">#key</span> <span class="token operator">=</span> value
+<span class="token attribute keyword">#group</span><span class="token punctuation">(</span>
+  multiple<span class="token punctuation">,</span>
+  lines <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  lines <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token punctuation">{</span>
+  <span class="token attribute keyword">#test</span><span class="token punctuation">(</span>skip <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span> iterations <span class="token operator">=</span> <span class="token number">32</span><span class="token punctuation">)</span>
+  <span class="token function">doStuff</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token attribute keyword">#doc</span> <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"not runtime data"</span></span>
+<span class="token attribute keyword">#!runtimeAccess</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token attribute keyword">#!maxIterations</span> <span class="token operator">=</span> <span class="token number">16</span>
+
+----------------------------------------------------

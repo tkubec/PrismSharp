@@ -1,0 +1,15 @@
+{{ 0xBadFace }}
+{{ 42 }}
+{{ 3.14159 }}
+{{ 3e15 }}
+{{ 4.5E-4 }}
+{{ 0.2e+8 }}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> <span class="token number">0xBadFace</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token number">42</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token number">3.14159</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token number">3e15</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token number">4.5E-4</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token number">0.2e+8</span> <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

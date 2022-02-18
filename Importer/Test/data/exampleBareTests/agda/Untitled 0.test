@@ -1,0 +1,169 @@
+-- 1.1 Naturals
+
+module plfa.part1.Naturals where
+
+-- The standard way to enter Unicode math symbols in Agda
+-- is to use the IME provided by agda-mode.
+-- for example â„• can be entered by typing \bN.
+
+-- The inductive definition of natural numbers.
+-- In Agda, data declarations correspond to axioms.
+-- Also types correspond to sets.
+-- CHAR: \bN â†’ â„•
+data â„• : Set where
+	-- This corresponds to the `zero` rule in Dedekin-Peano's axioms.
+	-- Note that the syntax resembles Haskell GADTs.
+	-- Also note that the `has-type` operator is `:` (as in Idris), not `::` (as in Haskell).
+	zero : â„•
+	-- This corresponds to the `succesor` rule in Dedekin-Peano's axioms.
+	-- In such a constructive system in Agda, induction rules etc comes by nature.
+	-- The function arrow can be either `->` or `â†’`.
+	-- CHAR: \to or \-> or \r- â†’ â†’
+	suc  : â„• â†’ â„•
+
+-- EXERCISE `seven`
+seven : â„•
+seven = suc (suc (suc (suc (suc (suc (suc zero))))))
+
+-- This line is a compiler pragma.
+-- It makes `â„•` correspond to Haskell's type `Integer`
+-- and allows us to use number literals (0, 1, 2, ...) to express `â„•`.
+{-# BUILTIN NATURAL â„• #-}
+
+-- Agda has a module system corresponding to the project file structure.
+-- e.g. `My.Namespace` is in
+-- `project path/My/Namespace.agda`.
+
+-- The `import` statement does NOT expose the names to the top namespace.
+-- You'll have to use `My.Namespace.thing` instead of directly `thing`.
+import Relation.Binary.PropositionalEquality as Eq
+-- The `open` statement unpacks all the names in a imported namespace and exposes them to the top namespace.
+-- Alternatively the `open import` statement imports a namespace and opens it at the same time.
+-- The `using (a; ..)` clause can limit a range of names to expose, instead of all of them.
+-- Alternatively, the `hiding (a; ..)` clause can limit a range of names NOT to expose.
+-- Also the `renaming (a to b; ..)` clause can rename names.
+-- CHAR: \== â†’ â‰ˇ
+--       \gt â†’ âź¨
+--       \lt â†’ âź©
+--       \qed â†’ âŽ
+open Eq using (_â‰ˇ_; refl)
+open Eq.â‰ˇ-Reasoning using (begin_; _â‰ˇâź¨âź©_; _âŽ)
+
+-- Addition of `â„•`.
+-- Note that Agda functions are *like* Haskell functions.
+-- In Agda, operators can be mixfix (incl. infix, prefix, suffix, self-bracketing and many others).
+-- All the `holes` are represented by `_`s. Unlike Haskell, operator names don't need to be put in parentheses.
+-- Operators can also be called in the manner of normal functions.
+-- e.g. a + b = _+_ a b.
+-- Sections are also available, though somehow weird.
+-- e.g. a +_ = _+_ a.
+_+_ : â„• â†’ â„• â†’ â„•
+-- Lhs can also be infix!
+-- This is the standard definition in both Peano and Agda stdlib.
+-- We do pattern match on the first parameter, it's both convention and for convenience.
+-- Agda does a termination check on recursive function.
+-- Here the first parameter decreases over evaluation thus it is *well-founded*.
+zero    + n = n
+(suc m) + n = suc (m + n)
+
+-- Here we take a glance at the *dependent type*.
+-- In dependent type, we can put values into type level, and vice versa.
+-- This is especially useful when we're expecting to make the types more precise.
+-- Here `_â‰ˇ_` is a type that says that two values are *the same*, that is, samely constructed.
+_ : 2 + 3 â‰ˇ 5
+-- We can do it by â‰ˇ-Reasoning, that is writing a (unreasonably long) chain of equations.
+_ =
+	begin
+		2 + 3
+	â‰ˇâź¨âź© -- This operator means the lhs and rhs can be reduced to the same form so that they are equal.
+		suc (1 + 3)
+	â‰ˇâź¨âź©
+		suc (suc (0 + 3)) -- Just simulating the function evaluation
+	â‰ˇâź¨âź©
+		suc (suc 3)
+	â‰ˇâź¨âź©
+		5
+	âŽ -- The *tombstone*, QED.
+
+-- Well actually we can also get this done by simply writing `refl`.
+-- `refl` is a proof that says "If two values evaluates to the same form, then they are equal".
+-- Since Agda can automatically evaluate the terms for us, this makes sense.
+_ : 2 + 3 â‰ˇ 5
+_ = refl
+
+-- Multiplication of `â„•`, defined with addition.
+_*_ : â„• â†’ â„• â†’ â„•
+-- Here we can notice that in Agda we prefer to indent by *visual blocks* instead by a fixed number of spaces.
+zero    * n = zero
+-- Here the addition is at the front, to be consistent with addition.
+(suc m) * n = n + (m * n)
+
+-- EXERCISE `_^_`, Exponentation of `â„•`.
+_^_ : â„• â†’ â„• â†’ â„•
+-- We can only pattern match the 2nd argument.
+m ^ zero    = suc zero
+m ^ (suc n) = m * (m ^ n)
+
+-- *Monus* (a wordplay on minus), the non-negative subtraction of `â„•`.
+-- if less than 0 then we get 0.
+-- CHAR: \.- â†’ â¸
+_â¸_ : â„• â†’ â„• â†’ â„•
+m     â¸ zero  = m
+zero  â¸ suc n = zero
+suc m â¸ suc n = m â¸ n
+
+-- Now we define the precedence of the operators, as in Haskell.
+infixl 6 _+_ _â¸_
+infixl 7 _*_
+
+-- These are some more pragmas. Should be self-explaining.
+{-# BUILTIN NATPLUS _+_ #-}
+{-# BUILTIN NATTIMES _*_ #-}
+{-# BUILTIN NATMINUS _â¸_ #-}
+
+-- EXERCISE `Bin`. We define a binary representation of natural numbers.
+-- Leading `O`s are acceptable.
+data Bin : Set where
+	âź¨âź© : Bin
+	_O : Bin â†’ Bin
+	_I : Bin â†’ Bin
+
+-- Like `suc` for `Bin`.
+inc : Bin â†’ Bin
+inc âź¨âź© = âź¨âź© I
+inc (b O) = b I
+inc (b I) = (inc b) O
+
+-- `â„•` to `Bin`. This is a Î(n) solution and awaits a better Î(log n) reimpelementation.
+to : â„• â†’ Bin
+to zero    = âź¨âź© O
+to (suc n) = inc (to n)
+
+-- `Bin` to `â„•`.
+from : Bin â†’ â„•
+from âź¨âź©    = 0
+from (b O) = 2 * (from b)
+from (b I) = 1 + 2 * (from b)
+
+-- Simple tests from 0 to 4.
+_ : from (to 0) â‰ˇ 0
+_ = refl
+
+_ : from (to 1) â‰ˇ 1
+_ = refl
+
+_ : from (to 2) â‰ˇ 2
+_ = refl
+
+_ : from (to 3) â‰ˇ 3
+_ = refl
+
+_ : from (to 4) â‰ˇ 4
+_ = refl
+
+-- EXERCISE END `Bin`
+
+-- STDLIB: import Data.Nat using (â„•; zero; suc; _+_; _*_; _^_; _â¸_)
+
+--------------------------------------------------
+

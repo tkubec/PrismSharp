@@ -1,0 +1,67 @@
+#ifdef GL_ES
+precision highp float;
+#endif
+
+uniform vec3 BrickColor, MortarColor;
+uniform vec3 BrickSize;
+uniform vec3 BrickPct;
+
+varying vec3 vColor;
+varying vec3 localPos;
+void main()
+{
+	vec3 color;
+	vec3 position, useBrick;
+
+
+	position = localPos / BrickSize.xyz;
+
+	if (fract(position.y * 0.5) > 0.5){
+		position.x += 0.5;
+		position.z += 0.5;
+	}
+
+	position = fract(position);
+
+	useBrick = step(position, BrickPct.xyz);
+
+	color = mix(MortarColor, BrickColor, useBrick.x * useBrick.y * useBrick.z);
+	color *= vColor;
+
+	gl_FragColor = vec4(color, 1.0);
+}
+----------------------------------------------------
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">GL_ES</span></span>
+<span class="token keyword">precision</span> <span class="token keyword">highp</span> <span class="token keyword">float</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> BrickColor<span class="token punctuation">,</span> MortarColor<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> BrickSize<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> BrickPct<span class="token punctuation">;</span>
+
+<span class="token keyword">varying</span> <span class="token keyword">vec3</span> vColor<span class="token punctuation">;</span>
+<span class="token keyword">varying</span> <span class="token keyword">vec3</span> localPos<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">vec3</span> color<span class="token punctuation">;</span>
+	<span class="token keyword">vec3</span> position<span class="token punctuation">,</span> useBrick<span class="token punctuation">;</span>
+
+
+	position <span class="token operator">=</span> localPos <span class="token operator">/</span> BrickSize<span class="token punctuation">.</span>xyz<span class="token punctuation">;</span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">fract</span><span class="token punctuation">(</span>position<span class="token punctuation">.</span>y <span class="token operator">*</span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		position<span class="token punctuation">.</span>x <span class="token operator">+=</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+		position<span class="token punctuation">.</span>z <span class="token operator">+=</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	position <span class="token operator">=</span> <span class="token function">fract</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	useBrick <span class="token operator">=</span> <span class="token function">step</span><span class="token punctuation">(</span>position<span class="token punctuation">,</span> BrickPct<span class="token punctuation">.</span>xyz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	color <span class="token operator">=</span> <span class="token function">mix</span><span class="token punctuation">(</span>MortarColor<span class="token punctuation">,</span> BrickColor<span class="token punctuation">,</span> useBrick<span class="token punctuation">.</span>x <span class="token operator">*</span> useBrick<span class="token punctuation">.</span>y <span class="token operator">*</span> useBrick<span class="token punctuation">.</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	color <span class="token operator">*=</span> vColor<span class="token punctuation">;</span>
+
+	gl_FragColor <span class="token operator">=</span> <span class="token keyword">vec4</span><span class="token punctuation">(</span>color<span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

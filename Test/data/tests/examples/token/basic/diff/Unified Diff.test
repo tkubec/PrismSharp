@@ -1,0 +1,40 @@
+--- qcli.yml	2014-12-16 11:43:41.000000000 +0800
++++ /Users/uranusjr/Desktop/qcli.yml	2014-12-31 11:28:08.000000000 +0800
+@@ -4,5 +4,5 @@
+ project:
+     sources: "src/*.cpp"
+     headers: "src/*.h"
+-    qt: core
++    qt: core gui
+ public_headers: "src/*.h"
+----------------------------------------------------
+[
+	["coord", "--- qcli.yml\t2014-12-16 11:43:41.000000000 +0800"],
+
+	["coord", "+++ /Users/uranusjr/Desktop/qcli.yml\t2014-12-31 11:28:08.000000000 +0800"],
+
+	["coord", "@@ -4,5 +4,5 @@"],
+
+	["unchanged", [
+		["prefix", " "],
+		["line", "project:\n"],
+		["prefix", " "],
+		["line", "    sources: \"src/*.cpp\"\n"],
+		["prefix", " "],
+		["line", "    headers: \"src/*.h\"\n"]
+	]],
+	["deleted-sign", [
+		["prefix", "-"],
+		["line", "    qt: core\n"]
+	]],
+	["inserted-sign", [
+		["prefix", "+"],
+		["line", "    qt: core gui\n"]
+	]],
+	["unchanged", [
+		["prefix", " "],
+		["line", "public_headers: \"src/*.h\""]
+	]]
+]
+
+----------------------------------------------------

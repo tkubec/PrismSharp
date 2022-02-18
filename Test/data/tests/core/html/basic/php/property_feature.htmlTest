@@ -1,0 +1,7 @@
+$variable->property;
+$foo->bar->baz;
+----------------------------------------------------
+<span class="token variable">$variable</span><span class="token operator">-></span><span class="token property">property</span><span class="token punctuation">;</span>
+<span class="token variable">$foo</span><span class="token operator">-></span><span class="token property">bar</span><span class="token operator">-></span><span class="token property">baz</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

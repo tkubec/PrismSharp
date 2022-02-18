@@ -1,0 +1,27 @@
+FROM busybox
+USER ${user:-some_user}
+ARG user
+USER $user
+RUN echo $CONT_IMG_VER
+
+ARG  CODE_VERSION=latest
+FROM base:${CODE_VERSION}
+CMD  /code/run-app
+
+FROM extras:${CODE_VERSION}
+CMD  /code/run-extras
+----------------------------------------------------
+<span class="token instruction"><span class="token keyword">FROM</span> busybox</span>
+<span class="token instruction"><span class="token keyword">USER</span> <span class="token variable">${user:-some_user}</span></span>
+<span class="token instruction"><span class="token keyword">ARG</span> user</span>
+<span class="token instruction"><span class="token keyword">USER</span> <span class="token variable">$user</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token variable">$CONT_IMG_VER</span></span>
+
+<span class="token instruction"><span class="token keyword">ARG</span>  CODE_VERSION=latest</span>
+<span class="token instruction"><span class="token keyword">FROM</span> base:<span class="token variable">${CODE_VERSION}</span></span>
+<span class="token instruction"><span class="token keyword">CMD</span>  /code/run-app</span>
+
+<span class="token instruction"><span class="token keyword">FROM</span> extras:<span class="token variable">${CODE_VERSION}</span></span>
+<span class="token instruction"><span class="token keyword">CMD</span>  /code/run-extras</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+SELECT 1 && 1;
+SELECT 1 OR NULL;
+SELECT 5 & 2*3;
+SELECT 2 BETWEEN 1 AND 3;
+----------------------------------------------------
+<span class="token keyword">SELECT</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token number">1</span> <span class="token operator">OR</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token number">5</span> <span class="token operator">&amp;</span> <span class="token number">2</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token number">2</span> <span class="token operator">BETWEEN</span> <span class="token number">1</span> <span class="token operator">AND</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

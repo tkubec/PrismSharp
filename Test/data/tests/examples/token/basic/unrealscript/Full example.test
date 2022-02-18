@@ -1,0 +1,203 @@
+// Source: https://github.com/Jusas/XCOM2_ReconSoldierClass/blob/master/ReconOperatorSoldierClass/Src/ReconSoldierClass/Classes/ReconOperator_AcademyUnlocks.uc
+
+class ReconOperator_AcademyUnlocks extends X2StrategyElement;
+
+static function array<X2DataTemplate> CreateTemplates()
+{
+	local array<X2DataTemplate> Templates;
+
+	Templates.AddItem(AdrenalineUnlock());
+
+	return Templates;
+}
+
+static function X2SoldierAbilityUnlockTemplate AdrenalineUnlock()
+{
+	local X2SoldierAbilityUnlockTemplate Template;
+	local ArtifactCost Resources;
+
+	`CREATE_X2TEMPLATE(class'X2SoldierAbilityUnlockTemplate', Template, 'ReconAdrenalineUnlock');
+
+	Template.AllowedClasses.AddItem('ReconSoldierClass');
+	Template.AbilityName = 'ReconAdrenalineSpike';
+	Template.strImage = "img:///UILibrary_ReconOperator.GTS.GTS_adrenaline";
+
+	// Requirements
+	Template.Requirements.RequiredHighestSoldierRank = 5;
+	Template.Requirements.RequiredSoldierClass = 'ReconSoldierClass';
+	Template.Requirements.RequiredSoldierRankClassCombo = true;
+	Template.Requirements.bVisibleIfSoldierRankGatesNotMet = true;
+
+	// Cost
+	Resources.ItemTemplateName = 'Supplies';
+	Resources.Quantity = 75;
+	Template.Cost.ResourceCosts.AddItem(Resources);
+
+	return Template;
+}
+----------------------------------------------------
+[
+	["comment", "// Source: https://github.com/Jusas/XCOM2_ReconSoldierClass/blob/master/ReconOperatorSoldierClass/Src/ReconSoldierClass/Classes/ReconOperator_AcademyUnlocks.uc"],
+
+	["keyword", "class"],
+	["class-name", "ReconOperator_AcademyUnlocks"],
+	["keyword", "extends"],
+	["class-name", "X2StrategyElement"],
+	["punctuation", ";"],
+
+	["keyword", "static"],
+	["keyword", "function"],
+	["keyword", "array"],
+	["operator", "<"],
+	"X2DataTemplate",
+	["operator", ">"],
+	["function", "CreateTemplates"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	["keyword", "array"],
+	["operator", "<"],
+	"X2DataTemplate",
+	["operator", ">"],
+	" Templates",
+	["punctuation", ";"],
+
+	"\n\n\tTemplates",
+	["punctuation", "."],
+	["function", "AddItem"],
+	["punctuation", "("],
+	["function", "AdrenalineUnlock"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"], " Templates", ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "static"],
+	["keyword", "function"],
+	" X2SoldierAbilityUnlockTemplate ",
+	["function", "AdrenalineUnlock"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" X2SoldierAbilityUnlockTemplate Template",
+	["punctuation", ";"],
+
+	["keyword", "local"],
+	" ArtifactCost Resources",
+	["punctuation", ";"],
+
+	["macro", "`CREATE_X2TEMPLATE"],
+	["punctuation", "("],
+	["keyword", "class"],
+	["string", "'X2SoldierAbilityUnlockTemplate'"],
+	["punctuation", ","],
+	" Template",
+	["punctuation", ","],
+	["string", "'ReconAdrenalineUnlock'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n\tTemplate",
+	["punctuation", "."],
+	"AllowedClasses",
+	["punctuation", "."],
+	["function", "AddItem"],
+	["punctuation", "("],
+	["string", "'ReconSoldierClass'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\tTemplate",
+	["punctuation", "."],
+	"AbilityName ",
+	["operator", "="],
+	["string", "'ReconAdrenalineSpike'"],
+	["punctuation", ";"],
+
+	"\n\tTemplate",
+	["punctuation", "."],
+	"strImage ",
+	["operator", "="],
+	["string", "\"img:///UILibrary_ReconOperator.GTS.GTS_adrenaline\""],
+	["punctuation", ";"],
+
+	["comment", "// Requirements"],
+
+	"\n\tTemplate",
+	["punctuation", "."],
+	"Requirements",
+	["punctuation", "."],
+	"RequiredHighestSoldierRank ",
+	["operator", "="],
+	["number", "5"],
+	["punctuation", ";"],
+
+	"\n\tTemplate",
+	["punctuation", "."],
+	"Requirements",
+	["punctuation", "."],
+	"RequiredSoldierClass ",
+	["operator", "="],
+	["string", "'ReconSoldierClass'"],
+	["punctuation", ";"],
+
+	"\n\tTemplate",
+	["punctuation", "."],
+	"Requirements",
+	["punctuation", "."],
+	"RequiredSoldierRankClassCombo ",
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", ";"],
+
+	"\n\tTemplate",
+	["punctuation", "."],
+	"Requirements",
+	["punctuation", "."],
+	"bVisibleIfSoldierRankGatesNotMet ",
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", ";"],
+
+	["comment", "// Cost"],
+
+	"\n\tResources",
+	["punctuation", "."],
+	"ItemTemplateName ",
+	["operator", "="],
+	["string", "'Supplies'"],
+	["punctuation", ";"],
+
+	"\n\tResources",
+	["punctuation", "."],
+	"Quantity ",
+	["operator", "="],
+	["number", "75"],
+	["punctuation", ";"],
+
+	"\n\tTemplate",
+	["punctuation", "."],
+	"Cost",
+	["punctuation", "."],
+	"ResourceCosts",
+	["punctuation", "."],
+	["function", "AddItem"],
+	["punctuation", "("],
+	"Resources",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"], " Template", ["punctuation", ";"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

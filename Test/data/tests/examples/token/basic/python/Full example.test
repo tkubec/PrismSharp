@@ -1,0 +1,98 @@
+def median(pool):
+    '''Statistical median to demonstrate doctest.
+    >>> median([2, 9, 9, 7, 9, 2, 4, 5, 8])
+    7
+    '''
+    copy = sorted(pool)
+    size = len(copy)
+    if size % 2 == 1:
+        return copy[(size - 1) / 2]
+    else:
+        return (copy[size/2 - 1] + copy[size/2]) / 2
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+----------------------------------------------------
+[
+	["keyword", "def"],
+	["function", "median"],
+	["punctuation", "("],
+	"pool",
+	["punctuation", ")"],
+	["punctuation", ":"],
+
+	["triple-quoted-string", "'''Statistical median to demonstrate doctest.\n    >>> median([2, 9, 9, 7, 9, 2, 4, 5, 8])\n    7\n    '''"],
+
+	"\n    copy ",
+	["operator", "="],
+	["builtin", "sorted"],
+	["punctuation", "("],
+	"pool",
+	["punctuation", ")"],
+
+	"\n    size ",
+	["operator", "="],
+	["builtin", "len"],
+	["punctuation", "("],
+	"copy",
+	["punctuation", ")"],
+
+	["keyword", "if"],
+	" size ",
+	["operator", "%"],
+	["number", "2"],
+	["operator", "=="],
+	["number", "1"],
+	["punctuation", ":"],
+
+	["keyword", "return"],
+	" copy",
+	["punctuation", "["],
+	["punctuation", "("],
+	"size ",
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ")"],
+	["operator", "/"],
+	["number", "2"],
+	["punctuation", "]"],
+
+	["keyword", "else"],
+	["punctuation", ":"],
+
+	["keyword", "return"],
+	["punctuation", "("],
+	"copy",
+	["punctuation", "["],
+	"size",
+	["operator", "/"],
+	["number", "2"],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", "]"],
+	["operator", "+"],
+	" copy",
+	["punctuation", "["],
+	"size",
+	["operator", "/"],
+	["number", "2"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["operator", "/"],
+	["number", "2"],
+
+	["keyword", "if"],
+	" __name__ ",
+	["operator", "=="],
+	["string", "'__main__'"],
+	["punctuation", ":"],
+
+	["keyword", "import"],
+	" doctest\n    doctest",
+	["punctuation", "."],
+	"testmod",
+	["punctuation", "("],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

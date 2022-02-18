@@ -1,0 +1,63 @@
+bar1	=
+ "bar2" =
+ 'bar3' =
+ bar4 =
+" bar5 "=
+"bar6"=
+' bar7 '=
+'bar8'=
+=	baz9	
+= "baz10" 
+= 'baz11' 
+= baz12 
+=" baz13 "
+="b14"a14"z14"
+="baz15"
+="baz16
+=' baz17 '
+='baz18'
+=b19"a19"z19
+=b20"az20
+=ba21"z21
+=baz22
+=baz23"
+bar24
+bar25 baz25=qux25
+bar26=
+bar27==baz27
+bar28=baz28
+bar29=baz29 qux29
+bar30=baz30=qux30
+----------------------------------------------------
+<span class="token key attr-name">bar1</span>	<span class="token punctuation">=</span>
+ <span class="token key attr-name">"bar2"</span> <span class="token punctuation">=</span>
+ <span class="token key attr-name">'bar3'</span> <span class="token punctuation">=</span>
+ <span class="token key attr-name">bar4</span> <span class="token punctuation">=</span>
+<span class="token key attr-name">" bar5 "</span><span class="token punctuation">=</span>
+<span class="token key attr-name">"bar6"</span><span class="token punctuation">=</span>
+<span class="token key attr-name">' bar7 '</span><span class="token punctuation">=</span>
+<span class="token key attr-name">'bar8'</span><span class="token punctuation">=</span>
+<span class="token punctuation">=</span>	<span class="token value attr-value">baz9</span>	
+<span class="token punctuation">=</span> <span class="token value attr-value">"<span class="token inner-value">baz10</span>"</span> 
+<span class="token punctuation">=</span> <span class="token value attr-value">'<span class="token inner-value">baz11</span>'</span> 
+<span class="token punctuation">=</span> <span class="token value attr-value">baz12</span> 
+<span class="token punctuation">=</span><span class="token value attr-value">"<span class="token inner-value"> baz13 </span>"</span>
+<span class="token punctuation">=</span><span class="token value attr-value">"<span class="token inner-value">b14"a14"z14</span>"</span>
+<span class="token punctuation">=</span><span class="token value attr-value">"<span class="token inner-value">baz15</span>"</span>
+<span class="token punctuation">=</span><span class="token value attr-value">"baz16</span>
+<span class="token punctuation">=</span><span class="token value attr-value">'<span class="token inner-value"> baz17 </span>'</span>
+<span class="token punctuation">=</span><span class="token value attr-value">'<span class="token inner-value">baz18</span>'</span>
+<span class="token punctuation">=</span><span class="token value attr-value">b19"a19"z19</span>
+<span class="token punctuation">=</span><span class="token value attr-value">b20"az20</span>
+<span class="token punctuation">=</span><span class="token value attr-value">ba21"z21</span>
+<span class="token punctuation">=</span><span class="token value attr-value">baz22</span>
+<span class="token punctuation">=</span><span class="token value attr-value">baz23"</span>
+bar24
+<span class="token key attr-name">bar25 baz25</span><span class="token punctuation">=</span><span class="token value attr-value">qux25</span>
+<span class="token key attr-name">bar26</span><span class="token punctuation">=</span>
+<span class="token key attr-name">bar27</span><span class="token punctuation">=</span><span class="token value attr-value">=baz27</span>
+<span class="token key attr-name">bar28</span><span class="token punctuation">=</span><span class="token value attr-value">baz28</span>
+<span class="token key attr-name">bar29</span><span class="token punctuation">=</span><span class="token value attr-value">baz29 qux29</span>
+<span class="token key attr-name">bar30</span><span class="token punctuation">=</span><span class="token value attr-value">baz30=qux30</span>
+
+----------------------------------------------------

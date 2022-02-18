@@ -1,0 +1,21 @@
+"""
+foo
+bar
+"""
+
+'''
+foo
+bar
+'''
+----------------------------------------------------
+<span class="token pystring string">"""
+foo
+bar
+"""</span>
+
+<span class="token pystring string">'''
+foo
+bar
+'''</span>
+
+----------------------------------------------------

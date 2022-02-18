@@ -1,0 +1,25 @@
+crontab -l -u USER | grep -v 'YOUR JOB COMMAND or PATTERN' | crontab -u USER -
+
+groups user1 user2|cut -d: -f2|xargs -n1|sort|uniq -d
+
+wget -q -O - http://www.example.com/automation/remotescript.sh | bash /dev/stdin parameter1 parameter2
+
+sudo dpkg -i vagrant_1.7.2_x86_64.deb
+
+git pull origin master
+
+sudo gpg --refresh-keys; sudo apt-key update; sudo rm -rf /var/lib/apt/{lists,lists.old}; sudo mkdir -p /var/lib/apt/lists/partial; sudo apt-get clean all; sudo apt-get update
+----------------------------------------------------
+<span class="token function">crontab</span> -l -u <span class="token environment constant">USER</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token string">'YOUR JOB COMMAND or PATTERN'</span> <span class="token operator">|</span> <span class="token function">crontab</span> -u <span class="token environment constant">USER</span> -
+
+<span class="token function">groups</span> user1 user2<span class="token operator">|</span><span class="token function">cut</span> -d: -f2<span class="token operator">|</span><span class="token function">xargs</span> -n1<span class="token operator">|</span><span class="token function">sort</span><span class="token operator">|</span><span class="token function">uniq</span> -d
+
+<span class="token function">wget</span> -q -O - http://www.example.com/automation/remotescript.sh <span class="token operator">|</span> <span class="token function">bash</span> /dev/stdin parameter1 parameter2
+
+<span class="token function">sudo</span> dpkg -i vagrant_1.7.2_x86_64.deb
+
+<span class="token function">git</span> pull origin master
+
+<span class="token function">sudo</span> gpg --refresh-keys<span class="token punctuation">;</span> <span class="token function">sudo</span> apt-key update<span class="token punctuation">;</span> <span class="token function">sudo</span> <span class="token function">rm</span> -rf /var/lib/apt/<span class="token punctuation">{</span>lists,lists.old<span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token function">sudo</span> <span class="token function">mkdir</span> -p /var/lib/apt/lists/partial<span class="token punctuation">;</span> <span class="token function">sudo</span> <span class="token function">apt-get</span> clean all<span class="token punctuation">;</span> <span class="token function">sudo</span> <span class="token function">apt-get</span> update
+
+----------------------------------------------------

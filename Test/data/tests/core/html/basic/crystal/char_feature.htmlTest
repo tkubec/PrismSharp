@@ -1,0 +1,39 @@
+'a'
+'z'
+'0'
+'_'
+'あ'
+'\''         # single quote
+'\\'         # backslash
+'\a'         # alert
+'\b'         # backspace
+'\e'         # escape
+'\f'         # form feed
+'\n'         # newline
+'\r'         # carriage return
+'\t'         # tab
+'\v'         # vertical tab
+'\0'         # null character
+'\uFFFF'     # hexadecimal unicode character
+'\u{10FFFF}' # hexadecimal unicode character
+----------------------------------------------------
+<span class="token char">'a'</span>
+<span class="token char">'z'</span>
+<span class="token char">'0'</span>
+<span class="token char">'_'</span>
+<span class="token char">'あ'</span>
+<span class="token char">'\''</span>         <span class="token comment"># single quote</span>
+<span class="token char">'\\'</span>         <span class="token comment"># backslash</span>
+<span class="token char">'\a'</span>         <span class="token comment"># alert</span>
+<span class="token char">'\b'</span>         <span class="token comment"># backspace</span>
+<span class="token char">'\e'</span>         <span class="token comment"># escape</span>
+<span class="token char">'\f'</span>         <span class="token comment"># form feed</span>
+<span class="token char">'\n'</span>         <span class="token comment"># newline</span>
+<span class="token char">'\r'</span>         <span class="token comment"># carriage return</span>
+<span class="token char">'\t'</span>         <span class="token comment"># tab</span>
+<span class="token char">'\v'</span>         <span class="token comment"># vertical tab</span>
+<span class="token char">'\0'</span>         <span class="token comment"># null character</span>
+<span class="token char">'\uFFFF'</span>     <span class="token comment"># hexadecimal unicode character</span>
+<span class="token char">'\u{10FFFF}'</span> <span class="token comment"># hexadecimal unicode character</span>
+
+----------------------------------------------------

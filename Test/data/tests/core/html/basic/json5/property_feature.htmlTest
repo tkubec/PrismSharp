@@ -1,0 +1,19 @@
+{"foo\"bar\"baz":1,"foo":2}
+{
+	"foo": 1,
+	"b\"ar": 2,
+	'foo': 3
+	foo: 3,
+	'"':'"',
+}
+----------------------------------------------------
+<span class="token punctuation">{</span><span class="token property">"foo\"bar\"baz"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token property">"foo"</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>
+	<span class="token property">"foo"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token property">"b\"ar"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+	<span class="token property">'foo'</span><span class="token operator">:</span> <span class="token number">3</span>
+	<span class="token property unquoted">foo</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+	<span class="token property">'"'</span><span class="token operator">:</span><span class="token string">'"'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

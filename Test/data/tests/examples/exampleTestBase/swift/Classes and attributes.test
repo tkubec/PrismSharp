@@ -1,0 +1,17 @@
+class MyViewController: UIViewController {
+	@IBOutlet weak var button: UIButton!
+	@IBOutlet var textFields: [UITextField]!
+	@IBAction func buttonTapped(AnyObject) {
+		println("button tapped!")
+	}
+}
+
+@IBDesignable
+class MyCustomView: UIView {
+	@IBInspectable var textColor: UIColor
+	@IBInspectable var iconHeight: CGFloat
+	/* ... */
+}
+
+--------------------------------------------------
+

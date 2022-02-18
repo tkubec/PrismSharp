@@ -1,0 +1,31 @@
+define i32 @add(i32 %a, i32 %b) {
+entry:
+  %tmp1 = icmp eq i32 %a, 0
+  br i1 %tmp1, label %done, label %recurse
+
+recurse:
+  %tmp2 = sub i32 %a, 1
+  %tmp3 = add i32 %b, 1
+  %tmp4 = call i32 @add(i32 %tmp2, i32 %tmp3)
+  ret i32 %tmp4
+
+done:
+  ret i32 %b
+}
+----------------------------------------------------
+<span class="token keyword">define</span> <span class="token type class-name">i32</span> <span class="token variable">@add</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%a</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token label">entry:</span>
+  <span class="token variable">%tmp1</span> <span class="token punctuation">=</span> <span class="token keyword">icmp</span> <span class="token keyword">eq</span> <span class="token type class-name">i32</span> <span class="token variable">%a</span><span class="token punctuation">,</span> <span class="token number">0</span>
+  <span class="token keyword">br</span> <span class="token type class-name">i1</span> <span class="token variable">%tmp1</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%done</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%recurse</span>
+
+<span class="token label">recurse:</span>
+  <span class="token variable">%tmp2</span> <span class="token punctuation">=</span> <span class="token keyword">sub</span> <span class="token type class-name">i32</span> <span class="token variable">%a</span><span class="token punctuation">,</span> <span class="token number">1</span>
+  <span class="token variable">%tmp3</span> <span class="token punctuation">=</span> <span class="token keyword">add</span> <span class="token type class-name">i32</span> <span class="token variable">%b</span><span class="token punctuation">,</span> <span class="token number">1</span>
+  <span class="token variable">%tmp4</span> <span class="token punctuation">=</span> <span class="token keyword">call</span> <span class="token type class-name">i32</span> <span class="token variable">@add</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%tmp2</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%tmp3</span><span class="token punctuation">)</span>
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token variable">%tmp4</span>
+
+<span class="token label">done:</span>
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token variable">%b</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

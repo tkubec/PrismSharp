@@ -1,0 +1,17 @@
+script alert('test');
+script(type="text/javascript").
+  alert('foo');
+  alert('bar');
+- var classes = ['foo', 'bar', 'baz']
+- for (var x = 0; x < 3; x++)
+  li item
+----------------------------------------------------
+<span class="token tag">script</span> <span class="token script"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token tag">script<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"text/javascript"</span></span><span class="token punctuation">)</span></span></span><span class="token punctuation">.</span><span class="token multiline-script">
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token punctuation">-</span><span class="token code"> <span class="token keyword">var</span> classes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token string">'bar'</span><span class="token punctuation">,</span> <span class="token string">'baz'</span><span class="token punctuation">]</span></span>
+<span class="token punctuation">-</span><span class="token code"> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> x <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> x<span class="token operator">++</span><span class="token punctuation">)</span></span>
+  <span class="token tag">li</span> <span class="token plain-text">item</span>
+
+----------------------------------------------------

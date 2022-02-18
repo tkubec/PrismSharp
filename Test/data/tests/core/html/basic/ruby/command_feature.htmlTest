@@ -1,0 +1,29 @@
+`echo foo`
+`echo #{user_input}`
+`grep hosts /private/etc/* 2>&1`
+
+%x[ ls ]
+%x{ ls }
+%x<ls -al #{dir}>
+
+%x!foo #{ 42 }!
+%x(foo #{ 42 })
+%x{foo #{ 42 }}
+%x[foo #{ 42 }]
+%x<foo #{ 42 }>
+----------------------------------------------------
+<span class="token command-literal"><span class="token command string">`echo foo`</span></span>
+<span class="token command-literal"><span class="token command string">`echo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">user_input</span><span class="token delimiter punctuation">}</span></span><span class="token command string">`</span></span>
+<span class="token command-literal"><span class="token command string">`grep hosts /private/etc/* 2>&amp;1`</span></span>
+
+<span class="token command-literal"><span class="token command string">%x[ ls ]</span></span>
+<span class="token command-literal"><span class="token command string">%x{ ls }</span></span>
+<span class="token command-literal"><span class="token command string">%x&lt;ls -al </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">dir</span><span class="token delimiter punctuation">}</span></span><span class="token command string">></span></span>
+
+<span class="token command-literal"><span class="token command string">%x!foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token command string">!</span></span>
+<span class="token command-literal"><span class="token command string">%x(foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token command string">)</span></span>
+<span class="token command-literal"><span class="token command string">%x{foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token command string">}</span></span>
+<span class="token command-literal"><span class="token command string">%x[foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token command string">]</span></span>
+<span class="token command-literal"><span class="token command string">%x&lt;foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token command string">></span></span>
+
+----------------------------------------------------

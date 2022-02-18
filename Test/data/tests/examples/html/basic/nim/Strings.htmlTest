@@ -1,0 +1,29 @@
+"This is a string."
+"This is a string with \"quotes\" in it."
+"""This is
+a "multi-line"
+string."""
+""""A long string within quotes.""""
+R"This is a raw string."
+r"Some ""quotes"" inside a raw string."
+r"""Raw strings
+can also be multi-line."""
+foo"This is a generalized raw string literal."
+bar"""This is also
+a generalized raw string literal."""
+----------------------------------------------------
+<span class="token string">"This is a string."</span>
+<span class="token string">"This is a string with \"quotes\" in it."</span>
+<span class="token string">"""This is
+a "multi-line"
+string."""</span>
+<span class="token string">""""A long string within quotes.""""</span>
+<span class="token string">R"This is a raw string."</span>
+<span class="token string">r"Some ""quotes"" inside a raw string."</span>
+<span class="token string">r"""Raw strings
+can also be multi-line."""</span>
+<span class="token string">foo"This is a generalized raw string literal."</span>
+<span class="token string">bar"""This is also
+a generalized raw string literal."""</span>
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+// Foobar
+/* Foo
+bar */
+%%
+// Foobar
+/* Foo
+bar */
+%%
+----------------------------------------------------
+<span class="token bison"><span class="token comment">// Foobar</span>
+<span class="token comment">/* Foo
+bar */</span>
+<span class="token punctuation">%%</span>
+<span class="token comment">// Foobar</span>
+<span class="token comment">/* Foo
+bar */</span>
+<span class="token punctuation">%%</span></span>
+
+----------------------------------------------------

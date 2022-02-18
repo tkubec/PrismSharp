@@ -1,0 +1,19 @@
+style my_text is text:
+    size 40
+    font "gentium.ttf"
+----------------------------------------------------
+[
+	["keyword", "style"],
+	" my_text ",
+	["keyword", "is"],
+	["tag", "text"],
+	["punctuation", ":"],
+
+	["property", "size"],
+	["number", "40"],
+
+	["property", "font"],
+	["string", "\"gentium.ttf\""]
+]
+
+----------------------------------------------------

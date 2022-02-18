@@ -1,0 +1,23 @@
+function method(x: number, y: string, z: boolean) {}
+function stringifyBasicValue(value: string | number) {}
+function add(one: any, two: any): number {
+  return one + two;
+}
+
+const bar: number = 2;
+var barVar: number = 2;
+let barLet: number = 2;
+let isOneOf: number | boolean | string = foo;
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function">method</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token type tag">number</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token type tag">string</span><span class="token punctuation">,</span> <span class="token literal-property property">z</span><span class="token operator">:</span> <span class="token type tag">boolean</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">stringifyBasicValue</span><span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token type tag">string</span> <span class="token operator">|</span> <span class="token type tag">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>one<span class="token operator">:</span> <span class="token type tag">any</span><span class="token punctuation">,</span> <span class="token literal-property property">two</span><span class="token operator">:</span> <span class="token type tag">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token type tag">number</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> one <span class="token operator">+</span> two<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token literal-property property">bar</span><span class="token operator">:</span> <span class="token type tag">number</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token literal-property property">barVar</span><span class="token operator">:</span> <span class="token type tag">number</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token literal-property property">barLet</span><span class="token operator">:</span> <span class="token type tag">number</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token literal-property property">isOneOf</span><span class="token operator">:</span> <span class="token type tag">number</span> <span class="token operator">|</span> <span class="token type tag">boolean</span> <span class="token operator">|</span> <span class="token type tag">string</span> <span class="token operator">=</span> foo<span class="token punctuation">;</span>
+
+----------------------------------------------------

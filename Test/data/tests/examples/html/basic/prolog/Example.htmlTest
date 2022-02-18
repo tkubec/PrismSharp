@@ -1,0 +1,15 @@
+:- dynamic fibo/2.
+fibo(0, 1). fibo(1, 1).
+fibo(N, F) :-
+N >= 2, N1 is N - 1, N2 is N - 2,
+fibo(N1, F1), fibo(N2, F2), F is F1 + F2,
+assert(fibo(N,F):-!). % assert as first clause
+----------------------------------------------------
+<span class="token operator">:-</span> dynamic <span class="token function">fibo/2</span><span class="token operator">.</span>
+<span class="token function">fibo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">.</span> <span class="token function">fibo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">.</span>
+<span class="token function">fibo</span><span class="token punctuation">(</span>N<span class="token punctuation">,</span> F<span class="token punctuation">)</span> <span class="token operator">:-</span>
+N <span class="token operator">>=</span> <span class="token number">2</span><span class="token punctuation">,</span> N1 <span class="token operator">is</span> N <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> N2 <span class="token operator">is</span> N <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">,</span>
+<span class="token function">fibo</span><span class="token punctuation">(</span>N1<span class="token punctuation">,</span> F1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">fibo</span><span class="token punctuation">(</span>N2<span class="token punctuation">,</span> F2<span class="token punctuation">)</span><span class="token punctuation">,</span> F <span class="token operator">is</span> F1 <span class="token operator">+</span> F2<span class="token punctuation">,</span>
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token function">fibo</span><span class="token punctuation">(</span>N<span class="token punctuation">,</span>F<span class="token punctuation">)</span><span class="token operator">:-!</span><span class="token punctuation">)</span><span class="token operator">.</span> <span class="token comment">% assert as first clause</span>
+
+----------------------------------------------------

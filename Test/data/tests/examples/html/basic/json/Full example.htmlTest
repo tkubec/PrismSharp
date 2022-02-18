@@ -1,0 +1,33 @@
+{
+    "data": {
+        "labels": [
+            "foo",
+            "bar"
+        ],
+        "series": [
+            [ 0, 1, 2, 3 ],
+            [ 0, -4, -8, -12 ]
+        ]
+    },
+    // we even support comments
+    "error": null,
+    "status": "Ok"
+}
+----------------------------------------------------
+<span class="token punctuation">{</span>
+    <span class="token property">"data"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"labels"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"foo"</span><span class="token punctuation">,</span>
+            <span class="token string">"bar"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"series"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">-4</span><span class="token punctuation">,</span> <span class="token number">-8</span><span class="token punctuation">,</span> <span class="token number">-12</span> <span class="token punctuation">]</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// we even support comments</span>
+    <span class="token property">"error"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Ok"</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

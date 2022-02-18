@@ -1,0 +1,191 @@
+<html>
+<head>
+	<title>Welcome!</title>
+</head>
+<body>
+	<h1>
+		Welcome ${user}<#if user == "Big Joe">, our beloved leader</#if>!
+	</h1>
+	<p>Our latest product:
+	<a href="${latestProduct.url}">${latestProduct.name}</a>!
+	<p>See what our happy customers have to say!</p>
+	<ul>
+	<#list userStories as story>
+		<li>
+			<p>${story.text?esc} - by <span>${story.user.name}</span>
+		<li>
+	</#list>
+	</ul>
+</body>
+</html>
+----------------------------------------------------
+[
+	["ftl-directive", [
+		["punctuation", "<"],
+		["content", [
+			"html",
+			["operator", ">"],
+
+			["operator", "<"],
+			"head",
+			["operator", ">"],
+
+			["operator", "<"],
+			"title",
+			["operator", ">"],
+			"Welcome",
+			["operator", "!"],
+			["operator", "<"],
+			["operator", "/"],
+			"title",
+			["operator", ">"],
+
+			["operator", "<"],
+			["operator", "/"],
+			"head",
+			["operator", ">"],
+
+			["operator", "<"],
+			"body",
+			["operator", ">"],
+
+			["operator", "<"],
+			"h1",
+			["operator", ">"],
+
+			"\n\t\tWelcome $",
+			["punctuation", "{"],
+			"user",
+			["punctuation", "}"],
+			["operator", "<"],
+			"#if user ",
+			["operator", "=="],
+			["string", ["\"Big Joe\""]],
+			["operator", ">"],
+			["punctuation", ","],
+			" our beloved leader",
+			["operator", "<"],
+			["operator", "/"],
+			"#if",
+			["operator", ">"],
+			["operator", "!"],
+
+			["operator", "<"],
+			["operator", "/"],
+			"h1",
+			["operator", ">"],
+
+			["operator", "<"],
+			"p",
+			["operator", ">"],
+			"Our latest product",
+			["punctuation", ":"],
+
+			["operator", "<"],
+			"a href",
+			["operator", "="],
+			["string", [
+				"\"",
+				["interpolation", [
+					["interpolation-punctuation", "${"],
+					"latestProduct",
+					["punctuation", "."],
+					"url",
+					["interpolation-punctuation", "}"]
+				]],
+				"\""
+			]],
+			["operator", ">"],
+			"$",
+			["punctuation", "{"],
+			"latestProduct",
+			["punctuation", "."],
+			"name",
+			["punctuation", "}"],
+			["operator", "<"],
+			["operator", "/"],
+			"a",
+			["operator", ">"],
+			["operator", "!"],
+
+			["operator", "<"],
+			"p",
+			["operator", ">"],
+			"See what our happy customers have to say",
+			["operator", "!"],
+			["operator", "<"],
+			["operator", "/"],
+			"p",
+			["operator", ">"],
+
+			["operator", "<"],
+			"ul",
+			["operator", ">"],
+
+			["operator", "<"],
+			"#list userStories ",
+			["keyword", "as"],
+			" story",
+			["operator", ">"],
+
+			["operator", "<"],
+			"li",
+			["operator", ">"],
+
+			["operator", "<"],
+			"p",
+			["operator", ">"],
+			"$",
+			["punctuation", "{"],
+			"story",
+			["punctuation", "."],
+			"text",
+			["operator", "?"],
+			["builtin-function", "esc"],
+			["punctuation", "}"],
+			["operator", "-"],
+			" by ",
+			["operator", "<"],
+			"span",
+			["operator", ">"],
+			"$",
+			["punctuation", "{"],
+			"story",
+			["punctuation", "."],
+			"user",
+			["punctuation", "."],
+			"name",
+			["punctuation", "}"],
+			["operator", "<"],
+			["operator", "/"],
+			"span",
+			["operator", ">"],
+
+			["operator", "<"],
+			"li",
+			["operator", ">"],
+
+			["operator", "<"],
+			["operator", "/"],
+			"#list",
+			["operator", ">"],
+
+			["operator", "<"],
+			["operator", "/"],
+			"ul",
+			["operator", ">"],
+
+			["operator", "<"],
+			["operator", "/"],
+			"body",
+			["operator", ">"],
+
+			["operator", "<"],
+			["operator", "/"],
+			"html"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

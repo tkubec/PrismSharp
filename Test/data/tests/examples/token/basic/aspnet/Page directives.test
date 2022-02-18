@@ -1,0 +1,52 @@
+<%@ Page Title="Products" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="ProductList.aspx.cs" Inherits="WingtipToys.ProductList" %>
+----------------------------------------------------
+[
+	["page-directive", [
+		["page-directive", "<%@ Page"],
+		["attr-name", ["Title"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"Products",
+			["punctuation", "\""]
+		]],
+		["attr-name", ["Language"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"C#",
+			["punctuation", "\""]
+		]],
+		["attr-name", ["MasterPageFile"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"~/Site.Master",
+			["punctuation", "\""]
+		]],
+		["attr-name", ["AutoEventWireup"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"true",
+			["punctuation", "\""]
+		]],
+		["attr-name", ["CodeBehind"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"ProductList.aspx.cs",
+			["punctuation", "\""]
+		]],
+		["attr-name", ["Inherits"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"WingtipToys.ProductList",
+			["punctuation", "\""]
+		]],
+		["page-directive", "%>"]
+	]]
+]
+
+----------------------------------------------------

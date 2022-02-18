@@ -1,0 +1,268 @@
+{% set a = 4 %}
+{{ a == 4 }}
+{{ b != c }}
+{{ c < d }}
+{{ d <= e }}
+{{ e > f }}
+{{ f >= g }}
+{{ g + h }}
+{{ h - i }}
+{{ i ~ j }}
+{{ j * k }}
+{{ k ** l }}
+{{ l / m }}
+{{ m // n }}
+{{ n % o }}
+{{ o|default('foo') }}
+{{ p ? q : r }}
+{{ s ?: t }}
+
+{% if a and b or not c %}
+{% for p in foo %}
+{% if d b-and e and f b-xor g or h b-or i %}
+{% if j starts with 'h' %}
+{% if i ends with 'j' %}
+{% if k is same as false %}
+{% if l matches '/f[o]{2,}(?:bar)?' %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["tag-name", "set"],
+	" a ",
+	["operator", "="],
+	["number", "4"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" a ",
+	["operator", "=="],
+	["number", "4"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" b ",
+	["operator", "!="],
+	" c ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" c ",
+	["operator", "<"],
+	" d ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" d ",
+	["operator", "<="],
+	" e ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" e ",
+	["operator", ">"],
+	" f ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" f ",
+	["operator", ">="],
+	" g ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" g ",
+	["operator", "+"],
+	" h ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" h ",
+	["operator", "-"],
+	" i ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" i ",
+	["operator", "~"],
+	" j ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" j ",
+	["operator", "*"],
+	" k ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" k ",
+	["operator", "**"],
+	" l ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" l ",
+	["operator", "/"],
+	" m ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" m ",
+	["operator", "//"],
+	" n ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" n ",
+	["operator", "%"],
+	" o ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" o",
+	["operator", "|"],
+	"default",
+	["punctuation", "("],
+	["string", [
+		["punctuation", "'"],
+		"foo",
+		["punctuation", "'"]
+	]],
+	["punctuation", ")"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" p ",
+	["operator", "?"],
+	" q ",
+	["punctuation", ":"],
+	" r ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" s ",
+	["operator", "?:"],
+	" t ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	" a ",
+	["operator", "and"],
+	" b ",
+	["operator", "or"],
+	["operator", "not"],
+	" c ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	" for p ",
+	["operator", "in"],
+	" foo ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	" d ",
+	["operator", "b-and"],
+	" e ",
+	["operator", "and"],
+	" f ",
+	["operator", "b-xor"],
+	" g ",
+	["operator", "or"],
+	" h ",
+	["operator", "b-or"],
+	" i ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	" j ",
+	["operator", "starts with"],
+	["string", [
+		["punctuation", "'"],
+		"h",
+		["punctuation", "'"]
+	]],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	" i ",
+	["operator", "ends with"],
+	["string", [
+		["punctuation", "'"],
+		"j",
+		["punctuation", "'"]
+	]],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	" k ",
+	["operator", "is"],
+	["operator", "same as"],
+	["boolean", "false"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	" l ",
+	["operator", "matches"],
+	["string", [
+		["punctuation", "'"],
+		"/f[o]{2,}(?:bar)?",
+		["punctuation", "'"]
+	]],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

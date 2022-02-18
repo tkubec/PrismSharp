@@ -1,0 +1,32 @@
+p r i n t ("hello")
+if err(1/i, E, print (E))
+a + = b \ / c
+----------------------------------------------------
+[
+	["function", "p r i n t"],
+	["punctuation", "("],
+	["string", "\"hello\""],
+	["punctuation", ")"],
+
+	["keyword", "if err"],
+	["punctuation", "("],
+	["number", "1"],
+	["operator", "/"],
+	"i",
+	["punctuation", ","],
+	" E",
+	["punctuation", ","],
+	["function", "print"],
+	["punctuation", "("],
+	"E",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	"\na ",
+	["operator", "+ ="],
+	" b ",
+	["operator", "\\ /"],
+	" c"
+]
+
+----------------------------------------------------

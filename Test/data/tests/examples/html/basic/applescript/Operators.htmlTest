@@ -1,0 +1,17 @@
+a ≠ b
+12 + 2 * 5
+"DUMPtruck" is equal to "dumptruck"
+"zebra" comes after "aardvark"
+{ "this", "is", 2, "cool" } starts with "this"
+{ "is", 2} is contained by { "this", "is", 2, "cool" }
+set docRef to a reference to the first document
+----------------------------------------------------
+a <span class="token operator">≠</span> b
+<span class="token number">12</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">5</span>
+<span class="token string">"DUMPtruck"</span> <span class="token operator">is equal to</span> <span class="token string">"dumptruck"</span>
+<span class="token string">"zebra"</span> <span class="token operator">comes after</span> <span class="token string">"aardvark"</span>
+<span class="token punctuation">{</span> <span class="token string">"this"</span><span class="token punctuation">,</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"cool"</span> <span class="token punctuation">}</span> <span class="token operator">starts with</span> <span class="token string">"this"</span>
+<span class="token punctuation">{</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">}</span> <span class="token operator">is contained by</span> <span class="token punctuation">{</span> <span class="token string">"this"</span><span class="token punctuation">,</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"cool"</span> <span class="token punctuation">}</span>
+<span class="token keyword">set</span> docRef <span class="token keyword">to</span> <span class="token operator">a reference to</span> <span class="token keyword">the</span> <span class="token keyword">first</span> document
+
+----------------------------------------------------

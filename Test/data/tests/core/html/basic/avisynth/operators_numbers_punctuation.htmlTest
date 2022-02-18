@@ -1,0 +1,79 @@
++
+++
+-
+!
+!=
+<
+<=
+>
+>=
+=
+==
+&&
+||
+?
+:
+%
+/
+*
+
+$abcdef
+$89abcdef
+123.89032
+.902834
+
+$9abcdef
+a$123456a
+
+()
+{}
+[]
+;
+,
+.
+\
+
+\ 1.0 \
+
+1.0 \ 1.0
+----------------------------------------------------
+<span class="token operator">+</span>
+<span class="token operator">++</span>
+<span class="token operator">-</span>
+<span class="token operator">!</span>
+<span class="token operator">!=</span>
+<span class="token operator">&lt;</span>
+<span class="token operator">&lt;=</span>
+<span class="token operator">></span>
+<span class="token operator">>=</span>
+<span class="token operator">=</span>
+<span class="token operator">==</span>
+<span class="token operator">&amp;&amp;</span>
+<span class="token operator">||</span>
+<span class="token operator">?</span>
+<span class="token operator">:</span>
+<span class="token operator">%</span>
+<span class="token operator">/</span>
+<span class="token operator">*</span>
+
+<span class="token number">$abcdef</span>
+<span class="token number">$89abcdef</span>
+<span class="token number">123.89032</span>
+<span class="token number">.902834</span>
+
+$9abcdef
+a$123456a
+
+<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">;</span>
+<span class="token punctuation">,</span>
+<span class="token punctuation">.</span>
+<span class="token line-continuation punctuation">\</span>
+
+<span class="token line-continuation punctuation">\</span> <span class="token number">1.0</span> <span class="token line-continuation punctuation">\</span>
+
+<span class="token number">1.0</span> \ <span class="token number">1.0</span>
+
+----------------------------------------------------

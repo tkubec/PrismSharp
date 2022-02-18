@@ -1,0 +1,51 @@
+-a         Output all.
+-b         Output both (this description is
+           quite long).
+-c arg     Output just arg.
+--long     Output all day long.
+
+-p         This option has two paragraphs in the description.
+           This is the first.
+
+           This is the second.  Blank lines may be omitted between
+           options (as above) or left in (as here and below).
+
+--very-long-option  A VMS-style option.  Note the adjustment for
+                    the required two spaces.
+
+--an-even-longer-option
+           The description can also start on the next line.
+
+-2, --two  This option has two variants.
+
+-f FILE, --file=FILE  These two options are synonyms; both have
+                      arguments.
+
+/V         A VMS/DOS-style option.
+----------------------------------------------------
+<span class="token command-line-option symbol">-a</span>         Output all.
+<span class="token command-line-option symbol">-b</span>         Output both (this description is
+           quite long).
+<span class="token command-line-option symbol">-c arg</span>     Output just arg.
+<span class="token command-line-option symbol">--long</span>     Output all day long.
+
+<span class="token command-line-option symbol">-p</span>         This option has two paragraphs in the description.
+           This is the first.
+
+           This is the second.  Blank lines may be omitted between
+           options (as above) or left in (as here and below).
+
+<span class="token command-line-option symbol">--very-long-option</span>  A VMS-style option.  Note the adjustment for
+                    the required two spaces.
+
+<span class="token command-line-option symbol">--an-even-longer-option</span>
+           The description can also start on the next line.
+
+<span class="token command-line-option symbol">-2, --two</span>  This option has two variants.
+
+<span class="token command-line-option symbol">-f FILE, --file=FILE</span>  These two options are synonyms; both have
+                      arguments.
+
+<span class="token command-line-option symbol">/V</span>         A VMS/DOS-style option.
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+%div
+  <p id="blah">Blah!</p>
+----------------------------------------------------
+<span class="token tag">%div</span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blah<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Blah!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+
+----------------------------------------------------

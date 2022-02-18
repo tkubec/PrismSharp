@@ -1,0 +1,57 @@
+{ foo: 0, bar: 0 };
+{ 'foo': 0, "bar": 0 };
+{
+	// comment
+	foo: 0,
+	// comment
+	"bar": 0
+}
+
+const test = new TYPE.Application({
+  key1: viewDim.x,
+  key2: viewDim.y,
+  key3: 0x89ddff,
+  key4: window.devicePixelRatio || 1,
+  key5: resize()
+});
+
+// doesn't conflict with function properties
+{
+	foo: () => 0,
+	bar: async function () {}
+}
+
+// no problem with keywords
+switch(foo) {
+	default: return true;
+}
+----------------------------------------------------
+<span class="token punctuation">{</span> <span class="token literal-property property">foo</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">bar</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">{</span> <span class="token string-property property">'foo'</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string-property property">"bar"</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// comment</span>
+	<span class="token literal-property property">foo</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	<span class="token comment">// comment</span>
+	<span class="token string-property property">"bar"</span><span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> test <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TYPE<span class="token punctuation">.</span>Application</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">key1</span><span class="token operator">:</span> viewDim<span class="token punctuation">.</span>x<span class="token punctuation">,</span>
+  <span class="token literal-property property">key2</span><span class="token operator">:</span> viewDim<span class="token punctuation">.</span>y<span class="token punctuation">,</span>
+  <span class="token literal-property property">key3</span><span class="token operator">:</span> <span class="token number">0x89ddff</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">key4</span><span class="token operator">:</span> window<span class="token punctuation">.</span>devicePixelRatio <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">key5</span><span class="token operator">:</span> <span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// doesn't conflict with function properties</span>
+<span class="token punctuation">{</span>
+	<span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token number">0</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">bar</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// no problem with keywords</span>
+<span class="token keyword">switch</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">default</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

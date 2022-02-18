@@ -1,0 +1,84 @@
+This is *emphasized text*.
+This is **strong text**.
+This is `interpreted text`.
+:role:`interpreted text`
+`interpreted text`:role:
+This text is an example of ``inline literals``.
+The regular expression ``[+-]?(\d+(\.\d*)?|\.\d+)`` matches
+floating-point numbers (without exponents).
+
+See the `Python home page <http://www.python.org>`_ for info.
+
+Oh yes, the _`Norwegian Blue`.  What's, um, what's wrong with it?
+----------------------------------------------------
+[
+	"This is ",
+	["inline", [
+		["punctuation", "*"],
+		["italic", "emphasized text"],
+		["punctuation", "*"]
+	]],
+	".\nThis is ",
+	["inline", [
+		["punctuation", "**"],
+		["bold", "strong text"],
+		["punctuation", "**"]
+	]],
+	".\nThis is ",
+	["inline", [
+		["punctuation", "`"],
+		["interpreted-text", "interpreted text"],
+		["punctuation", "`"]
+	]],
+	".\n",
+
+	["inline", [
+		["role", [
+			["punctuation", ":"],
+			"role",
+			["punctuation", ":"]
+		]],
+		["punctuation", "`"],
+		["interpreted-text", "interpreted text"],
+		["punctuation", "`"]
+	]],
+
+	["inline", [
+		["punctuation", "`"],
+		["interpreted-text", "interpreted text"],
+		["punctuation", "`"],
+		["role", [
+			["punctuation", ":"],
+			"role",
+			["punctuation", ":"]
+		]]
+	]],
+
+	"\nThis text is an example of ",
+	["inline", [
+		["punctuation", "``"],
+		["inline-literal", "inline literals"],
+		["punctuation", "``"]
+	]],
+	".\nThe regular expression ",
+	["inline", [
+		["punctuation", "``"],
+		["inline-literal", "[+-]?(\\d+(\\.\\d*)?|\\.\\d+)"],
+		["punctuation", "``"]
+	]],
+	" matches\nfloating-point numbers (without exponents).\n\nSee the ",
+	["link", [
+		["punctuation", "`"],
+		"Python home page <http://www.python.org>",
+		["punctuation", "`_"]
+	]],
+	" for info.\n\nOh yes, the ",
+	["link", [
+		["punctuation", "_`"],
+		"Norwegian Blue",
+		["punctuation", "`"]
+	]],
+	".  What's, um, what's wrong with it?"
+]
+
+----------------------------------------------------

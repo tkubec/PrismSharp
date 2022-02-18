@@ -1,0 +1,111 @@
+const Timestamp = struct {
+	seconds: i64,
+	nanos: u32,
+	pub fn unixEpoch() Timestamp {
+		return Timestamp{
+			.seconds = 0,
+			.nanos = 0,
+		};
+	}
+};
+
+const one_plus_one: i32 = 1 + 1;
+var x: i32;
+const value: ?u32 = null;
+var optional_value: ?[]const u8 = null;
+var number_or_error: anyerror!i32 = error.ArgNotFound;
+const array1 = [_]u32{1,2};
+var foo: S align(4) = undefined;
+
+fn add(a: i32, b: i32) i32 {
+	return a + b;
+}
+extern fn foo(x: f64) f64;
+fn noop4() align(4) void {}
+fn derp() align(@sizeOf(usize) * 2) i32 { return 1234; }
+
+fn eventuallyNullSequence() ?u32 {
+	return if (numbers_left == 0) null else blk: {
+		numbers_left -= 1;
+		break :blk numbers_left;
+	};
+}
+
+const message = [_]u8{ 'h', 'e', 'l', 'l', 'o' };
+
+const mat4x4 = [4][4]f32{
+	[_]f32{ 1.0, 0.0, 0.0, 0.0 },
+	[_]f32{ 0.0, 1.0, 0.0, 1.0 },
+	[_]f32{ 0.0, 0.0, 1.0, 0.0 },
+	[_]f32{ 0.0, 0.0, 0.0, 1.0 },
+};
+
+const Point = struct {};
+const Point2 = packed struct {};
+const Type = enum {};
+const Value = enum(u2) {};
+const Number = packed enum(u8) {};
+const Foo = extern enum { A, B, C };
+const Foo = extern enum { A, B, C };
+const Payload = union {};
+const ComplexType = union(ComplexTypeTag) {};
+
+var node = ListOfInts.Node {};
+var list2 = LinkedList(i32) {};
+----------------------------------------------------
+<span class="token keyword">const</span> <span class="token class-name">Timestamp</span> <span class="token operator">=</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	seconds<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">i64</span></span><span class="token punctuation">,</span>
+	nanos<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">u32</span></span><span class="token punctuation">,</span>
+	<span class="token keyword">pub</span> <span class="token keyword">fn</span> <span class="token function">unixEpoch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token class-name">Timestamp</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token class-name">Timestamp</span><span class="token punctuation">{</span>
+			<span class="token punctuation">.</span>seconds <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+			<span class="token punctuation">.</span>nanos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> one_plus_one<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">i32</span></span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> x<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">i32</span></span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> value<span class="token punctuation">:</span> <span class="token class-name"><span class="token operator">?</span><span class="token builtin-type keyword">u32</span></span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> optional_value<span class="token punctuation">:</span> <span class="token class-name"><span class="token operator">?</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token keyword">const</span> <span class="token builtin-type keyword">u8</span></span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> number_or_error<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">anyerror</span><span class="token operator">!</span><span class="token builtin-type keyword">i32</span></span> <span class="token operator">=</span> <span class="token keyword">error</span><span class="token punctuation">.</span>ArgNotFound<span class="token punctuation">;</span>
+<span class="token keyword">const</span> array1 <span class="token operator">=</span> <span class="token class-name"><span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token builtin-type keyword">u32</span></span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> foo<span class="token punctuation">:</span> <span class="token class-name">S</span> <span class="token keyword">align</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+
+<span class="token keyword">fn</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">i32</span></span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">i32</span></span><span class="token punctuation">)</span> <span class="token class-name"><span class="token builtin-type keyword">i32</span></span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">extern</span> <span class="token keyword">fn</span> <span class="token function">foo</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">f64</span></span><span class="token punctuation">)</span> <span class="token class-name"><span class="token builtin-type keyword">f64</span></span><span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function">noop4</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">align</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token class-name"><span class="token builtin-type keyword">void</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token function">derp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">align</span><span class="token punctuation">(</span><span class="token builtin">@sizeOf</span><span class="token punctuation">(</span><span class="token builtin-type keyword">usize</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token class-name"><span class="token builtin-type keyword">i32</span></span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">1234</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">eventuallyNullSequence</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token class-name"><span class="token operator">?</span><span class="token builtin-type keyword">u32</span></span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>numbers_left <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">null</span> <span class="token keyword">else</span> <span class="token label">blk</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		numbers_left <span class="token operator">-=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span> <span class="token punctuation">:</span><span class="token label">blk</span> numbers_left<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token class-name"><span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token builtin-type keyword">u8</span></span><span class="token punctuation">{</span> <span class="token char">'h'</span><span class="token punctuation">,</span> <span class="token char">'e'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'o'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> mat4x4 <span class="token operator">=</span> <span class="token class-name"><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token builtin-type keyword">f32</span></span><span class="token punctuation">{</span>
+	<span class="token class-name"><span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token builtin-type keyword">f32</span></span><span class="token punctuation">{</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token class-name"><span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token builtin-type keyword">f32</span></span><span class="token punctuation">{</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token class-name"><span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token builtin-type keyword">f32</span></span><span class="token punctuation">{</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token class-name"><span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token builtin-type keyword">f32</span></span><span class="token punctuation">{</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token class-name">Point</span> <span class="token operator">=</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token class-name">Point2</span> <span class="token operator">=</span> <span class="token keyword">packed</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token class-name">Type</span> <span class="token operator">=</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token class-name">Value</span> <span class="token operator">=</span> <span class="token keyword">enum</span><span class="token punctuation">(</span>u2<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token class-name">Number</span> <span class="token operator">=</span> <span class="token keyword">packed</span> <span class="token keyword">enum</span><span class="token punctuation">(</span><span class="token builtin-type keyword">u8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token class-name">Foo</span> <span class="token operator">=</span> <span class="token keyword">extern</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token class-name">Foo</span> <span class="token operator">=</span> <span class="token keyword">extern</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token class-name">Payload</span> <span class="token operator">=</span> <span class="token keyword">union</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token class-name">ComplexType</span> <span class="token operator">=</span> <span class="token keyword">union</span><span class="token punctuation">(</span>ComplexTypeTag<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> node <span class="token operator">=</span> <span class="token class-name">ListOfInts<span class="token punctuation">.</span>Node</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> list2 <span class="token operator">=</span> <span class="token function">LinkedList</span><span class="token punctuation">(</span><span class="token builtin-type keyword">i32</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

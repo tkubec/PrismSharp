@@ -1,0 +1,31 @@
+__FILE__
+__LINE__
+__DATE__
+__TIME__
+__TIMESTAMP__
+__func__
+EOF
+NULL
+SEEK_CUR
+SEEK_END
+SEEK_SET
+stdin
+stdout
+stderr
+----------------------------------------------------
+<span class="token constant">__FILE__</span>
+<span class="token constant">__LINE__</span>
+<span class="token constant">__DATE__</span>
+<span class="token constant">__TIME__</span>
+<span class="token constant">__TIMESTAMP__</span>
+<span class="token constant">__func__</span>
+<span class="token constant">EOF</span>
+<span class="token constant">NULL</span>
+<span class="token constant">SEEK_CUR</span>
+<span class="token constant">SEEK_END</span>
+<span class="token constant">SEEK_SET</span>
+<span class="token constant">stdin</span>
+<span class="token constant">stdout</span>
+<span class="token constant">stderr</span>
+
+----------------------------------------------------

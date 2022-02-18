@@ -1,0 +1,9 @@
+p.#{$name} {
+    #{$attr}-color: blue;
+}
+----------------------------------------------------
+<span class="token selector">p.<span class="token variable">#{$name}</span> </span><span class="token punctuation">{</span>
+    <span class="token property"><span class="token variable">#{$attr}</span>-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

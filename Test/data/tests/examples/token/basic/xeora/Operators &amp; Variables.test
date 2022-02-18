@@ -1,0 +1,100 @@
+$SearchKey$
+$^SearchKey$
+$~SearchKey$
+$-SearchKey$
+$+SearchKey$
+$=SearchKey$
+$#SearchKey$
+$##SearchKey$
+
+$*SearchKey$
+
+$@SearchObject.SearchProperty$
+$@#SearchObject.SearchProperty$
+$@-SearchObject.SearchProperty$
+----------------------------------------------------
+[
+	["variable", [
+		["punctuation", "$"],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "^"],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "~"],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "-"],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "+"],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "="],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "#"],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "##"],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+
+	["variable", [
+		["punctuation", "$"],
+		["operator", "*"],
+		"SearchKey",
+		["punctuation", "$"]
+	]],
+
+	["variable", [
+		["punctuation", "$"],
+		["operator", "@"],
+		"SearchObject",
+		["punctuation", "."],
+		"SearchProperty",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "@"],
+		["operator", "#"],
+		"SearchObject",
+		["punctuation", "."],
+		"SearchProperty",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "@"],
+		["operator", "-"],
+		"SearchObject",
+		["punctuation", "."],
+		"SearchProperty",
+		["punctuation", "$"]
+	]]
+]
+
+----------------------------------------------------

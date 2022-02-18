@@ -1,0 +1,45 @@
+if browser_height > window_get_height() || browser_width > window_get_width()
+	{
+	var xx, yy;
+	if browser_width > window_get_width()
+		{
+		xx = (browser_width - window_get_width()) / 2;
+		}
+	else
+		{
+		xx = 0;
+		}
+	if browser_height > window_get_height()
+		{
+		yy = (browser_height - window_get_height()) / 2;
+		}
+	else
+		{
+		yy = 0;
+		}
+	window_set_position(xx, yy);
+	}
+----------------------------------------------------
+<span class="token keyword">if</span> <span class="token variable">browser_height</span> <span class="token operator">></span> <span class="token function">window_get_height</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token variable">browser_width</span> <span class="token operator">></span> <span class="token function">window_get_width</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token keyword">var</span> xx<span class="token punctuation">,</span> yy<span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token variable">browser_width</span> <span class="token operator">></span> <span class="token function">window_get_width</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+		xx <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">browser_width</span> <span class="token operator">-</span> <span class="token function">window_get_width</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token keyword">else</span>
+		<span class="token punctuation">{</span>
+		xx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token variable">browser_height</span> <span class="token operator">></span> <span class="token function">window_get_height</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+		yy <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">browser_height</span> <span class="token operator">-</span> <span class="token function">window_get_height</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token keyword">else</span>
+		<span class="token punctuation">{</span>
+		yy <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token function">window_set_position</span><span class="token punctuation">(</span>xx<span class="token punctuation">,</span> yy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+----------------------------------------------------

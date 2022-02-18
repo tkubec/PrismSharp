@@ -1,0 +1,12 @@
+&lt;report xmlns="http://datypic.com/report"
+xmlns:cat="http://datypic.com/cat"
+xmlns:prod="http://datypic.com/prod"> {
+for $product in doc("prod_ns.xml")/prod:product
+return &lt;lineItem>
+{$product/prod:number}
+{$product/prod:name}
+&lt;/lineItem>
+} &lt;/report>
+
+--------------------------------------------------
+

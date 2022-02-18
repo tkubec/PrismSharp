@@ -1,0 +1,103 @@
++ +=
+- -=
+* *=
+/ /= //
+\ \=
+^ ^=
+% %=
+÷ ÷=
+! != !==
+& &= &&
+⊻ ⊻=
+| |= ||
+|> <|
+$ $=
+< <= <: << <<=
+> >= >> >>= >>> >>>=
+= == ===
+~ ≠ ≤ ≥ √ ∛
+
+A'b
+A'b''
+----------------------------------------------------
+[
+	["operator", "+"],
+	["operator", "+="],
+
+	["operator", "-"],
+	["operator", "-="],
+
+	["operator", "*"],
+	["operator", "*="],
+
+	["operator", "/"],
+	["operator", "/="],
+	["operator", "//"],
+
+	["operator", "\\"],
+	["operator", "\\="],
+
+	["operator", "^"],
+	["operator", "^="],
+
+	["operator", "%"],
+	["operator", "%="],
+
+	["operator", "÷"],
+	["operator", "÷="],
+
+	["operator", "!"],
+	["operator", "!="],
+	["operator", "!=="],
+
+	["operator", "&"],
+	["operator", "&="],
+	["operator", "&&"],
+
+	["operator", "⊻"],
+	["operator", "⊻="],
+
+	["operator", "|"],
+	["operator", "|="],
+	["operator", "||"],
+
+	["operator", "|>"],
+	["operator", "<|"],
+
+	["operator", "$"],
+	["operator", "$="],
+
+	["operator", "<"],
+	["operator", "<="],
+	["operator", "<:"],
+	["operator", "<<"],
+	["operator", "<<="],
+
+	["operator", ">"],
+	["operator", ">="],
+	["operator", ">>"],
+	["operator", ">>="],
+	["operator", ">>>"],
+	["operator", ">>>="],
+
+	["operator", "="],
+	["operator", "=="],
+	["operator", "==="],
+
+	["operator", "~"],
+	["operator", "≠"],
+	["operator", "≤"],
+	["operator", "≥"],
+	["operator", "√"],
+	["operator", "∛"],
+
+	"\n\nA",
+	["operator", "'"],
+	"b\nA",
+	["operator", "'"],
+	"b",
+	["operator", "'"],
+	["operator", "'"]
+]
+
+----------------------------------------------------

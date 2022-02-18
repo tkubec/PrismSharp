@@ -1,0 +1,67 @@
+let func : HttpFunc = handler (Some >> Task.FromResult)
+
+type Base1() =
+    abstract member F : unit -> unit
+    default u.F() =
+        printfn "F Base1"
+
+type Derived1() =
+    inherit Base1()
+    override u.F() =
+        printfn "F Derived1"
+
+let d1 : Derived1 = Derived1()
+
+let base1 = d1 :> Base1
+let derived1 = base1 :?> Derived1
+
+type PersonName =
+    | FirstOnly of string
+    | LastOnly of string
+    | FirstLast of string * string
+
+type Shape =
+    | Rectangle of height : float * width : float
+    | Circle of radius : float
+
+type MyInterface =
+   abstract member Add: int -> int -> int
+   abstract member Pi : float
+
+exception Error1 of string
+exception Error2 of string * int
+----------------------------------------------------
+<span class="token keyword">let</span> func <span class="token punctuation">:</span> <span class="token class-name">HttpFunc</span> <span class="token operator">=</span> handler <span class="token punctuation">(</span>Some <span class="token operator">>></span> Task<span class="token punctuation">.</span>FromResult<span class="token punctuation">)</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Base1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span>
+    <span class="token keyword">abstract</span> <span class="token keyword">member</span> F <span class="token punctuation">:</span> <span class="token class-name">unit <span class="token operator">-></span> unit</span>
+    <span class="token keyword">default</span> u<span class="token punctuation">.</span><span class="token function">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span>
+        printfn <span class="token string">"F Base1"</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Derived1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span>
+    <span class="token keyword">inherit</span> <span class="token class-name">Base1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">override</span> u<span class="token punctuation">.</span><span class="token function">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span>
+        printfn <span class="token string">"F Derived1"</span>
+
+<span class="token keyword">let</span> d1 <span class="token punctuation">:</span> <span class="token class-name">Derived1</span> <span class="token operator">=</span> <span class="token function">Derived1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> base1 <span class="token operator">=</span> d1 <span class="token operator">:></span> <span class="token class-name">Base1</span>
+<span class="token keyword">let</span> derived1 <span class="token operator">=</span> base1 <span class="token operator">:?></span> <span class="token class-name">Derived1</span>
+
+<span class="token keyword">type</span> <span class="token class-name">PersonName</span> <span class="token operator">=</span>
+    <span class="token operator">|</span> FirstOnly <span class="token keyword">of</span> <span class="token class-name">string</span>
+    <span class="token operator">|</span> LastOnly <span class="token keyword">of</span> <span class="token class-name">string</span>
+    <span class="token operator">|</span> FirstLast <span class="token keyword">of</span> <span class="token class-name">string <span class="token operator">*</span> string</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Shape</span> <span class="token operator">=</span>
+    <span class="token operator">|</span> Rectangle <span class="token keyword">of</span> height <span class="token punctuation">:</span> <span class="token class-name">float</span> <span class="token operator">*</span> width <span class="token punctuation">:</span> <span class="token class-name">float</span>
+    <span class="token operator">|</span> Circle <span class="token keyword">of</span> radius <span class="token punctuation">:</span> <span class="token class-name">float</span>
+
+<span class="token keyword">type</span> <span class="token class-name">MyInterface</span> <span class="token operator">=</span>
+   <span class="token keyword">abstract</span> <span class="token keyword">member</span> Add<span class="token punctuation">:</span> <span class="token class-name">int <span class="token operator">-></span> int <span class="token operator">-></span> int</span>
+   <span class="token keyword">abstract</span> <span class="token keyword">member</span> Pi <span class="token punctuation">:</span> <span class="token class-name">float</span>
+
+<span class="token keyword">exception</span> <span class="token class-name">Error1</span> <span class="token keyword">of</span> <span class="token class-name">string</span>
+<span class="token keyword">exception</span> <span class="token class-name">Error2</span> <span class="token keyword">of</span> <span class="token class-name">string <span class="token operator">*</span> int</span>
+
+----------------------------------------------------

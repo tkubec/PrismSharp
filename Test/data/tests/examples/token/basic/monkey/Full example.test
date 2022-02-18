@@ -1,0 +1,243 @@
+Import mojo
+
+Class MyApp Extends App
+
+    Method OnCreate()
+
+        SetUpdateRate 60
+
+    End
+
+    Method OnRender()
+
+        Local date:=GetDate()
+
+        Local months:=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+
+        Local day:=("0"+date[2])[-2..]
+        Local month:=months[date[1]-1]
+        Local year:=date[0]
+        Local hour:=("0"+date[3])[-2..]
+        Local min:=("0"+date[4])[-2..]
+        Local sec:=("0"+date[5])[-2..] + "." + ("00"+date[6])[-3..]
+
+        Local now:=hour+":"+min+":"+sec+"  "+day+" "+month+" "+year
+
+        Cls
+        DrawText now,DeviceWidth/2,DeviceHeight/2,.5,.5
+    End
+
+End
+
+Function Main()
+
+    New MyApp
+
+End
+----------------------------------------------------
+[
+	["keyword", "Import"], " mojo\n\n",
+
+	["keyword", "Class"], " MyApp ", ["keyword", "Extends"], " App\n\n    ",
+
+	["keyword", "Method"],
+	["function", "OnCreate"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	"\n\n        SetUpdateRate ", ["number", "60"],
+
+	["keyword", "End"],
+
+	["keyword", "Method"],
+	["function", "OnRender"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "Local"],
+	" date",
+	["operator", ":="],
+	["function", "GetDate"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "Local"],
+	" months",
+	["operator", ":="],
+	["punctuation", "["],
+	["string", "\"Jan\""],
+	["punctuation", ","],
+	["string", "\"Feb\""],
+	["punctuation", ","],
+	["string", "\"Mar\""],
+	["punctuation", ","],
+	["string", "\"Apr\""],
+	["punctuation", ","],
+	["string", "\"May\""],
+	["punctuation", ","],
+	["string", "\"Jun\""],
+	["punctuation", ","],
+	["string", "\"Jul\""],
+	["punctuation", ","],
+	["string", "\"Aug\""],
+	["punctuation", ","],
+	["string", "\"Sep\""],
+	["punctuation", ","],
+	["string", "\"Oct\""],
+	["punctuation", ","],
+	["string", "\"Nov\""],
+	["punctuation", ","],
+	["string", "\"Dec\""],
+	["punctuation", "]"],
+
+	["keyword", "Local"],
+	" day",
+	["operator", ":="],
+	["punctuation", "("],
+	["string", "\"0\""],
+	["operator", "+"],
+	"date",
+	["punctuation", "["],
+	["number", "2"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "["],
+	["number", "-2"],
+	["operator", ".."],
+	["punctuation", "]"],
+
+	["keyword", "Local"],
+	" month",
+	["operator", ":="],
+	"months",
+	["punctuation", "["],
+	"date",
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["number", "-1"],
+	["punctuation", "]"],
+
+	["keyword", "Local"],
+	" year",
+	["operator", ":="],
+	"date",
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+
+	["keyword", "Local"],
+	" hour",
+	["operator", ":="],
+	["punctuation", "("],
+	["string", "\"0\""],
+	["operator", "+"],
+	"date",
+	["punctuation", "["],
+	["number", "3"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "["],
+	["number", "-2"],
+	["operator", ".."],
+	["punctuation", "]"],
+
+	["keyword", "Local"],
+	" min",
+	["operator", ":="],
+	["punctuation", "("],
+	["string", "\"0\""],
+	["operator", "+"],
+	"date",
+	["punctuation", "["],
+	["number", "4"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "["],
+	["number", "-2"],
+	["operator", ".."],
+	["punctuation", "]"],
+
+	["keyword", "Local"],
+	" sec",
+	["operator", ":="],
+	["punctuation", "("],
+	["string", "\"0\""],
+	["operator", "+"],
+	"date",
+	["punctuation", "["],
+	["number", "5"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "["],
+	["number", "-2"],
+	["operator", ".."],
+	["punctuation", "]"],
+	["operator", "+"],
+	["string", "\".\""],
+	["operator", "+"],
+	["punctuation", "("],
+	["string", "\"00\""],
+	["operator", "+"],
+	"date",
+	["punctuation", "["],
+	["number", "6"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "["],
+	["number", "-3"],
+	["operator", ".."],
+	["punctuation", "]"],
+
+	["keyword", "Local"],
+	" now",
+	["operator", ":="],
+	"hour",
+	["operator", "+"],
+	["string", "\":\""],
+	["operator", "+"],
+	"min",
+	["operator", "+"],
+	["string", "\":\""],
+	["operator", "+"],
+	"sec",
+	["operator", "+"],
+	["string", "\"  \""],
+	["operator", "+"],
+	"day",
+	["operator", "+"],
+	["string", "\" \""],
+	["operator", "+"],
+	"month",
+	["operator", "+"],
+	["string", "\" \""],
+	["operator", "+"],
+	"year\n\n        Cls\n        DrawText now",
+	["punctuation", ","],
+	"DeviceWidth",
+	["operator", "/"],
+	["number", "2"],
+	["punctuation", ","],
+	"DeviceHeight",
+	["operator", "/"],
+	["number", "2"],
+	["punctuation", ","],
+	["number", ".5"],
+	["punctuation", ","],
+	["number", ".5"],
+
+	["keyword", "End"],
+
+	["keyword", "End"],
+
+	["keyword", "Function"],
+	["function", "Main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "New"], " MyApp\n\n",
+
+	["keyword", "End"]
+]
+
+----------------------------------------------------

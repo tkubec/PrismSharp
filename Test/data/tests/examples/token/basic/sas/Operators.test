@@ -1,0 +1,113 @@
+A**B;
+'foo'||'bar'!!'baz'¦¦'test';
+A<>B><C;
+A~=B¬=C^=D>=E<=F;
+a*b/c+d-e<f>g&h|i!j¦k;
+~a;¬b;^c;
+(a eq b) ne (c gt d) lt e ge f le h;
+state in ('NY','NJ','PA');
+not a;
+----------------------------------------------------
+[
+	"A",
+	["operator", "**"],
+	"B",
+	["punctuation", ";"],
+
+	["string", "'foo'"],
+	["operator", "||"],
+	["string", "'bar'"],
+	["operator", "!!"],
+	["string", "'baz'"],
+	["operator", "¦¦"],
+	["string", "'test'"],
+	["punctuation", ";"],
+
+	"\nA",
+	["operator", "<>"],
+	"B",
+	["operator", "><"],
+	"C",
+	["punctuation", ";"],
+
+	"\nA",
+	["operator", "~="],
+	"B",
+	["operator", "¬="],
+	"C",
+	["operator", "^="],
+	"D",
+	["operator", ">="],
+	"E",
+	["operator", "<="],
+	"F",
+	["punctuation", ";"],
+
+	"\na",
+	["operator", "*"],
+	"b",
+	["operator", "/"],
+	"c",
+	["operator", "+"],
+	"d",
+	["operator", "-"],
+	"e",
+	["operator", "<"],
+	"f",
+	["operator", ">"],
+	"g",
+	["macro-variable", "&h"],
+	["operator", "|"],
+	"i",
+	["operator", "!"],
+	"j",
+	["operator", "¦"],
+	"k",
+	["punctuation", ";"],
+
+	["operator", "~"],
+	"a",
+	["punctuation", ";"],
+	["operator", "¬"],
+	"b",
+	["punctuation", ";"],
+	["operator", "^"],
+	"c",
+	["punctuation", ";"],
+
+	["punctuation", "("],
+	"a ",
+	["operator-keyword", "eq"],
+	" b",
+	["punctuation", ")"],
+	["operator-keyword", "ne"],
+	["punctuation", "("],
+	"c ",
+	["operator-keyword", "gt"],
+	" d",
+	["punctuation", ")"],
+	["operator-keyword", "lt"],
+	" e ",
+	["operator-keyword", "ge"],
+	" f ",
+	["operator-keyword", "le"],
+	" h",
+	["punctuation", ";"],
+
+	"\nstate ",
+	["operator-keyword", "in"],
+	["punctuation", "("],
+	["string", "'NY'"],
+	["punctuation", ","],
+	["string", "'NJ'"],
+	["punctuation", ","],
+	["string", "'PA'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["operator-keyword", "not"],
+	" a",
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

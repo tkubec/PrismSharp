@@ -1,0 +1,157 @@
+// A Web User Interface in HTML
+// NOTE: requires full example project bundled with N4JS IDE to run.
+
+import { TaskManager } from "TaskManager";
+import {Application, Response } from "express";
+import express from "express";
+import { Todo } from "model";
+
+
+export class WebUI {
+
+     private app: Application;
+
+     @Inject
+     private manager: TaskManager;
+
+     public start() {
+
+          this.app = express();
+
+          this.app.get('/', async (req, res) => {
+               let page = await this.renderHomePage();
+               res.send(page);
+          });
+
+          this.app.get("/clear", async (req, res) => {
+               await this.manager.clear();
+               redirect(res, '/');
+          });
+
+          this.app.get("/create", async (req, res) => {
+               let values = req.query as ~Object with {type: string, label: string};
+               if (values && values.type === 'Todo' && values.label && values.label.length > 0) {
+                    await this.manager.createTodo(values.label);
+               }
+               redirect(res, '/');
+          });
+
+          this.app.listen(4000, '0.0.0.0', 511, function() {
+               console.log("HTML server listening on http://localhost:4000/");
+          });
+     }
+
+     protected async renderHomePage(): string {
+          let tasks = await this.manager.getTasks();
+          let todos = tasks.filter((task) => task instanceof Todo);
+          return `
+
+<html>
+<body>
+     Your to-do's:
+     <ul>
+     ${
+          todos.length === 0 ? '<li><em>none</em></li>\n'
+          : todos.map((task) =>
+               '<li>' + task.label + ' <small>(id: ' + task.id + ')</small></li>'
+          ).join('\n')
+     }
+     </ul>
+     <hr/>
+     <form action="/create" method="get">
+     <input type="hidden" name="type" value="Todo">
+     Label: <input type="text" name="label"><br>
+     <input type="submit" value="Create Todo">
+     </form>
+     <hr/>
+     <a href="/clear">[Clear All]</a>
+</body>
+</html>
+`;
+     }
+}
+
+function redirect(res: Response, url: string) {
+     res.header('Cache-Control', 'no-cache');
+     res.redirect(301, url);
+}
+----------------------------------------------------
+<span class="token comment">// A Web User Interface in HTML</span>
+<span class="token comment">// NOTE: requires full example project bundled with N4JS IDE to run.</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> TaskManager <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"TaskManager"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Application<span class="token punctuation">,</span> Response <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"express"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> express <span class="token keyword">from</span> <span class="token string">"express"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Todo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"model"</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">WebUI</span> <span class="token punctuation">{</span>
+
+     <span class="token keyword">private</span> <span class="token literal-property property">app</span><span class="token operator">:</span> Application<span class="token punctuation">;</span>
+
+     <span class="token annotation operator">@Inject</span>
+     <span class="token keyword">private</span> <span class="token literal-property property">manager</span><span class="token operator">:</span> TaskManager<span class="token punctuation">;</span>
+
+     <span class="token keyword">public</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+          <span class="token keyword">this</span><span class="token punctuation">.</span>app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">this</span><span class="token punctuation">.</span>app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token function">async</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+               <span class="token keyword">let</span> page <span class="token operator">=</span> await <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderHomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">this</span><span class="token punctuation">.</span>app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"/clear"</span><span class="token punctuation">,</span> <span class="token function">async</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+               await <span class="token keyword">this</span><span class="token punctuation">.</span>manager<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token function">redirect</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">this</span><span class="token punctuation">.</span>app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"/create"</span><span class="token punctuation">,</span> <span class="token function">async</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+               <span class="token keyword">let</span> values <span class="token operator">=</span> req<span class="token punctuation">.</span>query as <span class="token operator">~</span>Object <span class="token keyword">with</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token keyword">string</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+               <span class="token keyword">if</span> <span class="token punctuation">(</span>values <span class="token operator">&amp;&amp;</span> values<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'Todo'</span> <span class="token operator">&amp;&amp;</span> values<span class="token punctuation">.</span>label <span class="token operator">&amp;&amp;</span> values<span class="token punctuation">.</span>label<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    await <span class="token keyword">this</span><span class="token punctuation">.</span>manager<span class="token punctuation">.</span><span class="token function">createTodo</span><span class="token punctuation">(</span>values<span class="token punctuation">.</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+               <span class="token function">redirect</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">this</span><span class="token punctuation">.</span>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">,</span> <span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"HTML server listening on http://localhost:4000/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     <span class="token keyword">protected</span> async <span class="token function">renderHomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">string</span> <span class="token punctuation">{</span>
+          <span class="token keyword">let</span> tasks <span class="token operator">=</span> await <span class="token keyword">this</span><span class="token punctuation">.</span>manager<span class="token punctuation">.</span><span class="token function">getTasks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">let</span> todos <span class="token operator">=</span> tasks<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">task</span><span class="token punctuation">)</span> <span class="token operator">=></span> task <span class="token keyword">instanceof</span> <span class="token class-name">Todo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+
+&lt;html>
+&lt;body>
+     Your to-do's:
+     &lt;ul>
+     </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>
+          todos<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token string">'&lt;li>&lt;em>none&lt;/em>&lt;/li>\n'</span>
+          <span class="token operator">:</span> todos<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">task</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+               <span class="token string">'&lt;li>'</span> <span class="token operator">+</span> task<span class="token punctuation">.</span>label <span class="token operator">+</span> <span class="token string">' &lt;small>(id: '</span> <span class="token operator">+</span> task<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">')&lt;/small>&lt;/li>'</span>
+          <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+     <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+     &lt;/ul>
+     &lt;hr/>
+     &lt;form action="/create" method="get">
+     &lt;input type="hidden" name="type" value="Todo">
+     Label: &lt;input type="text" name="label">&lt;br>
+     &lt;input type="submit" value="Create Todo">
+     &lt;/form>
+     &lt;hr/>
+     &lt;a href="/clear">[Clear All]&lt;/a>
+&lt;/body>
+&lt;/html>
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">redirect</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">res</span><span class="token operator">:</span> Response<span class="token punctuation">,</span> <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token keyword">string</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     res<span class="token punctuation">.</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Cache-Control'</span><span class="token punctuation">,</span> <span class="token string">'no-cache'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     res<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token number">301</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

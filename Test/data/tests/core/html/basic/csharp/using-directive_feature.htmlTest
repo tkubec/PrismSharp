@@ -1,0 +1,15 @@
+using System;
+using System.IO;
+using static System.Math;
+using static Foo.Bar<IFoo>.FooBar<IFoo>;
+using FooBar = Foo.Bar;
+using FooBar = Foo.Bar<IFoo>.FooBar<IFoo>;
+----------------------------------------------------
+<span class="token keyword">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>IO</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token keyword">static</span> <span class="token class-name">System<span class="token punctuation">.</span>Math</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token keyword">static</span> <span class="token class-name">Foo<span class="token punctuation">.</span>Bar<span class="token punctuation">&lt;</span>IFoo<span class="token punctuation">></span><span class="token punctuation">.</span>FooBar<span class="token punctuation">&lt;</span>IFoo<span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token class-name">FooBar</span> <span class="token operator">=</span> <span class="token class-name">Foo<span class="token punctuation">.</span>Bar</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token class-name">FooBar</span> <span class="token operator">=</span> <span class="token class-name">Foo<span class="token punctuation">.</span>Bar<span class="token punctuation">&lt;</span>IFoo<span class="token punctuation">></span><span class="token punctuation">.</span>FooBar<span class="token punctuation">&lt;</span>IFoo<span class="token punctuation">></span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

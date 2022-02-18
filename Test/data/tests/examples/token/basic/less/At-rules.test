@@ -1,0 +1,16 @@
+@media screen and (min-width: 320px) {}
+----------------------------------------------------
+[
+	["atrule", [
+		"@media screen and ",
+		["punctuation", "("],
+		"min-width",
+		["punctuation", ":"],
+		" 320px",
+		["punctuation", ")"]
+	]],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,35 @@
+%{
+	#include <stdio.h>
+%}
+%code {
+	if(foo) {
+
+	}
+}
+%%
+exp:
+	NUM {
+		$$ = f($3, $4);
+		@$.first_column = @1.first_column;
+		$result = $left + $<itype>1;
+	}
+%%
+----------------------------------------------------
+<span class="token bison"><span class="token c"><span class="token delimiter punctuation">%{</span>
+	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token delimiter punctuation">%}</span></span>
+<span class="token keyword">%code</span> <span class="token c"><span class="token delimiter punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+	<span class="token punctuation">}</span>
+<span class="token delimiter punctuation">}</span></span>
+<span class="token punctuation">%%</span>
+<span class="token property">exp</span><span class="token punctuation">:</span>
+	NUM <span class="token c"><span class="token delimiter punctuation">{</span>
+		<span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token bison-variable variable">$3</span><span class="token punctuation">,</span> <span class="token bison-variable variable">$4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token bison-variable variable">@$</span><span class="token punctuation">.</span>first_column <span class="token operator">=</span> <span class="token bison-variable variable">@1</span><span class="token punctuation">.</span>first_column<span class="token punctuation">;</span>
+		<span class="token bison-variable variable">$result</span> <span class="token operator">=</span> <span class="token bison-variable variable">$left</span> <span class="token operator">+</span> <span class="token bison-variable variable">$<span class="token punctuation">&lt;</span>itype<span class="token punctuation">></span>1</span><span class="token punctuation">;</span>
+	<span class="token delimiter punctuation">}</span></span>
+<span class="token punctuation">%%</span></span>
+
+----------------------------------------------------

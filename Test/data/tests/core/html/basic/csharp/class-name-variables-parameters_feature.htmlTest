@@ -1,0 +1,35 @@
+int a;
+Foo b;
+Foo @new_var;
+Foo<Bar> c = null;
+static Foo<(Bar, int)>[,,] d;
+void Foo(Foo a, Bar<Foo> b, Bar[, ] c, Foo<(int, int)> d);
+Bar<Foo> Abc => 0;
+Bar<Foo>.FooBar<IFoo> Abc;
+
+if (foo is Bar)
+if (foo is not Bar)
+if (foo is null)
+if (foo is not null)
+if (t is (int, string))
+if ((e1, e2) is (0, int i) or (int i, 0))
+var baz = foo as Bar;
+----------------------------------------------------
+<span class="token class-name"><span class="token keyword">int</span></span> a<span class="token punctuation">;</span>
+<span class="token class-name">Foo</span> b<span class="token punctuation">;</span>
+<span class="token class-name">Foo</span> @new_var<span class="token punctuation">;</span>
+<span class="token class-name">Foo<span class="token punctuation">&lt;</span>Bar<span class="token punctuation">></span></span> c <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">static</span> <span class="token class-name">Foo<span class="token punctuation">&lt;</span><span class="token punctuation">(</span>Bar<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">></span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">]</span></span> d<span class="token punctuation">;</span>
+<span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token class-name">Foo</span> a<span class="token punctuation">,</span> <span class="token class-name">Bar<span class="token punctuation">&lt;</span>Foo<span class="token punctuation">></span></span> b<span class="token punctuation">,</span> <span class="token class-name">Bar<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token punctuation">]</span></span> c<span class="token punctuation">,</span> <span class="token class-name">Foo<span class="token punctuation">&lt;</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">></span></span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token return-type class-name">Bar<span class="token punctuation">&lt;</span>Foo<span class="token punctuation">></span></span> Abc <span class="token operator">=></span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token class-name">Bar<span class="token punctuation">&lt;</span>Foo<span class="token punctuation">></span><span class="token punctuation">.</span>FooBar<span class="token punctuation">&lt;</span>IFoo<span class="token punctuation">></span></span> Abc<span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo <span class="token keyword">is</span> <span class="token class-name">Bar</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token class-name">Bar</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo <span class="token keyword">is</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token keyword">is</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token keyword">is</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">int</span></span> i<span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token class-name"><span class="token keyword">var</span></span> baz <span class="token operator">=</span> foo <span class="token keyword">as</span> <span class="token class-name">Bar</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+$foo = 5;
+class InstTest
+  def set_foo(n)
+    @foo = n
+  end
+  def set_bar(n)
+    @bar = n
+  end
+end

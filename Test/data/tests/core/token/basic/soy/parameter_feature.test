@@ -1,0 +1,56 @@
+{param visible: true /}
+{param content kind="html"}
+    <b>{$message}</b>
+{/param}
+{@param name: string}
+{@param? height: int}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "param"],
+	["parameter", "visible"],
+	["punctuation", ":"],
+	["boolean", "true"],
+	["operator", "/"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "content"],
+	["property", "kind"],
+	["operator", "="],
+	["string", "\"html\""],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"b",
+	["operator", ">"],
+	["punctuation", "{"],
+	["variable", ["$message"]],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	"b",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "param"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "name"],
+	["punctuation", ":"],
+	["keyword", "string"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param?"],
+	["parameter", "height"],
+	["punctuation", ":"],
+	["keyword", "int"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

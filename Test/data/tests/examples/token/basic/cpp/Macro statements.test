@@ -1,0 +1,29 @@
+# include <stdio.h>
+#define PG_locked   0
+#define PG_error    1
+----------------------------------------------------
+[
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "include"],
+		["string", "<stdio.h>"]
+	]],
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "define"],
+		["macro-name", "PG_locked"],
+		["expression", [
+			["number", "0"]
+		]]
+	]],
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "define"],
+		["macro-name", "PG_error"],
+		["expression", [
+			["number", "1"]
+		]]
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+__NOTOC__
+{{{1}}}
+{{!}}
+{{SITENAME}}
+{{#ifexists:foo}}
+----------------------------------------------------
+<span class="token variable">__NOTOC__</span>
+<span class="token variable">{{{1}}}</span>
+<span class="token variable">{{!}}</span>
+<span class="token variable">{{SITENAME}}</span>
+<span class="token variable">{{#ifexists:foo}}</span>
+
+----------------------------------------------------

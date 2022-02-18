@@ -1,0 +1,9 @@
+""
+"Foobar"
+"Foo\"ba\\r"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Foobar"</span>
+<span class="token string">"Foo\"ba\\r"</span>
+
+----------------------------------------------------

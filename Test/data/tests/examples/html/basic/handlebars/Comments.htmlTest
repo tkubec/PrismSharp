@@ -1,0 +1,7 @@
+{{! This is a comment with <p>some markup</p> in it }}
+{{! This is a comment }} {{ this_is_not }}
+----------------------------------------------------
+<span class="token comment">{{! This is a comment with &lt;p>some markup&lt;/p> in it }}</span>
+<span class="token comment">{{! This is a comment }}</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">this_is_not</span> <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

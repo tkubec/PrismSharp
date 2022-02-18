@@ -1,0 +1,89 @@
+"s" word"word" ! word: word"word"
+"adjacent""strings"
+" ! str not comment" ! comment
+"!"
+" ! "
+"! "
+
+"\""
+"'"
+"\n"
+"\\"
+
+"str"5
+"str"[ ]
+"str"{ }
+{ "a"}
+"5"
+"1/5"
+"+5"
+"-5"
+
+"sssssh" "(" ")" surround .
+
+HEREDOC: marker
+text \n
+marker
+
+STRING: name
+text \n
+;
+
+[[ string ]]
+[[ string]]
+[==[ string ]==]
+[==[ string]==]
+
+[[word ]]
+
+URL" " URL""
+SBUF" " SBUF""
+P" " P""
+
+P" as\\""
+----------------------------------------------------
+<span class="token string">"s"</span> <span class="token normal-word">word"word"</span> <span class="token comment">! word: word"word"</span>
+<span class="token string">"adjacent"</span><span class="token string">"strings"</span>
+<span class="token string">" ! str not comment"</span> <span class="token comment">! comment</span>
+<span class="token string">"!"</span>
+<span class="token string">" ! "</span>
+<span class="token string">"! "</span>
+
+<span class="token string">"<span class="token number">\"</span>"</span>
+<span class="token string">"'"</span>
+<span class="token string">"<span class="token number">\n</span>"</span>
+<span class="token string">"<span class="token number">\\</span>"</span>
+
+<span class="token string">"str"</span>5
+<span class="token string">"str"</span>[ <span class="token quotation-delimiter operator">]</span>
+<span class="token string">"str"</span>{ <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token curly-brace-literal-delimiter operator">{</span> <span class="token string">"a"</span>}
+<span class="token string">"5"</span>
+<span class="token string">"1/5"</span>
+<span class="token string">"+5"</span>
+<span class="token string">"-5"</span>
+
+<span class="token string">"sssssh"</span> <span class="token string">"("</span> <span class="token string">")"</span> <span class="token sequences-builtin variable">surround</span> <span class="token normal-word">.</span>
+
+<span class="token multiline-string string">HEREDOC: marker
+text <span class="token number">\n</span>
+marker</span>
+
+<span class="token multiline-string string">STRING: name
+text <span class="token number">\n</span>
+<span class="token semicolon-or-setlocal function">;</span></span>
+
+<span class="token multiline-string string">[[ string ]]</span>
+<span class="token multiline-string string">[[ string]]</span>
+<span class="token multiline-string string">[==[ string ]==]</span>
+<span class="token multiline-string string">[==[ string]==]</span>
+
+<span class="token normal-word">[[word</span> <span class="token normal-word">]]</span>
+
+<span class="token custom-string string">URL" "</span> <span class="token normal-word">URL""</span>
+<span class="token custom-string string">SBUF" "</span> <span class="token normal-word">SBUF""</span>
+<span class="token custom-string string">P" "</span> <span class="token normal-word">P""</span>
+
+<span class="token custom-string string">P" as<span class="token number">\\</span>"</span>"
+
+----------------------------------------------------

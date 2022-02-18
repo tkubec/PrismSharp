@@ -1,0 +1,21 @@
+"foo 'bar' baz"
+'foo ''bar'' baz'
+''
+ITALICS_'This is in italics'
+"test &
+	! Some "tricky comment" here
+	&test"
+----------------------------------------------------
+[
+	["string", ["\"foo 'bar' baz\""]],
+	["string", ["'foo ''bar'' baz'"]],
+	["string", ["''"]],
+	["string", ["ITALICS_'This is in italics'"]],
+	["string", [
+		"\"test &\n\t",
+		["comment", "! Some \"tricky comment\" here"],
+		"\n\t&test\""
+	]]
+]
+
+----------------------------------------------------

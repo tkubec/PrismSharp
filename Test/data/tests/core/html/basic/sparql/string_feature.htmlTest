@@ -1,0 +1,33 @@
+""
+''
+''''''
+""""""
+'foo bar'
+"Foo bar"
+"""foo
+"bar"
+foobar"""
+'''
+foobar
+"bar"
+'foo'
+foobar
+'''
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">''</span>
+<span class="token multiline-string string">''''''</span>
+<span class="token multiline-string string">""""""</span>
+<span class="token string">'foo bar'</span>
+<span class="token string">"Foo bar"</span>
+<span class="token multiline-string string">"""foo
+"bar"
+foobar"""</span>
+<span class="token multiline-string string">'''
+foobar
+"bar"
+'foo'
+foobar
+'''</span>
+
+----------------------------------------------------

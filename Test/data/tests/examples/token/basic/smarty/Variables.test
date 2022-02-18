@@ -1,0 +1,69 @@
+{$foo}
+{$foo.bar}
+{$foo.$bar}
+{$foo[$bar]}
+{$foo->bar}
+{$foo->bar()}
+{#foo#}
+{$smarty.config.foo}
+{$foo[bar]}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["variable", "$foo"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["punctuation", "."],
+	["variable", "bar"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["punctuation", "."],
+	["variable", "$bar"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["punctuation", "["],
+	["variable", "$bar"],
+	["punctuation", "]"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["punctuation", "->"],
+	["variable", "bar"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["punctuation", "->"],
+	["function", "bar"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "#foo#"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$smarty"],
+	["punctuation", "."],
+	["variable", "config"],
+	["punctuation", "."],
+	["variable", "foo"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["punctuation", "["],
+	["variable", "bar"],
+	["punctuation", "]"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

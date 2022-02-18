@@ -1,0 +1,74 @@
+{if not isLast($additionalName)}
+{if length($items) > 5}
+{$x|noAutoescape}
+{elseif round($pi) == 3}
+{for $i in range($numLines)}
+{$foo|changeNewLineToBr|bidiSpanWrap}
+{$bar | truncate : 4 , false}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "if"],
+	["operator", "not"],
+	["function", "isLast"],
+	["punctuation", "("],
+	["variable", ["$additionalName"]],
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "if"],
+	["function", "length"],
+	["punctuation", "("],
+	["variable", ["$items"]],
+	["punctuation", ")"],
+	["operator", ">"],
+	["number", "5"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", ["$x"]],
+	["punctuation", "|"],
+	["function", "noAutoescape"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "elseif"],
+	["function", "round"],
+	["punctuation", "("],
+	["variable", ["$pi"]],
+	["punctuation", ")"],
+	["operator", "=="],
+	["number", "3"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "for"],
+	["variable", ["$i"]],
+	["keyword", "in"],
+	["function", "range"],
+	["punctuation", "("],
+	["variable", ["$numLines"]],
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", ["$foo"]],
+	["punctuation", "|"],
+	["function", "changeNewLineToBr"],
+	["punctuation", "|"],
+	["function", "bidiSpanWrap"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", ["$bar"]],
+	["punctuation", "|"],
+	["function", "truncate"],
+	["punctuation", ":"],
+	["number", "4"],
+	["punctuation", ","],
+	["boolean", "false"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

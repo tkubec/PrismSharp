@@ -1,0 +1,34 @@
+{{ "" }}
+{{{''}}}
+{{{"foobar"}}}
+{{ 'foobar' }}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["string", "\"\""],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["string", "''"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["string", "\"foobar\""],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["string", "'foobar'"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

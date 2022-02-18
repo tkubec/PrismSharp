@@ -1,0 +1,37 @@
+server { # simple reverse-proxy
+  listen       80;
+  server_name  domain2.com www.domain2.com;
+  access_log   logs/domain2.access.log  main;
+  
+  # serve static files
+  
+  location ~ ^/(images|javascript|js|css|flash|media|static)/  {
+    root    /var/www/virtual/big.server.com/htdocs;
+    expires 30d;
+  }
+
+  # pass requests for dynamic content to rails/turbogears/zope, et al
+  location / {
+    proxy_pass      http://127.0.0.1:8080;
+  }
+}
+----------------------------------------------------
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span> <span class="token comment"># simple reverse-proxy</span>
+  <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span>  domain2.com www.domain2.com</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">access_log</span>   logs/domain2.access.log  main</span><span class="token punctuation">;</span>
+  
+  <span class="token comment"># serve static files</span>
+  
+  <span class="token directive"><span class="token keyword">location</span> ~ ^/(images|javascript|js|css|flash|media|static)/</span>  <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">root</span>    /var/www/virtual/big.server.com/htdocs</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">expires</span> <span class="token number">30d</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment"># pass requests for dynamic content to rails/turbogears/zope, et al</span>
+  <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">proxy_pass</span>      http://127.0.0.1:8080</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

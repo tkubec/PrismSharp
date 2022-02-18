@@ -1,0 +1,21 @@
+(
+""
+"foo
+bar"
+"\"foo\""
+"foo\tbar"
+"`foo'"
+"FOO."
+)
+----------------------------------------------------
+<span class="token punctuation">(</span>
+<span class="token string">""</span>
+<span class="token string">"foo
+bar"</span>
+<span class="token string">"\"foo\""</span>
+<span class="token string">"foo\tbar"</span>
+<span class="token string">"<span class="token symbol">`foo'</span>"</span>
+<span class="token string">"<span class="token argument">FOO</span>."</span>
+<span class="token punctuation">)</span>
+
+----------------------------------------------------

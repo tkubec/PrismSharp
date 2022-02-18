@@ -1,0 +1,9 @@
+input name $ score1 score2 score3 team $;
+input name $ & score;
+input outlook $ 1-8 temperature humidity windy $ 16 - 21 /* golf $22 - 32 */;
+----------------------------------------------------
+<span class="token input"><span class="token input keyword">input</span> name $ score1 score2 score3 team $;</span>
+<span class="token input"><span class="token input keyword">input</span> name $ &amp; score;</span>
+<span class="token input"><span class="token input keyword">input</span> outlook $ <span class="token number">1</span>-<span class="token number">8</span> temperature humidity windy $ <span class="token number">16</span> - <span class="token number">21</span> <span class="token comment">/* golf $22 - 32 */</span>;</span>
+
+----------------------------------------------------

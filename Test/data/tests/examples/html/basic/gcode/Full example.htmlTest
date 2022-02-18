@@ -1,0 +1,25 @@
+M190 S60 ; Heat bed to 60°C
+G21 ; Set units to millimeters
+G28 ; Move to Origin (Homing)
+G29 ; Auto Bed Leveling
+G28 X0 Y0 ; Home X and Y to min endstops
+M107 ; Fan off
+M109 S200 ; Heat hotend to 200°C
+G92 E0 ; Set current extruder position as zero
+G1 F200 E15 ; Extrude 15mm filament with 200mm/min
+G92 E0 ; Set current extruder position as zero
+G1 F500
+----------------------------------------------------
+<span class="token keyword">M190</span> <span class="token property">S</span>60 <span class="token comment">; Heat bed to 60°C</span>
+<span class="token keyword">G21</span> <span class="token comment">; Set units to millimeters</span>
+<span class="token keyword">G28</span> <span class="token comment">; Move to Origin (Homing)</span>
+<span class="token keyword">G29</span> <span class="token comment">; Auto Bed Leveling</span>
+<span class="token keyword">G28</span> <span class="token property">X</span>0 <span class="token property">Y</span>0 <span class="token comment">; Home X and Y to min endstops</span>
+<span class="token keyword">M107</span> <span class="token comment">; Fan off</span>
+<span class="token keyword">M109</span> <span class="token property">S</span>200 <span class="token comment">; Heat hotend to 200°C</span>
+<span class="token keyword">G92</span> <span class="token property">E</span>0 <span class="token comment">; Set current extruder position as zero</span>
+<span class="token keyword">G1</span> <span class="token property">F</span>200 <span class="token property">E</span>15 <span class="token comment">; Extrude 15mm filament with 200mm/min</span>
+<span class="token keyword">G92</span> <span class="token property">E</span>0 <span class="token comment">; Set current extruder position as zero</span>
+<span class="token keyword">G1</span> <span class="token property">F</span>500
+
+----------------------------------------------------

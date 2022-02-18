@@ -1,0 +1,11 @@
+#(1 2 3)
+#('food' 'utilities' 'rent' 'household' 'transportation' 'taxes' 'recreation')
+#(('one' 1) ('not' 'negative') 0 -1)
+#(9 'nine' $9 (0 'zero' $0 ( ) 'e' $f 'g' $h 'i'))
+----------------------------------------------------
+<span class="token symbol">#</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token symbol">#</span><span class="token punctuation">(</span><span class="token string">'food'</span> <span class="token string">'utilities'</span> <span class="token string">'rent'</span> <span class="token string">'household'</span> <span class="token string">'transportation'</span> <span class="token string">'taxes'</span> <span class="token string">'recreation'</span><span class="token punctuation">)</span>
+<span class="token symbol">#</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'one'</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token string">'not'</span> <span class="token string">'negative'</span><span class="token punctuation">)</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token symbol">#</span><span class="token punctuation">(</span><span class="token number">9</span> <span class="token string">'nine'</span> <span class="token char">$9</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token string">'zero'</span> <span class="token char">$0</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token string">'e'</span> <span class="token char">$f</span> <span class="token string">'g'</span> <span class="token char">$h</span> <span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+{$ASSERTIONS}
+{$asmMode intel}
+{$ifDef CPUx86_64} // ============= optimized implementation
+----------------------------------------------------
+<span class="token directive marco property">{$ASSERTIONS}</span>
+<span class="token directive marco property">{$asmMode intel}</span>
+<span class="token directive marco property">{$ifDef CPUx86_64}</span> <span class="token comment">// ============= optimized implementation</span>
+
+----------------------------------------------------

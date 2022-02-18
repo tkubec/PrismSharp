@@ -1,0 +1,31 @@
+foo.bar.baz = HMENU
+foo.bar.baz {
+	baz.foo = bar
+	bar = {$const.foo}
+	foo = LLL:EXT:str
+	IFSUB < .NO
+	IFSUB = 1
+	IFSUB {
+		foo = bar
+	}
+}
+Namespace\Classes\Test {
+	baz.foo = bar
+}
+----------------------------------------------------
+<span class="token tag">foo<span class="token punctuation">.</span></span><span class="token tag">bar<span class="token punctuation">.</span></span><span class="token tag">baz</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">HMENU</span></span>
+<span class="token tag">foo<span class="token punctuation">.</span></span><span class="token tag">bar<span class="token punctuation">.</span></span><span class="token tag">baz</span> <span class="token punctuation">{</span>
+	<span class="token tag">baz<span class="token punctuation">.</span></span><span class="token tag">foo</span> <span class="token operator">=</span> <span class="token string">bar</span>
+	<span class="token tag">bar</span> <span class="token operator">=</span> <span class="token string"><span class="token function">{$const.foo}</span></span>
+	<span class="token tag">foo</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">LLL</span><span class="token punctuation">:</span><span class="token keyword">EXT</span><span class="token punctuation">:</span>str</span>
+	<span class="token keyword">IFSUB</span> <span class="token operator">&lt;</span> <span class="token punctuation">.</span><span class="token keyword">NO</span>
+	<span class="token keyword">IFSUB</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+	<span class="token keyword">IFSUB</span> <span class="token punctuation">{</span>
+		<span class="token tag">foo</span> <span class="token operator">=</span> <span class="token string">bar</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token tag">Namespace\Classes\Test</span> <span class="token punctuation">{</span>
+	<span class="token tag">baz<span class="token punctuation">.</span></span><span class="token tag">foo</span> <span class="token operator">=</span> <span class="token string">bar</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

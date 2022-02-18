@@ -1,0 +1,17 @@
+:Author Initials: JB
+{authorinitials}
+:Author Initials!:
+----------------------------------------------------
+[
+	["attribute-entry", ":Author Initials: JB"],
+	["inline", [
+		["attribute-ref", [
+			["punctuation", "{"],
+			["variable", "authorinitials"],
+			["punctuation", "}"]
+		]]
+	]],
+	["attribute-entry", ":Author Initials!:"]
+]
+
+----------------------------------------------------

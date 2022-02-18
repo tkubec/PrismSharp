@@ -1,0 +1,49 @@
+component accessors="true" {
+  property type="string" name="prop1" default="";
+  property string prop2;
+  function init(){
+    this.prop3 = 12;
+    return this;
+  }
+
+  /**
+  * @hint Annotations supported
+  * @foo.hint
+  */
+  public any function build( required foo, color="blue", boolean bar=true ){
+    arguments.foo = {
+      'name' : "something",
+      test = true
+    }
+    var foobar = function( required string baz, x=true, y=false ){
+      return "bar!";
+    };
+    return foo;
+  }
+}
+----------------------------------------------------
+<span class="token keyword">component</span> accessors<span class="token operator">=</span><span class="token string">"true"</span> <span class="token punctuation">{</span>
+  <span class="token keyword">property</span> type<span class="token operator">=</span><span class="token string">"string"</span> name<span class="token operator">=</span><span class="token string">"prop1"</span> default<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token keyword">property</span> <span class="token type builtin">string</span> prop2<span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token scope global">this</span><span class="token punctuation">.</span>prop3 <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token scope global">this</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+  *<span class="token annotation punctuation"> @hint</span> Annotations supported
+  *<span class="token annotation punctuation"> @foo.hint</span>
+  */</span>
+  <span class="token keyword">public</span> <span class="token type builtin">any</span> <span class="token keyword">function</span> <span class="token function">build</span><span class="token punctuation">(</span> <span class="token keyword">required</span> foo<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">"blue"</span><span class="token punctuation">,</span> <span class="token type builtin">boolean</span> bar<span class="token operator">=</span><span class="token boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token scope global">arguments</span><span class="token punctuation">.</span>foo <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token string">'name'</span> <span class="token operator">:</span> <span class="token string">"something"</span><span class="token punctuation">,</span>
+      test <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">var</span> <span class="token function-variable function">foobar</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span> <span class="token keyword">required</span> <span class="token type builtin">string</span> baz<span class="token punctuation">,</span> x<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token boolean">false</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token string">"bar!"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> foo<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

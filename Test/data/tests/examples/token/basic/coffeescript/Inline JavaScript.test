@@ -1,0 +1,16 @@
+`alert("foo")`
+----------------------------------------------------
+[
+	["inline-javascript", [
+		["delimiter", "`"],
+		["script", [
+			["function", "alert"],
+			["punctuation", "("],
+			["string", "\"foo\""],
+			["punctuation", ")"]
+		]],
+		["delimiter", "`"]
+	]]
+]
+
+----------------------------------------------------

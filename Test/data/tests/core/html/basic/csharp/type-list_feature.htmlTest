@@ -1,0 +1,43 @@
+class Foo<T> : Bar<IList<Bar>, T>, IBar<Bar, T>, IFoo
+	where T : class, IBar<IFoo>, IFoo<Bar> {}
+
+public class Foo : IBar<int> {}
+
+public delegate ErrorCode GetInfoMethod<H, A, I>(H handle, A value, I paramName,
+	Size_t paramValueSize, IntPtr paramValue, out Size_t paramValueSizeRet)
+	where H : unmanaged, IInfoHandle<A, I> where A : unmanaged where I : unmanaged, Enum;
+
+// the "new()" constraint
+void Foo<A, B>()
+	where A : IFoo, new()
+	where B : new(), IFoo;
+
+// records are kinda difficult to handle
+public abstract record Person(string FirstName, string LastName);
+public record Teacher(string FirstName, string LastName, int Grade)
+	: Person(FirstName, LastName), IFoo<int>;
+public record Student(string FirstName, string LastName, int Grade)
+	: Person(FirstName, LastName);
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span></span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Bar<span class="token punctuation">&lt;</span>IList<span class="token punctuation">&lt;</span>Bar<span class="token punctuation">></span><span class="token punctuation">,</span> T<span class="token punctuation">></span></span><span class="token punctuation">,</span> <span class="token class-name">IBar<span class="token punctuation">&lt;</span>Bar<span class="token punctuation">,</span> T<span class="token punctuation">></span></span><span class="token punctuation">,</span> <span class="token class-name">IFoo</span></span>
+	<span class="token keyword">where</span> <span class="token class-name">T</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token class-name">IBar<span class="token punctuation">&lt;</span>IFoo<span class="token punctuation">></span></span><span class="token punctuation">,</span> <span class="token class-name">IFoo<span class="token punctuation">&lt;</span>Bar<span class="token punctuation">></span></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">IBar<span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">delegate</span> <span class="token return-type class-name">ErrorCode</span> <span class="token generic-method"><span class="token function">GetInfoMethod</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>H<span class="token punctuation">,</span> A<span class="token punctuation">,</span> I<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token class-name">H</span> handle<span class="token punctuation">,</span> <span class="token class-name">A</span> <span class="token keyword">value</span><span class="token punctuation">,</span> <span class="token class-name">I</span> paramName<span class="token punctuation">,</span>
+	<span class="token class-name">Size_t</span> paramValueSize<span class="token punctuation">,</span> <span class="token class-name">IntPtr</span> paramValue<span class="token punctuation">,</span> <span class="token keyword">out</span> <span class="token class-name">Size_t</span> paramValueSizeRet<span class="token punctuation">)</span>
+	<span class="token keyword">where</span> <span class="token class-name">H</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token keyword">unmanaged</span><span class="token punctuation">,</span> <span class="token class-name">IInfoHandle<span class="token punctuation">&lt;</span>A<span class="token punctuation">,</span> I<span class="token punctuation">></span></span></span> <span class="token keyword">where</span> <span class="token class-name">A</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token keyword">unmanaged</span></span> <span class="token keyword">where</span> <span class="token class-name">I</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token keyword">unmanaged</span><span class="token punctuation">,</span> <span class="token class-name">Enum</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// the "new()" constraint</span>
+<span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token generic-method"><span class="token function">Foo</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>A<span class="token punctuation">,</span> B<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">where</span> <span class="token class-name">A</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">IFoo</span><span class="token punctuation">,</span> <span class="token keyword">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+	<span class="token keyword">where</span> <span class="token class-name">B</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token keyword">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">IFoo</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// records are kinda difficult to handle</span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">record</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> FirstName<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">string</span></span> LastName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">record</span> <span class="token class-name">Teacher</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> FirstName<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">string</span></span> LastName<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">int</span></span> Grade<span class="token punctuation">)</span>
+	<span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Person</span><span class="token record-arguments"><span class="token punctuation">(</span>FirstName<span class="token punctuation">,</span> LastName<span class="token punctuation">)</span></span><span class="token punctuation">,</span> <span class="token class-name">IFoo<span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span></span></span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">record</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> FirstName<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">string</span></span> LastName<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">int</span></span> Grade<span class="token punctuation">)</span>
+	<span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Person</span><span class="token record-arguments"><span class="token punctuation">(</span>FirstName<span class="token punctuation">,</span> LastName<span class="token punctuation">)</span></span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

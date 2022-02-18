@@ -1,0 +1,13 @@
+"[
+  A aligned verbatim string
+]"
+"{
+  A non-aligned verbatim string
+}"
+----------------------------------------------------
+[
+	["string", "\"[\n  A aligned verbatim string\n]\""],
+	["string", "\"{\n  A non-aligned verbatim string\n}\""]
+]
+
+----------------------------------------------------

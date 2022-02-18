@@ -1,0 +1,21 @@
+/**/
+/* Foo "bar" */
+/* Foo //bar
+baz */
+//
+// Foo /* bar */
+// <div></div>
+/* <div>
+</div> */
+----------------------------------------------------
+<span class="token comment">/**/</span>
+<span class="token comment">/* Foo "bar" */</span>
+<span class="token comment">/* Foo //bar
+baz */</span>
+<span class="token comment">//</span>
+<span class="token comment">// Foo /* bar */</span>
+<span class="token comment">// &lt;div>&lt;/div></span>
+<span class="token comment">/* &lt;div>
+&lt;/div> */</span>
+
+----------------------------------------------------

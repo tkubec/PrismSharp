@@ -1,0 +1,13 @@
+http_requests_total{job="apiserver", handler="/api/comments"}[5m]
+
+http_requests_total offset 5m
+
+http_requests_total{job=~".*server"}
+----------------------------------------------------
+http_requests_total<span class="token context-labels"><span class="token punctuation">{</span><span class="token label-key attr-name">job</span><span class="token punctuation">=</span><span class="token label-value attr-value">"apiserver"</span><span class="token punctuation">,</span> <span class="token label-key attr-name">handler</span><span class="token punctuation">=</span><span class="token label-value attr-value">"/api/comments"</span><span class="token punctuation">}</span></span><span class="token context-range"><span class="token punctuation">[</span><span class="token range-duration number">5m</span><span class="token punctuation">]</span></span>
+
+http_requests_total <span class="token keyword">offset</span> <span class="token context-range"><span class="token range-duration number">5m</span></span>
+
+http_requests_total<span class="token context-labels"><span class="token punctuation">{</span><span class="token label-key attr-name">job</span><span class="token punctuation">=~</span><span class="token label-value attr-value">".*server"</span><span class="token punctuation">}</span></span>
+
+----------------------------------------------------

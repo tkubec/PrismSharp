@@ -1,0 +1,33 @@
+[% fat => comma %]
+[% foo == bar %]
+[% foo != bar %]
+[% foo <  bar %]
+[% foo <= bar %]
+[% foo >  bar %]
+[% foo >= bar %]
+[% foo =  bar %]
+[% foo && bar %]
+[% foo || bar %]
+[% foo | bar %]
+[% foo ! bar %]
+[% penthouse and pavement %]
+[% sooner or later %]
+[% love not war %]
+----------------------------------------------------
+<span class="token delimiter punctuation">[%</span> <span class="token variable">fat</span> <span class="token operator">=></span> <span class="token variable">comma</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">==</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">!=</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">&lt;</span>  <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">&lt;=</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">></span>  <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">>=</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">=</span>  <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">||</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">|</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">foo</span> <span class="token operator">!</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">penthouse</span> <span class="token operator">and</span> <span class="token variable">pavement</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">sooner</span> <span class="token operator">or</span> <span class="token variable">later</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">love</span> <span class="token operator">not</span> <span class="token variable">war</span> <span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

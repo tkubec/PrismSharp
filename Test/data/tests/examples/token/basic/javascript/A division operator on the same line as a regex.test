@@ -1,0 +1,39 @@
+var foo = 1/2, bar = /a/g;
+var foo = /a/, bar = 3/4;
+----------------------------------------------------
+[
+	["keyword", "var"],
+	" foo ",
+	["operator", "="],
+	["number", "1"],
+	["operator", "/"],
+	["number", "2"],
+	["punctuation", ","],
+	" bar ",
+	["operator", "="],
+	["regex", [
+		["regex-delimiter", "/"],
+		["regex-source", "a"],
+		["regex-delimiter", "/"],
+		["regex-flags", "g"]
+	]],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" foo ",
+	["operator", "="],
+	["regex", [
+		["regex-delimiter", "/"],
+		["regex-source", "a"],
+		["regex-delimiter", "/"]
+	]],
+	["punctuation", ","],
+	" bar ",
+	["operator", "="],
+	["number", "3"],
+	["operator", "/"],
+	["number", "4"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,3 @@
+macro static function add(e:Expr) {
+  return macro $e + $e;
+}

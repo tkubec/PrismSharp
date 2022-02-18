@@ -1,0 +1,9 @@
+<%# comment %>
+<%= render @products || "empty_list" %>
+<% @books.each do |book| %>
+----------------------------------------------------
+<span class="token delimiter punctuation">&lt;%</span><span class="token ruby language-ruby"><span class="token comment"># comment %></span>
+<span class="token operator">&lt;</span><span class="token operator">%=</span> render <span class="token variable">@products</span> <span class="token operator">||</span> <span class="token string-literal"><span class="token string">"empty_list"</span></span> <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token variable">@books</span><span class="token punctuation">.</span><span class="token keyword">each</span> <span class="token keyword">do</span> <span class="token operator">|</span>book<span class="token operator">|</span> </span><span class="token delimiter punctuation">%></span>
+
+----------------------------------------------------

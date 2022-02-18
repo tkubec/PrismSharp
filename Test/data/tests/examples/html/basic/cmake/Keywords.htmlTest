@@ -1,0 +1,7 @@
+add_library(foo main.cpp)
+target_link_libraries(foo bar)
+----------------------------------------------------
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>foo main.cpp<span class="token punctuation">)</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span>foo bar<span class="token punctuation">)</span>
+
+----------------------------------------------------

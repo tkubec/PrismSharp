@@ -1,0 +1,31 @@
+class MyViewController: UIViewController {
+	@IBOutlet weak var button: UIButton!
+	@IBOutlet var textFields: [UITextField]!
+	@IBAction func buttonTapped(AnyObject) {
+		println("button tapped!")
+	}
+}
+
+@IBDesignable
+class MyCustomView: UIView {
+	@IBInspectable var textColor: UIColor
+	@IBInspectable var iconHeight: CGFloat
+	/* ... */
+}
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">MyViewController</span><span class="token punctuation">:</span> <span class="token class-name">UIViewController</span> <span class="token punctuation">{</span>
+	<span class="token attribute atrule">@IBOutlet</span> <span class="token keyword">weak</span> <span class="token keyword">var</span> button<span class="token punctuation">:</span> <span class="token class-name">UIButton</span><span class="token operator">!</span>
+	<span class="token attribute atrule">@IBOutlet</span> <span class="token keyword">var</span> textFields<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token class-name">UITextField</span><span class="token punctuation">]</span><span class="token operator">!</span>
+	<span class="token attribute atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function-definition function">buttonTapped</span><span class="token punctuation">(</span><span class="token class-name">AnyObject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"button tapped!"</span></span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token attribute atrule">@IBDesignable</span>
+<span class="token keyword">class</span> <span class="token class-name">MyCustomView</span><span class="token punctuation">:</span> <span class="token class-name">UIView</span> <span class="token punctuation">{</span>
+	<span class="token attribute atrule">@IBInspectable</span> <span class="token keyword">var</span> textColor<span class="token punctuation">:</span> <span class="token class-name">UIColor</span>
+	<span class="token attribute atrule">@IBInspectable</span> <span class="token keyword">var</span> iconHeight<span class="token punctuation">:</span> <span class="token class-name">CGFloat</span>
+	<span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

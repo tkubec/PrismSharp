@@ -1,0 +1,129 @@
+class List
+  new: (t) =>
+    if t then return t
+
+  append: table.insert
+  join: table.concat
+
+  map: (f,...) => List [f x,... for x in *self]
+
+  -- apply a function on a list in-place
+  apply: (f,...) =>
+    for i = 1,#@ do @[i] = f @[i],...
+    self
+
+  clone: => @slice 1
+
+  slice: (i1,i2=#@) =>
+    -- workaround for MS slice bug
+    if i2 < 0 then i2 = #@ + i2 + 1
+    List [x for x in *self[i1,i2]]
+
+  extend: (other) =>
+    i = #self + 1
+    for o in *other
+        self[i] = o
+        i += 1
+    self
+
+  partition: (pred,...) =>
+    res = {}
+    for x in *@
+        k = pred x,...
+        if not res[k] then res[k] = List!
+        res[k]\append x
+    res
+
+  lpartition: (n,npred,...) =>
+      res = List[List{} for i = 1,n]
+      for x in *@
+        k = npred x,...
+        if k >= 1 and k <= n
+            res[k]\append x
+      res
+
+  __concat: (l1,l2) ->
+        List.clone(l1)\extend l2
+
+  __tostring: =>
+    tmp = @slice(1,10)\apply tostring
+    if #@ > 10 then tmp\append '...'
+    "["..tmp\join(',').."]"
+
+-- hack to modify class so its constructor may return a new self
+patch = (klass) -> getmetatable(klass).__call = (cls,...) ->
+    self = setmetatable {}, cls.__base
+    newself = cls.__init self, ...
+    if newself
+        self = setmetatable newself, cls.__base
+    self
+
+patch List
+
+return List
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">List</span>
+  <span class="token property">new</span><span class="token operator">:</span> <span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token operator">=></span>
+    <span class="token keyword">if</span> t <span class="token keyword">then</span> <span class="token keyword">return</span> t
+
+  <span class="token property">append</span><span class="token operator">:</span> <span class="token function">table<span class="token punctuation">.</span>insert</span>
+  <span class="token property">join</span><span class="token operator">:</span> <span class="token function">table<span class="token punctuation">.</span>concat</span>
+
+  <span class="token property">map</span><span class="token operator">:</span> <span class="token punctuation">(</span>f<span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token class-name">List</span> <span class="token punctuation">[</span>f x<span class="token punctuation">,</span><span class="token operator">...</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token operator">*</span><span class="token keyword">self</span><span class="token punctuation">]</span>
+
+  <span class="token comment">-- apply a function on a list in-place</span>
+  <span class="token property">apply</span><span class="token operator">:</span> <span class="token punctuation">(</span>f<span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+    <span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">#</span><span class="token variable">@</span> <span class="token keyword">do</span> <span class="token variable">@</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> f <span class="token variable">@</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token operator">...</span>
+    <span class="token keyword">self</span>
+
+  <span class="token property">clone</span><span class="token operator">:</span> <span class="token operator">=></span> <span class="token variable">@slice</span> <span class="token number">1</span>
+
+  <span class="token property">slice</span><span class="token operator">:</span> <span class="token punctuation">(</span>i1<span class="token punctuation">,</span>i2<span class="token operator">=</span><span class="token operator">#</span><span class="token variable">@</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+    <span class="token comment">-- workaround for MS slice bug</span>
+    <span class="token keyword">if</span> i2 <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">then</span> i2 <span class="token operator">=</span> <span class="token operator">#</span><span class="token variable">@</span> <span class="token operator">+</span> i2 <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token class-name">List</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token operator">*</span><span class="token keyword">self</span><span class="token punctuation">[</span>i1<span class="token punctuation">,</span>i2<span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+  <span class="token property">extend</span><span class="token operator">:</span> <span class="token punctuation">(</span>other<span class="token punctuation">)</span> <span class="token operator">=></span>
+    i <span class="token operator">=</span> <span class="token operator">#</span><span class="token keyword">self</span> <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token keyword">for</span> o <span class="token keyword">in</span> <span class="token operator">*</span>other
+        <span class="token keyword">self</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> o
+        i <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">self</span>
+
+  <span class="token property">partition</span><span class="token operator">:</span> <span class="token punctuation">(</span>pred<span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+    res <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token operator">*</span><span class="token variable">@</span>
+        k <span class="token operator">=</span> pred x<span class="token punctuation">,</span><span class="token operator">...</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> res<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token keyword">then</span> res<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">List</span><span class="token operator">!</span>
+        res<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">\</span>append x
+    res
+
+  <span class="token property">lpartition</span><span class="token operator">:</span> <span class="token punctuation">(</span>n<span class="token punctuation">,</span>npred<span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+      res <span class="token operator">=</span> <span class="token class-name">List</span><span class="token punctuation">[</span><span class="token class-name">List</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">]</span>
+      <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token operator">*</span><span class="token variable">@</span>
+        k <span class="token operator">=</span> npred x<span class="token punctuation">,</span><span class="token operator">...</span>
+        <span class="token keyword">if</span> k <span class="token operator">>=</span> <span class="token number">1</span> <span class="token operator">and</span> k <span class="token operator">&lt;=</span> n
+            res<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">\</span>append x
+      res
+
+  <span class="token property">__concat</span><span class="token operator">:</span> <span class="token punctuation">(</span>l1<span class="token punctuation">,</span>l2<span class="token punctuation">)</span> <span class="token operator">-></span>
+        <span class="token class-name">List</span><span class="token punctuation">.</span>clone<span class="token punctuation">(</span>l1<span class="token punctuation">)</span><span class="token punctuation">\</span>extend l2
+
+  <span class="token property">__tostring</span><span class="token operator">:</span> <span class="token operator">=></span>
+    tmp <span class="token operator">=</span> <span class="token variable">@slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">\</span>apply <span class="token function">tostring</span>
+    <span class="token keyword">if</span> <span class="token operator">#</span><span class="token variable">@</span> <span class="token operator">></span> <span class="token number">10</span> <span class="token keyword">then</span> tmp<span class="token punctuation">\</span>append <span class="token string">'...'</span>
+    <span class="token string">"["</span><span class="token operator">..</span>tmp<span class="token punctuation">\</span>join<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token operator">..</span><span class="token string">"]"</span>
+
+<span class="token comment">-- hack to modify class so its constructor may return a new self</span>
+patch <span class="token operator">=</span> <span class="token punctuation">(</span>klass<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token function">getmetatable</span><span class="token punctuation">(</span>klass<span class="token punctuation">)</span><span class="token punctuation">.</span>__call <span class="token operator">=</span> <span class="token punctuation">(</span>cls<span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token operator">-></span>
+    <span class="token keyword">self</span> <span class="token operator">=</span> <span class="token function">setmetatable</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> cls<span class="token punctuation">.</span>__base
+    newself <span class="token operator">=</span> cls<span class="token punctuation">.</span>__init <span class="token keyword">self</span><span class="token punctuation">,</span> <span class="token operator">...</span>
+    <span class="token keyword">if</span> newself
+        <span class="token keyword">self</span> <span class="token operator">=</span> <span class="token function">setmetatable</span> newself<span class="token punctuation">,</span> cls<span class="token punctuation">.</span>__base
+    <span class="token keyword">self</span>
+
+patch <span class="token class-name">List</span>
+
+<span class="token keyword">return</span> <span class="token class-name">List</span>
+
+----------------------------------------------------

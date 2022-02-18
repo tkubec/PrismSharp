@@ -1,0 +1,21 @@
+== /= >= :=
+=:= =/=
++ ++ - --
+= * / !
+<= < >
+bnot div rem band
+bor bxor bsl bsr
+not and or xor
+orelse andalso
+----------------------------------------------------
+<span class="token operator">==</span> <span class="token operator">/=</span> <span class="token operator">>=</span> <span class="token operator">:=</span>
+<span class="token operator">=:=</span> <span class="token operator">=/=</span>
+<span class="token operator">+</span> <span class="token operator">++</span> <span class="token operator">-</span> <span class="token operator">--</span>
+<span class="token operator">=</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">!</span>
+<span class="token operator">&lt;=</span> <span class="token operator">&lt;</span> <span class="token operator">></span>
+<span class="token operator">bnot</span> <span class="token operator">div</span> <span class="token operator">rem</span> <span class="token operator">band</span>
+<span class="token operator">bor</span> <span class="token operator">bxor</span> <span class="token operator">bsl</span> <span class="token operator">bsr</span>
+<span class="token operator">not</span> <span class="token operator">and</span> <span class="token operator">or</span> <span class="token operator">xor</span>
+<span class="token operator">orelse</span> <span class="token operator">andalso</span>
+
+----------------------------------------------------

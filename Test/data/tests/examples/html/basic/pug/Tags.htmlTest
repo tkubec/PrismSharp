@@ -1,0 +1,19 @@
+ul
+  li Item A
+  li Item B
+  li Item C
+foo(bar='baz')/
+input(type='checkbox', checked=true.toString())
+#content
+div#foo(data-bar="foo")&attributes({'data-foo': 'bar'})
+----------------------------------------------------
+<span class="token tag">ul</span>
+  <span class="token tag">li</span> <span class="token plain-text">Item A</span>
+  <span class="token tag">li</span> <span class="token plain-text">Item B</span>
+  <span class="token tag">li</span> <span class="token plain-text">Item C</span>
+<span class="token tag">foo<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">bar</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">'baz'</span></span><span class="token punctuation">)</span></span>/</span>
+<span class="token tag">input<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">'checkbox'</span></span><span class="token punctuation">,</span> <span class="token attr-name">checked</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token boolean">true</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span></span><span class="token punctuation">)</span></span></span>)
+<span class="token tag"><span class="token attr-id">#content</span></span>
+<span class="token tag">div<span class="token attr-id">#foo</span><span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">data-bar</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"foo"</span></span><span class="token punctuation">)</span></span><span class="token attributes"><span class="token operator">&amp;</span><span class="token function">attributes</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string-property property">'data-foo'</span><span class="token operator">:</span> <span class="token string">'bar'</span><span class="token punctuation">}</span><span class="token punctuation">)</span></span></span>
+
+----------------------------------------------------

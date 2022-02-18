@@ -1,0 +1,17 @@
+"abc"
+"a \"bc\""
+"a\nbc"
+"a\invalid"
+"foo # not a comment"
+"multi
+line string"
+----------------------------------------------------
+<span class="token string">"abc"</span>
+<span class="token string">"a <span class="token symbol">\"</span>bc<span class="token symbol">\"</span>"</span>
+<span class="token string">"a<span class="token symbol">\n</span>bc"</span>
+<span class="token string">"a\invalid"</span>
+<span class="token string">"foo # not a comment"</span>
+<span class="token string">"multi
+line string"</span>
+
+----------------------------------------------------

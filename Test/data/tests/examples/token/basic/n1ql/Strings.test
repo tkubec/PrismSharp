@@ -1,0 +1,15 @@
+"foo \"bar\" baz"
+'foo \'bar\' baz'
+"Multi-line strings
+are supported"
+'Multi-line strings
+are supported'
+----------------------------------------------------
+[
+	["string", "\"foo \\\"bar\\\" baz\""],
+	["string", "'foo \\'bar\\' baz'"],
+	["string", "\"Multi-line strings\nare supported\""],
+	["string", "'Multi-line strings\nare supported'"]
+]
+
+----------------------------------------------------

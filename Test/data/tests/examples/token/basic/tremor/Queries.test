@@ -1,0 +1,129 @@
+define script fib
+	script
+        fn fib_(a, b, n) of
+            case (a, b, n) when n > 0 => recur(b, a + b, n - 1)
+            default => a
+        end;
+
+        fn fib(n) with
+            fib_(0, 1, n)
+        end;
+
+		{ "fib": fib(event.n) }
+	end;
+
+	create script fib;
+	select event.n from in into fib;
+	select event from fib into out;
+----------------------------------------------------
+[
+	["keyword", "define"],
+	["keyword", "script"],
+	" fib\n\t",
+
+	["keyword", "script"],
+
+	["keyword", "fn"],
+	["function", "fib_"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ","],
+	" b",
+	["punctuation", ","],
+	" n",
+	["punctuation", ")"],
+	["keyword", "of"],
+
+	["function", "case"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ","],
+	" b",
+	["punctuation", ","],
+	" n",
+	["punctuation", ")"],
+	["keyword", "when"],
+	" n ",
+	["operator", ">"],
+	["number", "0"],
+	["operator", "=>"],
+	["function", "recur"],
+	["punctuation", "("],
+	"b",
+	["punctuation", ","],
+	" a ",
+	["operator", "+"],
+	" b",
+	["punctuation", ","],
+	" n ",
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["keyword", "default"],
+	["operator", "=>"],
+	" a\n        ",
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["keyword", "fn"],
+	["function", "fib"],
+	["punctuation", "("],
+	"n",
+	["punctuation", ")"],
+	["keyword", "with"],
+
+	["function", "fib_"],
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ","],
+	" n",
+	["punctuation", ")"],
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["punctuation", "{"],
+	["interpolated-string", [
+		["string", "\"fib\""]
+	]],
+	["punctuation", ":"],
+	["function", "fib"],
+	["punctuation", "("],
+	["keyword", "event"],
+	["punctuation", "."],
+	"n",
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["keyword", "create"],
+	["keyword", "script"],
+	" fib",
+	["punctuation", ";"],
+
+	["keyword", "select"],
+	["keyword", "event"],
+	["punctuation", "."],
+	"n ",
+	["keyword", "from"],
+	" in ",
+	["keyword", "into"],
+	" fib",
+	["punctuation", ";"],
+
+	["keyword", "select"],
+	["keyword", "event"],
+	["keyword", "from"],
+	" fib ",
+	["keyword", "into"],
+	" out",
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

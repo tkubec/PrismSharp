@@ -1,0 +1,51 @@
+$foo = 5;
+class InstTest
+  def set_foo(n)
+    @foo = n
+  end
+  def set_bar(n)
+    @bar = n
+  end
+end
+----------------------------------------------------
+[
+	["variable", "$foo"],
+	["operator", "="],
+	["number", "5"],
+	["punctuation", ";"],
+
+	["keyword", "class"],
+	["class-name", ["InstTest"]],
+
+	["keyword", "def"],
+	["method-definition", [
+		["function", "set_foo"]
+	]],
+	["punctuation", "("],
+	"n",
+	["punctuation", ")"],
+
+	["variable", "@foo"],
+	["operator", "="],
+	" n\n  ",
+
+	["keyword", "end"],
+
+	["keyword", "def"],
+	["method-definition", [
+		["function", "set_bar"]
+	]],
+	["punctuation", "("],
+	"n",
+	["punctuation", ")"],
+
+	["variable", "@bar"],
+	["operator", "="],
+	" n\n  ",
+
+	["keyword", "end"],
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

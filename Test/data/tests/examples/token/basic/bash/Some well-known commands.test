@@ -1,0 +1,77 @@
+crontab -l -u USER | grep -v 'YOUR JOB COMMAND or PATTERN' | crontab -u USER -
+
+groups user1 user2|cut -d: -f2|xargs -n1|sort|uniq -d
+
+wget -q -O - http://www.example.com/automation/remotescript.sh | bash /dev/stdin parameter1 parameter2
+
+sudo dpkg -i vagrant_1.7.2_x86_64.deb
+
+git pull origin master
+
+sudo gpg --refresh-keys; sudo apt-key update; sudo rm -rf /var/lib/apt/{lists,lists.old}; sudo mkdir -p /var/lib/apt/lists/partial; sudo apt-get clean all; sudo apt-get update
+----------------------------------------------------
+[
+	["function", "crontab"],
+	" -l -u ",
+	["environment", "USER"],
+	["operator", ["|"]],
+	["function", "grep"],
+	" -v ",
+	["string", "'YOUR JOB COMMAND or PATTERN'"],
+	["operator", ["|"]],
+	["function", "crontab"],
+	" -u ",
+	["environment", "USER"],
+	" -\n\n",
+
+	["function", "groups"],
+	" user1 user2",
+	["operator", ["|"]],
+	["function", "cut"],
+	" -d: -f2",
+	["operator", ["|"]],
+	["function", "xargs"],
+	" -n1",
+	["operator", ["|"]],
+	["function", "sort"],
+	["operator", ["|"]],
+	["function", "uniq"],
+	" -d\n\n",
+
+	["function", "wget"],
+	" -q -O - http://www.example.com/automation/remotescript.sh ",
+	["operator", ["|"]],
+	["function", "bash"],
+	" /dev/stdin parameter1 parameter2\n\n",
+
+	["function", "sudo"], " dpkg -i vagrant_1.7.2_x86_64.deb\n\n",
+
+	["function", "git"], " pull origin master\n\n",
+
+	["function", "sudo"],
+	" gpg --refresh-keys",
+	["punctuation", ";"],
+	["function", "sudo"],
+	" apt-key update",
+	["punctuation", ";"],
+	["function", "sudo"],
+	["function", "rm"],
+	" -rf /var/lib/apt/",
+	["punctuation", "{"],
+	"lists,lists.old",
+	["punctuation", "}"],
+	["punctuation", ";"],
+	["function", "sudo"],
+	["function", "mkdir"],
+	" -p /var/lib/apt/lists/partial",
+	["punctuation", ";"],
+	["function", "sudo"],
+	["function", "apt-get"],
+	" clean all",
+	["punctuation", ";"],
+	["function", "sudo"],
+	["function", "apt-get"],
+	" update"
+]
+
+----------------------------------------------------

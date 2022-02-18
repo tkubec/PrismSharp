@@ -1,0 +1,21 @@
+$foo = 5;
+class InstTest
+  def set_foo(n)
+    @foo = n
+  end
+  def set_bar(n)
+    @bar = n
+  end
+end
+----------------------------------------------------
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">InstTest</span>
+  <span class="token keyword">def</span> <span class="token method-definition"><span class="token function">set_foo</span></span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    <span class="token variable">@foo</span> <span class="token operator">=</span> n
+  <span class="token keyword">end</span>
+  <span class="token keyword">def</span> <span class="token method-definition"><span class="token function">set_bar</span></span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    <span class="token variable">@bar</span> <span class="token operator">=</span> n
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

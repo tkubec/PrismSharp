@@ -1,0 +1,237 @@
+// https://code.qt.io/cgit/qt/qtdeclarative.git/tree/examples/qml/referenceexamples/valuesource/example.qml?h=5.14
+
+import People 1.0
+import QtQuick 2.0  // For QColor
+
+BirthdayParty {
+	HappyBirthdaySong on announcement { name: "Bob Jones" }
+
+	onPartyStarted: console.log("This party started rockin' at " + time);
+
+
+	host: Boy {
+		name: "Bob Jones"
+		shoe { size: 12; color: "white"; brand: "Nike"; price: 90.0 }
+	}
+
+	Boy {
+		name: "Leo Hodges"
+		BirthdayParty.rsvp: "2009-07-06"
+		shoe { size: 10; color: "black"; brand: "Reebok"; price: 59.95 }
+	}
+	Boy {
+		name: "Jack Smith"
+		shoe { size: 8; color: "blue"; brand: "Puma"; price: 19.95 }
+	}
+	Girl {
+		name: "Anne Brown"
+		BirthdayParty.rsvp: "2009-07-01"
+		shoe.size: 7
+		shoe.color: "red"
+		shoe.brand: "Marc Jacobs"
+		shoe.price: 699.99
+	}
+
+}
+----------------------------------------------------
+[
+	["comment", "// https://code.qt.io/cgit/qt/qtdeclarative.git/tree/examples/qml/referenceexamples/valuesource/example.qml?h=5.14"],
+
+	["keyword", "import"], " People 1.0\n",
+	["keyword", "import"], " QtQuick 2.0  ", ["comment", "// For QColor"],
+
+	["class-name", "BirthdayParty"],
+	["punctuation", "{"],
+
+	["class-name", "HappyBirthdaySong"],
+	["keyword", "on"],
+	" announcement ",
+	["punctuation", "{"],
+	["property", "name"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Bob Jones\""]
+	]],
+	["punctuation", "}"],
+
+	["property", "onPartyStarted"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		"console",
+		["punctuation", "."],
+		["function", "log"],
+		["punctuation", "("],
+		["string", "\"This party started rockin' at \""],
+		["operator", "+"],
+		" time",
+		["punctuation", ")"]
+	]],
+	["punctuation", ";"],
+
+	["property", "host"],
+	["punctuation", ":"],
+	["class-name", "Boy"],
+	["punctuation", "{"],
+
+	["property", "name"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Bob Jones\""]
+	]],
+
+	["class-name", "shoe"],
+	["punctuation", "{"],
+	["property", "size"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["number", "12"]
+	]],
+	["punctuation", ";"],
+	["property", "color"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"white\""]
+	]],
+	["punctuation", ";"],
+	["property", "brand"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Nike\""]
+	]],
+	["punctuation", ";"],
+	["property", "price"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["number", "90.0"]
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["class-name", "Boy"],
+	["punctuation", "{"],
+
+	["property", "name"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Leo Hodges\""]
+	]],
+
+	["property", "BirthdayParty.rsvp"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"2009-07-06\""]
+	]],
+
+	["class-name", "shoe"],
+	["punctuation", "{"],
+	["property", "size"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["number", "10"]
+	]],
+	["punctuation", ";"],
+	["property", "color"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"black\""]
+	]],
+	["punctuation", ";"],
+	["property", "brand"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Reebok\""]
+	]],
+	["punctuation", ";"],
+	["property", "price"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["number", "59.95"]
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["class-name", "Boy"],
+	["punctuation", "{"],
+
+	["property", "name"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Jack Smith\""]
+	]],
+
+	["class-name", "shoe"],
+	["punctuation", "{"],
+	["property", "size"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["number", "8"]
+	]],
+	["punctuation", ";"],
+	["property", "color"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"blue\""]
+	]],
+	["punctuation", ";"],
+	["property", "brand"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Puma\""]
+	]],
+	["punctuation", ";"],
+	["property", "price"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["number", "19.95"]
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["class-name", "Girl"],
+	["punctuation", "{"],
+
+	["property", "name"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Anne Brown\""]
+	]],
+
+	["property", "BirthdayParty.rsvp"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"2009-07-01\""]
+	]],
+
+	["property", "shoe.size"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["number", "7"]
+	]],
+
+	["property", "shoe.color"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"red\""]
+	]],
+
+	["property", "shoe.brand"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["string", "\"Marc Jacobs\""]
+	]],
+
+	["property", "shoe.price"],
+	["punctuation", ":"],
+	["javascript-expression", [
+		["number", "699.99"]
+	]],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

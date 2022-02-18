@@ -1,0 +1,31 @@
+12345
+12345.67
+.23E-10 # a very small number
+3.14_15_92 # a very important number
+4_294_967_296 # underscore for legibility
+0xff # hex
+0xdead_beef # more hex
+0377 # octal (only numbers, begins with 0)
+0b011011 # binary
+----------------------------------------------------
+[
+	["number", "12345"],
+	["number", "12345.67"],
+	["operator", "."],
+	["number", "23E-10"],
+	["comment", "# a very small number"],
+	["number", "3.14_15_92"],
+	["comment", "# a very important number"],
+	["number", "4_294_967_296"],
+	["comment", "# underscore for legibility"],
+	["number", "0xff"],
+	["comment", "# hex"],
+	["number", "0xdead_beef"],
+	["comment", "# more hex"],
+	["number", "0377"],
+	["comment", "# octal (only numbers, begins with 0)"],
+	["number", "0b011011"],
+	["comment", "# binary"]
+]
+
+----------------------------------------------------

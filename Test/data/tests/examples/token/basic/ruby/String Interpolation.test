@@ -1,0 +1,21 @@
+"foo #{'bar'+my_variable}"
+----------------------------------------------------
+[
+	["string-literal", [
+		["string", "\"foo "],
+		["interpolation", [
+			["delimiter", "#{"],
+			["content", [
+				["string-literal", [
+					["string", "'bar'"]
+				]],
+				["operator", "+"],
+				"my_variable"
+			]],
+			["delimiter", "}"]
+		]],
+		["string", "\""]
+	]]
+]
+
+----------------------------------------------------

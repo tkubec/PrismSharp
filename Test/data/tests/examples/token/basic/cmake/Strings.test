@@ -1,0 +1,21 @@
+"A string"
+    "A multi
+    line
+    string"
+    "A ${VARIABLE} insde a string"
+----------------------------------------------------
+[
+	["string", ["\"A string\""]],
+	["string", ["\"A multi\n    line\n    string\""]],
+	["string", [
+		"\"A ",
+		["interpolation", [
+			["punctuation", "${"],
+			["variable", "VARIABLE"],
+			["punctuation", "}"]
+		]],
+		" insde a string\""
+	]]
+]
+
+----------------------------------------------------

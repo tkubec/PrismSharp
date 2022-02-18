@@ -1,0 +1,51 @@
+if rem(a, 2) == 0
+    disp('a is even')
+    b = a/2;
+end
+switch dayString
+   case 'Monday'
+      disp('Start of the work week')
+   case 'Tuesday'
+      disp('Day 2')
+   case 'Wednesday'
+      disp('Day 3')
+   case 'Thursday'
+      disp('Day 4')
+   case 'Friday'
+      disp('Last day of the work week')
+   otherwise
+      disp('Weekend!')
+end
+n = 1;
+nFactorial = 1;
+while nFactorial < 1e100
+    n = n + 1;
+    nFactorial = nFactorial * n;
+end
+----------------------------------------------------
+<span class="token keyword">if</span> <span class="token function">rem</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span>
+    <span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'a is even'</span><span class="token punctuation">)</span>
+    b <span class="token operator">=</span> a<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+<span class="token keyword">switch</span> dayString
+   <span class="token keyword">case</span> <span class="token string">'Monday'</span>
+      <span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'Start of the work week'</span><span class="token punctuation">)</span>
+   <span class="token keyword">case</span> <span class="token string">'Tuesday'</span>
+      <span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'Day 2'</span><span class="token punctuation">)</span>
+   <span class="token keyword">case</span> <span class="token string">'Wednesday'</span>
+      <span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'Day 3'</span><span class="token punctuation">)</span>
+   <span class="token keyword">case</span> <span class="token string">'Thursday'</span>
+      <span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'Day 4'</span><span class="token punctuation">)</span>
+   <span class="token keyword">case</span> <span class="token string">'Friday'</span>
+      <span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'Last day of the work week'</span><span class="token punctuation">)</span>
+   <span class="token keyword">otherwise</span>
+      <span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'Weekend!'</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+nFactorial <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> nFactorial <span class="token operator">&lt;</span> <span class="token number">1e100</span>
+    n <span class="token operator">=</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    nFactorial <span class="token operator">=</span> nFactorial <span class="token operator">*</span> n<span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

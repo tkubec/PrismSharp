@@ -1,0 +1,13 @@
+$foo(3+$bar)
+^switch[$sMode]{
+	^case[def]{$result(true)}
+}
+^if(in "/news/"){}
+----------------------------------------------------
+<span class="token variable">$foo</span><span class="token expression"><span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">+</span><span class="token variable">$bar</span><span class="token punctuation">)</span></span>
+<span class="token keyword">^switch</span><span class="token punctuation">[</span><span class="token variable">$sMode</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+	<span class="token keyword">^case</span><span class="token punctuation">[</span>def<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token variable">$result</span><span class="token expression"><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span></span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">^if</span><span class="token expression"><span class="token punctuation">(</span><span class="token operator">in</span> <span class="token string">"/news/"</span><span class="token punctuation">)</span></span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

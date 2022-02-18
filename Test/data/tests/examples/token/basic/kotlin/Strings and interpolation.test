@@ -1,0 +1,49 @@
+'2'
+'\uFF00'
+'\''
+
+"foo $bar \"baz"
+"""
+foo ${40 + 2}
+baz${bar()}
+"""
+----------------------------------------------------
+[
+	["char", "'2'"],
+	["char", "'\\uFF00'"],
+	["char", "'\\''"],
+
+	["string-literal", [
+		["string", "\"foo "],
+		["interpolation", [
+			["interpolation-punctuation", "$"],
+			["expression", ["bar"]]
+		]],
+		["string", " \\\"baz\""]
+	]],
+	["string-literal", [
+		["string", "\"\"\"\nfoo "],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["expression", [
+				["number", "40"],
+				["operator", "+"],
+				["number", "2"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", "\nbaz"],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["expression", [
+				["function", "bar"],
+				["punctuation", "("],
+				["punctuation", ")"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", "\n\"\"\""]
+	]]
+]
+
+----------------------------------------------------

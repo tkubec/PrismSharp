@@ -1,0 +1,9 @@
+let var1 = 3; 
+mutable var2 = 5L; 
+set var2 = var2 + 1.5;
+----------------------------------------------------
+<span class="token keyword">let</span> var1 <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> 
+<span class="token keyword">mutable</span> var2 <span class="token operator">=</span> <span class="token number">5L</span><span class="token punctuation">;</span> 
+<span class="token keyword">set</span> var2 <span class="token operator">=</span> var2 <span class="token operator">+</span> <span class="token number">1.5</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

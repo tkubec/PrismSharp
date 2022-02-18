@@ -1,0 +1,9 @@
+$width: 5em
+#main
+  width: $width
+----------------------------------------------------
+<span class="token variable-line"><span class="token variable">$width</span><span class="token punctuation">:</span> 5em</span>
+<span class="token selector">#main</span>
+<span class="token property-line">  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$width</span></span>
+
+----------------------------------------------------

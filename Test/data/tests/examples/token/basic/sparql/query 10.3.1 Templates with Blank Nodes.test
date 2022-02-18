@@ -1,0 +1,150 @@
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#>
+
+CONSTRUCT { ?x  vcard:N _:v .
+						_:v vcard:givenName ?gname .
+						_:v vcard:familyName ?fname }
+WHERE
+ {
+		{ ?x foaf:firstname ?gname } UNION  { ?x foaf:givenname   ?gname } .
+		{ ?x foaf:surname   ?fname } UNION  { ?x foaf:family_name ?fname } .
+ }
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"vcard",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://www.w3.org/2001/vcard-rdf/3.0#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "CONSTRUCT"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"vcard",
+			["punctuation", ":"]
+		]],
+		["local-name", "N"]
+	]],
+	["function", [
+		["prefix", [
+			"_",
+			["punctuation", ":"]
+		]],
+		["local-name", "v"]
+	]],
+	["punctuation", "."],
+
+	["function", [
+		["prefix", [
+			"_",
+			["punctuation", ":"]
+		]],
+		["local-name", "v"]
+	]],
+	["function", [
+		["prefix", [
+			"vcard",
+			["punctuation", ":"]
+		]],
+		["local-name", "givenName"]
+	]],
+	["variable", "?gname"],
+	["punctuation", "."],
+
+	["function", [
+		["prefix", [
+			"_",
+			["punctuation", ":"]
+		]],
+		["local-name", "v"]
+	]],
+	["function", [
+		["prefix", [
+			"vcard",
+			["punctuation", ":"]
+		]],
+		["local-name", "familyName"]
+	]],
+	["variable", "?fname"],
+	["punctuation", "}"],
+
+	["keyword", "WHERE"],
+
+	["punctuation", "{"],
+
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "firstname"]
+	]],
+	["variable", "?gname"],
+	["punctuation", "}"],
+	["keyword", "UNION"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "givenname"]
+	]],
+	["variable", "?gname"],
+	["punctuation", "}"],
+	["punctuation", "."],
+
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "surname"]
+	]],
+	["variable", "?fname"],
+	["punctuation", "}"],
+	["keyword", "UNION"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "family_name"]
+	]],
+	["variable", "?fname"],
+	["punctuation", "}"],
+	["punctuation", "."],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

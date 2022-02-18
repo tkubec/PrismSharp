@@ -1,0 +1,9 @@
+SELECT *
+FROM `my_bucket`;
+----------------------------------------------------
+[
+	["keyword", "SELECT"], ["operator", "*"],
+	["keyword", "FROM"], ["identifier", "`my_bucket`"], ["punctuation", ";"]
+]
+
+----------------------------------------------------

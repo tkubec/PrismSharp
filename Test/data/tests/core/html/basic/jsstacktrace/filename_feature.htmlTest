@@ -1,0 +1,7 @@
+Some text
+	at (foo/bar.baz:123:98)
+----------------------------------------------------
+<span class="token error-message string">Some text</span>
+	<span class="token stack-frame"><span class="token keyword">at</span> <span class="token punctuation">(</span><span class="token filename url">foo/bar.baz</span><span class="token line-number number"><span class="token punctuation">:</span>123<span class="token punctuation">:</span>98</span><span class="token punctuation">)</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,18 @@
+using Gtk;
+
+int main (string[] args) {
+	Gtk.init(ref args);
+
+	var window = new Window();
+
+	var button = new Button.with_label("Click me!");
+
+	window.add(button);
+	window.show_all();
+
+	Gtk.main();
+	return 0;
+}
+
+--------------------------------------------------
+

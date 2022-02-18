@@ -1,0 +1,47 @@
+Function SayHello([string]$name) {
+    Write-Host "Hello, $name."
+}
+$Names = @("Bob", "Alice")
+
+$Names | ForEach {
+    SayHello $_
+}
+----------------------------------------------------
+[
+	["keyword", "Function"],
+	" SayHello",
+	["punctuation", "("],
+	["namespace", "[string]"],
+	["variable", "$name"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "Write-Host"],
+	["string", [
+		"\"Hello, ",
+		["variable", "$name"],
+		".\""
+	]],
+
+	["punctuation", "}"],
+
+	["variable", "$Names"],
+	" = @",
+	["punctuation", "("],
+	["string", ["\"Bob\""]],
+	["punctuation", ","],
+	["string", ["\"Alice\""]],
+	["punctuation", ")"],
+
+	["variable", "$Names"],
+	["punctuation", "|"],
+	["keyword", "ForEach"],
+	["punctuation", "{"],
+
+	"\n    SayHello ",
+	["variable", "$_"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

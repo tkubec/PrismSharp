@@ -1,0 +1,7 @@
+script-src 'self' 'unsafe-eval' 'unsafe-inline';
+style-src 'unsafe-inline' 'unsafe-hashed-attributes' 'self';
+----------------------------------------------------
+<span class="token directive property">script-src</span> <span class="token keyword safe">'self'</span> <span class="token keyword unsafe">'unsafe-eval'</span> <span class="token keyword unsafe">'unsafe-inline'</span><span class="token punctuation">;</span>
+<span class="token directive property">style-src</span> <span class="token keyword unsafe">'unsafe-inline'</span> <span class="token keyword unsafe">'unsafe-hashed-attributes'</span> <span class="token keyword safe">'self'</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

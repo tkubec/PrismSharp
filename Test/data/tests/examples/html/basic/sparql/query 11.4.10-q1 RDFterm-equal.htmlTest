@@ -1,0 +1,19 @@
+PREFIX a:      <http://www.w3.org/2000/10/annotation-ns#>
+	PREFIX dc:     <http://purl.org/dc/elements/1.1/>
+	PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+
+	SELECT ?annotates
+	WHERE { ?annot  a:annotates  ?annotates .
+					?annot  dc:date      ?date .
+					FILTER ( ?date = xsd:dateTime("2004-01-01T00:00:00Z") || ?date = xsd:dateTime("2005-01-01T00:00:00Z") ) }
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">a<span class="token punctuation">:</span></span></span>      <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2000/10/annotation-ns#<span class="token punctuation">></span></span>
+	<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">dc<span class="token punctuation">:</span></span></span>     <span class="token url"><span class="token punctuation">&lt;</span>http://purl.org/dc/elements/1.1/<span class="token punctuation">></span></span>
+	<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">xsd<span class="token punctuation">:</span></span></span>    <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2001/XMLSchema#<span class="token punctuation">></span></span>
+
+	<span class="token keyword">SELECT</span> <span class="token variable">?annotates</span>
+	<span class="token keyword">WHERE</span> <span class="token punctuation">{</span> <span class="token variable">?annot</span>  <span class="token function"><span class="token prefix">a<span class="token punctuation">:</span></span><span class="token local-name">annotates</span></span>  <span class="token variable">?annotates</span> <span class="token punctuation">.</span>
+					<span class="token variable">?annot</span>  <span class="token function"><span class="token prefix">dc<span class="token punctuation">:</span></span><span class="token local-name">date</span></span>      <span class="token variable">?date</span> <span class="token punctuation">.</span>
+					<span class="token keyword">FILTER</span> <span class="token punctuation">(</span> <span class="token variable">?date</span> = <span class="token function"><span class="token prefix">xsd<span class="token punctuation">:</span></span><span class="token local-name">dateTime</span></span><span class="token punctuation">(</span><span class="token string">"2004-01-01T00:00:00Z"</span><span class="token punctuation">)</span> || <span class="token variable">?date</span> = <span class="token function"><span class="token prefix">xsd<span class="token punctuation">:</span></span><span class="token local-name">dateTime</span></span><span class="token punctuation">(</span><span class="token string">"2005-01-01T00:00:00Z"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,109 @@
+admin all auto both
+colored false force
+hide highest lastused
+leave listonly none
+normal notset off
+on open print show
+silent silentlog
+smooth textonly
+true user
+
+ARCHIVE
+FILE_ATTRIBUTE_ARCHIVE
+FILE_ATTRIBUTE_NORMAL
+FILE_ATTRIBUTE_OFFLINE
+FILE_ATTRIBUTE_READONLY
+FILE_ATTRIBUTE_SYSTEM
+FILE_ATTRIBUTE_TEMPORARY
+HKCR HKCU HKLM
+HKCR32 HKCU32 HKLM32
+HKCR64 HKCU64 HKLM64
+HKDD HKPD HKU
+HKEY_CLASSES_ROOT
+HKEY_CURRENT_CONFIG
+HKEY_CURRENT_USER
+HKEY_DYN_DATA
+HKEY_LOCAL_MACHINE
+HKEY_PERFORMANCE_DATA
+HKEY_USERS
+IDABORT IDCANCEL
+IDIGNORE IDNO
+IDOK IDRETRY IDYES
+MB_ABORTRETRYIGNORE
+MB_DEFBUTTON1
+MB_DEFBUTTON2
+MB_DEFBUTTON3
+MB_DEFBUTTON4
+MB_ICONEXCLAMATION
+MB_ICONINFORMATION
+MB_ICONQUESTION
+MB_ICONSTOP
+MB_OK
+MB_OKCANCEL
+MB_RETRYCANCEL
+MB_RIGHT
+MB_RTLREADING
+MB_SETFOREGROUND
+MB_TOPMOST
+MB_USERICON
+MB_YESNO
+NORMAL OFFLINE
+READONLY SHCTX
+SHELL_CONTEXT
+SYSTEM TEMPORARY
+----------------------------------------------------
+<span class="token property">admin</span> <span class="token property">all</span> <span class="token property">auto</span> <span class="token property">both</span>
+<span class="token property">colored</span> <span class="token property">false</span> <span class="token property">force</span>
+<span class="token property">hide</span> <span class="token property">highest</span> <span class="token property">lastused</span>
+<span class="token property">leave</span> <span class="token property">listonly</span> <span class="token property">none</span>
+<span class="token property">normal</span> <span class="token property">notset</span> <span class="token property">off</span>
+<span class="token property">on</span> <span class="token property">open</span> <span class="token property">print</span> <span class="token property">show</span>
+<span class="token property">silent</span> <span class="token property">silentlog</span>
+<span class="token property">smooth</span> <span class="token property">textonly</span>
+<span class="token property">true</span> <span class="token property">user</span>
+
+<span class="token property">ARCHIVE</span>
+<span class="token property">FILE_ATTRIBUTE_ARCHIVE</span>
+<span class="token property">FILE_ATTRIBUTE_NORMAL</span>
+<span class="token property">FILE_ATTRIBUTE_OFFLINE</span>
+<span class="token property">FILE_ATTRIBUTE_READONLY</span>
+<span class="token property">FILE_ATTRIBUTE_SYSTEM</span>
+<span class="token property">FILE_ATTRIBUTE_TEMPORARY</span>
+<span class="token property">HKCR</span> <span class="token property">HKCU</span> <span class="token property">HKLM</span>
+<span class="token property">HKCR32</span> <span class="token property">HKCU32</span> <span class="token property">HKLM32</span>
+<span class="token property">HKCR64</span> <span class="token property">HKCU64</span> <span class="token property">HKLM64</span>
+<span class="token property">HKDD</span> <span class="token property">HKPD</span> <span class="token property">HKU</span>
+<span class="token property">HKEY_CLASSES_ROOT</span>
+<span class="token property">HKEY_CURRENT_CONFIG</span>
+<span class="token property">HKEY_CURRENT_USER</span>
+<span class="token property">HKEY_DYN_DATA</span>
+<span class="token property">HKEY_LOCAL_MACHINE</span>
+<span class="token property">HKEY_PERFORMANCE_DATA</span>
+<span class="token property">HKEY_USERS</span>
+<span class="token property">IDABORT</span> <span class="token property">IDCANCEL</span>
+<span class="token property">IDIGNORE</span> <span class="token property">IDNO</span>
+<span class="token property">IDOK</span> <span class="token property">IDRETRY</span> <span class="token property">IDYES</span>
+<span class="token property">MB_ABORTRETRYIGNORE</span>
+<span class="token property">MB_DEFBUTTON1</span>
+<span class="token property">MB_DEFBUTTON2</span>
+<span class="token property">MB_DEFBUTTON3</span>
+<span class="token property">MB_DEFBUTTON4</span>
+<span class="token property">MB_ICONEXCLAMATION</span>
+<span class="token property">MB_ICONINFORMATION</span>
+<span class="token property">MB_ICONQUESTION</span>
+<span class="token property">MB_ICONSTOP</span>
+<span class="token property">MB_OK</span>
+<span class="token property">MB_OKCANCEL</span>
+<span class="token property">MB_RETRYCANCEL</span>
+<span class="token property">MB_RIGHT</span>
+<span class="token property">MB_RTLREADING</span>
+<span class="token property">MB_SETFOREGROUND</span>
+<span class="token property">MB_TOPMOST</span>
+<span class="token property">MB_USERICON</span>
+<span class="token property">MB_YESNO</span>
+<span class="token property">NORMAL</span> <span class="token property">OFFLINE</span>
+<span class="token property">READONLY</span> <span class="token property">SHCTX</span>
+<span class="token property">SHELL_CONTEXT</span>
+<span class="token property">SYSTEM</span> <span class="token property">TEMPORARY</span>
+
+----------------------------------------------------

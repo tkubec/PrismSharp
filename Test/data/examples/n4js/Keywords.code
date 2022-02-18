@@ -1,0 +1,7 @@
+class C {..}
+interface I {..}
+
+foo(c: C, i: I) {
+    c instanceof C; // ok
+    c instanceof I; // ok
+}

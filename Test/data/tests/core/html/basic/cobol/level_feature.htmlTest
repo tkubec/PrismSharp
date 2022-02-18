@@ -1,0 +1,29 @@
+01 ServiceRecord.
+   05 SSN                        pic 9(9).
+   05 Name.
+      10 GivenName               pic a(20).
+      10 FamilyName              pic a(20).
+   05 Rank.
+      10 RankType                pic a(1)
+         88 ValidRankType        value 'O' 'E' 'W'.
+         88 Enlisted             value 'E'.
+         88 WarrantOfficer       value 'W'.
+         88 CommissionedOfficer  value 'W'.
+      10 Grade                   pic x(2)
+         88 ValidGrade           value '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '1E' '2E' '3E'.
+----------------------------------------------------
+<span class="token level number">01</span> ServiceRecord<span class="token punctuation">.</span>
+   <span class="token level number">05</span> SSN                        <span class="token keyword">pic</span> <span class="token class-name">9<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span>
+   <span class="token level number">05</span> Name<span class="token punctuation">.</span>
+      <span class="token level number">10</span> GivenName               <span class="token keyword">pic</span> <span class="token class-name">a<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span>
+      <span class="token level number">10</span> FamilyName              <span class="token keyword">pic</span> <span class="token class-name">a<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span>
+   <span class="token level number">05</span> Rank<span class="token punctuation">.</span>
+      <span class="token level number">10</span> RankType                <span class="token keyword">pic</span> <span class="token class-name">a<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span></span>
+         <span class="token level number">88</span> ValidRankType        <span class="token keyword">value</span> <span class="token string">'O'</span> <span class="token string">'E'</span> <span class="token string">'W'</span><span class="token punctuation">.</span>
+         <span class="token level number">88</span> Enlisted             <span class="token keyword">value</span> <span class="token string">'E'</span><span class="token punctuation">.</span>
+         <span class="token level number">88</span> WarrantOfficer       <span class="token keyword">value</span> <span class="token string">'W'</span><span class="token punctuation">.</span>
+         <span class="token level number">88</span> CommissionedOfficer  <span class="token keyword">value</span> <span class="token string">'W'</span><span class="token punctuation">.</span>
+      <span class="token level number">10</span> Grade                   <span class="token keyword">pic</span> <span class="token class-name">x<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+         <span class="token level number">88</span> ValidGrade           <span class="token keyword">value</span> <span class="token string">'1'</span> <span class="token string">'2'</span> <span class="token string">'3'</span> <span class="token string">'4'</span> <span class="token string">'5'</span> <span class="token string">'6'</span> <span class="token string">'7'</span> <span class="token string">'8'</span> <span class="token string">'9'</span> <span class="token string">'10'</span> <span class="token string">'1E'</span> <span class="token string">'2E'</span> <span class="token string">'3E'</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

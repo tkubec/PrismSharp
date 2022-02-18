@@ -1,0 +1,51 @@
++-----+---------+
+| foo |   bar   |
++=====+=========+
+| foo |   bar   |
++-----+---------+
+
+	+---+
+	| 1 |
+	+---+
+
+=== ===
+ a   b
+=== ===
+ 1   2
+=== ===
+
+	==== ==== =====
+	   foo     bar
+	--------- -----
+	 ab   cd    e
+	==== ==== =====
+	  1    2    3
+	  4    5    6
+	==== ==== =====
+----------------------------------------------------
+<span class="token table"><span class="token punctuation">+-----+---------+</span>
+<span class="token punctuation">|</span> foo <span class="token punctuation">|</span>   bar   <span class="token punctuation">|</span>
+<span class="token punctuation">+=====+=========+</span>
+<span class="token punctuation">|</span> foo <span class="token punctuation">|</span>   bar   <span class="token punctuation">|</span>
+<span class="token punctuation">+-----+---------+</span></span>
+
+	<span class="token table"><span class="token punctuation">+---+</span>
+	<span class="token punctuation">|</span> 1 <span class="token punctuation">|</span>
+	<span class="token punctuation">+---+</span></span>
+
+<span class="token table"><span class="token punctuation">===</span> <span class="token punctuation">===</span>
+ a   b
+<span class="token punctuation">===</span> <span class="token punctuation">===</span>
+ 1   2
+<span class="token punctuation">===</span> <span class="token punctuation">===</span></span>
+
+	<span class="token table"><span class="token punctuation">====</span> <span class="token punctuation">====</span> <span class="token punctuation">=====</span>
+	   foo     bar
+	<span class="token punctuation">---------</span> <span class="token punctuation">-----</span>
+	 ab   cd    e
+	<span class="token punctuation">====</span> <span class="token punctuation">====</span> <span class="token punctuation">=====</span>
+	  1    2    3
+	  4    5    6
+	<span class="token punctuation">====</span> <span class="token punctuation">====</span> <span class="token punctuation">=====</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,115 @@
+# Source: https://www.gap-system.org/Manuals/doc/ref/chap4.html#X815F71EA7BC0EB6F
+gap> fib := function ( n )
+>     local f1, f2, f3, i;
+>     f1 := 1; f2 := 1;
+>     for i in [3..n] do
+>       f3 := f1 + f2;
+>       f1 := f2;
+>       f2 := f3;
+>     od;
+>     return f2;
+>   end;;
+gap> List( [1..10], fib );
+[ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]
+----------------------------------------------------
+[
+	["comment", "# Source: https://www.gap-system.org/Manuals/doc/ref/chap4.html#X815F71EA7BC0EB6F"],
+
+	["shell", [
+		["punctuation", "gap>"],
+		["gap", [
+			" fib ",
+			["operator", ":="],
+			["keyword", "function"],
+			["punctuation", "("],
+			" n ",
+			["punctuation", ")"],
+
+			["continuation", ">"],
+			["keyword", "local"],
+			" f1",
+			["punctuation", ","],
+			" f2",
+			["punctuation", ","],
+			" f3",
+			["punctuation", ","],
+			" i",
+			["punctuation", ";"],
+
+			["continuation", ">"],
+			"     f1 ",
+			["operator", ":="],
+			["number", "1"],
+			["punctuation", ";"],
+			" f2 ",
+			["operator", ":="],
+			["number", "1"],
+			["punctuation", ";"],
+
+			["continuation", ">"],
+			["keyword", "for"],
+			" i ",
+			["keyword", "in"],
+			["punctuation", "["],
+			["number", "3"],
+			["operator", ".."],
+			"n",
+			["punctuation", "]"],
+			["keyword", "do"],
+
+			["continuation", ">"],
+			"       f3 ",
+			["operator", ":="],
+			" f1 ",
+			["operator", "+"],
+			" f2",
+			["punctuation", ";"],
+
+			["continuation", ">"],
+			"       f1 ",
+			["operator", ":="],
+			" f2",
+			["punctuation", ";"],
+
+			["continuation", ">"],
+			"       f2 ",
+			["operator", ":="],
+			" f3",
+			["punctuation", ";"],
+
+			["continuation", ">"],
+			["keyword", "od"],
+			["punctuation", ";"],
+
+			["continuation", ">"],
+			["keyword", "return"],
+			" f2",
+			["punctuation", ";"],
+
+			["continuation", ">"],
+			["keyword", "end"],
+			["punctuation", ";"],
+			["punctuation", ";"]
+		]]
+	]],
+	["shell", [
+		["punctuation", "gap>"],
+		["gap", [
+			["function", "List"],
+			["punctuation", "("],
+			["punctuation", "["],
+			["number", "1"],
+			["operator", ".."],
+			["number", "10"],
+			["punctuation", "]"],
+			["punctuation", ","],
+			" fib ",
+			["punctuation", ")"],
+			["punctuation", ";"]
+		]],
+
+		"\n[ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]"
+	]]
+]
+
+----------------------------------------------------

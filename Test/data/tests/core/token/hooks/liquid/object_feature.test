@@ -1,0 +1,225 @@
+{{ address }}
+{{ all_country_option_tags }}
+{{ article }}
+{{ block }}
+{{ blog }}
+{{ cart }}
+{{ checkout }}
+{{ collection }}
+{{ color }}
+{{ country }}
+{{ country_option_tags }}
+{{ currency }}
+{{ current_page }}
+{{ current_tags }}
+{{ customer }}
+{{ customer_address }}
+{{ date }}
+{{ discount_allocation }}
+{{ discount_application }}
+{{ external_video }}
+{{ filter }}
+{{ filter_value }}
+{{ font }}
+{{ forloop }}
+{{ fulfillment }}
+{{ generic_file }}
+{{ gift_card }}
+{{ group }}
+{{ handle }}
+{{ image }}
+{{ line_item }}
+{{ link }}
+{{ linklist }}
+{{ localization }}
+{{ location }}
+{{ measurement }}
+{{ media }}
+{{ metafield }}
+{{ model }}
+{{ model_source }}
+{{ order }}
+{{ page }}
+{{ page_description }}
+{{ page_image }}
+{{ page_title }}
+{{ part }}
+{{ policy }}
+{{ product }}
+{{ product_option }}
+{{ recommendations }}
+{{ request }}
+{{ robots }}
+{{ routes }}
+{{ rule }}
+{{ script }}
+{{ search }}
+{{ selling_plan }}
+{{ selling_plan_allocation }}
+{{ selling_plan_group }}
+{{ shipping_method }}
+{{ shop }}
+{{ shop_locale }}
+{{ sitemap }}
+{{ store_availability }}
+{{ tax_line }}
+{{ template }}
+{{ theme }}
+{{ transaction }}
+{{ unit_price_measurement }}
+{{ user_agent }}
+{{ variant }}
+{{ video }}
+{{ video_source }}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["object", "address"],
+	" }}\n{{ ",
+	["object", "all_country_option_tags"],
+	" }}\n{{ ",
+	["object", "article"],
+	" }}\n{{ ",
+	["object", "block"],
+	" }}\n{{ ",
+	["object", "blog"],
+	" }}\n{{ ",
+	["object", "cart"],
+	" }}\n{{ ",
+	["object", "checkout"],
+	" }}\n{{ ",
+	["object", "collection"],
+	" }}\n{{ ",
+	["object", "color"],
+	" }}\n{{ ",
+	["object", "country"],
+	" }}\n{{ ",
+	["object", "country_option_tags"],
+	" }}\n{{ ",
+	["object", "currency"],
+	" }}\n{{ ",
+	["object", "current_page"],
+	" }}\n{{ ",
+	["object", "current_tags"],
+	" }}\n{{ ",
+	["object", "customer"],
+	" }}\n{{ ",
+	["object", "customer_address"],
+	" }}\n{{ ",
+	["object", "date"],
+	" }}\n{{ ",
+	["object", "discount_allocation"],
+	" }}\n{{ ",
+	["object", "discount_application"],
+	" }}\n{{ ",
+	["object", "external_video"],
+	" }}\n{{ ",
+	["object", "filter"],
+	" }}\n{{ ",
+	["object", "filter_value"],
+	" }}\n{{ ",
+	["object", "font"],
+	" }}\n{{ ",
+	["object", "forloop"],
+	" }}\n{{ ",
+	["object", "fulfillment"],
+	" }}\n{{ ",
+	["object", "generic_file"],
+	" }}\n{{ ",
+	["object", "gift_card"],
+	" }}\n{{ ",
+	["object", "group"],
+	" }}\n{{ ",
+	["object", "handle"],
+	" }}\n{{ ",
+	["object", "image"],
+	" }}\n{{ ",
+	["object", "line_item"],
+	" }}\n{{ ",
+	["object", "link"],
+	" }}\n{{ ",
+	["object", "linklist"],
+	" }}\n{{ ",
+	["object", "localization"],
+	" }}\n{{ ",
+	["object", "location"],
+	" }}\n{{ ",
+	["object", "measurement"],
+	" }}\n{{ ",
+	["object", "media"],
+	" }}\n{{ ",
+	["object", "metafield"],
+	" }}\n{{ ",
+	["object", "model"],
+	" }}\n{{ ",
+	["object", "model_source"],
+	" }}\n{{ ",
+	["object", "order"],
+	" }}\n{{ ",
+	["object", "page"],
+	" }}\n{{ ",
+	["object", "page_description"],
+	" }}\n{{ ",
+	["object", "page_image"],
+	" }}\n{{ ",
+	["object", "page_title"],
+	" }}\n{{ ",
+	["object", "part"],
+	" }}\n{{ ",
+	["object", "policy"],
+	" }}\n{{ ",
+	["object", "product"],
+	" }}\n{{ ",
+	["object", "product_option"],
+	" }}\n{{ ",
+	["object", "recommendations"],
+	" }}\n{{ ",
+	["object", "request"],
+	" }}\n{{ ",
+	["object", "robots"],
+	" }}\n{{ ",
+	["object", "routes"],
+	" }}\n{{ ",
+	["object", "rule"],
+	" }}\n{{ ",
+	["object", "script"],
+	" }}\n{{ ",
+	["object", "search"],
+	" }}\n{{ ",
+	["object", "selling_plan"],
+	" }}\n{{ ",
+	["object", "selling_plan_allocation"],
+	" }}\n{{ ",
+	["object", "selling_plan_group"],
+	" }}\n{{ ",
+	["object", "shipping_method"],
+	" }}\n{{ ",
+	["object", "shop"],
+	" }}\n{{ ",
+	["object", "shop_locale"],
+	" }}\n{{ ",
+	["object", "sitemap"],
+	" }}\n{{ ",
+	["object", "store_availability"],
+	" }}\n{{ ",
+	["object", "tax_line"],
+	" }}\n{{ ",
+	["object", "template"],
+	" }}\n{{ ",
+	["object", "theme"],
+	" }}\n{{ ",
+	["object", "transaction"],
+	" }}\n{{ ",
+	["object", "unit_price_measurement"],
+	" }}\n{{ ",
+	["object", "user_agent"],
+	" }}\n{{ ",
+	["object", "variant"],
+	" }}\n{{ ",
+	["object", "video"],
+	" }}\n{{ ",
+	["object", "video_source"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

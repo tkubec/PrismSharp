@@ -1,0 +1,37 @@
+1==1.0.
+1=:=1.0.
+1 > a.
++1.
+-1.
+1+1.
+4/2.
+5 div 2.
+5 rem 2.
+2#10 band 2#01.
+2#10 bor 2#01.
+a + 10.
+1 bsl (1 bsl 64).
+not true.
+true and false.
+true xor false.
+true or garbage.
+----------------------------------------------------
+<span class="token number">1</span><span class="token operator">==</span><span class="token number">1.0</span><span class="token punctuation">.</span>
+<span class="token number">1</span><span class="token operator">=:=</span><span class="token number">1.0</span><span class="token punctuation">.</span>
+<span class="token number">1</span> <span class="token operator">></span> <span class="token atom">a</span><span class="token punctuation">.</span>
+<span class="token operator">+</span><span class="token number">1.</span>
+<span class="token operator">-</span><span class="token number">1.</span>
+<span class="token number">1</span><span class="token operator">+</span><span class="token number">1.</span>
+<span class="token number">4</span><span class="token operator">/</span><span class="token number">2.</span>
+<span class="token number">5</span> <span class="token operator">div</span> <span class="token number">2.</span>
+<span class="token number">5</span> <span class="token operator">rem</span> <span class="token number">2.</span>
+<span class="token number">2#10</span> <span class="token operator">band</span> <span class="token number">2#01</span><span class="token punctuation">.</span>
+<span class="token number">2#10</span> <span class="token operator">bor</span> <span class="token number">2#01</span><span class="token punctuation">.</span>
+<span class="token atom">a</span> <span class="token operator">+</span> <span class="token number">10.</span>
+<span class="token number">1</span> <span class="token operator">bsl</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">bsl</span> <span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+<span class="token operator">not</span> <span class="token boolean">true</span><span class="token punctuation">.</span>
+<span class="token boolean">true</span> <span class="token operator">and</span> <span class="token boolean">false</span><span class="token punctuation">.</span>
+<span class="token boolean">true</span> <span class="token operator">xor</span> <span class="token boolean">false</span><span class="token punctuation">.</span>
+<span class="token boolean">true</span> <span class="token operator">or</span> <span class="token atom">garbage</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

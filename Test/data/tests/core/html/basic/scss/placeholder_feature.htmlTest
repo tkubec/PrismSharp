@@ -1,0 +1,9 @@
+%foobar
+%foo-bar
+%foo_bar
+----------------------------------------------------
+<span class="token placeholder selector">%foobar</span>
+<span class="token placeholder selector">%foo-bar</span>
+<span class="token placeholder selector">%foo_bar</span>
+
+----------------------------------------------------

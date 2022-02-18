@@ -1,0 +1,7 @@
+(lambda (x) (+ x 3))
+(apply vector 'a 'b '(c d e))
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token lambda-parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">+</span> x <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token builtin">apply</span> vector <span class="token symbol">'a</span> <span class="token symbol">'b</span> <span class="token punctuation">'</span><span class="token punctuation">(</span>c d e<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

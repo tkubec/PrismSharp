@@ -1,0 +1,31 @@
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+
+|Abc | Def   |
+--- | ---
+|`` `. ``|2|
+----------------------------------------------------
+<span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> Tables        </span><span class="token punctuation">|</span><span class="token table-header important"> Are           </span><span class="token punctuation">|</span><span class="token table-header important"> Cool  </span><span class="token punctuation">|</span>
+</span><span class="token table-line"><span class="token punctuation">|</span> <span class="token punctuation">-------------</span> <span class="token punctuation">|</span><span class="token punctuation">:-------------:</span><span class="token punctuation">|</span> <span class="token punctuation">-----:</span><span class="token punctuation">|</span>
+</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> col 3 is      </span><span class="token punctuation">|</span><span class="token table-data"> right-aligned </span><span class="token punctuation">|</span><span class="token table-data"> $1600 </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> col 2 is      </span><span class="token punctuation">|</span><span class="token table-data"> centered      </span><span class="token punctuation">|</span><span class="token table-data">   $12 </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> zebra stripes </span><span class="token punctuation">|</span><span class="token table-data"> are neat      </span><span class="token punctuation">|</span><span class="token table-data">    $1 </span><span class="token punctuation">|</span>
+</span></span>
+<span class="token table"><span class="token table-header-row"><span class="token table-header important">Markdown </span><span class="token punctuation">|</span><span class="token table-header important"> Less </span><span class="token punctuation">|</span><span class="token table-header important"> Pretty</span>
+</span><span class="token table-line"><span class="token punctuation">---</span> <span class="token punctuation">|</span> <span class="token punctuation">---</span> <span class="token punctuation">|</span> <span class="token punctuation">---</span>
+</span><span class="token table-data-rows"><span class="token table-data"><span class="token italic"><span class="token punctuation">*</span><span class="token content">Still</span><span class="token punctuation">*</span></span> </span><span class="token punctuation">|</span><span class="token table-data"> <span class="token code-snippet code keyword">`renders`</span> </span><span class="token punctuation">|</span><span class="token table-data"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">nicely</span><span class="token punctuation">**</span></span></span>
+<span class="token table-data">1 </span><span class="token punctuation">|</span><span class="token table-data"> 2 </span><span class="token punctuation">|</span><span class="token table-data"> 3</span>
+</span></span>
+<span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important">Abc </span><span class="token punctuation">|</span><span class="token table-header important"> Def   </span><span class="token punctuation">|</span>
+</span><span class="token table-line"><span class="token punctuation">---</span> <span class="token punctuation">|</span> <span class="token punctuation">---</span>
+</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"><span class="token code-snippet code keyword">`` `. ``</span></span><span class="token punctuation">|</span><span class="token table-data">2</span><span class="token punctuation">|</span></span></span>
+
+----------------------------------------------------

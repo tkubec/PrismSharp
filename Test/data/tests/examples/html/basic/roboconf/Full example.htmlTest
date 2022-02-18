@@ -1,0 +1,99 @@
+ApacheServer {
+    # Apache instances will be deployed by Roboconf's Puppet extension
+    installer: puppet;
+
+    # Web applications could be deployed over this Apache server
+    children: My-Dash-Board, Marketing-Suite;
+
+    # Properties exported by this component.
+    # 'port' should have a default value, or we will have to set it when we create an instance.
+    exports: port = 19099;
+
+    # 'ip' is a special variable. It will be updated at runtime by a Roboconf agent.
+    exports: ip;
+
+    # Other components properties that this server needs to have so that it can start.
+    imports: LB.port (optional), LB.ip (optional);
+
+    # Here, the Apache may also be notified about components instances of type LB.
+    # The imports are marked as optional. It means that if there is no LB instance, an
+    # Apache instance will be able to start anyway.
+    #
+    # If the import was not optional, e.g.
+    #
+    # imports: LB.port, LB.ip;
+    # or even
+    # imports: LB.port (optional), LB.ip;
+    #
+    # ... then an Apache instance would need at least one LB instance somewhere.
+
+    # Imports may also reference variables from other applications
+    imports: external Lamp.lb-ip;
+}
+
+facet LoadBalanced {
+    exports: ip, port;  # Define we export two variables.
+}
+
+instance of VM {
+
+    # This will create 5 VM instances, called VM 1, VM 2, VM3, VM 4 and VM 5.
+    name: VM ;  # Yes, there is a space at the end... :)
+    count: 5;
+
+    # On every VM instance, we will deploy...
+    instance of Tomcat {
+        name: Tomcat;
+    }
+}
+----------------------------------------------------
+<span class="token component variable">ApacheServer</span> <span class="token punctuation">{</span>
+    <span class="token comment"># Apache instances will be deployed by Roboconf's Puppet extension</span>
+    <span class="token property">installer</span><span class="token punctuation">:</span> puppet<span class="token punctuation">;</span>
+
+    <span class="token comment"># Web applications could be deployed over this Apache server</span>
+    <span class="token property">children</span><span class="token punctuation">:</span> My-Dash-Board<span class="token punctuation">,</span> Marketing-Suite<span class="token punctuation">;</span>
+
+    <span class="token comment"># Properties exported by this component.</span>
+    <span class="token comment"># 'port' should have a default value, or we will have to set it when we create an instance.</span>
+    <span class="token property">exports</span><span class="token punctuation">:</span> port <span class="token punctuation">=</span> <span class="token value attr-value">19099</span><span class="token punctuation">;</span>
+
+    <span class="token comment"># 'ip' is a special variable. It will be updated at runtime by a Roboconf agent.</span>
+    <span class="token property">exports</span><span class="token punctuation">:</span> ip<span class="token punctuation">;</span>
+
+    <span class="token comment"># Other components properties that this server needs to have so that it can start.</span>
+    <span class="token property">imports</span><span class="token punctuation">:</span> LB<span class="token punctuation">.</span>port <span class="token optional builtin">(optional)</span><span class="token punctuation">,</span> LB<span class="token punctuation">.</span>ip <span class="token optional builtin">(optional)</span><span class="token punctuation">;</span>
+
+    <span class="token comment"># Here, the Apache may also be notified about components instances of type LB.</span>
+    <span class="token comment"># The imports are marked as optional. It means that if there is no LB instance, an</span>
+    <span class="token comment"># Apache instance will be able to start anyway.</span>
+    <span class="token comment">#</span>
+    <span class="token comment"># If the import was not optional, e.g.</span>
+    <span class="token comment">#</span>
+    <span class="token comment"># imports: LB.port, LB.ip;</span>
+    <span class="token comment"># or even</span>
+    <span class="token comment"># imports: LB.port (optional), LB.ip;</span>
+    <span class="token comment">#</span>
+    <span class="token comment"># ... then an Apache instance would need at least one LB instance somewhere.</span>
+
+    <span class="token comment"># Imports may also reference variables from other applications</span>
+    <span class="token property">imports</span><span class="token punctuation">:</span> <span class="token keyword">external</span> Lamp<span class="token punctuation">.</span>lb-ip<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">facet</span> <span class="token component variable">LoadBalanced</span> <span class="token punctuation">{</span>
+    <span class="token property">exports</span><span class="token punctuation">:</span> ip<span class="token punctuation">,</span> port<span class="token punctuation">;</span>  <span class="token comment"># Define we export two variables.</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">instance of</span> <span class="token component variable">VM</span> <span class="token punctuation">{</span>
+
+    <span class="token comment"># This will create 5 VM instances, called VM 1, VM 2, VM3, VM 4 and VM 5.</span>
+    <span class="token property">name</span><span class="token punctuation">:</span> VM <span class="token punctuation">;</span>  <span class="token comment"># Yes, there is a space at the end... :)</span>
+    <span class="token property">count</span><span class="token punctuation">:</span> 5<span class="token punctuation">;</span>
+
+    <span class="token comment"># On every VM instance, we will deploy...</span>
+    <span class="token keyword">instance of</span> <span class="token component variable">Tomcat</span> <span class="token punctuation">{</span>
+        <span class="token property">name</span><span class="token punctuation">:</span> Tomcat<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

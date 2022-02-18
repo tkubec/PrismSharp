@@ -1,0 +1,41 @@
+// Final Methods
+@Final
+private tasks = new Map<string,Task>();
+
+// Redefinition of Members
+@Override
+public async size(): int {
+  …
+}
+
+// Dependency Injection
+@Binder
+@Bind(Storage,StorageInMemory)
+class InMemoryBinder {}
+
+@GenerateInjector @UseBinder(InMemoryBinder)
+export public class TaskManagerTest {
+  …
+}
+----------------------------------------------------
+<span class="token comment">// Final Methods</span>
+<span class="token annotation operator">@Final</span>
+<span class="token keyword">private</span> tasks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token punctuation">,</span>Task<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Redefinition of Members</span>
+<span class="token annotation operator">@Override</span>
+<span class="token keyword">public</span> async <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> int <span class="token punctuation">{</span>
+  …
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Dependency Injection</span>
+<span class="token annotation operator">@Binder</span>
+<span class="token annotation operator">@Bind</span><span class="token punctuation">(</span>Storage<span class="token punctuation">,</span>StorageInMemory<span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">InMemoryBinder</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token annotation operator">@GenerateInjector</span> <span class="token annotation operator">@UseBinder</span><span class="token punctuation">(</span>InMemoryBinder<span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TaskManagerTest</span> <span class="token punctuation">{</span>
+  …
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

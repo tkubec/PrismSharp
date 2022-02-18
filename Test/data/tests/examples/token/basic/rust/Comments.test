@@ -1,0 +1,12 @@
+// Single line comment
+/// Doc comments
+/* Multiline
+comment */
+----------------------------------------------------
+[
+	["comment", "// Single line comment"],
+	["comment", "/// Doc comments"],
+	["comment", "/* Multiline\ncomment */"]
+]
+
+----------------------------------------------------

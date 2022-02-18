@@ -1,0 +1,44 @@
+{{ '' }}
+{{ "" }}
+{{ "ba\"r" }}
+{{ 'ba\'z' }}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["string", [
+		["punctuation", "'"],
+		["punctuation", "'"]
+	]],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["string", [
+		["punctuation", "\""],
+		["punctuation", "\""]
+	]],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["string", [
+		["punctuation", "\""],
+		"ba\\\"r",
+		["punctuation", "\""]
+	]],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["string", [
+		["punctuation", "'"],
+		"ba\\'z",
+		["punctuation", "'"]
+	]],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

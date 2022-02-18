@@ -1,0 +1,53 @@
+: a ( -- ) ;
+:: ; ! ; is not a word name
+:: ;a ! ;a is a word name
+USING: a b c ;
+USE: a
+IN: a.b
+CHAR: a
+GENERIC#: x 1 ( x: integer quot: ( x -- y ) -- )
+----------------------------------------------------
+[
+	["colon-syntax", ": a"],
+	["stack-effect-delimiter", "("],
+	["stack-effect-delimiter", "--"],
+	["stack-effect-delimiter", ")"],
+	["semicolon-or-setlocal", ";"],
+
+	["normal-word", "::"],
+	["semicolon-or-setlocal", ";"],
+	["comment", ["! ; is not a word name"]],
+
+	["colon-syntax", ":: ;a"],
+	["comment", ["! ;a is a word name"]],
+
+	["special-using", [
+		"USING: ",
+		["string", "a"],
+		["string", "b"],
+		["string", "c"]
+	]],
+	["semicolon-or-setlocal", ";"],
+
+	["colon-syntax", "USE: a"],
+
+	["colon-syntax", "IN: a.b"],
+
+	["colon-syntax", "CHAR: a"],
+
+	["colon-syntax", "GENERIC#: x"],
+	["number", "1"],
+	["stack-effect-delimiter", "("],
+	["normal-word", "x:"],
+	["math-builtin", "integer"],
+	["normal-word", "quot:"],
+	["stack-effect-delimiter", "("],
+	["normal-word", "x"],
+	["stack-effect-delimiter", "--"],
+	["normal-word", "y"],
+	["stack-effect-delimiter", ")"],
+	["stack-effect-delimiter", "--"],
+	["stack-effect-delimiter", ")"]
+]
+
+----------------------------------------------------

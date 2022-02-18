@@ -1,0 +1,163 @@
+class Logger {
+  final String name;
+  bool mute = false;
+
+  // _cache is library-private, thanks to the _ in front of its name.
+  static final Map<String, Logger> _cache = <String, Logger>{};
+
+  factory Logger(String name) {
+    if (_cache.containsKey(name)) {
+      return _cache[name];
+    } else {
+      final logger = new Logger._internal(name);
+      _cache[name] = logger;
+      return logger;
+    }
+  }
+
+  Logger._internal(this.name);
+
+  void log(String msg) {
+    if (!mute) {
+      print(msg);
+    }
+  }
+}
+----------------------------------------------------
+[
+	["keyword", "class"],
+	["class-name", ["Logger"]],
+	["punctuation", "{"],
+
+	["keyword", "final"],
+	["class-name", ["String"]],
+	" name",
+	["punctuation", ";"],
+
+	"\n  bool mute ",
+	["operator", "="],
+	["boolean", "false"],
+	["punctuation", ";"],
+
+	["comment", "// _cache is library-private, thanks to the _ in front of its name."],
+
+	["keyword", "static"],
+	["keyword", "final"],
+	["class-name", ["Map"]],
+	["generics", [
+		["punctuation", "<"],
+		["class-name", ["String"]],
+		["punctuation", ","],
+		["class-name", ["Logger"]],
+		["punctuation", ">"]
+	]],
+	" _cache ",
+	["operator", "="],
+	["generics", [
+		["punctuation", "<"],
+		["class-name", ["String"]],
+		["punctuation", ","],
+		["class-name", ["Logger"]],
+		["punctuation", ">"]
+	]],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "factory"],
+	["class-name", ["Logger"]],
+	["punctuation", "("],
+	["class-name", ["String"]],
+	" name",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"_cache",
+	["punctuation", "."],
+	["function", "containsKey"],
+	["punctuation", "("],
+	"name",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" _cache",
+	["punctuation", "["],
+	"name",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["keyword", "final"],
+	" logger ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Logger"]],
+	["punctuation", "."],
+	["function", "_internal"],
+	["punctuation", "("],
+	"name",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n      _cache",
+	["punctuation", "["],
+	"name",
+	["punctuation", "]"],
+	["operator", "="],
+	" logger",
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	" logger",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["class-name", ["Logger"]],
+	["punctuation", "."],
+	["function", "_internal"],
+	["punctuation", "("],
+	["keyword", "this"],
+	["punctuation", "."],
+	"name",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "void"],
+	["function", "log"],
+	["punctuation", "("],
+	["class-name", ["String"]],
+	" msg",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	"mute",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "print"],
+	["punctuation", "("],
+	"msg",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

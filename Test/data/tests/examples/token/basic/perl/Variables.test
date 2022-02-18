@@ -1,0 +1,36 @@
+${^POSTMATCH}
+$^V
+$element_count = scalar(@whatever);
+keys(%users) = 1000;
+$1, $_, %!;
+----------------------------------------------------
+[
+	["variable", "${^POSTMATCH}"],
+
+	["variable", "$^V"],
+
+	["variable", "$element_count"],
+	["operator", "="],
+	" scalar",
+	["punctuation", "("],
+	["variable", "@whatever"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\nkeys",
+	["punctuation", "("],
+	["variable", "%users"],
+	["punctuation", ")"],
+	["operator", "="],
+	["number", "1000"],
+	["punctuation", ";"],
+
+	["variable", "$1"],
+	["punctuation", ","],
+	["variable", "$_"],
+	["punctuation", ","],
+	["variable", "%!"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

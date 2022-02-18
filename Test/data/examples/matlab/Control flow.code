@@ -1,0 +1,24 @@
+if rem(a, 2) == 0
+    disp('a is even')
+    b = a/2;
+end
+switch dayString
+   case 'Monday'
+      disp('Start of the work week')
+   case 'Tuesday'
+      disp('Day 2')
+   case 'Wednesday'
+      disp('Day 3')
+   case 'Thursday'
+      disp('Day 4')
+   case 'Friday'
+      disp('Last day of the work week')
+   otherwise
+      disp('Weekend!')
+end
+n = 1;
+nFactorial = 1;
+while nFactorial < 1e100
+    n = n + 1;
+    nFactorial = nFactorial * n;
+end

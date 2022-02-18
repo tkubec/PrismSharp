@@ -1,0 +1,21 @@
+"# This isn't a comment, since it's part of a string."
+
+"Since this line contains a string, it continues
+ even when the line ends."
+
+$ a = [ "Because of parenthesis, this line also",
+        "spans more than one line." ]
+
+'Strings can\'t contain their delimiter, unless you escape it.'
+----------------------------------------------------
+<span class="token string">"# This isn't a comment, since it's part of a string."</span>
+
+<span class="token string">"Since this line contains a string, it continues
+ even when the line ends."</span>
+
+<span class="token tag">$</span> a <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">"Because of parenthesis, this line also"</span><span class="token punctuation">,</span>
+        <span class="token string">"spans more than one line."</span> <span class="token punctuation">]</span>
+
+<span class="token string">'Strings can\'t contain their delimiter, unless you escape it.'</span>
+
+----------------------------------------------------

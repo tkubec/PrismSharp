@@ -1,0 +1,11 @@
+{{ not a }}
+{{ 20 // 7 }}
+{{ b b-and c }}
+{% if phone matches '/^[\\d\\.]+$/' %} ... {% endif %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> <span class="token operator">not</span> a <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token number">20</span> <span class="token operator">//</span> <span class="token number">7</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> b <span class="token operator">b-and</span> c <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> phone <span class="token operator">matches</span> <span class="token string"><span class="token punctuation">'</span>/^[\\d\\.]+$/<span class="token punctuation">'</span></span> <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">{</span><span class="token operator">%</span> endif <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

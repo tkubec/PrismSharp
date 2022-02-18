@@ -1,0 +1,123 @@
+// Regex "y" and "u" flags
+var a = /[a-zA-Z]+/gimyu;
+
+// for..of loops
+for(let x of y) { }
+
+// Modules: import
+import { foo as bar } from "file.js"
+
+// Template strings
+`Only on ${y} one line`
+`This template string ${x} is on
+
+multiple lines.`
+`40 + 2 = ${ 40 + 2 }`
+`The squares of the first 3 natural integers are ${[for (x of [1,2,3]) x*x].join(', ')}`
+----------------------------------------------------
+[
+	["comment", "// Regex \"y\" and \"u\" flags"],
+
+	["keyword", "var"],
+	" a ",
+	["operator", "="],
+	["regex", [
+		["regex-delimiter", "/"],
+		["regex-source", "[a-zA-Z]+"],
+		["regex-delimiter", "/"],
+		["regex-flags", "gimyu"]
+	]],
+	["punctuation", ";"],
+
+	["comment", "// for..of loops"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["keyword", "let"],
+	" x ",
+	["keyword", "of"],
+	" y",
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["comment", "// Modules: import"],
+
+	["keyword", "import"],
+	["punctuation", "{"],
+	" foo ",
+	["keyword", "as"],
+	" bar ",
+	["punctuation", "}"],
+	["keyword", "from"],
+	["string", "\"file.js\""],
+
+	["comment", "// Template strings"],
+	["template-string", [
+		["template-punctuation", "`"],
+		["string", "Only on "],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			"y",
+			["interpolation-punctuation", "}"]
+		]],
+		["string", " one line"],
+		["template-punctuation", "`"]
+	]],
+	["template-string", [
+		["template-punctuation", "`"],
+		["string", "This template string "],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			"x",
+			["interpolation-punctuation", "}"]
+		]],
+		["string", " is on\n\nmultiple lines."],
+		["template-punctuation", "`"]
+	]],
+	["template-string", [
+		["template-punctuation", "`"],
+		["string", "40 + 2 = "],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["number", "40"],
+			["operator", "+"],
+			["number", "2"],
+			["interpolation-punctuation", "}"]
+		]],
+		["template-punctuation", "`"]
+	]],
+	["template-string", [
+		["template-punctuation", "`"],
+		["string", "The squares of the first 3 natural integers are "],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["punctuation", "["],
+			["keyword", "for"],
+			["punctuation", "("],
+			"x ",
+			["keyword", "of"],
+			["punctuation", "["],
+			["number", "1"],
+			["punctuation", ","],
+			["number", "2"],
+			["punctuation", ","],
+			["number", "3"],
+			["punctuation", "]"],
+			["punctuation", ")"],
+			" x",
+			["operator", "*"],
+			"x",
+			["punctuation", "]"],
+			["punctuation", "."],
+			["function", "join"],
+			["punctuation", "("],
+			["string", "', '"],
+			["punctuation", ")"],
+			["interpolation-punctuation", "}"]
+		]],
+		["template-punctuation", "`"]
+	]]
+]
+
+----------------------------------------------------

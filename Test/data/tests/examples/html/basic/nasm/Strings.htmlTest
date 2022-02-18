@@ -1,0 +1,25 @@
+mov eax,'abcd'
+
+db    'hello'               ; string constant
+db    'h','e','l','l','o'   ; equivalent character constants
+dd    'ninechars'           ; doubleword string constant
+dd    'nine','char','s'     ; becomes three doublewords
+db    'ninechars',0,0,0     ; and really looks like this
+
+db `\u263a`            ; UTF-8 smiley face
+db `\xe2\x98\xba`      ; UTF-8 smiley face
+db 0E2h, 098h, 0BAh    ; UTF-8 smiley face
+----------------------------------------------------
+mov <span class="token register variable">eax</span>,<span class="token string">'abcd'</span>
+
+db    <span class="token string">'hello'</span>               <span class="token comment">; string constant</span>
+db    <span class="token string">'h'</span>,<span class="token string">'e'</span>,<span class="token string">'l'</span>,<span class="token string">'l'</span>,<span class="token string">'o'</span>   <span class="token comment">; equivalent character constants</span>
+dd    <span class="token string">'ninechars'</span>           <span class="token comment">; doubleword string constant</span>
+dd    <span class="token string">'nine'</span>,<span class="token string">'char'</span>,<span class="token string">'s'</span>     <span class="token comment">; becomes three doublewords</span>
+db    <span class="token string">'ninechars'</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>     <span class="token comment">; and really looks like this</span>
+
+db <span class="token string">`\u263a`</span>            <span class="token comment">; UTF-8 smiley face</span>
+db <span class="token string">`\xe2\x98\xba`</span>      <span class="token comment">; UTF-8 smiley face</span>
+db <span class="token number">0E2h</span>, <span class="token number">098h</span>, <span class="token number">0BAh</span>    <span class="token comment">; UTF-8 smiley face</span>
+
+----------------------------------------------------

@@ -1,0 +1,84 @@
+class MyViewController: UIViewController {
+	@IBOutlet weak var button: UIButton!
+	@IBOutlet var textFields: [UITextField]!
+	@IBAction func buttonTapped(AnyObject) {
+		println("button tapped!")
+	}
+}
+
+@IBDesignable
+class MyCustomView: UIView {
+	@IBInspectable var textColor: UIColor
+	@IBInspectable var iconHeight: CGFloat
+	/* ... */
+}
+----------------------------------------------------
+[
+	["keyword", "class"],
+	["class-name", "MyViewController"],
+	["punctuation", ":"],
+	["class-name", "UIViewController"],
+	["punctuation", "{"],
+
+	["attribute", "@IBOutlet"],
+	["keyword", "weak"],
+	["keyword", "var"],
+	" button",
+	["punctuation", ":"],
+	["class-name", "UIButton"],
+	["operator", "!"],
+
+	["attribute", "@IBOutlet"],
+	["keyword", "var"],
+	" textFields",
+	["punctuation", ":"],
+	["punctuation", "["],
+	["class-name", "UITextField"],
+	["punctuation", "]"],
+	["operator", "!"],
+
+	["attribute", "@IBAction"],
+	["keyword", "func"],
+	["function-definition", "buttonTapped"],
+	["punctuation", "("],
+	["class-name", "AnyObject"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "println"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"button tapped!\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["attribute", "@IBDesignable"],
+
+	["keyword", "class"],
+	["class-name", "MyCustomView"],
+	["punctuation", ":"],
+	["class-name", "UIView"],
+	["punctuation", "{"],
+
+	["attribute", "@IBInspectable"],
+	["keyword", "var"],
+	" textColor",
+	["punctuation", ":"],
+	["class-name", "UIColor"],
+
+	["attribute", "@IBInspectable"],
+	["keyword", "var"],
+	" iconHeight",
+	["punctuation", ":"],
+	["class-name", "CGFloat"],
+
+	["comment", "/* ... */"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

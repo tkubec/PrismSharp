@@ -1,0 +1,87 @@
+(* source: https://github.com/HarrisonGrodin/ml-numbers/blob/ba35c763092052e391871edf224f17474c6231b1/src/Rational.sml *)
+
+structure Rational :> RATIONAL =
+  struct
+    type t = int * int  (* (a,b) invariant: a,b coprime; b nonnegative *)
+
+    local
+      val rec gcd = fn
+        (m,0) => m
+      | (m,n) => gcd (n, m mod n)
+    in
+      infix 8 //
+      val op // = fn (x,y) => (
+        let
+          val gcd = gcd (x,y)
+        in
+          (x div gcd, y div gcd)
+        end
+      )
+    end
+
+    val show = Fn.id
+
+    val zero = (0,1)
+    val one  = (1,1)
+
+    val eq : t * t -> bool = (op =)
+    val compare = fn ((a,b),(x,y)) => Int.compare (a * y, b * x)
+    val toString = fn (x,y) => Int.toString x ^ " // " ^ Int.toString y
+    val percent =
+      Fn.curry (Fn.flip (op ^)) "%"
+      o Int.toString
+      o (fn (a,b) => (100 * a) div b)
+
+    val op + = fn ((a,b),(x,y)) => (a * y + b * x) // (b * y)
+    val ~ = fn (a,b) => (~a,b)
+    val op - = fn (r1,r2) => r1 + ~r2
+
+    val op * = fn ((a,b),(x,y)) => (a * x) // (b * y)
+    val inv = Fn.flip (op //)
+    val op / = fn (r1,r2) => r1 * inv r2
+  end
+----------------------------------------------------
+<span class="token comment">(* source: https://github.com/HarrisonGrodin/ml-numbers/blob/ba35c763092052e391871edf224f17474c6231b1/src/Rational.sml *)</span>
+
+<span class="token keyword">structure</span> <span class="token class-name">Rational</span> <span class="token operator">:></span> RATIONAL <span class="token operator">=</span>
+  <span class="token keyword">struct</span>
+    <span class="token keyword">type</span> <span class="token class-name">t</span> <span class="token operator">=</span> int <span class="token operator">*</span> int  <span class="token comment">(* (a,b) invariant: a,b coprime; b nonnegative *)</span>
+
+    <span class="token keyword">local</span>
+      <span class="token keyword">val</span> <span class="token keyword">rec</span> gcd <span class="token operator">=</span> <span class="token keyword">fn</span>
+        <span class="token punctuation">(</span>m<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">=></span> m
+      <span class="token operator">|</span> <span class="token punctuation">(</span>m<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token operator">=></span> gcd <span class="token punctuation">(</span>n<span class="token punctuation">,</span> m mod n<span class="token punctuation">)</span>
+    <span class="token keyword">in</span>
+      <span class="token keyword">infix</span> <span class="token number">8</span> <span class="token operator">/</span><span class="token operator">/</span>
+      <span class="token keyword">val</span> <span class="token keyword">op</span> <span class="token operator">/</span><span class="token operator">/</span> <span class="token operator">=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+        <span class="token keyword">let</span>
+          <span class="token keyword">val</span> gcd <span class="token operator">=</span> gcd <span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+        <span class="token keyword">in</span>
+          <span class="token punctuation">(</span>x div gcd<span class="token punctuation">,</span> y div gcd<span class="token punctuation">)</span>
+        <span class="token keyword">end</span>
+      <span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">val</span> show <span class="token operator">=</span> <span class="token keyword">Fn</span><span class="token punctuation">.</span>id
+
+    <span class="token keyword">val</span> zero <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> one  <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">val</span> eq <span class="token punctuation">:</span> <span class="token class-name">t <span class="token operator">*</span> t <span class="token operator">-></span> bool</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">op</span> <span class="token operator">=</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> compare <span class="token operator">=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=></span> Int<span class="token punctuation">.</span>compare <span class="token punctuation">(</span>a <span class="token operator">*</span> y<span class="token punctuation">,</span> b <span class="token operator">*</span> x<span class="token punctuation">)</span>
+    <span class="token keyword">val</span> toString <span class="token operator">=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span> <span class="token operator">=></span> Int<span class="token punctuation">.</span>toString x <span class="token operator">^</span> <span class="token string">" // "</span> <span class="token operator">^</span> Int<span class="token punctuation">.</span>toString y
+    <span class="token keyword">val</span> percent <span class="token operator">=</span>
+      <span class="token keyword">Fn</span><span class="token punctuation">.</span>curry <span class="token punctuation">(</span><span class="token keyword">Fn</span><span class="token punctuation">.</span>flip <span class="token punctuation">(</span><span class="token keyword">op</span> <span class="token operator">^</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token string">"%"</span>
+      o Int<span class="token punctuation">.</span>toString
+      o <span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token number">100</span> <span class="token operator">*</span> a<span class="token punctuation">)</span> div b<span class="token punctuation">)</span>
+
+    <span class="token keyword">val</span> <span class="token keyword">op</span> <span class="token operator">+</span> <span class="token operator">=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>a <span class="token operator">*</span> y <span class="token operator">+</span> b <span class="token operator">*</span> x<span class="token punctuation">)</span> <span class="token operator">/</span><span class="token operator">/</span> <span class="token punctuation">(</span>b <span class="token operator">*</span> y<span class="token punctuation">)</span>
+    <span class="token keyword">val</span> <span class="token operator">~</span> <span class="token operator">=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token operator">~</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+    <span class="token keyword">val</span> <span class="token keyword">op</span> <span class="token operator">-</span> <span class="token operator">=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span>r1<span class="token punctuation">,</span>r2<span class="token punctuation">)</span> <span class="token operator">=></span> r1 <span class="token operator">+</span> <span class="token operator">~</span>r2
+
+    <span class="token keyword">val</span> <span class="token keyword">op</span> <span class="token operator">*</span> <span class="token operator">=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>a <span class="token operator">*</span> x<span class="token punctuation">)</span> <span class="token operator">/</span><span class="token operator">/</span> <span class="token punctuation">(</span>b <span class="token operator">*</span> y<span class="token punctuation">)</span>
+    <span class="token keyword">val</span> inv <span class="token operator">=</span> <span class="token keyword">Fn</span><span class="token punctuation">.</span>flip <span class="token punctuation">(</span><span class="token keyword">op</span> <span class="token operator">/</span><span class="token operator">/</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> <span class="token keyword">op</span> <span class="token operator">/</span> <span class="token operator">=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span>r1<span class="token punctuation">,</span>r2<span class="token punctuation">)</span> <span class="token operator">=></span> r1 <span class="token operator">*</span> inv r2
+  <span class="token keyword">end</span>
+
+----------------------------------------------------

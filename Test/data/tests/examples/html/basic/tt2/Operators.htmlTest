@@ -1,0 +1,9 @@
+[% FOREACH post IN q.listPosts(lingua => 'de') %]
+  [% post.title | myfilter(foo = "bar") %]
+[% END %]
+----------------------------------------------------
+<span class="token delimiter punctuation">[%</span> <span class="token keyword">FOREACH</span> <span class="token variable">post</span> <span class="token keyword">IN</span> <span class="token variable">q</span>.<span class="token function">listPosts</span><span class="token punctuation">(</span><span class="token variable">lingua</span> <span class="token operator">=></span> <span class="token single-quoted-string string">'de'</span><span class="token punctuation">)</span> %<span class="token punctuation">]</span>
+  <span class="token punctuation">[</span>% <span class="token variable">post.title</span> <span class="token operator">|</span> <span class="token function">myfilter</span><span class="token punctuation">(</span><span class="token variable">foo</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"bar"</span><span class="token punctuation">)</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">END</span> <span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

@@ -1,0 +1,39 @@
+""
+"foo\"b\\ar"
+"f''o'o'\"bar"
+"foo
+bar"
+"foo ${ 42 } baz"
+"foo \${ 42 } baz"
+
+''''
+''
+foo
+bar
+''
+''
+f'oo'''ba'r
+foo ${ 42 } baz
+foo ''${ 42 } baz
+''
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo\"b\\ar"</span>
+<span class="token string">"f''o'o'\"bar"</span>
+<span class="token string">"foo
+bar"</span>
+<span class="token string">"foo <span class="token interpolation"><span class="token antiquotation important">$</span><span class="token punctuation">{</span> <span class="token number">42</span> <span class="token punctuation">}</span></span> baz"</span>
+<span class="token string">"foo \${ 42 } baz"</span>
+
+<span class="token string">''''</span>
+<span class="token string">''
+foo
+bar
+''</span>
+<span class="token string">''
+f'oo'''ba'r
+foo <span class="token interpolation"><span class="token antiquotation important">$</span><span class="token punctuation">{</span> <span class="token number">42</span> <span class="token punctuation">}</span></span> baz
+foo ''${ 42 } baz
+''</span>
+
+----------------------------------------------------

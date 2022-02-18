@@ -1,0 +1,26 @@
+'\t'
+'\000'
+'\x07'
+'\u12e4'
+'\U00101234'
+`abc`
+`multi-line
+string`
+"Hello, world!"
+"multi-line
+string"
+----------------------------------------------------
+[
+	["string", ["'\\t'"]],
+	["string", ["'\\000'"]],
+	["string", ["'\\x07'"]],
+	["string", ["'\\u12e4'"]],
+	["string", ["'\\U00101234'"]],
+	"\n`abc", ["char", "`\n`"], "multi", ["operator", "-"], "line\n",
+	["builtin", "string"], "`\n",
+	["string", ["\"Hello, world!\""]],
+	"\n\"multi", ["operator", "-"], "line\n",
+	["builtin", "string"], "\""
+]
+
+----------------------------------------------------

@@ -1,0 +1,41 @@
+!= < > ~= <= == >=
+% * + - / **
+! && AND OR NOT ||
+& ^ | >>> ~ << >>
++!
+----------------------------------------------------
+[
+	["operator", "!="],
+	["operator", "<"],
+	["operator", ">"],
+	["operator", "~="],
+	["operator", "<="],
+	["operator", "=="],
+	["operator", ">="],
+
+	["operator", "%"],
+	["operator", "*"],
+	["operator", "+"],
+	["operator", "-"],
+	["operator", "/"],
+	["operator", "**"],
+
+	["operator", "!"],
+	["operator", "&&"],
+	["operator", "AND"],
+	["operator", "OR"],
+	["operator", "NOT"],
+	["operator", "||"],
+
+	["operator", "&"],
+	["operator", "^"],
+	["operator", "|"],
+	["operator", ">>>"],
+	["operator", "~"],
+	["operator", "<<"],
+	["operator", ">>"],
+
+	["operator", "+!"]
+]
+
+----------------------------------------------------

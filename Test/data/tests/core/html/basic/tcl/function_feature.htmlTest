@@ -1,0 +1,9 @@
+proc foo
+proc Foobar
+proc foo_bar_42
+----------------------------------------------------
+<span class="token builtin">proc</span> <span class="token function">foo</span>
+<span class="token builtin">proc</span> <span class="token function">Foobar</span>
+<span class="token builtin">proc</span> <span class="token function">foo_bar_42</span>
+
+----------------------------------------------------

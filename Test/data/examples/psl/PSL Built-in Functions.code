@@ -1,0 +1,3 @@
+p = nthargf(process(".*"), 1, " \t", "\n");
+lock("test");
+execute("OS", "pwd");

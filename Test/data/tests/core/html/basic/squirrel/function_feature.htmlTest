@@ -1,0 +1,9 @@
+function abc(a,b,c) {}
+function(a,b,c) {}
+local myexp = @(a,b) a + b;
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function">abc</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">local</span> myexp <span class="token operator">=</span> <span class="token lambda operator">@</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+
+----------------------------------------------------

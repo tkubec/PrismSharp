@@ -1,0 +1,53 @@
+@doc "single"
+@doc 'single'
+@doc """triple"""
+@doc '''triple'''
+@doc '''
+multiline
+'''
+@doc """
+multiline
+"""
+@doc since: "1.3.0"
+@doc deprecated: "phased out"
+
+@moduledoc "single"
+@moduledoc 'single'
+@moduledoc """triple"""
+@moduledoc '''triple'''
+@moduledoc '''
+multiline
+'''
+@moduledoc """
+multiline
+"""
+@moduledoc since: "1.3.0"
+@moduledoc deprecated: "phased out"
+----------------------------------------------------
+<span class="token doc"><span class="token attribute">@doc</span> <span class="token string">"single"</span></span>
+<span class="token doc"><span class="token attribute">@doc</span> <span class="token string">'single'</span></span>
+<span class="token doc"><span class="token attribute">@doc</span> <span class="token string">"""triple"""</span></span>
+<span class="token doc"><span class="token attribute">@doc</span> <span class="token string">'''triple'''</span></span>
+<span class="token doc"><span class="token attribute">@doc</span> <span class="token string">'''
+multiline
+'''</span></span>
+<span class="token doc"><span class="token attribute">@doc</span> <span class="token string">"""
+multiline
+"""</span></span>
+<span class="token attribute variable">@doc</span> <span class="token attr-name">since:</span> <span class="token string">"1.3.0"</span>
+<span class="token attribute variable">@doc</span> <span class="token attr-name">deprecated:</span> <span class="token string">"phased out"</span>
+
+<span class="token doc"><span class="token attribute">@moduledoc</span> <span class="token string">"single"</span></span>
+<span class="token doc"><span class="token attribute">@moduledoc</span> <span class="token string">'single'</span></span>
+<span class="token doc"><span class="token attribute">@moduledoc</span> <span class="token string">"""triple"""</span></span>
+<span class="token doc"><span class="token attribute">@moduledoc</span> <span class="token string">'''triple'''</span></span>
+<span class="token doc"><span class="token attribute">@moduledoc</span> <span class="token string">'''
+multiline
+'''</span></span>
+<span class="token doc"><span class="token attribute">@moduledoc</span> <span class="token string">"""
+multiline
+"""</span></span>
+<span class="token attribute variable">@moduledoc</span> <span class="token attr-name">since:</span> <span class="token string">"1.3.0"</span>
+<span class="token attribute variable">@moduledoc</span> <span class="token attr-name">deprecated:</span> <span class="token string">"phased out"</span>
+
+----------------------------------------------------

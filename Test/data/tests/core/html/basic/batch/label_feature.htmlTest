@@ -1,0 +1,9 @@
+:foo
+:Foo_Bar
+GOTO:eof
+----------------------------------------------------
+<span class="token label property">:foo</span>
+<span class="token label property">:Foo_Bar</span>
+<span class="token command"><span class="token keyword">GOTO</span><span class="token label property">:eof</span></span>
+
+----------------------------------------------------

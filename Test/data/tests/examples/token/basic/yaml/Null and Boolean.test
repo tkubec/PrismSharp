@@ -1,0 +1,40 @@
+---
+A null: null
+A null: ~
+Also a null: # Empty
+Not a null: ""
+Booleans: [ true, True, false, FALSE ]
+----------------------------------------------------
+[
+	["punctuation", "---"],
+
+	["key", "A null"],
+	["punctuation", ":"],
+	["null", "null"],
+
+	["key", "A null"],
+	["punctuation", ":"],
+	["null", "~"],
+
+	["key", "Also a null"],
+	["punctuation", ":"],
+	["comment", "# Empty"],
+
+	["key", "Not a null"],
+	["punctuation", ":"],
+	["string", "\"\""],
+
+	["key", "Booleans"],
+	["punctuation", ":"],
+	["punctuation", "["],
+	["boolean", "true"],
+	["punctuation", ","],
+	["boolean", "True"],
+	["punctuation", ","],
+	["boolean", "false"],
+	["punctuation", ","],
+	["boolean", "FALSE"],
+	["punctuation", "]"]
+]
+
+----------------------------------------------------

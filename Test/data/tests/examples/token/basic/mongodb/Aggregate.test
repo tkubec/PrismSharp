@@ -1,0 +1,63 @@
+db.orders.aggregate([
+	{ $sort : { age : -1 } },
+	{ $project : { age : 1, status : 1, name : 1 } },
+	{ $limit: 5 }
+])
+----------------------------------------------------
+[
+	"db",
+	["punctuation", "."],
+	"orders",
+	["punctuation", "."],
+	["function", "aggregate"],
+	["punctuation", "("],
+	["punctuation", "["],
+
+	["punctuation", "{"],
+	["property", [
+		["keyword", "$sort"]
+	]],
+	["operator", ":"],
+	["punctuation", "{"],
+	["property", ["age"]],
+	["operator", ":"],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["property", [
+		["keyword", "$project"]
+	]],
+	["operator", ":"],
+	["punctuation", "{"],
+	["property", ["age"]],
+	["operator", ":"],
+	["number", "1"],
+	["punctuation", ","],
+	["property", ["status"]],
+	["operator", ":"],
+	["number", "1"],
+	["punctuation", ","],
+	["property", ["name"]],
+	["operator", ":"],
+	["number", "1"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["property", [
+		["keyword", "$limit"]
+	]],
+	["operator", ":"],
+	["number", "5"],
+	["punctuation", "}"],
+
+	["punctuation", "]"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

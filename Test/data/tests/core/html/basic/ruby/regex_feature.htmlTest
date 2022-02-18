@@ -1,0 +1,51 @@
+/[foo]\/bar/gim
+/[bar]/,
+/./i;
+/foo#{bar}/;
+/ab+c/ix
+%r!foo?bar#{39+3}!
+%r(foo?bar#{39+3})
+%r{foo?bar#{39+3}}
+%r[foo?bar#{39+3}]
+%r<foo?bar#{39+3}>
+
+/foo/ # comment
+/foo#{bar}/ # comment
+
+# flags
+/abc/e
+/abc/g
+/abc/i
+/abc/m
+/abc/n
+/abc/o
+/abc/s
+/abc/u
+/abc/x
+----------------------------------------------------
+<span class="token regex-literal"><span class="token regex">/[foo]\/bar/gim</span></span>
+<span class="token regex-literal"><span class="token regex">/[bar]/</span></span><span class="token punctuation">,</span>
+<span class="token regex-literal"><span class="token regex">/./i</span></span><span class="token punctuation">;</span>
+<span class="token regex-literal"><span class="token regex">/foo</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">bar</span><span class="token delimiter punctuation">}</span></span><span class="token regex">/</span></span><span class="token punctuation">;</span>
+<span class="token regex-literal"><span class="token regex">/ab+c/ix</span></span>
+<span class="token regex-literal"><span class="token regex">%r!foo?bar</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">39</span><span class="token operator">+</span><span class="token number">3</span></span><span class="token delimiter punctuation">}</span></span><span class="token regex">!</span></span>
+<span class="token regex-literal"><span class="token regex">%r(foo?bar</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">39</span><span class="token operator">+</span><span class="token number">3</span></span><span class="token delimiter punctuation">}</span></span><span class="token regex">)</span></span>
+<span class="token regex-literal"><span class="token regex">%r{foo?bar</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">39</span><span class="token operator">+</span><span class="token number">3</span></span><span class="token delimiter punctuation">}</span></span><span class="token regex">}</span></span>
+<span class="token regex-literal"><span class="token regex">%r[foo?bar</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">39</span><span class="token operator">+</span><span class="token number">3</span></span><span class="token delimiter punctuation">}</span></span><span class="token regex">]</span></span>
+<span class="token regex-literal"><span class="token regex">%r&lt;foo?bar</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">39</span><span class="token operator">+</span><span class="token number">3</span></span><span class="token delimiter punctuation">}</span></span><span class="token regex">></span></span>
+
+<span class="token regex-literal"><span class="token regex">/foo/</span></span> <span class="token comment"># comment</span>
+<span class="token regex-literal"><span class="token regex">/foo</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">bar</span><span class="token delimiter punctuation">}</span></span><span class="token regex">/</span></span> <span class="token comment"># comment</span>
+
+<span class="token comment"># flags</span>
+<span class="token regex-literal"><span class="token regex">/abc/e</span></span>
+<span class="token regex-literal"><span class="token regex">/abc/g</span></span>
+<span class="token regex-literal"><span class="token regex">/abc/i</span></span>
+<span class="token regex-literal"><span class="token regex">/abc/m</span></span>
+<span class="token regex-literal"><span class="token regex">/abc/n</span></span>
+<span class="token regex-literal"><span class="token regex">/abc/o</span></span>
+<span class="token regex-literal"><span class="token regex">/abc/s</span></span>
+<span class="token regex-literal"><span class="token regex">/abc/u</span></span>
+<span class="token regex-literal"><span class="token regex">/abc/x</span></span>
+
+----------------------------------------------------

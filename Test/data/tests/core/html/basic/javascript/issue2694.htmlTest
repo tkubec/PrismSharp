@@ -1,0 +1,21 @@
+replace(/'/, `'`)
+
+const var1 = `this is fine`;
+const var2 = `this is fine`;
+
+// `load bearing comment`
+
+const var3 = `break starts here`;
+const var4 = `break ends here`;
+----------------------------------------------------
+<span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">'</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">'</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> var1 <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">this is fine</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> var2 <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">this is fine</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// `load bearing comment`</span>
+
+<span class="token keyword">const</span> var3 <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">break starts here</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> var4 <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">break ends here</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

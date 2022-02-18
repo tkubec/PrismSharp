@@ -1,0 +1,39 @@
+Generic text with inlined commands[i] example[command 1 danger:true] more text here [act danger:false true:false]
+
+@action1ForTwoLinesWithCommands
+@action2ForTwoLinesWithCommands
+
+@commandAndGenericTextOnNewLine
+Massa ut elementum.
+
+@commandWithParameterAndGenericTextOnNewLine WideParam
+Integer
+
+Escaped braces inside generic text\{abu\}nt @ >ip#s;um< @ \[sdff j9dj\]
+
+UnclosedExpression{ab{cndum dui dolor tincidu{nt [s[fa]sdf [
+"Integer: a = {a} malesuada a + b = {a + b}", Random(a, b) = {Random(a, b)}, Random("foo", "bar", "foobar") = {Random("foo", "bar", "foobar")},}
+#
+>
+@
+----------------------------------------------------
+<span class="token generic-text punctuation">Generic text with inlined commands<span class="token inline-command function"><span class="token start-stop-char">[</span><span class="token command-param-name name">i</span><span class="token start-stop-char">]</span></span> example<span class="token inline-command function"><span class="token start-stop-char">[</span><span class="token command-param-name name">command</span><span class="token command-params"> <span class="token command-param-value operator">1</span> <span class="token command-param-id property">danger:</span><span class="token command-param-value operator">true</span></span><span class="token start-stop-char">]</span></span> more text here <span class="token inline-command function"><span class="token start-stop-char">[</span><span class="token command-param-name name">act</span><span class="token command-params"> <span class="token command-param-id property">danger:</span><span class="token command-param-value operator">false</span> <span class="token command-param-id property">true:</span><span class="token command-param-value operator">false</span></span><span class="token start-stop-char">]</span></span></span>
+
+<span class="token command function"><span class="token command-name">@action1ForTwoLinesWithCommands</span></span>
+<span class="token command function"><span class="token command-name">@action2ForTwoLinesWithCommands</span></span>
+
+<span class="token command function"><span class="token command-name">@commandAndGenericTextOnNewLine</span></span>
+<span class="token generic-text punctuation">Massa ut elementum.</span>
+
+<span class="token command function"><span class="token command-name">@commandWithParameterAndGenericTextOnNewLine</span><span class="token command-params"> <span class="token command-param-value operator">WideParam</span></span></span>
+<span class="token generic-text punctuation">Integer</span>
+
+<span class="token generic-text punctuation">Escaped braces inside generic text<span class="token escaped-char">\{</span>abu<span class="token escaped-char">\}</span>nt @ >ip#s;um&lt; @ <span class="token escaped-char">\[</span>sdff j9dj<span class="token escaped-char">\]</span></span>
+
+<span class="token generic-text punctuation">UnclosedExpression{ab{cndum dui dolor tincidu{nt [s<span class="token inline-command function"><span class="token start-stop-char">[</span><span class="token command-param-name name">fa</span><span class="token start-stop-char">]</span></span>sdf [</span>
+<span class="token generic-text punctuation">"Integer: a = <span class="token expression selector">{a}</span> malesuada a + b = <span class="token expression selector">{a + b}</span>", Random(a, b) = <span class="token expression selector">{Random(a, b)}</span>, Random("foo", "bar", "foobar") = <span class="token expression selector">{Random("foo", "bar", "foobar")}</span>,}</span>
+#
+>
+@
+
+----------------------------------------------------

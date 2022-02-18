@@ -1,0 +1,56 @@
+{%
+
++ - * / %
++= -= *= /= %=
+** **=
+// //=
+== != < <= > >= <>
+=
+<< >>
+& | ^ ~
+
+%}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+
+	["operator", "+"],
+	["operator", "-"],
+	["operator", "*"],
+	["operator", "/"],
+	["operator", "%"],
+
+	["operator", "+="],
+	["operator", "-="],
+	["operator", "*="],
+	["operator", "/="],
+	["operator", "%="],
+
+	["operator", "**"],
+	["operator", "**="],
+
+	["operator", "//"],
+	["operator", "//="],
+
+	["operator", "=="],
+	["operator", "!="],
+	["operator", "<"],
+	["operator", "<="],
+	["operator", ">"],
+	["operator", ">="],
+	["operator", "<>"],
+
+	["operator", "="],
+
+	["operator", "<<"],
+	["operator", ">>"],
+
+	["operator", "&"],
+	["operator", "|"],
+	["operator", "^"],
+	["operator", "~"],
+
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

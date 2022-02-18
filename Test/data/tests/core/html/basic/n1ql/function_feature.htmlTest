@@ -1,0 +1,353 @@
+ABS(
+ACOS(
+ARRAY_AGG(
+ARRAY_APPEND(
+ARRAY_AVG(
+ARRAY_CONCAT(
+ARRAY_CONTAINS(
+ARRAY_COUNT(
+ARRAY_DISTINCT(
+ARRAY_FLATTEN(
+ARRAY_IFNULL(
+ARRAY_INSERT(
+ARRAY_INTERSECT(
+ARRAY_LENGTH(
+ARRAY_MAX(
+ARRAY_MIN(
+ARRAY_POSITION(
+ARRAY_PREPEND(
+ARRAY_PUT(
+ARRAY_RANGE(
+ARRAY_REMOVE(
+ARRAY_REPEAT(
+ARRAY_REPLACE(
+ARRAY_REVERSE(
+ARRAY_SORT(
+ARRAY_STAR(
+ARRAY_SUM(
+ARRAY_SYMDIFF(
+ARRAY_SYMDIFFN(
+ARRAY_UNION(
+ASIN(
+ATAN(
+ATAN2(
+AVG(
+BASE64(
+BASE64_DECODE(
+BASE64_ENCODE(
+BITAND(
+BITCLEAR(
+BITNOT(
+BITOR(
+BITSET(
+BITSHIFT(
+BITTEST(
+BITXOR(
+CEIL(
+CLOCK_LOCAL(
+CLOCK_MILLIS(
+CLOCK_STR(
+CLOCK_TZ(
+CLOCK_UTC(
+CONTAINS(
+CONTAINS_TOKEN(
+CONTAINS_TOKEN_LIKE(
+CONTAINS_TOKEN_REGEXP(
+COS(
+COUNT(
+CURL(
+DATE_ADD_MILLIS(
+DATE_ADD_STR(
+DATE_DIFF_MILLIS(
+DATE_DIFF_STR(
+DATE_FORMAT_STR(
+DATE_PART_MILLIS(
+DATE_PART_STR(
+DATE_RANGE_MILLIS(
+DATE_RANGE_STR(
+DATE_TRUNC_MILLIS(
+DATE_TRUNC_STR(
+DECODE_JSON(
+DEGREES(
+DURATION_TO_STR(
+E(
+ENCODED_SIZE(
+ENCODE_JSON(
+EXP(
+FLOOR(
+GREATEST(
+HAS_TOKEN(
+IFINF(
+IFMISSING(
+IFMISSINGORNULL(
+IFNAN(
+IFNANORINF(
+IFNULL(
+INITCAP(
+ISARRAY(
+ISATOM(
+ISBOOLEAN(
+ISNUMBER(
+ISOBJECT(
+ISSTRING(
+IsBitSET(
+LEAST(
+LENGTH(
+LN(
+LOG(
+LOWER(
+LTRIM(
+MAX(
+META(
+MILLIS(
+MILLIS_TO_LOCAL(
+MILLIS_TO_STR(
+MILLIS_TO_TZ(
+MILLIS_TO_UTC(
+MILLIS_TO_ZONE_NAME(
+MIN(
+MISSINGIF(
+NANIF(
+NEGINFIF(
+NOW_LOCAL(
+NOW_MILLIS(
+NOW_STR(
+NOW_TZ(
+NOW_UTC(
+NULLIF(
+OBJECT_ADD(
+OBJECT_CONCAT(
+OBJECT_INNER_PAIRS(
+OBJECT_INNER_VALUES(
+OBJECT_LENGTH(
+OBJECT_NAMES(
+OBJECT_PAIRS(
+OBJECT_PUT(
+OBJECT_REMOVE(
+OBJECT_RENAME(
+OBJECT_REPLACE(
+OBJECT_UNWRAP(
+OBJECT_VALUES(
+PAIRS(
+PI(
+POLY_LENGTH(
+POSINFIF(
+POSITION(
+POWER(
+RADIANS(
+RANDOM(
+REGEXP_CONTAINS(
+REGEXP_LIKE(
+REGEXP_POSITION(
+REGEXP_REPLACE(
+REPEAT(
+REPLACE(
+REVERSE(
+ROUND(
+RTRIM(
+SIGN(
+SIN(
+SPLIT(
+SQRT(
+STR_TO_DURATION(
+STR_TO_MILLIS(
+STR_TO_TZ(
+STR_TO_UTC(
+STR_TO_ZONE_NAME(
+SUBSTR(
+SUFFIXES(
+SUM(
+TAN(
+TITLE(
+TOARRAY(
+TOATOM(
+TOBOOLEAN(
+TOKENS(
+TOKENS(
+TONUMBER(
+TOOBJECT(
+TOSTRING(
+TRIM(
+TRUNC(
+TYPE(
+UPPER(
+WEEKDAY_MILLIS(
+WEEKDAY_STR(
+----------------------------------------------------
+<span class="token function">ABS</span><span class="token punctuation">(</span>
+<span class="token function">ACOS</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_AGG</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_APPEND</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_AVG</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_CONCAT</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_CONTAINS</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_COUNT</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_DISTINCT</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_FLATTEN</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_IFNULL</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_INSERT</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_INTERSECT</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_LENGTH</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_MAX</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_MIN</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_POSITION</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_PREPEND</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_PUT</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_RANGE</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_REMOVE</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_REPEAT</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_REPLACE</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_REVERSE</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_SORT</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_STAR</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_SUM</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_SYMDIFF</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_SYMDIFFN</span><span class="token punctuation">(</span>
+<span class="token function">ARRAY_UNION</span><span class="token punctuation">(</span>
+<span class="token function">ASIN</span><span class="token punctuation">(</span>
+<span class="token function">ATAN</span><span class="token punctuation">(</span>
+<span class="token function">ATAN2</span><span class="token punctuation">(</span>
+<span class="token function">AVG</span><span class="token punctuation">(</span>
+<span class="token function">BASE64</span><span class="token punctuation">(</span>
+<span class="token function">BASE64_DECODE</span><span class="token punctuation">(</span>
+<span class="token function">BASE64_ENCODE</span><span class="token punctuation">(</span>
+<span class="token function">BITAND</span><span class="token punctuation">(</span>
+<span class="token function">BITCLEAR</span><span class="token punctuation">(</span>
+<span class="token function">BITNOT</span><span class="token punctuation">(</span>
+<span class="token function">BITOR</span><span class="token punctuation">(</span>
+<span class="token function">BITSET</span><span class="token punctuation">(</span>
+<span class="token function">BITSHIFT</span><span class="token punctuation">(</span>
+<span class="token function">BITTEST</span><span class="token punctuation">(</span>
+<span class="token function">BITXOR</span><span class="token punctuation">(</span>
+<span class="token function">CEIL</span><span class="token punctuation">(</span>
+<span class="token function">CLOCK_LOCAL</span><span class="token punctuation">(</span>
+<span class="token function">CLOCK_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">CLOCK_STR</span><span class="token punctuation">(</span>
+<span class="token function">CLOCK_TZ</span><span class="token punctuation">(</span>
+<span class="token function">CLOCK_UTC</span><span class="token punctuation">(</span>
+<span class="token function">CONTAINS</span><span class="token punctuation">(</span>
+<span class="token function">CONTAINS_TOKEN</span><span class="token punctuation">(</span>
+<span class="token function">CONTAINS_TOKEN_LIKE</span><span class="token punctuation">(</span>
+<span class="token function">CONTAINS_TOKEN_REGEXP</span><span class="token punctuation">(</span>
+<span class="token function">COS</span><span class="token punctuation">(</span>
+<span class="token function">COUNT</span><span class="token punctuation">(</span>
+<span class="token function">CURL</span><span class="token punctuation">(</span>
+<span class="token function">DATE_ADD_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">DATE_ADD_STR</span><span class="token punctuation">(</span>
+<span class="token function">DATE_DIFF_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">DATE_DIFF_STR</span><span class="token punctuation">(</span>
+<span class="token function">DATE_FORMAT_STR</span><span class="token punctuation">(</span>
+<span class="token function">DATE_PART_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">DATE_PART_STR</span><span class="token punctuation">(</span>
+<span class="token function">DATE_RANGE_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">DATE_RANGE_STR</span><span class="token punctuation">(</span>
+<span class="token function">DATE_TRUNC_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">DATE_TRUNC_STR</span><span class="token punctuation">(</span>
+<span class="token function">DECODE_JSON</span><span class="token punctuation">(</span>
+<span class="token function">DEGREES</span><span class="token punctuation">(</span>
+<span class="token function">DURATION_TO_STR</span><span class="token punctuation">(</span>
+<span class="token function">E</span><span class="token punctuation">(</span>
+<span class="token function">ENCODED_SIZE</span><span class="token punctuation">(</span>
+<span class="token function">ENCODE_JSON</span><span class="token punctuation">(</span>
+<span class="token function">EXP</span><span class="token punctuation">(</span>
+<span class="token function">FLOOR</span><span class="token punctuation">(</span>
+<span class="token function">GREATEST</span><span class="token punctuation">(</span>
+<span class="token function">HAS_TOKEN</span><span class="token punctuation">(</span>
+<span class="token function">IFINF</span><span class="token punctuation">(</span>
+<span class="token function">IFMISSING</span><span class="token punctuation">(</span>
+<span class="token function">IFMISSINGORNULL</span><span class="token punctuation">(</span>
+<span class="token function">IFNAN</span><span class="token punctuation">(</span>
+<span class="token function">IFNANORINF</span><span class="token punctuation">(</span>
+<span class="token function">IFNULL</span><span class="token punctuation">(</span>
+<span class="token function">INITCAP</span><span class="token punctuation">(</span>
+<span class="token function">ISARRAY</span><span class="token punctuation">(</span>
+<span class="token function">ISATOM</span><span class="token punctuation">(</span>
+<span class="token function">ISBOOLEAN</span><span class="token punctuation">(</span>
+<span class="token function">ISNUMBER</span><span class="token punctuation">(</span>
+<span class="token function">ISOBJECT</span><span class="token punctuation">(</span>
+<span class="token function">ISSTRING</span><span class="token punctuation">(</span>
+<span class="token function">IsBitSET</span><span class="token punctuation">(</span>
+<span class="token function">LEAST</span><span class="token punctuation">(</span>
+<span class="token function">LENGTH</span><span class="token punctuation">(</span>
+<span class="token function">LN</span><span class="token punctuation">(</span>
+<span class="token function">LOG</span><span class="token punctuation">(</span>
+<span class="token function">LOWER</span><span class="token punctuation">(</span>
+<span class="token function">LTRIM</span><span class="token punctuation">(</span>
+<span class="token function">MAX</span><span class="token punctuation">(</span>
+<span class="token function">META</span><span class="token punctuation">(</span>
+<span class="token function">MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">MILLIS_TO_LOCAL</span><span class="token punctuation">(</span>
+<span class="token function">MILLIS_TO_STR</span><span class="token punctuation">(</span>
+<span class="token function">MILLIS_TO_TZ</span><span class="token punctuation">(</span>
+<span class="token function">MILLIS_TO_UTC</span><span class="token punctuation">(</span>
+<span class="token function">MILLIS_TO_ZONE_NAME</span><span class="token punctuation">(</span>
+<span class="token function">MIN</span><span class="token punctuation">(</span>
+<span class="token function">MISSINGIF</span><span class="token punctuation">(</span>
+<span class="token function">NANIF</span><span class="token punctuation">(</span>
+<span class="token function">NEGINFIF</span><span class="token punctuation">(</span>
+<span class="token function">NOW_LOCAL</span><span class="token punctuation">(</span>
+<span class="token function">NOW_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">NOW_STR</span><span class="token punctuation">(</span>
+<span class="token function">NOW_TZ</span><span class="token punctuation">(</span>
+<span class="token function">NOW_UTC</span><span class="token punctuation">(</span>
+<span class="token function">NULLIF</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_ADD</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_CONCAT</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_INNER_PAIRS</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_INNER_VALUES</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_LENGTH</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_NAMES</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_PAIRS</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_PUT</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_REMOVE</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_RENAME</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_REPLACE</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_UNWRAP</span><span class="token punctuation">(</span>
+<span class="token function">OBJECT_VALUES</span><span class="token punctuation">(</span>
+<span class="token function">PAIRS</span><span class="token punctuation">(</span>
+<span class="token function">PI</span><span class="token punctuation">(</span>
+<span class="token function">POLY_LENGTH</span><span class="token punctuation">(</span>
+<span class="token function">POSINFIF</span><span class="token punctuation">(</span>
+<span class="token function">POSITION</span><span class="token punctuation">(</span>
+<span class="token function">POWER</span><span class="token punctuation">(</span>
+<span class="token function">RADIANS</span><span class="token punctuation">(</span>
+<span class="token function">RANDOM</span><span class="token punctuation">(</span>
+<span class="token function">REGEXP_CONTAINS</span><span class="token punctuation">(</span>
+<span class="token function">REGEXP_LIKE</span><span class="token punctuation">(</span>
+<span class="token function">REGEXP_POSITION</span><span class="token punctuation">(</span>
+<span class="token function">REGEXP_REPLACE</span><span class="token punctuation">(</span>
+<span class="token function">REPEAT</span><span class="token punctuation">(</span>
+<span class="token function">REPLACE</span><span class="token punctuation">(</span>
+<span class="token function">REVERSE</span><span class="token punctuation">(</span>
+<span class="token function">ROUND</span><span class="token punctuation">(</span>
+<span class="token function">RTRIM</span><span class="token punctuation">(</span>
+<span class="token function">SIGN</span><span class="token punctuation">(</span>
+<span class="token function">SIN</span><span class="token punctuation">(</span>
+<span class="token function">SPLIT</span><span class="token punctuation">(</span>
+<span class="token function">SQRT</span><span class="token punctuation">(</span>
+<span class="token function">STR_TO_DURATION</span><span class="token punctuation">(</span>
+<span class="token function">STR_TO_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">STR_TO_TZ</span><span class="token punctuation">(</span>
+<span class="token function">STR_TO_UTC</span><span class="token punctuation">(</span>
+<span class="token function">STR_TO_ZONE_NAME</span><span class="token punctuation">(</span>
+<span class="token function">SUBSTR</span><span class="token punctuation">(</span>
+<span class="token function">SUFFIXES</span><span class="token punctuation">(</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span>
+<span class="token function">TAN</span><span class="token punctuation">(</span>
+<span class="token function">TITLE</span><span class="token punctuation">(</span>
+<span class="token function">TOARRAY</span><span class="token punctuation">(</span>
+<span class="token function">TOATOM</span><span class="token punctuation">(</span>
+<span class="token function">TOBOOLEAN</span><span class="token punctuation">(</span>
+<span class="token function">TOKENS</span><span class="token punctuation">(</span>
+<span class="token function">TOKENS</span><span class="token punctuation">(</span>
+<span class="token function">TONUMBER</span><span class="token punctuation">(</span>
+<span class="token function">TOOBJECT</span><span class="token punctuation">(</span>
+<span class="token function">TOSTRING</span><span class="token punctuation">(</span>
+<span class="token function">TRIM</span><span class="token punctuation">(</span>
+<span class="token function">TRUNC</span><span class="token punctuation">(</span>
+<span class="token function">TYPE</span><span class="token punctuation">(</span>
+<span class="token function">UPPER</span><span class="token punctuation">(</span>
+<span class="token function">WEEKDAY_MILLIS</span><span class="token punctuation">(</span>
+<span class="token function">WEEKDAY_STR</span><span class="token punctuation">(</span>
+
+----------------------------------------------------

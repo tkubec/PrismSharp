@@ -1,0 +1,124 @@
+I _believe_ every word.
+And then? She *fell*!
+
+I __know__.
+I **really** __know__.
+
+??Cat's Cradle?? by Vonnegut
+
+Convert with @r.to_html@
+
+I'm -sure- not sure.
+
+You are a +pleasant+ child.
+
+a ^2^ + b ^2^ = c ^2^
+log ~2~ x
+----------------------------------------------------
+[
+	["phrase", [
+		"I ",
+		["inline", [
+			["punctuation", "_"],
+			["italic", ["believe"]],
+			["punctuation", "_"]
+		]],
+		" every word.\nAnd then? She ",
+		["inline", [
+			["punctuation", "*"],
+			["bold", ["fell"]],
+			["punctuation", "*"]
+		]],
+		"!"
+	]],
+
+	["phrase", [
+		"I ",
+		["inline", [
+			["punctuation", "__"],
+			["italic", ["know"]],
+			["punctuation", "__"]
+		]],
+		".\nI ",
+		["inline", [
+			["punctuation", "**"],
+			["bold", ["really"]],
+			["punctuation", "**"]
+		]],
+		["inline", [
+			["punctuation", "__"],
+			["italic", ["know"]],
+			["punctuation", "__"]
+		]],
+		"."
+	]],
+
+	["phrase", [
+		["inline", [
+			["punctuation", "??"],
+			["cite", "Cat's Cradle"],
+			["punctuation", "??"]
+		]],
+		" by Vonnegut"
+	]],
+
+	["phrase", [
+		"Convert with ",
+		["inline", [
+			["punctuation", "@"],
+			["code", "r.to_html"],
+			["punctuation", "@"]
+		]]
+	]],
+
+	["phrase", [
+		"I'm ",
+		["inline", [
+			["punctuation", "-"],
+			["deleted", ["sure"]],
+			["punctuation", "-"]
+		]],
+		" not sure."
+	]],
+
+	["phrase", [
+		"You are a ",
+		["inline", [
+			["punctuation", "+"],
+			["inserted", ["pleasant"]],
+			["punctuation", "+"]
+		]],
+		" child."
+	]],
+
+	["phrase", [
+		"a ",
+		["inline", [
+			["punctuation", "^"],
+			"2",
+			["punctuation", "^"]
+		]],
+		" + b ",
+		["inline", [
+			["punctuation", "^"],
+			"2",
+			["punctuation", "^"]
+		]],
+		" = c ",
+		["inline", [
+			["punctuation", "^"],
+			"2",
+			["punctuation", "^"]
+		]],
+
+		"\nlog ",
+		["inline", [
+			["punctuation", "~"],
+			"2",
+			["punctuation", "~"]
+		]],
+		" x"
+	]]
+]
+
+----------------------------------------------------

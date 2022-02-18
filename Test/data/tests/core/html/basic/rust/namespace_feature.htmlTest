@@ -1,0 +1,49 @@
+use std::{
+	fs::File,
+	io::{BufRead, BufReader},
+	path::PathBuf,
+};
+use ::serde::de::{Error, Visitor};
+use std::sync::atomic::{AtomicBool, Ordering};
+pub mod sample;
+extern crate test;
+
+Result<Self, D::Error>
+
+where D: serde::Deserializer<'de>,
+
+serde_json::from_str(&line)
+self.read_records::<smol_str::SmolStr>()
+
+pub static ALLOCATOR: alloc::Tracing = alloc::Tracing::new();
+
+unsafe fn alloc(&self, layout: std::alloc::Layout) -> *mut u8 {}
+
+use crate::cool::function as root_function;
+self::cool::function();
+----------------------------------------------------
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span></span><span class="token punctuation">{</span>
+	<span class="token namespace">fs<span class="token punctuation">::</span></span><span class="token class-name">File</span><span class="token punctuation">,</span>
+	<span class="token namespace">io<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">BufRead</span><span class="token punctuation">,</span> <span class="token class-name">BufReader</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token namespace">path<span class="token punctuation">::</span></span><span class="token class-name">PathBuf</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token punctuation">::</span><span class="token namespace">serde<span class="token punctuation">::</span>de<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">Error</span><span class="token punctuation">,</span> <span class="token class-name">Visitor</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span>sync<span class="token punctuation">::</span>atomic<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">AtomicBool</span><span class="token punctuation">,</span> <span class="token class-name">Ordering</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">pub</span> <span class="token keyword">mod</span> <span class="token module-declaration namespace">sample</span><span class="token punctuation">;</span>
+<span class="token keyword">extern</span> <span class="token keyword">crate</span> <span class="token module-declaration namespace">test</span><span class="token punctuation">;</span>
+
+<span class="token class-name">Result</span><span class="token operator">&lt;</span><span class="token keyword">Self</span><span class="token punctuation">,</span> <span class="token class-name">D</span><span class="token punctuation">::</span><span class="token class-name">Error</span><span class="token operator">></span>
+
+<span class="token keyword">where</span> <span class="token class-name">D</span><span class="token punctuation">:</span> <span class="token namespace">serde<span class="token punctuation">::</span></span><span class="token class-name">Deserializer</span><span class="token operator">&lt;</span><span class="token lifetime-annotation symbol">'de</span><span class="token operator">></span><span class="token punctuation">,</span>
+
+<span class="token namespace">serde_json<span class="token punctuation">::</span></span><span class="token function">from_str</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>line<span class="token punctuation">)</span>
+<span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">read_records</span><span class="token punctuation">::</span><span class="token operator">&lt;</span><span class="token namespace">smol_str<span class="token punctuation">::</span></span><span class="token class-name">SmolStr</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">pub</span> <span class="token keyword">static</span> <span class="token constant">ALLOCATOR</span><span class="token punctuation">:</span> <span class="token namespace">alloc<span class="token punctuation">::</span></span><span class="token class-name">Tracing</span> <span class="token operator">=</span> <span class="token namespace">alloc<span class="token punctuation">::</span></span><span class="token class-name">Tracing</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">unsafe</span> <span class="token keyword">fn</span> <span class="token function-definition function">alloc</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">,</span> layout<span class="token punctuation">:</span> <span class="token namespace">std<span class="token punctuation">::</span>alloc<span class="token punctuation">::</span></span><span class="token class-name">Layout</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token operator">*</span><span class="token keyword">mut</span> <span class="token keyword">u8</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">use</span> <span class="token keyword">crate</span><span class="token module-declaration namespace"><span class="token punctuation">::</span>cool<span class="token punctuation">::</span></span>function <span class="token keyword">as</span> root_function<span class="token punctuation">;</span>
+<span class="token keyword">self</span><span class="token module-declaration namespace"><span class="token punctuation">::</span>cool<span class="token punctuation">::</span></span><span class="token function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

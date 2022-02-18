@@ -1,0 +1,220 @@
+function mandel(z)
+    c = z
+    maxiter = 80
+    for n = 1:maxiter
+        if abs(z) > 2
+            return n-1
+        end
+        z = z^2 + c
+    end
+    return maxiter
+end
+
+function randmatstat(t)
+    n = 5
+    v = zeros(t)
+    w = zeros(t)
+    for i = 1:t
+        a = randn(n,n)
+        b = randn(n,n)
+        c = randn(n,n)
+        d = randn(n,n)
+        P = [a b c d]
+        Q = [a b; c d]
+        v[i] = trace((P.'*P)^4)
+        w[i] = trace((Q.'*Q)^4)
+    end
+    std(v)/mean(v), std(w)/mean(w)
+end
+----------------------------------------------------
+[
+	["keyword", "function"],
+	" mandel",
+	["punctuation", "("],
+	"z",
+	["punctuation", ")"],
+
+	"\n    c ",
+	["operator", "="],
+	" z\n    maxiter ",
+	["operator", "="],
+	["number", "80"],
+
+	["keyword", "for"],
+	" n ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ":"],
+	"maxiter\n        ",
+
+	["keyword", "if"],
+	" abs",
+	["punctuation", "("],
+	"z",
+	["punctuation", ")"],
+	["operator", ">"],
+	["number", "2"],
+
+	["keyword", "return"],
+	" n",
+	["operator", "-"],
+	["number", "1"],
+
+	["keyword", "end"],
+
+	"\n        z ",
+	["operator", "="],
+	" z",
+	["operator", "^"],
+	["number", "2"],
+	["operator", "+"],
+	" c\n    ",
+
+	["keyword", "end"],
+
+	["keyword", "return"],
+	" maxiter\n",
+
+	["keyword", "end"],
+
+	["keyword", "function"],
+	" randmatstat",
+	["punctuation", "("],
+	"t",
+	["punctuation", ")"],
+
+	"\n    n ",
+	["operator", "="],
+	["number", "5"],
+
+	"\n    v ",
+	["operator", "="],
+	" zeros",
+	["punctuation", "("],
+	"t",
+	["punctuation", ")"],
+
+	"\n    w ",
+	["operator", "="],
+	" zeros",
+	["punctuation", "("],
+	"t",
+	["punctuation", ")"],
+
+	["keyword", "for"],
+	" i ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ":"],
+	"t\n        a ",
+	["operator", "="],
+	" randn",
+	["punctuation", "("],
+	"n",
+	["punctuation", ","],
+	"n",
+	["punctuation", ")"],
+
+	"\n        b ",
+	["operator", "="],
+	" randn",
+	["punctuation", "("],
+	"n",
+	["punctuation", ","],
+	"n",
+	["punctuation", ")"],
+
+	"\n        c ",
+	["operator", "="],
+	" randn",
+	["punctuation", "("],
+	"n",
+	["punctuation", ","],
+	"n",
+	["punctuation", ")"],
+
+	"\n        d ",
+	["operator", "="],
+	" randn",
+	["punctuation", "("],
+	"n",
+	["punctuation", ","],
+	"n",
+	["punctuation", ")"],
+
+	"\n        P ",
+	["operator", "="],
+	["punctuation", "["],
+	"a b c d",
+	["punctuation", "]"],
+
+	"\n        Q ",
+	["operator", "="],
+	["punctuation", "["],
+	"a b",
+	["punctuation", ";"],
+	" c d",
+	["punctuation", "]"],
+
+	"\n        v",
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["operator", "="],
+	" trace",
+	["punctuation", "("],
+	["punctuation", "("],
+	"P",
+	["punctuation", "."],
+	["operator", "'"],
+	["operator", "*"],
+	"P",
+	["punctuation", ")"],
+	["operator", "^"],
+	["number", "4"],
+	["punctuation", ")"],
+
+	"\n        w",
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["operator", "="],
+	" trace",
+	["punctuation", "("],
+	["punctuation", "("],
+	"Q",
+	["punctuation", "."],
+	["operator", "'"],
+	["operator", "*"],
+	"Q",
+	["punctuation", ")"],
+	["operator", "^"],
+	["number", "4"],
+	["punctuation", ")"],
+
+	["keyword", "end"],
+
+	"\n    std",
+	["punctuation", "("],
+	"v",
+	["punctuation", ")"],
+	["operator", "/"],
+	"mean",
+	["punctuation", "("],
+	"v",
+	["punctuation", ")"],
+	["punctuation", ","],
+	" std",
+	["punctuation", "("],
+	"w",
+	["punctuation", ")"],
+	["operator", "/"],
+	"mean",
+	["punctuation", "("],
+	"w",
+	["punctuation", ")"],
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

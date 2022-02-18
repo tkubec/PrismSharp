@@ -1,0 +1,43 @@
+- This is the first bullet list item.
+- This is the first paragraph in the second item in the list.
+
+  This is the second paragraph in the second item in the list.
+
+  - This is a sublist.  The bullet lines up with the left edge of
+    the text blocks above.
+
+- This is the third item of the main list.
+
+This paragraph is not part of the list.
+
+1. Item 1 initial text.
+
+   a) Item 1a.
+   b) Item 1b.
+
+2. a) Item 2a.
+   b) Item 2b.
+----------------------------------------------------
+[
+	["list-bullet", "-"],
+	" This is the first bullet list item.\n",
+
+	["list-bullet", "-"],
+	" This is the first paragraph in the second item in the list.\n\n  This is the second paragraph in the second item in the list.\n\n  ",
+
+	["list-bullet", "-"],
+	" This is a sublist.  The bullet lines up with the left edge of\n    the text blocks above.\n\n",
+
+	["list-bullet", "-"],
+	" This is the third item of the main list.\n\nThis paragraph is not part of the list.\n\n",
+
+	["list-bullet", "1."], " Item 1 initial text.\n\n   ",
+
+	["list-bullet", "a)"], " Item 1a.\n   ",
+	["list-bullet", "b)"], " Item 1b.\n\n",
+
+	["list-bullet", "2."], ["list-bullet", "a)"], " Item 2a.\n   ",
+	["list-bullet", "b)"], " Item 2b."
+]
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+-Here's my tetx file
++Here's my text file
++And this is the second line
+
+––– a/web/js/lazy.js
++++ b/web/js/lazy.js
+
+-      if (url !== null && url !== '' && typeof url !== 'undefined') {
++      if (url === null || url === '' || typeof url === 'undefined') {
++        return;
++      }
++
+----------------------------------------------------
+<span class="token deleted">-Here's my tetx file</span>
+<span class="token inserted">+Here's my text file</span>
+<span class="token inserted">+And this is the second line</span>
+
+<span class="token deleted">––– a/web/js/lazy.js</span>
+<span class="token inserted">+++ b/web/js/lazy.js</span>
+
+<span class="token deleted">-      if (url !== null &amp;&amp; url !== '' &amp;&amp; typeof url !== 'undefined') {</span>
+<span class="token inserted">+      if (url === null || url === '' || typeof url === 'undefined') {</span>
+<span class="token inserted">+        return;</span>
+<span class="token inserted">+      }</span>
+<span class="token inserted">+</span>
+
+----------------------------------------------------

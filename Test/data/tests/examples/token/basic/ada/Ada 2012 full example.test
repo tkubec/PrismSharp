@@ -1,0 +1,100 @@
+with Ada.Text_IO; Use Ada.Text_IO;
+
+--  Comments look like this.
+procedure Test is
+   procedure Bah with
+    Import        => True,   --  Shows the new aspect feature of the language.
+    Convention    => C,
+    External_Name => "bah";
+
+   type Things is range 1 .. 10;
+begin
+   Put_Line ("Hello");   --  Comments look like this.
+
+   Bah;  -- Call C function.
+
+   for Index in Things'Range loop
+      null;
+   end loop;
+end Test;
+----------------------------------------------------
+[
+	["keyword", "with"],
+	["variable", "Ada"],
+	["punctuation", "."],
+	["variable", "Text_IO"],
+	["punctuation", ";"],
+	["keyword", "Use"],
+	["variable", "Ada"],
+	["punctuation", "."],
+	["variable", "Text_IO"],
+	["punctuation", ";"],
+
+	["comment", "--  Comments look like this."],
+
+	["keyword", "procedure"],
+	["variable", "Test"],
+	["keyword", "is"],
+
+	["keyword", "procedure"],
+	["variable", "Bah"],
+	["keyword", "with"],
+
+	["variable", "Import"],
+	["operator", "=>"],
+	["boolean", "True"],
+	["punctuation", ","],
+	["comment", "--  Shows the new aspect feature of the language."],
+
+	["variable", "Convention"],
+	["operator", "=>"],
+	["variable", "C"],
+	["punctuation", ","],
+
+	["variable", "External_Name"],
+	["operator", "=>"],
+	["string", "\"bah\""],
+	["punctuation", ";"],
+
+	["keyword", "type"],
+	["variable", "Things"],
+	["keyword", "is"],
+	["keyword", "range"],
+	["number", "1"],
+	["punctuation", ".."],
+	["number", "10"],
+	["punctuation", ";"],
+
+	["keyword", "begin"],
+
+	["variable", "Put_Line"],
+	["punctuation", "("],
+	["string", "\"Hello\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "--  Comments look like this."],
+
+	["variable", "Bah"],
+	["punctuation", ";"],
+	["comment", "-- Call C function."],
+
+	["keyword", "for"],
+	["variable", "Index"],
+	["keyword", "in"],
+	["variable", "Things"],
+	["attr-name", "'Range"],
+	["keyword", "loop"],
+
+	["keyword", "null"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["keyword", "loop"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["variable", "Test"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

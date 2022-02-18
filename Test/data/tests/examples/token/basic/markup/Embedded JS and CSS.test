@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>I can haz embedded CSS and JS</title>
+	<style>
+		@media print {
+			p { color: red !important; }
+		}
+	</style>
+</head>
+<body>
+	<h1>I can haz embedded CSS and JS</h1>
+	<script>
+	if (true) {
+		console.log('foo');
+	}
+	</script>
+
+</body>
+</html>
+----------------------------------------------------
+[
+	["doctype", [
+		["punctuation", "<!"],
+		["doctype-tag", "DOCTYPE"],
+		["name", "html"],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"html"
+		]],
+		["attr-name", ["lang"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"en",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"head"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"meta"
+		]],
+		["attr-name", ["charset"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"utf-8",
+			["punctuation", "\""]
+		]],
+		["punctuation", "/>"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"title"
+		]],
+		["punctuation", ">"]
+	]],
+	"I can haz embedded CSS and JS",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"title"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"style"
+		]],
+		["punctuation", ">"]
+	]],
+	["style", [
+		["language-css", [
+			["atrule", [
+				["rule", "@media"],
+				" print"
+			]],
+			["punctuation", "{"],
+
+			["selector", "p"],
+			["punctuation", "{"],
+			["property", "color"],
+			["punctuation", ":"],
+			" red ",
+			["important", "!important"],
+			["punctuation", ";"],
+			["punctuation", "}"],
+
+			["punctuation", "}"]
+		]]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"style"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"head"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"body"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"h1"
+		]],
+		["punctuation", ">"]
+	]],
+	"I can haz embedded CSS and JS",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"h1"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"script"
+		]],
+		["punctuation", ">"]
+	]],
+	["script", [
+		["language-javascript", [
+			["keyword", "if"],
+			["punctuation", "("],
+			["boolean", "true"],
+			["punctuation", ")"],
+			["punctuation", "{"],
+
+			"\n\t\tconsole",
+			["punctuation", "."],
+			["function", "log"],
+			["punctuation", "("],
+			["string", "'foo'"],
+			["punctuation", ")"],
+			["punctuation", ";"],
+
+			["punctuation", "}"]
+		]]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"script"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"body"
+		]],
+		["punctuation", ">"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"html"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

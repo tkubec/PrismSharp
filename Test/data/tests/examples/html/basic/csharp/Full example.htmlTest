@@ -1,0 +1,91 @@
+using System.Windows.Forms;
+using System.Drawing;
+
+public static DialogResult InputBox(string title, string promptText, ref string value)
+{
+  Form form = new Form();
+  Label label = new Label();
+  TextBox textBox = new TextBox();
+  Button buttonOk = new Button();
+  Button buttonCancel = new Button();
+
+  form.Text = title;
+  label.Text = promptText;
+  textBox.Text = value;
+
+  buttonOk.Text = "OK";
+  buttonCancel.Text = "Cancel";
+  buttonOk.DialogResult = DialogResult.OK;
+  buttonCancel.DialogResult = DialogResult.Cancel;
+
+  label.SetBounds(9, 20, 372, 13);
+  textBox.SetBounds(12, 36, 372, 20);
+  buttonOk.SetBounds(228, 72, 75, 23);
+  buttonCancel.SetBounds(309, 72, 75, 23);
+
+  label.AutoSize = true;
+  textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+  buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+  buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+  form.ClientSize = new Size(396, 107);
+  form.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
+  form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
+  form.FormBorderStyle = FormBorderStyle.FixedDialog;
+  form.StartPosition = FormStartPosition.CenterScreen;
+  form.MinimizeBox = false;
+  form.MaximizeBox = false;
+  form.AcceptButton = buttonOk;
+  form.CancelButton = buttonCancel;
+
+  DialogResult dialogResult = form.ShowDialog();
+  value = textBox.Text;
+  return dialogResult;
+}
+----------------------------------------------------
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Drawing</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token return-type class-name">DialogResult</span> <span class="token function">InputBox</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> title<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">string</span></span> promptText<span class="token punctuation">,</span> <span class="token keyword">ref</span> <span class="token class-name"><span class="token keyword">string</span></span> <span class="token keyword">value</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token class-name">Form</span> form <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Form</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">Label</span> label <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Label</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">TextBox</span> textBox <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">TextBox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">Button</span> buttonOk <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">Button</span> buttonCancel <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  form<span class="token punctuation">.</span>Text <span class="token operator">=</span> title<span class="token punctuation">;</span>
+  label<span class="token punctuation">.</span>Text <span class="token operator">=</span> promptText<span class="token punctuation">;</span>
+  textBox<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span>
+
+  buttonOk<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"OK"</span><span class="token punctuation">;</span>
+  buttonCancel<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"Cancel"</span><span class="token punctuation">;</span>
+  buttonOk<span class="token punctuation">.</span>DialogResult <span class="token operator">=</span> DialogResult<span class="token punctuation">.</span>OK<span class="token punctuation">;</span>
+  buttonCancel<span class="token punctuation">.</span>DialogResult <span class="token operator">=</span> DialogResult<span class="token punctuation">.</span>Cancel<span class="token punctuation">;</span>
+
+  label<span class="token punctuation">.</span><span class="token function">SetBounds</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">372</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  textBox<span class="token punctuation">.</span><span class="token function">SetBounds</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">36</span><span class="token punctuation">,</span> <span class="token number">372</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  buttonOk<span class="token punctuation">.</span><span class="token function">SetBounds</span><span class="token punctuation">(</span><span class="token number">228</span><span class="token punctuation">,</span> <span class="token number">72</span><span class="token punctuation">,</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  buttonCancel<span class="token punctuation">.</span><span class="token function">SetBounds</span><span class="token punctuation">(</span><span class="token number">309</span><span class="token punctuation">,</span> <span class="token number">72</span><span class="token punctuation">,</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  label<span class="token punctuation">.</span>AutoSize <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  textBox<span class="token punctuation">.</span>Anchor <span class="token operator">=</span> textBox<span class="token punctuation">.</span>Anchor <span class="token operator">|</span> AnchorStyles<span class="token punctuation">.</span>Right<span class="token punctuation">;</span>
+  buttonOk<span class="token punctuation">.</span>Anchor <span class="token operator">=</span> AnchorStyles<span class="token punctuation">.</span>Bottom <span class="token operator">|</span> AnchorStyles<span class="token punctuation">.</span>Right<span class="token punctuation">;</span>
+  buttonCancel<span class="token punctuation">.</span>Anchor <span class="token operator">=</span> AnchorStyles<span class="token punctuation">.</span>Bottom <span class="token operator">|</span> AnchorStyles<span class="token punctuation">.</span>Right<span class="token punctuation">;</span>
+
+  form<span class="token punctuation">.</span>ClientSize <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Size</span><span class="token punctuation">(</span><span class="token number">396</span><span class="token punctuation">,</span> <span class="token number">107</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>Controls<span class="token punctuation">.</span><span class="token function">AddRange</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">Control<span class="token punctuation">[</span><span class="token punctuation">]</span></span> <span class="token punctuation">{</span> label<span class="token punctuation">,</span> textBox<span class="token punctuation">,</span> buttonOk<span class="token punctuation">,</span> buttonCancel <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>ClientSize <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Size</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">Max</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> label<span class="token punctuation">.</span>Right <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> form<span class="token punctuation">.</span>ClientSize<span class="token punctuation">.</span>Height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>FormBorderStyle <span class="token operator">=</span> FormBorderStyle<span class="token punctuation">.</span>FixedDialog<span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>StartPosition <span class="token operator">=</span> FormStartPosition<span class="token punctuation">.</span>CenterScreen<span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>MinimizeBox <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>MaximizeBox <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>AcceptButton <span class="token operator">=</span> buttonOk<span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>CancelButton <span class="token operator">=</span> buttonCancel<span class="token punctuation">;</span>
+
+  <span class="token class-name">DialogResult</span> dialogResult <span class="token operator">=</span> form<span class="token punctuation">.</span><span class="token function">ShowDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">value</span> <span class="token operator">=</span> textBox<span class="token punctuation">.</span>Text<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> dialogResult<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

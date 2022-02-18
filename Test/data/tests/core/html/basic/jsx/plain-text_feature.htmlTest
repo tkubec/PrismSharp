@@ -1,0 +1,17 @@
+<div>
+	foobar for
+	<div>
+		foobar for
+	</div>
+	foobar for {i == 0 ? 42 : 0}}
+</div>
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+	foobar <span class="token keyword">for</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+		foobar <span class="token keyword">for</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	foobar <span class="token keyword">for</span> <span class="token punctuation">{</span>i <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token number">42</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

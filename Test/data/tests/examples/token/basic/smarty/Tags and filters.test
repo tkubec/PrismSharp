@@ -1,0 +1,76 @@
+{assign var=foo value='baa'}
+{include file='header.tpl'}
+{$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+{$title|truncate:40:'...'}
+{$myArray|@count}
+
+{math equation="height * width / division"
+   height=$row_height
+   width=$row_width
+   division=#col_div#}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "assign"],
+	["attr-name", "var"],
+	["operator", "="],
+	["variable", "foo"],
+	["attr-name", "value"],
+	["operator", "="],
+	["string", "'baa'"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"include ",
+	["attr-name", "file"],
+	["operator", "="],
+	["string", "'header.tpl'"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$smarty"],
+	["punctuation", "."],
+	["variable", "now"],
+	["operator", "|"],
+	["function", "date_format"],
+	["punctuation", ":"],
+	["string", "'%Y-%m-%d %H:%M:%S'"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$title"],
+	["operator", "|"],
+	["function", "truncate"],
+	["punctuation", ":"],
+	["number", "40"],
+	["punctuation", ":"],
+	["string", "'...'"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$myArray"],
+	["operator", "|"],
+	["function", "@count"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"math ",
+	["attr-name", "equation"],
+	["operator", "="],
+	["string", ["\"height * width / division\""]],
+
+	["attr-name", "height"],
+	["operator", "="],
+	["variable", "$row_height"],
+
+	["attr-name", "width"],
+	["operator", "="],
+	["variable", "$row_width"],
+
+	["attr-name", "division"],
+	["operator", "="],
+	["variable", "#col_div#"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

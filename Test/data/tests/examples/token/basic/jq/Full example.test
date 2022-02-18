@@ -1,0 +1,100 @@
+# comment
+def some_method:
+	to_entries | sort_by(.foo) |
+	map(.foo) as $keys |
+	map(.bar) | transpose |
+	map(
+		[$keys, .] | transpose |
+		map({foo: .[0], bar: .[1], "foo-bar": "foo\("-" + "bar")"}) | from_entries
+	)
+;
+----------------------------------------------------
+[
+	["comment", "# comment"],
+
+	["keyword", "def"],
+	["function", "some_method"],
+	["punctuation", ":"],
+
+	"\n\tto_entries ",
+	["operator", "|"],
+	["c-style-function", "sort_by"],
+	["punctuation", "("],
+	["punctuation", "."],
+	"foo",
+	["punctuation", ")"],
+	["operator", "|"],
+
+	["c-style-function", "map"],
+	["punctuation", "("],
+	["punctuation", "."],
+	"foo",
+	["punctuation", ")"],
+	["keyword", "as"],
+	["variable", "$keys"],
+	["operator", "|"],
+
+	["c-style-function", "map"],
+	["punctuation", "("],
+	["punctuation", "."],
+	"bar",
+	["punctuation", ")"],
+	["operator", "|"],
+	" transpose ",
+	["operator", "|"],
+
+	["c-style-function", "map"],
+	["punctuation", "("],
+
+	["punctuation", "["],
+	["variable", "$keys"],
+	["punctuation", ","],
+	["dot", "."],
+	["punctuation", "]"],
+	["operator", "|"],
+	" transpose ",
+	["operator", "|"],
+
+	["c-style-function", "map"],
+	["punctuation", "("],
+	["punctuation", "{"],
+	["property-literal", "foo"],
+	["punctuation", ":"],
+	["punctuation", "."],
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	["property-literal", "bar"],
+	["punctuation", ":"],
+	["punctuation", "."],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	["property", ["\"foo-bar\""]],
+	["punctuation", ":"],
+	["string", [
+		"\"foo",
+		["interpolation", [
+			["punctuation", "\\("],
+			["content", [
+				["string", ["\"-\""]],
+				["operator", "+"],
+				["string", ["\"bar\""]]
+			]],
+			["punctuation", ")"]
+		]],
+		"\""
+	]],
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["operator", "|"],
+	" from_entries\n\t",
+
+	["punctuation", ")"],
+
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

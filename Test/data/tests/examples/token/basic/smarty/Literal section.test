@@ -1,0 +1,107 @@
+{literal}
+	<script>
+		(function() { /* This is JS, not Smarty */ } ());
+	</script>
+{/literal}
+
+<style type="text/css">
+{literal}
+/* this is an intersting idea for this section */
+.madIdea{
+    border: 3px outset #ffffff;
+    margin: 2 3 4 5px;
+    background-color: #001122;
+}
+{/literal}
+</style>
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "literal"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"script",
+	["operator", ">"],
+
+	["punctuation", "("],
+	["function", "function"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["operator", "/"],
+	["operator", "*"],
+	" This is JS",
+	["punctuation", ","],
+	["operator", "not"],
+	" Smarty ",
+	["operator", "*"],
+	["operator", "/"],
+	["punctuation", "}"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	";\n\t",
+
+	["operator", "<"],
+	["operator", "/"],
+	"script",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"literal",
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"style ",
+	["attr-name", "type"],
+	["operator", "="],
+	["string", ["\"text/css\""]],
+	["operator", ">"],
+
+	["punctuation", "{"],
+	"literal",
+	["punctuation", "}"],
+
+	["operator", "/"],
+	["operator", "*"],
+	" this is an intersting idea for this section ",
+	["operator", "*"],
+	["operator", "/"],
+
+	["punctuation", "."],
+	["variable", "madIdea"],
+	["punctuation", "{"],
+
+	"\n    border",
+	["punctuation", ":"],
+	["number", "3"],
+	"px outset #ffffff;\n    margin",
+	["punctuation", ":"],
+	["number", "2"],
+	["number", "3"],
+	["number", "4"],
+	["number", "5"],
+	"px;\n    background",
+	["operator", "-"],
+	"color",
+	["punctuation", ":"],
+	" #",
+	["number", "001122"],
+	";\n",
+
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"literal",
+	["punctuation", "}"],
+
+	["operator", "<"],
+	["operator", "/"],
+	"style",
+	["operator", ">"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,43 @@
+function my_add a b = a + b
+
+fn factorial n = if n <= 0 then 1 else n * factorial (n - 1)
+
+mapped function rand_color x =
+   x.wireColor = random (color 0 0 0) (color 255 255 255)
+
+fn starfield count extent:[200,200,200] pos:[0,0,0] =
+   (
+   -- something
+   )
+
+fn saddle x y = sin x * sin y
+
+print "build math mesh"
+in_name = getOpenFileName()
+val.x=random -100 100
+append vert_array (readValue in_file)
+while not eof f do
+on pressme pressed do print "Pressed!"
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function-definition function">my_add</span> a b <span class="token operator">=</span> a <span class="token operator">+</span> b
+
+<span class="token keyword">fn</span> <span class="token function-definition function">factorial</span> n <span class="token operator">=</span> <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> n <span class="token operator">*</span> <span class="token function-call function">factorial</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">mapped</span> <span class="token keyword">function</span> <span class="token function-definition function">rand_color</span> x <span class="token operator">=</span>
+   x<span class="token punctuation">.</span>wireColor <span class="token operator">=</span> <span class="token function-call function">random</span> <span class="token punctuation">(</span><span class="token function-call function">color</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function-call function">color</span> <span class="token number">255</span> <span class="token number">255</span> <span class="token number">255</span><span class="token punctuation">)</span>
+
+<span class="token keyword">fn</span> <span class="token function-definition function">starfield</span> count <span class="token argument attr-name">extent</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">]</span> <span class="token argument attr-name">pos</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span>
+   <span class="token punctuation">(</span>
+   <span class="token comment">-- something</span>
+   <span class="token punctuation">)</span>
+
+<span class="token keyword">fn</span> <span class="token function-definition function">saddle</span> x y <span class="token operator">=</span> <span class="token function-call function">sin</span> x <span class="token operator">*</span> <span class="token function-call function">sin</span> y
+
+<span class="token function-call function">print</span> <span class="token string">"build math mesh"</span>
+in_name <span class="token operator">=</span> <span class="token function-call function">getOpenFileName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+val<span class="token punctuation">.</span>x<span class="token operator">=</span><span class="token function-call function">random</span> <span class="token operator">-</span><span class="token number">100</span> <span class="token number">100</span>
+<span class="token function-call function">append</span> vert_array <span class="token punctuation">(</span><span class="token function-call function">readValue</span> in_file<span class="token punctuation">)</span>
+<span class="token keyword">while</span> <span class="token keyword">not</span> <span class="token function-call function">eof</span> f <span class="token keyword">do</span>
+<span class="token keyword">on</span> pressme pressed <span class="token keyword">do</span> <span class="token function-call function">print</span> <span class="token string">"Pressed!"</span>
+
+----------------------------------------------------

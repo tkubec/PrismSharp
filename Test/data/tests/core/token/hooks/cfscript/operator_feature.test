@@ -1,0 +1,67 @@
++ ++ +=
+- -- -=
+! !=
+< <=
+> >=
+= ==
+=== !==
+& && &=
+| ||
+: ::
+? ?. ?:
+^ ^=
+* *=
+/ /=
+% %=
+
+and
+contains
+eq
+equal
+eqv
+gt
+gte
+imp
+is
+lt
+lte
+mod
+not
+or
+xor
+----------------------------------------------------
+[
+	["operator", "+"], ["operator", "++"], ["operator", "+="],
+	["operator", "-"], ["operator", "--"], ["operator", "-="],
+	["operator", "!"], ["operator", "!="],
+	["operator", "<"], ["operator", "<="],
+	["operator", ">"], ["operator", ">="],
+	["operator", "="], ["operator", "=="],
+	["operator", "==="], ["operator", "!=="],
+	["operator", "&"], ["operator", "&&"], ["operator", "&="],
+	["operator", "|"], ["operator", "||"],
+	["operator", ":"], ["operator", "::"],
+	["operator", "?"], ["operator", "?."], ["operator", "?:"],
+	["operator", "^"], ["operator", "^="],
+	["operator", "*"], ["operator", "*="],
+	["operator", "/"], ["operator", "/="],
+	["operator", "%"], ["operator", "%="],
+
+	["operator", "and"],
+	["operator", "contains"],
+	["operator", "eq"],
+	["operator", "equal"],
+	["operator", "eqv"],
+	["operator", "gt"],
+	["operator", "gte"],
+	["operator", "imp"],
+	["operator", "is"],
+	["operator", "lt"],
+	["operator", "lte"],
+	["operator", "mod"],
+	["operator", "not"],
+	["operator", "or"],
+	["operator", "xor"]
+]
+
+----------------------------------------------------

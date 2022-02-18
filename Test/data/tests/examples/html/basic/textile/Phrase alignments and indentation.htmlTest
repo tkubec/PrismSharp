@@ -1,0 +1,29 @@
+p<. align left
+
+p>. align right
+
+p=. centered
+
+p<>. justified
+
+p(. left ident 1em
+
+p((. left ident 2em
+
+p))). right ident 3em
+----------------------------------------------------
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">&lt;</span></span><span class="token punctuation">.</span></span> align left</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">></span></span><span class="token punctuation">.</span></span> align right</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">=</span></span><span class="token punctuation">.</span></span> centered</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">.</span></span> justified</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">(</span></span><span class="token punctuation">.</span></span> left ident 1em</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">(</span><span class="token punctuation">(</span></span><span class="token punctuation">.</span></span> left ident 2em</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span></span> right ident 3em</span>
+
+----------------------------------------------------

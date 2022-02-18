@@ -1,0 +1,9 @@
+'''''Both bold and italic'''''
+'''Only bold'''
+''Only italic''
+----------------------------------------------------
+<span class="token emphasis"><span class="token punctuation">'''''</span><span class="token bold-italic bold italic">Both bold and italic</span><span class="token punctuation">'''''</span></span>
+<span class="token emphasis"><span class="token punctuation">'''</span><span class="token bold">Only bold</span><span class="token punctuation">'''</span></span>
+<span class="token emphasis"><span class="token punctuation">''</span><span class="token italic">Only italic</span><span class="token punctuation">''</span></span>
+
+----------------------------------------------------

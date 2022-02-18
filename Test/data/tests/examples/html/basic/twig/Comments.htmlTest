@@ -1,0 +1,11 @@
+{# Some comment
+on multiple lines
+with <html></html>
+inside #}
+----------------------------------------------------
+<span class="token comment">{# Some comment
+on multiple lines
+with &lt;html>&lt;/html>
+inside #}</span>
+
+----------------------------------------------------

@@ -1,0 +1,47 @@
+resource "aws_instance" "web" {
+  ami           = "${data.aws_ami.ubuntu.id}"
+  instance_type = "t2.micro"
+
+  tags {
+    Name = "HelloWorld"
+  }
+}
+----------------------------------------------------
+[
+	["keyword", [
+		"resource ",
+		["type", "\"aws_instance\""]
+	]],
+	["string", ["\"web\""]],
+	["punctuation", "{"],
+
+	["property", "ami"],
+	["punctuation", "="],
+	["string", [
+		"\"",
+		["interpolation", [
+			["punctuation", "$"],
+			["punctuation", "{"],
+			["keyword", "data"],
+			["punctuation", "."],
+			["type", "aws_ami"],
+			["punctuation", "."],
+			"ubuntu",
+			["punctuation", "."],
+			"id",
+			["punctuation", "}"]
+		]],
+		"\""
+	]],
+
+	["property", "instance_type"],
+	["punctuation", "="],
+	["string", ["\"t2.micro\""]],
+
+	["keyword", "tags"], ["punctuation", "{"],
+	["property", "Name"], ["punctuation", "="], ["string", ["\"HelloWorld\""]],
+	["punctuation", "}"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

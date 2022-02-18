@@ -1,0 +1,5 @@
+reversedNames = names.sorted(by: { $0 > $1 } )
+----------------------------------------------------
+reversedNames <span class="token operator">=</span> names<span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span>by<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token short-argument">$0</span> <span class="token operator">></span> <span class="token short-argument">$1</span> <span class="token punctuation">}</span> <span class="token punctuation">)</span>
+
+----------------------------------------------------

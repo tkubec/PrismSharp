@@ -1,0 +1,53 @@
+    let
+    Source = Sales,
+    LookupTable = #table(
+    type table
+        [
+            #"FROM"=text,
+            #"TO"=text
+        ], 
+        {
+            {"CEE","Central & Eastern Europe"},
+            {"WE","Western Europe"}  
+        }
+    ),
+
+    JT = Table.NestedJoin(
+        Source, 
+        {"Area"}, 
+        LookupTable, 
+        {"FROM"}, 
+        "Map", 
+        JoinKind.LeftOuter
+    ),
+
+    #"Expanded Map" = Table.ExpandTableColumn(
+        JT, 
+        "Map", 
+        {"TO"}, 
+        {"TO"}
+    ),
+
+    #"Replace non-matches with original value" = Table.AddColumn(
+        #"Expanded Map", 
+        "Replaced", 
+        each 
+            if [TO] = null then [Area] 
+            else [TO]
+    ),
+
+    #"Remove original column" = Table.RemoveColumns(
+        #"Replace non-matches with original value",
+        {"Area", "TO"}
+    ),
+
+    #"Renamed replace column to original name" = Table.RenameColumns(
+        #"Remove original column",
+        {{"Replaced", "Area"}}
+    )
+
+in
+    #"Renamed replace column to original name"
+
+--------------------------------------------------
+

@@ -1,0 +1,32 @@
+output "address" {
+  value = "${aws_instance.db.public_dns}"
+}
+----------------------------------------------------
+[
+	["keyword", [
+		"output",
+		["type", " \"address\" "]
+	]],
+	["punctuation", "{"],
+
+	["property", "value"],
+	["punctuation", "="],
+	["string", [
+		"\"",
+		["interpolation", [
+			["punctuation", "$"],
+			["punctuation", "{"],
+			"aws_instance",
+			["punctuation", "."],
+			"db",
+			["punctuation", "."],
+			"public_dns",
+			["punctuation", "}"]
+		]],
+		"\""
+	]],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

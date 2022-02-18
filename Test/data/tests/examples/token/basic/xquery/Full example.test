@@ -1,0 +1,102 @@
+<report xmlns="http://datypic.com/report"
+xmlns:cat="http://datypic.com/cat"
+xmlns:prod="http://datypic.com/prod"> {
+for $product in doc("prod_ns.xml")/prod:product
+return <lineItem>
+{$product/prod:number}
+{$product/prod:name}
+</lineItem>
+} </report>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"report"
+		]],
+		["attr-name", ["xmlns"]],
+		["attr-value", [
+			["punctuation", "=\""],
+			"http://datypic.com/report",
+			["punctuation", "\""]
+		]],
+
+		["attr-name", [
+			["namespace", "xmlns:"],
+			"cat"
+		]],
+		["attr-value", [
+			["punctuation", "=\""],
+			"http://datypic.com/cat",
+			["punctuation", "\""]
+		]],
+
+		["attr-name", [
+			["namespace", "xmlns:"],
+			"prod"
+		]],
+		["attr-value", [
+			["punctuation", "=\""],
+			"http://datypic.com/prod",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["variable", "$product"],
+	["keyword", "in"],
+	["function", "doc"],
+	["punctuation", "("],
+	["string", "\"prod_ns.xml\""],
+	["punctuation", ")"],
+	["punctuation", "/"],
+	"prod",
+	["punctuation", ":"],
+	"product\n",
+
+	["keyword", "return"],
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"lineItem"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["punctuation", "{"],
+	["variable", "$product"],
+	["punctuation", "/"],
+	"prod",
+	["punctuation", ":"],
+	"number",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$product"],
+	["punctuation", "/"],
+	"prod",
+	["punctuation", ":"],
+	"name",
+	["punctuation", "}"],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"lineItem"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["punctuation", "}"],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"report"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

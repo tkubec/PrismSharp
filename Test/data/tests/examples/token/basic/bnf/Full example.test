@@ -1,0 +1,251 @@
+<number>   ::= "+" <unsigned> | "-" <unsigned> | <unsigned>
+<unsigned> ::= "NaN" | "Infinity" | <decimal> | <decimal> <exponent>
+<decimal>  ::= <integer> | "." <non-zero-integer> | <non-zero-integer> "." | <integer> "." <integer>
+
+<exponent>      ::= <exponent-char> <exponent-sign> <integer>
+<exponent-char> ::= "e" | "E"
+<exponent-sign> ::= "+" | "-" | ""
+
+<integer>          ::= "0" | <non-zero-integer>
+<non-zero-integer> ::= <non-zero-digit> | <non-zero-digit> <digits>
+
+<digits>         ::= <digit> | <digit> <digits>
+<digit>          ::= "0" | <non-zero-digit>
+<non-zero-digit> ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+----------------------------------------------------
+[
+	["definition", [
+		["punctuation", "<"],
+		"number",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["string", "\"+\""],
+	["rule", [
+		["punctuation", "<"],
+		"unsigned",
+		["punctuation", ">"]
+	]],
+	["operator", "|"],
+	["string", "\"-\""],
+	["rule", [
+		["punctuation", "<"],
+		"unsigned",
+		["punctuation", ">"]
+	]],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"unsigned",
+		["punctuation", ">"]
+	]],
+
+	["definition", [
+		["punctuation", "<"],
+		"unsigned",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["string", "\"NaN\""],
+	["operator", "|"],
+	["string", "\"Infinity\""],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"decimal",
+		["punctuation", ">"]
+	]],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"decimal",
+		["punctuation", ">"]
+	]],
+	["rule", [
+		["punctuation", "<"],
+		"exponent",
+		["punctuation", ">"]
+	]],
+
+	["definition", [
+		["punctuation", "<"],
+		"decimal",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["rule", [
+		["punctuation", "<"],
+		"integer",
+		["punctuation", ">"]
+	]],
+	["operator", "|"],
+	["string", "\".\""],
+	["rule", [
+		["punctuation", "<"],
+		"non-zero-integer",
+		["punctuation", ">"]
+	]],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"non-zero-integer",
+		["punctuation", ">"]
+	]],
+	["string", "\".\""],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"integer",
+		["punctuation", ">"]
+	]],
+	["string", "\".\""],
+	["rule", [
+		["punctuation", "<"],
+		"integer",
+		["punctuation", ">"]
+	]],
+
+	["definition", [
+		["punctuation", "<"],
+		"exponent",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["rule", [
+		["punctuation", "<"],
+		"exponent-char",
+		["punctuation", ">"]
+	]],
+	["rule", [
+		["punctuation", "<"],
+		"exponent-sign",
+		["punctuation", ">"]
+	]],
+	["rule", [
+		["punctuation", "<"],
+		"integer",
+		["punctuation", ">"]
+	]],
+
+	["definition", [
+		["punctuation", "<"],
+		"exponent-char",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["string", "\"e\""],
+	["operator", "|"],
+	["string", "\"E\""],
+
+	["definition", [
+		["punctuation", "<"],
+		"exponent-sign",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["string", "\"+\""],
+	["operator", "|"],
+	["string", "\"-\""],
+	["operator", "|"],
+	["string", "\"\""],
+
+	["definition", [
+		["punctuation", "<"],
+		"integer",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["string", "\"0\""],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"non-zero-integer",
+		["punctuation", ">"]
+	]],
+
+	["definition", [
+		["punctuation", "<"],
+		"non-zero-integer",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["rule", [
+		["punctuation", "<"],
+		"non-zero-digit",
+		["punctuation", ">"]
+	]],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"non-zero-digit",
+		["punctuation", ">"]
+	]],
+	["rule", [
+		["punctuation", "<"],
+		"digits",
+		["punctuation", ">"]
+	]],
+
+	["definition", [
+		["punctuation", "<"],
+		"digits",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["rule", [
+		["punctuation", "<"],
+		"digit",
+		["punctuation", ">"]
+	]],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"digit",
+		["punctuation", ">"]
+	]],
+	["rule", [
+		["punctuation", "<"],
+		"digits",
+		["punctuation", ">"]
+	]],
+
+	["definition", [
+		["punctuation", "<"],
+		"digit",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["string", "\"0\""],
+	["operator", "|"],
+	["rule", [
+		["punctuation", "<"],
+		"non-zero-digit",
+		["punctuation", ">"]
+	]],
+
+	["definition", [
+		["punctuation", "<"],
+		"non-zero-digit",
+		["punctuation", ">"]
+	]],
+	["operator", "::="],
+	["string", "\"1\""],
+	["operator", "|"],
+	["string", "\"2\""],
+	["operator", "|"],
+	["string", "\"3\""],
+	["operator", "|"],
+	["string", "\"4\""],
+	["operator", "|"],
+	["string", "\"5\""],
+	["operator", "|"],
+	["string", "\"6\""],
+	["operator", "|"],
+	["string", "\"7\""],
+	["operator", "|"],
+	["string", "\"8\""],
+	["operator", "|"],
+	["string", "\"9\""]
+]
+
+----------------------------------------------------

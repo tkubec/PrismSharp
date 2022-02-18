@@ -1,0 +1,7 @@
+var foo = 1/2, bar = /a/g;
+var foo = /a/, bar = 3/4;
+----------------------------------------------------
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> bar <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">a</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">a</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> bar <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

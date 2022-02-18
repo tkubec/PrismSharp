@@ -1,0 +1,69 @@
+| name | age | sex |
+| joan | 24 | f |
+| archie | 29 | m |
+| bella | 45 | f |
+
+|_. name |_. age |_. sex |
+| joan | 24 | f |
+| archie | 29 | m |
+| bella | 45 | f |
+
+|_. attribute list |
+|<. align left |
+|>. align right|
+|=. center |
+|<>. justify |
+|^. valign top |
+|~. bottom |
+
+|\2. spans two cols |
+| col 1 | col 2 |
+
+|/3. spans 3 rows | a |
+| b |
+| c |
+
+|{background:#ddd}. Grey cell|
+
+table{border:1px solid black}.
+|This|is|a|row|
+|This|is|a|row|
+
+|This|is|a|row|
+{background:#ddd}. |This|is|grey|row|
+----------------------------------------------------
+<span class="token phrase"><span class="token table"><span class="token punctuation">|</span> name <span class="token punctuation">|</span> age <span class="token punctuation">|</span> sex <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> joan <span class="token punctuation">|</span> 24 <span class="token punctuation">|</span> f <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> archie <span class="token punctuation">|</span> 29 <span class="token punctuation">|</span> m <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> bella <span class="token punctuation">|</span> 45 <span class="token punctuation">|</span> f <span class="token punctuation">|</span></span></span>
+
+<span class="token phrase"><span class="token table"><span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">_</span></span><span class="token punctuation">.</span> name <span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">_</span></span><span class="token punctuation">.</span> age <span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">_</span></span><span class="token punctuation">.</span> sex <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> joan <span class="token punctuation">|</span> 24 <span class="token punctuation">|</span> f <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> archie <span class="token punctuation">|</span> 29 <span class="token punctuation">|</span> m <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> bella <span class="token punctuation">|</span> 45 <span class="token punctuation">|</span> f <span class="token punctuation">|</span></span></span>
+
+<span class="token phrase"><span class="token table"><span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">_</span></span><span class="token punctuation">.</span> attribute list <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">&lt;</span></span><span class="token punctuation">.</span> align left <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">></span></span><span class="token punctuation">.</span> align right<span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">=</span></span><span class="token punctuation">.</span> center <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">.</span> justify <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">^</span></span><span class="token punctuation">.</span> valign top <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">~</span></span><span class="token punctuation">.</span> bottom <span class="token punctuation">|</span></span></span>
+
+<span class="token phrase"><span class="token table"><span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">\2</span></span><span class="token punctuation">.</span> spans two cols <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> col 1 <span class="token punctuation">|</span> col 2 <span class="token punctuation">|</span></span></span>
+
+<span class="token phrase"><span class="token table"><span class="token punctuation">|</span><span class="token modifier"><span class="token punctuation">/3</span></span><span class="token punctuation">.</span> spans 3 rows <span class="token punctuation">|</span> a <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> b <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> c <span class="token punctuation">|</span></span></span>
+
+<span class="token phrase"><span class="token table"><span class="token punctuation">|</span><span class="token modifier"><span class="token css"><span class="token punctuation">{</span><span class="token property">background</span><span class="token punctuation">:</span>#ddd<span class="token punctuation">}</span></span></span><span class="token punctuation">.</span> Grey cell<span class="token punctuation">|</span></span></span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">table</span><span class="token modifier"><span class="token css"><span class="token punctuation">{</span><span class="token property">border</span><span class="token punctuation">:</span>1px solid black<span class="token punctuation">}</span></span></span><span class="token punctuation">.</span></span>
+<span class="token table"><span class="token punctuation">|</span>This<span class="token punctuation">|</span>is<span class="token punctuation">|</span>a<span class="token punctuation">|</span>row<span class="token punctuation">|</span>
+<span class="token punctuation">|</span>This<span class="token punctuation">|</span>is<span class="token punctuation">|</span>a<span class="token punctuation">|</span>row<span class="token punctuation">|</span></span></span>
+
+<span class="token phrase"><span class="token table"><span class="token punctuation">|</span>This<span class="token punctuation">|</span>is<span class="token punctuation">|</span>a<span class="token punctuation">|</span>row<span class="token punctuation">|</span>
+<span class="token modifier"><span class="token css"><span class="token punctuation">{</span><span class="token property">background</span><span class="token punctuation">:</span>#ddd<span class="token punctuation">}</span></span></span><span class="token punctuation">.</span> <span class="token punctuation">|</span>This<span class="token punctuation">|</span>is<span class="token punctuation">|</span>grey<span class="token punctuation">|</span>row<span class="token punctuation">|</span></span></span>
+
+----------------------------------------------------

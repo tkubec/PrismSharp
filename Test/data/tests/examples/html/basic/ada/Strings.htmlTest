@@ -1,0 +1,9 @@
+"foo ""bar"" baz"
+"Multi-line strings are appended with a " &
+"ampersand symbole."
+----------------------------------------------------
+<span class="token string">"foo ""bar"" baz"</span>
+<span class="token string">"Multi-line strings are appended with a "</span> <span class="token operator">&amp;</span>
+<span class="token string">"ampersand symbole."</span>
+
+----------------------------------------------------

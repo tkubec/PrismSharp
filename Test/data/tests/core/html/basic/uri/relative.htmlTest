@@ -1,0 +1,17 @@
+//example.com/path/resource.txt
+/path/resource.txt
+path/resource.txt
+../resource.txt
+./resource.txt
+resource.txt
+#fragment
+----------------------------------------------------
+<span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">example.com</span></span><span class="token path"><span class="token path-separator">/</span>path<span class="token path-separator">/</span>resource.txt</span>
+<span class="token path"><span class="token path-separator">/</span>path<span class="token path-separator">/</span>resource.txt</span>
+<span class="token path">path<span class="token path-separator">/</span>resource.txt</span>
+<span class="token path">..<span class="token path-separator">/</span>resource.txt</span>
+<span class="token path">.<span class="token path-separator">/</span>resource.txt</span>
+<span class="token path">resource.txt</span>
+<span class="token fragment"><span class="token fragment-delimiter">#</span>fragment</span>
+
+----------------------------------------------------

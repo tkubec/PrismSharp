@@ -1,0 +1,188 @@
+.. [1] Body elements go here.
+
+If [#note]_ is the first footnote reference, it will show up as
+"[1]".  We can refer to it again as [#note]_ and again see
+"[1]".  We can also refer to it as note_ (an ordinary internal
+hyperlink reference).
+
+.. [#note] This is the footnote labeled "note".
+
+Here is a symbolic footnote reference: [*]_.
+
+.. [*] This is the footnote.
+
+[2]_ will be "2" (manually numbered),
+[#]_ will be "3" (anonymous auto-numbered), and
+[#label]_ will be "1" (labeled auto-numbered).
+
+.. [2] This footnote is labeled manually, so its number is fixed.
+
+.. [#label] This autonumber-labeled footnote will be labeled "1".
+   It is the first auto-numbered footnote and no other footnote
+   with label "1" exists.  The order of the footnotes is used to
+   determine numbering, not the order of the footnote references.
+
+.. [#] This footnote will be labeled "3".  It is the second
+   auto-numbered footnote, but footnote label "2" is already used.
+
+Here is a citation reference: [CIT2002]_.
+
+.. [CIT2002] This is the citation.  It's just like a footnote,
+   except the label is textual.
+
+.. _hyperlink-name: link-block
+
+.. __: anonymous-hyperlink-target-link-block
+
+__ anonymous-hyperlink-target-link-block
+
+Clicking on this internal hyperlink will take us to the target_
+below.
+
+.. _target:
+
+The hyperlink target above points to this paragraph.
+----------------------------------------------------
+[
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "["],
+		"1",
+		["punctuation", "]"]
+	]],
+	" Body elements go here.\n\nIf ",
+	["link", [
+		["punctuation", "["],
+		"#note",
+		["punctuation", "]_"]
+	]],
+	" is the first footnote reference, it will show up as\n\"[1]\".  We can refer to it again as ",
+	["link", [
+		["punctuation", "["],
+		"#note",
+		["punctuation", "]_"]
+	]],
+	" and again see\n\"[1]\".  We can also refer to it as ",
+	["link", [
+		"note",
+		["punctuation", "_"]
+	]],
+	" (an ordinary internal\nhyperlink reference).\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "["],
+		"#note",
+		["punctuation", "]"]
+	]],
+	" This is the footnote labeled \"note\".\n\nHere is a symbolic footnote reference: ",
+	["link", [
+		["punctuation", "["],
+		"*",
+		["punctuation", "]_"]
+	]],
+	".\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "["],
+		"*",
+		["punctuation", "]"]
+	]],
+	" This is the footnote.\n\n",
+
+	["link", [
+		["punctuation", "["],
+		"2",
+		["punctuation", "]_"]
+	]],
+	" will be \"2\" (manually numbered),\n",
+
+	["link", [
+		["punctuation", "["],
+		"#",
+		["punctuation", "]_"]
+	]],
+	" will be \"3\" (anonymous auto-numbered), and\n",
+
+	["link", [
+		["punctuation", "["],
+		"#label",
+		["punctuation", "]_"]
+	]],
+	" will be \"1\" (labeled auto-numbered).\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "["],
+		"2",
+		["punctuation", "]"]
+	]],
+	" This footnote is labeled manually, so its number is fixed.\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "["],
+		"#label",
+		["punctuation", "]"]
+	]],
+	" This autonumber-labeled footnote will be labeled \"1\".\n   It is the first auto-numbered footnote and no other footnote\n   with label \"1\" exists.  The order of the footnotes is used to\n   determine numbering, not the order of the footnote references.\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "["],
+		"#",
+		["punctuation", "]"]
+	]],
+	" This footnote will be labeled \"3\".  It is the second\n   auto-numbered footnote, but footnote label \"2\" is already used.\n\nHere is a citation reference: ",
+	["link", [
+		["punctuation", "["],
+		"CIT2002",
+		["punctuation", "]_"]
+	]],
+	".\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "["],
+		"CIT2002",
+		["punctuation", "]"]
+	]],
+	" This is the citation.  It's just like a footnote,\n   except the label is textual.\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "_"],
+		"hyperlink-name",
+		["punctuation", ":"]
+	]],
+	" link-block\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "_"],
+		["punctuation", "_"],
+		["punctuation", ":"]
+	]],
+	" anonymous-hyperlink-target-link-block\n\n",
+
+	["punctuation", "__"],
+	" anonymous-hyperlink-target-link-block\n\nClicking on this internal hyperlink will take us to the ",
+	["link", [
+		"target",
+		["punctuation", "_"]
+	]],
+
+	"\nbelow.\n\n",
+
+	["punctuation", ".."],
+	["link-target", [
+		["punctuation", "_"],
+		"target",
+		["punctuation", ":"]
+	]],
+
+	"\n\nThe hyperlink target above points to this paragraph."
+]
+
+----------------------------------------------------

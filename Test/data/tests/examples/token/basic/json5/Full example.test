@@ -1,0 +1,73 @@
+{
+  // comments
+  unquoted: 'and you can quote me on that',
+  singleQuotes: 'I can use "double quotes" here',
+  lineBreaks: "Look, Mom! \
+No \\n's!",
+  hexadecimal: 0xdecaf,
+  leadingDecimalPoint: .8675309, andTrailing: 8675309.,
+  positiveSign: +1,
+  trailingComma: 'in objects', andIn: ['arrays',],
+  "backwardsCompatible": "with JSON",
+}
+----------------------------------------------------
+[
+	["punctuation", "{"],
+
+	["comment", "// comments"],
+
+	["property", "unquoted"],
+	["operator", ":"],
+	["string", "'and you can quote me on that'"],
+	["punctuation", ","],
+
+	["property", "singleQuotes"],
+	["operator", ":"],
+	["string", "'I can use \"double quotes\" here'"],
+	["punctuation", ","],
+
+	["property", "lineBreaks"],
+	["operator", ":"],
+	["string", "\"Look, Mom! \\\nNo \\\\n's!\""],
+	["punctuation", ","],
+
+	["property", "hexadecimal"],
+	["operator", ":"],
+	["number", "0xdecaf"],
+	["punctuation", ","],
+
+	["property", "leadingDecimalPoint"],
+	["operator", ":"],
+	["number", ".8675309"],
+	["punctuation", ","],
+	["property", "andTrailing"],
+	["operator", ":"],
+	["number", "8675309."],
+	["punctuation", ","],
+
+	["property", "positiveSign"],
+	["operator", ":"],
+	["number", "+1"],
+	["punctuation", ","],
+
+	["property", "trailingComma"],
+	["operator", ":"],
+	["string", "'in objects'"],
+	["punctuation", ","],
+	["property", "andIn"],
+	["operator", ":"],
+	["punctuation", "["],
+	["string", "'arrays'"],
+	["punctuation", ","],
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["property", "\"backwardsCompatible\""],
+	["operator", ":"],
+	["string", "\"with JSON\""],
+	["punctuation", ","],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,14 @@
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX vcard: &lt;http://www.w3.org/2001/vcard-rdf/3.0#&gt;
+SELECT ?foafName ?mbox ?gname ?fname
+WHERE
+	{  ?x foaf:name ?foafName .
+		 OPTIONAL { ?x foaf:mbox ?mbox } .
+		 OPTIONAL {  ?x vcard:N ?vc .
+								 ?vc vcard:Given ?gname .
+								 OPTIONAL { ?vc vcard:Family ?fname }
+							}
+	}
+
+--------------------------------------------------
+

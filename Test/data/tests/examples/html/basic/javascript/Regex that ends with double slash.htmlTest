@@ -1,0 +1,5 @@
+var bar = /\/\*[\w\W]*?\*\//g;
+----------------------------------------------------
+<span class="token keyword">var</span> bar <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/\*[\w\W]*?\*\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

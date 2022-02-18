@@ -1,0 +1,17 @@
+kids =
+  brother:
+    name: "Max"
+    age:  11
+  sister:
+    name: "Ida"
+    age:  9
+----------------------------------------------------
+kids <span class="token operator">=</span>
+  <span class="token property">brother</span><span class="token operator">:</span>
+    <span class="token property">name</span><span class="token operator">:</span> <span class="token string">"Max"</span>
+    <span class="token property">age</span><span class="token operator">:</span>  <span class="token number">11</span>
+  <span class="token property">sister</span><span class="token operator">:</span>
+    <span class="token property">name</span><span class="token operator">:</span> <span class="token string">"Ida"</span>
+    <span class="token property">age</span><span class="token operator">:</span>  <span class="token number">9</span>
+
+----------------------------------------------------

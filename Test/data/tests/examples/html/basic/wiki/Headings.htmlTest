@@ -1,0 +1,15 @@
+= Header 1 =
+== Header 2 ==
+=== Header 3 ===
+==== Header 4 ====
+===== Header 5 =====
+====== Header 6 ======
+----------------------------------------------------
+<span class="token heading"><span class="token punctuation">=</span><span class="token important"> Header 1 </span><span class="token punctuation">=</span></span>
+<span class="token heading"><span class="token punctuation">==</span><span class="token important"> Header 2 </span><span class="token punctuation">==</span></span>
+<span class="token heading"><span class="token punctuation">===</span><span class="token important"> Header 3 </span><span class="token punctuation">===</span></span>
+<span class="token heading"><span class="token punctuation">====</span><span class="token important"> Header 4 </span><span class="token punctuation">====</span></span>
+<span class="token heading"><span class="token punctuation">=====</span><span class="token important"> Header 5 </span><span class="token punctuation">=====</span></span>
+<span class="token heading"><span class="token punctuation">======</span><span class="token important"> Header 6 </span><span class="token punctuation">======</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+macro static function add(e:Expr) {
+  return macro $e + $e;
+}
+----------------------------------------------------
+[
+	["keyword", "macro"],
+	["keyword", "static"],
+	["keyword", "function"],
+	["function", "add"],
+	["punctuation", "("],
+	"e",
+	["operator", ":"],
+	["class-name", "Expr"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["keyword", "macro"],
+	["reification", "$e"],
+	["operator", "+"],
+	["reification", "$e"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

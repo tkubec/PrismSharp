@@ -1,0 +1,34 @@
+module Main
+
+import Data.Vect
+
+-- this is comment
+record Person where
+  constructor MkPerson2
+  age : Integer
+  name : String
+
+||| identity function
+id : a -> a
+id x = x
+
+{-
+Bool type can be defined in
+userland
+-}
+data Bool = True | False
+
+implementation Show Bool where
+  show True = "True"
+  show False = "False"
+
+not : Bool -> Bool
+not b = case b of
+          True  => False
+          False => True
+
+vect3 : Vect 3 Int
+vect3 = with Vect (1 :: 2 :: 3 :: Nil)
+
+--------------------------------------------------
+

@@ -1,0 +1,200 @@
+# Declare images used by this game.
+image bg lecturehall = "lecturehall.jpg"
+image bg uni = "uni.jpg"
+image bg meadow = "meadow.jpg"
+image bg club = "club.jpg"
+
+image sylvie normal = "sylvie_normal.png"
+image sylvie giggle = "sylvie_giggle.png"
+image sylvie smile = "sylvie_smile.png"
+image sylvie surprised = "sylvie_surprised.png"
+
+image sylvie2 normal = "sylvie2_normal.png"
+image sylvie2 giggle = "sylvie2_giggle.png"
+image sylvie2 smile = "sylvie2_smile.png"
+image sylvie2 surprised = "sylvie2_surprised.png"
+
+# Define characters used by this game.
+define s = Character('Sylvie', color="#c8ffc8")
+define m = Character('Me', color="#c8c8ff")
+
+
+# The game starts here.
+label start:
+
+    $ bl_game = False
+
+    play music "illurock.ogg"
+
+    scene bg lecturehall
+    with fade
+
+    "Well, professor Eileen's lecture was interesting."
+    "But to be honest, I couldn't concentrate on it very much."
+    "I had a lot of other thoughts on my mind."
+    "And they all ended up with a question."
+    "A question, I've been meaning to ask someone."
+
+    scene bg uni
+    with fade
+
+    "When we came out of the university, I saw her."
+
+    show sylvie normal
+    with dissolve
+
+    "She was a wonderful person."
+    "I've known her ever since we were children."
+    "And she's always been a good friend."
+    "But..."
+    "Recently..."
+    "I think..."
+    "... that I wanted more."
+    "More just talking... more than just walking home together when our classes ended."
+    "And I decided..."
+
+    menu:
+
+        "... to ask her right away.":
+
+            jump rightaway
+
+        "... to ask her later.":
+
+            jump later
+----------------------------------------------------
+[
+	["comment", "# Declare images used by this game."],
+
+	["tag", "image"],
+	" bg lecturehall ",
+	["operator", "="],
+	["string", "\"lecturehall.jpg\""],
+
+	["tag", "image"],
+	" bg uni ",
+	["operator", "="],
+	["string", "\"uni.jpg\""],
+
+	["tag", "image"],
+	" bg meadow ",
+	["operator", "="],
+	["string", "\"meadow.jpg\""],
+
+	["tag", "image"],
+	" bg club ",
+	["operator", "="],
+	["string", "\"club.jpg\""],
+
+	["tag", "image"],
+	" sylvie normal ",
+	["operator", "="],
+	["string", "\"sylvie_normal.png\""],
+
+	["tag", "image"],
+	" sylvie giggle ",
+	["operator", "="],
+	["string", "\"sylvie_giggle.png\""],
+
+	["tag", "image"],
+	" sylvie smile ",
+	["operator", "="],
+	["string", "\"sylvie_smile.png\""],
+
+	["tag", "image"],
+	" sylvie surprised ",
+	["operator", "="],
+	["string", "\"sylvie_surprised.png\""],
+
+	["tag", "image"],
+	" sylvie2 normal ",
+	["operator", "="],
+	["string", "\"sylvie2_normal.png\""],
+
+	["tag", "image"],
+	" sylvie2 giggle ",
+	["operator", "="],
+	["string", "\"sylvie2_giggle.png\""],
+
+	["tag", "image"],
+	" sylvie2 smile ",
+	["operator", "="],
+	["string", "\"sylvie2_smile.png\""],
+
+	["tag", "image"],
+	" sylvie2 surprised ",
+	["operator", "="],
+	["string", "\"sylvie2_surprised.png\""],
+
+	["comment", "# Define characters used by this game."],
+
+	["keyword", "define"],
+	" s ",
+	["operator", "="],
+	["function", "Character"],
+	["punctuation", "("],
+	["string", "'Sylvie'"],
+	["punctuation", ","],
+	["property", "color"],
+	["operator", "="],
+	["string", "\"#c8ffc8\""],
+	["punctuation", ")"],
+
+	["keyword", "define"],
+	" m ",
+	["operator", "="],
+	["function", "Character"],
+	["punctuation", "("],
+	["string", "'Me'"],
+	["punctuation", ","],
+	["property", "color"],
+	["operator", "="],
+	["string", "\"#c8c8ff\""],
+	["punctuation", ")"],
+
+	["comment", "# The game starts here."],
+	["tag", "label"], " start", ["punctuation", ":"],
+
+	["tag", "$"], " bl_game ", ["operator", "="], ["boolean", "False"],
+
+	["keyword", "play"], ["keyword", "music"], ["string", "\"illurock.ogg\""],
+
+	["keyword", "scene"], " bg lecturehall\n    ",
+	["operator", "with"], ["keyword", "fade"],
+
+	["string", "\"Well, professor Eileen's lecture was interesting.\""],
+	["string", "\"But to be honest, I couldn't concentrate on it very much.\""],
+	["string", "\"I had a lot of other thoughts on my mind.\""],
+	["string", "\"And they all ended up with a question.\""],
+	["string", "\"A question, I've been meaning to ask someone.\""],
+
+	["keyword", "scene"], " bg uni\n    ",
+	["operator", "with"], ["keyword", "fade"],
+
+	["string", "\"When we came out of the university, I saw her.\""],
+
+	["keyword", "show"], " sylvie normal\n    ",
+	["operator", "with"], ["keyword", "dissolve"],
+
+	["string", "\"She was a wonderful person.\""],
+	["string", "\"I've known her ever since we were children.\""],
+	["string", "\"And she's always been a good friend.\""],
+	["string", "\"But...\""],
+	["string", "\"Recently...\""],
+	["string", "\"I think...\""],
+	["string", "\"... that I wanted more.\""],
+	["string", "\"More just talking... more than just walking home together when our classes ended.\""],
+	["string", "\"And I decided...\""],
+
+	["tag", "menu"], ["punctuation", ":"],
+
+	["string", "\"... to ask her right away.\""], ["punctuation", ":"],
+
+	["keyword", "jump"], " rightaway\n\n        ",
+
+	["string", "\"... to ask her later.\""], ["punctuation", ":"],
+
+	["keyword", "jump"], " later"
+]
+
+----------------------------------------------------

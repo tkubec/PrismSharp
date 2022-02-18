@@ -1,0 +1,15 @@
+@Override
+@Documented
+@java.long.annotation.Documented
+
+@Retention(value=SOURCE)
+@Target(value={PACKAGE,TYPE})
+----------------------------------------------------
+<span class="token annotation punctuation">@Override</span>
+<span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@java.long.annotation.Documented</span>
+
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span>value<span class="token operator">=</span>SOURCE<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token punctuation">{</span>PACKAGE<span class="token punctuation">,</span>TYPE<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

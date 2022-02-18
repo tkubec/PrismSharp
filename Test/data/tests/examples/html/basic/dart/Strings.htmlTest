@@ -1,0 +1,25 @@
+var s1 = 'Single quotes work well for string literals.';
+var s2 = "Double quotes work just as well.";
+var s3 = 'It\'s easy to escape the string delimiter.';
+var s4 = "It's even easier to just use the other string delimiter.";
+var s1 = '''
+You can create
+multi-line strings like this one.
+''';
+var s2 = """This is also a
+multi-line string.""";
+var s = r"In a raw string, even \n isn't special.";
+----------------------------------------------------
+<span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'Single quotes work well for string literals.'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"Double quotes work just as well."</span></span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s3 <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'It\'s easy to escape the string delimiter.'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s4 <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"It's even easier to just use the other string delimiter."</span></span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'''
+You can create
+multi-line strings like this one.
+'''</span></span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"""This is also a
+multi-line string."""</span></span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token string-literal"><span class="token string">r"In a raw string, even \n isn't special."</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

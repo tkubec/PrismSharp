@@ -1,0 +1,399 @@
+{""}
+{"fo\"obar"}
+{''}
+{'fo\'obar'}
+{$foo="this is message {counter}"}
+
+{func var="test $foo test"}              // sees $foo
+{func var="test $foo_bar test"}          // sees $foo_bar
+{func var="test `$foo[0]` test"}         // sees $foo[0]
+{func var="test `$foo[bar]` test"}       // sees $foo[bar]
+{func var="test $foo.bar test"}          // sees $foo (not $foo.bar)
+{func var="test `$foo.bar` test"}        // sees $foo.bar
+{func var="test `$foo.bar` test"|escape} // modifiers outside quotes!
+{func var="test {$foo|escape} test"}     // modifiers inside quotes!
+{func var="test {time()} test"}          // PHP function result
+{func var="test {counter} test"}         // plugin result
+
+{* will replace $tpl_name with value *}
+{include file="subdir/$tpl_name.tpl"}
+
+{* does NOT replace $tpl_name *}
+{include file='subdir/$tpl_name.tpl'} // vars require double quotes!
+
+{* must have backticks as it contains a dot "." *}
+{cycle values="one,two,`$smarty.config.myval`"}
+
+{* must have backticks as it contains a dot "." *}
+{include file="`$module.contact`.tpl"}
+
+{* can use variable with dot syntax *}
+{include file="`$module.$view`.tpl"}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["string", ["\"\""]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["string", ["\"fo\\\"obar\""]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["string", "''"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["string", "'fo\\'obar'"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["operator", "="],
+	["string", [
+		"\"this is message ",
+		["interpolation", [
+			["interpolation-punctuation", "{"],
+			["expression", ["counter"]],
+			["interpolation-punctuation", "}"]
+		]],
+		"\""
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["variable", "$foo"],
+		" test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" sees ",
+	["variable", "$foo"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["variable", "$foo_bar"],
+		" test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" sees ",
+	["variable", "$foo_bar"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["interpolation", [
+			["interpolation-punctuation", "`"],
+			["expression", [
+				["variable", "$foo"],
+				["punctuation", "["],
+				["number", "0"],
+				["punctuation", "]"]
+			]],
+			["interpolation-punctuation", "`"]
+		]],
+		" test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" sees ",
+	["variable", "$foo"],
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["interpolation", [
+			["interpolation-punctuation", "`"],
+			["expression", [
+				["variable", "$foo"],
+				["punctuation", "["],
+				["variable", "bar"],
+				["punctuation", "]"]
+			]],
+			["interpolation-punctuation", "`"]
+		]],
+		" test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" sees ",
+	["variable", "$foo"],
+	["punctuation", "["],
+	["variable", "bar"],
+	["punctuation", "]"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["variable", "$foo"],
+		".bar test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" sees ",
+	["variable", "$foo"],
+	["punctuation", "("],
+	["operator", "not"],
+	["variable", "$foo"],
+	["punctuation", "."],
+	["variable", "bar"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["interpolation", [
+			["interpolation-punctuation", "`"],
+			["expression", [
+				["variable", "$foo"],
+				["punctuation", "."],
+				["variable", "bar"]
+			]],
+			["interpolation-punctuation", "`"]
+		]],
+		" test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" sees ",
+	["variable", "$foo"],
+	["punctuation", "."],
+	["variable", "bar"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["interpolation", [
+			["interpolation-punctuation", "`"],
+			["expression", [
+				["variable", "$foo"],
+				["punctuation", "."],
+				["variable", "bar"]
+			]],
+			["interpolation-punctuation", "`"]
+		]],
+		" test\""
+	]],
+	["operator", "|"],
+	["function", "escape"],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" modifiers outside quotes",
+	["operator", "!"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["interpolation", [
+			["interpolation-punctuation", "{"],
+			["expression", [
+				["variable", "$foo"],
+				["operator", "|"],
+				["function", "escape"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		" test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" modifiers inside quotes",
+	["operator", "!"],
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["interpolation", [
+			["interpolation-punctuation", "{"],
+			["expression", [
+				["function", "time"],
+				["punctuation", "("],
+				["punctuation", ")"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		" test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" PHP function result\r\n",
+
+	["punctuation", "{"],
+	"func ",
+	["attr-name", "var"],
+	["operator", "="],
+	["string", [
+		"\"test ",
+		["interpolation", [
+			["interpolation-punctuation", "{"],
+			["expression", ["counter"]],
+			["interpolation-punctuation", "}"]
+		]],
+		" test\""
+	]],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" plugin result\r\n\r\n",
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" will replace ",
+	["variable", "$tpl_name"],
+	" with value ",
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"include ",
+	["attr-name", "file"],
+	["operator", "="],
+	["string", [
+		"\"subdir/",
+		["variable", "$tpl_name"],
+		".tpl\""
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" does NOT replace ",
+	["variable", "$tpl_name"],
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"include ",
+	["attr-name", "file"],
+	["operator", "="],
+	["string", "'subdir/$tpl_name.tpl'"],
+	["punctuation", "}"],
+	["operator", "/"],
+	["operator", "/"],
+	" vars require double quotes",
+	["operator", "!"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" must have backticks as it contains a dot ",
+	["string", ["\".\""]],
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"cycle ",
+	["attr-name", "values"],
+	["operator", "="],
+	["string", [
+		"\"one,two,",
+		["interpolation", [
+			["interpolation-punctuation", "`"],
+			["expression", [
+				["variable", "$smarty"],
+				["punctuation", "."],
+				["variable", "config"],
+				["punctuation", "."],
+				["variable", "myval"]
+			]],
+			["interpolation-punctuation", "`"]
+		]],
+		"\""
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" must have backticks as it contains a dot ",
+	["string", ["\".\""]],
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"include ",
+	["attr-name", "file"],
+	["operator", "="],
+	["string", [
+		"\"",
+		["interpolation", [
+			["interpolation-punctuation", "`"],
+			["expression", [
+				["variable", "$module"],
+				["punctuation", "."],
+				["variable", "contact"]
+			]],
+			["interpolation-punctuation", "`"]
+		]],
+		".tpl\""
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" can use variable with dot syntax ",
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"include ",
+	["attr-name", "file"],
+	["operator", "="],
+	["string", [
+		"\"",
+		["interpolation", [
+			["interpolation-punctuation", "`"],
+			["expression", [
+				["variable", "$module"],
+				["punctuation", "."],
+				["variable", "$view"]
+			]],
+			["interpolation-punctuation", "`"]
+		]],
+		".tpl\""
+	]],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

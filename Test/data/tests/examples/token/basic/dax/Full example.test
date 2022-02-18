@@ -1,0 +1,117 @@
+Burn Rate (Hours) = 
+
+// Only consider those projects which have been alread created
+VAR filterDate = 
+    FILTER (
+        ALL ( 'Date'[Date] ),
+        'Date'[Date] <= MAX('Date'[Date])
+    )
+
+RETURN
+IF (
+    // Show blank for months before project start
+    MAX ( 'Project'[Project Created Relative Months Pos] ) < SELECTEDVALUE ( 'Date'[Fiscal RelativeMonthPos] ),
+    BLANK (),
+    MIN(
+        1,
+        DIVIDE (
+            // Add 0 to consider months with no hours
+            [Hours Actual Billable] + 0,
+            CALCULATE (
+                [Planned Hours] + 0,
+                filterDate
+            )
+        )
+    )
+)
+----------------------------------------------------
+[
+	"Burn Rate ",
+	["punctuation", "("],
+	"Hours",
+	["punctuation", ")"],
+	["operator", "="],
+
+	["comment", "// Only consider those projects which have been alread created"],
+
+	["keyword", "VAR"],
+	" filterDate ",
+	["operator", "="],
+
+	["function", "FILTER"],
+	["punctuation", "("],
+
+	["function", "ALL"],
+	["punctuation", "("],
+	["data-field", "'Date'[Date]"],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["data-field", "'Date'[Date]"],
+	["operator", "<="],
+	["function", "MAX"],
+	["punctuation", "("],
+	["data-field", "'Date'[Date]"],
+	["punctuation", ")"],
+
+	["punctuation", ")"],
+
+	["keyword", "RETURN"],
+
+	["function", "IF"],
+	["punctuation", "("],
+
+	["comment", "// Show blank for months before project start"],
+
+	["function", "MAX"],
+	["punctuation", "("],
+	["data-field", "'Project'[Project Created Relative Months Pos]"],
+	["punctuation", ")"],
+	["operator", "<"],
+	["function", "SELECTEDVALUE"],
+	["punctuation", "("],
+	["data-field", "'Date'[Fiscal RelativeMonthPos]"],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["function", "BLANK"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["function", "MIN"],
+	["punctuation", "("],
+
+	["number", "1"],
+	["punctuation", ","],
+
+	["function", "DIVIDE"],
+	["punctuation", "("],
+
+	["comment", "// Add 0 to consider months with no hours"],
+
+	["measure", "[Hours Actual Billable]"],
+	["operator", "+"],
+	["number", "0"],
+	["punctuation", ","],
+
+	["function", "CALCULATE"],
+	["punctuation", "("],
+
+	["measure", "[Planned Hours]"],
+	["operator", "+"],
+	["number", "0"],
+	["punctuation", ","],
+
+	"\n                filterDate\n            ",
+
+	["punctuation", ")"],
+
+	["punctuation", ")"],
+
+	["punctuation", ")"],
+
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

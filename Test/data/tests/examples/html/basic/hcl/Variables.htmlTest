@@ -1,0 +1,19 @@
+variable "images" {
+  type = "map"
+
+  default = {
+    us-east-1 = "image-1234"
+    us-west-2 = "image-4567"
+  }
+}
+----------------------------------------------------
+<span class="token keyword">variable<span class="token type variable"> "images" </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span> <span class="token punctuation">=</span> <span class="token string">"map"</span>
+
+  <span class="token property">default</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    <span class="token property">us-east-1</span> <span class="token punctuation">=</span> <span class="token string">"image-1234"</span>
+    <span class="token property">us-west-2</span> <span class="token punctuation">=</span> <span class="token string">"image-4567"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

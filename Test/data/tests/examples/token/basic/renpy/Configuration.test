@@ -1,0 +1,65 @@
+init -1:
+    python hide:
+
+        ## Should we enable the use of developer tools? This should be
+        ## set to False before the game is released, so the user can't
+        ## cheat using developer tools.
+
+        config.developer = True
+
+        ## These control the width and height of the screen.
+
+        config.screen_width = 800
+        config.screen_height = 600
+
+        ## This controls the title of the window, when Ren'Py is
+        ## running in a window.
+
+        config.window_title = u"The Question"
+----------------------------------------------------
+[
+	["keyword", "init"],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ":"],
+
+	["keyword", "python"],
+	["keyword", "hide"],
+	["punctuation", ":"],
+
+	["comment", "## Should we enable the use of developer tools? This should be"],
+	["comment", "## set to False before the game is released, so the user can't"],
+	["comment", "## cheat using developer tools."],
+
+	["keyword", "config"],
+	["punctuation", "."],
+	["property", "developer"],
+	["operator", "="],
+	["boolean", "True"],
+
+	["comment", "## These control the width and height of the screen."],
+
+	["keyword", "config"],
+	["punctuation", "."],
+	["property", "screen_width"],
+	["operator", "="],
+	["number", "800"],
+
+	["keyword", "config"],
+	["punctuation", "."],
+	["property", "screen_height"],
+	["operator", "="],
+	["number", "600"],
+
+	["comment", "## This controls the title of the window, when Ren'Py is"],
+	["comment", "## running in a window."],
+
+	["keyword", "config"],
+	["punctuation", "."],
+	["property", "window_title"],
+	["operator", "="],
+	" u",
+	["string", "\"The Question\""]
+]
+
+----------------------------------------------------

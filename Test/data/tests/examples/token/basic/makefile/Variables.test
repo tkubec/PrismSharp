@@ -1,0 +1,56 @@
+objects = main.o kbd.o command.o display.o \
+          insert.o search.o files.o utils.o
+
+edit : $(objects)
+        cc -o edit $(objects)
+
+$(objects) : defs.h
+
+%oo: $$< $$^ $$+ $$*
+
+foo : bar/lose
+        cd $(@D) && gobble $(@F) > ../$@
+----------------------------------------------------
+[
+	"objects ",
+	["operator", "="],
+	" main.o kbd.o command.o display.o \\\n          insert.o search.o files.o utils.o\n\n",
+
+	["target", ["edit"]],
+	["punctuation", ":"],
+	["variable", "$"],
+	["punctuation", "("],
+	"objects",
+	["punctuation", ")"],
+
+	"\n        cc -o edit ",
+	["variable", "$"],
+	["punctuation", "("],
+	"objects",
+	["punctuation", ")"],
+
+	["target", [
+		["variable", "$"],
+		"(objects)"
+	]],
+	["punctuation", ":"],
+	" defs.h\n\n",
+
+	["target", ["%oo"]],
+	["punctuation", ":"],
+	["variable", "$$<"],
+	["variable", "$$^"],
+	["variable", "$$+"],
+	["variable", "$$*"],
+
+	["target", ["foo"]],
+	["punctuation", ":"],
+	" bar/lose\n        cd ",
+	["variable", "$(@D)"],
+	" && gobble ",
+	["variable", "$(@F)"],
+	" > ../",
+	["variable", "$@"]
+]
+
+----------------------------------------------------

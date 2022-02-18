@@ -1,0 +1,19 @@
+border-radius(n)
+  -webkit-border-radius n
+  -moz-border-radius n
+  border-radius n
+
+form input[type=button]
+  border-radius(5px)
+  color foo()
+----------------------------------------------------
+<span class="token func"><span class="token function">border-radius</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span></span>
+  <span class="token property-declaration"><span class="token property">-webkit-border-radius</span> n</span>
+  <span class="token property-declaration"><span class="token property">-moz-border-radius</span> n</span>
+  <span class="token property-declaration"><span class="token property">border-radius</span> n</span>
+
+<span class="token selector">form input[type=button]</span>
+  <span class="token func"><span class="token function">border-radius</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">)</span></span>
+  <span class="token property-declaration"><span class="token property">color</span> <span class="token func"><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span></span>
+
+----------------------------------------------------

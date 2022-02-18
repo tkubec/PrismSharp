@@ -1,0 +1,49 @@
+/*
+ * Example AviSynth script for PrismJS demonstration.
+ * By Zinfidel
+ */
+
+SetFilterMTMode("DEFAULT_MT_MODE", MT_MULTI_INSTANCE)
+AddAutoloadDir("MAINSCRIPTDIR/programs/plugins")
+
+# Multiplies clip size and changes aspect ratio to 4:3
+function CorrectAspectRatio(clip c, int scaleFactor, bool "useNearestNeighbor") {
+    useNearestNeighbor = default(useNearestNeighbor, false)
+    stretchFactor = (c.Height * (4 / 3)) / c.Width
+
+    return useNearestNeighbor \
+        ? c.PointResize(c.Width * scaleFactor * stretchFactor, c.Height * scaleFactor) \
+        : c.Lanczos4Resize(c.Width * scaleFactor * stretchFactor, c.Height * scaleFactor)
+}
+
+AviSource("myclip.avi")
+last.CorrectAspectRatio(3, yes)
+
+
+Prefetch(4)
+----------------------------------------------------
+<span class="token comment">/*
+ * Example AviSynth script for PrismJS demonstration.
+ * By Zinfidel
+ */</span>
+
+<span class="token builtin-function function">SetFilterMTMode</span><span class="token punctuation">(</span><span class="token string">"<span class="token constant">DEFAULT_MT_MODE</span>"</span><span class="token punctuation">,</span> <span class="token constant">MT_MULTI_INSTANCE</span><span class="token punctuation">)</span>
+<span class="token builtin-function function">AddAutoloadDir</span><span class="token punctuation">(</span><span class="token string">"<span class="token constant">MAINSCRIPTDIR</span>/programs/plugins"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Multiplies clip size and changes aspect ratio to 4:3</span>
+<span class="token keyword">function</span> <span class="token function">CorrectAspectRatio</span><span class="token punctuation">(</span><span class="token argument"><span class="token keyword">clip</span> c</span><span class="token punctuation">,</span> <span class="token argument"><span class="token keyword">int</span> scaleFactor</span><span class="token punctuation">,</span> <span class="token argument"><span class="token keyword">bool</span> "useNearestNeighbor"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    useNearestNeighbor <span class="token operator">=</span> <span class="token builtin-function function">default</span><span class="token punctuation">(</span>useNearestNeighbor<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    stretchFactor <span class="token operator">=</span> <span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token builtin-function function">Height</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> c<span class="token punctuation">.</span><span class="token builtin-function function">Width</span>
+
+    <span class="token keyword">return</span> useNearestNeighbor <span class="token line-continuation punctuation">\</span>
+        <span class="token operator">?</span> c<span class="token punctuation">.</span><span class="token builtin-function function">PointResize</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token builtin-function function">Width</span> <span class="token operator">*</span> scaleFactor <span class="token operator">*</span> stretchFactor<span class="token punctuation">,</span> c<span class="token punctuation">.</span><span class="token builtin-function function">Height</span> <span class="token operator">*</span> scaleFactor<span class="token punctuation">)</span> <span class="token line-continuation punctuation">\</span>
+        <span class="token operator">:</span> c<span class="token punctuation">.</span><span class="token builtin-function function">Lanczos4Resize</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token builtin-function function">Width</span> <span class="token operator">*</span> scaleFactor <span class="token operator">*</span> stretchFactor<span class="token punctuation">,</span> c<span class="token punctuation">.</span><span class="token builtin-function function">Height</span> <span class="token operator">*</span> scaleFactor<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin-function function">AviSource</span><span class="token punctuation">(</span><span class="token string">"myclip.avi"</span><span class="token punctuation">)</span>
+<span class="token variable">last</span><span class="token punctuation">.</span><span class="token function">CorrectAspectRatio</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token boolean">yes</span><span class="token punctuation">)</span>
+
+
+<span class="token builtin-function function">Prefetch</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

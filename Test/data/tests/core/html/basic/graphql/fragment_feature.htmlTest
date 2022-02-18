@@ -1,0 +1,19 @@
+{
+	...frag
+}
+
+fragment frag on FooBar {
+	foo
+	bar
+}
+----------------------------------------------------
+<span class="token punctuation">{</span>
+	<span class="token operator">...</span><span class="token fragment function">frag</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fragment</span> <span class="token fragment function">frag</span> <span class="token keyword">on</span> <span class="token class-name">FooBar</span> <span class="token punctuation">{</span>
+	<span class="token property">foo</span>
+	<span class="token property">bar</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

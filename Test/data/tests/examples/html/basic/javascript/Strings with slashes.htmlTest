@@ -1,0 +1,9 @@
+env.content + '</' + env.tag + '>'
+var foo = "/" + "/";
+var foo = "http://prismjs.com"; // Strings are strings and comments are comments ;)
+----------------------------------------------------
+env<span class="token punctuation">.</span>content <span class="token operator">+</span> <span class="token string">'&lt;/'</span> <span class="token operator">+</span> env<span class="token punctuation">.</span>tag <span class="token operator">+</span> <span class="token string">'>'</span>
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token string">"/"</span> <span class="token operator">+</span> <span class="token string">"/"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token string">"http://prismjs.com"</span><span class="token punctuation">;</span> <span class="token comment">// Strings are strings and comments are comments ;)</span>
+
+----------------------------------------------------

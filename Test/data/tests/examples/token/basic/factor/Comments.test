@@ -1,0 +1,21 @@
+! FIXME: a comment
+
+USE: multiline
+
+![[ comment ]]
+/* comment */
+----------------------------------------------------
+[
+	["comment", [
+		"! ",
+		["function", "FIXME"],
+		": a comment"
+	]],
+
+	["colon-syntax", "USE: multiline"],
+
+	["comment", ["![[ comment ]]"]],
+	["comment", ["/* comment */"]]
+]
+
+----------------------------------------------------

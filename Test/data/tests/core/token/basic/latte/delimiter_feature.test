@@ -1,0 +1,68 @@
+{aa}
+{/aa}
+{/}
+{{aa}}
+{10}
+{=10}
+{test()}
+{'no'}
+{"no"}
+{ no }
+{multi
+line}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["latte-tag", "aa"],
+	["php", [
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		["operator", "/"],
+		"aa",
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		["operator", "/"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		["punctuation", "{"],
+		"aa",
+		["punctuation", "}"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		["number", "10"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		["operator", "="],
+		["number", "10"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		["function", ["test"]],
+		["punctuation", "("],
+		["punctuation", ")"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		["string", "'no'"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		["string", ["\"no\""]],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		" no ",
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"multi\r\nline"
+	]],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,39 @@
+""
+"Fo\"obar"
+"Foo\
+bar\z
+baz"
+''
+'Fo\'obar'
+'Foo\
+bar\z
+baz'
+[[Foo
+bar]]
+[====[Foo
+bar]=====] ]===]
+baz]====]
+[====[Foo
+-- comment
+baz]====]
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Fo\"obar"</span>
+<span class="token string">"Foo\
+bar\z
+baz"</span>
+<span class="token string">''</span>
+<span class="token string">'Fo\'obar'</span>
+<span class="token string">'Foo\
+bar\z
+baz'</span>
+<span class="token string">[[Foo
+bar]]</span>
+<span class="token string">[====[Foo
+bar]=====] ]===]
+baz]====]</span>
+<span class="token string">[====[Foo
+-- comment
+baz]====]</span>
+
+----------------------------------------------------

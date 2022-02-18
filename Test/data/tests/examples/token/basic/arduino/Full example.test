@@ -1,0 +1,206 @@
+#include <Bridge.h>
+
+// pin of the piezo speaker
+int piezo = 8;
+
+/**
+ * setups
+ * runs once before everyhing else
+ */
+void setup() {
+    pinMode(piezo, OUTPUT);
+}
+
+/**
+ * loop
+ * this will run forever and do what we want
+ */
+void loop() {
+    playMelody(1);
+    delay(1000);
+}
+
+/**
+ * playMelody
+ * will play a simple melody on piezo speaker
+ */
+void playMelody(int times) {
+    int melody[] = { 4699, 4699, 3520, 4699 };
+    int duration = 6;
+
+    for( int t = 0; t < times; t++ ) {
+        for( int i = 0; i < 4; i++ ) {
+            // pass tone to selected pin
+            tone(piezoPin, melody[i], 1000/duration);
+
+            // get a bit of time between the tones
+            delay(1000 / duration * 1.30 + 80);
+
+            // and don't forget to switch of the tone afterwards
+            noTone(piezoPin);
+        }
+    }
+}
+----------------------------------------------------
+[
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "include"],
+		["string", "<Bridge.h>"]
+	]],
+
+	["comment", "// pin of the piezo speaker"],
+
+	["keyword", "int"],
+	" piezo ",
+	["operator", "="],
+	["number", "8"],
+	["punctuation", ";"],
+
+	["comment", "/**\n * setups\n * runs once before everyhing else\n */"],
+
+	["keyword", "void"],
+	["keyword", "setup"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "pinMode"],
+	["punctuation", "("],
+	"piezo",
+	["punctuation", ","],
+	["constant", "OUTPUT"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "/**\n * loop\n * this will run forever and do what we want\n */"],
+
+	["keyword", "void"],
+	["keyword", "loop"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "playMelody"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "delay"],
+	["punctuation", "("],
+	["number", "1000"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "/**\n * playMelody\n * will play a simple melody on piezo speaker\n */"],
+
+	["keyword", "void"],
+	["function", "playMelody"],
+	["punctuation", "("],
+	["keyword", "int"],
+	" times",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "int"],
+	" melody",
+	["punctuation", "["],
+	["punctuation", "]"],
+	["operator", "="],
+	["punctuation", "{"],
+	["number", "4699"],
+	["punctuation", ","],
+	["number", "4699"],
+	["punctuation", ","],
+	["number", "3520"],
+	["punctuation", ","],
+	["number", "4699"],
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "int"],
+	" duration ",
+	["operator", "="],
+	["number", "6"],
+	["punctuation", ";"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["keyword", "int"],
+	" t ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" t ",
+	["operator", "<"],
+	" times",
+	["punctuation", ";"],
+	" t",
+	["operator", "++"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["keyword", "int"],
+	" i ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" i ",
+	["operator", "<"],
+	["number", "4"],
+	["punctuation", ";"],
+	" i",
+	["operator", "++"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// pass tone to selected pin"],
+
+	["function", "tone"],
+	["punctuation", "("],
+	"piezoPin",
+	["punctuation", ","],
+	" melody",
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["punctuation", ","],
+	["number", "1000"],
+	["operator", "/"],
+	"duration",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// get a bit of time between the tones"],
+
+	["function", "delay"],
+	["punctuation", "("],
+	["number", "1000"],
+	["operator", "/"],
+	" duration ",
+	["operator", "*"],
+	["number", "1.30"],
+	["operator", "+"],
+	["number", "80"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// and don't forget to switch of the tone afterwards"],
+	["function", "noTone"],
+	["punctuation", "("],
+	"piezoPin",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

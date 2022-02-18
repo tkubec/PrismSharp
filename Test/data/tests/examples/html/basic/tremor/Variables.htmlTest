@@ -1,0 +1,13 @@
+# Immutable constants
+const snot = "fleek";
+
+# Mutable variables
+let badger = "flook";
+----------------------------------------------------
+<span class="token comment"># Immutable constants</span>
+<span class="token keyword">const</span> s<span class="token operator">not</span> <span class="token operator">=</span> <span class="token interpolated-string"><span class="token string">"fleek"</span></span><span class="token punctuation">;</span>
+
+<span class="token comment"># Mutable variables</span>
+<span class="token keyword">let</span> badger <span class="token operator">=</span> <span class="token interpolated-string"><span class="token string">"flook"</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

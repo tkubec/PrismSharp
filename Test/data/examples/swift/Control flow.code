@@ -1,0 +1,25 @@
+for index in 1...5 {
+	println("\(index) times 5 is \(index * 5)")
+}
+for _ in 1...power {
+	answer *= base
+}
+while square < finalSquare {
+	// roll the dice
+	if ++diceRoll == 7 { diceRoll = 1 }
+	// move by the rolled amount
+	square += diceRoll
+	if square < board.count {
+		// if we're still on the board, move up or down for a snake or a ladder
+		square += board[square]
+	}
+}
+switch someCharacter {
+	case "a", "e", "i", "o", "u":
+		println("\(someCharacter) is a vowel")
+	case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
+		"n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+		println("\(someCharacter) is a consonant")
+	default:
+		println("\(someCharacter) is not a vowel or a consonant")
+}

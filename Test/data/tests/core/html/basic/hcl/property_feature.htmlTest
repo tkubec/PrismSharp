@@ -1,0 +1,11 @@
+foo = "bar"
+c = 1e10
+FOO = "bar"
+"bool" = [false]
+----------------------------------------------------
+<span class="token property">foo</span> <span class="token punctuation">=</span> <span class="token string">"bar"</span>
+<span class="token property">c</span> <span class="token punctuation">=</span> <span class="token number">1e10</span>
+<span class="token property">FOO</span> <span class="token punctuation">=</span> <span class="token string">"bar"</span>
+<span class="token property">"bool"</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token boolean">false</span><span class="token punctuation">]</span>
+
+----------------------------------------------------

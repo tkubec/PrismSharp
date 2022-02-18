@@ -1,0 +1,4988 @@
+#!/usr/bin/env qore
+
+# database test script
+# databases users must be able to create and destroy tables and procedures, etc
+# in order to execute all tests
+
+%require-our
+%enable-all-warnings
+
+our ($o, $errors, $test_count);
+
+const opts =
+	( "help"    : "h,help",
+	  "host"    : "H,host=s",
+	  "pass"    : "p,pass=s",
+	  "db"      : "d,db=s",
+	  "user"    : "u,user=s",
+	  "type"    : "t,type=s",
+	  "enc"     : "e,encoding=s",
+	  "verbose" : "v,verbose:i+",
+	  "leave"   : "l,leave"
+ );
+
+sub usage()
+{
+	printf("usage: %s [options]
+ -h,--help          this help text
+ -u,--user=ARG      set username
+ -p,--pass=ARG      set password
+ -d,--db=ARG        set database name
+ -e,--encoding=ARG  set database character set encoding (i.e. \"utf8\")
+ -H,--host=ARG      set hostname (for MySQL and PostgreSQL connections)
+ -t,--type          set database driver (default mysql)
+ -v,--verbose       more v's = more information
+ -l,--leave         leave test tables in schema at end\n",
+	   basename($ENV."_"));
+	exit();
+}
+
+const object_map =
+ ( "oracle" :
+   ( "tables" : ora_tables ),
+   "mysql"  :
+   ( "tables" : mysql_tables ),
+   "pgsql"  :
+   ( "tables" : pgsql_tables ),
+   "sybase" :
+   ( "tables" : syb_tables,
+	 "procs"  : sybase_procs ),
+   "freetds"  :
+   ( "tables" : freetds_sybase_tables,
+	 "procs"  : sybase_procs ) );
+
+const ora_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar2(80) not null
+)",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar2(250) not null,
+   dob date not null
+)",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar2(80) not null,
+   value varchar2(160) not null
+)" );
+
+const mysql_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null
+) type = innodb",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+) type = innodb",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+) type = innodb" );
+
+const pgsql_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null )",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null )",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null)",
+	"data_test" : "create table data_test (
+		int2_f smallint not null,
+		int4_f integer not null,
+		int8_f int8 not null,
+		bool_f boolean not null,
+
+		float4_f real not null,
+		float8_f double precision not null,
+
+		number_f numeric(16,3) not null,
+		money_f money not null,
+
+		text_f text not null,
+		varchar_f varchar(40) not null,
+		char_f char(40) not null,
+		name_f name not null,
+
+		date_f date not null,
+		abstime_f abstime not null,
+		reltime_f reltime not null,
+		interval_f interval not null,
+		time_f time not null,
+		timetz_f time with time zone not null,
+		timestamp_f timestamp not null,
+		timestamptz_f timestamp with time zone not null,
+		tinterval_f tinterval not null,
+
+		bytea_f bytea not null
+		--bit_f bit(11) not null,
+		--varbit_f bit varying(11) not null
+)" );
+
+const syb_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null
+)",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+)",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)",
+	"data_test" : "create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	unichar_f unichar(40) not null,
+	univarchar_f univarchar(40) not null,
+	text_f text not null,
+	unitext_f unitext not null, -- note that unitext is stored as 'image'
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	date_f date not null,
+	time_f time not null,
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)" );
+
+const sybase_procs = (
+	"find_family" :
+"create procedure find_family @name varchar(80)
+as
+select * from family where name = @name
+commit -- to maintain transaction count
+",
+	"get_values" :
+"create procedure get_values @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+commit -- to maintain transaction count
+",
+	"get_values_and_select" :
+"create procedure get_values_and_select @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+select * from family where family_id = 1
+commit -- to maintain transaction count
+",
+	"get_values_and_multiple_select" :
+"create procedure get_values_and_multiple_select @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+select * from family where family_id = 1
+select * from people where person_id = 1
+commit -- to maintain transaction count
+",
+	"just_select" :
+"create procedure just_select
+as
+select * from family where family_id = 1
+commit -- to maintain transaction count
+",
+	"multiple_select" :
+"create procedure multiple_select
+as
+select * from family where family_id = 1
+select * from people where person_id = 1
+commit -- to maintain transaction count
+"
+ );
+
+const freetds_sybase_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null
+)",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+)",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)",
+	"data_test" : "create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	text_f text not null,
+	unitext_f unitext not null, -- note that unitext is stored as 'image'
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	date_f date not null,
+	time_f time not null,
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)" );
+
+const freetds_mssql_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null
+)",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob datetime not null
+)",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)",
+	"data_test" : "create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	text_f text not null,
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)" );
+
+sub parse_command_line()
+{
+	my $g = new GetOpt(opts);
+	$o = $g.parse(\$ARGV);
+	if ($o.help)
+	usage();
+
+	if (!strlen($o.db))
+	{
+	stderr.printf("set the login parameters with -u,-p,-d, etc (-h for help)\n");
+	exit(1);
+	}
+	if (elements $ARGV)
+	{
+	stderr.printf("excess arguments on command-line (%n): -h for help\n", $ARGV);
+	exit(1);
+	}
+	if (!strlen($o.type))
+	$o.type = "mysql";
+}
+
+sub create_datamodel($db)
+{
+	drop_test_datamodel($db);
+
+	my $driver = $db.getDriverName();
+	# create tables
+	my $tables = object_map.$driver.tables;
+	if ($driver == "freetds")
+	if ($db.is_sybase)
+		$tables = freetds_sybase_tables;
+		else
+		$tables = freetds_mssql_tables;
+
+	foreach my $table in (keys $tables)
+	{
+	tprintf(2, "creating table %n\n", $table);
+	$db.exec($tables.$table);
+	}
+
+	# create procedures if any
+	foreach my $proc in (keys object_map.$driver.procs)
+	{
+	tprintf(2, "creating procedure %n\n", $proc);
+	$db.exec(object_map.$driver.procs.$proc);
+	}
+
+	# create functions if any
+	foreach my $func in (keys object_map.$driver.funcs)
+	{
+	tprintf(2, "creating function %n\n", $func);
+	$db.exec(object_map.$driver.funcs.$func);
+	}
+
+	$db.exec("insert into family values ( 1, 'Smith' )");
+	$db.exec("insert into family values ( 2, 'Jones' )");
+
+	# we insert the dates here using binding by value so we don't have
+	# to worry about each database's specific date format
+	$db.exec("insert into people values ( 1, 1, 'Arnie', %v)", 1983-05-13);
+	$db.exec("insert into people values ( 2, 1, 'Sylvia', %v)", 1994-11-10);
+	$db.exec("insert into people values ( 3, 1, 'Carol', %v)", 2003-07-23);
+	$db.exec("insert into people values ( 4, 1, 'Bernard', %v)", 1979-02-27);
+	$db.exec("insert into people values ( 5, 1, 'Isaac', %v)", 2000-04-04);
+	$db.exec("insert into people values ( 6, 2, 'Alan', %v)", 1992-06-04);
+	$db.exec("insert into people values ( 7, 2, 'John', %v)", 1995-03-23);
+
+	$db.exec("insert into attributes values ( 1, 'hair', 'blond' )");
+	$db.exec("insert into attributes values ( 1, 'eyes', 'hazel' )");
+	$db.exec("insert into attributes values ( 2, 'hair', 'blond' )");
+	$db.exec("insert into attributes values ( 2, 'eyes', 'blue' )");
+	$db.exec("insert into attributes values ( 3, 'hair', 'brown' )");
+	$db.exec("insert into attributes values ( 3, 'eyes', 'grey')");
+	$db.exec("insert into attributes values ( 4, 'hair', 'brown' )");
+	$db.exec("insert into attributes values ( 4, 'eyes', 'brown' )");
+	$db.exec("insert into attributes values ( 5, 'hair', 'red' )");
+	$db.exec("insert into attributes values ( 5, 'eyes', 'green' )");
+	$db.exec("insert into attributes values ( 6, 'hair', 'black' )");
+	$db.exec("insert into attributes values ( 6, 'eyes', 'blue' )");
+	$db.exec("insert into attributes values ( 7, 'hair', 'brown' )");
+	$db.exec("insert into attributes values ( 7, 'eyes', 'brown' )");
+	$db.commit();
+}
+
+sub drop_test_datamodel($db)
+{
+	my $driver = $db.getDriverName();
+	# drop the tables and ignore exceptions
+	# the commits are needed for databases like postgresql, where errors will prohibit and further
+	# actions from being taken on the Datasource
+	foreach my $table in (keys object_map.$driver.tables)
+	try {
+		$db.exec("drop table " + $table);
+		$db.commit();
+		tprintf(2, "dropped table %n\n", $table);
+	}
+		catch ()
+	{
+		$db.commit();
+	}
+
+	# drop procedures and ignore exceptions
+	foreach my $proc in (keys object_map.$driver.procs)
+	{
+	my $cmd = object_map.$driver.drop_proc_cmd;
+	if (!exists $cmd)
+		$cmd = "drop procedure";
+	try {
+		$db.exec($cmd + " " + $proc);
+		$db.commit();
+		tprintf(2, "dropped procedure %n\n", $proc);
+	}
+	catch ()
+	{
+		$db.commit();
+	}
+	}
+
+	# drop functions and ignore exceptions
+	foreach my $func in (keys object_map.$driver.funcs)
+	{
+	my $cmd = object_map.$driver.drop_func_cmd;
+	if (!exists $cmd)
+		$cmd = "drop function";
+	try {
+		$db.exec($cmd + " " + $func);
+		$db.commit();
+		tprintf(2, "dropped function %n\n", $func);
+	}
+	catch ()
+	{
+		$db.commit();
+	}
+	}
+}
+
+sub getDS()
+{
+	my $ds = new Datasource($o.type, $o.user, $o.pass, $o.db, $o.enc);
+	if (strlen($o.host))
+	$ds.setHostName($o.host);
+	return $ds;
+}
+
+sub tprintf($v, $msg)
+{
+	if ($v <= $o.verbose)
+	vprintf($msg, $argv);
+}
+
+sub test_value($v1, $v2, $msg)
+{
+	++$test_count;
+	if ($v1 == $v2)
+	tprintf(1, "OK: %s test\n", $msg);
+	else
+	{
+		tprintf(0, "ERROR: %s test failed! (%n != %n)\n", $msg, $v1, $v2);
+		$errors++;
+	}
+}
+
+const family_hash = (
+  "Jones" : (
+	  "people" : (
+	  "John" : (
+		  "dob" : 1995-03-23,
+		  "eyes" : "brown",
+		  "hair" : "brown" ),
+	  "Alan" : (
+		  "dob" : 1992-06-04,
+		  "eyes" : "blue",
+		  "hair" : "black" ) ) ),
+	"Smith" : (
+	"people" : (
+		"Arnie" : (
+		"dob" : 1983-05-13,
+		"eyes" : "hazel",
+		"hair" : "blond" ),
+		"Carol" : (
+		"dob" : 2003-07-23,
+		"eyes" : "grey",
+		"hair" : "brown" ),
+		"Isaac" : (
+		"dob" : 2000-04-04,
+		"eyes" : "green",
+		"hair" : "red" ),
+		"Bernard" : (
+		"dob" : 1979-02-27,
+		"eyes" : "brown",
+		"hair" : "brown" ),
+		"Sylvia" : (
+		"dob" : 1994-11-10,
+		"eyes" : "blue",
+		"hair" : "blond" ) ) ) );
+
+sub context_test($db)
+{
+	# first we select all the data from the tables and then use
+	# context statements to order the output hierarchically
+
+	# context statements are most useful when a set of queries can be executed once
+	# and the results processed many times by creating "views" with context statements
+
+	my $people = $db.select("select * from people");
+	my $attributes = $db.select("select * from attributes");
+
+	my $today = format_date("YYYYMMDD", now());
+
+	# in this test, we create a big hash structure out of the queries executed above
+	# and compare it at the end to the expected result
+
+	# display each family sorted by family name
+	my $fl;
+	context family ($db.select("select * from family")) sortBy (%name)
+	{
+	my $pl;
+	tprintf(2, "Family %d: %s\n", %family_id, %name);
+
+	# display people, sorted by eye color, descending
+	context people ($people)
+		sortDescendingBy (find %value in $attributes
+				  where (%attribute == "eyes"
+					 && %person_id == %people:person_id))
+		where (%family_id == %family:family_id)
+	{
+		my $al;
+		tprintf(2, "  %s, born %s\n", %name, format_date("Month DD, YYYY", %dob));
+		context ($attributes) sortBy (%attribute) where (%person_id == %people:person_id)
+		{
+		$al.%attribute = %value;
+		tprintf(2, "    has %s %s\n", %value, %attribute);
+		}
+		# leave out the ID fields and name from hash under name; subtracting a
+		# string from a hash removes that key from the result
+		# this is "doing it the hard way", there is only one key left,
+		# "dob", then attributes are added directly into the person hash
+		$pl.%name = %% - "family_id" - "person_id" - "name" + $al;
+	}
+	# leave out family_id and name fields (leaving an empty hash)
+	$fl.%name = %% - "family_id" - "name" + ( "people" : $pl );
+	}
+
+	# test context ordering
+	test_value(keys $fl, ("Jones", "Smith"), "first context");
+	test_value(keys $fl.Smith.people, ("Arnie", "Carol", "Isaac", "Bernard", "Sylvia"), "second context");
+	# test entire context value
+	test_value($fl, family_hash, "third context");
+}
+
+
+sub test_timeout($db, $c)
+{
+	$db.setTransactionLockTimeout(1ms);
+	try {
+	# this should cause a TRANSACTION-LOCK-TIMEOUT exception to be thrown
+	$db.exec("insert into family values (3, 'Test')\n");
+	test_value(True, False, "transaction timeout");
+	$db.exec("delete from family where name = 'Test'");
+	}
+	catch ($ex)
+	{
+	test_value(True, True, "transaction timeout");
+	}
+	# signal parent thread to continue
+	$c.dec();
+}
+
+sub transaction_test($db)
+{
+	my $ndb = getDS();
+	my $r;
+	tprintf(2, "db.autocommit=%N, ndb.autocommit=%N\n", $db.getAutoCommit(), $ndb.getAutoCommit());
+
+	# first, we insert a new row into "family" but do not commit it
+	my $rows = $db.exec("insert into family values (3, 'Test')\n");
+	if ($rows !== 1)
+	printf("FAILED INSERT, rows=%N\n", $rows);
+
+	# now we verify that the new row is not visible to the other datasource
+	# unless it's a sybase/ms sql server datasource, in which case this would deadlock :-(
+	if ($o.type != "sybase" && $o.type != "freetds")
+	{
+	$r = $ndb.selectRow("select name from family where family_id = 3").name;
+	test_value($r, NOTHING, "first transaction");
+	}
+
+	# now we verify that the new row is visible to the inserting datasource
+	$r = $db.selectRow("select name from family where family_id = 3").name;
+	test_value($r, "Test", "second transaction");
+
+	# test datasource timeout
+	# this Counter variable will allow the parent thread to sleep
+	# until the child thread times out
+	my $c = new Counter(1);
+	background test_timeout($db, $c);
+
+	# wait for child thread to time out
+	$c.waitForZero();
+
+	# now, we commit the transaction
+	$db.commit();
+
+	# now we verify that the new row is visible in the other datasource
+	$r = $ndb.selectRow("select name from family where family_id = 3").name;
+	test_value($r, "Test", "third transaction");
+
+	# now we delete the row we inserted (so we can repeat the test)
+	$r = $ndb.exec("delete from family where family_id = 3");
+	test_value($r, 1, "delete row count");
+	$ndb.commit();
+}
+
+sub oracle_test()
+{
+}
+
+# here we use a little workaround for modules that provide functions,
+# namespace additions (constants, classes, etc) needed by test functions
+# at parse time.  To avoid parse errors (as database modules are loaded
+# in this script at run-time when the Datasource class is instantiated)
+# we use a Program object that we parse and run on demand to return the
+# value required
+sub get_val($code)
+{
+	my $p = new Program();
+
+	my $str = sprintf("return %s;", $code);
+	$p.parse($str, "code");
+	return $p.run();
+}
+
+sub pgsql_test($db)
+{
+	my $args = ( "int2_f"          : 258,
+		 "int4_f"          : 233932,
+		 "int8_f"          : 239392939458,
+		 "bool_f"          : True,
+		 "float4_f"        : 21.3444,
+		 "float8_f"        : 49394.23423491,
+		 "number_f"        : get_val("pgsql_bind(PG_TYPE_NUMERIC, '7235634215.3250')"),
+		 "money_f"         : get_val("pgsql_bind(PG_TYPE_CASH, \"400.56\")"),
+		 "text_f"          : 'some text  ',
+		 "varchar_f"       : 'varchar ',
+		 "char_f"          : 'char text',
+		 "name_f"          : 'name',
+		 "date_f"          : 2004-01-05,
+		 "abstime_f"       : 2005-12-03T10:00:01,
+		 "reltime_f"       : 5M + 71D + 19h + 245m + 51s,
+		 "interval_f"      : 6M + 3D + 2h + 45m + 15s,
+		 "time_f"          : 11:35:00,
+		 "timetz_f"        : get_val("pgsql_bind(PG_TYPE_TIMETZ, \"11:38:21 CST\")"),
+		 "timestamp_f"     : 2005-04-01T11:35:26,
+		 "timestamptz_f"   : 2005-04-01T11:35:26.259,
+		 "tinterval_f"     : get_val("pgsql_bind(PG_TYPE_TINTERVAL, '[\"May 10, 1947 23:59:12\" \"Jan 14, 1973 03:14:21\"]')"),
+		 "bytea_f"         : <bead>
+		 #bit_f             :
+		 #varbit_f          :
+	);
+
+	$db.vexec("insert into data_test values (%v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v)", hash_values($args));
+
+	my $q = $db.selectRow("select * from data_test");
+	if ($o.verbose > 1)
+	foreach my $k in (keys $q)
+		tprintf(2, " %-16s= %-10s %N\n", $k, type($q.$k), $q.$k);
+
+	# fix values where we know the return type is different
+	$args.money_f = 400.56;
+	$args.timetz_f = 11:38:21;
+	$args.tinterval_f = '["1947-05-10 21:59:12" "1973-01-14 02:14:21"]';
+	$args.number_f = "7235634215.3250";
+	$args.reltime_f = 19177551s;
+	$args.interval_f = 6M + 3D + 9915s;
+
+	# rounding errors can happen in float4
+	$q.float4_f = round($q.float4_f);
+	$args.float4_f = round($args.float4_f);
+
+	# remove values where we know they won't match
+	# abstime and timestamptz are converted to GMT by the server
+	delete $q.abstime_f;
+	delete $q.timestamptz_f;
+
+	# compare each value
+	foreach my $k in (keys $q)
+	test_value($q.$k, $args.$k, sprintf("%s bind and retrieve", $k));
+
+	$db.commit();
+}
+
+sub mysql_test()
+{
+}
+
+const family_q = ( "family_id" : 1,
+		   "name" : "Smith" );
+const person_q = ( "person_id" : 1,
+		   "family_id" : 1,
+		   "name" : "Arnie",
+		   "dob" : 1983-05-13 );
+const params = ( "string" : "hello there",
+		 "int" : 150 );
+
+sub sybase_test($db)
+{
+	# simple stored proc test, bind by name
+	my $x = $db.exec("exec find_family %v", "Smith");
+	test_value($x, ("name": list("Smith"), "family_id" : list(1)), "simple stored proc");
+
+	# stored proc execute with output params
+	$x = $db.exec("declare @string varchar(40), @int int
+exec get_values :string output, :int output");
+	test_value($x, params + ("rowcount":1), "get_values");
+
+	# we use Datasource::selectRows() in the following queries because we
+	# get hash results instead of a hash of lists as with exec in the queries
+	# normally we should not use selectRows to execute a stored procedure,
+	# as the Datasource::selectRows() method will not grab the transaction lock,
+	# but we already called Datasource::exec() above, so we have it already.
+	# the other alternative would be to call Datasource::beginTransaction() before
+	# Datasource::selectRows()
+
+	# simple stored proc test, bind by name, returns hash
+	$x = $db.selectRows("exec find_family %v", "Smith");
+	test_value($x, family_q, "simple stored proc");
+
+	# stored proc execute with output params and select results
+	$x = $db.selectRows("declare @string varchar(40), @int int
+exec get_values_and_select :string output, :int output");
+	test_value($x, ("query":family_q,"params":params), "get_values_and_select");
+
+	# stored proc execute with output params and multiple select results
+	$x = $db.selectRows("declare @string varchar(40), @int int
+exec get_values_and_multiple_select :string output, :int output");
+	test_value($x, ("query":("query0":family_q,"query1":person_q),"params":params), "get_values_and_multiple_select");
+
+	# stored proc execute with just select results
+	$x = $db.selectRows("exec just_select");
+	test_value($x, family_q, "just_select");
+
+	# stored proc execute with multiple select results
+	$x = $db.selectRows("exec multiple_select");
+	test_value($x, ("query0":family_q,"query1":person_q), "multiple_select");
+
+	my $args = ( "null_f"          : NULL,
+		 "varchar_f"       : "varchar",
+		 "char_f"          : "char",
+		 "unichar_f"       : "unichar",
+		 "univarchar_f"    : "univarchar",
+		 "text_f"          : "test",
+		 "unitext_f"       : "test",
+		 "bit_f"           : True,
+		 "tinyint_f"       : 55,
+		 "smallint_f"      : 4285,
+		 "int_f"           : 405402,
+		 "int_f2"          : 214123498,
+		 "decimal_f"       : 500.1231,
+		 "float_f"         : 23443.234324234,
+		 "real_f"          : 213.123,
+		 "money_f"         : 3434234250.2034,
+		 "smallmoney_f"    : 211100.1012,
+		 "date_f"          : 2007-05-01,
+			 "time_f"          : 10:30:01,
+		 "datetime_f"      : 3459-01-01T11:15:02.250,
+		 "smalldatetime_f" : 2007-12-01T12:01:00,
+		 "binary_f"        : <0badbeef>,
+		 "varbinary_f"     : <feedface>,
+		 "image_f"         : <cafebead> );
+
+	# insert data
+	my $rows = $db.vexec("insert into data_test values (%v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %d, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v)", hash_values($args));
+
+	my $q = $db.selectRow("select * from data_test");
+	if ($o.verbose > 1)
+	foreach my $k in (keys $q)
+		tprintf(2, " %-16s= %-10s %N\n", $k, type($q.$k), $q.$k);
+
+	# remove values where we know they won't match
+	# unitext_f is returned as IMAGE by the server
+	delete $q.unitext_f;
+	delete $args.unitext_f;
+	# rounding errors can happen in real
+	$q.real_f = round($q.real_f);
+	$args.real_f = round($args.real_f);
+
+	# compare each value
+	foreach my $k in (keys $q)
+	test_value($q.$k, $args.$k, sprintf("%s bind and retrieve", $k));
+
+	$db.commit();
+}
+
+sub freetds_test($db)
+{
+	# simple stored proc test, bind by name
+	my $x = $db.exec("exec find_family %v", "Smith");
+	test_value($x, ("name": list("Smith"), "family_id" : list(1)), "simple stored proc");
+
+	# we cannot retrieve parameters from newer SQL Servers with the approach we use;
+	# Microsoft changed the handling of the protocol and require us to use RPC calls,
+	# this will be implemented in the next version of qore where the "freetds" driver will
+	# be able to add custom methods to the Datasource class.  For now, we skip these tests
+
+	if ($db.is_sybase)
+	{
+	$x = $db.exec("declare @string varchar(40), @int int
+exec get_values :string output, :int output");
+	test_value($x, params, "get_values");
+	}
+
+	# we use Datasource::selectRows() in the following queries because we
+	# get hash results instead of a hash of lists as with exec in the queries
+	# normally we should not use selectRows to execute a stored procedure,
+	# as the Datasource::selectRows() method will not grab the transaction lock,
+	# but we already called Datasource::exec() above, so we have it already.
+	# the other alternative would be to call Datasource::beginTransaction() before
+	# Datasource::selectRows()
+
+	# simple stored proc test, bind by name, returns hash
+	$x = $db.selectRows("exec find_family %v", "Smith");
+	test_value($x, family_q, "simple stored proc");
+
+	# stored proc execute with output params and select results
+	if ($db.is_sybase)
+	{
+	$x = $db.selectRows("declare @string varchar(40), @int int
+exec get_values_and_select :string output, :int output");
+	test_value($x, ("query":family_q,"params":params), "get_values_and_select");
+
+	# stored proc execute with output params and multiple select results
+	$x = $db.selectRows("declare @string varchar(40), @int int
+exec get_values_and_multiple_select :string output, :int output");
+	test_value($x, ("query":("query0":family_q,"query1":person_q),"params":params), "get_values_and_multiple_select");
+	}
+
+	# stored proc execute with just select results
+	$x = $db.selectRows("exec just_select");
+	test_value($x, family_q, "just_select");
+
+	# stored proc execute with multiple select results
+	$x = $db.selectRows("exec multiple_select");
+	test_value($x, ("query0":family_q,"query1":person_q), "multiple_select");
+
+	# the freetds driver does not work with the following sybase column types:
+	# unichar, univarchar
+
+	my $args = ( "null_f"          : NULL,
+		 "varchar_f"       : "test",
+		 "char_f"          : "test",
+		 "text_f"          : "test",
+		 "unitext_f"       : "test",
+		 "bit_f"           : True,
+		 "tinyint_f"       : 55,
+		 "smallint_f"      : 4285,
+		 "int_f"           : 405402,
+		 "int_f2"          : 214123498,
+		 "decimal_f"       : 500.1231,
+		 "float_f"         : 23443.234324234,
+		 "real_f"          : 213.123,
+		 "money_f"         : 3434234250.2034,
+		 "smallmoney_f"    : 211100.1012,
+		 "date_f"          : 2007-05-01,
+			 "time_f"          : 10:30:01,
+		 "datetime_f"      : 3459-01-01T11:15:02.250,
+		 "smalldatetime_f" : 2007-12-01T12:01:00,
+		 "binary_f"        : <0badbeef>,
+		 "varbinary_f"     : <feedface>,
+		 "image_f"         : <cafebead> );
+
+	# remove fields not supported by sql server
+	if (!$db.is_sybase)
+	{
+	delete $args.unitext_f;
+	delete $args.date_f;
+	delete $args.time_f;
+	}
+
+	my $sql = "insert into data_test values (";
+	for (my $i; $i < elements $args; ++$i)
+	$sql += "%v, ";
+	$sql = substr($sql, 0, -2) + ")";
+
+	# insert data, using the values from the hash above
+	my $rows = $db.vexec($sql, hash_values($args));
+
+	my $q = $db.selectRow("select * from data_test");
+	if ($o.verbose > 1)
+	foreach my $k in (keys $q)
+		tprintf(2, " %-16s= %-10s %N\n", $k, type($q.$k), $q.$k);
+
+	# remove values where we know they won't match
+	# unitext_f is returned as IMAGE by the server
+	delete $q.unitext_f;
+	delete $args.unitext_f;
+	# rounding errors can happen in real
+	$q.real_f = round($q.real_f);
+	$args.real_f = round($args.real_f);
+
+	# compare each value
+	foreach my $k in (keys $q)
+	test_value($q.$k, $args.$k, sprintf("%s bind and retrieve", $k));
+
+	$db.commit();
+}
+
+sub main()
+{
+	my $test_map =
+	( "sybase" : \sybase_test(),
+	  "freetds"  : \freetds_test(),
+	  "mysql"  : \mysql_test(),
+	  "pgsql"  : \pgsql_test(),
+	  "oracle" : \oracle_test());
+
+	parse_command_line();
+	my $db = getDS();
+
+	my $driver = $db.getDriverName();
+	printf("testing %s driver\n", $driver);
+	my $sv = $db.getServerVersion();
+	if ($o.verbose > 1)
+	tprintf(2, "client version=%n\nserver version=%n\n", $db.getClientVersion(), $sv);
+
+	# determine if the server is a sybase or sql server dataserver
+	if ($driver == "freetds")
+	if ($sv !~ /microsoft/i)
+		$db.is_sybase = True;
+
+	create_datamodel($db);
+
+	context_test($db);
+	transaction_test($db);
+	my $test = $test_map.($db.getDriverName());
+	if (exists $test)
+	$test($db);
+
+	if (!$o.leave)
+	drop_test_datamodel($db);
+	printf("%d/%d tests OK\n", $test_count - $errors, $test_count);
+}
+
+main();
+----------------------------------------------------
+[
+	["comment", "#!/usr/bin/env qore"],
+
+	["comment", "# database test script"],
+	["comment", "# databases users must be able to create and destroy tables and procedures, etc"],
+	["comment", "# in order to execute all tests"],
+
+	["operator", "%"],
+	"require",
+	["operator", "-"],
+	["keyword", "our"],
+
+	["operator", "%"],
+	"enable",
+	["operator", "-"],
+	"all",
+	["operator", "-"],
+	"warnings\n\n",
+
+	["keyword", "our"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", ","],
+	["variable", "$errors"],
+	["punctuation", ","],
+	["variable", "$test_count"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" opts ",
+	["operator", "="],
+
+	["punctuation", "("],
+	["string", "\"help\""],
+	["punctuation", ":"],
+	["string", "\"h,help\""],
+	["punctuation", ","],
+
+	["string", "\"host\""],
+	["punctuation", ":"],
+	["string", "\"H,host=s\""],
+	["punctuation", ","],
+
+	["string", "\"pass\""],
+	["punctuation", ":"],
+	["string", "\"p,pass=s\""],
+	["punctuation", ","],
+
+	["string", "\"db\""],
+	["punctuation", ":"],
+	["string", "\"d,db=s\""],
+	["punctuation", ","],
+
+	["string", "\"user\""],
+	["punctuation", ":"],
+	["string", "\"u,user=s\""],
+	["punctuation", ","],
+
+	["string", "\"type\""],
+	["punctuation", ":"],
+	["string", "\"t,type=s\""],
+	["punctuation", ","],
+
+	["string", "\"enc\""],
+	["punctuation", ":"],
+	["string", "\"e,encoding=s\""],
+	["punctuation", ","],
+
+	["string", "\"verbose\""],
+	["punctuation", ":"],
+	["string", "\"v,verbose:i+\""],
+	["punctuation", ","],
+
+	["string", "\"leave\""],
+	["punctuation", ":"],
+	["string", "\"l,leave\""],
+
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "sub"],
+	["function", "usage"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "printf"],
+	["punctuation", "("],
+	["string", "\"usage: %s [options]\n -h,--help          this help text\n -u,--user=ARG      set username\n -p,--pass=ARG      set password\n -d,--db=ARG        set database name\n -e,--encoding=ARG  set database character set encoding (i.e. \\\"utf8\\\")\n -H,--host=ARG      set hostname (for MySQL and PostgreSQL connections)\n -t,--type          set database driver (default mysql)\n -v,--verbose       more v's = more information\n -l,--leave         leave test tables in schema at end\\n\""],
+	["punctuation", ","],
+
+	["function", "basename"],
+	["punctuation", "("],
+	["variable", "$ENV"],
+	["punctuation", "."],
+	["string", "\"_\""],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "exit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "const"],
+	" object_map ",
+	["operator", "="],
+
+	["punctuation", "("],
+	["string", "\"oracle\""],
+	["punctuation", ":"],
+
+	["punctuation", "("],
+	["string", "\"tables\""],
+	["punctuation", ":"],
+	" ora_tables ",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"mysql\""],
+	["punctuation", ":"],
+
+	["punctuation", "("],
+	["string", "\"tables\""],
+	["punctuation", ":"],
+	" mysql_tables ",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"pgsql\""],
+	["punctuation", ":"],
+
+	["punctuation", "("],
+	["string", "\"tables\""],
+	["punctuation", ":"],
+	" pgsql_tables ",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"sybase\""],
+	["punctuation", ":"],
+
+	["punctuation", "("],
+	["string", "\"tables\""],
+	["punctuation", ":"],
+	" syb_tables",
+	["punctuation", ","],
+
+	["string", "\"procs\""],
+	["punctuation", ":"],
+	" sybase_procs ",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"freetds\""],
+	["punctuation", ":"],
+
+	["punctuation", "("],
+	["string", "\"tables\""],
+	["punctuation", ":"],
+	" freetds_sybase_tables",
+	["punctuation", ","],
+
+	["string", "\"procs\""],
+	["punctuation", ":"],
+	" sybase_procs ",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" ora_tables ",
+	["operator", "="],
+	["punctuation", "("],
+
+	["string", "\"family\""],
+	["punctuation", ":"],
+	["string", "\"create table family (\n   family_id int not null,\n   name varchar2(80) not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["string", "\"create table people (\n   person_id int not null,\n   family_id int not null,\n   name varchar2(250) not null,\n   dob date not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"attributes\""],
+	["punctuation", ":"],
+	["string", "\"create table attributes (\n   person_id int not null,\n   attribute varchar2(80) not null,\n   value varchar2(160) not null\n)\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" mysql_tables ",
+	["operator", "="],
+	["punctuation", "("],
+
+	["string", "\"family\""],
+	["punctuation", ":"],
+	["string", "\"create table family (\n   family_id int not null,\n   name varchar(80) not null\n) type = innodb\""],
+	["punctuation", ","],
+
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["string", "\"create table people (\n   person_id int not null,\n   family_id int not null,\n   name varchar(250) not null,\n   dob date not null\n) type = innodb\""],
+	["punctuation", ","],
+
+	["string", "\"attributes\""],
+	["punctuation", ":"],
+	["string", "\"create table attributes (\n   person_id int not null,\n   attribute varchar(80) not null,\n   value varchar(160) not null\n) type = innodb\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" pgsql_tables ",
+	["operator", "="],
+	["punctuation", "("],
+
+	["string", "\"family\""],
+	["punctuation", ":"],
+	["string", "\"create table family (\n   family_id int not null,\n   name varchar(80) not null )\""],
+	["punctuation", ","],
+
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["string", "\"create table people (\n   person_id int not null,\n   family_id int not null,\n   name varchar(250) not null,\n   dob date not null )\""],
+	["punctuation", ","],
+
+	["string", "\"attributes\""],
+	["punctuation", ":"],
+	["string", "\"create table attributes (\n   person_id int not null,\n   attribute varchar(80) not null,\n   value varchar(160) not null)\""],
+	["punctuation", ","],
+
+	["string", "\"data_test\""],
+	["punctuation", ":"],
+	["string", "\"create table data_test (\n\t\tint2_f smallint not null,\n\t\tint4_f integer not null,\n\t\tint8_f int8 not null,\n\t\tbool_f boolean not null,\n\n\t\tfloat4_f real not null,\n\t\tfloat8_f double precision not null,\n\n\t\tnumber_f numeric(16,3) not null,\n\t\tmoney_f money not null,\n\n\t\ttext_f text not null,\n\t\tvarchar_f varchar(40) not null,\n\t\tchar_f char(40) not null,\n\t\tname_f name not null,\n\n\t\tdate_f date not null,\n\t\tabstime_f abstime not null,\n\t\treltime_f reltime not null,\n\t\tinterval_f interval not null,\n\t\ttime_f time not null,\n\t\ttimetz_f time with time zone not null,\n\t\ttimestamp_f timestamp not null,\n\t\ttimestamptz_f timestamp with time zone not null,\n\t\ttinterval_f tinterval not null,\n\n\t\tbytea_f bytea not null\n\t\t--bit_f bit(11) not null,\n\t\t--varbit_f bit varying(11) not null\n)\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" syb_tables ",
+	["operator", "="],
+	["punctuation", "("],
+
+	["string", "\"family\""],
+	["punctuation", ":"],
+	["string", "\"create table family (\n   family_id int not null,\n   name varchar(80) not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["string", "\"create table people (\n   person_id int not null,\n   family_id int not null,\n   name varchar(250) not null,\n   dob date not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"attributes\""],
+	["punctuation", ":"],
+	["string", "\"create table attributes (\n   person_id int not null,\n   attribute varchar(80) not null,\n   value varchar(160) not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"data_test\""],
+	["punctuation", ":"],
+	["string", "\"create table data_test (\n\tnull_f char(1) null,\n\n\tvarchar_f varchar(40) not null,\n\tchar_f char(40) not null,\n\tunichar_f unichar(40) not null,\n\tunivarchar_f univarchar(40) not null,\n\ttext_f text not null,\n\tunitext_f unitext not null, -- note that unitext is stored as 'image'\n\n\t\tbit_f bit not null,\n\ttinyint_f tinyint not null,\n\tsmallint_f smallint not null,\n\tint_f int not null,\n\t\tint_f2 int not null,\n\n\tdecimal_f decimal(10,4) not null,\n\n\tfloat_f float not null,     -- 8-bytes\n\treal_f real not null,       -- 4-bytes\n\tmoney_f money not null,\n\tsmallmoney_f smallmoney not null,\n\n\tdate_f date not null,\n\ttime_f time not null,\n\tdatetime_f datetime not null,\n\tsmalldatetime_f smalldatetime not null,\n\n\tbinary_f binary(4) not null,\n\tvarbinary_f varbinary(4) not null,\n\timage_f image not null\n)\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" sybase_procs ",
+	["operator", "="],
+	["punctuation", "("],
+
+	["string", "\"find_family\""],
+	["punctuation", ":"],
+
+	["string", "\"create procedure find_family @name varchar(80)\nas\nselect * from family where name = @name\ncommit -- to maintain transaction count\n\""],
+	["punctuation", ","],
+
+	["string", "\"get_values\""],
+	["punctuation", ":"],
+
+	["string", "\"create procedure get_values @string varchar(80) output, @int int output\nas\nselect @string = 'hello there'\nselect @int = 150\ncommit -- to maintain transaction count\n\""],
+	["punctuation", ","],
+
+	["string", "\"get_values_and_select\""],
+	["punctuation", ":"],
+
+	["string", "\"create procedure get_values_and_select @string varchar(80) output, @int int output\nas\nselect @string = 'hello there'\nselect @int = 150\nselect * from family where family_id = 1\ncommit -- to maintain transaction count\n\""],
+	["punctuation", ","],
+
+	["string", "\"get_values_and_multiple_select\""],
+	["punctuation", ":"],
+
+	["string", "\"create procedure get_values_and_multiple_select @string varchar(80) output, @int int output\nas\nselect @string = 'hello there'\nselect @int = 150\nselect * from family where family_id = 1\nselect * from people where person_id = 1\ncommit -- to maintain transaction count\n\""],
+	["punctuation", ","],
+
+	["string", "\"just_select\""],
+	["punctuation", ":"],
+
+	["string", "\"create procedure just_select\nas\nselect * from family where family_id = 1\ncommit -- to maintain transaction count\n\""],
+	["punctuation", ","],
+
+	["string", "\"multiple_select\""],
+	["punctuation", ":"],
+
+	["string", "\"create procedure multiple_select\nas\nselect * from family where family_id = 1\nselect * from people where person_id = 1\ncommit -- to maintain transaction count\n\""],
+
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" freetds_sybase_tables ",
+	["operator", "="],
+	["punctuation", "("],
+
+	["string", "\"family\""],
+	["punctuation", ":"],
+	["string", "\"create table family (\n   family_id int not null,\n   name varchar(80) not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["string", "\"create table people (\n   person_id int not null,\n   family_id int not null,\n   name varchar(250) not null,\n   dob date not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"attributes\""],
+	["punctuation", ":"],
+	["string", "\"create table attributes (\n   person_id int not null,\n   attribute varchar(80) not null,\n   value varchar(160) not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"data_test\""],
+	["punctuation", ":"],
+	["string", "\"create table data_test (\n\tnull_f char(1) null,\n\n\tvarchar_f varchar(40) not null,\n\tchar_f char(40) not null,\n\ttext_f text not null,\n\tunitext_f unitext not null, -- note that unitext is stored as 'image'\n\n\t\tbit_f bit not null,\n\ttinyint_f tinyint not null,\n\tsmallint_f smallint not null,\n\tint_f int not null,\n\t\tint_f2 int not null,\n\n\tdecimal_f decimal(10,4) not null,\n\n\tfloat_f float not null,     -- 8-bytes\n\treal_f real not null,       -- 4-bytes\n\tmoney_f money not null,\n\tsmallmoney_f smallmoney not null,\n\n\tdate_f date not null,\n\ttime_f time not null,\n\tdatetime_f datetime not null,\n\tsmalldatetime_f smalldatetime not null,\n\n\tbinary_f binary(4) not null,\n\tvarbinary_f varbinary(4) not null,\n\timage_f image not null\n)\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" freetds_mssql_tables ",
+	["operator", "="],
+	["punctuation", "("],
+
+	["string", "\"family\""],
+	["punctuation", ":"],
+	["string", "\"create table family (\n   family_id int not null,\n   name varchar(80) not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["string", "\"create table people (\n   person_id int not null,\n   family_id int not null,\n   name varchar(250) not null,\n   dob datetime not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"attributes\""],
+	["punctuation", ":"],
+	["string", "\"create table attributes (\n   person_id int not null,\n   attribute varchar(80) not null,\n   value varchar(160) not null\n)\""],
+	["punctuation", ","],
+
+	["string", "\"data_test\""],
+	["punctuation", ":"],
+	["string", "\"create table data_test (\n\tnull_f char(1) null,\n\n\tvarchar_f varchar(40) not null,\n\tchar_f char(40) not null,\n\ttext_f text not null,\n\n\t\tbit_f bit not null,\n\ttinyint_f tinyint not null,\n\tsmallint_f smallint not null,\n\tint_f int not null,\n\t\tint_f2 int not null,\n\n\tdecimal_f decimal(10,4) not null,\n\n\tfloat_f float not null,     -- 8-bytes\n\treal_f real not null,       -- 4-bytes\n\tmoney_f money not null,\n\tsmallmoney_f smallmoney not null,\n\n\tdatetime_f datetime not null,\n\tsmalldatetime_f smalldatetime not null,\n\n\tbinary_f binary(4) not null,\n\tvarbinary_f varbinary(4) not null,\n\timage_f image not null\n)\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "sub"],
+	["function", "parse_command_line"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$g"],
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["GetOpt"]],
+	["punctuation", "("],
+	"opts",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$o"],
+	["operator", "="],
+	["variable", "$g"],
+	["punctuation", "."],
+	["function", "parse"],
+	["punctuation", "("],
+	"\\",
+	["variable", "$ARGV"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"help",
+	["punctuation", ")"],
+
+	["function", "usage"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	["function", "strlen"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"db",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tstderr",
+	["punctuation", "."],
+	["function", "printf"],
+	["punctuation", "("],
+	["string", "\"set the login parameters with -u,-p,-d, etc (-h for help)\\n\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "exit"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"elements ",
+	["variable", "$ARGV"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tstderr",
+	["punctuation", "."],
+	["function", "printf"],
+	["punctuation", "("],
+	["string", "\"excess arguments on command-line (%n): -h for help\\n\""],
+	["punctuation", ","],
+	["variable", "$ARGV"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "exit"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	["function", "strlen"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"type",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["variable", "$o"],
+	["punctuation", "."],
+	"type ",
+	["operator", "="],
+	["string", "\"mysql\""],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "create_datamodel"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "drop_test_datamodel"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$driver"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "getDriverName"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# create tables"],
+
+	["keyword", "my"],
+	["variable", "$tables"],
+	["operator", "="],
+	" object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"tables",
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$driver"],
+	["operator", "=="],
+	["string", "\"freetds\""],
+	["punctuation", ")"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", "."],
+	"is_sybase",
+	["punctuation", ")"],
+
+	["variable", "$tables"],
+	["operator", "="],
+	" freetds_sybase_tables",
+	["punctuation", ";"],
+
+	["keyword", "else"],
+
+	["variable", "$tables"],
+	["operator", "="],
+	" freetds_mssql_tables",
+	["punctuation", ";"],
+
+	"\n\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$table"],
+	" in ",
+	["punctuation", "("],
+	"keys ",
+	["variable", "$tables"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"creating table %n\\n\""],
+	["punctuation", ","],
+	["variable", "$table"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["variable", "$tables"],
+	["punctuation", "."],
+	["variable", "$table"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# create procedures if any"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$proc"],
+	" in ",
+	["punctuation", "("],
+	"keys object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"procs",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"creating procedure %n\\n\""],
+	["punctuation", ","],
+	["variable", "$proc"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	"object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"procs",
+	["punctuation", "."],
+	["variable", "$proc"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# create functions if any"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$func"],
+	" in ",
+	["punctuation", "("],
+	"keys object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"funcs",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"creating function %n\\n\""],
+	["punctuation", ","],
+	["variable", "$func"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	"object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"funcs",
+	["punctuation", "."],
+	["variable", "$func"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into family values ( 1, 'Smith' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into family values ( 2, 'Jones' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# we insert the dates here using binding by value so we don't have"],
+
+	["comment", "# to worry about each database's specific date format"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into people values ( 1, 1, 'Arnie', %v)\""],
+	["punctuation", ","],
+	["number", "1983"],
+	["operator", "-"],
+	["number", "05"],
+	["operator", "-"],
+	["number", "13"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into people values ( 2, 1, 'Sylvia', %v)\""],
+	["punctuation", ","],
+	["number", "1994"],
+	["operator", "-"],
+	["number", "11"],
+	["operator", "-"],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into people values ( 3, 1, 'Carol', %v)\""],
+	["punctuation", ","],
+	["number", "2003"],
+	["operator", "-"],
+	["number", "07"],
+	["operator", "-"],
+	["number", "23"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into people values ( 4, 1, 'Bernard', %v)\""],
+	["punctuation", ","],
+	["number", "1979"],
+	["operator", "-"],
+	["number", "02"],
+	["operator", "-"],
+	["number", "27"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into people values ( 5, 1, 'Isaac', %v)\""],
+	["punctuation", ","],
+	["number", "2000"],
+	["operator", "-"],
+	["number", "04"],
+	["operator", "-"],
+	["number", "04"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into people values ( 6, 2, 'Alan', %v)\""],
+	["punctuation", ","],
+	["number", "1992"],
+	["operator", "-"],
+	["number", "06"],
+	["operator", "-"],
+	["number", "04"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into people values ( 7, 2, 'John', %v)\""],
+	["punctuation", ","],
+	["number", "1995"],
+	["operator", "-"],
+	["number", "03"],
+	["operator", "-"],
+	["number", "23"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 1, 'hair', 'blond' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 1, 'eyes', 'hazel' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 2, 'hair', 'blond' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 2, 'eyes', 'blue' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 3, 'hair', 'brown' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 3, 'eyes', 'grey')\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 4, 'hair', 'brown' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 4, 'eyes', 'brown' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 5, 'hair', 'red' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 5, 'eyes', 'green' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 6, 'hair', 'black' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 6, 'eyes', 'blue' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 7, 'hair', 'brown' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into attributes values ( 7, 'eyes', 'brown' )\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "drop_test_datamodel"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$driver"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "getDriverName"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# drop the tables and ignore exceptions"],
+
+	["comment", "# the commits are needed for databases like postgresql, where errors will prohibit and further"],
+
+	["comment", "# actions from being taken on the Datasource"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$table"],
+	" in ",
+	["punctuation", "("],
+	"keys object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"tables",
+	["punctuation", ")"],
+
+	["keyword", "try"],
+	["punctuation", "{"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"drop table \""],
+	["operator", "+"],
+	["variable", "$table"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"dropped table %n\\n\""],
+	["punctuation", ","],
+	["variable", "$table"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "catch"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# drop procedures and ignore exceptions"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$proc"],
+	" in ",
+	["punctuation", "("],
+	"keys object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"procs",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$cmd"],
+	["operator", "="],
+	" object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"drop_proc_cmd",
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	"exists ",
+	["variable", "$cmd"],
+	["punctuation", ")"],
+
+	["variable", "$cmd"],
+	["operator", "="],
+	["string", "\"drop procedure\""],
+	["punctuation", ";"],
+
+	["keyword", "try"],
+	["punctuation", "{"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["variable", "$cmd"],
+	["operator", "+"],
+	["string", "\" \""],
+	["operator", "+"],
+	["variable", "$proc"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"dropped procedure %n\\n\""],
+	["punctuation", ","],
+	["variable", "$proc"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "catch"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["comment", "# drop functions and ignore exceptions"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$func"],
+	" in ",
+	["punctuation", "("],
+	"keys object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"funcs",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$cmd"],
+	["operator", "="],
+	" object_map",
+	["punctuation", "."],
+	["variable", "$driver"],
+	["punctuation", "."],
+	"drop_func_cmd",
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	"exists ",
+	["variable", "$cmd"],
+	["punctuation", ")"],
+
+	["variable", "$cmd"],
+	["operator", "="],
+	["string", "\"drop function\""],
+	["punctuation", ";"],
+
+	["keyword", "try"],
+	["punctuation", "{"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["variable", "$cmd"],
+	["operator", "+"],
+	["string", "\" \""],
+	["operator", "+"],
+	["variable", "$func"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"dropped function %n\\n\""],
+	["punctuation", ","],
+	["variable", "$func"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "catch"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "getDS"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$ds"],
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Datasource"]],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"type",
+	["punctuation", ","],
+	["variable", "$o"],
+	["punctuation", "."],
+	"user",
+	["punctuation", ","],
+	["variable", "$o"],
+	["punctuation", "."],
+	"pass",
+	["punctuation", ","],
+	["variable", "$o"],
+	["punctuation", "."],
+	"db",
+	["punctuation", ","],
+	["variable", "$o"],
+	["punctuation", "."],
+	"enc",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["function", "strlen"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"host",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["variable", "$ds"],
+	["punctuation", "."],
+	["function", "setHostName"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"host",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["variable", "$ds"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "tprintf"],
+	["punctuation", "("],
+	["variable", "$v"],
+	["punctuation", ","],
+	["variable", "$msg"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$v"],
+	["operator", "<="],
+	["variable", "$o"],
+	["punctuation", "."],
+	"verbose",
+	["punctuation", ")"],
+
+	["function", "vprintf"],
+	["punctuation", "("],
+	["variable", "$msg"],
+	["punctuation", ","],
+	["variable", "$argv"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$v1"],
+	["punctuation", ","],
+	["variable", "$v2"],
+	["punctuation", ","],
+	["variable", "$msg"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["operator", "++"],
+	["variable", "$test_count"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$v1"],
+	["operator", "=="],
+	["variable", "$v2"],
+	["punctuation", ")"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ","],
+	["string", "\"OK: %s test\\n\""],
+	["punctuation", ","],
+	["variable", "$msg"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "else"],
+
+	["punctuation", "{"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ","],
+	["string", "\"ERROR: %s test failed! (%n != %n)\\n\""],
+	["punctuation", ","],
+	["variable", "$msg"],
+	["punctuation", ","],
+	["variable", "$v1"],
+	["punctuation", ","],
+	["variable", "$v2"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$errors"],
+	["operator", "++"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "const"],
+	" family_hash ",
+	["operator", "="],
+	["punctuation", "("],
+
+	["string", "\"Jones\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"John\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"dob\""],
+	["punctuation", ":"],
+	["number", "1995"],
+	["operator", "-"],
+	["number", "03"],
+	["operator", "-"],
+	["number", "23"],
+	["punctuation", ","],
+
+	["string", "\"eyes\""],
+	["punctuation", ":"],
+	["string", "\"brown\""],
+	["punctuation", ","],
+
+	["string", "\"hair\""],
+	["punctuation", ":"],
+	["string", "\"brown\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"Alan\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"dob\""],
+	["punctuation", ":"],
+	["number", "1992"],
+	["operator", "-"],
+	["number", "06"],
+	["operator", "-"],
+	["number", "04"],
+	["punctuation", ","],
+
+	["string", "\"eyes\""],
+	["punctuation", ":"],
+	["string", "\"blue\""],
+	["punctuation", ","],
+
+	["string", "\"hair\""],
+	["punctuation", ":"],
+	["string", "\"black\""],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"Smith\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"Arnie\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"dob\""],
+	["punctuation", ":"],
+	["number", "1983"],
+	["operator", "-"],
+	["number", "05"],
+	["operator", "-"],
+	["number", "13"],
+	["punctuation", ","],
+
+	["string", "\"eyes\""],
+	["punctuation", ":"],
+	["string", "\"hazel\""],
+	["punctuation", ","],
+
+	["string", "\"hair\""],
+	["punctuation", ":"],
+	["string", "\"blond\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"Carol\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"dob\""],
+	["punctuation", ":"],
+	["number", "2003"],
+	["operator", "-"],
+	["number", "07"],
+	["operator", "-"],
+	["number", "23"],
+	["punctuation", ","],
+
+	["string", "\"eyes\""],
+	["punctuation", ":"],
+	["string", "\"grey\""],
+	["punctuation", ","],
+
+	["string", "\"hair\""],
+	["punctuation", ":"],
+	["string", "\"brown\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"Isaac\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"dob\""],
+	["punctuation", ":"],
+	["number", "2000"],
+	["operator", "-"],
+	["number", "04"],
+	["operator", "-"],
+	["number", "04"],
+	["punctuation", ","],
+
+	["string", "\"eyes\""],
+	["punctuation", ":"],
+	["string", "\"green\""],
+	["punctuation", ","],
+
+	["string", "\"hair\""],
+	["punctuation", ":"],
+	["string", "\"red\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"Bernard\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"dob\""],
+	["punctuation", ":"],
+	["number", "1979"],
+	["operator", "-"],
+	["number", "02"],
+	["operator", "-"],
+	["number", "27"],
+	["punctuation", ","],
+
+	["string", "\"eyes\""],
+	["punctuation", ":"],
+	["string", "\"brown\""],
+	["punctuation", ","],
+
+	["string", "\"hair\""],
+	["punctuation", ":"],
+	["string", "\"brown\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"Sylvia\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+
+	["string", "\"dob\""],
+	["punctuation", ":"],
+	["number", "1994"],
+	["operator", "-"],
+	["number", "11"],
+	["operator", "-"],
+	["number", "10"],
+	["punctuation", ","],
+
+	["string", "\"eyes\""],
+	["punctuation", ":"],
+	["string", "\"blue\""],
+	["punctuation", ","],
+
+	["string", "\"hair\""],
+	["punctuation", ":"],
+	["string", "\"blond\""],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "sub"],
+	["function", "context_test"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["comment", "# first we select all the data from the tables and then use"],
+
+	["comment", "# context statements to order the output hierarchically"],
+
+	["comment", "# context statements are most useful when a set of queries can be executed once"],
+	["comment", "# and the results processed many times by creating \"views\" with context statements"],
+
+	["keyword", "my"],
+	["variable", "$people"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "select"],
+	["punctuation", "("],
+	["string", "\"select * from people\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$attributes"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "select"],
+	["punctuation", "("],
+	["string", "\"select * from attributes\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$today"],
+	["operator", "="],
+	["function", "format_date"],
+	["punctuation", "("],
+	["string", "\"YYYYMMDD\""],
+	["punctuation", ","],
+	["function", "now"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# in this test, we create a big hash structure out of the queries executed above"],
+	["comment", "# and compare it at the end to the expected result"],
+
+	["comment", "# display each family sorted by family name"],
+
+	["keyword", "my"],
+	["variable", "$fl"],
+	["punctuation", ";"],
+
+	"\n\tcontext family ",
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "select"],
+	["punctuation", "("],
+	["string", "\"select * from family\""],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	" sortBy ",
+	["punctuation", "("],
+	["operator", "%"],
+	"name",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$pl"],
+	["punctuation", ";"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"Family %d: %s\\n\""],
+	["punctuation", ","],
+	["operator", "%"],
+	"family_id",
+	["punctuation", ","],
+	["operator", "%"],
+	"name",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# display people, sorted by eye color, descending"],
+
+	"\n\tcontext people ",
+	["punctuation", "("],
+	["variable", "$people"],
+	["punctuation", ")"],
+
+	"\n\t\tsortDescendingBy ",
+	["punctuation", "("],
+	"find ",
+	["operator", "%"],
+	"value in ",
+	["variable", "$attributes"],
+
+	"\n\t\t\t\t  where ",
+	["punctuation", "("],
+	["operator", "%"],
+	"attribute ",
+	["operator", "=="],
+	["string", "\"eyes\""],
+
+	["operator", "&&"],
+	["operator", "%"],
+	"person_id ",
+	["operator", "=="],
+	["operator", "%"],
+	"people",
+	["punctuation", ":"],
+	"person_id",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	"\n\t\twhere ",
+	["punctuation", "("],
+	["operator", "%"],
+	"family_id ",
+	["operator", "=="],
+	["operator", "%"],
+	"family",
+	["punctuation", ":"],
+	"family_id",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$al"],
+	["punctuation", ";"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"  %s, born %s\\n\""],
+	["punctuation", ","],
+	["operator", "%"],
+	"name",
+	["punctuation", ","],
+	["function", "format_date"],
+	["punctuation", "("],
+	["string", "\"Month DD, YYYY\""],
+	["punctuation", ","],
+	["operator", "%"],
+	"dob",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\tcontext ",
+	["punctuation", "("],
+	["variable", "$attributes"],
+	["punctuation", ")"],
+	" sortBy ",
+	["punctuation", "("],
+	["operator", "%"],
+	"attribute",
+	["punctuation", ")"],
+	" where ",
+	["punctuation", "("],
+	["operator", "%"],
+	"person_id ",
+	["operator", "=="],
+	["operator", "%"],
+	"people",
+	["punctuation", ":"],
+	"person_id",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$al"],
+	["punctuation", "."],
+	"%attribute ",
+	["operator", "="],
+	["operator", "%"],
+	"value",
+	["punctuation", ";"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"    has %s %s\\n\""],
+	["punctuation", ","],
+	["operator", "%"],
+	"value",
+	["punctuation", ","],
+	["operator", "%"],
+	"attribute",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# leave out the ID fields and name from hash under name; subtracting a"],
+
+	["comment", "# string from a hash removes that key from the result"],
+
+	["comment", "# this is \"doing it the hard way\", there is only one key left,"],
+
+	["comment", "# \"dob\", then attributes are added directly into the person hash"],
+
+	["variable", "$pl"],
+	["punctuation", "."],
+	"%name ",
+	["operator", "="],
+	["operator", "%"],
+	["operator", "%"],
+	["operator", "-"],
+	["string", "\"family_id\""],
+	["operator", "-"],
+	["string", "\"person_id\""],
+	["operator", "-"],
+	["string", "\"name\""],
+	["operator", "+"],
+	["variable", "$al"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# leave out family_id and name fields (leaving an empty hash)"],
+
+	["variable", "$fl"],
+	["punctuation", "."],
+	"%name ",
+	["operator", "="],
+	["operator", "%"],
+	["operator", "%"],
+	["operator", "-"],
+	["string", "\"family_id\""],
+	["operator", "-"],
+	["string", "\"name\""],
+	["operator", "+"],
+	["punctuation", "("],
+	["string", "\"people\""],
+	["punctuation", ":"],
+	["variable", "$pl"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# test context ordering"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	"keys ",
+	["variable", "$fl"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"Jones\""],
+	["punctuation", ","],
+	["string", "\"Smith\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"first context\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	"keys ",
+	["variable", "$fl"],
+	["punctuation", "."],
+	"Smith",
+	["punctuation", "."],
+	"people",
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"Arnie\""],
+	["punctuation", ","],
+	["string", "\"Carol\""],
+	["punctuation", ","],
+	["string", "\"Isaac\""],
+	["punctuation", ","],
+	["string", "\"Bernard\""],
+	["punctuation", ","],
+	["string", "\"Sylvia\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"second context\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# test entire context value"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$fl"],
+	["punctuation", ","],
+	" family_hash",
+	["punctuation", ","],
+	["string", "\"third context\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "test_timeout"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ","],
+	["variable", "$c"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "setTransactionLockTimeout"],
+	["punctuation", "("],
+	"1ms",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "try"],
+	["punctuation", "{"],
+
+	["comment", "# this should cause a TRANSACTION-LOCK-TIMEOUT exception to be thrown"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into family values (3, 'Test')\\n\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["boolean", "True"],
+	["punctuation", ","],
+	["boolean", "False"],
+	["punctuation", ","],
+	["string", "\"transaction timeout\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"delete from family where name = 'Test'\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "catch"],
+	["punctuation", "("],
+	["variable", "$ex"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["boolean", "True"],
+	["punctuation", ","],
+	["boolean", "True"],
+	["punctuation", ","],
+	["string", "\"transaction timeout\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# signal parent thread to continue"],
+
+	["variable", "$c"],
+	["punctuation", "."],
+	["function", "dec"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "transaction_test"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$ndb"],
+	["operator", "="],
+	["function", "getDS"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$r"],
+	["punctuation", ";"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"db.autocommit=%N, ndb.autocommit=%N\\n\""],
+	["punctuation", ","],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "getAutoCommit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["variable", "$ndb"],
+	["punctuation", "."],
+	["function", "getAutoCommit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# first, we insert a new row into \"family\" but do not commit it"],
+
+	["keyword", "my"],
+	["variable", "$rows"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"insert into family values (3, 'Test')\\n\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$rows"],
+	["operator", "!=="],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["function", "printf"],
+	["punctuation", "("],
+	["string", "\"FAILED INSERT, rows=%N\\n\""],
+	["punctuation", ","],
+	["variable", "$rows"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# now we verify that the new row is not visible to the other datasource"],
+
+	["comment", "# unless it's a sybase/ms sql server datasource, in which case this would deadlock :-("],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"type ",
+	["operator", "!="],
+	["string", "\"sybase\""],
+	["operator", "&&"],
+	["variable", "$o"],
+	["punctuation", "."],
+	"type ",
+	["operator", "!="],
+	["string", "\"freetds\""],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$r"],
+	["operator", "="],
+	["variable", "$ndb"],
+	["punctuation", "."],
+	["function", "selectRow"],
+	["punctuation", "("],
+	["string", "\"select name from family where family_id = 3\""],
+	["punctuation", ")"],
+	["punctuation", "."],
+	"name",
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$r"],
+	["punctuation", ","],
+	" NOTHING",
+	["punctuation", ","],
+	["string", "\"first transaction\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# now we verify that the new row is visible to the inserting datasource"],
+
+	["variable", "$r"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRow"],
+	["punctuation", "("],
+	["string", "\"select name from family where family_id = 3\""],
+	["punctuation", ")"],
+	["punctuation", "."],
+	"name",
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$r"],
+	["punctuation", ","],
+	["string", "\"Test\""],
+	["punctuation", ","],
+	["string", "\"second transaction\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# test datasource timeout"],
+
+	["comment", "# this Counter variable will allow the parent thread to sleep"],
+
+	["comment", "# until the child thread times out"],
+
+	["keyword", "my"],
+	["variable", "$c"],
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Counter"]],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\tbackground ",
+	["function", "test_timeout"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ","],
+	["variable", "$c"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# wait for child thread to time out"],
+
+	["variable", "$c"],
+	["punctuation", "."],
+	["function", "waitForZero"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# now, we commit the transaction"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# now we verify that the new row is visible in the other datasource"],
+
+	["variable", "$r"],
+	["operator", "="],
+	["variable", "$ndb"],
+	["punctuation", "."],
+	["function", "selectRow"],
+	["punctuation", "("],
+	["string", "\"select name from family where family_id = 3\""],
+	["punctuation", ")"],
+	["punctuation", "."],
+	"name",
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$r"],
+	["punctuation", ","],
+	["string", "\"Test\""],
+	["punctuation", ","],
+	["string", "\"third transaction\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# now we delete the row we inserted (so we can repeat the test)"],
+
+	["variable", "$r"],
+	["operator", "="],
+	["variable", "$ndb"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"delete from family where family_id = 3\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$r"],
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ","],
+	["string", "\"delete row count\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$ndb"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "oracle_test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["punctuation", "}"],
+
+	["comment", "# here we use a little workaround for modules that provide functions,"],
+
+	["comment", "# namespace additions (constants, classes, etc) needed by test functions"],
+
+	["comment", "# at parse time.  To avoid parse errors (as database modules are loaded"],
+
+	["comment", "# in this script at run-time when the Datasource class is instantiated)"],
+
+	["comment", "# we use a Program object that we parse and run on demand to return the"],
+
+	["comment", "# value required"],
+
+	["keyword", "sub"],
+	["function", "get_val"],
+	["punctuation", "("],
+	"$",
+	["keyword", "code"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$p"],
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Program"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$str"],
+	["operator", "="],
+	["function", "sprintf"],
+	["punctuation", "("],
+	["string", "\"return %s;\""],
+	["punctuation", ","],
+	" $",
+	["keyword", "code"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$p"],
+	["punctuation", "."],
+	["function", "parse"],
+	["punctuation", "("],
+	["variable", "$str"],
+	["punctuation", ","],
+	["string", "\"code\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["variable", "$p"],
+	["punctuation", "."],
+	["function", "run"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "pgsql_test"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$args"],
+	["operator", "="],
+	["punctuation", "("],
+	["string", "\"int2_f\""],
+	["punctuation", ":"],
+	["number", "258"],
+	["punctuation", ","],
+
+	["string", "\"int4_f\""],
+	["punctuation", ":"],
+	["number", "233932"],
+	["punctuation", ","],
+
+	["string", "\"int8_f\""],
+	["punctuation", ":"],
+	["number", "239392939458"],
+	["punctuation", ","],
+
+	["string", "\"bool_f\""],
+	["punctuation", ":"],
+	["boolean", "True"],
+	["punctuation", ","],
+
+	["string", "\"float4_f\""],
+	["punctuation", ":"],
+	["number", "21.3444"],
+	["punctuation", ","],
+
+	["string", "\"float8_f\""],
+	["punctuation", ":"],
+	["number", "49394.23423491"],
+	["punctuation", ","],
+
+	["string", "\"number_f\""],
+	["punctuation", ":"],
+	["function", "get_val"],
+	["punctuation", "("],
+	["string", "\"pgsql_bind(PG_TYPE_NUMERIC, '7235634215.3250')\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"money_f\""],
+	["punctuation", ":"],
+	["function", "get_val"],
+	["punctuation", "("],
+	["string", "\"pgsql_bind(PG_TYPE_CASH, \\\"400.56\\\")\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"text_f\""],
+	["punctuation", ":"],
+	["string", "'some text  '"],
+	["punctuation", ","],
+
+	["string", "\"varchar_f\""],
+	["punctuation", ":"],
+	["string", "'varchar '"],
+	["punctuation", ","],
+
+	["string", "\"char_f\""],
+	["punctuation", ":"],
+	["string", "'char text'"],
+	["punctuation", ","],
+
+	["string", "\"name_f\""],
+	["punctuation", ":"],
+	["string", "'name'"],
+	["punctuation", ","],
+
+	["string", "\"date_f\""],
+	["punctuation", ":"],
+	["number", "2004"],
+	["operator", "-"],
+	["number", "01"],
+	["operator", "-"],
+	["number", "05"],
+	["punctuation", ","],
+
+	["string", "\"abstime_f\""],
+	["punctuation", ":"],
+	["number", "2005"],
+	["operator", "-"],
+	["number", "12"],
+	["operator", "-"],
+	"03T10",
+	["punctuation", ":"],
+	["number", "00"],
+	["punctuation", ":"],
+	["number", "01"],
+	["punctuation", ","],
+
+	["string", "\"reltime_f\""],
+	["punctuation", ":"],
+	" 5M ",
+	["operator", "+"],
+	["number", "71D"],
+	["operator", "+"],
+	" 19h ",
+	["operator", "+"],
+	" 245m ",
+	["operator", "+"],
+	" 51s",
+	["punctuation", ","],
+
+	["string", "\"interval_f\""],
+	["punctuation", ":"],
+	" 6M ",
+	["operator", "+"],
+	["number", "3D"],
+	["operator", "+"],
+	" 2h ",
+	["operator", "+"],
+	" 45m ",
+	["operator", "+"],
+	" 15s",
+	["punctuation", ","],
+
+	["string", "\"time_f\""],
+	["punctuation", ":"],
+	["number", "11"],
+	["punctuation", ":"],
+	["number", "35"],
+	["punctuation", ":"],
+	["number", "00"],
+	["punctuation", ","],
+
+	["string", "\"timetz_f\""],
+	["punctuation", ":"],
+	["function", "get_val"],
+	["punctuation", "("],
+	["string", "\"pgsql_bind(PG_TYPE_TIMETZ, \\\"11:38:21 CST\\\")\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"timestamp_f\""],
+	["punctuation", ":"],
+	["number", "2005"],
+	["operator", "-"],
+	["number", "04"],
+	["operator", "-"],
+	"01T11",
+	["punctuation", ":"],
+	["number", "35"],
+	["punctuation", ":"],
+	["number", "26"],
+	["punctuation", ","],
+
+	["string", "\"timestamptz_f\""],
+	["punctuation", ":"],
+	["number", "2005"],
+	["operator", "-"],
+	["number", "04"],
+	["operator", "-"],
+	"01T11",
+	["punctuation", ":"],
+	["number", "35"],
+	["punctuation", ":"],
+	["number", "26.259"],
+	["punctuation", ","],
+
+	["string", "\"tinterval_f\""],
+	["punctuation", ":"],
+	["function", "get_val"],
+	["punctuation", "("],
+	["string", "\"pgsql_bind(PG_TYPE_TINTERVAL, '[\\\"May 10, 1947 23:59:12\\\" \\\"Jan 14, 1973 03:14:21\\\"]')\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"bytea_f\""],
+	["punctuation", ":"],
+	["operator", "<"],
+	"bead",
+	["operator", ">"],
+
+	["comment", "#bit_f             :"],
+
+	["comment", "#varbit_f          :"],
+
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "vexec"],
+	["punctuation", "("],
+	["string", "\"insert into data_test values (%v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v)\""],
+	["punctuation", ","],
+	["function", "hash_values"],
+	["punctuation", "("],
+	["variable", "$args"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$q"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRow"],
+	["punctuation", "("],
+	["string", "\"select * from data_test\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"verbose ",
+	["operator", ">"],
+	["number", "1"],
+	["punctuation", ")"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$k"],
+	" in ",
+	["punctuation", "("],
+	"keys ",
+	["variable", "$q"],
+	["punctuation", ")"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\" %-16s= %-10s %N\\n\""],
+	["punctuation", ","],
+	["variable", "$k"],
+	["punctuation", ","],
+	["function", "type"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# fix values where we know the return type is different"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"money_f ",
+	["operator", "="],
+	["number", "400.56"],
+	["punctuation", ";"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"timetz_f ",
+	["operator", "="],
+	["number", "11"],
+	["punctuation", ":"],
+	["number", "38"],
+	["punctuation", ":"],
+	["number", "21"],
+	["punctuation", ";"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"tinterval_f ",
+	["operator", "="],
+	["string", "'[\"1947-05-10 21:59:12\" \"1973-01-14 02:14:21\"]'"],
+	["punctuation", ";"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"number_f ",
+	["operator", "="],
+	["string", "\"7235634215.3250\""],
+	["punctuation", ";"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"reltime_f ",
+	["operator", "="],
+	" 19177551s",
+	["punctuation", ";"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"interval_f ",
+	["operator", "="],
+	" 6M ",
+	["operator", "+"],
+	["number", "3D"],
+	["operator", "+"],
+	" 9915s",
+	["punctuation", ";"],
+
+	["comment", "# rounding errors can happen in float4"],
+
+	["variable", "$q"],
+	["punctuation", "."],
+	"float4_f ",
+	["operator", "="],
+	["function", "round"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	"float4_f",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"float4_f ",
+	["operator", "="],
+	["function", "round"],
+	["punctuation", "("],
+	["variable", "$args"],
+	["punctuation", "."],
+	"float4_f",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# remove values where we know they won't match"],
+
+	["comment", "# abstime and timestamptz are converted to GMT by the server"],
+
+	"\n\tdelete ",
+	["variable", "$q"],
+	["punctuation", "."],
+	"abstime_f",
+	["punctuation", ";"],
+
+	"\n\tdelete ",
+	["variable", "$q"],
+	["punctuation", "."],
+	"timestamptz_f",
+	["punctuation", ";"],
+
+	["comment", "# compare each value"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$k"],
+	" in ",
+	["punctuation", "("],
+	"keys ",
+	["variable", "$q"],
+	["punctuation", ")"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ","],
+	["variable", "$args"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ","],
+	["function", "sprintf"],
+	["punctuation", "("],
+	["string", "\"%s bind and retrieve\""],
+	["punctuation", ","],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "mysql_test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["punctuation", "}"],
+
+	["keyword", "const"],
+	" family_q ",
+	["operator", "="],
+	["punctuation", "("],
+	["string", "\"family_id\""],
+	["punctuation", ":"],
+	["number", "1"],
+	["punctuation", ","],
+
+	["string", "\"name\""],
+	["punctuation", ":"],
+	["string", "\"Smith\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" person_q ",
+	["operator", "="],
+	["punctuation", "("],
+	["string", "\"person_id\""],
+	["punctuation", ":"],
+	["number", "1"],
+	["punctuation", ","],
+
+	["string", "\"family_id\""],
+	["punctuation", ":"],
+	["number", "1"],
+	["punctuation", ","],
+
+	["string", "\"name\""],
+	["punctuation", ":"],
+	["string", "\"Arnie\""],
+	["punctuation", ","],
+
+	["string", "\"dob\""],
+	["punctuation", ":"],
+	["number", "1983"],
+	["operator", "-"],
+	["number", "05"],
+	["operator", "-"],
+	["number", "13"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	" params ",
+	["operator", "="],
+	["punctuation", "("],
+	["string", "\"string\""],
+	["punctuation", ":"],
+	["string", "\"hello there\""],
+	["punctuation", ","],
+
+	["string", "\"int\""],
+	["punctuation", ":"],
+	["number", "150"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "sub"],
+	["function", "sybase_test"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["comment", "# simple stored proc test, bind by name"],
+
+	["keyword", "my"],
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"exec find_family %v\""],
+	["punctuation", ","],
+	["string", "\"Smith\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"name\""],
+	["punctuation", ":"],
+	["function", "list"],
+	["punctuation", "("],
+	["string", "\"Smith\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"family_id\""],
+	["punctuation", ":"],
+	["function", "list"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"simple stored proc\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# stored proc execute with output params"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"declare @string varchar(40), @int int\nexec get_values :string output, :int output\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	" params ",
+	["operator", "+"],
+	["punctuation", "("],
+	["string", "\"rowcount\""],
+	["punctuation", ":"],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"get_values\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# we use Datasource::selectRows() in the following queries because we"],
+	["comment", "# get hash results instead of a hash of lists as with exec in the queries"],
+	["comment", "# normally we should not use selectRows to execute a stored procedure,"],
+	["comment", "# as the Datasource::selectRows() method will not grab the transaction lock,"],
+	["comment", "# but we already called Datasource::exec() above, so we have it already."],
+	["comment", "# the other alternative would be to call Datasource::beginTransaction() before"],
+	["comment", "# Datasource::selectRows()"],
+
+	["comment", "# simple stored proc test, bind by name, returns hash"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"exec find_family %v\""],
+	["punctuation", ","],
+	["string", "\"Smith\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	" family_q",
+	["punctuation", ","],
+	["string", "\"simple stored proc\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# stored proc execute with output params and select results"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"declare @string varchar(40), @int int\nexec get_values_and_select :string output, :int output\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"query\""],
+	["punctuation", ":"],
+	"family_q",
+	["punctuation", ","],
+	["string", "\"params\""],
+	["punctuation", ":"],
+	"params",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"get_values_and_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# stored proc execute with output params and multiple select results"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"declare @string varchar(40), @int int\nexec get_values_and_multiple_select :string output, :int output\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"query\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+	["string", "\"query0\""],
+	["punctuation", ":"],
+	"family_q",
+	["punctuation", ","],
+	["string", "\"query1\""],
+	["punctuation", ":"],
+	"person_q",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"params\""],
+	["punctuation", ":"],
+	"params",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"get_values_and_multiple_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# stored proc execute with just select results"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"exec just_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	" family_q",
+	["punctuation", ","],
+	["string", "\"just_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# stored proc execute with multiple select results"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"exec multiple_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"query0\""],
+	["punctuation", ":"],
+	"family_q",
+	["punctuation", ","],
+	["string", "\"query1\""],
+	["punctuation", ":"],
+	"person_q",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"multiple_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$args"],
+	["operator", "="],
+	["punctuation", "("],
+	["string", "\"null_f\""],
+	["punctuation", ":"],
+	" NULL",
+	["punctuation", ","],
+
+	["string", "\"varchar_f\""],
+	["punctuation", ":"],
+	["string", "\"varchar\""],
+	["punctuation", ","],
+
+	["string", "\"char_f\""],
+	["punctuation", ":"],
+	["string", "\"char\""],
+	["punctuation", ","],
+
+	["string", "\"unichar_f\""],
+	["punctuation", ":"],
+	["string", "\"unichar\""],
+	["punctuation", ","],
+
+	["string", "\"univarchar_f\""],
+	["punctuation", ":"],
+	["string", "\"univarchar\""],
+	["punctuation", ","],
+
+	["string", "\"text_f\""],
+	["punctuation", ":"],
+	["string", "\"test\""],
+	["punctuation", ","],
+
+	["string", "\"unitext_f\""],
+	["punctuation", ":"],
+	["string", "\"test\""],
+	["punctuation", ","],
+
+	["string", "\"bit_f\""],
+	["punctuation", ":"],
+	["boolean", "True"],
+	["punctuation", ","],
+
+	["string", "\"tinyint_f\""],
+	["punctuation", ":"],
+	["number", "55"],
+	["punctuation", ","],
+
+	["string", "\"smallint_f\""],
+	["punctuation", ":"],
+	["number", "4285"],
+	["punctuation", ","],
+
+	["string", "\"int_f\""],
+	["punctuation", ":"],
+	["number", "405402"],
+	["punctuation", ","],
+
+	["string", "\"int_f2\""],
+	["punctuation", ":"],
+	["number", "214123498"],
+	["punctuation", ","],
+
+	["string", "\"decimal_f\""],
+	["punctuation", ":"],
+	["number", "500.1231"],
+	["punctuation", ","],
+
+	["string", "\"float_f\""],
+	["punctuation", ":"],
+	["number", "23443.234324234"],
+	["punctuation", ","],
+
+	["string", "\"real_f\""],
+	["punctuation", ":"],
+	["number", "213.123"],
+	["punctuation", ","],
+
+	["string", "\"money_f\""],
+	["punctuation", ":"],
+	["number", "3434234250.2034"],
+	["punctuation", ","],
+
+	["string", "\"smallmoney_f\""],
+	["punctuation", ":"],
+	["number", "211100.1012"],
+	["punctuation", ","],
+
+	["string", "\"date_f\""],
+	["punctuation", ":"],
+	["number", "2007"],
+	["operator", "-"],
+	["number", "05"],
+	["operator", "-"],
+	["number", "01"],
+	["punctuation", ","],
+
+	["string", "\"time_f\""],
+	["punctuation", ":"],
+	["number", "10"],
+	["punctuation", ":"],
+	["number", "30"],
+	["punctuation", ":"],
+	["number", "01"],
+	["punctuation", ","],
+
+	["string", "\"datetime_f\""],
+	["punctuation", ":"],
+	["number", "3459"],
+	["operator", "-"],
+	["number", "01"],
+	["operator", "-"],
+	"01T11",
+	["punctuation", ":"],
+	["number", "15"],
+	["punctuation", ":"],
+	["number", "02.250"],
+	["punctuation", ","],
+
+	["string", "\"smalldatetime_f\""],
+	["punctuation", ":"],
+	["number", "2007"],
+	["operator", "-"],
+	["number", "12"],
+	["operator", "-"],
+	"01T12",
+	["punctuation", ":"],
+	["number", "01"],
+	["punctuation", ":"],
+	["number", "00"],
+	["punctuation", ","],
+
+	["string", "\"binary_f\""],
+	["punctuation", ":"],
+	["operator", "<"],
+	"0badbeef",
+	["operator", ">"],
+	["punctuation", ","],
+
+	["string", "\"varbinary_f\""],
+	["punctuation", ":"],
+	["operator", "<"],
+	"feedface",
+	["operator", ">"],
+	["punctuation", ","],
+
+	["string", "\"image_f\""],
+	["punctuation", ":"],
+	["operator", "<"],
+	"cafebead",
+	["operator", ">"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# insert data"],
+
+	["keyword", "my"],
+	["variable", "$rows"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "vexec"],
+	["punctuation", "("],
+	["string", "\"insert into data_test values (%v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %d, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v)\""],
+	["punctuation", ","],
+	["function", "hash_values"],
+	["punctuation", "("],
+	["variable", "$args"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$q"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRow"],
+	["punctuation", "("],
+	["string", "\"select * from data_test\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"verbose ",
+	["operator", ">"],
+	["number", "1"],
+	["punctuation", ")"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$k"],
+	" in ",
+	["punctuation", "("],
+	"keys ",
+	["variable", "$q"],
+	["punctuation", ")"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\" %-16s= %-10s %N\\n\""],
+	["punctuation", ","],
+	["variable", "$k"],
+	["punctuation", ","],
+	["function", "type"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# remove values where we know they won't match"],
+
+	["comment", "# unitext_f is returned as IMAGE by the server"],
+
+	"\n\tdelete ",
+	["variable", "$q"],
+	["punctuation", "."],
+	"unitext_f",
+	["punctuation", ";"],
+
+	"\n\tdelete ",
+	["variable", "$args"],
+	["punctuation", "."],
+	"unitext_f",
+	["punctuation", ";"],
+
+	["comment", "# rounding errors can happen in real"],
+
+	["variable", "$q"],
+	["punctuation", "."],
+	"real_f ",
+	["operator", "="],
+	["function", "round"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	"real_f",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"real_f ",
+	["operator", "="],
+	["function", "round"],
+	["punctuation", "("],
+	["variable", "$args"],
+	["punctuation", "."],
+	"real_f",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# compare each value"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$k"],
+	" in ",
+	["punctuation", "("],
+	"keys ",
+	["variable", "$q"],
+	["punctuation", ")"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ","],
+	["variable", "$args"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ","],
+	["function", "sprintf"],
+	["punctuation", "("],
+	["string", "\"%s bind and retrieve\""],
+	["punctuation", ","],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "freetds_test"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["comment", "# simple stored proc test, bind by name"],
+
+	["keyword", "my"],
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"exec find_family %v\""],
+	["punctuation", ","],
+	["string", "\"Smith\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"name\""],
+	["punctuation", ":"],
+	["function", "list"],
+	["punctuation", "("],
+	["string", "\"Smith\""],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"family_id\""],
+	["punctuation", ":"],
+	["function", "list"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"simple stored proc\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# we cannot retrieve parameters from newer SQL Servers with the approach we use;"],
+	["comment", "# Microsoft changed the handling of the protocol and require us to use RPC calls,"],
+	["comment", "# this will be implemented in the next version of qore where the \"freetds\" driver will"],
+	["comment", "# be able to add custom methods to the Datasource class.  For now, we skip these tests"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", "."],
+	"is_sybase",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "exec"],
+	["punctuation", "("],
+	["string", "\"declare @string varchar(40), @int int\nexec get_values :string output, :int output\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	" params",
+	["punctuation", ","],
+	["string", "\"get_values\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# we use Datasource::selectRows() in the following queries because we"],
+	["comment", "# get hash results instead of a hash of lists as with exec in the queries"],
+	["comment", "# normally we should not use selectRows to execute a stored procedure,"],
+	["comment", "# as the Datasource::selectRows() method will not grab the transaction lock,"],
+	["comment", "# but we already called Datasource::exec() above, so we have it already."],
+	["comment", "# the other alternative would be to call Datasource::beginTransaction() before"],
+	["comment", "# Datasource::selectRows()"],
+
+	["comment", "# simple stored proc test, bind by name, returns hash"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"exec find_family %v\""],
+	["punctuation", ","],
+	["string", "\"Smith\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	" family_q",
+	["punctuation", ","],
+	["string", "\"simple stored proc\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# stored proc execute with output params and select results"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", "."],
+	"is_sybase",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"declare @string varchar(40), @int int\nexec get_values_and_select :string output, :int output\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"query\""],
+	["punctuation", ":"],
+	"family_q",
+	["punctuation", ","],
+	["string", "\"params\""],
+	["punctuation", ":"],
+	"params",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"get_values_and_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# stored proc execute with output params and multiple select results"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"declare @string varchar(40), @int int\nexec get_values_and_multiple_select :string output, :int output\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"query\""],
+	["punctuation", ":"],
+	["punctuation", "("],
+	["string", "\"query0\""],
+	["punctuation", ":"],
+	"family_q",
+	["punctuation", ","],
+	["string", "\"query1\""],
+	["punctuation", ":"],
+	"person_q",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"params\""],
+	["punctuation", ":"],
+	"params",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"get_values_and_multiple_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "# stored proc execute with just select results"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"exec just_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	" family_q",
+	["punctuation", ","],
+	["string", "\"just_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# stored proc execute with multiple select results"],
+
+	["variable", "$x"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRows"],
+	["punctuation", "("],
+	["string", "\"exec multiple_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$x"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["string", "\"query0\""],
+	["punctuation", ":"],
+	"family_q",
+	["punctuation", ","],
+	["string", "\"query1\""],
+	["punctuation", ":"],
+	"person_q",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"multiple_select\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# the freetds driver does not work with the following sybase column types:"],
+	["comment", "# unichar, univarchar"],
+
+	["keyword", "my"],
+	["variable", "$args"],
+	["operator", "="],
+	["punctuation", "("],
+	["string", "\"null_f\""],
+	["punctuation", ":"],
+	" NULL",
+	["punctuation", ","],
+
+	["string", "\"varchar_f\""],
+	["punctuation", ":"],
+	["string", "\"test\""],
+	["punctuation", ","],
+
+	["string", "\"char_f\""],
+	["punctuation", ":"],
+	["string", "\"test\""],
+	["punctuation", ","],
+
+	["string", "\"text_f\""],
+	["punctuation", ":"],
+	["string", "\"test\""],
+	["punctuation", ","],
+
+	["string", "\"unitext_f\""],
+	["punctuation", ":"],
+	["string", "\"test\""],
+	["punctuation", ","],
+
+	["string", "\"bit_f\""],
+	["punctuation", ":"],
+	["boolean", "True"],
+	["punctuation", ","],
+
+	["string", "\"tinyint_f\""],
+	["punctuation", ":"],
+	["number", "55"],
+	["punctuation", ","],
+
+	["string", "\"smallint_f\""],
+	["punctuation", ":"],
+	["number", "4285"],
+	["punctuation", ","],
+
+	["string", "\"int_f\""],
+	["punctuation", ":"],
+	["number", "405402"],
+	["punctuation", ","],
+
+	["string", "\"int_f2\""],
+	["punctuation", ":"],
+	["number", "214123498"],
+	["punctuation", ","],
+
+	["string", "\"decimal_f\""],
+	["punctuation", ":"],
+	["number", "500.1231"],
+	["punctuation", ","],
+
+	["string", "\"float_f\""],
+	["punctuation", ":"],
+	["number", "23443.234324234"],
+	["punctuation", ","],
+
+	["string", "\"real_f\""],
+	["punctuation", ":"],
+	["number", "213.123"],
+	["punctuation", ","],
+
+	["string", "\"money_f\""],
+	["punctuation", ":"],
+	["number", "3434234250.2034"],
+	["punctuation", ","],
+
+	["string", "\"smallmoney_f\""],
+	["punctuation", ":"],
+	["number", "211100.1012"],
+	["punctuation", ","],
+
+	["string", "\"date_f\""],
+	["punctuation", ":"],
+	["number", "2007"],
+	["operator", "-"],
+	["number", "05"],
+	["operator", "-"],
+	["number", "01"],
+	["punctuation", ","],
+
+	["string", "\"time_f\""],
+	["punctuation", ":"],
+	["number", "10"],
+	["punctuation", ":"],
+	["number", "30"],
+	["punctuation", ":"],
+	["number", "01"],
+	["punctuation", ","],
+
+	["string", "\"datetime_f\""],
+	["punctuation", ":"],
+	["number", "3459"],
+	["operator", "-"],
+	["number", "01"],
+	["operator", "-"],
+	"01T11",
+	["punctuation", ":"],
+	["number", "15"],
+	["punctuation", ":"],
+	["number", "02.250"],
+	["punctuation", ","],
+
+	["string", "\"smalldatetime_f\""],
+	["punctuation", ":"],
+	["number", "2007"],
+	["operator", "-"],
+	["number", "12"],
+	["operator", "-"],
+	"01T12",
+	["punctuation", ":"],
+	["number", "01"],
+	["punctuation", ":"],
+	["number", "00"],
+	["punctuation", ","],
+
+	["string", "\"binary_f\""],
+	["punctuation", ":"],
+	["operator", "<"],
+	"0badbeef",
+	["operator", ">"],
+	["punctuation", ","],
+
+	["string", "\"varbinary_f\""],
+	["punctuation", ":"],
+	["operator", "<"],
+	"feedface",
+	["operator", ">"],
+	["punctuation", ","],
+
+	["string", "\"image_f\""],
+	["punctuation", ":"],
+	["operator", "<"],
+	"cafebead",
+	["operator", ">"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# remove fields not supported by sql server"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	["variable", "$db"],
+	["punctuation", "."],
+	"is_sybase",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tdelete ",
+	["variable", "$args"],
+	["punctuation", "."],
+	"unitext_f",
+	["punctuation", ";"],
+
+	"\n\tdelete ",
+	["variable", "$args"],
+	["punctuation", "."],
+	"date_f",
+	["punctuation", ";"],
+
+	"\n\tdelete ",
+	["variable", "$args"],
+	["punctuation", "."],
+	"time_f",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "my"],
+	["variable", "$sql"],
+	["operator", "="],
+	["string", "\"insert into data_test values (\""],
+	["punctuation", ";"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["keyword", "my"],
+	["variable", "$i"],
+	["punctuation", ";"],
+	["variable", "$i"],
+	["operator", "<"],
+	" elements ",
+	["variable", "$args"],
+	["punctuation", ";"],
+	["operator", "++"],
+	["variable", "$i"],
+	["punctuation", ")"],
+
+	["variable", "$sql"],
+	["operator", "+="],
+	["string", "\"%v, \""],
+	["punctuation", ";"],
+
+	["variable", "$sql"],
+	["operator", "="],
+	["function", "substr"],
+	["punctuation", "("],
+	["variable", "$sql"],
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ","],
+	["operator", "-"],
+	["number", "2"],
+	["punctuation", ")"],
+	["operator", "+"],
+	["string", "\")\""],
+	["punctuation", ";"],
+
+	["comment", "# insert data, using the values from the hash above"],
+
+	["keyword", "my"],
+	["variable", "$rows"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "vexec"],
+	["punctuation", "("],
+	["variable", "$sql"],
+	["punctuation", ","],
+	["function", "hash_values"],
+	["punctuation", "("],
+	["variable", "$args"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$q"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "selectRow"],
+	["punctuation", "("],
+	["string", "\"select * from data_test\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"verbose ",
+	["operator", ">"],
+	["number", "1"],
+	["punctuation", ")"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$k"],
+	" in ",
+	["punctuation", "("],
+	"keys ",
+	["variable", "$q"],
+	["punctuation", ")"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\" %-16s= %-10s %N\\n\""],
+	["punctuation", ","],
+	["variable", "$k"],
+	["punctuation", ","],
+	["function", "type"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# remove values where we know they won't match"],
+
+	["comment", "# unitext_f is returned as IMAGE by the server"],
+
+	"\n\tdelete ",
+	["variable", "$q"],
+	["punctuation", "."],
+	"unitext_f",
+	["punctuation", ";"],
+
+	"\n\tdelete ",
+	["variable", "$args"],
+	["punctuation", "."],
+	"unitext_f",
+	["punctuation", ";"],
+
+	["comment", "# rounding errors can happen in real"],
+
+	["variable", "$q"],
+	["punctuation", "."],
+	"real_f ",
+	["operator", "="],
+	["function", "round"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	"real_f",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$args"],
+	["punctuation", "."],
+	"real_f ",
+	["operator", "="],
+	["function", "round"],
+	["punctuation", "("],
+	["variable", "$args"],
+	["punctuation", "."],
+	"real_f",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# compare each value"],
+
+	"\n\tforeach ",
+	["keyword", "my"],
+	["variable", "$k"],
+	" in ",
+	["punctuation", "("],
+	"keys ",
+	["variable", "$q"],
+	["punctuation", ")"],
+
+	["function", "test_value"],
+	["punctuation", "("],
+	["variable", "$q"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ","],
+	["variable", "$args"],
+	["punctuation", "."],
+	["variable", "$k"],
+	["punctuation", ","],
+	["function", "sprintf"],
+	["punctuation", "("],
+	["string", "\"%s bind and retrieve\""],
+	["punctuation", ","],
+	["variable", "$k"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "commit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "sub"],
+	["function", "main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$test_map"],
+	["operator", "="],
+
+	["punctuation", "("],
+	["string", "\"sybase\""],
+	["punctuation", ":"],
+	" \\",
+	["function", "sybase_test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"freetds\""],
+	["punctuation", ":"],
+	" \\",
+	["function", "freetds_test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"mysql\""],
+	["punctuation", ":"],
+	" \\",
+	["function", "mysql_test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"pgsql\""],
+	["punctuation", ":"],
+	" \\",
+	["function", "pgsql_test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["string", "\"oracle\""],
+	["punctuation", ":"],
+	" \\",
+	["function", "oracle_test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "parse_command_line"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$db"],
+	["operator", "="],
+	["function", "getDS"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$driver"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "getDriverName"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "printf"],
+	["punctuation", "("],
+	["string", "\"testing %s driver\\n\""],
+	["punctuation", ","],
+	["variable", "$driver"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$sv"],
+	["operator", "="],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "getServerVersion"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$o"],
+	["punctuation", "."],
+	"verbose ",
+	["operator", ">"],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["function", "tprintf"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"client version=%n\\nserver version=%n\\n\""],
+	["punctuation", ","],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "getClientVersion"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["variable", "$sv"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# determine if the server is a sybase or sql server dataserver"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$driver"],
+	["operator", "=="],
+	["string", "\"freetds\""],
+	["punctuation", ")"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$sv"],
+	["operator", "!~"],
+	["operator", "/"],
+	"microsoft",
+	["operator", "/"],
+	"i",
+	["punctuation", ")"],
+
+	["variable", "$db"],
+	["punctuation", "."],
+	"is_sybase ",
+	["operator", "="],
+	["boolean", "True"],
+	["punctuation", ";"],
+
+	["function", "create_datamodel"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "context_test"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "transaction_test"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["variable", "$test"],
+	["operator", "="],
+	["variable", "$test_map"],
+	["punctuation", "."],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", "."],
+	["function", "getDriverName"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"exists ",
+	["variable", "$test"],
+	["punctuation", ")"],
+
+	["function", "$test"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	["variable", "$o"],
+	["punctuation", "."],
+	"leave",
+	["punctuation", ")"],
+
+	["function", "drop_test_datamodel"],
+	["punctuation", "("],
+	["variable", "$db"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "printf"],
+	["punctuation", "("],
+	["string", "\"%d/%d tests OK\\n\""],
+	["punctuation", ","],
+	["variable", "$test_count"],
+	["operator", "-"],
+	["variable", "$errors"],
+	["punctuation", ","],
+	["variable", "$test_count"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["function", "main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

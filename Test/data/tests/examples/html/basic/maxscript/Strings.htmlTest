@@ -1,0 +1,65 @@
+-- Source: https://help.autodesk.com/view/MAXDEV/2022/ENU/?guid=GUID-5E5E1A71-24E2-4605-9720-2178B941DECC
+
+plugin RenderEffect MonoChrome
+name:"MonoChrome"
+classID:#(0x9e6e9e77, 0xbe815df4)
+(
+rollout about_rollout "About..."
+(
+  label about_label "MonoChrome Filter"
+)
+on apply r_image progressCB: do
+(
+  progressCB.setTitle "MonoChrome Effect"
+  local oldEscapeEnable = escapeEnable
+  escapeEnable = false
+  bmp_w = r_image.width
+  bmp_h = r_image.height
+  for y = 0 to bmp_h-1 do
+  (
+    if progressCB.progress y (bmp_h-1) then exit
+    pixel_line = getPixels r_image [0,y] bmp_w
+    for x = 1 to bmp_w do
+    (
+      p_v = pixel_line[x].value
+      pixel_line[x] = color p_v p_v p_v pixel_line[x].alpha
+    )--end x loop
+    setPixels r_image [0,y] pixel_line
+  )--end y loop
+  escapeEnable = oldEscapeEnable
+)--end on apply
+)--end plugin
+----------------------------------------------------
+<span class="token comment">-- Source: https://help.autodesk.com/view/MAXDEV/2022/ENU/?guid=GUID-5E5E1A71-24E2-4605-9720-2178B941DECC</span>
+
+<span class="token keyword">plugin</span> RenderEffect MonoChrome
+<span class="token argument attr-name">name</span><span class="token punctuation">:</span><span class="token string">"MonoChrome"</span>
+<span class="token argument attr-name">classID</span><span class="token punctuation">:</span><span class="token punctuation">#</span><span class="token punctuation">(</span><span class="token number">0x9e6e9e77</span><span class="token punctuation">,</span> <span class="token number">0xbe815df4</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>
+<span class="token keyword">rollout</span> about_rollout <span class="token string">"About..."</span>
+<span class="token punctuation">(</span>
+  <span class="token function-call function">label</span> about_label <span class="token string">"MonoChrome Filter"</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">on</span> apply r_image <span class="token argument attr-name">progressCB</span><span class="token punctuation">:</span> <span class="token keyword">do</span>
+<span class="token punctuation">(</span>
+  progressCB<span class="token punctuation">.</span>setTitle <span class="token string">"MonoChrome Effect"</span>
+  <span class="token keyword">local</span> oldEscapeEnable <span class="token operator">=</span> escapeEnable
+  escapeEnable <span class="token operator">=</span> <span class="token boolean">false</span>
+  bmp_w <span class="token operator">=</span> r_image<span class="token punctuation">.</span>width
+  bmp_h <span class="token operator">=</span> r_image<span class="token punctuation">.</span>height
+  <span class="token keyword">for</span> y <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">to</span> <span class="token function-call function">bmp_h</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">do</span>
+  <span class="token punctuation">(</span>
+    <span class="token keyword">if</span> progressCB<span class="token punctuation">.</span>progress y <span class="token punctuation">(</span><span class="token function-call function">bmp_h</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">then</span> <span class="token keyword">exit</span>
+    pixel_line <span class="token operator">=</span> <span class="token function-call function">getPixels</span> r_image <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>y<span class="token punctuation">]</span> bmp_w
+    <span class="token keyword">for</span> x <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">to</span> bmp_w <span class="token keyword">do</span>
+    <span class="token punctuation">(</span>
+      p_v <span class="token operator">=</span> pixel_line<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>value
+      pixel_line<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function-call function">color</span> p_v p_v p_v pixel_line<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>alpha
+    <span class="token punctuation">)</span><span class="token comment">--end x loop</span>
+    <span class="token function-call function">setPixels</span> r_image <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>y<span class="token punctuation">]</span> pixel_line
+  <span class="token punctuation">)</span><span class="token comment">--end y loop</span>
+  escapeEnable <span class="token operator">=</span> oldEscapeEnable
+<span class="token punctuation">)</span><span class="token comment">--end on apply</span>
+<span class="token punctuation">)</span><span class="token comment">--end plugin</span>
+
+----------------------------------------------------

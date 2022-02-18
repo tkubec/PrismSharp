@@ -1,0 +1,25 @@
+*Italic*
+**Bold on
+multiple lines**
+*Italic on
+multiple lines too*
+__It also works with underscores__
+_It also works with underscores_
+
+__An empty line
+
+is not allowed__
+----------------------------------------------------
+<span class="token italic"><span class="token punctuation">*</span><span class="token content">Italic</span><span class="token punctuation">*</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Bold on
+multiple lines</span><span class="token punctuation">**</span></span>
+<span class="token italic"><span class="token punctuation">*</span><span class="token content">Italic on
+multiple lines too</span><span class="token punctuation">*</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">It also works with underscores</span><span class="token punctuation">__</span></span>
+<span class="token italic"><span class="token punctuation">_</span><span class="token content">It also works with underscores</span><span class="token punctuation">_</span></span>
+
+__An empty line
+
+is not allowed__
+
+----------------------------------------------------

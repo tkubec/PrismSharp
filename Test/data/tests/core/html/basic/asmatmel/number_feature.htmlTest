@@ -1,0 +1,9 @@
+LD #127
+ST $8000
+LD #%10001010
+----------------------------------------------------
+<span class="token op-code keyword">LD</span> <span class="token decimal-number number">#127</span>
+<span class="token op-code keyword">ST</span> <span class="token hex-number number">$8000</span>
+<span class="token op-code keyword">LD</span> <span class="token binary-number number">#%10001010</span>
+
+----------------------------------------------------

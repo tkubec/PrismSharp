@@ -1,0 +1,13 @@
+type response =
+  | Yes
+  | No
+  | PrettyMuch;
+----------------------------------------------------
+[
+	["keyword", "type"], " response ", ["operator", "="],
+	["operator", "|"], ["constructor", "Yes"],
+	["operator", "|"], ["constructor", "No"],
+	["operator", "|"], ["constructor", "PrettyMuch"], ["punctuation", ";"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+.. foo
+
+.. foo
+bar
+
+..
+	_foo:
+	[bar]
+	|baz|
+----------------------------------------------------
+[
+	["punctuation", ".."], ["comment", " foo"],
+
+	["punctuation", ".."], ["comment", " foo\nbar"],
+
+	["punctuation", ".."], ["comment", "\n\t_foo:\n\t[bar]\n\t|baz|"]
+]
+
+----------------------------------------------------

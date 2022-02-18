@@ -1,0 +1,101 @@
+WITH COUNT INTO
+COUNT
+
+AGGREGATE
+ALL
+AND
+ANY
+ASC
+COLLECT
+DESC
+DISTINCT
+FILTER
+FOR
+GRAPH
+IN
+INBOUND
+INSERT
+INTO
+K_PATHS
+K_SHORTEST_PATHS
+LET
+LIKE
+LIMIT
+NONE
+NOT
+NULL
+OR
+OUTBOUND
+REMOVE
+REPLACE
+RETURN
+SHORTEST_PATH
+SORT
+UPDATE
+UPSERT
+WINDOW
+WITH
+
+KEEP
+PRUNE
+SEARCH
+TO
+
+CURRENT
+NEW
+OLD
+
+OPTIONS {}
+OPTIONS
+----------------------------------------------------
+<span class="token keyword">WITH</span> <span class="token keyword">COUNT</span> <span class="token keyword">INTO</span>
+COUNT
+
+<span class="token keyword">AGGREGATE</span>
+<span class="token keyword">ALL</span>
+<span class="token keyword">AND</span>
+<span class="token keyword">ANY</span>
+<span class="token keyword">ASC</span>
+<span class="token keyword">COLLECT</span>
+<span class="token keyword">DESC</span>
+<span class="token keyword">DISTINCT</span>
+<span class="token keyword">FILTER</span>
+<span class="token keyword">FOR</span>
+<span class="token keyword">GRAPH</span>
+<span class="token keyword">IN</span>
+<span class="token keyword">INBOUND</span>
+<span class="token keyword">INSERT</span>
+<span class="token keyword">INTO</span>
+<span class="token keyword">K_PATHS</span>
+<span class="token keyword">K_SHORTEST_PATHS</span>
+<span class="token keyword">LET</span>
+<span class="token keyword">LIKE</span>
+<span class="token keyword">LIMIT</span>
+<span class="token keyword">NONE</span>
+<span class="token keyword">NOT</span>
+<span class="token keyword">NULL</span>
+<span class="token keyword">OR</span>
+<span class="token keyword">OUTBOUND</span>
+<span class="token keyword">REMOVE</span>
+<span class="token keyword">REPLACE</span>
+<span class="token keyword">RETURN</span>
+<span class="token keyword">SHORTEST_PATH</span>
+<span class="token keyword">SORT</span>
+<span class="token keyword">UPDATE</span>
+<span class="token keyword">UPSERT</span>
+<span class="token keyword">WINDOW</span>
+<span class="token keyword">WITH</span>
+
+<span class="token keyword">KEEP</span>
+<span class="token keyword">PRUNE</span>
+<span class="token keyword">SEARCH</span>
+<span class="token keyword">TO</span>
+
+<span class="token keyword">CURRENT</span>
+<span class="token keyword">NEW</span>
+<span class="token keyword">OLD</span>
+
+<span class="token keyword">OPTIONS</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+OPTIONS
+
+----------------------------------------------------

@@ -1,0 +1,55 @@
+base <http://example.org/geo#>
+	prefix geo: <http://www.opengis.net/ont/geosparql#>
+	prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+	select ?shape ?shapeColor ?shapeHeight ?shapeName (sample(?shapeLabel) as ?shapeLabel)  {
+		{
+			select * {
+				values (?placeName ?streetName) {
+					"Grenoble" "Paul Mistral"
+				}
+				?place geo:NamePlace ?placeName.
+				?pand geo:hasGeometry/geo:asWKT ?shape;
+			}
+
+		}
+		?pand geo:measuredHeight ?shapeHeight.
+		# Only retrieve buildings larger then 10 meters.
+		FILTER ( ?shapeHeight < 10 ) .
+		BIND(IF(!bound(?EindGeldigheid5), "#22b14c", "#ed1c24" ) AS?tColor)
+		# tekst label
+		bind(concat(str(?streetName),' ',str(?houseNumber),', ',str(?PlaceName)) as ?shapeName)
+		bind("""Multi-line
+		String Element
+		""" as ?shapeLabel)
+	}
+	group by ?shape ?shapeColor ?shapeHeight ?shapeName
+	limit 10
+----------------------------------------------------
+<span class="token keyword">base</span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/geo#<span class="token punctuation">></span></span>
+	<span class="token keyword">prefix</span> <span class="token function"><span class="token prefix">geo<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://www.opengis.net/ont/geosparql#<span class="token punctuation">></span></span>
+	<span class="token keyword">prefix</span> <span class="token function"><span class="token prefix">rdfs<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2000/01/rdf-schema#<span class="token punctuation">></span></span>
+	<span class="token keyword">select</span> <span class="token variable">?shape</span> <span class="token variable">?shapeColor</span> <span class="token variable">?shapeHeight</span> <span class="token variable">?shapeName</span> <span class="token punctuation">(</span><span class="token keyword">sample</span><span class="token punctuation">(</span><span class="token variable">?shapeLabel</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">?shapeLabel</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">select</span> * <span class="token punctuation">{</span>
+				<span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token variable">?placeName</span> <span class="token variable">?streetName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token string">"Grenoble"</span> <span class="token string">"Paul Mistral"</span>
+				<span class="token punctuation">}</span>
+				<span class="token variable">?place</span> <span class="token function"><span class="token prefix">geo<span class="token punctuation">:</span></span><span class="token local-name">NamePlace</span></span> <span class="token variable">?placeName</span><span class="token punctuation">.</span>
+				<span class="token variable">?pand</span> <span class="token function"><span class="token prefix">geo<span class="token punctuation">:</span></span><span class="token local-name">hasGeometry</span></span>/<span class="token function"><span class="token prefix">geo<span class="token punctuation">:</span></span><span class="token local-name">asWKT</span></span> <span class="token variable">?shape</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+
+		<span class="token punctuation">}</span>
+		<span class="token variable">?pand</span> <span class="token function"><span class="token prefix">geo<span class="token punctuation">:</span></span><span class="token local-name">measuredHeight</span></span> <span class="token variable">?shapeHeight</span><span class="token punctuation">.</span>
+		<span class="token comment"># Only retrieve buildings larger then 10 meters.</span>
+		<span class="token keyword">FILTER</span> <span class="token punctuation">(</span> <span class="token variable">?shapeHeight</span> &lt; <span class="token number">10</span> <span class="token punctuation">)</span> <span class="token punctuation">.</span>
+		<span class="token keyword">BIND</span><span class="token punctuation">(</span><span class="token keyword">IF</span><span class="token punctuation">(</span>!<span class="token keyword">bound</span><span class="token punctuation">(</span><span class="token variable">?EindGeldigheid5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"#22b14c"</span><span class="token punctuation">,</span> <span class="token string">"#ed1c24"</span> <span class="token punctuation">)</span> <span class="token keyword">AS</span><span class="token variable">?tColor</span><span class="token punctuation">)</span>
+		<span class="token comment"># tekst label</span>
+		<span class="token keyword">bind</span><span class="token punctuation">(</span><span class="token keyword">concat</span><span class="token punctuation">(</span><span class="token keyword">str</span><span class="token punctuation">(</span><span class="token variable">?streetName</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token keyword">str</span><span class="token punctuation">(</span><span class="token variable">?houseNumber</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">', '</span><span class="token punctuation">,</span><span class="token keyword">str</span><span class="token punctuation">(</span><span class="token variable">?PlaceName</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">?shapeName</span><span class="token punctuation">)</span>
+		<span class="token keyword">bind</span><span class="token punctuation">(</span><span class="token multiline-string string">"""Multi-line
+		String Element
+		"""</span> <span class="token keyword">as</span> <span class="token variable">?shapeLabel</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token variable">?shape</span> <span class="token variable">?shapeColor</span> <span class="token variable">?shapeHeight</span> <span class="token variable">?shapeName</span>
+	<span class="token keyword">limit</span> <span class="token number">10</span>
+
+----------------------------------------------------

@@ -1,0 +1,17 @@
+{
+	// Line comment ""
+	"//": "//",
+
+	/* Block comment */
+	"/*": "*/"
+}
+----------------------------------------------------
+<span class="token punctuation">{</span>
+	<span class="token comment">// Line comment ""</span>
+	<span class="token property">"//"</span><span class="token operator">:</span> <span class="token string">"//"</span><span class="token punctuation">,</span>
+
+	<span class="token comment">/* Block comment */</span>
+	<span class="token property">"/*"</span><span class="token operator">:</span> <span class="token string">"*/"</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Project1", "Project1.vbproj", "{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}"
+	{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Foo = Bar
+EndProject
+Foo = {F184B08F-C81C-45F6-A57F-5ABD9991F28F}
+----------------------------------------------------
+<span class="token object keyword">Project</span><span class="token punctuation">(</span><span class="token string">"<span class="token guid constant"><span class="token punctuation">{</span>F184B08F-C81C-45F6-A57F-5ABD9991F28F<span class="token punctuation">}</span></span>"</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"Project1"</span><span class="token punctuation">,</span> <span class="token string">"Project1.vbproj"</span><span class="token punctuation">,</span> <span class="token string">"<span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>"</span>
+	<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Foo</span> <span class="token operator">=</span> Bar
+<span class="token object keyword">EndProject</span>
+<span class="token property">Foo</span> <span class="token operator">=</span> <span class="token guid constant"><span class="token punctuation">{</span>F184B08F-C81C-45F6-A57F-5ABD9991F28F<span class="token punctuation">}</span></span>
+
+----------------------------------------------------

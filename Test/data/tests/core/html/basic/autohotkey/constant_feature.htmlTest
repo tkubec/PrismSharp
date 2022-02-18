@@ -1,0 +1,283 @@
+a_ahkpath
+a_ahkversion
+a_appdata
+a_appdatacommon
+a_autotrim
+a_batchlines
+a_caretx
+a_carety
+a_computername
+a_controldelay
+a_cursor
+a_dd
+a_ddd
+a_dddd
+a_defaultmousespeed
+a_desktop
+a_desktopcommon
+a_detecthiddentext
+a_detecthiddenwindows
+a_endchar
+a_eventinfo
+a_exitreason
+a_fileencoding
+a_formatfloat
+a_formatinteger
+a_gui
+a_guievent
+a_guicontrol
+a_guicontrolevent
+a_guiheight
+a_guiwidth
+a_guix
+a_guiy
+a_hour
+a_iconfile
+a_iconhidden
+a_iconnumber
+a_icontip
+a_index
+a_ipaddress1
+a_ipaddress2
+a_ipaddress3
+a_ipaddress4
+a_is64bitos
+a_isadmin
+a_iscompiled
+a_iscritical
+a_ispaused
+a_issuspended
+a_isunicode
+a_keydelay
+a_language
+a_lasterror
+a_linefile
+a_linenumber
+a_loopfield
+a_loopfileattrib
+a_loopfiledir
+a_loopfileext
+a_loopfilefullpath
+a_loopfilelongpath
+a_loopfilename
+a_loopfileshortname
+a_loopfileshortpath
+a_loopfilesize
+a_loopfilesizekb
+a_loopfilesizemb
+a_loopfiletimeaccessed
+a_loopfiletimecreated
+a_loopfiletimemodified
+a_loopreadline
+a_loopregkey
+a_loopregname
+a_loopregsubkey
+a_loopregtimemodified
+a_loopregtype
+a_mday
+a_min
+a_mm
+a_mmm
+a_mmmm
+a_mon
+a_mousedelay
+a_msec
+a_mydocuments
+a_now
+a_nowutc
+a_numbatchlines
+a_ostype
+a_osversion
+a_priorhotkey
+a_priorkey
+programfiles
+a_programfiles
+a_programs
+a_programscommon
+a_ptrsize
+a_regview
+a_screendpi
+a_screenheight
+a_scripthwnd
+a_screenwidth
+a_scriptdir
+a_scriptfullpath
+a_scriptname
+a_sec
+a_space
+a_startmenu
+a_startmenucommon
+a_startup
+a_startupcommon
+a_stringcasesense
+a_tab
+a_temp
+a_thisfunc
+a_thishotkey
+a_thislabel
+a_thismenu
+a_thismenuitem
+a_thismenuitempos
+a_tickcount
+a_timeidle
+a_timeidlephysical
+a_timesincepriorhotkey
+a_timesincethishotkey
+a_titlematchmode
+a_titlematchmodespeed
+a_username
+a_wday
+a_windelay
+a_windir
+a_workingdir
+a_yday
+a_year
+a_yweek
+a_yyyy
+clipboard
+clipboardall
+comspec
+errorlevel
+----------------------------------------------------
+<span class="token constant">a_ahkpath</span>
+<span class="token constant">a_ahkversion</span>
+<span class="token constant">a_appdata</span>
+<span class="token constant">a_appdatacommon</span>
+<span class="token constant">a_autotrim</span>
+<span class="token constant">a_batchlines</span>
+<span class="token constant">a_caretx</span>
+<span class="token constant">a_carety</span>
+<span class="token constant">a_computername</span>
+<span class="token constant">a_controldelay</span>
+<span class="token constant">a_cursor</span>
+<span class="token constant">a_dd</span>
+<span class="token constant">a_ddd</span>
+<span class="token constant">a_dddd</span>
+<span class="token constant">a_defaultmousespeed</span>
+<span class="token constant">a_desktop</span>
+<span class="token constant">a_desktopcommon</span>
+<span class="token constant">a_detecthiddentext</span>
+<span class="token constant">a_detecthiddenwindows</span>
+<span class="token constant">a_endchar</span>
+<span class="token constant">a_eventinfo</span>
+<span class="token constant">a_exitreason</span>
+<span class="token constant">a_fileencoding</span>
+<span class="token constant">a_formatfloat</span>
+<span class="token constant">a_formatinteger</span>
+<span class="token constant">a_gui</span>
+<span class="token constant">a_guievent</span>
+<span class="token constant">a_guicontrol</span>
+<span class="token constant">a_guicontrolevent</span>
+<span class="token constant">a_guiheight</span>
+<span class="token constant">a_guiwidth</span>
+<span class="token constant">a_guix</span>
+<span class="token constant">a_guiy</span>
+<span class="token constant">a_hour</span>
+<span class="token constant">a_iconfile</span>
+<span class="token constant">a_iconhidden</span>
+<span class="token constant">a_iconnumber</span>
+<span class="token constant">a_icontip</span>
+<span class="token constant">a_index</span>
+<span class="token constant">a_ipaddress1</span>
+<span class="token constant">a_ipaddress2</span>
+<span class="token constant">a_ipaddress3</span>
+<span class="token constant">a_ipaddress4</span>
+<span class="token constant">a_is64bitos</span>
+<span class="token constant">a_isadmin</span>
+<span class="token constant">a_iscompiled</span>
+<span class="token constant">a_iscritical</span>
+<span class="token constant">a_ispaused</span>
+<span class="token constant">a_issuspended</span>
+<span class="token constant">a_isunicode</span>
+<span class="token constant">a_keydelay</span>
+<span class="token constant">a_language</span>
+<span class="token constant">a_lasterror</span>
+<span class="token constant">a_linefile</span>
+<span class="token constant">a_linenumber</span>
+<span class="token constant">a_loopfield</span>
+<span class="token constant">a_loopfileattrib</span>
+<span class="token constant">a_loopfiledir</span>
+<span class="token constant">a_loopfileext</span>
+<span class="token constant">a_loopfilefullpath</span>
+<span class="token constant">a_loopfilelongpath</span>
+<span class="token constant">a_loopfilename</span>
+<span class="token constant">a_loopfileshortname</span>
+<span class="token constant">a_loopfileshortpath</span>
+<span class="token constant">a_loopfilesize</span>
+<span class="token constant">a_loopfilesizekb</span>
+<span class="token constant">a_loopfilesizemb</span>
+<span class="token constant">a_loopfiletimeaccessed</span>
+<span class="token constant">a_loopfiletimecreated</span>
+<span class="token constant">a_loopfiletimemodified</span>
+<span class="token constant">a_loopreadline</span>
+<span class="token constant">a_loopregkey</span>
+<span class="token constant">a_loopregname</span>
+<span class="token constant">a_loopregsubkey</span>
+<span class="token constant">a_loopregtimemodified</span>
+<span class="token constant">a_loopregtype</span>
+<span class="token constant">a_mday</span>
+<span class="token constant">a_min</span>
+<span class="token constant">a_mm</span>
+<span class="token constant">a_mmm</span>
+<span class="token constant">a_mmmm</span>
+<span class="token constant">a_mon</span>
+<span class="token constant">a_mousedelay</span>
+<span class="token constant">a_msec</span>
+<span class="token constant">a_mydocuments</span>
+<span class="token constant">a_now</span>
+<span class="token constant">a_nowutc</span>
+<span class="token constant">a_numbatchlines</span>
+<span class="token constant">a_ostype</span>
+<span class="token constant">a_osversion</span>
+<span class="token constant">a_priorhotkey</span>
+<span class="token constant">a_priorkey</span>
+<span class="token constant">programfiles</span>
+<span class="token constant">a_programfiles</span>
+<span class="token constant">a_programs</span>
+<span class="token constant">a_programscommon</span>
+<span class="token constant">a_ptrsize</span>
+<span class="token constant">a_regview</span>
+<span class="token constant">a_screendpi</span>
+<span class="token constant">a_screenheight</span>
+<span class="token constant">a_scripthwnd</span>
+<span class="token constant">a_screenwidth</span>
+<span class="token constant">a_scriptdir</span>
+<span class="token constant">a_scriptfullpath</span>
+<span class="token constant">a_scriptname</span>
+<span class="token constant">a_sec</span>
+<span class="token constant">a_space</span>
+<span class="token constant">a_startmenu</span>
+<span class="token constant">a_startmenucommon</span>
+<span class="token constant">a_startup</span>
+<span class="token constant">a_startupcommon</span>
+<span class="token constant">a_stringcasesense</span>
+<span class="token constant">a_tab</span>
+<span class="token constant">a_temp</span>
+<span class="token constant">a_thisfunc</span>
+<span class="token constant">a_thishotkey</span>
+<span class="token constant">a_thislabel</span>
+<span class="token constant">a_thismenu</span>
+<span class="token constant">a_thismenuitem</span>
+<span class="token constant">a_thismenuitempos</span>
+<span class="token constant">a_tickcount</span>
+<span class="token constant">a_timeidle</span>
+<span class="token constant">a_timeidlephysical</span>
+<span class="token constant">a_timesincepriorhotkey</span>
+<span class="token constant">a_timesincethishotkey</span>
+<span class="token constant">a_titlematchmode</span>
+<span class="token constant">a_titlematchmodespeed</span>
+<span class="token constant">a_username</span>
+<span class="token constant">a_wday</span>
+<span class="token constant">a_windelay</span>
+<span class="token constant">a_windir</span>
+<span class="token constant">a_workingdir</span>
+<span class="token constant">a_yday</span>
+<span class="token constant">a_year</span>
+<span class="token constant">a_yweek</span>
+<span class="token constant">a_yyyy</span>
+<span class="token constant">clipboard</span>
+<span class="token constant">clipboardall</span>
+<span class="token constant">comspec</span>
+<span class="token constant">errorlevel</span>
+
+----------------------------------------------------

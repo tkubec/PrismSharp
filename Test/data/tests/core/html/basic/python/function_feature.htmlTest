@@ -1,0 +1,11 @@
+def Foo(
+def foo_bar_42(
+def _(
+def foo_ ()
+----------------------------------------------------
+<span class="token keyword">def</span> <span class="token function">Foo</span><span class="token punctuation">(</span>
+<span class="token keyword">def</span> <span class="token function">foo_bar_42</span><span class="token punctuation">(</span>
+<span class="token keyword">def</span> <span class="token function">_</span><span class="token punctuation">(</span>
+<span class="token keyword">def</span> <span class="token function">foo_</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+for (( i=0;i<$ELEMENTS;i++)); do
+	echo ${ARRAY[${i}]}
+done
+while read LINE; do
+    ARRAY[$count]=$LINE
+    ((count++))
+done
+if [ -d $directory ]; then
+	echo "Directory exists"
+else
+	echo "Directory does not exists"
+fi
+----------------------------------------------------
+<span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>$ELEMENTS<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">))</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token variable">${ARRAY<span class="token punctuation">[</span>${i}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token keyword">done</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> LINE<span class="token punctuation">;</span> <span class="token keyword">do</span>
+    ARRAY<span class="token punctuation">[</span><span class="token variable">$count</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token variable">$LINE</span>
+    <span class="token variable"><span class="token punctuation">((</span>count<span class="token operator">++</span><span class="token punctuation">))</span></span>
+<span class="token keyword">done</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -d <span class="token variable">$directory</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"Directory exists"</span>
+<span class="token keyword">else</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"Directory does not exists"</span>
+<span class="token keyword">fi</span>
+
+----------------------------------------------------

@@ -1,0 +1,35 @@
+<script runat="server">
+	// The following variables are visible to all procedures
+	// within the script block.
+	String str;
+	int i;
+	int i2;
+
+	int DoubleIt(int inpt)
+	{
+		// The following variable is visible only within
+		// the DoubleIt procedure.
+		int factor = 2;
+
+		return inpt * factor;
+	}
+</script>
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">runat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>server<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token asp-script asp script">
+	<span class="token comment">// The following variables are visible to all procedures</span>
+	<span class="token comment">// within the script block.</span>
+	<span class="token class-name">String</span> str<span class="token punctuation">;</span>
+	<span class="token class-name"><span class="token keyword">int</span></span> i<span class="token punctuation">;</span>
+	<span class="token class-name"><span class="token keyword">int</span></span> i2<span class="token punctuation">;</span>
+
+	<span class="token return-type class-name"><span class="token keyword">int</span></span> <span class="token function">DoubleIt</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> inpt<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token comment">// The following variable is visible only within</span>
+		<span class="token comment">// the DoubleIt procedure.</span>
+		<span class="token class-name"><span class="token keyword">int</span></span> factor <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">return</span> inpt <span class="token operator">*</span> factor<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

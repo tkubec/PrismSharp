@@ -1,0 +1,39 @@
+defmodule MyServer do
+  @vsn 2
+end
+
+defmodule Math do
+  @moduledoc """
+  Provides math-related functions.
+
+      iex> Math.sum(1, 2)
+      3
+
+  """
+
+  @doc """
+  Calculates the sum of two numbers.
+  """
+  def sum(a, b), do: a + b
+end
+----------------------------------------------------
+<span class="token keyword">defmodule</span> <span class="token module class-name">MyServer</span> <span class="token keyword">do</span>
+  <span class="token attribute variable">@vsn</span> <span class="token number">2</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">defmodule</span> <span class="token module class-name">Math</span> <span class="token keyword">do</span>
+  <span class="token doc"><span class="token attribute">@moduledoc</span> <span class="token string">"""
+  Provides math-related functions.
+
+      iex> Math.sum(1, 2)
+      3
+
+  """</span></span>
+
+  <span class="token doc"><span class="token attribute">@doc</span> <span class="token string">"""
+  Calculates the sum of two numbers.
+  """</span></span>
+  <span class="token keyword">def</span> <span class="token function">sum</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token attr-name">do:</span> a <span class="token operator">+</span> b
+<span class="token keyword">end</span>
+
+----------------------------------------------------

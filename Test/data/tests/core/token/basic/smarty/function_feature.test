@@ -1,0 +1,33 @@
+{if count($foo)}
+	{$foo|@count}
+	{$bar|lower}
+{/if}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "if"],
+	["function", "count"],
+	["punctuation", "("],
+	["variable", "$foo"],
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["operator", "|"],
+	["function", "@count"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$bar"],
+	["operator", "|"],
+	["function", "lower"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"if",
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

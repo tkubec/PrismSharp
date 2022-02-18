@@ -1,0 +1,11 @@
+Bit_vector(7 downto 0)
+DataBus(7)
+function BOOL_TO_SL(X : boolean)
+function "*"(a : resistance; b : capacitance)
+----------------------------------------------------
+<span class="token function">Bit_vector</span><span class="token punctuation">(</span><span class="token number">7</span> <span class="token keyword">downto</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">DataBus</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function">BOOL_TO_SL</span><span class="token punctuation">(</span>X <span class="token punctuation">:</span> boolean<span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token quoted-function function">"*"</span><span class="token punctuation">(</span>a <span class="token punctuation">:</span> resistance<span class="token punctuation">;</span> b <span class="token punctuation">:</span> capacitance<span class="token punctuation">)</span>
+
+----------------------------------------------------

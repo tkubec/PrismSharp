@@ -1,0 +1,19 @@
+PREFIX dc10:  <http://purl.org/dc/elements/1.1/>
+PREFIX dc11:  <http://purl.org/dc/elements/1.0/>
+
+SELECT ?title ?author
+WHERE  { { ?book dc10:title ?title .  ?book dc10:creator ?author }
+				 UNION
+				 { ?book dc11:title ?title .  ?book dc11:creator ?author }
+			 }
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">dc10<span class="token punctuation">:</span></span></span>  <span class="token url"><span class="token punctuation">&lt;</span>http://purl.org/dc/elements/1.1/<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">dc11<span class="token punctuation">:</span></span></span>  <span class="token url"><span class="token punctuation">&lt;</span>http://purl.org/dc/elements/1.0/<span class="token punctuation">></span></span>
+
+<span class="token keyword">SELECT</span> <span class="token variable">?title</span> <span class="token variable">?author</span>
+<span class="token keyword">WHERE</span>  <span class="token punctuation">{</span> <span class="token punctuation">{</span> <span class="token variable">?book</span> <span class="token function"><span class="token prefix">dc10<span class="token punctuation">:</span></span><span class="token local-name">title</span></span> <span class="token variable">?title</span> <span class="token punctuation">.</span>  <span class="token variable">?book</span> <span class="token function"><span class="token prefix">dc10<span class="token punctuation">:</span></span><span class="token local-name">creator</span></span> <span class="token variable">?author</span> <span class="token punctuation">}</span>
+				 <span class="token keyword">UNION</span>
+				 <span class="token punctuation">{</span> <span class="token variable">?book</span> <span class="token function"><span class="token prefix">dc11<span class="token punctuation">:</span></span><span class="token local-name">title</span></span> <span class="token variable">?title</span> <span class="token punctuation">.</span>  <span class="token variable">?book</span> <span class="token function"><span class="token prefix">dc11<span class="token punctuation">:</span></span><span class="token local-name">creator</span></span> <span class="token variable">?author</span> <span class="token punctuation">}</span>
+			 <span class="token punctuation">}</span>
+
+----------------------------------------------------

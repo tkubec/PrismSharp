@@ -1,0 +1,9 @@
+foo.apply(thisArg, args);
+bar.call(...args);
+fooBar.bind(thisArg);
+----------------------------------------------------
+<span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">bar</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fooBar</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

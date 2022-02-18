@@ -1,0 +1,173 @@
+PREFIX  data:  <http://example.org/foaf/>
+PREFIX  foaf:  <http://xmlns.com/foaf/0.1/>
+PREFIX  rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?mbox ?nick ?ppd
+WHERE
+{
+	GRAPH data:aliceFoaf
+	{
+		?alice foaf:mbox <mailto:alice@work.example> ;
+					 foaf:knows ?whom .
+		?whom  foaf:mbox ?mbox ;
+					 rdfs:seeAlso ?ppd .
+		?ppd  a foaf:PersonalProfileDocument .
+	} .
+	GRAPH ?ppd
+	{
+			?w foaf:mbox ?mbox ;
+				 foaf:nick ?nick
+	}
+}
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"data",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/foaf/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"rdfs",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://www.w3.org/2000/01/rdf-schema#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?mbox"],
+	["variable", "?nick"],
+	["variable", "?ppd"],
+
+	["keyword", "WHERE"],
+
+	["punctuation", "{"],
+
+	["keyword", "GRAPH"],
+	["function", [
+		["prefix", [
+			"data",
+			["punctuation", ":"]
+		]],
+		["local-name", "aliceFoaf"]
+	]],
+
+	["punctuation", "{"],
+
+	["variable", "?alice"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "mbox"]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"mailto:alice@work.example",
+		["punctuation", ">"]
+	]],
+	["punctuation", ";"],
+
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "knows"]
+	]],
+	["variable", "?whom"],
+	["punctuation", "."],
+
+	["variable", "?whom"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "mbox"]
+	]],
+	["variable", "?mbox"],
+	["punctuation", ";"],
+
+	["function", [
+		["prefix", [
+			"rdfs",
+			["punctuation", ":"]
+		]],
+		["local-name", "seeAlso"]
+	]],
+	["variable", "?ppd"],
+	["punctuation", "."],
+
+	["variable", "?ppd"],
+	["keyword", "a"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "PersonalProfileDocument"]
+	]],
+	["punctuation", "."],
+
+	["punctuation", "}"],
+	["punctuation", "."],
+
+	["keyword", "GRAPH"],
+	["variable", "?ppd"],
+
+	["punctuation", "{"],
+
+	["variable", "?w"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "mbox"]
+	]],
+	["variable", "?mbox"],
+	["punctuation", ";"],
+
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "nick"]
+	]],
+	["variable", "?nick"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

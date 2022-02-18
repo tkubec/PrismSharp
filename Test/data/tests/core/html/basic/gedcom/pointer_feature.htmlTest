@@ -1,0 +1,13 @@
+@f!@
+@foo_Bar@
+@_$!"$%&'()*+,-./:;<=>?[\]^`{|}~ #foobar@
+0 @SUBMITTER@ SUBM
+1 FAMS @FAMILY@
+----------------------------------------------------
+<span class="token pointer variable">@f!@</span>
+<span class="token pointer variable">@foo_Bar@</span>
+<span class="token pointer variable">@_$!"$%&amp;'()*+,-./:;&lt;=>?[\]^`{|}~ #foobar@</span>
+<span class="token level number">0</span> <span class="token pointer variable">@SUBMITTER@</span> <span class="token tag string">SUBM</span>
+<span class="token level number">1</span> <span class="token tag string">FAMS</span> <span class="token line-value"><span class="token pointer variable">@FAMILY@</span></span>
+
+----------------------------------------------------

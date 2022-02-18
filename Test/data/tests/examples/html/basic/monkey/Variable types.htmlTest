@@ -1,0 +1,19 @@
+Local myVariable:Bool = True
+Local myVariable? = True
+Local myVariable:Int = 1024
+Local myVariable% = 1024
+Local myVariable:Float = 3.141516
+Local myVariable# = 3.141516
+Local myVariable:String = "Hello world"
+Local myVariable$ = "Hello world"
+----------------------------------------------------
+<span class="token keyword">Local</span> myVariable<span class="token punctuation">:</span><span class="token keyword">Bool</span> <span class="token operator">=</span> <span class="token keyword">True</span>
+<span class="token keyword">Local</span> myVariable<span class="token type-char class-name">?</span> <span class="token operator">=</span> <span class="token keyword">True</span>
+<span class="token keyword">Local</span> myVariable<span class="token punctuation">:</span><span class="token keyword">Int</span> <span class="token operator">=</span> <span class="token number">1024</span>
+<span class="token keyword">Local</span> myVariable<span class="token type-char class-name">%</span> <span class="token operator">=</span> <span class="token number">1024</span>
+<span class="token keyword">Local</span> myVariable<span class="token punctuation">:</span><span class="token keyword">Float</span> <span class="token operator">=</span> <span class="token number">3.141516</span>
+<span class="token keyword">Local</span> myVariable<span class="token type-char class-name">#</span> <span class="token operator">=</span> <span class="token number">3.141516</span>
+<span class="token keyword">Local</span> myVariable<span class="token punctuation">:</span><span class="token keyword">String</span> <span class="token operator">=</span> <span class="token string">"Hello world"</span>
+<span class="token keyword">Local</span> myVariable<span class="token type-char class-name">$</span> <span class="token operator">=</span> <span class="token string">"Hello world"</span>
+
+----------------------------------------------------

@@ -1,0 +1,89 @@
+// WYSIWYG strings
+r"hello"
+r"c:\root\foo.exe"
+r"ab\n"
+`hello`
+`c:\root\foo.exe`
+`ab\n`
+
+// Double-quoted strings
+"hello"
+"c:\\root\\foo.exe"
+"ab\n"
+"ab
+"
+
+// Hex strings
+x"0A"
+x"00 FBCD 32FD 0A"
+
+// String postfix characters
+"hello"c  // string
+"hello"w  // wstring
+"hello"d  // dstring
+
+// Delimited strings
+q"(foo(xxx))"
+q"[foo{]"
+q"EOS
+This
+is a multi-line
+heredoc string
+EOS"
+q"/foo]/"
+
+// Token strings
+q{foo}
+q{/*}*/ }
+q{ foo(q{hello}); }
+q{ __TIME__ }
+
+// Character literals
+'a'
+'\u000A'
+----------------------------------------------------
+<span class="token comment">// WYSIWYG strings</span>
+<span class="token string">r"hello"</span>
+<span class="token string">r"c:\root\foo.exe"</span>
+<span class="token string">r"ab\n"</span>
+<span class="token string">`hello`</span>
+<span class="token string">`c:\root\foo.exe`</span>
+<span class="token string">`ab\n`</span>
+
+<span class="token comment">// Double-quoted strings</span>
+<span class="token string">"hello"</span>
+<span class="token string">"c:\\root\\foo.exe"</span>
+<span class="token string">"ab\n"</span>
+<span class="token string">"ab
+"</span>
+
+<span class="token comment">// Hex strings</span>
+<span class="token string">x"0A"</span>
+<span class="token string">x"00 FBCD 32FD 0A"</span>
+
+<span class="token comment">// String postfix characters</span>
+<span class="token string">"hello"c</span>  <span class="token comment">// string</span>
+<span class="token string">"hello"w</span>  <span class="token comment">// wstring</span>
+<span class="token string">"hello"d</span>  <span class="token comment">// dstring</span>
+
+<span class="token comment">// Delimited strings</span>
+<span class="token string">q"(foo(xxx))"</span>
+<span class="token string">q"[foo{]"</span>
+<span class="token string">q"EOS
+This
+is a multi-line
+heredoc string
+EOS"</span>
+<span class="token string">q"/foo]/"</span>
+
+<span class="token comment">// Token strings</span>
+<span class="token string token-string">q{foo}</span>
+<span class="token string token-string">q{/*}</span><span class="token operator">*</span><span class="token operator">/</span> <span class="token punctuation">}</span>
+<span class="token string token-string">q{ foo(q{hello}); }</span>
+<span class="token string token-string">q{ __TIME__ }</span>
+
+<span class="token comment">// Character literals</span>
+<span class="token char">'a'</span>
+<span class="token char">'\u000A'</span>
+
+----------------------------------------------------

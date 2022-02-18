@@ -1,0 +1,27 @@
+self::
+child::
+descendant::
+descendant-or-self::
+attribute::
+following::
+following-sibling::
+parent::
+ancestor::
+ancestor-or-self::
+preceding::
+preceding-sibling::
+----------------------------------------------------
+<span class="token axis operator">self</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">child</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">descendant</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">descendant-or-self</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">attribute</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">following</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">following-sibling</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">parent</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">ancestor</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">ancestor-or-self</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">preceding</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+<span class="token axis operator">preceding-sibling</span><span class="token punctuation">:</span><span class="token punctuation">:</span>
+
+----------------------------------------------------

@@ -1,0 +1,1116 @@
+(node:40780) DeprecationWarning: Using Buffer without `new` will soon stop working. Use `new Buffer()`, or preferably `Buffer.from()`, `Buffer.allocUnsafe()` or `Buffer.alloc()` instead.
+    at Buffer (buffer.js:79:13)
+    at repl:1:1
+    at sigintHandlersWrap (vm.js:22:35)
+    at sigintHandlersWrap (vm.js:96:12)
+    at ContextifyScript.Script.runInThisContext (vm.js:21:12)
+    at REPLServer.defaultEval (repl.js:313:29)
+    at bound (domain.js:280:14)
+    at REPLServer.runBound [as eval] (domain.js:293:12)
+    at REPLServer.onLine (repl.js:513:10)
+    at emitOne (events.js:101:20)
+
+Error: custom error
+    at Server.<anonymous> (/trace/showcases/http.js:4:9)
+    at emitTwo (events.js:106:13)
+    at Server.emit (events.js:191:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:543:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:105:23)
+    at new <anonymous> (_http_common.js:159:16)
+    at exports.FreeList.alloc (internal/freelist.js:14:46)
+    at Server.connectionListener (_http_server.js:316:24)
+    at emitOne (events.js:96:13)
+    at Server.emit (events.js:188:7)
+    at TCP.onconnection (net.js:1460:8)
+    at createServerHandle (net.js:1181:14)
+    at Server._listen2 (net.js:1225:14)
+    at listen (net.js:1290:10)
+    at Server.listen (net.js:1386:5)
+    at Object.<anonymous> (/trace/showcases/http.js:5:4)
+    at Module._compile (module.js:541:32)
+    at Object.Module._extensions..js (module.js:550:10)
+    at Module.load (module.js:458:32)
+    at tryModuleLoad (module.js:417:12)
+    at Function.Module._load (module.js:409:3)
+    at Module.runMain (module.js:575:10)
+    at run (bootstrap_node.js:340:7)
+    at startup (bootstrap_node.js:132:9)
+    at bootstrap_node.js:455:3
+
+
+Error: custom error
+    at /trace/showcases/basic.js:7:13
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+    at InternalFieldObject.ondone (/trace/showcases/basic.js:6:13)
+    at /trace/showcases/basic.js:5:10
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:445:3)
+    at ReadFileContext.close (fs.js:358:11)
+    at FSReqWrap.readFileAfterRead [as oncomplete] (fs.js:414:15)
+    at ReadFileContext.read (fs.js:342:11)
+    at FSReqWrap.readFileAfterStat [as oncomplete] (fs.js:398:11)
+    at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:374:11)
+    at Object.fs.readFile (fs.js:303:11)
+    at Object.<anonymous> (/trace/showcases/basic.js:4:4)
+    at Module._compile (module.js:541:32)
+    at Object.Module._extensions..js (module.js:550:10)
+    at Module.load (module.js:458:32)
+    at tryModuleLoad (module.js:417:12)
+    at Function.Module._load (module.js:409:3)
+    at Module.runMain (module.js:575:10)
+    at run (bootstrap_node.js:340:7)
+    at startup (bootstrap_node.js:132:9)
+    at bootstrap_node.js:455:3
+
+
+BulkWriteError: E11000 duplicate key error collection: test.test index: _id_ dup key: { : 1 }
+    at OrderedBulkOperation.handleWriteError (/workspace/node_modules/mongodb/lib/bulk/common.js:1048:11)
+    at resultHandler (/workspace/node_modules/mongodb/lib/bulk/ordered.js:159:23)
+    at /workspace/node_modules/mongodb/node_modules/mongodb-core/lib/connection/pool.js:532:18
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+
+Error
+    at Collection.(anonymous function) [as insertMany] (/workspace/node_modules/monogram/lib/collection.js:80:21)
+    at insert (/workspace/test.js:14:31)
+    at run (/workspace/test.js:9:9)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+
+Error
+    at Collection.(anonymous function) [as insertMany] (/workspace/node_modules/monogram/lib/collection.js:80:21)
+    at insert (/workspace/test.js:15:31)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)
+
+
+Deno:
+
+Error: Some error
+    at throwsA (<unknown>:1:23)
+    at <unknown>:1:13
+    at evaluate ($deno$/repl.ts:64:34)
+    at Object.replLoop ($deno$/repl.ts:153:13)
+
+Uncaught NotFound: No such file or directory (os error 2)
+    at DenoError (deno/js/errors.ts:22:5)
+    at maybeError (deno/js/errors.ts:41:12)
+    at handleAsyncMsgFromRust (deno/js/dispatch.ts:27:17)
+----------------------------------------------------
+[
+	["error-message", "(node:40780) DeprecationWarning: Using Buffer without `new` will soon stop working. Use `new Buffer()`, or preferably `Buffer.from()`, `Buffer.allocUnsafe()` or `Buffer.alloc()` instead."],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["Buffer"]],
+		["punctuation", "("],
+		["filename", "buffer.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"79",
+			["punctuation", ":"],
+			"13"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["filename", "repl"],
+		["line-number", [
+			["punctuation", ":"],
+			"1",
+			["punctuation", ":"],
+			"1"
+		]]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["sigintHandlersWrap"]],
+		["punctuation", "("],
+		["filename", "vm.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"22",
+			["punctuation", ":"],
+			"35"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["sigintHandlersWrap"]],
+		["punctuation", "("],
+		["filename", "vm.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"96",
+			["punctuation", ":"],
+			"12"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"ContextifyScript",
+			["punctuation", "."],
+			"Script",
+			["punctuation", "."],
+			"runInThisContext"
+		]],
+		["punctuation", "("],
+		["filename", "vm.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"21",
+			["punctuation", ":"],
+			"12"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"REPLServer",
+			["punctuation", "."],
+			"defaultEval"
+		]],
+		["punctuation", "("],
+		["filename", "repl.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"313",
+			["punctuation", ":"],
+			"29"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["bound"]],
+		["punctuation", "("],
+		["filename", "domain.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"280",
+			["punctuation", ":"],
+			"14"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"REPLServer",
+			["punctuation", "."],
+			"runBound"
+		]],
+		["alias", "[as eval]"],
+		["punctuation", "("],
+		["filename", "domain.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"293",
+			["punctuation", ":"],
+			"12"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"REPLServer",
+			["punctuation", "."],
+			"onLine"
+		]],
+		["punctuation", "("],
+		["filename", "repl.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"513",
+			["punctuation", ":"],
+			"10"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["emitOne"]],
+		["punctuation", "("],
+		["filename", "events.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"101",
+			["punctuation", ":"],
+			"20"
+		]],
+		["punctuation", ")"]
+	]],
+
+	["error-message", "Error: custom error"],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Server",
+			["punctuation", "."],
+			"<anonymous>"
+		]],
+		["punctuation", "("],
+		["filename", "/trace/showcases/http.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"4",
+			["punctuation", ":"],
+			"9"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["emitTwo"]],
+		["punctuation", "("],
+		["filename", "events.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"106",
+			["punctuation", ":"],
+			"13"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Server",
+			["punctuation", "."],
+			"emit"
+		]],
+		["punctuation", "("],
+		["filename", "events.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"191",
+			["punctuation", ":"],
+			"7"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"HTTPParser",
+			["punctuation", "."],
+			"parserOnIncoming"
+		]],
+		["alias", "[as onIncoming]"],
+		["punctuation", "("],
+		["filename", "_http_server.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"543",
+			["punctuation", ":"],
+			"12"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"HTTPParser",
+			["punctuation", "."],
+			"parserOnHeadersComplete"
+		]],
+		["punctuation", "("],
+		["filename", "_http_common.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"105",
+			["punctuation", ":"],
+			"23"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["keyword", "new"],
+		["function", ["<anonymous>"]],
+		["punctuation", "("],
+		["filename", "_http_common.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"159",
+			["punctuation", ":"],
+			"16"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at exports.FreeList.alloc (internal/freelist.js:14:46)"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Server",
+			["punctuation", "."],
+			"connectionListener"
+		]],
+		["punctuation", "("],
+		["filename", "_http_server.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"316",
+			["punctuation", ":"],
+			"24"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["emitOne"]],
+		["punctuation", "("],
+		["filename", "events.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"96",
+			["punctuation", ":"],
+			"13"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Server",
+			["punctuation", "."],
+			"emit"
+		]],
+		["punctuation", "("],
+		["filename", "events.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"188",
+			["punctuation", ":"],
+			"7"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"TCP",
+			["punctuation", "."],
+			"onconnection"
+		]],
+		["punctuation", "("],
+		["filename", "net.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"1460",
+			["punctuation", ":"],
+			"8"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["createServerHandle"]],
+		["punctuation", "("],
+		["filename", "net.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"1181",
+			["punctuation", ":"],
+			"14"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Server",
+			["punctuation", "."],
+			"_listen2"
+		]],
+		["punctuation", "("],
+		["filename", "net.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"1225",
+			["punctuation", ":"],
+			"14"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["listen"]],
+		["punctuation", "("],
+		["filename", "net.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"1290",
+			["punctuation", ":"],
+			"10"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Server",
+			["punctuation", "."],
+			"listen"
+		]],
+		["punctuation", "("],
+		["filename", "net.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"1386",
+			["punctuation", ":"],
+			"5"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Object",
+			["punctuation", "."],
+			"<anonymous>"
+		]],
+		["punctuation", "("],
+		["filename", "/trace/showcases/http.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"5",
+			["punctuation", ":"],
+			"4"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Module",
+			["punctuation", "."],
+			"_compile"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"541",
+			["punctuation", ":"],
+			"32"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Object",
+			["punctuation", "."],
+			"Module",
+			["punctuation", "."],
+			"_extensions",
+			["punctuation", "."],
+			["punctuation", "."],
+			"js"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"550",
+			["punctuation", ":"],
+			"10"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Module",
+			["punctuation", "."],
+			"load"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"458",
+			["punctuation", ":"],
+			"32"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["tryModuleLoad"]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"417",
+			["punctuation", ":"],
+			"12"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Function",
+			["punctuation", "."],
+			"Module",
+			["punctuation", "."],
+			"_load"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"409",
+			["punctuation", ":"],
+			"3"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Module",
+			["punctuation", "."],
+			"runMain"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"575",
+			["punctuation", ":"],
+			"10"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["run"]],
+		["punctuation", "("],
+		["filename", "bootstrap_node.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"340",
+			["punctuation", ":"],
+			"7"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["startup"]],
+		["punctuation", "("],
+		["filename", "bootstrap_node.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"132",
+			["punctuation", ":"],
+			"9"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["filename", "bootstrap_node.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"455",
+			["punctuation", ":"],
+			"3"
+		]]
+	]],
+
+	["error-message", "Error: custom error"],
+	["stack-frame", [
+		["keyword", "at"],
+		["filename", "/trace/showcases/basic.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"7",
+			["punctuation", ":"],
+			"13"
+		]]
+	]],
+	["stack-frame", [
+		["not-my-code", "at _combinedTickCallback (internal/process/next_tick.js:67:7)"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at process._tickCallback (internal/process/next_tick.js:98:9)"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"InternalFieldObject",
+			["punctuation", "."],
+			"ondone"
+		]],
+		["punctuation", "("],
+		["filename", "/trace/showcases/basic.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"6",
+			["punctuation", ":"],
+			"13"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["filename", "/trace/showcases/basic.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"5",
+			["punctuation", ":"],
+			"10"
+		]]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"FSReqWrap",
+			["punctuation", "."],
+			"readFileAfterClose"
+		]],
+		["alias", "[as oncomplete]"],
+		["punctuation", "("],
+		["filename", "fs.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"445",
+			["punctuation", ":"],
+			"3"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"ReadFileContext",
+			["punctuation", "."],
+			"close"
+		]],
+		["punctuation", "("],
+		["filename", "fs.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"358",
+			["punctuation", ":"],
+			"11"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"FSReqWrap",
+			["punctuation", "."],
+			"readFileAfterRead"
+		]],
+		["alias", "[as oncomplete]"],
+		["punctuation", "("],
+		["filename", "fs.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"414",
+			["punctuation", ":"],
+			"15"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"ReadFileContext",
+			["punctuation", "."],
+			"read"
+		]],
+		["punctuation", "("],
+		["filename", "fs.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"342",
+			["punctuation", ":"],
+			"11"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"FSReqWrap",
+			["punctuation", "."],
+			"readFileAfterStat"
+		]],
+		["alias", "[as oncomplete]"],
+		["punctuation", "("],
+		["filename", "fs.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"398",
+			["punctuation", ":"],
+			"11"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"FSReqWrap",
+			["punctuation", "."],
+			"readFileAfterOpen"
+		]],
+		["alias", "[as oncomplete]"],
+		["punctuation", "("],
+		["filename", "fs.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"374",
+			["punctuation", ":"],
+			"11"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Object",
+			["punctuation", "."],
+			"fs",
+			["punctuation", "."],
+			"readFile"
+		]],
+		["punctuation", "("],
+		["filename", "fs.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"303",
+			["punctuation", ":"],
+			"11"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Object",
+			["punctuation", "."],
+			"<anonymous>"
+		]],
+		["punctuation", "("],
+		["filename", "/trace/showcases/basic.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"4",
+			["punctuation", ":"],
+			"4"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Module",
+			["punctuation", "."],
+			"_compile"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"541",
+			["punctuation", ":"],
+			"32"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Object",
+			["punctuation", "."],
+			"Module",
+			["punctuation", "."],
+			"_extensions",
+			["punctuation", "."],
+			["punctuation", "."],
+			"js"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"550",
+			["punctuation", ":"],
+			"10"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Module",
+			["punctuation", "."],
+			"load"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"458",
+			["punctuation", ":"],
+			"32"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["tryModuleLoad"]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"417",
+			["punctuation", ":"],
+			"12"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Function",
+			["punctuation", "."],
+			"Module",
+			["punctuation", "."],
+			"_load"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"409",
+			["punctuation", ":"],
+			"3"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Module",
+			["punctuation", "."],
+			"runMain"
+		]],
+		["punctuation", "("],
+		["filename", "module.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"575",
+			["punctuation", ":"],
+			"10"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["run"]],
+		["punctuation", "("],
+		["filename", "bootstrap_node.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"340",
+			["punctuation", ":"],
+			"7"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["startup"]],
+		["punctuation", "("],
+		["filename", "bootstrap_node.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"132",
+			["punctuation", ":"],
+			"9"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["filename", "bootstrap_node.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"455",
+			["punctuation", ":"],
+			"3"
+		]]
+	]],
+
+	["error-message", "BulkWriteError: E11000 duplicate key error collection: test.test index: _id_ dup key: { : 1 }"],
+	["stack-frame", [
+		["not-my-code", "at OrderedBulkOperation.handleWriteError (/workspace/node_modules/mongodb/lib/bulk/common.js:1048:11)"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at resultHandler (/workspace/node_modules/mongodb/lib/bulk/ordered.js:159:23)"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at /workspace/node_modules/mongodb/node_modules/mongodb-core/lib/connection/pool.js:532:18"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at _combinedTickCallback (internal/process/next_tick.js:131:7)"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at process._tickCallback (internal/process/next_tick.js:180:9)"]
+	]],
+
+	["error-message", "Error"],
+	["stack-frame", [
+		["not-my-code", "at Collection.(anonymous function) [as insertMany] (/workspace/node_modules/monogram/lib/collection.js:80:21)"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["insert"]],
+		["punctuation", "("],
+		["filename", "/workspace/test.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"14",
+			["punctuation", ":"],
+			"31"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["run"]],
+		["punctuation", "("],
+		["filename", "/workspace/test.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"9",
+			["punctuation", ":"],
+			"9"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at <anonymous>"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at process._tickCallback (internal/process/next_tick.js:188:7)"]
+	]],
+
+	["error-message", "Error"],
+	["stack-frame", [
+		["not-my-code", "at Collection.(anonymous function) [as insertMany] (/workspace/node_modules/monogram/lib/collection.js:80:21)"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["insert"]],
+		["punctuation", "("],
+		["filename", "/workspace/test.js"],
+		["line-number", [
+			["punctuation", ":"],
+			"15",
+			["punctuation", ":"],
+			"31"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at processTicksAndRejections (internal/process/next_tick.js:81:5)"]
+	]],
+
+	["error-message", "Deno:"],
+
+	["error-message", "Error: Some error"],
+	["stack-frame", [
+		["not-my-code", "at throwsA (<unknown>:1:23)"]
+	]],
+	["stack-frame", [
+		["not-my-code", "at <unknown>:1:13"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["evaluate"]],
+		["punctuation", "("],
+		["filename", "$deno$/repl.ts"],
+		["line-number", [
+			["punctuation", ":"],
+			"64",
+			["punctuation", ":"],
+			"34"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", [
+			"Object",
+			["punctuation", "."],
+			"replLoop"
+		]],
+		["punctuation", "("],
+		["filename", "$deno$/repl.ts"],
+		["line-number", [
+			["punctuation", ":"],
+			"153",
+			["punctuation", ":"],
+			"13"
+		]],
+		["punctuation", ")"]
+	]],
+
+	["error-message", "Uncaught NotFound: No such file or directory (os error 2)"],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["DenoError"]],
+		["punctuation", "("],
+		["filename", "deno/js/errors.ts"],
+		["line-number", [
+			["punctuation", ":"],
+			"22",
+			["punctuation", ":"],
+			"5"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["maybeError"]],
+		["punctuation", "("],
+		["filename", "deno/js/errors.ts"],
+		["line-number", [
+			["punctuation", ":"],
+			"41",
+			["punctuation", ":"],
+			"12"
+		]],
+		["punctuation", ")"]
+	]],
+	["stack-frame", [
+		["keyword", "at"],
+		["function", ["handleAsyncMsgFromRust"]],
+		["punctuation", "("],
+		["filename", "deno/js/dispatch.ts"],
+		["line-number", [
+			["punctuation", ":"],
+			"27",
+			["punctuation", ":"],
+			"17"
+		]],
+		["punctuation", ")"]
+	]]
+]
+
+----------------------------------------------------

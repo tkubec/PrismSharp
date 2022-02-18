@@ -1,0 +1,11 @@
+$foo[bar] # Some comment
+----------------------------------------------------
+[
+	["variable", ["$foo"]],
+	["punctuation", "["],
+	"bar",
+	["punctuation", "]"],
+	["parser-comment", "# Some comment"]
+]
+
+----------------------------------------------------

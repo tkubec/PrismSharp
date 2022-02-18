@@ -1,0 +1,487 @@
+// A Web User Interface in HTML
+// NOTE: requires full example project bundled with N4JS IDE to run.
+
+import { TaskManager } from "TaskManager";
+import {Application, Response } from "express";
+import express from "express";
+import { Todo } from "model";
+
+
+export class WebUI {
+
+     private app: Application;
+
+     @Inject
+     private manager: TaskManager;
+
+     public start() {
+
+          this.app = express();
+
+          this.app.get('/', async (req, res) => {
+               let page = await this.renderHomePage();
+               res.send(page);
+          });
+
+          this.app.get("/clear", async (req, res) => {
+               await this.manager.clear();
+               redirect(res, '/');
+          });
+
+          this.app.get("/create", async (req, res) => {
+               let values = req.query as ~Object with {type: string, label: string};
+               if (values && values.type === 'Todo' && values.label && values.label.length > 0) {
+                    await this.manager.createTodo(values.label);
+               }
+               redirect(res, '/');
+          });
+
+          this.app.listen(4000, '0.0.0.0', 511, function() {
+               console.log("HTML server listening on http://localhost:4000/");
+          });
+     }
+
+     protected async renderHomePage(): string {
+          let tasks = await this.manager.getTasks();
+          let todos = tasks.filter((task) => task instanceof Todo);
+          return `
+
+<html>
+<body>
+     Your to-do's:
+     <ul>
+     ${
+          todos.length === 0 ? '<li><em>none</em></li>\n'
+          : todos.map((task) =>
+               '<li>' + task.label + ' <small>(id: ' + task.id + ')</small></li>'
+          ).join('\n')
+     }
+     </ul>
+     <hr/>
+     <form action="/create" method="get">
+     <input type="hidden" name="type" value="Todo">
+     Label: <input type="text" name="label"><br>
+     <input type="submit" value="Create Todo">
+     </form>
+     <hr/>
+     <a href="/clear">[Clear All]</a>
+</body>
+</html>
+`;
+     }
+}
+
+function redirect(res: Response, url: string) {
+     res.header('Cache-Control', 'no-cache');
+     res.redirect(301, url);
+}
+----------------------------------------------------
+[
+	["comment", "// A Web User Interface in HTML"],
+	["comment", "// NOTE: requires full example project bundled with N4JS IDE to run."],
+
+	["keyword", "import"],
+	["punctuation", "{"],
+	" TaskManager ",
+	["punctuation", "}"],
+	["keyword", "from"],
+	["string", "\"TaskManager\""],
+	["punctuation", ";"],
+
+	["keyword", "import"],
+	["punctuation", "{"],
+	"Application",
+	["punctuation", ","],
+	" Response ",
+	["punctuation", "}"],
+	["keyword", "from"],
+	["string", "\"express\""],
+	["punctuation", ";"],
+
+	["keyword", "import"],
+	" express ",
+	["keyword", "from"],
+	["string", "\"express\""],
+	["punctuation", ";"],
+
+	["keyword", "import"],
+	["punctuation", "{"],
+	" Todo ",
+	["punctuation", "}"],
+	["keyword", "from"],
+	["string", "\"model\""],
+	["punctuation", ";"],
+
+	["keyword", "export"],
+	["keyword", "class"],
+	["class-name", ["WebUI"]],
+	["punctuation", "{"],
+
+	["keyword", "private"],
+	["literal-property", "app"],
+	["operator", ":"],
+	" Application",
+	["punctuation", ";"],
+
+	["annotation", "@Inject"],
+
+	["keyword", "private"],
+	["literal-property", "manager"],
+	["operator", ":"],
+	" TaskManager",
+	["punctuation", ";"],
+
+	["keyword", "public"],
+	["function", "start"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	"app ",
+	["operator", "="],
+	["function", "express"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	"app",
+	["punctuation", "."],
+	["keyword", "get"],
+	["punctuation", "("],
+	["string", "'/'"],
+	["punctuation", ","],
+	["function", "async"],
+	["punctuation", "("],
+	["parameter", [
+		"req",
+		["punctuation", ","],
+		" res"
+	]],
+	["punctuation", ")"],
+	["operator", "=>"],
+	["punctuation", "{"],
+
+	["keyword", "let"],
+	" page ",
+	["operator", "="],
+	" await ",
+	["keyword", "this"],
+	["punctuation", "."],
+	["function", "renderHomePage"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n               res",
+	["punctuation", "."],
+	["function", "send"],
+	["punctuation", "("],
+	"page",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	"app",
+	["punctuation", "."],
+	["keyword", "get"],
+	["punctuation", "("],
+	["string", "\"/clear\""],
+	["punctuation", ","],
+	["function", "async"],
+	["punctuation", "("],
+	["parameter", [
+		"req",
+		["punctuation", ","],
+		" res"
+	]],
+	["punctuation", ")"],
+	["operator", "=>"],
+	["punctuation", "{"],
+
+	"\n               await ",
+	["keyword", "this"],
+	["punctuation", "."],
+	"manager",
+	["punctuation", "."],
+	["function", "clear"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "redirect"],
+	["punctuation", "("],
+	"res",
+	["punctuation", ","],
+	["string", "'/'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	"app",
+	["punctuation", "."],
+	["keyword", "get"],
+	["punctuation", "("],
+	["string", "\"/create\""],
+	["punctuation", ","],
+	["function", "async"],
+	["punctuation", "("],
+	["parameter", [
+		"req",
+		["punctuation", ","],
+		" res"
+	]],
+	["punctuation", ")"],
+	["operator", "=>"],
+	["punctuation", "{"],
+
+	["keyword", "let"],
+	" values ",
+	["operator", "="],
+	" req",
+	["punctuation", "."],
+	"query as ",
+	["operator", "~"],
+	"Object ",
+	["keyword", "with"],
+	["punctuation", "{"],
+	["literal-property", "type"],
+	["operator", ":"],
+	["keyword", "string"],
+	["punctuation", ","],
+	["literal-property", "label"],
+	["operator", ":"],
+	["keyword", "string"],
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"values ",
+	["operator", "&&"],
+	" values",
+	["punctuation", "."],
+	"type ",
+	["operator", "==="],
+	["string", "'Todo'"],
+	["operator", "&&"],
+	" values",
+	["punctuation", "."],
+	"label ",
+	["operator", "&&"],
+	" values",
+	["punctuation", "."],
+	"label",
+	["punctuation", "."],
+	"length ",
+	["operator", ">"],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n                    await ",
+	["keyword", "this"],
+	["punctuation", "."],
+	"manager",
+	["punctuation", "."],
+	["function", "createTodo"],
+	["punctuation", "("],
+	"values",
+	["punctuation", "."],
+	"label",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["function", "redirect"],
+	["punctuation", "("],
+	"res",
+	["punctuation", ","],
+	["string", "'/'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	"app",
+	["punctuation", "."],
+	["function", "listen"],
+	["punctuation", "("],
+	["number", "4000"],
+	["punctuation", ","],
+	["string", "'0.0.0.0'"],
+	["punctuation", ","],
+	["number", "511"],
+	["punctuation", ","],
+	["keyword", "function"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n               console",
+	["punctuation", "."],
+	["function", "log"],
+	["punctuation", "("],
+	["string", "\"HTML server listening on http://localhost:4000/\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "protected"],
+	" async ",
+	["function", "renderHomePage"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["keyword", "string"],
+	["punctuation", "{"],
+
+	["keyword", "let"],
+	" tasks ",
+	["operator", "="],
+	" await ",
+	["keyword", "this"],
+	["punctuation", "."],
+	"manager",
+	["punctuation", "."],
+	["function", "getTasks"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" todos ",
+	["operator", "="],
+	" tasks",
+	["punctuation", "."],
+	["function", "filter"],
+	["punctuation", "("],
+	["punctuation", "("],
+	["parameter", ["task"]],
+	["punctuation", ")"],
+	["operator", "=>"],
+	" task ",
+	["keyword", "instanceof"],
+	["class-name", ["Todo"]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["template-string", [
+		["template-punctuation", "`"],
+		["string", "\n\n<html>\n<body>\n     Your to-do's:\n     <ul>\n     "],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+
+			"\n          todos",
+			["punctuation", "."],
+			"length ",
+			["operator", "==="],
+			["number", "0"],
+			["operator", "?"],
+			["string", "'<li><em>none</em></li>\\n'"],
+
+			["operator", ":"],
+			" todos",
+			["punctuation", "."],
+			["function", "map"],
+			["punctuation", "("],
+			["punctuation", "("],
+			["parameter", ["task"]],
+			["punctuation", ")"],
+			["operator", "=>"],
+
+			["string", "'<li>'"],
+			["operator", "+"],
+			" task",
+			["punctuation", "."],
+			"label ",
+			["operator", "+"],
+			["string", "' <small>(id: '"],
+			["operator", "+"],
+			" task",
+			["punctuation", "."],
+			"id ",
+			["operator", "+"],
+			["string", "')</small></li>'"],
+
+			["punctuation", ")"],
+			["punctuation", "."],
+			["function", "join"],
+			["punctuation", "("],
+			["string", "'\\n'"],
+			["punctuation", ")"],
+
+			["interpolation-punctuation", "}"]
+		]],
+		["string", "\n     </ul>\n     <hr/>\n     <form action=\"/create\" method=\"get\">\n     <input type=\"hidden\" name=\"type\" value=\"Todo\">\n     Label: <input type=\"text\" name=\"label\"><br>\n     <input type=\"submit\" value=\"Create Todo\">\n     </form>\n     <hr/>\n     <a href=\"/clear\">[Clear All]</a>\n</body>\n</html>\n"],
+		["template-punctuation", "`"]
+	]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "redirect"],
+	["punctuation", "("],
+	["parameter", [
+		["literal-property", "res"],
+		["operator", ":"],
+		" Response",
+		["punctuation", ","],
+		["literal-property", "url"],
+		["operator", ":"],
+		["keyword", "string"]
+	]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n     res",
+	["punctuation", "."],
+	["function", "header"],
+	["punctuation", "("],
+	["string", "'Cache-Control'"],
+	["punctuation", ","],
+	["string", "'no-cache'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n     res",
+	["punctuation", "."],
+	["function", "redirect"],
+	["punctuation", "("],
+	["number", "301"],
+	["punctuation", ","],
+	" url",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

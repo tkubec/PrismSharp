@@ -1,0 +1,32 @@
+*Some bold text*
+This is an _emphasis_
+[[[walsh-muellner]]]
+----------------------------------------------------
+[
+	["inline", [
+		["bold", [
+			["punctuation", "*"],
+			"Some bold text",
+			["punctuation", "*"]
+		]]
+	]],
+
+	"\nThis is an ",
+	["inline", [
+		["italic", [
+			["punctuation", "_"],
+			"emphasis",
+			["punctuation", "_"]
+		]]
+	]],
+
+	["inline", [
+		["url", [
+			["punctuation", "[[["],
+			"walsh-muellner",
+			["punctuation", "]]]"]
+		]]
+	]]
+]
+
+----------------------------------------------------

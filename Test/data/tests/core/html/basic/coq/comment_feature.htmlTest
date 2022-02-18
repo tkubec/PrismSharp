@@ -1,0 +1,17 @@
+(**)
+(* comment *)
+(*
+ comment
+ *)
+
+(* comments (* can be (* nested *) *) *)
+----------------------------------------------------
+<span class="token comment">(**)</span>
+<span class="token comment">(* comment *)</span>
+<span class="token comment">(*
+ comment
+ *)</span>
+
+<span class="token comment">(* comments (* can be (* nested *) *) *)</span>
+
+----------------------------------------------------

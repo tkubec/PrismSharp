@@ -1,0 +1,368 @@
+# Configuration File for keepalived
+global_defs {
+    notification_email {
+        admin@domain.com
+        0633225522@domain.com
+    }
+    notification_email_from keepalived@domain.com
+    smtp_server 192.168.200.20
+    smtp_connect_timeout 30
+    router_id LVS_MAIN
+}
+
+# VRRP Instances definitions
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 150
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass k@l!ve1
+    }
+    virtual_ipaddress {
+        192.168.200.10
+        192.168.200.11
+    }
+}
+vrrp_instance VI_2 {
+    state MASTER
+    interface eth1
+    virtual_router_id 52
+    priority 150
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass k@l!ve2
+    }
+    virtual_ipaddress {
+        192.168.100.10
+    }
+}
+vrrp_instance VI_3 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 53
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass k@l!ve3
+    }
+    virtual_ipaddress {
+        192.168.200.12
+        192.168.200.13
+    }
+}
+vrrp_instance VI_4 {
+    state BACKUP
+    interface eth1
+    virtual_router_id 54
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass k@l!ve4
+    }
+    virtual_ipaddress {
+        192.168.100.11
+    }
+}
+# Virtual Servers definitions
+virtual_server 192.168.200.10 80 {
+    delay_loop 30
+    lb_algo wrr
+    lb_kind NAT
+    persistence_timeout 50
+    protocol TCP
+    sorry_server 192.168.100.100 80
+    real_server 192.168.100.2 80 {
+        weight 2
+        HTTP_GET {
+            url {
+                path /testurl/test.jsp
+                digest ec90a42b99ea9a2f5ecbe213ac9eba03
+            }
+            url {
+                path /testurl2/test.jsp
+                digest 640205b7b0fc66c1ea91c463fac6334c
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 2
+        }
+    }
+    real_server 192.168.100.3 80 {
+        weight 1
+        HTTP_GET {
+            url {
+                path /testurl/test.jsp
+                digest 640205b7b0fc66c1ea91c463fac6334c
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 2
+        }
+    }
+}
+virtual_server 192.168.200.12 443 {
+    delay_loop 20
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout 360
+    protocol TCP
+    real_server 192.168.100.2 443 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 3
+        }
+    }
+    real_server 192.168.100.3 443 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 3
+        }
+    }
+}
+----------------------------------------------------
+[
+	["comment", "# Configuration File for keepalived"],
+	["property", "global_defs"], ["punctuation", "{"],
+	["property", "notification_email"], ["punctuation", "{"],
+	["email", "admin@domain.com"],
+	["email", "0633225522@domain.com"],
+	["punctuation", "}"],
+	["property", "notification_email_from"], ["email", "keepalived@domain.com"],
+	["property", "smtp_server"], ["ip", "192.168.200.20"],
+	["property", "smtp_connect_timeout"], ["number", "30"],
+	["property", "router_id"], " LVS_MAIN\n",
+	["punctuation", "}"],
+
+	["comment", "# VRRP Instances definitions"],
+	["property", "vrrp_instance"],
+	" VI_1 ",
+	["punctuation", "{"],
+	["property", "state"],
+	["constant", "MASTER"],
+	["property", "interface"],
+	" eth0\n    ",
+	["property", "virtual_router_id"],
+	["number", "51"],
+	["property", "priority"],
+	["number", "150"],
+	["property", "advert_int"],
+	["number", "1"],
+	["property", "authentication"],
+	["punctuation", "{"],
+	["property", "auth_type"],
+	["constant", "PASS"],
+	["property", "auth_pass"],
+	" k",
+	["conditional-configuration", "@l"],
+	["comment", "!ve1"],
+	["punctuation", "}"],
+	["property", "virtual_ipaddress"],
+	["punctuation", "{"],
+	["ip", "192.168.200.10"],
+	["ip", "192.168.200.11"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["property", "vrrp_instance"],
+	" VI_2 ",
+	["punctuation", "{"],
+	["property", "state"],
+	["constant", "MASTER"],
+	["property", "interface"],
+	" eth1\n    ",
+	["property", "virtual_router_id"],
+	["number", "52"],
+	["property", "priority"],
+	["number", "150"],
+	["property", "advert_int"],
+	["number", "1"],
+	["property", "authentication"],
+	["punctuation", "{"],
+	["property", "auth_type"],
+	["constant", "PASS"],
+	["property", "auth_pass"],
+	" k",
+	["conditional-configuration", "@l"],
+	["comment", "!ve2"],
+	["punctuation", "}"],
+	["property", "virtual_ipaddress"],
+	["punctuation", "{"],
+	["ip", "192.168.100.10"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["property", "vrrp_instance"],
+	" VI_3 ",
+	["punctuation", "{"],
+	["property", "state"],
+	["constant", "BACKUP"],
+	["property", "interface"],
+	" eth0\n    ",
+	["property", "virtual_router_id"],
+	["number", "53"],
+	["property", "priority"],
+	["number", "100"],
+	["property", "advert_int"],
+	["number", "1"],
+	["property", "authentication"],
+	["punctuation", "{"],
+	["property", "auth_type"],
+	["constant", "PASS"],
+	["property", "auth_pass"],
+	" k",
+	["conditional-configuration", "@l"],
+	["comment", "!ve3"],
+	["punctuation", "}"],
+	["property", "virtual_ipaddress"],
+	["punctuation", "{"],
+	["ip", "192.168.200.12"],
+	["ip", "192.168.200.13"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["property", "vrrp_instance"],
+	" VI_4 ",
+	["punctuation", "{"],
+	["property", "state"],
+	["constant", "BACKUP"],
+	["property", "interface"],
+	" eth1\n    ",
+	["property", "virtual_router_id"],
+	["number", "54"],
+	["property", "priority"],
+	["number", "100"],
+	["property", "advert_int"],
+	["number", "1"],
+	["property", "authentication"],
+	["punctuation", "{"],
+	["property", "auth_type"],
+	["constant", "PASS"],
+	["property", "auth_pass"],
+	" k",
+	["conditional-configuration", "@l"],
+	["comment", "!ve4"],
+	["punctuation", "}"],
+	["property", "virtual_ipaddress"],
+	["punctuation", "{"],
+	["ip", "192.168.100.11"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["comment", "# Virtual Servers definitions"],
+	["property", "virtual_server"],
+	["ip", "192.168.200.10"],
+	["number", "80"],
+	["punctuation", "{"],
+	["property", "delay_loop"],
+	["number", "30"],
+	"\n    lb_algo ",
+	["constant", "wrr"],
+	"\n    lb_kind ",
+	["constant", "NAT"],
+	["property", "persistence_timeout"],
+	["number", "50"],
+	["property", "protocol"],
+	["constant", "TCP"],
+	["property", "sorry_server"],
+	["ip", "192.168.100.100"],
+	["number", "80"],
+	["property", "real_server"],
+	["ip", "192.168.100.2"],
+	["number", "80"],
+	["punctuation", "{"],
+	["property", "weight"],
+	["number", "2"],
+	["property", "HTTP_GET"],
+	["punctuation", "{"],
+	["property", "url"],
+	["punctuation", "{"],
+	["property", "path"],
+	["path", "/testurl/test.jsp"],
+	["property", "digest"],
+	" ec90a42b99ea9a2f5ecbe213ac9eba03\n            ",
+	["punctuation", "}"],
+	["property", "url"],
+	["punctuation", "{"],
+	["property", "path"],
+	["path", "/testurl2/test.jsp"],
+	["property", "digest"],
+	["number", "640205"],
+	"b7b0fc66c1ea91c463fac6334c\n            ",
+	["punctuation", "}"],
+	["property", "connect_timeout"],
+	["number", "3"],
+	["property", "retry"],
+	["number", "3"],
+	["property", "delay_before_retry"],
+	["number", "2"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["property", "real_server"],
+	["ip", "192.168.100.3"],
+	["number", "80"],
+	["punctuation", "{"],
+	["property", "weight"],
+	["number", "1"],
+	["property", "HTTP_GET"],
+	["punctuation", "{"],
+	["property", "url"],
+	["punctuation", "{"],
+	["property", "path"],
+	["path", "/testurl/test.jsp"],
+	["property", "digest"],
+	["number", "640205"],
+	"b7b0fc66c1ea91c463fac6334c\n            ",
+	["punctuation", "}"],
+	["property", "connect_timeout"],
+	["number", "3"],
+	["property", "retry"],
+	["number", "3"],
+	["property", "delay_before_retry"],
+	["number", "2"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["property", "virtual_server"],
+	["ip", "192.168.200.12"],
+	["number", "443"],
+	["punctuation", "{"],
+	["property", "delay_loop"],
+	["number", "20"],
+	"\n    lb_algo ",
+	["constant", "rr"],
+	"\n    lb_kind ",
+	["constant", "NAT"],
+	["property", "persistence_timeout"],
+	["number", "360"],
+	["property", "protocol"],
+	["constant", "TCP"],
+	["property", "real_server"],
+	["ip", "192.168.100.2"],
+	["number", "443"],
+	["punctuation", "{"],
+	["property", "weight"],
+	["number", "1"],
+	["property", "TCP_CHECK"],
+	["punctuation", "{"],
+	["property", "connect_timeout"],
+	["number", "3"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["property", "real_server"],
+	["ip", "192.168.100.3"],
+	["number", "443"],
+	["punctuation", "{"],
+	["property", "weight"],
+	["number", "1"],
+	["property", "TCP_CHECK"],
+	["punctuation", "{"],
+	["property", "connect_timeout"],
+	["number", "3"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

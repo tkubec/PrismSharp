@@ -1,0 +1,47 @@
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+ASK  { ?x foaf:name  "Alice" ;
+					foaf:mbox  <mailto:alice@work.example> }
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "ASK"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "name"]
+	]],
+	["string", "\"Alice\""],
+	["punctuation", ";"],
+
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "mbox"]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"mailto:alice@work.example",
+		["punctuation", ">"]
+	]],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

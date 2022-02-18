@@ -1,0 +1,26 @@
+	base <http://example.org/geo#>
+	prefix geo: <http://www.opengis.net/ont/geosparql#>
+	prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+	select ?shape ?shapeColor ?shapeHeight ?shapeName (sample(?shapeLabel) as ?shapeLabel)  {
+		{
+			select * {
+				values (?placeName ?streetName) {
+					"Grenoble" "Paul Mistral"
+				}
+				?place geo:NamePlace ?placeName.
+				?pand geo:hasGeometry/geo:asWKT ?shape;
+			}
+
+		}
+		?pand geo:measuredHeight ?shapeHeight.
+		# Only retrieve buildings larger then 10 meters.
+		FILTER ( ?shapeHeight < 10 ) .
+		BIND(IF(!bound(?EindGeldigheid5), "#22b14c", "#ed1c24" ) AS?tColor)
+		# tekst label
+		bind(concat(str(?streetName),' ',str(?houseNumber),', ',str(?PlaceName)) as ?shapeName)
+		bind("""Multi-line
+		String Element
+		""" as ?shapeLabel)
+	}
+	group by ?shape ?shapeColor ?shapeHeight ?shapeName
+	limit 10

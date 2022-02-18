@@ -1,0 +1,241 @@
+MODULE MOD1
+TYPE INITIALIZED_TYPE
+	INTEGER :: I = 1 ! Default initialization
+END TYPE INITIALIZED_TYPE
+SAVE :: SAVED1, SAVED2
+INTEGER :: SAVED1, UNSAVED1
+TYPE(INITIALIZED_TYPE) :: SAVED2, UNSAVED2
+ALLOCATABLE :: SAVED1(:), SAVED2(:), UNSAVED1(:), UNSAVED2(:)
+END MODULE MOD1
+
+PROGRAM MAIN
+CALL SUB1 ! The values returned by the ALLOCATED intrinsic calls
+          ! in the PRINT statement are:
+          ! .FALSE., .FALSE., .FALSE., and .FALSE.
+          ! Module MOD1 is used, and its variables are allocated.
+          ! After return from the subroutine, whether the variables
+          ! which were not specified with the SAVE attribute
+          ! retain their allocation status is processor dependent.
+CALL SUB1 ! The values returned by the first two ALLOCATED intrinsic
+	      ! calls in the PRINT statement are:
+	      ! .TRUE., .TRUE.
+	      ! The values returned by the second two ALLOCATED
+	      ! intrinsic calls in the PRINT statement are
+	      ! processor dependent and each could be either
+	      ! .TRUE. or .FALSE.
+CONTAINS
+	SUBROUTINE SUB1
+	USE MOD1 ! Brings in saved and not saved variables.
+	PRINT *, ALLOCATED(SAVED1), ALLOCATED(SAVED2), &
+	         ALLOCATED(UNSAVED1), ALLOCATED(UNSAVED2)
+	IF (.NOT. ALLOCATED(SAVED1)) ALLOCATE(SAVED1(10))
+	IF (.NOT. ALLOCATED(SAVED2)) ALLOCATE(SAVED2(10))
+	IF (.NOT. ALLOCATED(UNSAVED1)) ALLOCATE(UNSAVED1(10))
+	IF (.NOT. ALLOCATED(UNSAVED2)) ALLOCATE(UNSAVED2(10))
+	END SUBROUTINE SUB1
+END PROGRAM MAIN
+----------------------------------------------------
+[
+	["keyword", "MODULE"],
+	" MOD1\n",
+
+	["keyword", "TYPE"],
+	" INITIALIZED_TYPE\n\t",
+
+	["keyword", "INTEGER"],
+	["operator", "::"],
+	" I ",
+	["operator", "="],
+	["number", "1"],
+	["comment", "! Default initialization"],
+
+	["keyword", "END TYPE"],
+	" INITIALIZED_TYPE\n",
+
+	["keyword", "SAVE"],
+	["operator", "::"],
+	" SAVED1",
+	["punctuation", ","],
+	" SAVED2\n",
+
+	["keyword", "INTEGER"],
+	["operator", "::"],
+	" SAVED1",
+	["punctuation", ","],
+	" UNSAVED1\n",
+
+	["keyword", "TYPE"],
+	["punctuation", "("],
+	"INITIALIZED_TYPE",
+	["punctuation", ")"],
+	["operator", "::"],
+	" SAVED2",
+	["punctuation", ","],
+	" UNSAVED2\n",
+
+	["keyword", "ALLOCATABLE"],
+	["operator", "::"],
+	" SAVED1",
+	["punctuation", "("],
+	["punctuation", ":"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	" SAVED2",
+	["punctuation", "("],
+	["punctuation", ":"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	" UNSAVED1",
+	["punctuation", "("],
+	["punctuation", ":"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	" UNSAVED2",
+	["punctuation", "("],
+	["punctuation", ":"],
+	["punctuation", ")"],
+
+	["keyword", "END MODULE"],
+	" MOD1\n\n",
+
+	["keyword", "PROGRAM"],
+	" MAIN\n",
+
+	["keyword", "CALL"],
+	" SUB1 ",
+	["comment", "! The values returned by the ALLOCATED intrinsic calls"],
+
+	["comment", "! in the PRINT statement are:"],
+
+	["comment", "! .FALSE., .FALSE., .FALSE., and .FALSE."],
+
+	["comment", "! Module MOD1 is used, and its variables are allocated."],
+
+	["comment", "! After return from the subroutine, whether the variables"],
+
+	["comment", "! which were not specified with the SAVE attribute"],
+
+	["comment", "! retain their allocation status is processor dependent."],
+
+	["keyword", "CALL"],
+	" SUB1 ",
+	["comment", "! The values returned by the first two ALLOCATED intrinsic"],
+
+	["comment", "! calls in the PRINT statement are:"],
+
+	["comment", "! .TRUE., .TRUE."],
+
+	["comment", "! The values returned by the second two ALLOCATED"],
+
+	["comment", "! intrinsic calls in the PRINT statement are"],
+
+	["comment", "! processor dependent and each could be either"],
+
+	["comment", "! .TRUE. or .FALSE."],
+
+	["keyword", "CONTAINS"],
+
+	["keyword", "SUBROUTINE"],
+	" SUB1\n\t",
+
+	["keyword", "USE"],
+	" MOD1 ",
+	["comment", "! Brings in saved and not saved variables."],
+
+	["keyword", "PRINT"],
+	["operator", "*"],
+	["punctuation", ","],
+	" ALLOCATED",
+	["punctuation", "("],
+	"SAVED1",
+	["punctuation", ")"],
+	["punctuation", ","],
+	" ALLOCATED",
+	["punctuation", "("],
+	"SAVED2",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["punctuation", "&"],
+
+	"\n\t         ALLOCATED",
+	["punctuation", "("],
+	"UNSAVED1",
+	["punctuation", ")"],
+	["punctuation", ","],
+	" ALLOCATED",
+	["punctuation", "("],
+	"UNSAVED2",
+	["punctuation", ")"],
+
+	["keyword", "IF"],
+	["punctuation", "("],
+	["operator", ".NOT."],
+	" ALLOCATED",
+	["punctuation", "("],
+	"SAVED1",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "ALLOCATE"],
+	["punctuation", "("],
+	"SAVED1",
+	["punctuation", "("],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["keyword", "IF"],
+	["punctuation", "("],
+	["operator", ".NOT."],
+	" ALLOCATED",
+	["punctuation", "("],
+	"SAVED2",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "ALLOCATE"],
+	["punctuation", "("],
+	"SAVED2",
+	["punctuation", "("],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["keyword", "IF"],
+	["punctuation", "("],
+	["operator", ".NOT."],
+	" ALLOCATED",
+	["punctuation", "("],
+	"UNSAVED1",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "ALLOCATE"],
+	["punctuation", "("],
+	"UNSAVED1",
+	["punctuation", "("],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["keyword", "IF"],
+	["punctuation", "("],
+	["operator", ".NOT."],
+	" ALLOCATED",
+	["punctuation", "("],
+	"UNSAVED2",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "ALLOCATE"],
+	["punctuation", "("],
+	"UNSAVED2",
+	["punctuation", "("],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["keyword", "END SUBROUTINE"],
+	" SUB1\n",
+
+	["keyword", "END PROGRAM"],
+	" MAIN"
+]
+
+----------------------------------------------------

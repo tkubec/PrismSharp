@@ -1,0 +1,61 @@
+/foo|bar/
+/h(e+)llo/
+/\d+/
+/あ/
+
+/\//         # slash
+/\\/         # backslash
+/\b/         # backspace
+/\e/         # escape
+/\f/         # form feed
+/\n/         # newline
+/\r/         # carriage return
+/\t/         # tab
+/\v/         # vertical tab
+/\NNN/       # octal ASCII character
+/\xNN/       # hexadecimal ASCII character
+/\x{FFFF}/   # hexadecimal unicode character
+/\x{10FFFF}/ # hexadecimal unicode character
+
+/foo/i.match("FOO")         # => #<Regex::MatchData "FOO">
+/foo/m.match("bar\nfoo")    # => #<Regex::MatchData "foo">
+/foo /x.match("foo")        # => #<Regex::MatchData "foo">
+/foo /imx.match("bar\nFOO") # => #<Regex::MatchData "FOO">
+
+%r((/)) # => /(\/)/
+%r[[/]] # => /[\/]/
+%r{{/}} # => /{\/}/
+%r<</>> # => /<\/>/
+%r|/|   # => /\//
+----------------------------------------------------
+<span class="token regex-literal"><span class="token regex">/foo|bar/</span></span>
+<span class="token regex-literal"><span class="token regex">/h(e+)llo/</span></span>
+<span class="token regex-literal"><span class="token regex">/\d+/</span></span>
+<span class="token regex-literal"><span class="token regex">/あ/</span></span>
+
+<span class="token regex-literal"><span class="token regex">/\//</span></span>         <span class="token comment"># slash</span>
+<span class="token regex-literal"><span class="token regex">/\\/</span></span>         <span class="token comment"># backslash</span>
+<span class="token regex-literal"><span class="token regex">/\b/</span></span>         <span class="token comment"># backspace</span>
+<span class="token regex-literal"><span class="token regex">/\e/</span></span>         <span class="token comment"># escape</span>
+<span class="token regex-literal"><span class="token regex">/\f/</span></span>         <span class="token comment"># form feed</span>
+<span class="token regex-literal"><span class="token regex">/\n/</span></span>         <span class="token comment"># newline</span>
+<span class="token regex-literal"><span class="token regex">/\r/</span></span>         <span class="token comment"># carriage return</span>
+<span class="token regex-literal"><span class="token regex">/\t/</span></span>         <span class="token comment"># tab</span>
+<span class="token regex-literal"><span class="token regex">/\v/</span></span>         <span class="token comment"># vertical tab</span>
+<span class="token regex-literal"><span class="token regex">/\NNN/</span></span>       <span class="token comment"># octal ASCII character</span>
+<span class="token regex-literal"><span class="token regex">/\xNN/</span></span>       <span class="token comment"># hexadecimal ASCII character</span>
+<span class="token regex-literal"><span class="token regex">/\x{FFFF}/</span></span>   <span class="token comment"># hexadecimal unicode character</span>
+<span class="token regex-literal"><span class="token regex">/\x{10FFFF}/</span></span> <span class="token comment"># hexadecimal unicode character</span>
+
+<span class="token regex-literal"><span class="token regex">/foo/i</span></span><span class="token punctuation">.</span>match<span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"FOO"</span></span><span class="token punctuation">)</span>         <span class="token comment"># => #&lt;Regex::MatchData "FOO"></span>
+<span class="token regex-literal"><span class="token regex">/foo/m</span></span><span class="token punctuation">.</span>match<span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"bar\nfoo"</span></span><span class="token punctuation">)</span>    <span class="token comment"># => #&lt;Regex::MatchData "foo"></span>
+<span class="token regex-literal"><span class="token regex">/foo /x</span></span><span class="token punctuation">.</span>match<span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"foo"</span></span><span class="token punctuation">)</span>        <span class="token comment"># => #&lt;Regex::MatchData "foo"></span>
+<span class="token regex-literal"><span class="token regex">/foo /imx</span></span><span class="token punctuation">.</span>match<span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"bar\nFOO"</span></span><span class="token punctuation">)</span> <span class="token comment"># => #&lt;Regex::MatchData "FOO"></span>
+
+<span class="token regex-literal"><span class="token regex">%r((/))</span></span> <span class="token comment"># => /(\/)/</span>
+<span class="token regex-literal"><span class="token regex">%r[[/]]</span></span> <span class="token comment"># => /[\/]/</span>
+<span class="token regex-literal"><span class="token regex">%r{{/}}</span></span> <span class="token comment"># => /{\/}/</span>
+<span class="token regex-literal"><span class="token regex">%r&lt;&lt;/>></span></span> <span class="token comment"># => /&lt;\/>/</span>
+<span class="token regex-literal"><span class="token regex">%r|/|</span></span>   <span class="token comment"># => /\//</span>
+
+----------------------------------------------------

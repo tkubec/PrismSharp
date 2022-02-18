@@ -1,0 +1,112 @@
+# This is a comment
+
+key = "value"
+paths.home = 'c:\foo\'
+
+[database.prod]
+server = "192.168.1.1"
+ports = [ 8001, 8001, 8002 ]
+connection_max = 5000
+enabled = true
+
+
+[[users]]
+name = "John"
+bday = 1995-09-22
+bio = ""
+interests = [ "biking", "fishing" ]
+
+[[users]]
+name = "Jane"
+bday = 1989-05-09
+bio = """\
+Hi!
+
+I love programming!\
+"""
+interests = [ "programming" ]
+----------------------------------------------------
+[
+	["comment", "# This is a comment"],
+
+	["key", "key"], ["punctuation", "="], ["string", "\"value\""],
+	["key", "paths.home"], ["punctuation", "="], ["string", "'c:\\foo\\'"],
+
+	["punctuation", "["],
+	["table", "database.prod"],
+	["punctuation", "]"],
+
+	["key", "server"],
+	["punctuation", "="],
+	["string", "\"192.168.1.1\""],
+
+	["key", "ports"],
+	["punctuation", "="],
+	["punctuation", "["],
+	["number", "8001"],
+	["punctuation", ","],
+	["number", "8001"],
+	["punctuation", ","],
+	["number", "8002"],
+	["punctuation", "]"],
+
+	["key", "connection_max"],
+	["punctuation", "="],
+	["number", "5000"],
+
+	["key", "enabled"],
+	["punctuation", "="],
+	["boolean", "true"],
+
+	["punctuation", "["],
+	["punctuation", "["],
+	["table", "users"],
+	["punctuation", "]"],
+	["punctuation", "]"],
+
+	["key", "name"],
+	["punctuation", "="],
+	["string", "\"John\""],
+
+	["key", "bday"],
+	["punctuation", "="],
+	["date", "1995-09-22"],
+
+	["key", "bio"],
+	["punctuation", "="],
+	["string", "\"\""],
+
+	["key", "interests"],
+	["punctuation", "="],
+	["punctuation", "["],
+	["string", "\"biking\""],
+	["punctuation", ","],
+	["string", "\"fishing\""],
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	["punctuation", "["],
+	["table", "users"],
+	["punctuation", "]"],
+	["punctuation", "]"],
+
+	["key", "name"],
+	["punctuation", "="],
+	["string", "\"Jane\""],
+
+	["key", "bday"],
+	["punctuation", "="],
+	["date", "1989-05-09"],
+
+	["key", "bio"],
+	["punctuation", "="],
+	["string", "\"\"\"\\\nHi!\n\nI love programming!\\\n\"\"\""],
+
+	["key", "interests"],
+	["punctuation", "="],
+	["punctuation", "["],
+	["string", "\"programming\""],
+	["punctuation", "]"]
+]
+
+----------------------------------------------------

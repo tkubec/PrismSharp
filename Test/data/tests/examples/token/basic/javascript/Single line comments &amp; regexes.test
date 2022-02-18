@@ -1,0 +1,19 @@
+// http://lea.verou.me
+var comment = /\/\*[\w\W]*?\*\//g;
+----------------------------------------------------
+[
+	["comment", "// http://lea.verou.me"],
+
+	["keyword", "var"],
+	" comment ",
+	["operator", "="],
+	["regex", [
+		["regex-delimiter", "/"],
+		["regex-source", "\\/\\*[\\w\\W]*?\\*\\/"],
+		["regex-delimiter", "/"],
+		["regex-flags", "g"]
+	]],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

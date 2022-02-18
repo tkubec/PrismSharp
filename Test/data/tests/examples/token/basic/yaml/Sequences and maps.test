@@ -1,0 +1,76 @@
+---
+- Casablanca
+- North by Northwest
+- {
+    name: John Smith, age: 33}
+- name: Mary Smith
+  age: 27
+---
+"name": John Smith
+age: 33
+men: [ John Smith,
+    "Bill Jones" ]
+women:
+ - Mary Smith
+ - "Susan Williams"
+----------------------------------------------------
+[
+	["punctuation", "---"],
+
+	["punctuation", "-"],
+	" Casablanca\n",
+
+	["punctuation", "-"],
+	" North by Northwest\n",
+
+	["punctuation", "-"],
+	["punctuation", "{"],
+
+	["key", "name"],
+	["punctuation", ":"],
+	" John Smith",
+	["punctuation", ","],
+	["key", "age"],
+	["punctuation", ":"],
+	["number", "33"],
+	["punctuation", "}"],
+
+	["punctuation", "-"],
+	["key", "name"],
+	["punctuation", ":"],
+	" Mary Smith\n  ",
+
+	["key", "age"],
+	["punctuation", ":"],
+	["number", "27"],
+
+	["punctuation", "---"],
+
+	["key", "\"name\""],
+	["punctuation", ":"],
+	" John Smith\n",
+
+	["key", "age"],
+	["punctuation", ":"],
+	["number", "33"],
+
+	["key", "men"],
+	["punctuation", ":"],
+	["punctuation", "["],
+	" John Smith",
+	["punctuation", ","],
+
+	["string", "\"Bill Jones\""],
+	["punctuation", "]"],
+
+	["key", "women"],
+	["punctuation", ":"],
+
+	["punctuation", "-"],
+	" Mary Smith\n ",
+
+	["punctuation", "-"],
+	["string", "\"Susan Williams\""]
+]
+
+----------------------------------------------------

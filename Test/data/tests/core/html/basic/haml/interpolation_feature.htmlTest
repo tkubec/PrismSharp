@@ -1,0 +1,7 @@
+#{ 42 }
+#{ "foobar" }
+----------------------------------------------------
+<span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token ruby"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span>
+<span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token ruby"> <span class="token string-literal"><span class="token string">"foobar"</span></span> </span><span class="token delimiter punctuation">}</span></span>
+
+----------------------------------------------------

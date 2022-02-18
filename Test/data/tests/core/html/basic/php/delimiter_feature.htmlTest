@@ -1,0 +1,21 @@
+<? ?>
+<?php ?>
+<?= // ?>
+
+<?php
+#[DeprecationReason('reason: <https://some-website/reason?>')]
+function main() {}
+// php is not ended yet
+?>
+----------------------------------------------------
+<span class="token delimiter important">&lt;?</span> <span class="token operator">?</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">?</span>php <span class="token operator">?</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">=</span> <span class="token comment">// ?></span>
+
+<span class="token operator">&lt;</span><span class="token operator">?</span>php
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">DeprecationReason</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'reason: &lt;https://some-website/reason?>'</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span>
+<span class="token keyword">function</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment">// php is not ended yet</span>
+<span class="token delimiter important">?></span>
+
+----------------------------------------------------

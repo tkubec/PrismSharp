@@ -1,0 +1,15 @@
+$foo
+$foo_bar_42
+@ComputerName
+@CPUArch
+@TAB
+----------------------------------------------------
+[
+	["variable", "$foo"],
+	["variable", "$foo_bar_42"],
+	["variable", "@ComputerName"],
+	["variable", "@CPUArch"],
+	["variable", "@TAB"]
+]
+
+----------------------------------------------------

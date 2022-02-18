@@ -1,0 +1,15 @@
+[% IF title;
+      INCLUDE header;
+   ELSE;
+      INCLUDE other/header  title="Some Other Title";
+   END
+%]
+----------------------------------------------------
+<span class="token delimiter punctuation">[%</span> <span class="token keyword">IF</span> <span class="token variable">title</span>;
+      <span class="token keyword">INCLUDE</span> <span class="token variable">header</span>;
+   <span class="token keyword">ELSE</span>;
+      <span class="token keyword">INCLUDE</span> <span class="token variable">other</span>/<span class="token variable">header</span>  <span class="token variable">title</span><span class="token operator">=</span><span class="token double-quoted-string string">"Some Other Title"</span>;
+   <span class="token keyword">END</span>
+<span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

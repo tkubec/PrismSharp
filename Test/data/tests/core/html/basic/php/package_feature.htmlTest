@@ -1,0 +1,17 @@
+namespace App
+namespace \foo
+namespace \foo\bar\baz
+use \foo
+use \foo\bar\baz
+use function \foo
+use function \foo\bar\baz
+----------------------------------------------------
+<span class="token keyword">namespace</span> <span class="token package">App</span>
+<span class="token keyword">namespace</span> <span class="token package"><span class="token punctuation">\</span>foo</span>
+<span class="token keyword">namespace</span> <span class="token package"><span class="token punctuation">\</span>foo<span class="token punctuation">\</span>bar<span class="token punctuation">\</span>baz</span>
+<span class="token keyword">use</span> <span class="token package"><span class="token punctuation">\</span>foo</span>
+<span class="token keyword">use</span> <span class="token package"><span class="token punctuation">\</span>foo<span class="token punctuation">\</span>bar<span class="token punctuation">\</span>baz</span>
+<span class="token keyword">use</span> <span class="token keyword">function</span> <span class="token package"><span class="token punctuation">\</span>foo</span>
+<span class="token keyword">use</span> <span class="token keyword">function</span> <span class="token package"><span class="token punctuation">\</span>foo<span class="token punctuation">\</span>bar<span class="token punctuation">\</span>baz</span>
+
+----------------------------------------------------

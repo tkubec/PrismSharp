@@ -1,0 +1,9 @@
+ssi on;
+sendfile      off;
+tcp_nopush    on;
+----------------------------------------------------
+<span class="token directive"><span class="token keyword">ssi</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">sendfile</span>      <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">tcp_nopush</span>    <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

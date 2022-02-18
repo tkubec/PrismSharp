@@ -1,0 +1,15 @@
+phones: {home: 555-6528,work: 555-7334 }
+
+children:      # this is a comment
+	- -50.5
+
+entity: Column(type=int, nulls=yes)
+----------------------------------------------------
+<span class="token key atrule">phones</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token key atrule">home</span><span class="token punctuation">:</span> <span class="token literal string">555-6528</span><span class="token punctuation">,</span><span class="token key atrule">work</span><span class="token punctuation">:</span> <span class="token literal string">555-7334</span> <span class="token punctuation">}</span>
+
+<span class="token key atrule">children</span><span class="token punctuation">:</span>      <span class="token comment"># this is a comment</span>
+	<span class="token punctuation">-</span> <span class="token number">-50.5</span>
+
+<span class="token key atrule">entity</span><span class="token punctuation">:</span> <span class="token literal string">Column</span><span class="token punctuation">(</span><span class="token key atrule">type</span><span class="token punctuation">=</span><span class="token literal string">int</span><span class="token punctuation">,</span> <span class="token key atrule">nulls</span><span class="token punctuation">=</span><span class="token boolean">yes</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+A -.s .- C
+A -. s .- C
+A -. "asdasd" .- C
+A -- "asdasd" --> C
+A -- "asdasd" --> C
+A -- "asdasd" .- C
+A -- "asdasd" === C
+A -- "asdasd" ==> C
+----------------------------------------------------
+A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">-.</span><span class="token label property">s</span> <span class="token arrow operator">.-</span></span> C
+A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">-.</span> <span class="token label property">s</span> <span class="token arrow operator">.-</span></span> C
+A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">-.</span> <span class="token label property">"asdasd"</span> <span class="token arrow operator">.-</span></span> C
+A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">"asdasd"</span> <span class="token arrow operator">--></span></span> C
+A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">"asdasd"</span> <span class="token arrow operator">--></span></span> C
+A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">"asdasd"</span> <span class="token arrow operator">.-</span></span> C
+A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">"asdasd"</span> <span class="token arrow operator">===</span></span> C
+A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">"asdasd"</span> <span class="token arrow operator">==></span></span> C
+
+----------------------------------------------------

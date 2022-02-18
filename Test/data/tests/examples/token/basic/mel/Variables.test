@@ -1,0 +1,25 @@
+$x
+$floaty5000
+$longDescriptiveName
+$name_with_underscores
+$_line
+
+float $param;
+int $counter;
+string $name;
+vector $position;
+----------------------------------------------------
+[
+	["variable", "$x"],
+	["variable", "$floaty5000"],
+	["variable", "$longDescriptiveName"],
+	["variable", "$name_with_underscores"],
+	["variable", "$_line"],
+
+	["keyword", "float"], ["variable", "$param"], ["punctuation", ";"],
+	["keyword", "int"], ["variable", "$counter"], ["punctuation", ";"],
+	["keyword", "string"], ["variable", "$name"], ["punctuation", ";"],
+	["keyword", "vector"], ["variable", "$position"], ["punctuation", ";"]
+]
+
+----------------------------------------------------

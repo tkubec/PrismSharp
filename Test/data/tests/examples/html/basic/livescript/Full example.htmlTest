@@ -1,0 +1,103 @@
+# example from Str.ls
+
+split = (sep, str) -->
+  str.split sep
+
+join = (sep, xs) -->
+  xs.join sep
+
+lines = (str) ->
+  return [] unless str.length
+  str.split '\n'
+
+unlines = (.join '\n')
+
+words = (str) ->
+  return [] unless str.length
+  str.split /[ ]+/
+
+unwords = (.join ' ')
+
+chars = (.split '')
+
+unchars = (.join '')
+
+reverse = (str) ->
+  str.split '' .reverse!.join ''
+
+repeat = (n, str) -->
+  result = ''
+  for til n
+    result += str
+  result
+
+capitalize = (str) ->
+  (str.char-at 0).to-upper-case! + str.slice 1
+
+camelize = (.replace /[-_]+(.)?/g, (, c) -> (c ? '').to-upper-case!)
+
+# convert camelCase to camel-case, and setJSON to set-JSON
+dasherize = (str) ->
+    str
+      .replace /([^-A-Z])([A-Z]+)/g, (, lower, upper) ->
+         "#{lower}-#{if upper.length > 1 then upper else upper.to-lower-case!}"
+      .replace /^([A-Z]+)/, (, upper) ->
+         if upper.length > 1 then "#upper-" else upper.to-lower-case!
+
+module.exports = {
+  split, join, lines, unlines, words, unwords, chars, unchars, reverse,
+  repeat, capitalize, camelize, dasherize,
+}
+----------------------------------------------------
+<span class="token comment"># example from Str.ls</span>
+
+<span class="token identifier">split</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token identifier">sep</span><span class="token punctuation">,</span> <span class="token identifier">str</span><span class="token punctuation">)</span> <span class="token operator">--></span>
+  <span class="token identifier">str</span><span class="token punctuation">.</span><span class="token identifier">split</span> <span class="token identifier">sep</span>
+
+<span class="token identifier">join</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token identifier">sep</span><span class="token punctuation">,</span> <span class="token identifier">xs</span><span class="token punctuation">)</span> <span class="token operator">--></span>
+  <span class="token identifier">xs</span><span class="token punctuation">.</span><span class="token identifier">join</span> <span class="token identifier">sep</span>
+
+<span class="token identifier">lines</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token identifier">str</span><span class="token punctuation">)</span> <span class="token operator">-></span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">unless</span> <span class="token identifier">str</span><span class="token punctuation">.</span><span class="token identifier">length</span>
+  <span class="token identifier">str</span><span class="token punctuation">.</span><span class="token identifier">split</span> <span class="token string">'\n'</span>
+
+<span class="token identifier">unlines</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token identifier">join</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+
+<span class="token identifier">words</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token identifier">str</span><span class="token punctuation">)</span> <span class="token operator">-></span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">unless</span> <span class="token identifier">str</span><span class="token punctuation">.</span><span class="token identifier">length</span>
+  <span class="token identifier">str</span><span class="token punctuation">.</span><span class="token identifier">split</span> <span class="token regex">/[ ]+/</span>
+
+<span class="token identifier">unwords</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token identifier">join</span> <span class="token string">' '</span><span class="token punctuation">)</span>
+
+<span class="token identifier">chars</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token identifier">split</span> <span class="token string">''</span><span class="token punctuation">)</span>
+
+<span class="token identifier">unchars</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token identifier">join</span> <span class="token string">''</span><span class="token punctuation">)</span>
+
+<span class="token identifier">reverse</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token identifier">str</span><span class="token punctuation">)</span> <span class="token operator">-></span>
+  <span class="token identifier">str</span><span class="token punctuation">.</span><span class="token identifier">split</span> <span class="token string">''</span> <span class="token punctuation">.</span><span class="token identifier">reverse</span><span class="token operator">!</span><span class="token punctuation">.</span><span class="token identifier">join</span> <span class="token string">''</span>
+
+<span class="token identifier">repeat</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token identifier">n</span><span class="token punctuation">,</span> <span class="token identifier">str</span><span class="token punctuation">)</span> <span class="token operator">--></span>
+  <span class="token identifier">result</span> <span class="token operator">=</span> <span class="token string">''</span>
+  <span class="token keyword">for</span> <span class="token keyword-operator operator">til</span> <span class="token identifier">n</span>
+    <span class="token identifier">result</span> <span class="token operator">+</span><span class="token operator">=</span> <span class="token identifier">str</span>
+  <span class="token identifier">result</span>
+
+<span class="token identifier">capitalize</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token identifier">str</span><span class="token punctuation">)</span> <span class="token operator">-></span>
+  <span class="token punctuation">(</span><span class="token identifier">str</span><span class="token punctuation">.</span><span class="token identifier">char-at</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token identifier">to-upper-case</span><span class="token operator">!</span> <span class="token operator">+</span> <span class="token identifier">str</span><span class="token punctuation">.</span><span class="token identifier">slice</span> <span class="token number">1</span>
+
+<span class="token identifier">camelize</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token identifier">replace</span> <span class="token regex">/[-_]+(.)?/g</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">,</span> <span class="token identifier">c</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">(</span><span class="token identifier">c</span> <span class="token operator">?</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token identifier">to-upper-case</span><span class="token operator">!</span><span class="token punctuation">)</span>
+
+<span class="token comment"># convert camelCase to camel-case, and setJSON to set-JSON</span>
+<span class="token identifier">dasherize</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token identifier">str</span><span class="token punctuation">)</span> <span class="token operator">-></span>
+    <span class="token identifier">str</span>
+      <span class="token punctuation">.</span><span class="token identifier">replace</span> <span class="token regex">/([^-A-Z])([A-Z]+)/g</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">,</span> <span class="token identifier">lower</span><span class="token punctuation">,</span> <span class="token identifier">upper</span><span class="token punctuation">)</span> <span class="token operator">-></span>
+         <span class="token interpolated-string"><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation variable">#{</span><span class="token identifier">lower</span><span class="token interpolation-punctuation variable">}</span></span><span class="token string">-</span><span class="token interpolation"><span class="token interpolation-punctuation variable">#{</span><span class="token keyword">if</span> <span class="token identifier">upper</span><span class="token punctuation">.</span><span class="token identifier">length</span> <span class="token operator">></span> <span class="token number">1</span> <span class="token keyword">then</span> <span class="token identifier">upper</span> <span class="token keyword">else</span> <span class="token identifier">upper</span><span class="token punctuation">.</span><span class="token identifier">to-lower-case</span><span class="token operator">!</span><span class="token interpolation-punctuation variable">}</span></span><span class="token string">"</span></span>
+      <span class="token punctuation">.</span><span class="token identifier">replace</span> <span class="token regex">/^([A-Z]+)/</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">,</span> <span class="token identifier">upper</span><span class="token punctuation">)</span> <span class="token operator">-></span>
+         <span class="token keyword">if</span> <span class="token identifier">upper</span><span class="token punctuation">.</span><span class="token identifier">length</span> <span class="token operator">></span> <span class="token number">1</span> <span class="token keyword">then</span> <span class="token interpolated-string"><span class="token string">"</span><span class="token variable">#upper</span><span class="token string">-"</span></span> <span class="token keyword">else</span> <span class="token identifier">upper</span><span class="token punctuation">.</span><span class="token identifier">to-lower-case</span><span class="token operator">!</span>
+
+<span class="token identifier">module</span><span class="token punctuation">.</span><span class="token identifier">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token identifier">split</span><span class="token punctuation">,</span> <span class="token identifier">join</span><span class="token punctuation">,</span> <span class="token identifier">lines</span><span class="token punctuation">,</span> <span class="token identifier">unlines</span><span class="token punctuation">,</span> <span class="token identifier">words</span><span class="token punctuation">,</span> <span class="token identifier">unwords</span><span class="token punctuation">,</span> <span class="token identifier">chars</span><span class="token punctuation">,</span> <span class="token identifier">unchars</span><span class="token punctuation">,</span> <span class="token identifier">reverse</span><span class="token punctuation">,</span>
+  <span class="token identifier">repeat</span><span class="token punctuation">,</span> <span class="token identifier">capitalize</span><span class="token punctuation">,</span> <span class="token identifier">camelize</span><span class="token punctuation">,</span> <span class="token identifier">dasherize</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

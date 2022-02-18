@@ -1,0 +1,31 @@
+$B$2:$B$4
+$B2:B$4
+B$2:$B4
+B2:B4
+
+$B:$B
+$B:B
+B:$B
+B:B
+
+$2:$4
+$2:4
+2:$4
+2:4
+----------------------------------------------------
+<span class="token range property"><span class="token cell">$B$2</span><span class="token operator">:</span><span class="token cell">$B$4</span></span>
+<span class="token range property"><span class="token cell">$B2</span><span class="token operator">:</span><span class="token cell">B$4</span></span>
+<span class="token range property"><span class="token cell">B$2</span><span class="token operator">:</span><span class="token cell">$B4</span></span>
+<span class="token range property"><span class="token cell">B2</span><span class="token operator">:</span><span class="token cell">B4</span></span>
+
+<span class="token range property"><span class="token column">$B</span><span class="token operator">:</span><span class="token column">$B</span></span>
+<span class="token range property"><span class="token column">$B</span><span class="token operator">:</span><span class="token column">B</span></span>
+<span class="token range property"><span class="token column">B</span><span class="token operator">:</span><span class="token column">$B</span></span>
+<span class="token range property"><span class="token column">B</span><span class="token operator">:</span><span class="token column">B</span></span>
+
+<span class="token range property"><span class="token row">$2</span><span class="token operator">:</span><span class="token row">$4</span></span>
+<span class="token range property"><span class="token row">$2</span><span class="token operator">:</span><span class="token row">4</span></span>
+<span class="token range property"><span class="token row">2</span><span class="token operator">:</span><span class="token row">$4</span></span>
+<span class="token range property"><span class="token row">2</span><span class="token operator">:</span><span class="token row">4</span></span>
+
+----------------------------------------------------

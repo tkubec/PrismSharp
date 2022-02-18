@@ -1,0 +1,102 @@
+// Source: https://github.com/mellinoe/veldrid/blob/d60e5a036add2123a15f0da02f1da65a80503d54/src/Veldrid.ImGui/Assets/HLSL/imgui-frag.hlsl
+
+struct PS_INPUT
+{
+	float4 pos : SV_POSITION;
+	float4 col : COLOR0;
+	float2 uv  : TEXCOORD0;
+};
+
+Texture2D FontTexture : register(t0);
+sampler FontSampler : register(s0);
+
+float4 FS(PS_INPUT input) : SV_Target
+{
+	float4 out_col = input.col * FontTexture.Sample(FontSampler, input.uv);
+	return out_col;
+}
+----------------------------------------------------
+[
+	["comment", "// Source: https://github.com/mellinoe/veldrid/blob/d60e5a036add2123a15f0da02f1da65a80503d54/src/Veldrid.ImGui/Assets/HLSL/imgui-frag.hlsl"],
+
+	["keyword", "struct"],
+	["class-name", "PS_INPUT"],
+
+	["punctuation", "{"],
+
+	["keyword", "float4"],
+	" pos ",
+	["operator", ":"],
+	" SV_POSITION",
+	["punctuation", ";"],
+
+	["keyword", "float4"],
+	" col ",
+	["operator", ":"],
+	" COLOR0",
+	["punctuation", ";"],
+
+	["keyword", "float2"],
+	" uv  ",
+	["operator", ":"],
+	" TEXCOORD0",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["class-name", "Texture2D"],
+	" FontTexture ",
+	["operator", ":"],
+	["keyword", "register"],
+	["punctuation", "("],
+	"t0",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "sampler"],
+	" FontSampler ",
+	["operator", ":"],
+	["keyword", "register"],
+	["punctuation", "("],
+	"s0",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "float4"],
+	["function", "FS"],
+	["punctuation", "("],
+	"PS_INPUT input",
+	["punctuation", ")"],
+	["operator", ":"],
+	" SV_Target\n",
+
+	["punctuation", "{"],
+
+	["keyword", "float4"],
+	" out_col ",
+	["operator", "="],
+	" input",
+	["punctuation", "."],
+	"col ",
+	["operator", "*"],
+	" FontTexture",
+	["punctuation", "."],
+	["function", "Sample"],
+	["punctuation", "("],
+	"FontSampler",
+	["punctuation", ","],
+	" input",
+	["punctuation", "."],
+	"uv",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	" out_col",
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

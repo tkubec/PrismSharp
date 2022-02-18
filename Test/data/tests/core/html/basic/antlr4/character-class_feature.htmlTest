@@ -1,0 +1,13 @@
+[abc]
+[\r\n\\\]]
+[a-z]
+[+-] [-+]
+[\uFFFF\u{10FFFF}\p{Block=Latin_1_Supplement}]
+----------------------------------------------------
+<span class="token character-class regex"><span class="token punctuation">[</span>abc<span class="token punctuation">]</span></span>
+<span class="token character-class regex"><span class="token punctuation">[</span><span class="token escape">\r</span><span class="token escape">\n</span><span class="token escape">\\</span><span class="token escape">\]</span><span class="token punctuation">]</span></span>
+<span class="token character-class regex"><span class="token punctuation">[</span>a<span class="token range punctuation">-</span>z<span class="token punctuation">]</span></span>
+<span class="token character-class regex"><span class="token punctuation">[</span>+-<span class="token punctuation">]</span></span> <span class="token character-class regex"><span class="token punctuation">[</span>-+<span class="token punctuation">]</span></span>
+<span class="token character-class regex"><span class="token punctuation">[</span><span class="token escape">\uFFFF</span><span class="token escape">\u{10FFFF}</span><span class="token escape">\p{Block=Latin_1_Supplement}</span><span class="token punctuation">]</span></span>
+
+----------------------------------------------------

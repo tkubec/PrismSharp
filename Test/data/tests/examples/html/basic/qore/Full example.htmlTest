@@ -1,0 +1,1925 @@
+#!/usr/bin/env qore
+
+# database test script
+# databases users must be able to create and destroy tables and procedures, etc
+# in order to execute all tests
+
+%require-our
+%enable-all-warnings
+
+our ($o, $errors, $test_count);
+
+const opts =
+	( "help"    : "h,help",
+	  "host"    : "H,host=s",
+	  "pass"    : "p,pass=s",
+	  "db"      : "d,db=s",
+	  "user"    : "u,user=s",
+	  "type"    : "t,type=s",
+	  "enc"     : "e,encoding=s",
+	  "verbose" : "v,verbose:i+",
+	  "leave"   : "l,leave"
+ );
+
+sub usage()
+{
+	printf("usage: %s [options]
+ -h,--help          this help text
+ -u,--user=ARG      set username
+ -p,--pass=ARG      set password
+ -d,--db=ARG        set database name
+ -e,--encoding=ARG  set database character set encoding (i.e. \"utf8\")
+ -H,--host=ARG      set hostname (for MySQL and PostgreSQL connections)
+ -t,--type          set database driver (default mysql)
+ -v,--verbose       more v's = more information
+ -l,--leave         leave test tables in schema at end\n",
+	   basename($ENV."_"));
+	exit();
+}
+
+const object_map =
+ ( "oracle" :
+   ( "tables" : ora_tables ),
+   "mysql"  :
+   ( "tables" : mysql_tables ),
+   "pgsql"  :
+   ( "tables" : pgsql_tables ),
+   "sybase" :
+   ( "tables" : syb_tables,
+	 "procs"  : sybase_procs ),
+   "freetds"  :
+   ( "tables" : freetds_sybase_tables,
+	 "procs"  : sybase_procs ) );
+
+const ora_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar2(80) not null
+)",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar2(250) not null,
+   dob date not null
+)",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar2(80) not null,
+   value varchar2(160) not null
+)" );
+
+const mysql_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null
+) type = innodb",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+) type = innodb",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+) type = innodb" );
+
+const pgsql_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null )",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null )",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null)",
+	"data_test" : "create table data_test (
+		int2_f smallint not null,
+		int4_f integer not null,
+		int8_f int8 not null,
+		bool_f boolean not null,
+
+		float4_f real not null,
+		float8_f double precision not null,
+
+		number_f numeric(16,3) not null,
+		money_f money not null,
+
+		text_f text not null,
+		varchar_f varchar(40) not null,
+		char_f char(40) not null,
+		name_f name not null,
+
+		date_f date not null,
+		abstime_f abstime not null,
+		reltime_f reltime not null,
+		interval_f interval not null,
+		time_f time not null,
+		timetz_f time with time zone not null,
+		timestamp_f timestamp not null,
+		timestamptz_f timestamp with time zone not null,
+		tinterval_f tinterval not null,
+
+		bytea_f bytea not null
+		--bit_f bit(11) not null,
+		--varbit_f bit varying(11) not null
+)" );
+
+const syb_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null
+)",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+)",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)",
+	"data_test" : "create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	unichar_f unichar(40) not null,
+	univarchar_f univarchar(40) not null,
+	text_f text not null,
+	unitext_f unitext not null, -- note that unitext is stored as 'image'
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	date_f date not null,
+	time_f time not null,
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)" );
+
+const sybase_procs = (
+	"find_family" :
+"create procedure find_family @name varchar(80)
+as
+select * from family where name = @name
+commit -- to maintain transaction count
+",
+	"get_values" :
+"create procedure get_values @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+commit -- to maintain transaction count
+",
+	"get_values_and_select" :
+"create procedure get_values_and_select @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+select * from family where family_id = 1
+commit -- to maintain transaction count
+",
+	"get_values_and_multiple_select" :
+"create procedure get_values_and_multiple_select @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+select * from family where family_id = 1
+select * from people where person_id = 1
+commit -- to maintain transaction count
+",
+	"just_select" :
+"create procedure just_select
+as
+select * from family where family_id = 1
+commit -- to maintain transaction count
+",
+	"multiple_select" :
+"create procedure multiple_select
+as
+select * from family where family_id = 1
+select * from people where person_id = 1
+commit -- to maintain transaction count
+"
+ );
+
+const freetds_sybase_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null
+)",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+)",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)",
+	"data_test" : "create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	text_f text not null,
+	unitext_f unitext not null, -- note that unitext is stored as 'image'
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	date_f date not null,
+	time_f time not null,
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)" );
+
+const freetds_mssql_tables = (
+	"family" : "create table family (
+   family_id int not null,
+   name varchar(80) not null
+)",
+	"people" : "create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob datetime not null
+)",
+	"attributes" : "create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)",
+	"data_test" : "create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	text_f text not null,
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)" );
+
+sub parse_command_line()
+{
+	my $g = new GetOpt(opts);
+	$o = $g.parse(\$ARGV);
+	if ($o.help)
+	usage();
+
+	if (!strlen($o.db))
+	{
+	stderr.printf("set the login parameters with -u,-p,-d, etc (-h for help)\n");
+	exit(1);
+	}
+	if (elements $ARGV)
+	{
+	stderr.printf("excess arguments on command-line (%n): -h for help\n", $ARGV);
+	exit(1);
+	}
+	if (!strlen($o.type))
+	$o.type = "mysql";
+}
+
+sub create_datamodel($db)
+{
+	drop_test_datamodel($db);
+
+	my $driver = $db.getDriverName();
+	# create tables
+	my $tables = object_map.$driver.tables;
+	if ($driver == "freetds")
+	if ($db.is_sybase)
+		$tables = freetds_sybase_tables;
+		else
+		$tables = freetds_mssql_tables;
+
+	foreach my $table in (keys $tables)
+	{
+	tprintf(2, "creating table %n\n", $table);
+	$db.exec($tables.$table);
+	}
+
+	# create procedures if any
+	foreach my $proc in (keys object_map.$driver.procs)
+	{
+	tprintf(2, "creating procedure %n\n", $proc);
+	$db.exec(object_map.$driver.procs.$proc);
+	}
+
+	# create functions if any
+	foreach my $func in (keys object_map.$driver.funcs)
+	{
+	tprintf(2, "creating function %n\n", $func);
+	$db.exec(object_map.$driver.funcs.$func);
+	}
+
+	$db.exec("insert into family values ( 1, 'Smith' )");
+	$db.exec("insert into family values ( 2, 'Jones' )");
+
+	# we insert the dates here using binding by value so we don't have
+	# to worry about each database's specific date format
+	$db.exec("insert into people values ( 1, 1, 'Arnie', %v)", 1983-05-13);
+	$db.exec("insert into people values ( 2, 1, 'Sylvia', %v)", 1994-11-10);
+	$db.exec("insert into people values ( 3, 1, 'Carol', %v)", 2003-07-23);
+	$db.exec("insert into people values ( 4, 1, 'Bernard', %v)", 1979-02-27);
+	$db.exec("insert into people values ( 5, 1, 'Isaac', %v)", 2000-04-04);
+	$db.exec("insert into people values ( 6, 2, 'Alan', %v)", 1992-06-04);
+	$db.exec("insert into people values ( 7, 2, 'John', %v)", 1995-03-23);
+
+	$db.exec("insert into attributes values ( 1, 'hair', 'blond' )");
+	$db.exec("insert into attributes values ( 1, 'eyes', 'hazel' )");
+	$db.exec("insert into attributes values ( 2, 'hair', 'blond' )");
+	$db.exec("insert into attributes values ( 2, 'eyes', 'blue' )");
+	$db.exec("insert into attributes values ( 3, 'hair', 'brown' )");
+	$db.exec("insert into attributes values ( 3, 'eyes', 'grey')");
+	$db.exec("insert into attributes values ( 4, 'hair', 'brown' )");
+	$db.exec("insert into attributes values ( 4, 'eyes', 'brown' )");
+	$db.exec("insert into attributes values ( 5, 'hair', 'red' )");
+	$db.exec("insert into attributes values ( 5, 'eyes', 'green' )");
+	$db.exec("insert into attributes values ( 6, 'hair', 'black' )");
+	$db.exec("insert into attributes values ( 6, 'eyes', 'blue' )");
+	$db.exec("insert into attributes values ( 7, 'hair', 'brown' )");
+	$db.exec("insert into attributes values ( 7, 'eyes', 'brown' )");
+	$db.commit();
+}
+
+sub drop_test_datamodel($db)
+{
+	my $driver = $db.getDriverName();
+	# drop the tables and ignore exceptions
+	# the commits are needed for databases like postgresql, where errors will prohibit and further
+	# actions from being taken on the Datasource
+	foreach my $table in (keys object_map.$driver.tables)
+	try {
+		$db.exec("drop table " + $table);
+		$db.commit();
+		tprintf(2, "dropped table %n\n", $table);
+	}
+		catch ()
+	{
+		$db.commit();
+	}
+
+	# drop procedures and ignore exceptions
+	foreach my $proc in (keys object_map.$driver.procs)
+	{
+	my $cmd = object_map.$driver.drop_proc_cmd;
+	if (!exists $cmd)
+		$cmd = "drop procedure";
+	try {
+		$db.exec($cmd + " " + $proc);
+		$db.commit();
+		tprintf(2, "dropped procedure %n\n", $proc);
+	}
+	catch ()
+	{
+		$db.commit();
+	}
+	}
+
+	# drop functions and ignore exceptions
+	foreach my $func in (keys object_map.$driver.funcs)
+	{
+	my $cmd = object_map.$driver.drop_func_cmd;
+	if (!exists $cmd)
+		$cmd = "drop function";
+	try {
+		$db.exec($cmd + " " + $func);
+		$db.commit();
+		tprintf(2, "dropped function %n\n", $func);
+	}
+	catch ()
+	{
+		$db.commit();
+	}
+	}
+}
+
+sub getDS()
+{
+	my $ds = new Datasource($o.type, $o.user, $o.pass, $o.db, $o.enc);
+	if (strlen($o.host))
+	$ds.setHostName($o.host);
+	return $ds;
+}
+
+sub tprintf($v, $msg)
+{
+	if ($v <= $o.verbose)
+	vprintf($msg, $argv);
+}
+
+sub test_value($v1, $v2, $msg)
+{
+	++$test_count;
+	if ($v1 == $v2)
+	tprintf(1, "OK: %s test\n", $msg);
+	else
+	{
+		tprintf(0, "ERROR: %s test failed! (%n != %n)\n", $msg, $v1, $v2);
+		$errors++;
+	}
+}
+
+const family_hash = (
+  "Jones" : (
+	  "people" : (
+	  "John" : (
+		  "dob" : 1995-03-23,
+		  "eyes" : "brown",
+		  "hair" : "brown" ),
+	  "Alan" : (
+		  "dob" : 1992-06-04,
+		  "eyes" : "blue",
+		  "hair" : "black" ) ) ),
+	"Smith" : (
+	"people" : (
+		"Arnie" : (
+		"dob" : 1983-05-13,
+		"eyes" : "hazel",
+		"hair" : "blond" ),
+		"Carol" : (
+		"dob" : 2003-07-23,
+		"eyes" : "grey",
+		"hair" : "brown" ),
+		"Isaac" : (
+		"dob" : 2000-04-04,
+		"eyes" : "green",
+		"hair" : "red" ),
+		"Bernard" : (
+		"dob" : 1979-02-27,
+		"eyes" : "brown",
+		"hair" : "brown" ),
+		"Sylvia" : (
+		"dob" : 1994-11-10,
+		"eyes" : "blue",
+		"hair" : "blond" ) ) ) );
+
+sub context_test($db)
+{
+	# first we select all the data from the tables and then use
+	# context statements to order the output hierarchically
+
+	# context statements are most useful when a set of queries can be executed once
+	# and the results processed many times by creating "views" with context statements
+
+	my $people = $db.select("select * from people");
+	my $attributes = $db.select("select * from attributes");
+
+	my $today = format_date("YYYYMMDD", now());
+
+	# in this test, we create a big hash structure out of the queries executed above
+	# and compare it at the end to the expected result
+
+	# display each family sorted by family name
+	my $fl;
+	context family ($db.select("select * from family")) sortBy (%name)
+	{
+	my $pl;
+	tprintf(2, "Family %d: %s\n", %family_id, %name);
+
+	# display people, sorted by eye color, descending
+	context people ($people)
+		sortDescendingBy (find %value in $attributes
+				  where (%attribute == "eyes"
+					 && %person_id == %people:person_id))
+		where (%family_id == %family:family_id)
+	{
+		my $al;
+		tprintf(2, "  %s, born %s\n", %name, format_date("Month DD, YYYY", %dob));
+		context ($attributes) sortBy (%attribute) where (%person_id == %people:person_id)
+		{
+		$al.%attribute = %value;
+		tprintf(2, "    has %s %s\n", %value, %attribute);
+		}
+		# leave out the ID fields and name from hash under name; subtracting a
+		# string from a hash removes that key from the result
+		# this is "doing it the hard way", there is only one key left,
+		# "dob", then attributes are added directly into the person hash
+		$pl.%name = %% - "family_id" - "person_id" - "name" + $al;
+	}
+	# leave out family_id and name fields (leaving an empty hash)
+	$fl.%name = %% - "family_id" - "name" + ( "people" : $pl );
+	}
+
+	# test context ordering
+	test_value(keys $fl, ("Jones", "Smith"), "first context");
+	test_value(keys $fl.Smith.people, ("Arnie", "Carol", "Isaac", "Bernard", "Sylvia"), "second context");
+	# test entire context value
+	test_value($fl, family_hash, "third context");
+}
+
+
+sub test_timeout($db, $c)
+{
+	$db.setTransactionLockTimeout(1ms);
+	try {
+	# this should cause a TRANSACTION-LOCK-TIMEOUT exception to be thrown
+	$db.exec("insert into family values (3, 'Test')\n");
+	test_value(True, False, "transaction timeout");
+	$db.exec("delete from family where name = 'Test'");
+	}
+	catch ($ex)
+	{
+	test_value(True, True, "transaction timeout");
+	}
+	# signal parent thread to continue
+	$c.dec();
+}
+
+sub transaction_test($db)
+{
+	my $ndb = getDS();
+	my $r;
+	tprintf(2, "db.autocommit=%N, ndb.autocommit=%N\n", $db.getAutoCommit(), $ndb.getAutoCommit());
+
+	# first, we insert a new row into "family" but do not commit it
+	my $rows = $db.exec("insert into family values (3, 'Test')\n");
+	if ($rows !== 1)
+	printf("FAILED INSERT, rows=%N\n", $rows);
+
+	# now we verify that the new row is not visible to the other datasource
+	# unless it's a sybase/ms sql server datasource, in which case this would deadlock :-(
+	if ($o.type != "sybase" && $o.type != "freetds")
+	{
+	$r = $ndb.selectRow("select name from family where family_id = 3").name;
+	test_value($r, NOTHING, "first transaction");
+	}
+
+	# now we verify that the new row is visible to the inserting datasource
+	$r = $db.selectRow("select name from family where family_id = 3").name;
+	test_value($r, "Test", "second transaction");
+
+	# test datasource timeout
+	# this Counter variable will allow the parent thread to sleep
+	# until the child thread times out
+	my $c = new Counter(1);
+	background test_timeout($db, $c);
+
+	# wait for child thread to time out
+	$c.waitForZero();
+
+	# now, we commit the transaction
+	$db.commit();
+
+	# now we verify that the new row is visible in the other datasource
+	$r = $ndb.selectRow("select name from family where family_id = 3").name;
+	test_value($r, "Test", "third transaction");
+
+	# now we delete the row we inserted (so we can repeat the test)
+	$r = $ndb.exec("delete from family where family_id = 3");
+	test_value($r, 1, "delete row count");
+	$ndb.commit();
+}
+
+sub oracle_test()
+{
+}
+
+# here we use a little workaround for modules that provide functions,
+# namespace additions (constants, classes, etc) needed by test functions
+# at parse time.  To avoid parse errors (as database modules are loaded
+# in this script at run-time when the Datasource class is instantiated)
+# we use a Program object that we parse and run on demand to return the
+# value required
+sub get_val($code)
+{
+	my $p = new Program();
+
+	my $str = sprintf("return %s;", $code);
+	$p.parse($str, "code");
+	return $p.run();
+}
+
+sub pgsql_test($db)
+{
+	my $args = ( "int2_f"          : 258,
+		 "int4_f"          : 233932,
+		 "int8_f"          : 239392939458,
+		 "bool_f"          : True,
+		 "float4_f"        : 21.3444,
+		 "float8_f"        : 49394.23423491,
+		 "number_f"        : get_val("pgsql_bind(PG_TYPE_NUMERIC, '7235634215.3250')"),
+		 "money_f"         : get_val("pgsql_bind(PG_TYPE_CASH, \"400.56\")"),
+		 "text_f"          : 'some text  ',
+		 "varchar_f"       : 'varchar ',
+		 "char_f"          : 'char text',
+		 "name_f"          : 'name',
+		 "date_f"          : 2004-01-05,
+		 "abstime_f"       : 2005-12-03T10:00:01,
+		 "reltime_f"       : 5M + 71D + 19h + 245m + 51s,
+		 "interval_f"      : 6M + 3D + 2h + 45m + 15s,
+		 "time_f"          : 11:35:00,
+		 "timetz_f"        : get_val("pgsql_bind(PG_TYPE_TIMETZ, \"11:38:21 CST\")"),
+		 "timestamp_f"     : 2005-04-01T11:35:26,
+		 "timestamptz_f"   : 2005-04-01T11:35:26.259,
+		 "tinterval_f"     : get_val("pgsql_bind(PG_TYPE_TINTERVAL, '[\"May 10, 1947 23:59:12\" \"Jan 14, 1973 03:14:21\"]')"),
+		 "bytea_f"         : <bead>
+		 #bit_f             :
+		 #varbit_f          :
+	);
+
+	$db.vexec("insert into data_test values (%v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v)", hash_values($args));
+
+	my $q = $db.selectRow("select * from data_test");
+	if ($o.verbose > 1)
+	foreach my $k in (keys $q)
+		tprintf(2, " %-16s= %-10s %N\n", $k, type($q.$k), $q.$k);
+
+	# fix values where we know the return type is different
+	$args.money_f = 400.56;
+	$args.timetz_f = 11:38:21;
+	$args.tinterval_f = '["1947-05-10 21:59:12" "1973-01-14 02:14:21"]';
+	$args.number_f = "7235634215.3250";
+	$args.reltime_f = 19177551s;
+	$args.interval_f = 6M + 3D + 9915s;
+
+	# rounding errors can happen in float4
+	$q.float4_f = round($q.float4_f);
+	$args.float4_f = round($args.float4_f);
+
+	# remove values where we know they won't match
+	# abstime and timestamptz are converted to GMT by the server
+	delete $q.abstime_f;
+	delete $q.timestamptz_f;
+
+	# compare each value
+	foreach my $k in (keys $q)
+	test_value($q.$k, $args.$k, sprintf("%s bind and retrieve", $k));
+
+	$db.commit();
+}
+
+sub mysql_test()
+{
+}
+
+const family_q = ( "family_id" : 1,
+		   "name" : "Smith" );
+const person_q = ( "person_id" : 1,
+		   "family_id" : 1,
+		   "name" : "Arnie",
+		   "dob" : 1983-05-13 );
+const params = ( "string" : "hello there",
+		 "int" : 150 );
+
+sub sybase_test($db)
+{
+	# simple stored proc test, bind by name
+	my $x = $db.exec("exec find_family %v", "Smith");
+	test_value($x, ("name": list("Smith"), "family_id" : list(1)), "simple stored proc");
+
+	# stored proc execute with output params
+	$x = $db.exec("declare @string varchar(40), @int int
+exec get_values :string output, :int output");
+	test_value($x, params + ("rowcount":1), "get_values");
+
+	# we use Datasource::selectRows() in the following queries because we
+	# get hash results instead of a hash of lists as with exec in the queries
+	# normally we should not use selectRows to execute a stored procedure,
+	# as the Datasource::selectRows() method will not grab the transaction lock,
+	# but we already called Datasource::exec() above, so we have it already.
+	# the other alternative would be to call Datasource::beginTransaction() before
+	# Datasource::selectRows()
+
+	# simple stored proc test, bind by name, returns hash
+	$x = $db.selectRows("exec find_family %v", "Smith");
+	test_value($x, family_q, "simple stored proc");
+
+	# stored proc execute with output params and select results
+	$x = $db.selectRows("declare @string varchar(40), @int int
+exec get_values_and_select :string output, :int output");
+	test_value($x, ("query":family_q,"params":params), "get_values_and_select");
+
+	# stored proc execute with output params and multiple select results
+	$x = $db.selectRows("declare @string varchar(40), @int int
+exec get_values_and_multiple_select :string output, :int output");
+	test_value($x, ("query":("query0":family_q,"query1":person_q),"params":params), "get_values_and_multiple_select");
+
+	# stored proc execute with just select results
+	$x = $db.selectRows("exec just_select");
+	test_value($x, family_q, "just_select");
+
+	# stored proc execute with multiple select results
+	$x = $db.selectRows("exec multiple_select");
+	test_value($x, ("query0":family_q,"query1":person_q), "multiple_select");
+
+	my $args = ( "null_f"          : NULL,
+		 "varchar_f"       : "varchar",
+		 "char_f"          : "char",
+		 "unichar_f"       : "unichar",
+		 "univarchar_f"    : "univarchar",
+		 "text_f"          : "test",
+		 "unitext_f"       : "test",
+		 "bit_f"           : True,
+		 "tinyint_f"       : 55,
+		 "smallint_f"      : 4285,
+		 "int_f"           : 405402,
+		 "int_f2"          : 214123498,
+		 "decimal_f"       : 500.1231,
+		 "float_f"         : 23443.234324234,
+		 "real_f"          : 213.123,
+		 "money_f"         : 3434234250.2034,
+		 "smallmoney_f"    : 211100.1012,
+		 "date_f"          : 2007-05-01,
+			 "time_f"          : 10:30:01,
+		 "datetime_f"      : 3459-01-01T11:15:02.250,
+		 "smalldatetime_f" : 2007-12-01T12:01:00,
+		 "binary_f"        : <0badbeef>,
+		 "varbinary_f"     : <feedface>,
+		 "image_f"         : <cafebead> );
+
+	# insert data
+	my $rows = $db.vexec("insert into data_test values (%v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %d, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v)", hash_values($args));
+
+	my $q = $db.selectRow("select * from data_test");
+	if ($o.verbose > 1)
+	foreach my $k in (keys $q)
+		tprintf(2, " %-16s= %-10s %N\n", $k, type($q.$k), $q.$k);
+
+	# remove values where we know they won't match
+	# unitext_f is returned as IMAGE by the server
+	delete $q.unitext_f;
+	delete $args.unitext_f;
+	# rounding errors can happen in real
+	$q.real_f = round($q.real_f);
+	$args.real_f = round($args.real_f);
+
+	# compare each value
+	foreach my $k in (keys $q)
+	test_value($q.$k, $args.$k, sprintf("%s bind and retrieve", $k));
+
+	$db.commit();
+}
+
+sub freetds_test($db)
+{
+	# simple stored proc test, bind by name
+	my $x = $db.exec("exec find_family %v", "Smith");
+	test_value($x, ("name": list("Smith"), "family_id" : list(1)), "simple stored proc");
+
+	# we cannot retrieve parameters from newer SQL Servers with the approach we use;
+	# Microsoft changed the handling of the protocol and require us to use RPC calls,
+	# this will be implemented in the next version of qore where the "freetds" driver will
+	# be able to add custom methods to the Datasource class.  For now, we skip these tests
+
+	if ($db.is_sybase)
+	{
+	$x = $db.exec("declare @string varchar(40), @int int
+exec get_values :string output, :int output");
+	test_value($x, params, "get_values");
+	}
+
+	# we use Datasource::selectRows() in the following queries because we
+	# get hash results instead of a hash of lists as with exec in the queries
+	# normally we should not use selectRows to execute a stored procedure,
+	# as the Datasource::selectRows() method will not grab the transaction lock,
+	# but we already called Datasource::exec() above, so we have it already.
+	# the other alternative would be to call Datasource::beginTransaction() before
+	# Datasource::selectRows()
+
+	# simple stored proc test, bind by name, returns hash
+	$x = $db.selectRows("exec find_family %v", "Smith");
+	test_value($x, family_q, "simple stored proc");
+
+	# stored proc execute with output params and select results
+	if ($db.is_sybase)
+	{
+	$x = $db.selectRows("declare @string varchar(40), @int int
+exec get_values_and_select :string output, :int output");
+	test_value($x, ("query":family_q,"params":params), "get_values_and_select");
+
+	# stored proc execute with output params and multiple select results
+	$x = $db.selectRows("declare @string varchar(40), @int int
+exec get_values_and_multiple_select :string output, :int output");
+	test_value($x, ("query":("query0":family_q,"query1":person_q),"params":params), "get_values_and_multiple_select");
+	}
+
+	# stored proc execute with just select results
+	$x = $db.selectRows("exec just_select");
+	test_value($x, family_q, "just_select");
+
+	# stored proc execute with multiple select results
+	$x = $db.selectRows("exec multiple_select");
+	test_value($x, ("query0":family_q,"query1":person_q), "multiple_select");
+
+	# the freetds driver does not work with the following sybase column types:
+	# unichar, univarchar
+
+	my $args = ( "null_f"          : NULL,
+		 "varchar_f"       : "test",
+		 "char_f"          : "test",
+		 "text_f"          : "test",
+		 "unitext_f"       : "test",
+		 "bit_f"           : True,
+		 "tinyint_f"       : 55,
+		 "smallint_f"      : 4285,
+		 "int_f"           : 405402,
+		 "int_f2"          : 214123498,
+		 "decimal_f"       : 500.1231,
+		 "float_f"         : 23443.234324234,
+		 "real_f"          : 213.123,
+		 "money_f"         : 3434234250.2034,
+		 "smallmoney_f"    : 211100.1012,
+		 "date_f"          : 2007-05-01,
+			 "time_f"          : 10:30:01,
+		 "datetime_f"      : 3459-01-01T11:15:02.250,
+		 "smalldatetime_f" : 2007-12-01T12:01:00,
+		 "binary_f"        : <0badbeef>,
+		 "varbinary_f"     : <feedface>,
+		 "image_f"         : <cafebead> );
+
+	# remove fields not supported by sql server
+	if (!$db.is_sybase)
+	{
+	delete $args.unitext_f;
+	delete $args.date_f;
+	delete $args.time_f;
+	}
+
+	my $sql = "insert into data_test values (";
+	for (my $i; $i < elements $args; ++$i)
+	$sql += "%v, ";
+	$sql = substr($sql, 0, -2) + ")";
+
+	# insert data, using the values from the hash above
+	my $rows = $db.vexec($sql, hash_values($args));
+
+	my $q = $db.selectRow("select * from data_test");
+	if ($o.verbose > 1)
+	foreach my $k in (keys $q)
+		tprintf(2, " %-16s= %-10s %N\n", $k, type($q.$k), $q.$k);
+
+	# remove values where we know they won't match
+	# unitext_f is returned as IMAGE by the server
+	delete $q.unitext_f;
+	delete $args.unitext_f;
+	# rounding errors can happen in real
+	$q.real_f = round($q.real_f);
+	$args.real_f = round($args.real_f);
+
+	# compare each value
+	foreach my $k in (keys $q)
+	test_value($q.$k, $args.$k, sprintf("%s bind and retrieve", $k));
+
+	$db.commit();
+}
+
+sub main()
+{
+	my $test_map =
+	( "sybase" : \sybase_test(),
+	  "freetds"  : \freetds_test(),
+	  "mysql"  : \mysql_test(),
+	  "pgsql"  : \pgsql_test(),
+	  "oracle" : \oracle_test());
+
+	parse_command_line();
+	my $db = getDS();
+
+	my $driver = $db.getDriverName();
+	printf("testing %s driver\n", $driver);
+	my $sv = $db.getServerVersion();
+	if ($o.verbose > 1)
+	tprintf(2, "client version=%n\nserver version=%n\n", $db.getClientVersion(), $sv);
+
+	# determine if the server is a sybase or sql server dataserver
+	if ($driver == "freetds")
+	if ($sv !~ /microsoft/i)
+		$db.is_sybase = True;
+
+	create_datamodel($db);
+
+	context_test($db);
+	transaction_test($db);
+	my $test = $test_map.($db.getDriverName());
+	if (exists $test)
+	$test($db);
+
+	if (!$o.leave)
+	drop_test_datamodel($db);
+	printf("%d/%d tests OK\n", $test_count - $errors, $test_count);
+}
+
+main();
+----------------------------------------------------
+<span class="token comment">#!/usr/bin/env qore</span>
+
+<span class="token comment"># database test script</span>
+<span class="token comment"># databases users must be able to create and destroy tables and procedures, etc</span>
+<span class="token comment"># in order to execute all tests</span>
+
+<span class="token operator">%</span>require<span class="token operator">-</span><span class="token keyword">our</span>
+<span class="token operator">%</span>enable<span class="token operator">-</span>all<span class="token operator">-</span>warnings
+
+<span class="token keyword">our</span> <span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">,</span> <span class="token variable">$errors</span><span class="token punctuation">,</span> <span class="token variable">$test_count</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> opts <span class="token operator">=</span>
+	<span class="token punctuation">(</span> <span class="token string">"help"</span>    <span class="token punctuation">:</span> <span class="token string">"h,help"</span><span class="token punctuation">,</span>
+	  <span class="token string">"host"</span>    <span class="token punctuation">:</span> <span class="token string">"H,host=s"</span><span class="token punctuation">,</span>
+	  <span class="token string">"pass"</span>    <span class="token punctuation">:</span> <span class="token string">"p,pass=s"</span><span class="token punctuation">,</span>
+	  <span class="token string">"db"</span>      <span class="token punctuation">:</span> <span class="token string">"d,db=s"</span><span class="token punctuation">,</span>
+	  <span class="token string">"user"</span>    <span class="token punctuation">:</span> <span class="token string">"u,user=s"</span><span class="token punctuation">,</span>
+	  <span class="token string">"type"</span>    <span class="token punctuation">:</span> <span class="token string">"t,type=s"</span><span class="token punctuation">,</span>
+	  <span class="token string">"enc"</span>     <span class="token punctuation">:</span> <span class="token string">"e,encoding=s"</span><span class="token punctuation">,</span>
+	  <span class="token string">"verbose"</span> <span class="token punctuation">:</span> <span class="token string">"v,verbose:i+"</span><span class="token punctuation">,</span>
+	  <span class="token string">"leave"</span>   <span class="token punctuation">:</span> <span class="token string">"l,leave"</span>
+ <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">sub</span> <span class="token function">usage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"usage: %s [options]
+ -h,--help          this help text
+ -u,--user=ARG      set username
+ -p,--pass=ARG      set password
+ -d,--db=ARG        set database name
+ -e,--encoding=ARG  set database character set encoding (i.e. \"utf8\")
+ -H,--host=ARG      set hostname (for MySQL and PostgreSQL connections)
+ -t,--type          set database driver (default mysql)
+ -v,--verbose       more v's = more information
+ -l,--leave         leave test tables in schema at end\n"</span><span class="token punctuation">,</span>
+	   <span class="token function">basename</span><span class="token punctuation">(</span><span class="token variable">$ENV</span><span class="token punctuation">.</span><span class="token string">"_"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> object_map <span class="token operator">=</span>
+ <span class="token punctuation">(</span> <span class="token string">"oracle"</span> <span class="token punctuation">:</span>
+   <span class="token punctuation">(</span> <span class="token string">"tables"</span> <span class="token punctuation">:</span> ora_tables <span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token string">"mysql"</span>  <span class="token punctuation">:</span>
+   <span class="token punctuation">(</span> <span class="token string">"tables"</span> <span class="token punctuation">:</span> mysql_tables <span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token string">"pgsql"</span>  <span class="token punctuation">:</span>
+   <span class="token punctuation">(</span> <span class="token string">"tables"</span> <span class="token punctuation">:</span> pgsql_tables <span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token string">"sybase"</span> <span class="token punctuation">:</span>
+   <span class="token punctuation">(</span> <span class="token string">"tables"</span> <span class="token punctuation">:</span> syb_tables<span class="token punctuation">,</span>
+	 <span class="token string">"procs"</span>  <span class="token punctuation">:</span> sybase_procs <span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token string">"freetds"</span>  <span class="token punctuation">:</span>
+   <span class="token punctuation">(</span> <span class="token string">"tables"</span> <span class="token punctuation">:</span> freetds_sybase_tables<span class="token punctuation">,</span>
+	 <span class="token string">"procs"</span>  <span class="token punctuation">:</span> sybase_procs <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> ora_tables <span class="token operator">=</span> <span class="token punctuation">(</span>
+	<span class="token string">"family"</span> <span class="token punctuation">:</span> <span class="token string">"create table family (
+   family_id int not null,
+   name varchar2(80) not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token string">"create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar2(250) not null,
+   dob date not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"attributes"</span> <span class="token punctuation">:</span> <span class="token string">"create table attributes (
+   person_id int not null,
+   attribute varchar2(80) not null,
+   value varchar2(160) not null
+)"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> mysql_tables <span class="token operator">=</span> <span class="token punctuation">(</span>
+	<span class="token string">"family"</span> <span class="token punctuation">:</span> <span class="token string">"create table family (
+   family_id int not null,
+   name varchar(80) not null
+) type = innodb"</span><span class="token punctuation">,</span>
+	<span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token string">"create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+) type = innodb"</span><span class="token punctuation">,</span>
+	<span class="token string">"attributes"</span> <span class="token punctuation">:</span> <span class="token string">"create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+) type = innodb"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> pgsql_tables <span class="token operator">=</span> <span class="token punctuation">(</span>
+	<span class="token string">"family"</span> <span class="token punctuation">:</span> <span class="token string">"create table family (
+   family_id int not null,
+   name varchar(80) not null )"</span><span class="token punctuation">,</span>
+	<span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token string">"create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null )"</span><span class="token punctuation">,</span>
+	<span class="token string">"attributes"</span> <span class="token punctuation">:</span> <span class="token string">"create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null)"</span><span class="token punctuation">,</span>
+	<span class="token string">"data_test"</span> <span class="token punctuation">:</span> <span class="token string">"create table data_test (
+		int2_f smallint not null,
+		int4_f integer not null,
+		int8_f int8 not null,
+		bool_f boolean not null,
+
+		float4_f real not null,
+		float8_f double precision not null,
+
+		number_f numeric(16,3) not null,
+		money_f money not null,
+
+		text_f text not null,
+		varchar_f varchar(40) not null,
+		char_f char(40) not null,
+		name_f name not null,
+
+		date_f date not null,
+		abstime_f abstime not null,
+		reltime_f reltime not null,
+		interval_f interval not null,
+		time_f time not null,
+		timetz_f time with time zone not null,
+		timestamp_f timestamp not null,
+		timestamptz_f timestamp with time zone not null,
+		tinterval_f tinterval not null,
+
+		bytea_f bytea not null
+		--bit_f bit(11) not null,
+		--varbit_f bit varying(11) not null
+)"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> syb_tables <span class="token operator">=</span> <span class="token punctuation">(</span>
+	<span class="token string">"family"</span> <span class="token punctuation">:</span> <span class="token string">"create table family (
+   family_id int not null,
+   name varchar(80) not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token string">"create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"attributes"</span> <span class="token punctuation">:</span> <span class="token string">"create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"data_test"</span> <span class="token punctuation">:</span> <span class="token string">"create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	unichar_f unichar(40) not null,
+	univarchar_f univarchar(40) not null,
+	text_f text not null,
+	unitext_f unitext not null, -- note that unitext is stored as 'image'
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	date_f date not null,
+	time_f time not null,
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> sybase_procs <span class="token operator">=</span> <span class="token punctuation">(</span>
+	<span class="token string">"find_family"</span> <span class="token punctuation">:</span>
+<span class="token string">"create procedure find_family @name varchar(80)
+as
+select * from family where name = @name
+commit -- to maintain transaction count
+"</span><span class="token punctuation">,</span>
+	<span class="token string">"get_values"</span> <span class="token punctuation">:</span>
+<span class="token string">"create procedure get_values @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+commit -- to maintain transaction count
+"</span><span class="token punctuation">,</span>
+	<span class="token string">"get_values_and_select"</span> <span class="token punctuation">:</span>
+<span class="token string">"create procedure get_values_and_select @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+select * from family where family_id = 1
+commit -- to maintain transaction count
+"</span><span class="token punctuation">,</span>
+	<span class="token string">"get_values_and_multiple_select"</span> <span class="token punctuation">:</span>
+<span class="token string">"create procedure get_values_and_multiple_select @string varchar(80) output, @int int output
+as
+select @string = 'hello there'
+select @int = 150
+select * from family where family_id = 1
+select * from people where person_id = 1
+commit -- to maintain transaction count
+"</span><span class="token punctuation">,</span>
+	<span class="token string">"just_select"</span> <span class="token punctuation">:</span>
+<span class="token string">"create procedure just_select
+as
+select * from family where family_id = 1
+commit -- to maintain transaction count
+"</span><span class="token punctuation">,</span>
+	<span class="token string">"multiple_select"</span> <span class="token punctuation">:</span>
+<span class="token string">"create procedure multiple_select
+as
+select * from family where family_id = 1
+select * from people where person_id = 1
+commit -- to maintain transaction count
+"</span>
+ <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> freetds_sybase_tables <span class="token operator">=</span> <span class="token punctuation">(</span>
+	<span class="token string">"family"</span> <span class="token punctuation">:</span> <span class="token string">"create table family (
+   family_id int not null,
+   name varchar(80) not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token string">"create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob date not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"attributes"</span> <span class="token punctuation">:</span> <span class="token string">"create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"data_test"</span> <span class="token punctuation">:</span> <span class="token string">"create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	text_f text not null,
+	unitext_f unitext not null, -- note that unitext is stored as 'image'
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	date_f date not null,
+	time_f time not null,
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> freetds_mssql_tables <span class="token operator">=</span> <span class="token punctuation">(</span>
+	<span class="token string">"family"</span> <span class="token punctuation">:</span> <span class="token string">"create table family (
+   family_id int not null,
+   name varchar(80) not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token string">"create table people (
+   person_id int not null,
+   family_id int not null,
+   name varchar(250) not null,
+   dob datetime not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"attributes"</span> <span class="token punctuation">:</span> <span class="token string">"create table attributes (
+   person_id int not null,
+   attribute varchar(80) not null,
+   value varchar(160) not null
+)"</span><span class="token punctuation">,</span>
+	<span class="token string">"data_test"</span> <span class="token punctuation">:</span> <span class="token string">"create table data_test (
+	null_f char(1) null,
+
+	varchar_f varchar(40) not null,
+	char_f char(40) not null,
+	text_f text not null,
+
+		bit_f bit not null,
+	tinyint_f tinyint not null,
+	smallint_f smallint not null,
+	int_f int not null,
+		int_f2 int not null,
+
+	decimal_f decimal(10,4) not null,
+
+	float_f float not null,     -- 8-bytes
+	real_f real not null,       -- 4-bytes
+	money_f money not null,
+	smallmoney_f smallmoney not null,
+
+	datetime_f datetime not null,
+	smalldatetime_f smalldatetime not null,
+
+	binary_f binary(4) not null,
+	varbinary_f varbinary(4) not null,
+	image_f image not null
+)"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">sub</span> <span class="token function">parse_command_line</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$g</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GetOpt</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$o</span> <span class="token operator">=</span> <span class="token variable">$g</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>\<span class="token variable">$ARGV</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>help<span class="token punctuation">)</span>
+	<span class="token function">usage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>db<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	stderr<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"set the login parameters with -u,-p,-d, etc (-h for help)\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>elements <span class="token variable">$ARGV</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	stderr<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"excess arguments on command-line (%n): -h for help\n"</span><span class="token punctuation">,</span> <span class="token variable">$ARGV</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token variable">$o</span><span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">"mysql"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">create_datamodel</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">drop_test_datamodel</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$driver</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">getDriverName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment"># create tables</span>
+	<span class="token keyword">my</span> <span class="token variable">$tables</span> <span class="token operator">=</span> object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>tables<span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$driver</span> <span class="token operator">==</span> <span class="token string">"freetds"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">.</span>is_sybase<span class="token punctuation">)</span>
+		<span class="token variable">$tables</span> <span class="token operator">=</span> freetds_sybase_tables<span class="token punctuation">;</span>
+		<span class="token keyword">else</span>
+		<span class="token variable">$tables</span> <span class="token operator">=</span> freetds_mssql_tables<span class="token punctuation">;</span>
+
+	foreach <span class="token keyword">my</span> <span class="token variable">$table</span> in <span class="token punctuation">(</span>keys <span class="token variable">$tables</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"creating table %n\n"</span><span class="token punctuation">,</span> <span class="token variable">$table</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$tables</span><span class="token punctuation">.</span><span class="token variable">$table</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment"># create procedures if any</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$proc</span> in <span class="token punctuation">(</span>keys object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>procs<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"creating procedure %n\n"</span><span class="token punctuation">,</span> <span class="token variable">$proc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>procs<span class="token punctuation">.</span><span class="token variable">$proc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment"># create functions if any</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$func</span> in <span class="token punctuation">(</span>keys object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>funcs<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"creating function %n\n"</span><span class="token punctuation">,</span> <span class="token variable">$func</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>funcs<span class="token punctuation">.</span><span class="token variable">$func</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into family values ( 1, 'Smith' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into family values ( 2, 'Jones' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># we insert the dates here using binding by value so we don't have</span>
+	<span class="token comment"># to worry about each database's specific date format</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into people values ( 1, 1, 'Arnie', %v)"</span><span class="token punctuation">,</span> <span class="token number">1983</span><span class="token operator">-</span><span class="token number">05</span><span class="token operator">-</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into people values ( 2, 1, 'Sylvia', %v)"</span><span class="token punctuation">,</span> <span class="token number">1994</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into people values ( 3, 1, 'Carol', %v)"</span><span class="token punctuation">,</span> <span class="token number">2003</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">-</span><span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into people values ( 4, 1, 'Bernard', %v)"</span><span class="token punctuation">,</span> <span class="token number">1979</span><span class="token operator">-</span><span class="token number">02</span><span class="token operator">-</span><span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into people values ( 5, 1, 'Isaac', %v)"</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token operator">-</span><span class="token number">04</span><span class="token operator">-</span><span class="token number">04</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into people values ( 6, 2, 'Alan', %v)"</span><span class="token punctuation">,</span> <span class="token number">1992</span><span class="token operator">-</span><span class="token number">06</span><span class="token operator">-</span><span class="token number">04</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into people values ( 7, 2, 'John', %v)"</span><span class="token punctuation">,</span> <span class="token number">1995</span><span class="token operator">-</span><span class="token number">03</span><span class="token operator">-</span><span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 1, 'hair', 'blond' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 1, 'eyes', 'hazel' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 2, 'hair', 'blond' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 2, 'eyes', 'blue' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 3, 'hair', 'brown' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 3, 'eyes', 'grey')"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 4, 'hair', 'brown' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 4, 'eyes', 'brown' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 5, 'hair', 'red' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 5, 'eyes', 'green' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 6, 'hair', 'black' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 6, 'eyes', 'blue' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 7, 'hair', 'brown' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into attributes values ( 7, 'eyes', 'brown' )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">drop_test_datamodel</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$driver</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">getDriverName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment"># drop the tables and ignore exceptions</span>
+	<span class="token comment"># the commits are needed for databases like postgresql, where errors will prohibit and further</span>
+	<span class="token comment"># actions from being taken on the Datasource</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$table</span> in <span class="token punctuation">(</span>keys object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>tables<span class="token punctuation">)</span>
+	<span class="token keyword">try</span> <span class="token punctuation">{</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"drop table "</span> <span class="token operator">+</span> <span class="token variable">$table</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"dropped table %n\n"</span><span class="token punctuation">,</span> <span class="token variable">$table</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+		<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment"># drop procedures and ignore exceptions</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$proc</span> in <span class="token punctuation">(</span>keys object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>procs<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$cmd</span> <span class="token operator">=</span> object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>drop_proc_cmd<span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>exists <span class="token variable">$cmd</span><span class="token punctuation">)</span>
+		<span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token string">"drop procedure"</span><span class="token punctuation">;</span>
+	<span class="token keyword">try</span> <span class="token punctuation">{</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> <span class="token variable">$proc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"dropped procedure %n\n"</span><span class="token punctuation">,</span> <span class="token variable">$proc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment"># drop functions and ignore exceptions</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$func</span> in <span class="token punctuation">(</span>keys object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>funcs<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$cmd</span> <span class="token operator">=</span> object_map<span class="token punctuation">.</span><span class="token variable">$driver</span><span class="token punctuation">.</span>drop_func_cmd<span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>exists <span class="token variable">$cmd</span><span class="token punctuation">)</span>
+		<span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token string">"drop function"</span><span class="token punctuation">;</span>
+	<span class="token keyword">try</span> <span class="token punctuation">{</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> <span class="token variable">$func</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"dropped function %n\n"</span><span class="token punctuation">,</span> <span class="token variable">$func</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">getDS</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$ds</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Datasource</span><span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>type<span class="token punctuation">,</span> <span class="token variable">$o</span><span class="token punctuation">.</span>user<span class="token punctuation">,</span> <span class="token variable">$o</span><span class="token punctuation">.</span>pass<span class="token punctuation">,</span> <span class="token variable">$o</span><span class="token punctuation">.</span>db<span class="token punctuation">,</span> <span class="token variable">$o</span><span class="token punctuation">.</span>enc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>host<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token variable">$ds</span><span class="token punctuation">.</span><span class="token function">setHostName</span><span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>host<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token variable">$ds</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token variable">$v</span><span class="token punctuation">,</span> <span class="token variable">$msg</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$v</span> <span class="token operator">&lt;=</span> <span class="token variable">$o</span><span class="token punctuation">.</span>verbose<span class="token punctuation">)</span>
+	<span class="token function">vprintf</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">,</span> <span class="token variable">$argv</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$v1</span><span class="token punctuation">,</span> <span class="token variable">$v2</span><span class="token punctuation">,</span> <span class="token variable">$msg</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token operator">++</span><span class="token variable">$test_count</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$v1</span> <span class="token operator">==</span> <span class="token variable">$v2</span><span class="token punctuation">)</span>
+	<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"OK: %s test\n"</span><span class="token punctuation">,</span> <span class="token variable">$msg</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">else</span>
+	<span class="token punctuation">{</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"ERROR: %s test failed! (%n != %n)\n"</span><span class="token punctuation">,</span> <span class="token variable">$msg</span><span class="token punctuation">,</span> <span class="token variable">$v1</span><span class="token punctuation">,</span> <span class="token variable">$v2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token variable">$errors</span><span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> family_hash <span class="token operator">=</span> <span class="token punctuation">(</span>
+  <span class="token string">"Jones"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+	  <span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+	  <span class="token string">"John"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+		  <span class="token string">"dob"</span> <span class="token punctuation">:</span> <span class="token number">1995</span><span class="token operator">-</span><span class="token number">03</span><span class="token operator">-</span><span class="token number">23</span><span class="token punctuation">,</span>
+		  <span class="token string">"eyes"</span> <span class="token punctuation">:</span> <span class="token string">"brown"</span><span class="token punctuation">,</span>
+		  <span class="token string">"hair"</span> <span class="token punctuation">:</span> <span class="token string">"brown"</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  <span class="token string">"Alan"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+		  <span class="token string">"dob"</span> <span class="token punctuation">:</span> <span class="token number">1992</span><span class="token operator">-</span><span class="token number">06</span><span class="token operator">-</span><span class="token number">04</span><span class="token punctuation">,</span>
+		  <span class="token string">"eyes"</span> <span class="token punctuation">:</span> <span class="token string">"blue"</span><span class="token punctuation">,</span>
+		  <span class="token string">"hair"</span> <span class="token punctuation">:</span> <span class="token string">"black"</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string">"Smith"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+	<span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+		<span class="token string">"Arnie"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+		<span class="token string">"dob"</span> <span class="token punctuation">:</span> <span class="token number">1983</span><span class="token operator">-</span><span class="token number">05</span><span class="token operator">-</span><span class="token number">13</span><span class="token punctuation">,</span>
+		<span class="token string">"eyes"</span> <span class="token punctuation">:</span> <span class="token string">"hazel"</span><span class="token punctuation">,</span>
+		<span class="token string">"hair"</span> <span class="token punctuation">:</span> <span class="token string">"blond"</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string">"Carol"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+		<span class="token string">"dob"</span> <span class="token punctuation">:</span> <span class="token number">2003</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">-</span><span class="token number">23</span><span class="token punctuation">,</span>
+		<span class="token string">"eyes"</span> <span class="token punctuation">:</span> <span class="token string">"grey"</span><span class="token punctuation">,</span>
+		<span class="token string">"hair"</span> <span class="token punctuation">:</span> <span class="token string">"brown"</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string">"Isaac"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+		<span class="token string">"dob"</span> <span class="token punctuation">:</span> <span class="token number">2000</span><span class="token operator">-</span><span class="token number">04</span><span class="token operator">-</span><span class="token number">04</span><span class="token punctuation">,</span>
+		<span class="token string">"eyes"</span> <span class="token punctuation">:</span> <span class="token string">"green"</span><span class="token punctuation">,</span>
+		<span class="token string">"hair"</span> <span class="token punctuation">:</span> <span class="token string">"red"</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string">"Bernard"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+		<span class="token string">"dob"</span> <span class="token punctuation">:</span> <span class="token number">1979</span><span class="token operator">-</span><span class="token number">02</span><span class="token operator">-</span><span class="token number">27</span><span class="token punctuation">,</span>
+		<span class="token string">"eyes"</span> <span class="token punctuation">:</span> <span class="token string">"brown"</span><span class="token punctuation">,</span>
+		<span class="token string">"hair"</span> <span class="token punctuation">:</span> <span class="token string">"brown"</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string">"Sylvia"</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>
+		<span class="token string">"dob"</span> <span class="token punctuation">:</span> <span class="token number">1994</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span>
+		<span class="token string">"eyes"</span> <span class="token punctuation">:</span> <span class="token string">"blue"</span><span class="token punctuation">,</span>
+		<span class="token string">"hair"</span> <span class="token punctuation">:</span> <span class="token string">"blond"</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">sub</span> <span class="token function">context_test</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment"># first we select all the data from the tables and then use</span>
+	<span class="token comment"># context statements to order the output hierarchically</span>
+
+	<span class="token comment"># context statements are most useful when a set of queries can be executed once</span>
+	<span class="token comment"># and the results processed many times by creating "views" with context statements</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$people</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token string">"select * from people"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">my</span> <span class="token variable">$attributes</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token string">"select * from attributes"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$today</span> <span class="token operator">=</span> <span class="token function">format_date</span><span class="token punctuation">(</span><span class="token string">"YYYYMMDD"</span><span class="token punctuation">,</span> <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># in this test, we create a big hash structure out of the queries executed above</span>
+	<span class="token comment"># and compare it at the end to the expected result</span>
+
+	<span class="token comment"># display each family sorted by family name</span>
+	<span class="token keyword">my</span> <span class="token variable">$fl</span><span class="token punctuation">;</span>
+	context family <span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token string">"select * from family"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> sortBy <span class="token punctuation">(</span><span class="token operator">%</span>name<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$pl</span><span class="token punctuation">;</span>
+	<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"Family %d: %s\n"</span><span class="token punctuation">,</span> <span class="token operator">%</span>family_id<span class="token punctuation">,</span> <span class="token operator">%</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># display people, sorted by eye color, descending</span>
+	context people <span class="token punctuation">(</span><span class="token variable">$people</span><span class="token punctuation">)</span>
+		sortDescendingBy <span class="token punctuation">(</span>find <span class="token operator">%</span>value in <span class="token variable">$attributes</span>
+				  where <span class="token punctuation">(</span><span class="token operator">%</span>attribute <span class="token operator">==</span> <span class="token string">"eyes"</span>
+					 <span class="token operator">&amp;&amp;</span> <span class="token operator">%</span>person_id <span class="token operator">==</span> <span class="token operator">%</span>people<span class="token punctuation">:</span>person_id<span class="token punctuation">)</span><span class="token punctuation">)</span>
+		where <span class="token punctuation">(</span><span class="token operator">%</span>family_id <span class="token operator">==</span> <span class="token operator">%</span>family<span class="token punctuation">:</span>family_id<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">my</span> <span class="token variable">$al</span><span class="token punctuation">;</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"  %s, born %s\n"</span><span class="token punctuation">,</span> <span class="token operator">%</span>name<span class="token punctuation">,</span> <span class="token function">format_date</span><span class="token punctuation">(</span><span class="token string">"Month DD, YYYY"</span><span class="token punctuation">,</span> <span class="token operator">%</span>dob<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		context <span class="token punctuation">(</span><span class="token variable">$attributes</span><span class="token punctuation">)</span> sortBy <span class="token punctuation">(</span><span class="token operator">%</span>attribute<span class="token punctuation">)</span> where <span class="token punctuation">(</span><span class="token operator">%</span>person_id <span class="token operator">==</span> <span class="token operator">%</span>people<span class="token punctuation">:</span>person_id<span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+		<span class="token variable">$al</span><span class="token punctuation">.</span>%attribute <span class="token operator">=</span> <span class="token operator">%</span>value<span class="token punctuation">;</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"    has %s %s\n"</span><span class="token punctuation">,</span> <span class="token operator">%</span>value<span class="token punctuation">,</span> <span class="token operator">%</span>attribute<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token comment"># leave out the ID fields and name from hash under name; subtracting a</span>
+		<span class="token comment"># string from a hash removes that key from the result</span>
+		<span class="token comment"># this is "doing it the hard way", there is only one key left,</span>
+		<span class="token comment"># "dob", then attributes are added directly into the person hash</span>
+		<span class="token variable">$pl</span><span class="token punctuation">.</span>%name <span class="token operator">=</span> <span class="token operator">%</span><span class="token operator">%</span> <span class="token operator">-</span> <span class="token string">"family_id"</span> <span class="token operator">-</span> <span class="token string">"person_id"</span> <span class="token operator">-</span> <span class="token string">"name"</span> <span class="token operator">+</span> <span class="token variable">$al</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment"># leave out family_id and name fields (leaving an empty hash)</span>
+	<span class="token variable">$fl</span><span class="token punctuation">.</span>%name <span class="token operator">=</span> <span class="token operator">%</span><span class="token operator">%</span> <span class="token operator">-</span> <span class="token string">"family_id"</span> <span class="token operator">-</span> <span class="token string">"name"</span> <span class="token operator">+</span> <span class="token punctuation">(</span> <span class="token string">"people"</span> <span class="token punctuation">:</span> <span class="token variable">$pl</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment"># test context ordering</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span>keys <span class="token variable">$fl</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"Jones"</span><span class="token punctuation">,</span> <span class="token string">"Smith"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"first context"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span>keys <span class="token variable">$fl</span><span class="token punctuation">.</span>Smith<span class="token punctuation">.</span>people<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"Arnie"</span><span class="token punctuation">,</span> <span class="token string">"Carol"</span><span class="token punctuation">,</span> <span class="token string">"Isaac"</span><span class="token punctuation">,</span> <span class="token string">"Bernard"</span><span class="token punctuation">,</span> <span class="token string">"Sylvia"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"second context"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment"># test entire context value</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$fl</span><span class="token punctuation">,</span> family_hash<span class="token punctuation">,</span> <span class="token string">"third context"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">sub</span> <span class="token function">test_timeout</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">,</span> <span class="token variable">$c</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">setTransactionLockTimeout</span><span class="token punctuation">(</span>1ms<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment"># this should cause a TRANSACTION-LOCK-TIMEOUT exception to be thrown</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into family values (3, 'Test')\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token string">"transaction timeout"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"delete from family where name = 'Test'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token variable">$ex</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token string">"transaction timeout"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment"># signal parent thread to continue</span>
+	<span class="token variable">$c</span><span class="token punctuation">.</span><span class="token function">dec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">transaction_test</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$ndb</span> <span class="token operator">=</span> <span class="token function">getDS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">my</span> <span class="token variable">$r</span><span class="token punctuation">;</span>
+	<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"db.autocommit=%N, ndb.autocommit=%N\n"</span><span class="token punctuation">,</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">getAutoCommit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$ndb</span><span class="token punctuation">.</span><span class="token function">getAutoCommit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># first, we insert a new row into "family" but do not commit it</span>
+	<span class="token keyword">my</span> <span class="token variable">$rows</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"insert into family values (3, 'Test')\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$rows</span> <span class="token operator">!==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"FAILED INSERT, rows=%N\n"</span><span class="token punctuation">,</span> <span class="token variable">$rows</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># now we verify that the new row is not visible to the other datasource</span>
+	<span class="token comment"># unless it's a sybase/ms sql server datasource, in which case this would deadlock :-(</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>type <span class="token operator">!=</span> <span class="token string">"sybase"</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$o</span><span class="token punctuation">.</span>type <span class="token operator">!=</span> <span class="token string">"freetds"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token variable">$r</span> <span class="token operator">=</span> <span class="token variable">$ndb</span><span class="token punctuation">.</span><span class="token function">selectRow</span><span class="token punctuation">(</span><span class="token string">"select name from family where family_id = 3"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$r</span><span class="token punctuation">,</span> NOTHING<span class="token punctuation">,</span> <span class="token string">"first transaction"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment"># now we verify that the new row is visible to the inserting datasource</span>
+	<span class="token variable">$r</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRow</span><span class="token punctuation">(</span><span class="token string">"select name from family where family_id = 3"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$r</span><span class="token punctuation">,</span> <span class="token string">"Test"</span><span class="token punctuation">,</span> <span class="token string">"second transaction"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># test datasource timeout</span>
+	<span class="token comment"># this Counter variable will allow the parent thread to sleep</span>
+	<span class="token comment"># until the child thread times out</span>
+	<span class="token keyword">my</span> <span class="token variable">$c</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Counter</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	background <span class="token function">test_timeout</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">,</span> <span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># wait for child thread to time out</span>
+	<span class="token variable">$c</span><span class="token punctuation">.</span><span class="token function">waitForZero</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># now, we commit the transaction</span>
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># now we verify that the new row is visible in the other datasource</span>
+	<span class="token variable">$r</span> <span class="token operator">=</span> <span class="token variable">$ndb</span><span class="token punctuation">.</span><span class="token function">selectRow</span><span class="token punctuation">(</span><span class="token string">"select name from family where family_id = 3"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$r</span><span class="token punctuation">,</span> <span class="token string">"Test"</span><span class="token punctuation">,</span> <span class="token string">"third transaction"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># now we delete the row we inserted (so we can repeat the test)</span>
+	<span class="token variable">$r</span> <span class="token operator">=</span> <span class="token variable">$ndb</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"delete from family where family_id = 3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$r</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"delete row count"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$ndb</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">oracle_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># here we use a little workaround for modules that provide functions,</span>
+<span class="token comment"># namespace additions (constants, classes, etc) needed by test functions</span>
+<span class="token comment"># at parse time.  To avoid parse errors (as database modules are loaded</span>
+<span class="token comment"># in this script at run-time when the Datasource class is instantiated)</span>
+<span class="token comment"># we use a Program object that we parse and run on demand to return the</span>
+<span class="token comment"># value required</span>
+<span class="token keyword">sub</span> <span class="token function">get_val</span><span class="token punctuation">(</span>$<span class="token keyword">code</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$p</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Program</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">"return %s;"</span><span class="token punctuation">,</span> $<span class="token keyword">code</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$p</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token variable">$str</span><span class="token punctuation">,</span> <span class="token string">"code"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token variable">$p</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">pgsql_test</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$args</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">"int2_f"</span>          <span class="token punctuation">:</span> <span class="token number">258</span><span class="token punctuation">,</span>
+		 <span class="token string">"int4_f"</span>          <span class="token punctuation">:</span> <span class="token number">233932</span><span class="token punctuation">,</span>
+		 <span class="token string">"int8_f"</span>          <span class="token punctuation">:</span> <span class="token number">239392939458</span><span class="token punctuation">,</span>
+		 <span class="token string">"bool_f"</span>          <span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+		 <span class="token string">"float4_f"</span>        <span class="token punctuation">:</span> <span class="token number">21.3444</span><span class="token punctuation">,</span>
+		 <span class="token string">"float8_f"</span>        <span class="token punctuation">:</span> <span class="token number">49394.23423491</span><span class="token punctuation">,</span>
+		 <span class="token string">"number_f"</span>        <span class="token punctuation">:</span> <span class="token function">get_val</span><span class="token punctuation">(</span><span class="token string">"pgsql_bind(PG_TYPE_NUMERIC, '7235634215.3250')"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		 <span class="token string">"money_f"</span>         <span class="token punctuation">:</span> <span class="token function">get_val</span><span class="token punctuation">(</span><span class="token string">"pgsql_bind(PG_TYPE_CASH, \"400.56\")"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		 <span class="token string">"text_f"</span>          <span class="token punctuation">:</span> <span class="token string">'some text  '</span><span class="token punctuation">,</span>
+		 <span class="token string">"varchar_f"</span>       <span class="token punctuation">:</span> <span class="token string">'varchar '</span><span class="token punctuation">,</span>
+		 <span class="token string">"char_f"</span>          <span class="token punctuation">:</span> <span class="token string">'char text'</span><span class="token punctuation">,</span>
+		 <span class="token string">"name_f"</span>          <span class="token punctuation">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span>
+		 <span class="token string">"date_f"</span>          <span class="token punctuation">:</span> <span class="token number">2004</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">05</span><span class="token punctuation">,</span>
+		 <span class="token string">"abstime_f"</span>       <span class="token punctuation">:</span> <span class="token number">2005</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span>03T10<span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">01</span><span class="token punctuation">,</span>
+		 <span class="token string">"reltime_f"</span>       <span class="token punctuation">:</span> 5M <span class="token operator">+</span> <span class="token number">71D</span> <span class="token operator">+</span> 19h <span class="token operator">+</span> 245m <span class="token operator">+</span> 51s<span class="token punctuation">,</span>
+		 <span class="token string">"interval_f"</span>      <span class="token punctuation">:</span> 6M <span class="token operator">+</span> <span class="token number">3D</span> <span class="token operator">+</span> 2h <span class="token operator">+</span> 45m <span class="token operator">+</span> 15s<span class="token punctuation">,</span>
+		 <span class="token string">"time_f"</span>          <span class="token punctuation">:</span> <span class="token number">11</span><span class="token punctuation">:</span><span class="token number">35</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">,</span>
+		 <span class="token string">"timetz_f"</span>        <span class="token punctuation">:</span> <span class="token function">get_val</span><span class="token punctuation">(</span><span class="token string">"pgsql_bind(PG_TYPE_TIMETZ, \"11:38:21 CST\")"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		 <span class="token string">"timestamp_f"</span>     <span class="token punctuation">:</span> <span class="token number">2005</span><span class="token operator">-</span><span class="token number">04</span><span class="token operator">-</span>01T11<span class="token punctuation">:</span><span class="token number">35</span><span class="token punctuation">:</span><span class="token number">26</span><span class="token punctuation">,</span>
+		 <span class="token string">"timestamptz_f"</span>   <span class="token punctuation">:</span> <span class="token number">2005</span><span class="token operator">-</span><span class="token number">04</span><span class="token operator">-</span>01T11<span class="token punctuation">:</span><span class="token number">35</span><span class="token punctuation">:</span><span class="token number">26.259</span><span class="token punctuation">,</span>
+		 <span class="token string">"tinterval_f"</span>     <span class="token punctuation">:</span> <span class="token function">get_val</span><span class="token punctuation">(</span><span class="token string">"pgsql_bind(PG_TYPE_TINTERVAL, '[\"May 10, 1947 23:59:12\" \"Jan 14, 1973 03:14:21\"]')"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		 <span class="token string">"bytea_f"</span>         <span class="token punctuation">:</span> <span class="token operator">&lt;</span>bead<span class="token operator">></span>
+		 <span class="token comment">#bit_f             :</span>
+		 <span class="token comment">#varbit_f          :</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">vexec</span><span class="token punctuation">(</span><span class="token string">"insert into data_test values (%v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v)"</span><span class="token punctuation">,</span> <span class="token function">hash_values</span><span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$q</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRow</span><span class="token punctuation">(</span><span class="token string">"select * from data_test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>verbose <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$k</span> in <span class="token punctuation">(</span>keys <span class="token variable">$q</span><span class="token punctuation">)</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">" %-16s= %-10s %N\n"</span><span class="token punctuation">,</span> <span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># fix values where we know the return type is different</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>money_f <span class="token operator">=</span> <span class="token number">400.56</span><span class="token punctuation">;</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>timetz_f <span class="token operator">=</span> <span class="token number">11</span><span class="token punctuation">:</span><span class="token number">38</span><span class="token punctuation">:</span><span class="token number">21</span><span class="token punctuation">;</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>tinterval_f <span class="token operator">=</span> <span class="token string">'["1947-05-10 21:59:12" "1973-01-14 02:14:21"]'</span><span class="token punctuation">;</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>number_f <span class="token operator">=</span> <span class="token string">"7235634215.3250"</span><span class="token punctuation">;</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>reltime_f <span class="token operator">=</span> 19177551s<span class="token punctuation">;</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>interval_f <span class="token operator">=</span> 6M <span class="token operator">+</span> <span class="token number">3D</span> <span class="token operator">+</span> 9915s<span class="token punctuation">;</span>
+
+	<span class="token comment"># rounding errors can happen in float4</span>
+	<span class="token variable">$q</span><span class="token punctuation">.</span>float4_f <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span>float4_f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>float4_f <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">.</span>float4_f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># remove values where we know they won't match</span>
+	<span class="token comment"># abstime and timestamptz are converted to GMT by the server</span>
+	delete <span class="token variable">$q</span><span class="token punctuation">.</span>abstime_f<span class="token punctuation">;</span>
+	delete <span class="token variable">$q</span><span class="token punctuation">.</span>timestamptz_f<span class="token punctuation">;</span>
+
+	<span class="token comment"># compare each value</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$k</span> in <span class="token punctuation">(</span>keys <span class="token variable">$q</span><span class="token punctuation">)</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token variable">$args</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">"%s bind and retrieve"</span><span class="token punctuation">,</span> <span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">mysql_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> family_q <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">"family_id"</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+		   <span class="token string">"name"</span> <span class="token punctuation">:</span> <span class="token string">"Smith"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> person_q <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">"person_id"</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+		   <span class="token string">"family_id"</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+		   <span class="token string">"name"</span> <span class="token punctuation">:</span> <span class="token string">"Arnie"</span><span class="token punctuation">,</span>
+		   <span class="token string">"dob"</span> <span class="token punctuation">:</span> <span class="token number">1983</span><span class="token operator">-</span><span class="token number">05</span><span class="token operator">-</span><span class="token number">13</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">"string"</span> <span class="token punctuation">:</span> <span class="token string">"hello there"</span><span class="token punctuation">,</span>
+		 <span class="token string">"int"</span> <span class="token punctuation">:</span> <span class="token number">150</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">sub</span> <span class="token function">sybase_test</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment"># simple stored proc test, bind by name</span>
+	<span class="token keyword">my</span> <span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"exec find_family %v"</span><span class="token punctuation">,</span> <span class="token string">"Smith"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token string">"Smith"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"family_id"</span> <span class="token punctuation">:</span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"simple stored proc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># stored proc execute with output params</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"declare @string varchar(40), @int int
+exec get_values :string output, :int output"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> params <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token string">"rowcount"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"get_values"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># we use Datasource::selectRows() in the following queries because we</span>
+	<span class="token comment"># get hash results instead of a hash of lists as with exec in the queries</span>
+	<span class="token comment"># normally we should not use selectRows to execute a stored procedure,</span>
+	<span class="token comment"># as the Datasource::selectRows() method will not grab the transaction lock,</span>
+	<span class="token comment"># but we already called Datasource::exec() above, so we have it already.</span>
+	<span class="token comment"># the other alternative would be to call Datasource::beginTransaction() before</span>
+	<span class="token comment"># Datasource::selectRows()</span>
+
+	<span class="token comment"># simple stored proc test, bind by name, returns hash</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"exec find_family %v"</span><span class="token punctuation">,</span> <span class="token string">"Smith"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> family_q<span class="token punctuation">,</span> <span class="token string">"simple stored proc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># stored proc execute with output params and select results</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"declare @string varchar(40), @int int
+exec get_values_and_select :string output, :int output"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"query"</span><span class="token punctuation">:</span>family_q<span class="token punctuation">,</span><span class="token string">"params"</span><span class="token punctuation">:</span>params<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"get_values_and_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># stored proc execute with output params and multiple select results</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"declare @string varchar(40), @int int
+exec get_values_and_multiple_select :string output, :int output"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"query"</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token string">"query0"</span><span class="token punctuation">:</span>family_q<span class="token punctuation">,</span><span class="token string">"query1"</span><span class="token punctuation">:</span>person_q<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"params"</span><span class="token punctuation">:</span>params<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"get_values_and_multiple_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># stored proc execute with just select results</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"exec just_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> family_q<span class="token punctuation">,</span> <span class="token string">"just_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># stored proc execute with multiple select results</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"exec multiple_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"query0"</span><span class="token punctuation">:</span>family_q<span class="token punctuation">,</span><span class="token string">"query1"</span><span class="token punctuation">:</span>person_q<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"multiple_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$args</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">"null_f"</span>          <span class="token punctuation">:</span> NULL<span class="token punctuation">,</span>
+		 <span class="token string">"varchar_f"</span>       <span class="token punctuation">:</span> <span class="token string">"varchar"</span><span class="token punctuation">,</span>
+		 <span class="token string">"char_f"</span>          <span class="token punctuation">:</span> <span class="token string">"char"</span><span class="token punctuation">,</span>
+		 <span class="token string">"unichar_f"</span>       <span class="token punctuation">:</span> <span class="token string">"unichar"</span><span class="token punctuation">,</span>
+		 <span class="token string">"univarchar_f"</span>    <span class="token punctuation">:</span> <span class="token string">"univarchar"</span><span class="token punctuation">,</span>
+		 <span class="token string">"text_f"</span>          <span class="token punctuation">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+		 <span class="token string">"unitext_f"</span>       <span class="token punctuation">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+		 <span class="token string">"bit_f"</span>           <span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+		 <span class="token string">"tinyint_f"</span>       <span class="token punctuation">:</span> <span class="token number">55</span><span class="token punctuation">,</span>
+		 <span class="token string">"smallint_f"</span>      <span class="token punctuation">:</span> <span class="token number">4285</span><span class="token punctuation">,</span>
+		 <span class="token string">"int_f"</span>           <span class="token punctuation">:</span> <span class="token number">405402</span><span class="token punctuation">,</span>
+		 <span class="token string">"int_f2"</span>          <span class="token punctuation">:</span> <span class="token number">214123498</span><span class="token punctuation">,</span>
+		 <span class="token string">"decimal_f"</span>       <span class="token punctuation">:</span> <span class="token number">500.1231</span><span class="token punctuation">,</span>
+		 <span class="token string">"float_f"</span>         <span class="token punctuation">:</span> <span class="token number">23443.234324234</span><span class="token punctuation">,</span>
+		 <span class="token string">"real_f"</span>          <span class="token punctuation">:</span> <span class="token number">213.123</span><span class="token punctuation">,</span>
+		 <span class="token string">"money_f"</span>         <span class="token punctuation">:</span> <span class="token number">3434234250.2034</span><span class="token punctuation">,</span>
+		 <span class="token string">"smallmoney_f"</span>    <span class="token punctuation">:</span> <span class="token number">211100.1012</span><span class="token punctuation">,</span>
+		 <span class="token string">"date_f"</span>          <span class="token punctuation">:</span> <span class="token number">2007</span><span class="token operator">-</span><span class="token number">05</span><span class="token operator">-</span><span class="token number">01</span><span class="token punctuation">,</span>
+			 <span class="token string">"time_f"</span>          <span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">:</span><span class="token number">30</span><span class="token punctuation">:</span><span class="token number">01</span><span class="token punctuation">,</span>
+		 <span class="token string">"datetime_f"</span>      <span class="token punctuation">:</span> <span class="token number">3459</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span>01T11<span class="token punctuation">:</span><span class="token number">15</span><span class="token punctuation">:</span><span class="token number">02.250</span><span class="token punctuation">,</span>
+		 <span class="token string">"smalldatetime_f"</span> <span class="token punctuation">:</span> <span class="token number">2007</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span>01T12<span class="token punctuation">:</span><span class="token number">01</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">,</span>
+		 <span class="token string">"binary_f"</span>        <span class="token punctuation">:</span> <span class="token operator">&lt;</span>0badbeef<span class="token operator">></span><span class="token punctuation">,</span>
+		 <span class="token string">"varbinary_f"</span>     <span class="token punctuation">:</span> <span class="token operator">&lt;</span>feedface<span class="token operator">></span><span class="token punctuation">,</span>
+		 <span class="token string">"image_f"</span>         <span class="token punctuation">:</span> <span class="token operator">&lt;</span>cafebead<span class="token operator">></span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># insert data</span>
+	<span class="token keyword">my</span> <span class="token variable">$rows</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">vexec</span><span class="token punctuation">(</span><span class="token string">"insert into data_test values (%v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %d, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v, %v)"</span><span class="token punctuation">,</span> <span class="token function">hash_values</span><span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$q</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRow</span><span class="token punctuation">(</span><span class="token string">"select * from data_test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>verbose <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$k</span> in <span class="token punctuation">(</span>keys <span class="token variable">$q</span><span class="token punctuation">)</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">" %-16s= %-10s %N\n"</span><span class="token punctuation">,</span> <span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># remove values where we know they won't match</span>
+	<span class="token comment"># unitext_f is returned as IMAGE by the server</span>
+	delete <span class="token variable">$q</span><span class="token punctuation">.</span>unitext_f<span class="token punctuation">;</span>
+	delete <span class="token variable">$args</span><span class="token punctuation">.</span>unitext_f<span class="token punctuation">;</span>
+	<span class="token comment"># rounding errors can happen in real</span>
+	<span class="token variable">$q</span><span class="token punctuation">.</span>real_f <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span>real_f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>real_f <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">.</span>real_f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># compare each value</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$k</span> in <span class="token punctuation">(</span>keys <span class="token variable">$q</span><span class="token punctuation">)</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token variable">$args</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">"%s bind and retrieve"</span><span class="token punctuation">,</span> <span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">freetds_test</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment"># simple stored proc test, bind by name</span>
+	<span class="token keyword">my</span> <span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"exec find_family %v"</span><span class="token punctuation">,</span> <span class="token string">"Smith"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token string">"Smith"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"family_id"</span> <span class="token punctuation">:</span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"simple stored proc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># we cannot retrieve parameters from newer SQL Servers with the approach we use;</span>
+	<span class="token comment"># Microsoft changed the handling of the protocol and require us to use RPC calls,</span>
+	<span class="token comment"># this will be implemented in the next version of qore where the "freetds" driver will</span>
+	<span class="token comment"># be able to add custom methods to the Datasource class.  For now, we skip these tests</span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">.</span>is_sybase<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"declare @string varchar(40), @int int
+exec get_values :string output, :int output"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> params<span class="token punctuation">,</span> <span class="token string">"get_values"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment"># we use Datasource::selectRows() in the following queries because we</span>
+	<span class="token comment"># get hash results instead of a hash of lists as with exec in the queries</span>
+	<span class="token comment"># normally we should not use selectRows to execute a stored procedure,</span>
+	<span class="token comment"># as the Datasource::selectRows() method will not grab the transaction lock,</span>
+	<span class="token comment"># but we already called Datasource::exec() above, so we have it already.</span>
+	<span class="token comment"># the other alternative would be to call Datasource::beginTransaction() before</span>
+	<span class="token comment"># Datasource::selectRows()</span>
+
+	<span class="token comment"># simple stored proc test, bind by name, returns hash</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"exec find_family %v"</span><span class="token punctuation">,</span> <span class="token string">"Smith"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> family_q<span class="token punctuation">,</span> <span class="token string">"simple stored proc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># stored proc execute with output params and select results</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">.</span>is_sybase<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"declare @string varchar(40), @int int
+exec get_values_and_select :string output, :int output"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"query"</span><span class="token punctuation">:</span>family_q<span class="token punctuation">,</span><span class="token string">"params"</span><span class="token punctuation">:</span>params<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"get_values_and_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># stored proc execute with output params and multiple select results</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"declare @string varchar(40), @int int
+exec get_values_and_multiple_select :string output, :int output"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"query"</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token string">"query0"</span><span class="token punctuation">:</span>family_q<span class="token punctuation">,</span><span class="token string">"query1"</span><span class="token punctuation">:</span>person_q<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"params"</span><span class="token punctuation">:</span>params<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"get_values_and_multiple_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment"># stored proc execute with just select results</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"exec just_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> family_q<span class="token punctuation">,</span> <span class="token string">"just_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># stored proc execute with multiple select results</span>
+	<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRows</span><span class="token punctuation">(</span><span class="token string">"exec multiple_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"query0"</span><span class="token punctuation">:</span>family_q<span class="token punctuation">,</span><span class="token string">"query1"</span><span class="token punctuation">:</span>person_q<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"multiple_select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># the freetds driver does not work with the following sybase column types:</span>
+	<span class="token comment"># unichar, univarchar</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$args</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">"null_f"</span>          <span class="token punctuation">:</span> NULL<span class="token punctuation">,</span>
+		 <span class="token string">"varchar_f"</span>       <span class="token punctuation">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+		 <span class="token string">"char_f"</span>          <span class="token punctuation">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+		 <span class="token string">"text_f"</span>          <span class="token punctuation">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+		 <span class="token string">"unitext_f"</span>       <span class="token punctuation">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+		 <span class="token string">"bit_f"</span>           <span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+		 <span class="token string">"tinyint_f"</span>       <span class="token punctuation">:</span> <span class="token number">55</span><span class="token punctuation">,</span>
+		 <span class="token string">"smallint_f"</span>      <span class="token punctuation">:</span> <span class="token number">4285</span><span class="token punctuation">,</span>
+		 <span class="token string">"int_f"</span>           <span class="token punctuation">:</span> <span class="token number">405402</span><span class="token punctuation">,</span>
+		 <span class="token string">"int_f2"</span>          <span class="token punctuation">:</span> <span class="token number">214123498</span><span class="token punctuation">,</span>
+		 <span class="token string">"decimal_f"</span>       <span class="token punctuation">:</span> <span class="token number">500.1231</span><span class="token punctuation">,</span>
+		 <span class="token string">"float_f"</span>         <span class="token punctuation">:</span> <span class="token number">23443.234324234</span><span class="token punctuation">,</span>
+		 <span class="token string">"real_f"</span>          <span class="token punctuation">:</span> <span class="token number">213.123</span><span class="token punctuation">,</span>
+		 <span class="token string">"money_f"</span>         <span class="token punctuation">:</span> <span class="token number">3434234250.2034</span><span class="token punctuation">,</span>
+		 <span class="token string">"smallmoney_f"</span>    <span class="token punctuation">:</span> <span class="token number">211100.1012</span><span class="token punctuation">,</span>
+		 <span class="token string">"date_f"</span>          <span class="token punctuation">:</span> <span class="token number">2007</span><span class="token operator">-</span><span class="token number">05</span><span class="token operator">-</span><span class="token number">01</span><span class="token punctuation">,</span>
+			 <span class="token string">"time_f"</span>          <span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">:</span><span class="token number">30</span><span class="token punctuation">:</span><span class="token number">01</span><span class="token punctuation">,</span>
+		 <span class="token string">"datetime_f"</span>      <span class="token punctuation">:</span> <span class="token number">3459</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span>01T11<span class="token punctuation">:</span><span class="token number">15</span><span class="token punctuation">:</span><span class="token number">02.250</span><span class="token punctuation">,</span>
+		 <span class="token string">"smalldatetime_f"</span> <span class="token punctuation">:</span> <span class="token number">2007</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span>01T12<span class="token punctuation">:</span><span class="token number">01</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">,</span>
+		 <span class="token string">"binary_f"</span>        <span class="token punctuation">:</span> <span class="token operator">&lt;</span>0badbeef<span class="token operator">></span><span class="token punctuation">,</span>
+		 <span class="token string">"varbinary_f"</span>     <span class="token punctuation">:</span> <span class="token operator">&lt;</span>feedface<span class="token operator">></span><span class="token punctuation">,</span>
+		 <span class="token string">"image_f"</span>         <span class="token punctuation">:</span> <span class="token operator">&lt;</span>cafebead<span class="token operator">></span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># remove fields not supported by sql server</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$db</span><span class="token punctuation">.</span>is_sybase<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	delete <span class="token variable">$args</span><span class="token punctuation">.</span>unitext_f<span class="token punctuation">;</span>
+	delete <span class="token variable">$args</span><span class="token punctuation">.</span>date_f<span class="token punctuation">;</span>
+	delete <span class="token variable">$args</span><span class="token punctuation">.</span>time_f<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"insert into data_test values ("</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">my</span> <span class="token variable">$i</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> elements <span class="token variable">$args</span><span class="token punctuation">;</span> <span class="token operator">++</span><span class="token variable">$i</span><span class="token punctuation">)</span>
+	<span class="token variable">$sql</span> <span class="token operator">+=</span> <span class="token string">"%v, "</span><span class="token punctuation">;</span>
+	<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># insert data, using the values from the hash above</span>
+	<span class="token keyword">my</span> <span class="token variable">$rows</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">vexec</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">,</span> <span class="token function">hash_values</span><span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$q</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">selectRow</span><span class="token punctuation">(</span><span class="token string">"select * from data_test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>verbose <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$k</span> in <span class="token punctuation">(</span>keys <span class="token variable">$q</span><span class="token punctuation">)</span>
+		<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">" %-16s= %-10s %N\n"</span><span class="token punctuation">,</span> <span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># remove values where we know they won't match</span>
+	<span class="token comment"># unitext_f is returned as IMAGE by the server</span>
+	delete <span class="token variable">$q</span><span class="token punctuation">.</span>unitext_f<span class="token punctuation">;</span>
+	delete <span class="token variable">$args</span><span class="token punctuation">.</span>unitext_f<span class="token punctuation">;</span>
+	<span class="token comment"># rounding errors can happen in real</span>
+	<span class="token variable">$q</span><span class="token punctuation">.</span>real_f <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span>real_f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$args</span><span class="token punctuation">.</span>real_f <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">.</span>real_f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># compare each value</span>
+	foreach <span class="token keyword">my</span> <span class="token variable">$k</span> in <span class="token punctuation">(</span>keys <span class="token variable">$q</span><span class="token punctuation">)</span>
+	<span class="token function">test_value</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token variable">$args</span><span class="token punctuation">.</span><span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">"%s bind and retrieve"</span><span class="token punctuation">,</span> <span class="token variable">$k</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">sub</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">my</span> <span class="token variable">$test_map</span> <span class="token operator">=</span>
+	<span class="token punctuation">(</span> <span class="token string">"sybase"</span> <span class="token punctuation">:</span> \<span class="token function">sybase_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  <span class="token string">"freetds"</span>  <span class="token punctuation">:</span> \<span class="token function">freetds_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  <span class="token string">"mysql"</span>  <span class="token punctuation">:</span> \<span class="token function">mysql_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  <span class="token string">"pgsql"</span>  <span class="token punctuation">:</span> \<span class="token function">pgsql_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  <span class="token string">"oracle"</span> <span class="token punctuation">:</span> \<span class="token function">oracle_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token function">parse_command_line</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">my</span> <span class="token variable">$db</span> <span class="token operator">=</span> <span class="token function">getDS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">my</span> <span class="token variable">$driver</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">getDriverName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"testing %s driver\n"</span><span class="token punctuation">,</span> <span class="token variable">$driver</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">my</span> <span class="token variable">$sv</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">getServerVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$o</span><span class="token punctuation">.</span>verbose <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token function">tprintf</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"client version=%n\nserver version=%n\n"</span><span class="token punctuation">,</span> <span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">getClientVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$sv</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment"># determine if the server is a sybase or sql server dataserver</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$driver</span> <span class="token operator">==</span> <span class="token string">"freetds"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$sv</span> <span class="token operator">!~</span> <span class="token operator">/</span>microsoft<span class="token operator">/</span>i<span class="token punctuation">)</span>
+		<span class="token variable">$db</span><span class="token punctuation">.</span>is_sybase <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">;</span>
+
+	<span class="token function">create_datamodel</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token function">context_test</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">transaction_test</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">my</span> <span class="token variable">$test</span> <span class="token operator">=</span> <span class="token variable">$test_map</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">.</span><span class="token function">getDriverName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>exists <span class="token variable">$test</span><span class="token punctuation">)</span>
+	<span class="token function">$test</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$o</span><span class="token punctuation">.</span>leave<span class="token punctuation">)</span>
+	<span class="token function">drop_test_datamodel</span><span class="token punctuation">(</span><span class="token variable">$db</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d/%d tests OK\n"</span><span class="token punctuation">,</span> <span class="token variable">$test_count</span> <span class="token operator">-</span> <span class="token variable">$errors</span><span class="token punctuation">,</span> <span class="token variable">$test_count</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

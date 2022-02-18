@@ -1,0 +1,29 @@
+@navigation[]
+$sections[^table::load[sections.cfg]]
+$sections.uri
+----------------------------------------------------
+[
+	["function", ["@navigation"]],
+	["punctuation", "["],
+	["punctuation", "]"],
+
+	["variable", ["$sections"]],
+	["punctuation", "["],
+	["function", [
+		"^table",
+		["punctuation", "::"],
+		"load"
+	]],
+	["punctuation", "["],
+	"sections.cfg",
+	["punctuation", "]"],
+	["punctuation", "]"],
+
+	["variable", [
+		"$sections",
+		["punctuation", "."],
+		"uri"
+	]]
+]
+
+----------------------------------------------------

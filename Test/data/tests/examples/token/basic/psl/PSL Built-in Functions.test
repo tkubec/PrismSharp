@@ -1,0 +1,46 @@
+p = nthargf(process(".*"), 1, " \t", "\n");
+lock("test");
+execute("OS", "pwd");
+----------------------------------------------------
+[
+	"p ",
+	["operator", "="],
+	["builtin", "nthargf"],
+	["punctuation", "("],
+	["builtin", "process"],
+	["punctuation", "("],
+	["string", ["\".*\""]],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ","],
+	["string", [
+		"\" ",
+		["symbol", "\\t"],
+		"\""
+	]],
+	["punctuation", ","],
+	["string", [
+		"\"",
+		["symbol", "\\n"],
+		"\""
+	]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["builtin", "lock"],
+	["punctuation", "("],
+	["string", ["\"test\""]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["builtin", "execute"],
+	["punctuation", "("],
+	["string", ["\"OS\""]],
+	["punctuation", ","],
+	["string", ["\"pwd\""]],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

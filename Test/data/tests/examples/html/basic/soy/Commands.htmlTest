@@ -1,0 +1,33 @@
+{template .helloNames}
+  // Greet the person.
+  {call .helloName data="all" /}<br>
+  // Greet the additional people.
+  {foreach $additionalName in $additionalNames}
+    {call .helloName}
+      {param name: $additionalName /}
+    {/call}
+    {if not isLast($additionalName)}
+      <br>  // break after every line except the last
+    {/if}
+  {ifempty}
+    No additional people to greet.
+  {/foreach}
+{/template}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">template</span> <span class="token command-arg string"><span class="token punctuation">.</span>helloNames</span><span class="token punctuation">}</span>
+  <span class="token comment">// Greet the person.</span>
+  <span class="token punctuation">{</span><span class="token keyword">call</span> <span class="token command-arg string"><span class="token punctuation">.</span>helloName</span> <span class="token property">data</span><span class="token operator">=</span><span class="token string">"all"</span> <span class="token operator">/</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>br<span class="token operator">></span>
+  <span class="token comment">// Greet the additional people.</span>
+  <span class="token punctuation">{</span><span class="token keyword">foreach</span> <span class="token variable">$additionalName</span> <span class="token keyword">in</span> <span class="token variable">$additionalNames</span><span class="token punctuation">}</span>
+    <span class="token punctuation">{</span><span class="token keyword">call</span> <span class="token command-arg string"><span class="token punctuation">.</span>helloName</span><span class="token punctuation">}</span>
+      <span class="token punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">name</span><span class="token punctuation">:</span> <span class="token variable">$additionalName</span> <span class="token operator">/</span><span class="token punctuation">}</span>
+    <span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">call</span><span class="token punctuation">}</span>
+    <span class="token punctuation">{</span><span class="token keyword">if</span> <span class="token operator">not</span> <span class="token function">isLast</span><span class="token punctuation">(</span><span class="token variable">$additionalName</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>br<span class="token operator">></span>  <span class="token comment">// break after every line except the last</span>
+    <span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">}</span>
+  <span class="token punctuation">{</span><span class="token keyword">ifempty</span><span class="token punctuation">}</span>
+    No additional people to greet<span class="token punctuation">.</span>
+  <span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">foreach</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">template</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

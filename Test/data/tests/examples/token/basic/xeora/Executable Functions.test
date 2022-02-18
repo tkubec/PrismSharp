@@ -1,0 +1,50 @@
+$F:AddonLib1?GlobalControls.PrintOutSums$
+$F:AddonLib1?GlobalControls.PrintOut,~FormField$
+$F:AddonLib1?GlobalControls.SumNumbers,~FormField|=5$
+----------------------------------------------------
+[
+	["function-inline", [
+		["punctuation", "$F:"],
+		"AddonLib1",
+		["punctuation", "?"],
+		"GlobalControls",
+		["punctuation", "."],
+		"PrintOutSums",
+		["punctuation", "$"]
+	]],
+	["function-inline", [
+		["punctuation", "$F:"],
+		"AddonLib1",
+		["punctuation", "?"],
+		"GlobalControls",
+		["punctuation", "."],
+		"PrintOut",
+		["variable", [
+			["punctuation", ","],
+			["operator", "~"],
+			"FormField"
+		]],
+		["punctuation", "$"]
+	]],
+	["function-inline", [
+		["punctuation", "$F:"],
+		"AddonLib1",
+		["punctuation", "?"],
+		"GlobalControls",
+		["punctuation", "."],
+		"SumNumbers",
+		["variable", [
+			["punctuation", ","],
+			["operator", "~"],
+			"FormField"
+		]],
+		["variable", [
+			["punctuation", "|"],
+			["operator", "="],
+			"5"
+		]],
+		["punctuation", "$"]
+	]]
+]
+
+----------------------------------------------------

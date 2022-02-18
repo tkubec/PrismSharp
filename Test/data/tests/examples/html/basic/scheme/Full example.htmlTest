@@ -1,0 +1,41 @@
+;; Calculation of Hofstadter's male and female sequences as a list of pairs
+
+(define (hofstadter-male-female n)
+  (letrec ((female (lambda (n)
+		     (if (= n 0)
+			 1
+			 (- n (male (female (- n 1)))))))
+	   (male (lambda (n)
+		   (if (= n 0)
+		       0
+		       (- n (female (male (- n 1))))))))
+    (let loop ((i 0))
+      (if (> i n)
+	  '()
+	  (cons (cons (female i)
+		      (male i))
+		(loop (+ i 1)))))))
+
+(hofstadter-male-female 8)
+----------------------------------------------------
+<span class="token comment">;; Calculation of Hofstadter's male and female sequences as a list of pairs</span>
+
+<span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">hofstadter-male-female</span> n<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">letrec</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">female</span> <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token lambda-parameter">n</span><span class="token punctuation">)</span>
+		     <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">=</span> n <span class="token number">0</span><span class="token punctuation">)</span>
+			 <span class="token number">1</span>
+			 <span class="token punctuation">(</span><span class="token operator">-</span> n <span class="token punctuation">(</span><span class="token function">male</span> <span class="token punctuation">(</span><span class="token function">female</span> <span class="token punctuation">(</span><span class="token operator">-</span> n <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	   <span class="token punctuation">(</span><span class="token function">male</span> <span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token lambda-parameter">n</span><span class="token punctuation">)</span>
+		   <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">=</span> n <span class="token number">0</span><span class="token punctuation">)</span>
+		       <span class="token number">0</span>
+		       <span class="token punctuation">(</span><span class="token operator">-</span> n <span class="token punctuation">(</span><span class="token function">female</span> <span class="token punctuation">(</span><span class="token function">male</span> <span class="token punctuation">(</span><span class="token operator">-</span> n <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">let</span> loop <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">i</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">></span> i n<span class="token punctuation">)</span>
+	  <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	  <span class="token punctuation">(</span><span class="token builtin">cons</span> <span class="token punctuation">(</span><span class="token builtin">cons</span> <span class="token punctuation">(</span><span class="token function">female</span> i<span class="token punctuation">)</span>
+		      <span class="token punctuation">(</span><span class="token function">male</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">(</span><span class="token function">loop</span> <span class="token punctuation">(</span><span class="token operator">+</span> i <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token function">hofstadter-male-female</span> <span class="token number">8</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

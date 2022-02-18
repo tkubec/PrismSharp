@@ -1,0 +1,23 @@
+Accept-Language: fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Server: GitHub.com
+Date: Mon, 22 Dec 2014 18:25:30 GMT
+Content-Type: text/html; charset=utf-8
+Content-Security-Policy: default-src 'none'; style-src cdn.example.com; report-uri /_/csp-reports
+Public-Key-Pins: max-age=3000;
+       pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=";
+       pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g="
+Strict-Transport-Security: max-age=31536000
+----------------------------------------------------
+<span class="token header"><span class="token header-name keyword">Accept-Language</span><span class="token punctuation">:</span> <span class="token header-value">fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3</span></span>
+<span class="token header"><span class="token header-name keyword">Accept-Encoding</span><span class="token punctuation">:</span> <span class="token header-value">gzip, deflate</span></span>
+<span class="token header"><span class="token header-name keyword">Server</span><span class="token punctuation">:</span> <span class="token header-value">GitHub.com</span></span>
+<span class="token header"><span class="token header-name keyword">Date</span><span class="token punctuation">:</span> <span class="token header-value">Mon, 22 Dec 2014 18:25:30 GMT</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Type</span><span class="token punctuation">:</span> <span class="token header-value">text/html; charset=utf-8</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Security-Policy</span><span class="token punctuation">:</span> <span class="token header-value csp languages-csp">default-src 'none'; style-src cdn.example.com; report-uri /_/csp-reports</span></span>
+<span class="token header"><span class="token header-name keyword">Public-Key-Pins</span><span class="token punctuation">:</span> <span class="token header-value hpkp languages-hpkp">max-age=3000;
+       pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=";
+       pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g="</span></span>
+<span class="token header"><span class="token header-name keyword">Strict-Transport-Security</span><span class="token punctuation">:</span> <span class="token header-value hsts languages-hsts">max-age=31536000</span></span>
+
+----------------------------------------------------

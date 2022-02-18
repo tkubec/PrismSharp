@@ -1,0 +1,45 @@
+"""
+This is a multiline description
+# Heading
+[Prism](http://www.prismjs.com)
+
+It can contain **Markdown
+	on multiple lines**
+"""
+type Example {
+	id: ID!
+}
+
+type Sample {
+	"""
+	Simple multiline description
+	"""
+	name(
+		"This is a single line description"
+		first: Int
+	): String
+}
+----------------------------------------------------
+<span class="token description string">"""<span class="token language-markdown">
+This is a multiline description
+# Heading
+[Prism](http://www.prismjs.com)
+
+It can contain **Markdown
+	on multiple lines**
+</span>"""</span>
+<span class="token keyword">type</span> <span class="token class-name">Example</span> <span class="token punctuation">{</span>
+	<span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token scalar">ID</span><span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Sample</span> <span class="token punctuation">{</span>
+	<span class="token description string">"""<span class="token language-markdown">
+	Simple multiline description
+	</span>"""</span>
+	<span class="token attr-name">name</span><span class="token punctuation">(</span>
+		<span class="token description string">"<span class="token language-markdown">This is a single line description</span>"</span>
+		<span class="token attr-name">first</span><span class="token punctuation">:</span> <span class="token scalar">Int</span>
+	<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token scalar">String</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

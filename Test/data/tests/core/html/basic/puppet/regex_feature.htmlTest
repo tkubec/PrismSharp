@@ -1,0 +1,19 @@
+node /f(o)"o"[b]?a\/r/
+$foo = /foo
+bar # baz
+/m
+$foo = /foo
+bar # baz
+/ixm
+$foo = /@(foo)/
+----------------------------------------------------
+<span class="token keyword">node</span> <span class="token regex">/f(o)"o"[b]?a\/r/</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token regex">/foo
+bar # baz
+/m</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token regex"><span class="token extended-regex">/foo
+bar <span class="token comment"># baz</span>
+/ixm</span></span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token regex">/@(foo)/</span>
+
+----------------------------------------------------

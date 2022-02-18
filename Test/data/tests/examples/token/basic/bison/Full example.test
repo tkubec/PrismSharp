@@ -1,0 +1,249 @@
+/* Mini Calculator */
+/* calc.y */
+
+%{
+#include "heading.h"
+int yyerror(char *s);
+int yylex(void);
+%}
+
+%union{
+  int		int_val;
+  string*	op_val;
+}
+
+%start	input
+
+%token	<int_val>	INTEGER_LITERAL
+%type	<int_val>	exp
+%left	PLUS
+%left	MULT
+
+%%
+
+input:		/* empty */
+		| exp	{ cout << "Result: " << $1 << endl; }
+		;
+
+exp:		INTEGER_LITERAL	{ $$ = $1; }
+		| exp PLUS exp	{ $$ = $1 + $3; }
+		| exp MULT exp	{ $$ = $1 * $3; }
+		;
+
+%%
+
+int yyerror(string s)
+{
+  extern int yylineno;	// defined and maintained in lex.c
+  extern char *yytext;	// defined and maintained in lex.c
+
+  cerr << "ERROR: " << s << " at symbol \"" << yytext;
+  cerr << "\" on line " << yylineno << endl;
+  exit(1);
+}
+
+int yyerror(char *s)
+{
+  return yyerror(string(s));
+}
+----------------------------------------------------
+[
+	["bison", [
+		["comment", "/* Mini Calculator */"],
+		["comment", "/* calc.y */"],
+
+		["c", [
+			["delimiter", "%{"],
+
+			["macro", [
+				["directive-hash", "#"],
+				["directive", "include"],
+				["string", "\"heading.h\""]
+			]],
+
+			["keyword", "int"],
+			["function", "yyerror"],
+			["punctuation", "("],
+			["keyword", "char"],
+			["operator", "*"],
+			"s",
+			["punctuation", ")"],
+			["punctuation", ";"],
+
+			["keyword", "int"],
+			["function", "yylex"],
+			["punctuation", "("],
+			["keyword", "void"],
+			["punctuation", ")"],
+			["punctuation", ";"],
+
+			["delimiter", "%}"]
+		]],
+
+		["keyword", "%union"],
+		["c", [
+			["delimiter", "{"],
+			["keyword", "int"], "\t\tint_val", ["punctuation", ";"],
+			"\n  string", ["operator", "*"], "\top_val", ["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["keyword", "%start"], "\tinput\n\n",
+
+		["keyword", "%token"],
+		["punctuation", "<"],
+		"int_val",
+		["punctuation", ">"],
+		"\tINTEGER_LITERAL\n",
+
+		["keyword", "%type"],
+		["punctuation", "<"],
+		"int_val",
+		["punctuation", ">"],
+		"\texp\n",
+
+		["keyword", "%left"],
+		"\tPLUS\n",
+
+		["keyword", "%left"],
+		"\tMULT\n\n",
+
+		["punctuation", "%%"],
+
+		["property", "input"],
+		["punctuation", ":"],
+		["comment", "/* empty */"],
+
+		["punctuation", "|"],
+		" exp\t",
+		["c", [
+			["delimiter", "{"],
+			" cout ",
+			["operator", "<<"],
+			["string", "\"Result: \""],
+			["operator", "<<"],
+			["bison-variable", ["$1"]],
+			["operator", "<<"],
+			" endl",
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", ";"],
+
+		["property", "exp"],
+		["punctuation", ":"],
+		"\t\tINTEGER_LITERAL\t",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["bison-variable", ["$1"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", "|"],
+		" exp PLUS exp\t",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["bison-variable", ["$1"]],
+			["operator", "+"],
+			["bison-variable", ["$3"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", "|"],
+		" exp MULT exp\t",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["bison-variable", ["$1"]],
+			["operator", "*"],
+			["bison-variable", ["$3"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", ";"],
+
+		["punctuation", "%%"]
+	]],
+
+	["keyword", "int"],
+	["function", "yyerror"],
+	["punctuation", "("],
+	"string s",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "extern"],
+	["keyword", "int"],
+	" yylineno",
+	["punctuation", ";"],
+	["comment", "// defined and maintained in lex.c"],
+
+	["keyword", "extern"],
+	["keyword", "char"],
+	["operator", "*"],
+	"yytext",
+	["punctuation", ";"],
+	["comment", "// defined and maintained in lex.c"],
+
+	"\n\n  cerr ",
+	["operator", "<<"],
+	["string", "\"ERROR: \""],
+	["operator", "<<"],
+	" s ",
+	["operator", "<<"],
+	["string", "\" at symbol \\\"\""],
+	["operator", "<<"],
+	" yytext",
+	["punctuation", ";"],
+
+	"\n  cerr ",
+	["operator", "<<"],
+	["string", "\"\\\" on line \""],
+	["operator", "<<"],
+	" yylineno ",
+	["operator", "<<"],
+	" endl",
+	["punctuation", ";"],
+
+	["function", "exit"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "int"],
+	["function", "yyerror"],
+	["punctuation", "("],
+	["keyword", "char"],
+	["operator", "*"],
+	"s",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["function", "yyerror"],
+	["punctuation", "("],
+	["function", "string"],
+	["punctuation", "("],
+	"s",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+"foo \"bar\" baz"
+@"Verbatim strings"
+@"Luis: ""Patrick, where did you get that overnight bag?""
+    Patrick: ""Jean Paul Gaultier.""";
+----------------------------------------------------
+[
+	["string", "\"foo \\\"bar\\\" baz\""],
+	["string", "@\"Verbatim strings\""],
+	["string", "@\"Luis: \"\"Patrick, where did you get that overnight bag?\"\"\n    Patrick: \"\"Jean Paul Gaultier.\"\"\""],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

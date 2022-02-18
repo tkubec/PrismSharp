@@ -1,0 +1,175 @@
+_;
+adj;
+and;
+assert;
+assert2;
+assert3;
+assigned;
+break;
+by;
+case;
+cat;
+catch;
+clear;
+cmpeq;
+cmpne;
+continue;
+declare;
+default;
+delete;
+diff;
+div;
+do;
+elif;
+else;
+end;
+eq;
+error;
+eval;
+exists;
+exit;
+for;
+forall;
+forward;
+fprintf;
+freeze;
+function;
+ge;
+gt;
+if;
+iload;
+import;
+in;
+intrinsic;
+is;
+join;
+le;
+load;
+local;
+lt;
+meet;
+mod;
+ne;
+not;
+notadj;
+notin;
+notsubset;
+or;
+print;
+printf;
+procedure;
+quit;
+random;
+read;
+readi;
+repeat;
+require;
+requirege;
+requirerange;
+restore;
+return;
+save;
+sdiff;
+select;
+subset;
+then;
+time;
+to;
+try;
+until;
+vprint;
+vprintf;
+vtime;
+when;
+where;
+while;
+xor;
+----------------------------------------------------
+<span class="token keyword">_</span><span class="token punctuation">;</span>
+<span class="token keyword">adj</span><span class="token punctuation">;</span>
+<span class="token keyword">and</span><span class="token punctuation">;</span>
+<span class="token keyword">assert</span><span class="token punctuation">;</span>
+<span class="token keyword">assert2</span><span class="token punctuation">;</span>
+<span class="token keyword">assert3</span><span class="token punctuation">;</span>
+<span class="token keyword">assigned</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token keyword">by</span><span class="token punctuation">;</span>
+<span class="token keyword">case</span><span class="token punctuation">;</span>
+<span class="token keyword">cat</span><span class="token punctuation">;</span>
+<span class="token keyword">catch</span><span class="token punctuation">;</span>
+<span class="token keyword">clear</span><span class="token punctuation">;</span>
+<span class="token keyword">cmpeq</span><span class="token punctuation">;</span>
+<span class="token keyword">cmpne</span><span class="token punctuation">;</span>
+<span class="token keyword">continue</span><span class="token punctuation">;</span>
+<span class="token keyword">declare</span><span class="token punctuation">;</span>
+<span class="token keyword">default</span><span class="token punctuation">;</span>
+<span class="token keyword">delete</span><span class="token punctuation">;</span>
+<span class="token keyword">diff</span><span class="token punctuation">;</span>
+<span class="token keyword">div</span><span class="token punctuation">;</span>
+<span class="token keyword">do</span><span class="token punctuation">;</span>
+<span class="token keyword">elif</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span><span class="token punctuation">;</span>
+<span class="token keyword">eq</span><span class="token punctuation">;</span>
+<span class="token keyword">error</span><span class="token punctuation">;</span>
+<span class="token keyword">eval</span><span class="token punctuation">;</span>
+<span class="token keyword">exists</span><span class="token punctuation">;</span>
+<span class="token keyword">exit</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">;</span>
+<span class="token keyword">forall</span><span class="token punctuation">;</span>
+<span class="token keyword">forward</span><span class="token punctuation">;</span>
+<span class="token keyword">fprintf</span><span class="token punctuation">;</span>
+<span class="token keyword">freeze</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span><span class="token punctuation">;</span>
+<span class="token keyword">ge</span><span class="token punctuation">;</span>
+<span class="token keyword">gt</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">;</span>
+<span class="token keyword">iload</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span><span class="token punctuation">;</span>
+<span class="token keyword">in</span><span class="token punctuation">;</span>
+<span class="token keyword">intrinsic</span><span class="token punctuation">;</span>
+<span class="token keyword">is</span><span class="token punctuation">;</span>
+<span class="token keyword">join</span><span class="token punctuation">;</span>
+<span class="token keyword">le</span><span class="token punctuation">;</span>
+<span class="token keyword">load</span><span class="token punctuation">;</span>
+<span class="token keyword">local</span><span class="token punctuation">;</span>
+<span class="token keyword">lt</span><span class="token punctuation">;</span>
+<span class="token keyword">meet</span><span class="token punctuation">;</span>
+<span class="token keyword">mod</span><span class="token punctuation">;</span>
+<span class="token keyword">ne</span><span class="token punctuation">;</span>
+<span class="token keyword">not</span><span class="token punctuation">;</span>
+<span class="token keyword">notadj</span><span class="token punctuation">;</span>
+<span class="token keyword">notin</span><span class="token punctuation">;</span>
+<span class="token keyword">notsubset</span><span class="token punctuation">;</span>
+<span class="token keyword">or</span><span class="token punctuation">;</span>
+<span class="token keyword">print</span><span class="token punctuation">;</span>
+<span class="token keyword">printf</span><span class="token punctuation">;</span>
+<span class="token keyword">procedure</span><span class="token punctuation">;</span>
+<span class="token keyword">quit</span><span class="token punctuation">;</span>
+<span class="token keyword">random</span><span class="token punctuation">;</span>
+<span class="token keyword">read</span><span class="token punctuation">;</span>
+<span class="token keyword">readi</span><span class="token punctuation">;</span>
+<span class="token keyword">repeat</span><span class="token punctuation">;</span>
+<span class="token keyword">require</span><span class="token punctuation">;</span>
+<span class="token keyword">requirege</span><span class="token punctuation">;</span>
+<span class="token keyword">requirerange</span><span class="token punctuation">;</span>
+<span class="token keyword">restore</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token keyword">save</span><span class="token punctuation">;</span>
+<span class="token keyword">sdiff</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span><span class="token punctuation">;</span>
+<span class="token keyword">subset</span><span class="token punctuation">;</span>
+<span class="token keyword">then</span><span class="token punctuation">;</span>
+<span class="token keyword">time</span><span class="token punctuation">;</span>
+<span class="token keyword">to</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span><span class="token punctuation">;</span>
+<span class="token keyword">until</span><span class="token punctuation">;</span>
+<span class="token keyword">vprint</span><span class="token punctuation">;</span>
+<span class="token keyword">vprintf</span><span class="token punctuation">;</span>
+<span class="token keyword">vtime</span><span class="token punctuation">;</span>
+<span class="token keyword">when</span><span class="token punctuation">;</span>
+<span class="token keyword">where</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">;</span>
+<span class="token keyword">xor</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

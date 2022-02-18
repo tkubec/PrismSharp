@@ -1,0 +1,7 @@
+BASE    &lt;http://example.org/book/&gt;
+PREFIX  dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+SELECT  $title
+WHERE   { &lt;book1&gt;  dc:title  ?title }
+
+--------------------------------------------------
+

@@ -1,0 +1,23 @@
+""
+''
+"foo ""bar"" baz"
+'foo ''bar'' baz'
+ITALICS_'foobar'
+"foo &
+	&bar"
+"foo &
+	! Comment
+	&bar"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">''</span>
+<span class="token string">"foo ""bar"" baz"</span>
+<span class="token string">'foo ''bar'' baz'</span>
+<span class="token string">ITALICS_'foobar'</span>
+<span class="token string">"foo &amp;
+	&amp;bar"</span>
+<span class="token string">"foo &amp;
+	<span class="token comment">! Comment</span>
+	&amp;bar"</span>
+
+----------------------------------------------------

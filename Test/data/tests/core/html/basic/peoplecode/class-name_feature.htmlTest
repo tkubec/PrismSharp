@@ -1,0 +1,105 @@
+class FactorialClass
+	method factorial(&I as number) returns number;
+end-class;
+
+class Fruit
+	property number FruitCount;
+end-class;
+
+class Banana extends Fruit
+	property number BananaCount;
+end-class;
+
+local Banana &MyBanana = Create Banana();
+local Fruit &MyFruit = &MyBanana; /* okay, Banana is a subtype of Fruit */
+local number &Num = &MyBanana.BananaCount;
+
+/* generic building class */
+class BuildingAsset
+	method Acquire();
+	method DisasterPrep();
+end-class;
+
+method Acquire
+	%This.DisasterPrep();
+end-method;method DisasterPrep
+	PrepareForFire();
+end-method;
+
+/* building in Vancouver */
+class VancouverBuilding extends BuildingAssetmethod DisasterPrep();
+end-class;
+
+method DisasterPrep
+	PrepareForEarthquake();%Super.DisasterPrep(); /* call superclass method */
+end-method;
+
+/* building in Edmonton */
+class EdmontonBuilding extends BuildingAssetmethod DisasterPrep();
+end-class;
+
+method DisasterPrep
+	PrepareForFreezing();%Super.DisasterPrep(); /* call superclass method */
+end-method;
+
+local BuildingAsset &Building = Create VancouverBuilding();
+
+&Building.Acquire(); /* calls PrepareForEarthquake then PrepareForFire */
+
+&Building = Create EdmontonBuilding();
+
+&Building.Acquire(); /* calls PrepareForFreezing then PrepareForFire */
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">FactorialClass</span>
+	<span class="token keyword">method</span> <span class="token function-definition function">factorial</span><span class="token punctuation">(</span>&amp;I <span class="token keyword">as</span> <span class="token class-name">number</span><span class="token punctuation">)</span> <span class="token keyword">returns</span> <span class="token class-name">number</span><span class="token punctuation">;</span>
+<span class="token keyword">end-class</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Fruit</span>
+	<span class="token keyword">property</span> <span class="token class-name">number</span> FruitCount<span class="token punctuation">;</span>
+<span class="token keyword">end-class</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Banana</span> <span class="token keyword">extends</span> <span class="token class-name">Fruit</span>
+	<span class="token keyword">property</span> <span class="token class-name">number</span> BananaCount<span class="token punctuation">;</span>
+<span class="token keyword">end-class</span><span class="token punctuation">;</span>
+
+<span class="token keyword">local</span> <span class="token class-name">Banana</span> &amp;MyBanana <span class="token operator">=</span> <span class="token keyword">Create</span> <span class="token class-name">Banana</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">local</span> <span class="token class-name">Fruit</span> &amp;MyFruit <span class="token operator">=</span> &amp;MyBanana<span class="token punctuation">;</span> <span class="token comment">/* okay, Banana is a subtype of Fruit */</span>
+<span class="token keyword">local</span> <span class="token class-name">number</span> &amp;Num <span class="token operator">=</span> &amp;MyBanana<span class="token punctuation">.</span>BananaCount<span class="token punctuation">;</span>
+
+<span class="token comment">/* generic building class */</span>
+<span class="token keyword">class</span> <span class="token class-name">BuildingAsset</span>
+	<span class="token keyword">method</span> <span class="token function-definition function">Acquire</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">method</span> <span class="token function-definition function">DisasterPrep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end-class</span><span class="token punctuation">;</span>
+
+<span class="token keyword">method</span> <span class="token function-definition function">Acquire</span>
+	<span class="token variable">%This</span><span class="token punctuation">.</span><span class="token function">DisasterPrep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span><span class="token keyword">method</span> <span class="token function-definition function">DisasterPrep</span>
+	<span class="token function">PrepareForFire</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* building in Vancouver */</span>
+<span class="token keyword">class</span> <span class="token class-name">VancouverBuilding</span> <span class="token keyword">extends</span> <span class="token class-name">BuildingAssetmethod</span> <span class="token function">DisasterPrep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end-class</span><span class="token punctuation">;</span>
+
+<span class="token keyword">method</span> <span class="token function-definition function">DisasterPrep</span>
+	<span class="token function">PrepareForEarthquake</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">%Super</span><span class="token punctuation">.</span><span class="token function">DisasterPrep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* call superclass method */</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* building in Edmonton */</span>
+<span class="token keyword">class</span> <span class="token class-name">EdmontonBuilding</span> <span class="token keyword">extends</span> <span class="token class-name">BuildingAssetmethod</span> <span class="token function">DisasterPrep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end-class</span><span class="token punctuation">;</span>
+
+<span class="token keyword">method</span> <span class="token function-definition function">DisasterPrep</span>
+	<span class="token function">PrepareForFreezing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">%Super</span><span class="token punctuation">.</span><span class="token function">DisasterPrep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* call superclass method */</span>
+<span class="token keyword">end-method</span><span class="token punctuation">;</span>
+
+<span class="token keyword">local</span> <span class="token class-name">BuildingAsset</span> &amp;Building <span class="token operator">=</span> <span class="token keyword">Create</span> <span class="token class-name">VancouverBuilding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+&amp;Building<span class="token punctuation">.</span><span class="token function">Acquire</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* calls PrepareForEarthquake then PrepareForFire */</span>
+
+&amp;Building <span class="token operator">=</span> <span class="token keyword">Create</span> <span class="token class-name">EdmontonBuilding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+&amp;Building<span class="token punctuation">.</span><span class="token function">Acquire</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* calls PrepareForFreezing then PrepareForFire */</span>
+
+----------------------------------------------------

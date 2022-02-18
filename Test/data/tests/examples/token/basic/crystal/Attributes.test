@@ -1,0 +1,23 @@
+@[AlwaysInline]
+def foo
+	1
+end
+----------------------------------------------------
+[
+	["attribute", [
+		["delimiter", "@["],
+		["attribute", "AlwaysInline"],
+		["delimiter", "]"]
+	]],
+
+	["keyword", "def"],
+	["method-definition", [
+		["function", "foo"]
+	]],
+
+	["number", "1"],
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

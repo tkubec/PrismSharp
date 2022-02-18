@@ -1,0 +1,424 @@
+using System.Windows.Forms;
+using System.Drawing;
+
+public static DialogResult InputBox(string title, string promptText, ref string value)
+{
+  Form form = new Form();
+  Label label = new Label();
+  TextBox textBox = new TextBox();
+  Button buttonOk = new Button();
+  Button buttonCancel = new Button();
+
+  form.Text = title;
+  label.Text = promptText;
+  textBox.Text = value;
+
+  buttonOk.Text = "OK";
+  buttonCancel.Text = "Cancel";
+  buttonOk.DialogResult = DialogResult.OK;
+  buttonCancel.DialogResult = DialogResult.Cancel;
+
+  label.SetBounds(9, 20, 372, 13);
+  textBox.SetBounds(12, 36, 372, 20);
+  buttonOk.SetBounds(228, 72, 75, 23);
+  buttonCancel.SetBounds(309, 72, 75, 23);
+
+  label.AutoSize = true;
+  textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+  buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+  buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+  form.ClientSize = new Size(396, 107);
+  form.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
+  form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
+  form.FormBorderStyle = FormBorderStyle.FixedDialog;
+  form.StartPosition = FormStartPosition.CenterScreen;
+  form.MinimizeBox = false;
+  form.MaximizeBox = false;
+  form.AcceptButton = buttonOk;
+  form.CancelButton = buttonCancel;
+
+  DialogResult dialogResult = form.ShowDialog();
+  value = textBox.Text;
+  return dialogResult;
+}
+----------------------------------------------------
+[
+	["keyword", "using"],
+	["namespace", [
+		"System",
+		["punctuation", "."],
+		"Windows",
+		["punctuation", "."],
+		"Forms"
+	]],
+	["punctuation", ";"],
+
+	["keyword", "using"],
+	["namespace", [
+		"System",
+		["punctuation", "."],
+		"Drawing"
+	]],
+	["punctuation", ";"],
+
+	["keyword", "public"],
+	["keyword", "static"],
+	["return-type", ["DialogResult"]],
+	["function", "InputBox"],
+	["punctuation", "("],
+	["class-name", [
+		["keyword", "string"]
+	]],
+	" title",
+	["punctuation", ","],
+	["class-name", [
+		["keyword", "string"]
+	]],
+	" promptText",
+	["punctuation", ","],
+	["keyword", "ref"],
+	["class-name", [
+		["keyword", "string"]
+	]],
+	["keyword", "value"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["class-name", ["Form"]],
+	" form ",
+	["operator", "="],
+	["keyword", "new"],
+	["constructor-invocation", ["Form"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["class-name", ["Label"]],
+	" label ",
+	["operator", "="],
+	["keyword", "new"],
+	["constructor-invocation", ["Label"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["class-name", ["TextBox"]],
+	" textBox ",
+	["operator", "="],
+	["keyword", "new"],
+	["constructor-invocation", ["TextBox"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["class-name", ["Button"]],
+	" buttonOk ",
+	["operator", "="],
+	["keyword", "new"],
+	["constructor-invocation", ["Button"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["class-name", ["Button"]],
+	" buttonCancel ",
+	["operator", "="],
+	["keyword", "new"],
+	["constructor-invocation", ["Button"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n  form",
+	["punctuation", "."],
+	"Text ",
+	["operator", "="],
+	" title",
+	["punctuation", ";"],
+
+	"\n  label",
+	["punctuation", "."],
+	"Text ",
+	["operator", "="],
+	" promptText",
+	["punctuation", ";"],
+
+	"\n  textBox",
+	["punctuation", "."],
+	"Text ",
+	["operator", "="],
+	["keyword", "value"],
+	["punctuation", ";"],
+
+	"\n\n  buttonOk",
+	["punctuation", "."],
+	"Text ",
+	["operator", "="],
+	["string", "\"OK\""],
+	["punctuation", ";"],
+
+	"\n  buttonCancel",
+	["punctuation", "."],
+	"Text ",
+	["operator", "="],
+	["string", "\"Cancel\""],
+	["punctuation", ";"],
+
+	"\n  buttonOk",
+	["punctuation", "."],
+	"DialogResult ",
+	["operator", "="],
+	" DialogResult",
+	["punctuation", "."],
+	"OK",
+	["punctuation", ";"],
+
+	"\n  buttonCancel",
+	["punctuation", "."],
+	"DialogResult ",
+	["operator", "="],
+	" DialogResult",
+	["punctuation", "."],
+	"Cancel",
+	["punctuation", ";"],
+
+	"\n\n  label",
+	["punctuation", "."],
+	["function", "SetBounds"],
+	["punctuation", "("],
+	["number", "9"],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ","],
+	["number", "372"],
+	["punctuation", ","],
+	["number", "13"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n  textBox",
+	["punctuation", "."],
+	["function", "SetBounds"],
+	["punctuation", "("],
+	["number", "12"],
+	["punctuation", ","],
+	["number", "36"],
+	["punctuation", ","],
+	["number", "372"],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n  buttonOk",
+	["punctuation", "."],
+	["function", "SetBounds"],
+	["punctuation", "("],
+	["number", "228"],
+	["punctuation", ","],
+	["number", "72"],
+	["punctuation", ","],
+	["number", "75"],
+	["punctuation", ","],
+	["number", "23"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n  buttonCancel",
+	["punctuation", "."],
+	["function", "SetBounds"],
+	["punctuation", "("],
+	["number", "309"],
+	["punctuation", ","],
+	["number", "72"],
+	["punctuation", ","],
+	["number", "75"],
+	["punctuation", ","],
+	["number", "23"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n  label",
+	["punctuation", "."],
+	"AutoSize ",
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", ";"],
+
+	"\n  textBox",
+	["punctuation", "."],
+	"Anchor ",
+	["operator", "="],
+	" textBox",
+	["punctuation", "."],
+	"Anchor ",
+	["operator", "|"],
+	" AnchorStyles",
+	["punctuation", "."],
+	"Right",
+	["punctuation", ";"],
+
+	"\n  buttonOk",
+	["punctuation", "."],
+	"Anchor ",
+	["operator", "="],
+	" AnchorStyles",
+	["punctuation", "."],
+	"Bottom ",
+	["operator", "|"],
+	" AnchorStyles",
+	["punctuation", "."],
+	"Right",
+	["punctuation", ";"],
+
+	"\n  buttonCancel",
+	["punctuation", "."],
+	"Anchor ",
+	["operator", "="],
+	" AnchorStyles",
+	["punctuation", "."],
+	"Bottom ",
+	["operator", "|"],
+	" AnchorStyles",
+	["punctuation", "."],
+	"Right",
+	["punctuation", ";"],
+
+	"\n\n  form",
+	["punctuation", "."],
+	"ClientSize ",
+	["operator", "="],
+	["keyword", "new"],
+	["constructor-invocation", ["Size"]],
+	["punctuation", "("],
+	["number", "396"],
+	["punctuation", ","],
+	["number", "107"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n  form",
+	["punctuation", "."],
+	"Controls",
+	["punctuation", "."],
+	["function", "AddRange"],
+	["punctuation", "("],
+	["keyword", "new"],
+	["constructor-invocation", [
+		"Control",
+		["punctuation", "["],
+		["punctuation", "]"]
+	]],
+	["punctuation", "{"],
+	" label",
+	["punctuation", ","],
+	" textBox",
+	["punctuation", ","],
+	" buttonOk",
+	["punctuation", ","],
+	" buttonCancel ",
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n  form",
+	["punctuation", "."],
+	"ClientSize ",
+	["operator", "="],
+	["keyword", "new"],
+	["constructor-invocation", ["Size"]],
+	["punctuation", "("],
+	"Math",
+	["punctuation", "."],
+	["function", "Max"],
+	["punctuation", "("],
+	["number", "300"],
+	["punctuation", ","],
+	" label",
+	["punctuation", "."],
+	"Right ",
+	["operator", "+"],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	" form",
+	["punctuation", "."],
+	"ClientSize",
+	["punctuation", "."],
+	"Height",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n  form",
+	["punctuation", "."],
+	"FormBorderStyle ",
+	["operator", "="],
+	" FormBorderStyle",
+	["punctuation", "."],
+	"FixedDialog",
+	["punctuation", ";"],
+
+	"\n  form",
+	["punctuation", "."],
+	"StartPosition ",
+	["operator", "="],
+	" FormStartPosition",
+	["punctuation", "."],
+	"CenterScreen",
+	["punctuation", ";"],
+
+	"\n  form",
+	["punctuation", "."],
+	"MinimizeBox ",
+	["operator", "="],
+	["boolean", "false"],
+	["punctuation", ";"],
+
+	"\n  form",
+	["punctuation", "."],
+	"MaximizeBox ",
+	["operator", "="],
+	["boolean", "false"],
+	["punctuation", ";"],
+
+	"\n  form",
+	["punctuation", "."],
+	"AcceptButton ",
+	["operator", "="],
+	" buttonOk",
+	["punctuation", ";"],
+
+	"\n  form",
+	["punctuation", "."],
+	"CancelButton ",
+	["operator", "="],
+	" buttonCancel",
+	["punctuation", ";"],
+
+	["class-name", ["DialogResult"]],
+	" dialogResult ",
+	["operator", "="],
+	" form",
+	["punctuation", "."],
+	["function", "ShowDialog"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "value"],
+	["operator", "="],
+	" textBox",
+	["punctuation", "."],
+	"Text",
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	" dialogResult",
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

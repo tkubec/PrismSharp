@@ -1,0 +1,317 @@
+USING: accessors arrays assocs combinators
+combinators.short-circuit effects io kernel sequences
+sequences.deep splitting strings vocabs words ;
+IN: prism
+
+: make-prism-syntax ( syntax-vocab -- seq )
+ 	vocab-words [
+		dup name>> ">>" = [ drop t ] [
+			{
+				[ "delimiter" word-prop ]
+				[ name>> last { CHAR: : CHAR: { CHAR: [ CHAR: ( CHAR: ) CHAR: ? CHAR: " } member? ]
+				[ name>> { "t" "f" } member? ]
+			} 1|| not
+		] if
+	] filter ;
+
+: combinator? ( word -- ? )
+	[ "declared-effect" word-prop in>> flatten
+		[
+			[ effect? ] [ { "quots" "quot" } member? ] bi or
+		] any?
+	] [
+		"help" word-prop ?first flatten [ dup word? [ name>> ] when "quot" swap subseq? ] any?
+	] bi or ;
+
+: classify ( vocab-spec -- seq )
+	vocab-words [
+		dup {
+			{ [ dup combinator? ] [ drop "combinator" ] }
+			{ [ dup "macro" word-prop ] [ drop "macro" ] }
+			[ drop "ordinary" ]
+		} cond 2array
+	] map ;
+
+: print-strings ( strs -- )
+	[ name>> "'" dup surround ] map ", " join print ; recursive ! WARN: not recursive
+
+: combinators. ( vocab-spec -- )
+	classify [ nip "combinator" = ] assoc-filter keys print-strings ; flushable
+
+: ordinaries. ( vocab-spec -- )
+	classify [ nip "ordinary" = ] assoc-filter keys print-strings ; foldable
+
+: macros. ( vocab-spec -- )
+	classify [ nip "macro" = ] assoc-filter keys print-strings ; inline
+----------------------------------------------------
+[
+	["special-using", [
+		"USING: ",
+		["string", "accessors"],
+		["string", "arrays"],
+		["string", "assocs"],
+		["string", "combinators"],
+
+		["string", "combinators.short-circuit"],
+		["string", "effects"],
+		["string", "io"],
+		["string", "kernel"],
+		["string", "sequences"],
+
+		["string", "sequences.deep"],
+		["string", "splitting"],
+		["string", "strings"],
+		["string", "vocabs"],
+		["string", "words"]
+	]],
+	["semicolon-or-setlocal", ";"],
+
+	["colon-syntax", "IN: prism"],
+
+	["colon-syntax", ": make-prism-syntax"],
+	["stack-effect-delimiter", "("],
+	["normal-word", "syntax-vocab"],
+	["stack-effect-delimiter", "--"],
+	["normal-word", "seq"],
+	["stack-effect-delimiter", ")"],
+
+	["normal-word", "vocab-words"],
+	["quotation-delimiter", "["],
+
+	["kernel-builtin", "dup"],
+	["conventionally-named-word", "name>>"],
+	["string", ["\">>\""]],
+	["kernel-builtin", "="],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "drop"],
+	["boolean", "t"],
+	["quotation-delimiter", "]"],
+	["quotation-delimiter", "["],
+
+	["curly-brace-literal-delimiter", "{"],
+
+	["quotation-delimiter", "["],
+	["string", ["\"delimiter\""]],
+	["normal-word", "word-prop"],
+	["quotation-delimiter", "]"],
+
+	["quotation-delimiter", "["],
+	["conventionally-named-word", "name>>"],
+	["sequences-builtin", "last"],
+	["curly-brace-literal-delimiter", "{"],
+	["colon-syntax", "CHAR: :"],
+	["colon-syntax", "CHAR: {"],
+	["colon-syntax", "CHAR: ["],
+	["colon-syntax", "CHAR: ("],
+	["colon-syntax", "CHAR: )"],
+	["colon-syntax", "CHAR: ?"],
+	["colon-syntax", "CHAR: \""],
+	["curly-brace-literal-delimiter", "}"],
+	["sequences-builtin", "member?"],
+	["quotation-delimiter", "]"],
+
+	["quotation-delimiter", "["],
+	["conventionally-named-word", "name>>"],
+	["curly-brace-literal-delimiter", "{"],
+	["string", ["\"t\""]],
+	["string", ["\"f\""]],
+	["curly-brace-literal-delimiter", "}"],
+	["sequences-builtin", "member?"],
+	["quotation-delimiter", "]"],
+
+	["curly-brace-literal-delimiter", "}"],
+	["combinators", "1||"],
+	["kernel-builtin", "not"],
+
+	["quotation-delimiter", "]"],
+	["combinators", "if"],
+
+	["quotation-delimiter", "]"],
+	["combinators", "filter"],
+	["semicolon-or-setlocal", ";"],
+
+	["colon-syntax", ": combinator?"],
+	["stack-effect-delimiter", "("],
+	["normal-word", "word"],
+	["stack-effect-delimiter", "--"],
+	["kernel-builtin", "?"],
+	["stack-effect-delimiter", ")"],
+
+	["quotation-delimiter", "["],
+	["string", ["\"declared-effect\""]],
+	["normal-word", "word-prop"],
+	["conventionally-named-word", "in>>"],
+	["normal-word", "flatten"],
+
+	["quotation-delimiter", "["],
+
+	["quotation-delimiter", "["],
+	["conventionally-named-word", "effect?"],
+	["quotation-delimiter", "]"],
+	["quotation-delimiter", "["],
+	["curly-brace-literal-delimiter", "{"],
+	["string", ["\"quots\""]],
+	["string", ["\"quot\""]],
+	["curly-brace-literal-delimiter", "}"],
+	["sequences-builtin", "member?"],
+	["quotation-delimiter", "]"],
+	["combinators", "bi"],
+	["kernel-builtin", "or"],
+
+	["quotation-delimiter", "]"],
+	["combinators", "any?"],
+
+	["quotation-delimiter", "]"],
+	["quotation-delimiter", "["],
+
+	["string", ["\"help\""]],
+	["normal-word", "word-prop"],
+	["sequences-builtin", "?first"],
+	["normal-word", "flatten"],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "dup"],
+	["conventionally-named-word", "word?"],
+	["quotation-delimiter", "["],
+	["conventionally-named-word", "name>>"],
+	["quotation-delimiter", "]"],
+	["combinators", "when"],
+	["string", ["\"quot\""]],
+	["kernel-builtin", "swap"],
+	["sequences-builtin", "subseq?"],
+	["quotation-delimiter", "]"],
+	["combinators", "any?"],
+
+	["quotation-delimiter", "]"],
+	["combinators", "bi"],
+	["kernel-builtin", "or"],
+	["semicolon-or-setlocal", ";"],
+
+	["colon-syntax", ": classify"],
+	["stack-effect-delimiter", "("],
+	["normal-word", "vocab-spec"],
+	["stack-effect-delimiter", "--"],
+	["normal-word", "seq"],
+	["stack-effect-delimiter", ")"],
+
+	["normal-word", "vocab-words"],
+	["quotation-delimiter", "["],
+
+	["kernel-builtin", "dup"],
+	["curly-brace-literal-delimiter", "{"],
+
+	["curly-brace-literal-delimiter", "{"],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "dup"],
+	["conventionally-named-word", "combinator?"],
+	["quotation-delimiter", "]"],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "drop"],
+	["string", ["\"combinator\""]],
+	["quotation-delimiter", "]"],
+	["curly-brace-literal-delimiter", "}"],
+
+	["curly-brace-literal-delimiter", "{"],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "dup"],
+	["string", ["\"macro\""]],
+	["normal-word", "word-prop"],
+	["quotation-delimiter", "]"],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "drop"],
+	["string", ["\"macro\""]],
+	["quotation-delimiter", "]"],
+	["curly-brace-literal-delimiter", "}"],
+
+	["quotation-delimiter", "["],
+	["kernel-builtin", "drop"],
+	["string", ["\"ordinary\""]],
+	["quotation-delimiter", "]"],
+
+	["curly-brace-literal-delimiter", "}"],
+	["combinators", "cond"],
+	["normal-word", "2array"],
+
+	["quotation-delimiter", "]"],
+	["combinators", "map"],
+	["semicolon-or-setlocal", ";"],
+
+	["colon-syntax", ": print-strings"],
+	["stack-effect-delimiter", "("],
+	["normal-word", "strs"],
+	["stack-effect-delimiter", "--"],
+	["stack-effect-delimiter", ")"],
+
+	["quotation-delimiter", "["],
+	["conventionally-named-word", "name>>"],
+	["string", ["\"'\""]],
+	["kernel-builtin", "dup"],
+	["sequences-builtin", "surround"],
+	["quotation-delimiter", "]"],
+	["combinators", "map"],
+	["string", ["\", \""]],
+	["sequences-builtin", "join"],
+	["normal-word", "print"],
+	["semicolon-or-setlocal", ";"],
+	["other-builtin-syntax", "recursive"],
+	["comment", [
+		"! ",
+		["function", "WARN"],
+		": not recursive"
+	]],
+
+	["colon-syntax", ": combinators."],
+	["stack-effect-delimiter", "("],
+	["normal-word", "vocab-spec"],
+	["stack-effect-delimiter", "--"],
+	["stack-effect-delimiter", ")"],
+
+	["normal-word", "classify"],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "nip"],
+	["string", ["\"combinator\""]],
+	["kernel-builtin", "="],
+	["quotation-delimiter", "]"],
+	["normal-word", "assoc-filter"],
+	["normal-word", "keys"],
+	["normal-word", "print-strings"],
+	["semicolon-or-setlocal", ";"],
+	["other-builtin-syntax", "flushable"],
+
+	["colon-syntax", ": ordinaries."],
+	["stack-effect-delimiter", "("],
+	["normal-word", "vocab-spec"],
+	["stack-effect-delimiter", "--"],
+	["stack-effect-delimiter", ")"],
+
+	["normal-word", "classify"],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "nip"],
+	["string", ["\"ordinary\""]],
+	["kernel-builtin", "="],
+	["quotation-delimiter", "]"],
+	["normal-word", "assoc-filter"],
+	["normal-word", "keys"],
+	["normal-word", "print-strings"],
+	["semicolon-or-setlocal", ";"],
+	["other-builtin-syntax", "foldable"],
+
+	["colon-syntax", ": macros."],
+	["stack-effect-delimiter", "("],
+	["normal-word", "vocab-spec"],
+	["stack-effect-delimiter", "--"],
+	["stack-effect-delimiter", ")"],
+
+	["normal-word", "classify"],
+	["quotation-delimiter", "["],
+	["kernel-builtin", "nip"],
+	["string", ["\"macro\""]],
+	["kernel-builtin", "="],
+	["quotation-delimiter", "]"],
+	["normal-word", "assoc-filter"],
+	["normal-word", "keys"],
+	["normal-word", "print-strings"],
+	["semicolon-or-setlocal", ";"],
+	["other-builtin-syntax", "inline"]
+]
+
+----------------------------------------------------

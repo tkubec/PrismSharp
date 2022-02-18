@@ -1,0 +1,83 @@
+## BASIC PASSWORD PROTECTION
+AuthType basic
+AuthName "prompt"
+AuthUserFile /.htpasswd
+AuthGroupFile /dev/null
+Require valid-user
+
+## ALLOW FROM IP OR VALID PASSWORD
+Require valid-user
+Allow from 192.168.1.23
+Satisfy Any
+
+## PROTECT FILES
+Order Allow,Deny
+Deny from all
+
+## REQUIRE SUBDOMAIN
+RewriteCond %{HTTP_HOST} !^$
+RewriteCond %{HTTP_HOST} !^subdomain\.domain\.tld$ [NC]
+RewriteRule ^/(.*)$ http://subdomain.domain.tld/$1 [L,R=301]
+
+ErrorDocument 403 http://www.example.com/logo.gif
+ErrorDocument 403 /images/you_bad_hotlinker.gif
+
+## REDIRECT UPLOADS
+RewriteCond %{REQUEST_METHOD} ^(PUT|POST)$ [NC]
+RewriteRule ^(.*)$ /cgi-bin/form-upload-processor.cgi?p=$1 [L,QSA]
+----------------------------------------------------
+[
+	["comment", "## BASIC PASSWORD PROTECTION"],
+	["directive-inline", "AuthType"], " basic\n",
+	["directive-inline", "AuthName"], ["string", ["\"prompt\""]],
+	["directive-inline", "AuthUserFile"], " /.htpasswd\n",
+	["directive-inline", "AuthGroupFile"], " /dev/null\n",
+	["directive-inline", "Require"], " valid-user\n\n",
+
+	["comment", "## ALLOW FROM IP OR VALID PASSWORD"],
+	["directive-inline", "Require"], " valid-user\n",
+	["directive-inline", "Allow"], " from 192.168.1.23\n",
+	["directive-inline", "Satisfy"], " Any\n\n",
+
+	["comment", "## PROTECT FILES"],
+	["directive-inline", "Order"], ["directive-inline", "Allow"], ",Deny\n",
+	["directive-inline", "Deny"], " from all\n\n",
+
+	["comment", "## REQUIRE SUBDOMAIN"],
+
+	["directive-inline", "RewriteCond"],
+	["variable", "%{HTTP_HOST}"],
+	["regex", " !^$"],
+
+	["directive-inline", "RewriteCond"],
+	["variable", "%{HTTP_HOST}"],
+	["regex", " !^subdomain\\.domain\\.tld$"],
+	["directive-flags", "[NC]"],
+
+	["directive-inline", "RewriteRule"],
+	["regex", " ^/(.*)$"],
+	" http://subdomain.domain.tld/",
+	["variable", "$1"],
+	["directive-flags", "[L,R=301]"],
+
+	["directive-inline", "ErrorDocument"],
+	" 403 http://www.example.com/logo.gif\n",
+
+	["directive-inline", "ErrorDocument"],
+	" 403 /images/you_bad_hotlinker.gif\n\n",
+
+	["comment", "## REDIRECT UPLOADS"],
+
+	["directive-inline", "RewriteCond"],
+	["variable", "%{REQUEST_METHOD}"],
+	["regex", " ^(PUT|POST)$"],
+	["directive-flags", "[NC]"],
+
+	["directive-inline", "RewriteRule"],
+	["regex", " ^(.*)$"],
+	" /cgi-bin/form-upload-processor.cgi?p=",
+	["variable", "$1"],
+	["directive-flags", "[L,QSA]"]
+]
+
+----------------------------------------------------

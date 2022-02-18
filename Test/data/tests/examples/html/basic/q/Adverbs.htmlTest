@@ -1,0 +1,11 @@
+" ," ,/: ("Now";"is";"the";"time")
+L1,/:\:L2
+0+/10 20 30
+(1#) each 1001 1002 1004 1003
+----------------------------------------------------
+<span class="token string">" ,"</span> <span class="token verb operator">,</span><span class="token adverb function">/:</span> <span class="token punctuation">(</span><span class="token string">"Now"</span><span class="token punctuation">;</span><span class="token string">"is"</span><span class="token punctuation">;</span><span class="token string">"the"</span><span class="token punctuation">;</span><span class="token string">"time"</span><span class="token punctuation">)</span>
+L1<span class="token verb operator">,</span><span class="token adverb function">/:</span><span class="token adverb function">\:</span>L2
+<span class="token number">0</span><span class="token verb operator">+</span><span class="token adverb function">/</span><span class="token number">10</span> <span class="token number">20</span> <span class="token number">30</span>
+<span class="token punctuation">(</span><span class="token number">1</span><span class="token verb operator">#</span><span class="token punctuation">)</span> <span class="token adverb function">each</span> <span class="token number">1001</span> <span class="token number">1002</span> <span class="token number">1004</span> <span class="token number">1003</span>
+
+----------------------------------------------------

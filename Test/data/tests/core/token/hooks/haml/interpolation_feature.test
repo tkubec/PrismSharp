@@ -1,0 +1,23 @@
+#{ 42 }
+#{ "foobar" }
+----------------------------------------------------
+[
+	["interpolation", [
+		["delimiter", "#{"],
+		["ruby", [
+			["number", "42"]
+		]],
+		["delimiter", "}"]
+	]],
+	["interpolation", [
+		["delimiter", "#{"],
+		["ruby", [
+			["string-literal", [
+				["string", "\"foobar\""]
+			]]
+		]],
+		["delimiter", "}"]
+	]]
+]
+
+----------------------------------------------------

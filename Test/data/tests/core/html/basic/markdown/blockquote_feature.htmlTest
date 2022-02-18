@@ -1,0 +1,9 @@
+> foo
+>> foo
+> > foo
+----------------------------------------------------
+<span class="token blockquote punctuation">></span> foo
+<span class="token blockquote punctuation">>></span> foo
+<span class="token blockquote punctuation">> ></span> foo
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+interface ILogger {
+	void Init(SomeClass file);
+	void LogInfo(string message);
+}
+public class SomeClass : BaseClass {}
+----------------------------------------------------
+<span class="token keyword">interface</span> <span class="token class-name">ILogger</span> <span class="token punctuation">{</span>
+	<span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Init</span><span class="token punctuation">(</span><span class="token class-name">SomeClass</span> file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">LogInfo</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SomeClass</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">BaseClass</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,151 @@
+module Main exposing (..)
+
+import Html exposing (Html)
+import Svg exposing (..)
+import Svg.Attributes exposing (..)
+import Time exposing (Time, second)
+
+
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+
+-- MODEL
+
+
+type alias Model =
+    Time
+
+
+init : ( Model, Cmd Msg )
+init =
+    ( 0, Cmd.none )
+
+
+
+-- UPDATE
+
+
+type Msg
+    = Tick Time
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        Tick newTime ->
+            ( newTime, Cmd.none )
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Time.every second (\time -> Tick time)
+
+
+
+-- VIEW
+
+
+view : Model -> Html Msg
+view model =
+    let
+        angle =
+            turns (Time.inMinutes model)
+
+        handX =
+            toString (50 + 40 * cos angle)
+
+        handY =
+            toString (50 + 40 * sin angle)
+    in
+    svg [ viewBox "0 0 100 100", width "300px" ]
+        [ circle [ cx "50", cy "50", r "45", fill "#0B79CE" ] []
+        , line [ x1 "50", y1 "50", x2 handX, y2 handY, stroke "#023963" ] []
+        ]
+----------------------------------------------------
+<span class="token keyword">module</span> <span class="token constant">Main</span> <span class="token keyword">exposing</span> <span class="token punctuation">(</span><span class="token operator">..</span><span class="token punctuation">)</span>
+
+<span class="token import-statement"><span class="token keyword">import</span> Html <span class="token keyword">exposing</span> </span><span class="token punctuation">(</span><span class="token constant">Html</span><span class="token punctuation">)</span>
+<span class="token import-statement"><span class="token keyword">import</span> Svg <span class="token keyword">exposing</span> </span><span class="token punctuation">(</span><span class="token operator">..</span><span class="token punctuation">)</span>
+<span class="token import-statement"><span class="token keyword">import</span> Svg.Attributes <span class="token keyword">exposing</span> </span><span class="token punctuation">(</span><span class="token operator">..</span><span class="token punctuation">)</span>
+<span class="token import-statement"><span class="token keyword">import</span> Time <span class="token keyword">exposing</span> </span><span class="token punctuation">(</span><span class="token constant">Time</span><span class="token punctuation">,</span> <span class="token hvariable">second</span><span class="token punctuation">)</span>
+
+
+<span class="token hvariable">main</span> <span class="token operator">=</span>
+    <span class="token hvariable">Html.program</span>
+        <span class="token punctuation">{</span> <span class="token hvariable">init</span> <span class="token operator">=</span> <span class="token hvariable">init</span>
+        <span class="token punctuation">,</span> <span class="token hvariable">view</span> <span class="token operator">=</span> <span class="token hvariable">view</span>
+        <span class="token punctuation">,</span> <span class="token hvariable">update</span> <span class="token operator">=</span> <span class="token hvariable">update</span>
+        <span class="token punctuation">,</span> <span class="token hvariable">subscriptions</span> <span class="token operator">=</span> <span class="token hvariable">subscriptions</span>
+        <span class="token punctuation">}</span>
+
+
+
+<span class="token comment">-- MODEL</span>
+
+
+<span class="token keyword">type</span> <span class="token keyword">alias</span> <span class="token constant">Model</span> <span class="token operator">=</span>
+    <span class="token constant">Time</span>
+
+
+<span class="token hvariable">init</span> <span class="token operator">:</span> <span class="token punctuation">(</span> <span class="token constant">Model</span><span class="token punctuation">,</span> <span class="token constant">Cmd</span> <span class="token constant">Msg</span> <span class="token punctuation">)</span>
+<span class="token hvariable">init</span> <span class="token operator">=</span>
+    <span class="token punctuation">(</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token hvariable">Cmd.none</span> <span class="token punctuation">)</span>
+
+
+
+<span class="token comment">-- UPDATE</span>
+
+
+<span class="token keyword">type</span> <span class="token constant">Msg</span>
+    <span class="token operator">=</span> <span class="token constant">Tick</span> <span class="token constant">Time</span>
+
+
+<span class="token hvariable">update</span> <span class="token operator">:</span> <span class="token constant">Msg</span> <span class="token operator">-></span> <span class="token constant">Model</span> <span class="token operator">-></span> <span class="token punctuation">(</span> <span class="token constant">Model</span><span class="token punctuation">,</span> <span class="token constant">Cmd</span> <span class="token constant">Msg</span> <span class="token punctuation">)</span>
+<span class="token hvariable">update</span> <span class="token hvariable">msg</span> <span class="token hvariable">model</span> <span class="token operator">=</span>
+    <span class="token keyword">case</span> <span class="token hvariable">msg</span> <span class="token keyword">of</span>
+        <span class="token constant">Tick</span> <span class="token hvariable">newTime</span> <span class="token operator">-></span>
+            <span class="token punctuation">(</span> <span class="token hvariable">newTime</span><span class="token punctuation">,</span> <span class="token hvariable">Cmd.none</span> <span class="token punctuation">)</span>
+
+
+
+<span class="token comment">-- SUBSCRIPTIONS</span>
+
+
+<span class="token hvariable">subscriptions</span> <span class="token operator">:</span> <span class="token constant">Model</span> <span class="token operator">-></span> <span class="token constant">Sub</span> <span class="token constant">Msg</span>
+<span class="token hvariable">subscriptions</span> <span class="token hvariable">model</span> <span class="token operator">=</span>
+    <span class="token hvariable">Time.every</span> <span class="token hvariable">second</span> <span class="token punctuation">(</span>\<span class="token hvariable">time</span> <span class="token operator">-></span> <span class="token constant">Tick</span> <span class="token hvariable">time</span><span class="token punctuation">)</span>
+
+
+
+<span class="token comment">-- VIEW</span>
+
+
+<span class="token hvariable">view</span> <span class="token operator">:</span> <span class="token constant">Model</span> <span class="token operator">-></span> <span class="token constant">Html</span> <span class="token constant">Msg</span>
+<span class="token hvariable">view</span> <span class="token hvariable">model</span> <span class="token operator">=</span>
+    <span class="token keyword">let</span>
+        <span class="token hvariable">angle</span> <span class="token operator">=</span>
+            <span class="token builtin">turns</span> <span class="token punctuation">(</span><span class="token hvariable">Time.inMinutes</span> <span class="token hvariable">model</span><span class="token punctuation">)</span>
+
+        <span class="token hvariable">handX</span> <span class="token operator">=</span>
+            <span class="token builtin">toString</span> <span class="token punctuation">(</span><span class="token number">50</span> <span class="token operator">+</span> <span class="token number">40</span> <span class="token operator">*</span> <span class="token builtin">cos</span> <span class="token hvariable">angle</span><span class="token punctuation">)</span>
+
+        <span class="token hvariable">handY</span> <span class="token operator">=</span>
+            <span class="token builtin">toString</span> <span class="token punctuation">(</span><span class="token number">50</span> <span class="token operator">+</span> <span class="token number">40</span> <span class="token operator">*</span> <span class="token builtin">sin</span> <span class="token hvariable">angle</span><span class="token punctuation">)</span>
+    <span class="token keyword">in</span>
+    <span class="token hvariable">svg</span> <span class="token punctuation">[</span> <span class="token hvariable">viewBox</span> <span class="token string">"0 0 100 100"</span><span class="token punctuation">,</span> <span class="token hvariable">width</span> <span class="token string">"300px"</span> <span class="token punctuation">]</span>
+        <span class="token punctuation">[</span> <span class="token hvariable">circle</span> <span class="token punctuation">[</span> <span class="token hvariable">cx</span> <span class="token string">"50"</span><span class="token punctuation">,</span> <span class="token hvariable">cy</span> <span class="token string">"50"</span><span class="token punctuation">,</span> <span class="token hvariable">r</span> <span class="token string">"45"</span><span class="token punctuation">,</span> <span class="token hvariable">fill</span> <span class="token string">"#0B79CE"</span> <span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">,</span> <span class="token hvariable">line</span> <span class="token punctuation">[</span> <span class="token hvariable">x1</span> <span class="token string">"50"</span><span class="token punctuation">,</span> <span class="token hvariable">y1</span> <span class="token string">"50"</span><span class="token punctuation">,</span> <span class="token hvariable">x2</span> <span class="token hvariable">handX</span><span class="token punctuation">,</span> <span class="token hvariable">y2</span> <span class="token hvariable">handY</span><span class="token punctuation">,</span> <span class="token hvariable">stroke</span> <span class="token string">"#023963"</span> <span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">]</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+LDA #127
+STA $8000
+STA #$1
+LDX #%10001010
+----------------------------------------------------
+<span class="token op-code keyword">LDA</span> <span class="token decimal-number number">#127</span>
+<span class="token op-code keyword">STA</span> <span class="token hex-number number">$8000</span>
+<span class="token op-code keyword">STA</span> <span class="token hex-number number">#$1</span>
+<span class="token op-code keyword">LDX</span> <span class="token binary-number number">#%10001010</span>
+
+----------------------------------------------------

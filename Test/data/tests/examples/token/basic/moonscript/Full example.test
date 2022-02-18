@@ -1,0 +1,446 @@
+class List
+  new: (t) =>
+    if t then return t
+
+  append: table.insert
+  join: table.concat
+
+  map: (f,...) => List [f x,... for x in *self]
+
+  -- apply a function on a list in-place
+  apply: (f,...) =>
+    for i = 1,#@ do @[i] = f @[i],...
+    self
+
+  clone: => @slice 1
+
+  slice: (i1,i2=#@) =>
+    -- workaround for MS slice bug
+    if i2 < 0 then i2 = #@ + i2 + 1
+    List [x for x in *self[i1,i2]]
+
+  extend: (other) =>
+    i = #self + 1
+    for o in *other
+        self[i] = o
+        i += 1
+    self
+
+  partition: (pred,...) =>
+    res = {}
+    for x in *@
+        k = pred x,...
+        if not res[k] then res[k] = List!
+        res[k]\append x
+    res
+
+  lpartition: (n,npred,...) =>
+      res = List[List{} for i = 1,n]
+      for x in *@
+        k = npred x,...
+        if k >= 1 and k <= n
+            res[k]\append x
+      res
+
+  __concat: (l1,l2) ->
+        List.clone(l1)\extend l2
+
+  __tostring: =>
+    tmp = @slice(1,10)\apply tostring
+    if #@ > 10 then tmp\append '...'
+    "["..tmp\join(',').."]"
+
+-- hack to modify class so its constructor may return a new self
+patch = (klass) -> getmetatable(klass).__call = (cls,...) ->
+    self = setmetatable {}, cls.__base
+    newself = cls.__init self, ...
+    if newself
+        self = setmetatable newself, cls.__base
+    self
+
+patch List
+
+return List
+----------------------------------------------------
+[
+	["keyword", "class"],
+	["class-name", "List"],
+
+	["property", "new"],
+	["operator", ":"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ")"],
+	["operator", "=>"],
+
+	["keyword", "if"],
+	" t ",
+	["keyword", "then"],
+	["keyword", "return"],
+	" t\n\n  ",
+
+	["property", "append"],
+	["operator", ":"],
+	["function", [
+		"table",
+		["punctuation", "."],
+		"insert"
+	]],
+
+	["property", "join"],
+	["operator", ":"],
+	["function", [
+		"table",
+		["punctuation", "."],
+		"concat"
+	]],
+
+	["property", "map"],
+	["operator", ":"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ","],
+	["operator", "..."],
+	["punctuation", ")"],
+	["operator", "=>"],
+	["class-name", "List"],
+	["punctuation", "["],
+	"f x",
+	["punctuation", ","],
+	["operator", "..."],
+	["keyword", "for"],
+	" x ",
+	["keyword", "in"],
+	["operator", "*"],
+	["keyword", "self"],
+	["punctuation", "]"],
+
+	["comment", "-- apply a function on a list in-place"],
+
+	["property", "apply"],
+	["operator", ":"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ","],
+	["operator", "..."],
+	["punctuation", ")"],
+	["operator", "=>"],
+
+	["keyword", "for"],
+	" i ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ","],
+	["operator", "#"],
+	["variable", "@"],
+	["keyword", "do"],
+	["variable", "@"],
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["operator", "="],
+	" f ",
+	["variable", "@"],
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["punctuation", ","],
+	["operator", "..."],
+
+	["keyword", "self"],
+
+	["property", "clone"],
+	["operator", ":"],
+	["operator", "=>"],
+	["variable", "@slice"],
+	["number", "1"],
+
+	["property", "slice"],
+	["operator", ":"],
+	["punctuation", "("],
+	"i1",
+	["punctuation", ","],
+	"i2",
+	["operator", "="],
+	["operator", "#"],
+	["variable", "@"],
+	["punctuation", ")"],
+	["operator", "=>"],
+
+	["comment", "-- workaround for MS slice bug"],
+
+	["keyword", "if"],
+	" i2 ",
+	["operator", "<"],
+	["number", "0"],
+	["keyword", "then"],
+	" i2 ",
+	["operator", "="],
+	["operator", "#"],
+	["variable", "@"],
+	["operator", "+"],
+	" i2 ",
+	["operator", "+"],
+	["number", "1"],
+
+	["class-name", "List"],
+	["punctuation", "["],
+	"x ",
+	["keyword", "for"],
+	" x ",
+	["keyword", "in"],
+	["operator", "*"],
+	["keyword", "self"],
+	["punctuation", "["],
+	"i1",
+	["punctuation", ","],
+	"i2",
+	["punctuation", "]"],
+	["punctuation", "]"],
+
+	["property", "extend"],
+	["operator", ":"],
+	["punctuation", "("],
+	"other",
+	["punctuation", ")"],
+	["operator", "=>"],
+
+	"\n    i ",
+	["operator", "="],
+	["operator", "#"],
+	["keyword", "self"],
+	["operator", "+"],
+	["number", "1"],
+
+	["keyword", "for"],
+	" o ",
+	["keyword", "in"],
+	["operator", "*"],
+	"other\n        ",
+
+	["keyword", "self"],
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["operator", "="],
+	" o\n        i ",
+	["operator", "+="],
+	["number", "1"],
+
+	["keyword", "self"],
+
+	["property", "partition"],
+	["operator", ":"],
+	["punctuation", "("],
+	"pred",
+	["punctuation", ","],
+	["operator", "..."],
+	["punctuation", ")"],
+	["operator", "=>"],
+
+	"\n    res ",
+	["operator", "="],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["keyword", "for"],
+	" x ",
+	["keyword", "in"],
+	["operator", "*"],
+	["variable", "@"],
+
+	"\n        k ",
+	["operator", "="],
+	" pred x",
+	["punctuation", ","],
+	["operator", "..."],
+
+	["keyword", "if"],
+	["operator", "not"],
+	" res",
+	["punctuation", "["],
+	"k",
+	["punctuation", "]"],
+	["keyword", "then"],
+	" res",
+	["punctuation", "["],
+	"k",
+	["punctuation", "]"],
+	["operator", "="],
+	["class-name", "List"],
+	["operator", "!"],
+
+	"\n        res",
+	["punctuation", "["],
+	"k",
+	["punctuation", "]"],
+	["punctuation", "\\"],
+	"append x\n    res\n\n  ",
+
+	["property", "lpartition"],
+	["operator", ":"],
+	["punctuation", "("],
+	"n",
+	["punctuation", ","],
+	"npred",
+	["punctuation", ","],
+	["operator", "..."],
+	["punctuation", ")"],
+	["operator", "=>"],
+
+	"\n      res ",
+	["operator", "="],
+	["class-name", "List"],
+	["punctuation", "["],
+	["class-name", "List"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["keyword", "for"],
+	" i ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ","],
+	"n",
+	["punctuation", "]"],
+
+	["keyword", "for"],
+	" x ",
+	["keyword", "in"],
+	["operator", "*"],
+	["variable", "@"],
+
+	"\n        k ",
+	["operator", "="],
+	" npred x",
+	["punctuation", ","],
+	["operator", "..."],
+
+	["keyword", "if"],
+	" k ",
+	["operator", ">="],
+	["number", "1"],
+	["operator", "and"],
+	" k ",
+	["operator", "<="],
+	" n\n            res",
+	["punctuation", "["],
+	"k",
+	["punctuation", "]"],
+	["punctuation", "\\"],
+	"append x\n      res\n\n  ",
+
+	["property", "__concat"],
+	["operator", ":"],
+	["punctuation", "("],
+	"l1",
+	["punctuation", ","],
+	"l2",
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["class-name", "List"],
+	["punctuation", "."],
+	"clone",
+	["punctuation", "("],
+	"l1",
+	["punctuation", ")"],
+	["punctuation", "\\"],
+	"extend l2\n\n  ",
+
+	["property", "__tostring"],
+	["operator", ":"],
+	["operator", "=>"],
+
+	"\n    tmp ",
+	["operator", "="],
+	["variable", "@slice"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", "\\"],
+	"apply ",
+	["function", ["tostring"]],
+
+	["keyword", "if"],
+	["operator", "#"],
+	["variable", "@"],
+	["operator", ">"],
+	["number", "10"],
+	["keyword", "then"],
+	" tmp",
+	["punctuation", "\\"],
+	"append ",
+	["string", "'...'"],
+
+	["string", ["\"[\""]],
+	["operator", ".."],
+	"tmp",
+	["punctuation", "\\"],
+	"join",
+	["punctuation", "("],
+	["string", "','"],
+	["punctuation", ")"],
+	["operator", ".."],
+	["string", ["\"]\""]],
+
+	["comment", "-- hack to modify class so its constructor may return a new self"],
+
+	"\npatch ",
+	["operator", "="],
+	["punctuation", "("],
+	"klass",
+	["punctuation", ")"],
+	["operator", "->"],
+	["function", ["getmetatable"]],
+	["punctuation", "("],
+	"klass",
+	["punctuation", ")"],
+	["punctuation", "."],
+	"__call ",
+	["operator", "="],
+	["punctuation", "("],
+	"cls",
+	["punctuation", ","],
+	["operator", "..."],
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["keyword", "self"],
+	["operator", "="],
+	["function", ["setmetatable"]],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["punctuation", ","],
+	" cls",
+	["punctuation", "."],
+	"__base\n    newself ",
+	["operator", "="],
+	" cls",
+	["punctuation", "."],
+	"__init ",
+	["keyword", "self"],
+	["punctuation", ","],
+	["operator", "..."],
+
+	["keyword", "if"],
+	" newself\n        ",
+
+	["keyword", "self"],
+	["operator", "="],
+	["function", ["setmetatable"]],
+	" newself",
+	["punctuation", ","],
+	" cls",
+	["punctuation", "."],
+	"__base\n    ",
+
+	["keyword", "self"],
+
+	"\n\npatch ", ["class-name", "List"],
+
+	["keyword", "return"], ["class-name", "List"]
+]
+
+----------------------------------------------------

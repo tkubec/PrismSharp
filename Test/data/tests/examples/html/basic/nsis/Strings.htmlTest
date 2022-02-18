@@ -1,0 +1,7 @@
+"foo \"bar\" baz"
+'foo \'bar\' baz'
+----------------------------------------------------
+<span class="token string">"foo \"bar\" baz"</span>
+<span class="token string">'foo \'bar\' baz'</span>
+
+----------------------------------------------------

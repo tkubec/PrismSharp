@@ -1,0 +1,174 @@
+<#@ template hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ output extension=".txt" #>
+<#
+    using System.Collections.Generic;
+
+    var numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, /* 7, */ 8, 9, 10  };
+
+    foreach (var i in numbers)
+    {
+#>
+The square of <#= i #> is <#= i * i #>
+<#
+    }
+#>
+----------------------------------------------------
+[
+	["block", [
+		["directive", [
+			["delimiter", "<#@"],
+			["content", [
+				["keyword", "template"],
+				["attr-name", "hostspecific"],
+				["attr-value", [
+					["punctuation", "="],
+					["punctuation", "\""],
+					"false",
+					["punctuation", "\""]
+				]],
+				["attr-name", "language"],
+				["attr-value", [
+					["punctuation", "="],
+					["punctuation", "\""],
+					"C#",
+					["punctuation", "\""]
+				]]
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	["block", [
+		["directive", [
+			["delimiter", "<#@"],
+			["content", [
+				["keyword", "assembly"],
+				["attr-name", "name"],
+				["attr-value", [
+					["punctuation", "="],
+					["punctuation", "\""],
+					"System.Core.dll",
+					["punctuation", "\""]
+				]]
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	["block", [
+		["directive", [
+			["delimiter", "<#@"],
+			["content", [
+				["keyword", "output"],
+				["attr-name", "extension"],
+				["attr-value", [
+					["punctuation", "="],
+					["punctuation", "\""],
+					".txt",
+					["punctuation", "\""]
+				]]
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	["block", [
+		["standard", [
+			["delimiter", "<#"],
+			["content", [
+				["keyword", "using"],
+				["namespace", [
+					"System",
+					["punctuation", "."],
+					"Collections",
+					["punctuation", "."],
+					"Generic"
+				]],
+				["punctuation", ";"],
+
+				["class-name", [
+					["keyword", "var"]
+				]],
+				" numbers ",
+				["operator", "="],
+				["keyword", "new"],
+				["constructor-invocation", [
+					"List",
+					["punctuation", "<"],
+					["keyword", "int"],
+					["punctuation", ">"]
+				]],
+				["punctuation", "{"],
+				["number", "0"],
+				["punctuation", ","],
+				["number", "1"],
+				["punctuation", ","],
+				["number", "2"],
+				["punctuation", ","],
+				["number", "3"],
+				["punctuation", ","],
+				["number", "4"],
+				["punctuation", ","],
+				["number", "5"],
+				["punctuation", ","],
+				["number", "6"],
+				["punctuation", ","],
+				["comment", "/* 7, */"],
+				["number", "8"],
+				["punctuation", ","],
+				["number", "9"],
+				["punctuation", ","],
+				["number", "10"],
+				["punctuation", "}"],
+				["punctuation", ";"],
+
+				["keyword", "foreach"],
+				["punctuation", "("],
+				["class-name", [
+					["keyword", "var"]
+				]],
+				" i ",
+				["keyword", "in"],
+				" numbers",
+				["punctuation", ")"],
+
+				["punctuation", "{"]
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	"\nThe square of ",
+	["block", [
+		["expression", [
+			["delimiter", "<#="],
+			["content", [" i "]],
+			["delimiter", "#>"]
+		]]
+	]],
+	" is ",
+	["block", [
+		["expression", [
+			["delimiter", "<#="],
+			["content", [
+				" i ",
+				["operator", "*"],
+				" i "
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	["block", [
+		["standard", [
+			["delimiter", "<#"],
+			["content", [
+				["punctuation", "}"]
+			]],
+			["delimiter", "#>"]
+		]]
+	]]
+]
+
+----------------------------------------------------

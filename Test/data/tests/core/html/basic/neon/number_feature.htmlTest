@@ -1,0 +1,21 @@
+foo: 0xBadFace
+bar: 0o754
+baz: 42
+foo: 3.14159
+bar: 4e8
+baz: 3.1E-7
+foo: 0.4e+2
+bar: -0xFF
+baz: +0o123
+----------------------------------------------------
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token number">0xBadFace</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token number">0o754</span>
+<span class="token key atrule">baz</span><span class="token punctuation">:</span> <span class="token number">42</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token number">3.14159</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token number">4e8</span>
+<span class="token key atrule">baz</span><span class="token punctuation">:</span> <span class="token number">3.1E-7</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token number">0.4e+2</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token number">-0xFF</span>
+<span class="token key atrule">baz</span><span class="token punctuation">:</span> <span class="token number">+0o123</span>
+
+----------------------------------------------------

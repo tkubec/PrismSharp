@@ -1,0 +1,121 @@
+rulelist       =  1*( rule / (*c-wsp c-nl) )
+
+rule           =  rulename defined-as elements c-nl
+                       ; continues if next line starts
+                       ;  with white space
+
+rulename       =  ALPHA *(ALPHA / DIGIT / "-")
+
+defined-as     =  *c-wsp ("=" / "=/") *c-wsp
+                       ; basic rules definition and
+                       ;  incremental alternatives
+
+elements       =  alternation *c-wsp
+
+c-wsp          =  WSP / (c-nl WSP)
+
+c-nl           =  comment / CRLF
+                       ; comment or newline
+
+comment        =  ";" *(WSP / VCHAR) CRLF
+
+alternation    =  concatenation
+                  *(*c-wsp "/" *c-wsp concatenation)
+
+concatenation  =  repetition *(1*c-wsp repetition)
+
+repetition     =  [repeat] element
+
+repeat         =  1*DIGIT / (*DIGIT "*" *DIGIT)
+
+element        =  rulename / group / option /
+                  char-val / num-val / prose-val
+
+group          =  "(" *c-wsp alternation *c-wsp ")"
+
+option         =  "[" *c-wsp alternation *c-wsp "]"
+
+char-val       =  DQUOTE *(%x20-21 / %x23-7E) DQUOTE
+                       ; quoted string of SP and VCHAR
+                       ;  without DQUOTE
+
+num-val        =  "%" (bin-val / dec-val / hex-val)
+
+bin-val        =  "b" 1*BIT
+                  [ 1*("." 1*BIT) / ("-" 1*BIT) ]
+                       ; series of concatenated bit values
+                       ;  or single ONEOF range
+
+dec-val        =  "d" 1*DIGIT
+                  [ 1*("." 1*DIGIT) / ("-" 1*DIGIT) ]
+
+hex-val        =  "x" 1*HEXDIG
+                  [ 1*("." 1*HEXDIG) / ("-" 1*HEXDIG) ]
+
+prose-val      =  "<" *(%x20-3D / %x3F-7E) ">"
+                       ; bracketed string of SP and VCHAR
+                       ;  without angles
+                       ; prose description, to be used as
+                       ;  last resort
+----------------------------------------------------
+<span class="token definition keyword">rulelist</span>       <span class="token operator">=</span>  <span class="token repetition operator">1*</span><span class="token punctuation">(</span> <span class="token rule">rule</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token repetition operator">*</span><span class="token rule">c-wsp</span> <span class="token rule">c-nl</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+
+<span class="token definition keyword">rule</span>           <span class="token operator">=</span>  <span class="token rule">rulename</span> <span class="token rule">defined-as</span> <span class="token rule">elements</span> <span class="token rule">c-nl</span>
+                       <span class="token comment">; continues if next line starts</span>
+                       <span class="token comment">;  with white space</span>
+
+<span class="token definition keyword">rulename</span>       <span class="token operator">=</span>  <span class="token core-rule rule constant">ALPHA</span> <span class="token repetition operator">*</span><span class="token punctuation">(</span><span class="token core-rule rule constant">ALPHA</span> <span class="token operator">/</span> <span class="token core-rule rule constant">DIGIT</span> <span class="token operator">/</span> <span class="token string">"-"</span><span class="token punctuation">)</span>
+
+<span class="token definition keyword">defined-as</span>     <span class="token operator">=</span>  <span class="token repetition operator">*</span><span class="token rule">c-wsp</span> <span class="token punctuation">(</span><span class="token string">"="</span> <span class="token operator">/</span> <span class="token string">"=/"</span><span class="token punctuation">)</span> <span class="token repetition operator">*</span><span class="token rule">c-wsp</span>
+                       <span class="token comment">; basic rules definition and</span>
+                       <span class="token comment">;  incremental alternatives</span>
+
+<span class="token definition keyword">elements</span>       <span class="token operator">=</span>  <span class="token rule">alternation</span> <span class="token repetition operator">*</span><span class="token rule">c-wsp</span>
+
+<span class="token definition keyword">c-wsp</span>          <span class="token operator">=</span>  <span class="token core-rule rule constant">WSP</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token rule">c-nl</span> <span class="token core-rule rule constant">WSP</span><span class="token punctuation">)</span>
+
+<span class="token definition keyword">c-nl</span>           <span class="token operator">=</span>  <span class="token rule">comment</span> <span class="token operator">/</span> <span class="token core-rule rule constant">CRLF</span>
+                       <span class="token comment">; comment or newline</span>
+
+<span class="token definition keyword">comment</span>        <span class="token operator">=</span>  <span class="token string">";"</span> <span class="token repetition operator">*</span><span class="token punctuation">(</span><span class="token core-rule rule constant">WSP</span> <span class="token operator">/</span> <span class="token core-rule rule constant">VCHAR</span><span class="token punctuation">)</span> <span class="token core-rule rule constant">CRLF</span>
+
+<span class="token definition keyword">alternation</span>    <span class="token operator">=</span>  <span class="token rule">concatenation</span>
+                  <span class="token repetition operator">*</span><span class="token punctuation">(</span><span class="token repetition operator">*</span><span class="token rule">c-wsp</span> <span class="token string">"/"</span> <span class="token repetition operator">*</span><span class="token rule">c-wsp</span> <span class="token rule">concatenation</span><span class="token punctuation">)</span>
+
+<span class="token definition keyword">concatenation</span>  <span class="token operator">=</span>  <span class="token rule">repetition</span> <span class="token repetition operator">*</span><span class="token punctuation">(</span><span class="token repetition operator">1*</span><span class="token rule">c-wsp</span> <span class="token rule">repetition</span><span class="token punctuation">)</span>
+
+<span class="token definition keyword">repetition</span>     <span class="token operator">=</span>  <span class="token punctuation">[</span><span class="token rule">repeat</span><span class="token punctuation">]</span> <span class="token rule">element</span>
+
+<span class="token definition keyword">repeat</span>         <span class="token operator">=</span>  <span class="token repetition operator">1*</span><span class="token core-rule rule constant">DIGIT</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token repetition operator">*</span><span class="token core-rule rule constant">DIGIT</span> <span class="token string">"*"</span> <span class="token repetition operator">*</span><span class="token core-rule rule constant">DIGIT</span><span class="token punctuation">)</span>
+
+<span class="token definition keyword">element</span>        <span class="token operator">=</span>  <span class="token rule">rulename</span> <span class="token operator">/</span> <span class="token rule">group</span> <span class="token operator">/</span> <span class="token rule">option</span> <span class="token operator">/</span>
+                  <span class="token rule">char-val</span> <span class="token operator">/</span> <span class="token rule">num-val</span> <span class="token operator">/</span> <span class="token rule">prose-val</span>
+
+<span class="token definition keyword">group</span>          <span class="token operator">=</span>  <span class="token string">"("</span> <span class="token repetition operator">*</span><span class="token rule">c-wsp</span> <span class="token rule">alternation</span> <span class="token repetition operator">*</span><span class="token rule">c-wsp</span> <span class="token string">")"</span>
+
+<span class="token definition keyword">option</span>         <span class="token operator">=</span>  <span class="token string">"["</span> <span class="token repetition operator">*</span><span class="token rule">c-wsp</span> <span class="token rule">alternation</span> <span class="token repetition operator">*</span><span class="token rule">c-wsp</span> <span class="token string">"]"</span>
+
+<span class="token definition keyword">char-val</span>       <span class="token operator">=</span>  <span class="token core-rule rule constant">DQUOTE</span> <span class="token repetition operator">*</span><span class="token punctuation">(</span><span class="token range number">%x20-21</span> <span class="token operator">/</span> <span class="token range number">%x23-7E</span><span class="token punctuation">)</span> <span class="token core-rule rule constant">DQUOTE</span>
+                       <span class="token comment">; quoted string of SP and VCHAR</span>
+                       <span class="token comment">;  without DQUOTE</span>
+
+<span class="token definition keyword">num-val</span>        <span class="token operator">=</span>  <span class="token string">"%"</span> <span class="token punctuation">(</span><span class="token rule">bin-val</span> <span class="token operator">/</span> <span class="token rule">dec-val</span> <span class="token operator">/</span> <span class="token rule">hex-val</span><span class="token punctuation">)</span>
+
+<span class="token definition keyword">bin-val</span>        <span class="token operator">=</span>  <span class="token string">"b"</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">BIT</span>
+                  <span class="token punctuation">[</span> <span class="token repetition operator">1*</span><span class="token punctuation">(</span><span class="token string">"."</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">BIT</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token string">"-"</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">BIT</span><span class="token punctuation">)</span> <span class="token punctuation">]</span>
+                       <span class="token comment">; series of concatenated bit values</span>
+                       <span class="token comment">;  or single ONEOF range</span>
+
+<span class="token definition keyword">dec-val</span>        <span class="token operator">=</span>  <span class="token string">"d"</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">DIGIT</span>
+                  <span class="token punctuation">[</span> <span class="token repetition operator">1*</span><span class="token punctuation">(</span><span class="token string">"."</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">DIGIT</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token string">"-"</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">DIGIT</span><span class="token punctuation">)</span> <span class="token punctuation">]</span>
+
+<span class="token definition keyword">hex-val</span>        <span class="token operator">=</span>  <span class="token string">"x"</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">HEXDIG</span>
+                  <span class="token punctuation">[</span> <span class="token repetition operator">1*</span><span class="token punctuation">(</span><span class="token string">"."</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">HEXDIG</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token string">"-"</span> <span class="token repetition operator">1*</span><span class="token core-rule rule constant">HEXDIG</span><span class="token punctuation">)</span> <span class="token punctuation">]</span>
+
+<span class="token definition keyword">prose-val</span>      <span class="token operator">=</span>  <span class="token string">"&lt;"</span> <span class="token repetition operator">*</span><span class="token punctuation">(</span><span class="token range number">%x20-3D</span> <span class="token operator">/</span> <span class="token range number">%x3F-7E</span><span class="token punctuation">)</span> <span class="token string">">"</span>
+                       <span class="token comment">; bracketed string of SP and VCHAR</span>
+                       <span class="token comment">;  without angles</span>
+                       <span class="token comment">; prose description, to be used as</span>
+                       <span class="token comment">;  last resort</span>
+
+----------------------------------------------------

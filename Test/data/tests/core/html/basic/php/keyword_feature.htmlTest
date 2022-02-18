@@ -1,0 +1,155 @@
+__halt_compiler
+abstract
+and
+array()
+as
+break
+callable
+case
+catch
+class;
+clone
+const
+continue
+declare
+default
+die
+do
+echo
+else
+elseif
+empty
+enddeclare
+endfor
+endforeach
+endif
+endswitch
+endwhile
+eval
+exit
+extends;
+final
+finally
+fn
+for
+foreach
+function
+global
+goto
+if
+implements;
+include
+include_once
+instanceof;
+insteadof
+interface;
+isset
+list
+namespace;
+match
+new;
+or
+parent
+parent::;
+print
+private
+protected
+public
+require
+require_once
+return
+self
+new self
+self::;
+static
+static::;
+switch
+throw
+trait;
+try
+unset
+use;
+var
+while
+xor
+yield
+yield from
+----------------------------------------------------
+<span class="token keyword">__halt_compiler</span>
+<span class="token keyword">abstract</span>
+<span class="token keyword">and</span>
+<span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">as</span>
+<span class="token keyword">break</span>
+<span class="token keyword">callable</span>
+<span class="token keyword">case</span>
+<span class="token keyword">catch</span>
+<span class="token keyword">class</span><span class="token punctuation">;</span>
+<span class="token keyword">clone</span>
+<span class="token keyword">const</span>
+<span class="token keyword">continue</span>
+<span class="token keyword">declare</span>
+<span class="token keyword">default</span>
+<span class="token keyword">die</span>
+<span class="token keyword">do</span>
+<span class="token keyword">echo</span>
+<span class="token keyword">else</span>
+<span class="token keyword">elseif</span>
+<span class="token keyword">empty</span>
+<span class="token keyword">enddeclare</span>
+<span class="token keyword">endfor</span>
+<span class="token keyword">endforeach</span>
+<span class="token keyword">endif</span>
+<span class="token keyword">endswitch</span>
+<span class="token keyword">endwhile</span>
+<span class="token keyword">eval</span>
+<span class="token keyword">exit</span>
+<span class="token keyword">extends</span><span class="token punctuation">;</span>
+<span class="token keyword">final</span>
+<span class="token keyword">finally</span>
+<span class="token keyword">fn</span>
+<span class="token keyword">for</span>
+<span class="token keyword">foreach</span>
+<span class="token keyword">function</span>
+<span class="token keyword">global</span>
+<span class="token keyword">goto</span>
+<span class="token keyword">if</span>
+<span class="token keyword">implements</span><span class="token punctuation">;</span>
+<span class="token keyword">include</span>
+<span class="token keyword">include_once</span>
+<span class="token keyword">instanceof</span><span class="token punctuation">;</span>
+<span class="token keyword">insteadof</span>
+<span class="token keyword">interface</span><span class="token punctuation">;</span>
+<span class="token keyword">isset</span>
+<span class="token keyword">list</span>
+<span class="token keyword">namespace</span><span class="token punctuation">;</span>
+<span class="token keyword">match</span>
+<span class="token keyword">new</span><span class="token punctuation">;</span>
+<span class="token keyword">or</span>
+<span class="token keyword">parent</span>
+<span class="token keyword static-context">parent</span><span class="token operator">::</span><span class="token punctuation">;</span>
+<span class="token keyword">print</span>
+<span class="token keyword">private</span>
+<span class="token keyword">protected</span>
+<span class="token keyword">public</span>
+<span class="token keyword">require</span>
+<span class="token keyword">require_once</span>
+<span class="token keyword">return</span>
+<span class="token keyword">self</span>
+<span class="token keyword">new</span> <span class="token keyword">self</span>
+<span class="token keyword static-context">self</span><span class="token operator">::</span><span class="token punctuation">;</span>
+<span class="token keyword">static</span>
+<span class="token keyword static-context">static</span><span class="token operator">::</span><span class="token punctuation">;</span>
+<span class="token keyword">switch</span>
+<span class="token keyword">throw</span>
+<span class="token keyword">trait</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span>
+<span class="token keyword">unset</span>
+<span class="token keyword">use</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span>
+<span class="token keyword">while</span>
+<span class="token keyword">xor</span>
+<span class="token keyword">yield</span>
+<span class="token keyword">yield</span> <span class="token keyword">from</span>
+
+----------------------------------------------------

@@ -1,0 +1,43 @@
+*** Settings ***
+Documentation    Example using the space separated plain text format.
+Library          OperatingSystem
+
+*** Variables ***
+${MESSAGE}       Hello, world!
+
+*** Test Cases ***
+My Test
+    [Documentation]    Example test
+    Log    ${MESSAGE}
+    My Keyword    /tmp
+
+Another Test
+    Should Be Equal    ${MESSAGE}    Hello, world!
+
+*** Keywords ***
+My Keyword
+    [Arguments]    ${path}
+    Directory Should Exist    ${path}
+----------------------------------------------------
+<span class="token settings section"><span class="token section-header keyword">*** Settings ***</span>
+<span class="token property">Documentation</span>    <span class="token documentation string">Example using the space separated plain text format.</span>
+<span class="token property">Library</span>          OperatingSystem
+</span>
+<span class="token variables section"><span class="token section-header keyword">*** Variables ***</span>
+<span class="token variable"><span class="token punctuation">${</span>MESSAGE<span class="token punctuation">}</span></span>       Hello, world!
+</span>
+<span class="token test-cases section"><span class="token section-header keyword">*** Test Cases ***</span>
+<span class="token test-name function">My Test</span>
+    <span class="token tag"><span class="token punctuation">[</span>Documentation<span class="token punctuation">]</span></span>    <span class="token documentation string">Example test</span>
+    <span class="token property">Log</span>    <span class="token variable"><span class="token punctuation">${</span>MESSAGE<span class="token punctuation">}</span></span>
+    <span class="token property">My Keyword</span>    /tmp
+
+<span class="token test-name function">Another Test</span>
+    <span class="token property">Should Be Equal</span>    <span class="token variable"><span class="token punctuation">${</span>MESSAGE<span class="token punctuation">}</span></span>    Hello, world!
+</span>
+<span class="token keywords section"><span class="token section-header keyword">*** Keywords ***</span>
+<span class="token keyword-name function">My Keyword</span>
+    <span class="token tag"><span class="token punctuation">[</span>Arguments<span class="token punctuation">]</span></span>    <span class="token variable"><span class="token punctuation">${</span>path<span class="token punctuation">}</span></span>
+    <span class="token property">Directory Should Exist</span>    <span class="token variable"><span class="token punctuation">${</span>path<span class="token punctuation">}</span></span></span>
+
+----------------------------------------------------

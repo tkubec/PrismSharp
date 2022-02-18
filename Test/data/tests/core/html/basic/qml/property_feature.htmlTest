@@ -1,0 +1,45 @@
+Foo {
+	bar: 4
+	a: 0; b: 1; c: 2
+	Components.foo: 2
+
+	Bar { a: 0; b: Baz {}; c: 2 }
+
+	property Component mycomponent: comp1
+	property color color: "green"
+
+	// produces warning: "Unable to assign [undefined] to double value"
+	value: if (mouse.pressed) mouse.mouseX
+}
+
+BirthdayParty {
+	guests: [
+		Person { name: "Leo Hodges" },
+		Person { name: "Jack Smith" },
+		Person { name: "Anne Brown" }
+	]
+}
+----------------------------------------------------
+<span class="token class-name">Foo</span> <span class="token punctuation">{</span>
+	<span class="token property">bar</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">4</span></span>
+	<span class="token property">a</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">0</span></span><span class="token punctuation">;</span> <span class="token property">b</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">1</span></span><span class="token punctuation">;</span> <span class="token property">c</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">2</span></span>
+	<span class="token property">Components.foo</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">2</span></span>
+
+	<span class="token class-name">Bar</span> <span class="token punctuation">{</span> <span class="token property">a</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">0</span></span><span class="token punctuation">;</span> <span class="token property">b</span><span class="token punctuation">:</span> <span class="token class-name">Baz</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token property">c</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">2</span> </span><span class="token punctuation">}</span>
+
+	<span class="token property"><span class="token keyword">property</span> <span class="token property">Component</span> <span class="token property">mycomponent</span></span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript">comp1</span>
+	<span class="token property"><span class="token keyword">property</span> <span class="token property">color</span> <span class="token property">color</span></span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"green"</span></span>
+
+	<span class="token comment">// produces warning: "Unable to assign [undefined] to double value"</span>
+	<span class="token property">value</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span>mouse<span class="token punctuation">.</span>pressed<span class="token punctuation">)</span> mouse<span class="token punctuation">.</span>mouseX</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">BirthdayParty</span> <span class="token punctuation">{</span>
+	<span class="token property">guests</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+		<span class="token class-name">Person</span> <span class="token punctuation">{</span> <span class="token property">name</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Leo Hodges"</span> </span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token class-name">Person</span> <span class="token punctuation">{</span> <span class="token property">name</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Jack Smith"</span> </span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token class-name">Person</span> <span class="token punctuation">{</span> <span class="token property">name</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token string">"Anne Brown"</span> </span><span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

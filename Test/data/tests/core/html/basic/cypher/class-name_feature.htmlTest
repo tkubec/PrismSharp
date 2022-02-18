@@ -1,0 +1,33 @@
+(p:Student)
+(p:Student { name: "John" })
+(:`Student`)
+(:`Student` { name: "John"})
+
+(p:Student:Teacher)
+(p:Student { name: "John" }:Teacher)
+(:`Student`:`Teacher`)
+(:`Student` { name: "John"}:`Teacher` { classes: "..." })
+
+// no class names but still interesting cases
+
+(p { name: "John" })
+({ name: "John" })
+()
+----------------------------------------------------
+<span class="token punctuation">(</span>p<span class="token operator">:</span><span class="token class-name">Student</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>p<span class="token operator">:</span><span class="token class-name">Student</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"John"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token operator">:</span><span class="token class-name">`Student`</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token operator">:</span><span class="token class-name">`Student`</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"John"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span>p<span class="token operator">:</span><span class="token class-name">Student</span><span class="token operator">:</span><span class="token class-name">Teacher</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>p<span class="token operator">:</span><span class="token class-name">Student</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"John"</span> <span class="token punctuation">}</span><span class="token operator">:</span><span class="token class-name">Teacher</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token operator">:</span><span class="token class-name">`Student`</span><span class="token operator">:</span><span class="token class-name">`Teacher`</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token operator">:</span><span class="token class-name">`Student`</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"John"</span><span class="token punctuation">}</span><span class="token operator">:</span><span class="token class-name">`Teacher`</span> <span class="token punctuation">{</span> classes<span class="token operator">:</span> <span class="token string">"..."</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// no class names but still interesting cases</span>
+
+<span class="token punctuation">(</span>p <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"John"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"John"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

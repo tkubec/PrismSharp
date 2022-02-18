@@ -1,0 +1,18 @@
+class A {}
+class B extends A {}
+----------------------------------------------------
+[
+	["keyword", "class"],
+	["class-name", ["A"]],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	["class-name", ["B"]],
+	["keyword", "extends"],
+	["class-name", ["A"]],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

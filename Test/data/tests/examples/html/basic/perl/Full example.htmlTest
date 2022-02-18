@@ -1,0 +1,65 @@
+sub read_config_file {
+  my ($class, $filename) = @_;
+
+  unless (defined $filename) {
+    my $home  = File::HomeDir->my_home || '.';
+    $filename = File::Spec->catfile($home, '.pause');
+
+    return {} unless -e $filename and -r _;
+  }
+
+  my %conf;
+  if ( eval { require Config::Identity } ) {
+    %conf = Config::Identity->load($filename);
+    $conf{user} = delete $conf{username} unless $conf{user};
+  }
+  else { # Process .pause manually
+    open my $pauserc, '<', $filename
+      or die "can't open $filename for reading: $!";
+
+    while (<$pauserc>) {
+      chomp;
+      next unless $_ and $_ !~ /^\s*#/;
+
+      my ($k, $v) = /^\s*(\w+)\s+(.+)$/;
+      Carp::croak "multiple enties for $k" if $conf{$k};
+      $conf{$k} = $v;
+    }
+  }
+
+  return \%conf;
+}
+----------------------------------------------------
+<span class="token keyword">sub</span> <span class="token function">read_config_file</span> <span class="token punctuation">{</span>
+  <span class="token keyword">my</span> <span class="token punctuation">(</span><span class="token variable">$class</span><span class="token punctuation">,</span> <span class="token variable">$filename</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token variable">@_</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">unless</span> <span class="token punctuation">(</span>defined <span class="token variable">$filename</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">my</span> <span class="token variable">$home</span>  <span class="token operator">=</span> File<span class="token punctuation">:</span><span class="token punctuation">:</span>HomeDir<span class="token operator">-></span>my_home <span class="token operator">||</span> <span class="token string">'.'</span><span class="token punctuation">;</span>
+    <span class="token variable">$filename</span> <span class="token operator">=</span> File<span class="token punctuation">:</span><span class="token punctuation">:</span>Spec<span class="token operator">-></span>catfile<span class="token punctuation">(</span><span class="token variable">$home</span><span class="token punctuation">,</span> <span class="token string">'.pause'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">unless</span> <span class="token operator">-e</span> <span class="token variable">$filename</span> <span class="token operator">and</span> <span class="token operator">-r</span> <span class="token filehandle symbol">_</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">my</span> <span class="token variable">%conf</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token keyword">eval</span> <span class="token punctuation">{</span> <span class="token keyword">require</span> Config<span class="token punctuation">:</span><span class="token punctuation">:</span>Identity <span class="token punctuation">}</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">%conf</span> <span class="token operator">=</span> Config<span class="token punctuation">:</span><span class="token punctuation">:</span>Identity<span class="token operator">-></span>load<span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$conf</span><span class="token punctuation">{</span>user<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">delete</span> <span class="token variable">$conf</span><span class="token punctuation">{</span>username<span class="token punctuation">}</span> <span class="token keyword">unless</span> <span class="token variable">$conf</span><span class="token punctuation">{</span>user<span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment"># Process .pause manually</span>
+    open <span class="token keyword">my</span> <span class="token variable">$pauserc</span><span class="token punctuation">,</span> <span class="token string">'&lt;'</span><span class="token punctuation">,</span> <span class="token variable">$filename</span>
+      <span class="token operator">or</span> <span class="token keyword">die</span> <span class="token string">"can't open $filename for reading: $!"</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token variable">$pauserc</span><span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      chomp<span class="token punctuation">;</span>
+      <span class="token keyword">next</span> <span class="token keyword">unless</span> <span class="token variable">$_</span> <span class="token operator">and</span> <span class="token variable">$_</span> <span class="token operator">!~</span> <span class="token regex">/^\s*#/</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">my</span> <span class="token punctuation">(</span><span class="token variable">$k</span><span class="token punctuation">,</span> <span class="token variable">$v</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token regex">/^\s*(\w+)\s+(.+)$/</span><span class="token punctuation">;</span>
+      Carp<span class="token punctuation">:</span><span class="token punctuation">:</span>croak <span class="token string">"multiple enties for $k"</span> <span class="token keyword">if</span> <span class="token variable">$conf</span><span class="token punctuation">{</span><span class="token variable">$k</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token variable">$conf</span><span class="token punctuation">{</span><span class="token variable">$k</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token variable">$v</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token operator">\</span><span class="token variable">%conf</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

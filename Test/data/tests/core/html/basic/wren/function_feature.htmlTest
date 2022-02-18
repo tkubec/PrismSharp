@@ -1,0 +1,9 @@
+foo()
+
+foo {|x| x * 2}
+----------------------------------------------------
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">foo</span> <span class="token punctuation">{</span><span class="token operator">|</span>x<span class="token operator">|</span> x <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

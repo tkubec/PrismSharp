@@ -1,0 +1,13 @@
+foo/bar/
+foo/file[1-3].txt
+  !unignore
+\!foo/**
+notes\[1\].txt
+----------------------------------------------------
+<span class="token entry string">foo<span class="token punctuation">/</span>bar<span class="token punctuation">/</span></span>
+<span class="token entry string">foo<span class="token punctuation">/</span>file<span class="token regex">[1-3]</span>.txt</span>
+  <span class="token entry string"><span class="token operator">!</span>unignore</span>
+<span class="token entry string">\!foo<span class="token punctuation">/</span><span class="token operator">**</span></span>
+<span class="token entry string">notes\[1\].txt</span>
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+{assign var=foo value="bar"}
+{foo bar = 40}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">assign</span> <span class="token attr-name">var</span><span class="token operator">=</span><span class="token variable">foo</span> <span class="token attr-name">value</span><span class="token operator">=</span><span class="token string">"bar"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>foo <span class="token attr-name">bar</span> <span class="token operator">=</span> <span class="token number">40</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

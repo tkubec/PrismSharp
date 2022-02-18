@@ -1,0 +1,307 @@
+[% BLOCK header %]
+[% CALL dbi.disconnect %]
+[% CASE 23 %]
+[% CATCH the.ball %]
+[% CLEAR %]
+[% DEBUG on %]
+[% DEBUG off %]
+[% DEFAULT answer = 42 %]
+[% ELSE %]
+[% ELSIF bar %]
+[% END %]
+[% FILTER html %]
+[% FINAL breathe %]
+[% FOREACH project IN time %]
+[% GET foo %]
+[% IF foo %]
+[% IN %]
+[% INCLUDE "$inc" %]
+[% INSERT filename.html %]
+[% LAST IF exhausted %]
+[% MACRO header INCLUDE header %]
+[% META title = 'Hello!' %]
+[% NEXT IF client %]
+[% PERL %]
+[% PROCESS "functions.tt" %]
+[% RAWPERL %]
+[% RETURN %]
+[% SET answer = 42 %]
+[% STOP %]
+[% SWITCH mday %]
+[% TAGS [@ @] %]
+[% THROW up %]
+[% TRY %]
+[% UNLESS fear %]
+[% USE Plugin %]
+[% WHILE my.guitar.gently.weeps %]
+[% WRAPPER 'html5.html' %]
+----------------------------------------------------
+[
+	["delimiter", "[%"],
+	["keyword", "BLOCK"],
+	["variable", "header"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "CALL"],
+	["variable", "dbi.disconnect"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "CASE"],
+	["number", "23"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "CATCH"],
+	["variable", "the.ball"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "CLEAR"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "DEBUG"],
+	["variable", "on"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "DEBUG"],
+	["variable", "off"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "DEFAULT"],
+	["variable", "answer"],
+	["operator", "="],
+	["number", "42"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "ELSE"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "ELSIF"],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "END"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "FILTER"],
+	["variable", "html"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "FINAL"],
+	["variable", "breathe"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "FOREACH"],
+	["variable", "project"],
+	["keyword", "IN"],
+	["variable", "time"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "GET"],
+	["variable", "foo"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "IF"],
+	["variable", "foo"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "IN"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "INCLUDE"],
+	["double-quoted-string", [
+		"\"",
+		["variable", "$inc"],
+		"\""
+	]],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "INSERT"],
+	["variable", "filename.html"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "LAST"],
+	["keyword", "IF"],
+	["variable", "exhausted"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "MACRO"],
+	["variable", "header"],
+	["keyword", "INCLUDE"],
+	["variable", "header"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "META"],
+	["variable", "title"],
+	["operator", "="],
+	["single-quoted-string", "'Hello!'"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "NEXT"],
+	["keyword", "IF"],
+	["variable", "client"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "PERL"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "PROCESS"],
+	["double-quoted-string", ["\"functions.tt\""]],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "RAWPERL"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "RETURN"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "SET"],
+	["variable", "answer"],
+	["operator", "="],
+	["number", "42"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "STOP"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "SWITCH"],
+	["variable", "mday"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "TAGS"],
+	["punctuation", "["],
+	"@ @",
+	["punctuation", "]"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "THROW"],
+	["variable", "up"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "TRY"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "UNLESS"],
+	["variable", "fear"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "USE"],
+	["variable", "Plugin"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "WHILE"],
+	["variable", "my.guitar.gently.weeps"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "WRAPPER"],
+	["single-quoted-string", "'html5.html'"],
+	["delimiter", "%]"]
+]
+
+----------------------------------------------------

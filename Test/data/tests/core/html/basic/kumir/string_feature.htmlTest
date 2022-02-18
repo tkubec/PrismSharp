@@ -1,0 +1,29 @@
+""
+"#"
+"'"
+"256/273"
+"foo 'bar' baz"
+"|"
+"алг"
+'"'
+''
+'256/273'
+'foo "bar" baz'
+'|'
+'алг'
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"#"</span>
+<span class="token string">"'"</span>
+<span class="token string">"256/273"</span>
+<span class="token string">"foo 'bar' baz"</span>
+<span class="token string">"|"</span>
+<span class="token string">"алг"</span>
+<span class="token string">'"'</span>
+<span class="token string">''</span>
+<span class="token string">'256/273'</span>
+<span class="token string">'foo "bar" baz'</span>
+<span class="token string">'|'</span>
+<span class="token string">'алг'</span>
+
+----------------------------------------------------

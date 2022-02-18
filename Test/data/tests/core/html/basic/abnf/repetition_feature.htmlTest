@@ -1,0 +1,13 @@
+*foo
+2foo
+*2foo
+2*foo
+2*3foo
+----------------------------------------------------
+<span class="token repetition operator">*</span><span class="token rule">foo</span>
+<span class="token repetition operator">2</span><span class="token rule">foo</span>
+<span class="token repetition operator">*2</span><span class="token rule">foo</span>
+<span class="token repetition operator">2*</span><span class="token rule">foo</span>
+<span class="token repetition operator">2*3</span><span class="token rule">foo</span>
+
+----------------------------------------------------

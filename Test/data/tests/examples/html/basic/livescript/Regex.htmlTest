@@ -1,0 +1,13 @@
+/foobar/ig
+//
+^foo # foo
+[bar]*bA?z # barbaz
+//m
+----------------------------------------------------
+<span class="token regex">/foobar/ig</span>
+<span class="token regex">//
+^foo <span class="token comment"># foo</span>
+[bar]*bA?z <span class="token comment"># barbaz</span>
+//m</span>
+
+----------------------------------------------------

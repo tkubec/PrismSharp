@@ -1,0 +1,23 @@
+///foo[bar]///
+///foo
+[bar]///
+///foo
+b#{ar}baz///
+///foo #bar
+baz///
+----------------------------------------------------
+[
+	["block-regex", ["///foo[bar]///"]],
+	["block-regex", ["///foo\n[bar]///"]],
+	["block-regex", [
+		"///foo\nb",
+		["interpolation", "#{ar}"],
+		"baz///"
+	]],
+	["block-regex", [
+		"///foo ", ["comment", "#bar"],
+		"\nbaz///"
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,51 @@
+*> https://en.wikipedia.org/w/index.php?title=COBOL&oldid=1011483106
+       RD  sales-report
+           PAGE LIMITS 60 LINES
+           FIRST DETAIL 3
+           CONTROLS seller-name.
+
+       01  TYPE PAGE HEADING.
+           03  COL 1                    VALUE "Sales Report".
+           03  COL 74                   VALUE "Page".
+           03  COL 79                   PIC Z9 SOURCE PAGE-COUNTER.
+
+       01  sales-on-day TYPE DETAIL, LINE + 1.
+           03  COL 3                    VALUE "Sales on".
+           03  COL 12                   PIC 99/99/9999 SOURCE sales-date.
+           03  COL 21                   VALUE "were".
+           03  COL 26                   PIC $$$$9.99 SOURCE sales-amount.
+
+       01  invalid-sales TYPE DETAIL, LINE + 1.
+           03  COL 3                    VALUE "INVALID RECORD:".
+           03  COL 19                   PIC X(34) SOURCE sales-record.
+
+       01  TYPE CONTROL HEADING seller-name, LINE + 2.
+           03  COL 1                    VALUE "Seller:".
+           03  COL 9                    PIC X(30) SOURCE seller-name.
+----------------------------------------------------
+<span class="token comment">*> https://en.wikipedia.org/w/index.php?title=COBOL&amp;oldid=1011483106</span>
+       <span class="token keyword">RD</span>  sales-report
+           <span class="token keyword">PAGE</span> <span class="token keyword">LIMITS</span> <span class="token number">60</span> <span class="token keyword">LINES</span>
+           <span class="token keyword">FIRST</span> <span class="token keyword">DETAIL</span> <span class="token number">3</span>
+           <span class="token keyword">CONTROLS</span> seller-name<span class="token punctuation">.</span>
+
+       <span class="token level number">01</span>  <span class="token keyword">TYPE</span> <span class="token keyword">PAGE</span> <span class="token keyword">HEADING</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">1</span>                    <span class="token keyword">VALUE</span> <span class="token string">"Sales Report"</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">74</span>                   <span class="token keyword">VALUE</span> <span class="token string">"Page"</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">79</span>                   <span class="token keyword">PIC</span> <span class="token class-name">Z9</span> <span class="token keyword">SOURCE</span> <span class="token keyword">PAGE-COUNTER</span><span class="token punctuation">.</span>
+
+       <span class="token level number">01</span>  sales-on-day <span class="token keyword">TYPE</span> <span class="token keyword">DETAIL</span><span class="token punctuation">,</span> <span class="token keyword">LINE</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">3</span>                    <span class="token keyword">VALUE</span> <span class="token string">"Sales on"</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">12</span>                   <span class="token keyword">PIC</span> <span class="token class-name">99/99/9999</span> <span class="token keyword">SOURCE</span> sales-date<span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">21</span>                   <span class="token keyword">VALUE</span> <span class="token string">"were"</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">26</span>                   <span class="token keyword">PIC</span> <span class="token class-name">$$$$9.99</span> <span class="token keyword">SOURCE</span> sales-amount<span class="token punctuation">.</span>
+
+       <span class="token level number">01</span>  invalid-sales <span class="token keyword">TYPE</span> <span class="token keyword">DETAIL</span><span class="token punctuation">,</span> <span class="token keyword">LINE</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">3</span>                    <span class="token keyword">VALUE</span> <span class="token string">"INVALID RECORD:"</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">19</span>                   <span class="token keyword">PIC</span> <span class="token class-name">X<span class="token punctuation">(</span><span class="token number">34</span><span class="token punctuation">)</span></span> <span class="token keyword">SOURCE</span> sales-record<span class="token punctuation">.</span>
+
+       <span class="token level number">01</span>  <span class="token keyword">TYPE</span> <span class="token keyword">CONTROL</span> <span class="token keyword">HEADING</span> seller-name<span class="token punctuation">,</span> <span class="token keyword">LINE</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">1</span>                    <span class="token keyword">VALUE</span> <span class="token string">"Seller:"</span><span class="token punctuation">.</span>
+           <span class="token level number">03</span>  <span class="token keyword">COL</span> <span class="token number">9</span>                    <span class="token keyword">PIC</span> <span class="token class-name">X<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span></span> <span class="token keyword">SOURCE</span> seller-name<span class="token punctuation">.</span>
+
+----------------------------------------------------

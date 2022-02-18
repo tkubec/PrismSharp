@@ -1,0 +1,39 @@
+"This $variable is interpolated"
+"$foo[2], $bar[-4], $foo[$bar]"
+"$foo->bar"
+"More {$interpolation}"
+"{$arr['key']}, {$arr['foo'][3]}"
+"{${$name}}, but not {\${\$name}}"
+"the return value of getName(): {${getName()}}"
+"the return value of \$object->getName(): {${$object->getName()}}"
+"{$foo->$bar}, {$foo->{$baz[1]}}"
+<<<FOO
+Heredoc strings $also->support {${$string->interpolation()}}
+FOO;
+<<<"FOO_BAR"
+	{${$name}}, but not {\${\$name}}
+FOO_BAR;
+
+$value = "$this->property->property";
+$value = "$foo[0][1]";
+----------------------------------------------------
+<span class="token string double-quoted-string">"This <span class="token interpolation"><span class="token variable">$variable</span></span> is interpolated"</span>
+<span class="token string double-quoted-string">"<span class="token interpolation"><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span></span>, <span class="token interpolation"><span class="token variable">$bar</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span></span>, <span class="token interpolation"><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token variable">$bar</span><span class="token punctuation">]</span></span>"</span>
+<span class="token string double-quoted-string">"<span class="token interpolation"><span class="token variable">$foo</span><span class="token operator">-></span><span class="token property">bar</span></span>"</span>
+<span class="token string double-quoted-string">"More <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$interpolation</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string double-quoted-string">"<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'key'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>, <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'foo'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string double-quoted-string">"<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token variable">$name</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>, but not {\${\$name}}"</span>
+<span class="token string double-quoted-string">"the return value of getName(): <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string double-quoted-string">"the return value of \$object->getName(): <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token variable">$object</span><span class="token operator">-></span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string double-quoted-string">"<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token operator">-></span><span class="token variable">$bar</span><span class="token punctuation">}</span></span>, <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token operator">-></span><span class="token punctuation">{</span><span class="token variable">$baz</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string heredoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;</span>FOO</span>
+Heredoc strings <span class="token interpolation"><span class="token variable">$also</span><span class="token operator">-></span><span class="token property">support</span></span> <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token variable">$string</span><span class="token operator">-></span><span class="token function">interpolation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+<span class="token delimiter symbol">FOO<span class="token punctuation">;</span></span></span>
+<span class="token string heredoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;"</span>FOO_BAR<span class="token punctuation">"</span></span>
+	<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token variable">$name</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>, but not {\${\$name}}
+<span class="token delimiter symbol">FOO_BAR<span class="token punctuation">;</span></span></span>
+
+<span class="token variable">$value</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"<span class="token interpolation"><span class="token variable">$this</span><span class="token operator">-></span><span class="token property">property</span></span>->property"</span><span class="token punctuation">;</span>
+<span class="token variable">$value</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"<span class="token interpolation"><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></span>[1]"</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

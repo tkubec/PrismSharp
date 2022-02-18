@@ -1,0 +1,39 @@
+dcalc = mylisp||(+ 1 2 (* 2 3))|| // == 9
+
+myFortran || program hello
+          		print *, "Hello World!"
+       		 end program hello|| //prints "Hello World!"
+
+lotto = myAPL || x[⍋x←6?40] || //6 unique random numbers from 1 to 40
+----------------------------------------------------
+[
+	"dcalc ",
+	["operator", "="],
+	["langext", [
+		["class-name", "mylisp"],
+		["punctuation", "||"],
+		["string", "(+ 1 2 (* 2 3))"],
+		["punctuation", "||"]
+	]],
+	["comment", "// == 9"],
+
+	["langext", [
+		["class-name", "myFortran"],
+		["punctuation", "||"],
+		["string", " program hello\n          \t\tprint *, \"Hello World!\"\n       \t\t end program hello"],
+		["punctuation", "||"]
+	]],
+	["comment", "//prints \"Hello World!\""],
+
+	"\n\nlotto ",
+	["operator", "="],
+	["langext", [
+		["class-name", "myAPL"],
+		["punctuation", "||"],
+		["string", " x[⍋x←6?40] "],
+		["punctuation", "||"]
+	]],
+	["comment", "//6 unique random numbers from 1 to 40"]
+]
+
+----------------------------------------------------

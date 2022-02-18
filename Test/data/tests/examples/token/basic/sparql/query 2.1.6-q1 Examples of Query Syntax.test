@@ -1,0 +1,54 @@
+PREFIX  dc: <http://purl.org/dc/elements/1.1/>
+PREFIX  : <http://example.org/book/>
+SELECT  $title
+WHERE   { :book1  dc:title  $title }
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://purl.org/dc/elements/1.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/book/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "$title"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["function", [
+		["prefix", [
+			["punctuation", ":"]
+		]],
+		["local-name", "book1"]
+	]],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]],
+		["local-name", "title"]
+	]],
+	["variable", "$title"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

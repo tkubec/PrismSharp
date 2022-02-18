@@ -1,0 +1,9 @@
+element html
+element foo-bar
+element foo:bar
+----------------------------------------------------
+<span class="token builtin">element</span> <span class="token xquery-element tag">html</span>
+<span class="token builtin">element</span> <span class="token xquery-element tag">foo-bar</span>
+<span class="token builtin">element</span> <span class="token xquery-element tag">foo:bar</span>
+
+----------------------------------------------------

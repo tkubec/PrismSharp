@@ -1,0 +1,23 @@
+$x
+$floaty5000
+$longDescriptiveName
+$name_with_underscores
+$_line
+
+float $param;
+int $counter;
+string $name;
+vector $position;
+----------------------------------------------------
+<span class="token variable">$x</span>
+<span class="token variable">$floaty5000</span>
+<span class="token variable">$longDescriptiveName</span>
+<span class="token variable">$name_with_underscores</span>
+<span class="token variable">$_line</span>
+
+<span class="token keyword">float</span> <span class="token variable">$param</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token variable">$counter</span><span class="token punctuation">;</span>
+<span class="token keyword">string</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+<span class="token keyword">vector</span> <span class="token variable">$position</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

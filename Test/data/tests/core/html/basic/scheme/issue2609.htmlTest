@@ -1,0 +1,11 @@
+'(foo bar baz)
+`(foo bar baz)
+#(foo bar baz)
+'#(foo bar baz)
+----------------------------------------------------
+<span class="token punctuation">'</span><span class="token punctuation">(</span>foo bar baz<span class="token punctuation">)</span>
+`<span class="token punctuation">(</span>foo bar baz<span class="token punctuation">)</span>
+#<span class="token punctuation">(</span>foo bar baz<span class="token punctuation">)</span>
+<span class="token punctuation">'</span>#<span class="token punctuation">(</span>foo bar baz<span class="token punctuation">)</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+{{! foobar}}
+{{!-- foo bar baz --}}
+{{! foo
+bar }}
+{{!-- foo
+bar --}}
+----------------------------------------------------
+<span class="token comment">{{! foobar}}</span>
+<span class="token comment">{{!-- foo bar baz --}}</span>
+<span class="token comment">{{! foo
+bar }}</span>
+<span class="token comment">{{!-- foo
+bar --}}</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+foo:
+foo_bar:
+
+validLabel: ; a comment
+/* multiline comment
+*/ validLabel:
+----------------------------------------------------
+<span class="token tag">foo</span><span class="token punctuation">:</span>
+<span class="token tag">foo_bar</span><span class="token punctuation">:</span>
+
+<span class="token tag">validLabel</span><span class="token punctuation">:</span> <span class="token comment">; a comment</span>
+<span class="token comment">/* multiline comment
+*/</span> <span class="token tag">validLabel</span><span class="token punctuation">:</span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+%{
+  #include <stdio.h>
+  #include <math.h>
+  int yylex (void);
+  void yyerror (char const *);
+%}
+
+%define api.value.type {double}
+%token NUM
+%union { char *string; }
+%%
+%%
+----------------------------------------------------
+<span class="token bison"><span class="token c"><span class="token delimiter punctuation">%{</span>
+  <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+  <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;math.h></span></span>
+  <span class="token keyword">int</span> <span class="token function">yylex</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">void</span> <span class="token function">yyerror</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter punctuation">%}</span></span>
+
+<span class="token keyword">%define</span> api.value.type <span class="token c"><span class="token delimiter punctuation">{</span><span class="token keyword">double</span><span class="token delimiter punctuation">}</span></span>
+<span class="token keyword">%token</span> NUM
+<span class="token keyword">%union</span> <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token keyword">char</span> <span class="token operator">*</span>string<span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span>
+<span class="token punctuation">%%</span>
+<span class="token punctuation">%%</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,8 @@
+Function SayHello([string]$name) {
+    Write-Host "Hello, $name."
+}
+$Names = @("Bob", "Alice")
+
+$Names | ForEach {
+    SayHello $_
+}

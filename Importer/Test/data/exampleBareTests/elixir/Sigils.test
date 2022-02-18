@@ -1,0 +1,9 @@
+~s"""This is a sigil
+using heredoc delimiters"""
+~r/a [reg]exp/
+~r(another|regexp)
+~w[some words]s
+~c&lt;a char list>
+
+--------------------------------------------------
+

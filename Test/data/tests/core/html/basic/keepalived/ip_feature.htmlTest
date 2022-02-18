@@ -1,0 +1,11 @@
+virtual_server 192.168.1.200 3306
+virtual_server 192.168.1.200/32 3306
+virtual_server ABCD:EF01:2345:6789:ABCD:EF01:2345:6789 3306
+virtual_server ABCD:EF01:2345:6789:ABCD:EF01:2345:6789/128 3306
+----------------------------------------------------
+<span class="token property">virtual_server</span> <span class="token ip number">192.168.1.200</span> <span class="token number">3306</span>
+<span class="token property">virtual_server</span> <span class="token ip number">192.168.1.200/32</span> <span class="token number">3306</span>
+<span class="token property">virtual_server</span> <span class="token ip number">ABCD:EF01:2345:6789:ABCD:EF01:2345:6789</span> <span class="token number">3306</span>
+<span class="token property">virtual_server</span> <span class="token ip number">ABCD:EF01:2345:6789:ABCD:EF01:2345:6789/128</span> <span class="token number">3306</span>
+
+----------------------------------------------------

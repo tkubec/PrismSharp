@@ -1,0 +1,136 @@
+%YAML 1.2
+--- !<tag:clarkevans.com,2002:invoice>
+invoice: 34843
+date   : 2001-01-23
+bill-to: &id001
+  given  : Chris
+  family : Dumars
+  address:
+    lines: |
+      458 Walkman Dr.
+      Suite #292
+    city    : Royal Oak
+    state   : MI
+    postal  : 48046
+ship-to:
+  <<: *id001
+  product:
+    - sku         : BL394D
+      quantity    : 4
+      description : Basketball
+      price       : 450.00
+    - sku         : BL4438H
+      quantity    : 1
+      description : Super Hoop
+      price       : 2392.00
+tax  : 251.42
+total: 4443.52
+comments:
+    Late afternoon is best.
+    Backup contact is Nancy
+----------------------------------------------------
+[
+	["directive", "%YAML 1.2"],
+
+	["punctuation", "---"],
+	["tag", "!<tag:clarkevans.com,2002:invoice>"],
+
+	["key", "invoice"],
+	["punctuation", ":"],
+	["number", "34843"],
+
+	["key", "date"],
+	["punctuation", ":"],
+	["datetime", "2001-01-23"],
+
+	["key", "bill-to"],
+	["punctuation", ":"],
+	["important", "&id001"],
+
+	["key", "given"],
+	["punctuation", ":"],
+	" Chris\n  ",
+
+	["key", "family"],
+	["punctuation", ":"],
+	" Dumars\n  ",
+
+	["key", "address"],
+	["punctuation", ":"],
+
+	["key", "lines"],
+	["punctuation", ":"],
+	["punctuation", "|"],
+	["scalar", "\n      458 Walkman Dr.\n      Suite #292"],
+
+	["key", "city"],
+	["punctuation", ":"],
+	" Royal Oak\n    ",
+
+	["key", "state"],
+	["punctuation", ":"],
+	" MI\n    ",
+
+	["key", "postal"],
+	["punctuation", ":"],
+	["number", "48046"],
+
+	["key", "ship-to"],
+	["punctuation", ":"],
+
+	["key", "<<"],
+	["punctuation", ":"],
+	["important", "*id001"],
+
+	["key", "product"],
+	["punctuation", ":"],
+
+	["punctuation", "-"],
+	["key", "sku"],
+	["punctuation", ":"],
+	" BL394D\n      ",
+
+	["key", "quantity"],
+	["punctuation", ":"],
+	["number", "4"],
+
+	["key", "description"],
+	["punctuation", ":"],
+	" Basketball\n      ",
+
+	["key", "price"],
+	["punctuation", ":"],
+	["number", "450.00"],
+
+	["punctuation", "-"],
+	["key", "sku"],
+	["punctuation", ":"],
+	" BL4438H\n      ",
+
+	["key", "quantity"],
+	["punctuation", ":"],
+	["number", "1"],
+
+	["key", "description"],
+	["punctuation", ":"],
+	" Super Hoop\n      ",
+
+	["key", "price"],
+	["punctuation", ":"],
+	["number", "2392.00"],
+
+	["key", "tax"],
+	["punctuation", ":"],
+	["number", "251.42"],
+
+	["key", "total"],
+	["punctuation", ":"],
+	["number", "4443.52"],
+
+	["key", "comments"],
+	["punctuation", ":"],
+
+	"\n    Late afternoon is best.\n    Backup contact is Nancy"
+]
+
+----------------------------------------------------

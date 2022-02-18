@@ -1,0 +1,31 @@
+'a'
+'ä'
+'本'
+'À'
+'\''
+'""'
+'Hello,
+world!'
+
+"\n"
+"\""
+"Hello,
+world!"
+"日本語"
+----------------------------------------------------
+<span class="token string">'a'</span>
+<span class="token string">'ä'</span>
+<span class="token string">'本'</span>
+<span class="token string">'À'</span>
+<span class="token string">'\''</span>
+<span class="token string">'""'</span>
+<span class="token string">'Hello,
+world!'</span>
+
+<span class="token string">"\n"</span>
+<span class="token string">"\""</span>
+<span class="token string">"Hello,
+world!"</span>
+<span class="token string">"日本語"</span>
+
+----------------------------------------------------

@@ -1,0 +1,45 @@
+USING: accessors arrays assocs combinators
+combinators.short-circuit effects io kernel sequences
+sequences.deep splitting strings vocabs words ;
+IN: prism
+
+: make-prism-syntax ( syntax-vocab -- seq )
+ 	vocab-words [
+		dup name>> ">>" = [ drop t ] [
+			{
+				[ "delimiter" word-prop ]
+				[ name>> last { CHAR: : CHAR: { CHAR: [ CHAR: ( CHAR: ) CHAR: ? CHAR: " } member? ]
+				[ name>> { "t" "f" } member? ]
+			} 1|| not
+		] if
+	] filter ;
+
+: combinator? ( word -- ? )
+	[ "declared-effect" word-prop in>> flatten
+		[
+			[ effect? ] [ { "quots" "quot" } member? ] bi or
+		] any?
+	] [
+		"help" word-prop ?first flatten [ dup word? [ name>> ] when "quot" swap subseq? ] any?
+	] bi or ;
+
+: classify ( vocab-spec -- seq )
+	vocab-words [
+		dup {
+			{ [ dup combinator? ] [ drop "combinator" ] }
+			{ [ dup "macro" word-prop ] [ drop "macro" ] }
+			[ drop "ordinary" ]
+		} cond 2array
+	] map ;
+
+: print-strings ( strs -- )
+	[ name>> "'" dup surround ] map ", " join print ; recursive ! WARN: not recursive
+
+: combinators. ( vocab-spec -- )
+	classify [ nip "combinator" = ] assoc-filter keys print-strings ; flushable
+
+: ordinaries. ( vocab-spec -- )
+	classify [ nip "ordinary" = ] assoc-filter keys print-strings ; foldable
+
+: macros. ( vocab-spec -- )
+	classify [ nip "macro" = ] assoc-filter keys print-strings ; inline

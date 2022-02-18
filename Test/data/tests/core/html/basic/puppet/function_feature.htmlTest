@@ -1,0 +1,31 @@
+$foo.foobar
+foo_bar_42()
+
+contain
+debug
+err
+fail
+include
+info
+notice
+realize
+require
+tag
+warning
+----------------------------------------------------
+<span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token function">foobar</span>
+<span class="token function">foo_bar_42</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">contain</span>
+<span class="token function">debug</span>
+<span class="token function">err</span>
+<span class="token function">fail</span>
+<span class="token function">include</span>
+<span class="token function">info</span>
+<span class="token function">notice</span>
+<span class="token function">realize</span>
+<span class="token function">require</span>
+<span class="token function">tag</span>
+<span class="token function">warning</span>
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+'foo \'bar\' baz'
+"$foo \"bar\" ${baz}"
+
+@(FOOBAR) # Unquoted heredoc string
+Foo bar baz
+FOOBAR
+
+@("BARBAZ"/$L) # Quoted heredoc string
+	$foo bar ${baz}
+	|-BARBAZ
+
+--------------------------------------------------
+

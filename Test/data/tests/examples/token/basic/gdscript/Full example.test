@@ -1,0 +1,317 @@
+extends BaseClass
+class_name MyClass, "res://path/to/optional/icon.svg"
+
+# Member Variables
+
+var a = 5
+var s = "Hello"
+var arr = [1, 2, 3]
+var dict = {"key": "value", 2:3}
+var typed_var: int
+var inferred_type := "String"
+
+# Constants
+
+const ANSWER = 42
+const THE_NAME = "Charly"
+
+# Enums
+
+enum {UNIT_NEUTRAL, UNIT_ENEMY, UNIT_ALLY}
+enum Named {THING_1, THING_2, ANOTHER_THING = -1}
+
+# Built-in Vector Types
+
+var v2 = Vector2(1, 2)
+var v3 = Vector3(1, 2, 3)
+
+# Function
+
+func some_function(param1, param2):
+	var local_var = 5
+
+	if param1 < local_var:
+		print(param1)
+	elif param2 > 5:
+		print(param2)
+	else:
+		print("Fail!")
+
+	for i in range(20):
+		print(i)
+
+	while param2 != 0:
+		param2 -= 1
+
+	var local_var2 = param1 + 3
+	return local_var2
+
+# Functions override functions with the same name on the base/parent class.
+# If you still want to call them, use '.' (like 'super' in other languages).
+
+func something(p1, p2):
+	.something(p1, p2)
+
+# Inner Class
+
+class Something:
+	var a = 10
+
+# Constructor
+
+func _init():
+	print("Constructed!")
+	var lv = Something.new()
+	print(lv.a)
+----------------------------------------------------
+[
+	["keyword", "extends"],
+	["class-name", "BaseClass"],
+
+	["keyword", "class_name"],
+	["class-name", "MyClass"],
+	["punctuation", ","],
+	["string", "\"res://path/to/optional/icon.svg\""],
+
+	["comment", "# Member Variables"],
+
+	["keyword", "var"],
+	" a ",
+	["operator", "="],
+	["number", "5"],
+
+	["keyword", "var"],
+	" s ",
+	["operator", "="],
+	["string", "\"Hello\""],
+
+	["keyword", "var"],
+	" arr ",
+	["operator", "="],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", "]"],
+
+	["keyword", "var"],
+	" dict ",
+	["operator", "="],
+	["punctuation", "{"],
+	["string", "\"key\""],
+	["punctuation", ":"],
+	["string", "\"value\""],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ":"],
+	["number", "3"],
+	["punctuation", "}"],
+
+	["keyword", "var"],
+	" typed_var",
+	["punctuation", ":"],
+	["class-name", "int"],
+
+	["keyword", "var"],
+	" inferred_type ",
+	["operator", ":="],
+	["string", "\"String\""],
+
+	["comment", "# Constants"],
+
+	["keyword", "const"],
+	["constant", "ANSWER"],
+	["operator", "="],
+	["number", "42"],
+
+	["keyword", "const"],
+	["constant", "THE_NAME"],
+	["operator", "="],
+	["string", "\"Charly\""],
+
+	["comment", "# Enums"],
+
+	["keyword", "enum"],
+	["punctuation", "{"],
+	["constant", "UNIT_NEUTRAL"],
+	["punctuation", ","],
+	["constant", "UNIT_ENEMY"],
+	["punctuation", ","],
+	["constant", "UNIT_ALLY"],
+	["punctuation", "}"],
+
+	["keyword", "enum"],
+	" Named ",
+	["punctuation", "{"],
+	["constant", "THING_1"],
+	["punctuation", ","],
+	["constant", "THING_2"],
+	["punctuation", ","],
+	["constant", "ANOTHER_THING"],
+	["operator", "="],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", "}"],
+
+	["comment", "# Built-in Vector Types"],
+
+	["keyword", "var"],
+	" v2 ",
+	["operator", "="],
+	["function", "Vector2"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ")"],
+
+	["keyword", "var"],
+	" v3 ",
+	["operator", "="],
+	["function", "Vector3"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", ")"],
+
+	["comment", "# Function"],
+
+	["keyword", "func"],
+	["function", "some_function"],
+	["punctuation", "("],
+	"param1",
+	["punctuation", ","],
+	" param2",
+	["punctuation", ")"],
+	["punctuation", ":"],
+
+	["keyword", "var"],
+	" local_var ",
+	["operator", "="],
+	["number", "5"],
+
+	["keyword", "if"],
+	" param1 ",
+	["operator", "<"],
+	" local_var",
+	["punctuation", ":"],
+
+	["function", "print"],
+	["punctuation", "("],
+	"param1",
+	["punctuation", ")"],
+
+	["keyword", "elif"],
+	" param2 ",
+	["operator", ">"],
+	["number", "5"],
+	["punctuation", ":"],
+
+	["function", "print"],
+	["punctuation", "("],
+	"param2",
+	["punctuation", ")"],
+
+	["keyword", "else"],
+	["punctuation", ":"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["string", "\"Fail!\""],
+	["punctuation", ")"],
+
+	["keyword", "for"],
+	" i ",
+	["keyword", "in"],
+	["function", "range"],
+	["punctuation", "("],
+	["number", "20"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+
+	["function", "print"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+
+	["keyword", "while"],
+	" param2 ",
+	["operator", "!="],
+	["number", "0"],
+	["punctuation", ":"],
+
+	"\n\t\tparam2 ",
+	["operator", "-="],
+	["number", "1"],
+
+	["keyword", "var"],
+	" local_var2 ",
+	["operator", "="],
+	" param1 ",
+	["operator", "+"],
+	["number", "3"],
+
+	["keyword", "return"],
+	" local_var2\n\n",
+
+	["comment", "# Functions override functions with the same name on the base/parent class."],
+	["comment", "# If you still want to call them, use '.' (like 'super' in other languages)."],
+
+	["keyword", "func"],
+	["function", "something"],
+	["punctuation", "("],
+	"p1",
+	["punctuation", ","],
+	" p2",
+	["punctuation", ")"],
+	["punctuation", ":"],
+
+	["punctuation", "."],
+	["function", "something"],
+	["punctuation", "("],
+	"p1",
+	["punctuation", ","],
+	" p2",
+	["punctuation", ")"],
+
+	["comment", "# Inner Class"],
+
+	["keyword", "class"], ["class-name", "Something"], ["punctuation", ":"],
+	["keyword", "var"], " a ", ["operator", "="], ["number", "10"],
+
+	["comment", "# Constructor"],
+
+	["keyword", "func"],
+	["function", "_init"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ":"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["string", "\"Constructed!\""],
+	["punctuation", ")"],
+
+	["keyword", "var"],
+	" lv ",
+	["operator", "="],
+	" Something",
+	["punctuation", "."],
+	["function", "new"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["function", "print"],
+	["punctuation", "("],
+	"lv",
+	["punctuation", "."],
+	"a",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

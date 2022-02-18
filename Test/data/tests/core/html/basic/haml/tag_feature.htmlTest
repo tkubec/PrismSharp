@@ -1,0 +1,59 @@
+%one
+	%two
+
+%div#things
+%div.articles
+%div.article.title
+
+%script{:type => "text/javascript",
+        :src  => "javascripts/script_#{42}"}
+
+%div{:id => [@item.type, @item.number]}
+
+%a(title=@title href=href)
+%input(selected)
+
+%html{html_attrs('fr-fr')}
+
+%div[@user, :greeting]
+	%bar[290]/
+
+%div#Article.article.entry{:id => @article.number}
+
+#collection
+	.item
+
+%br/
+%blockquote<
+%img>
+----------------------------------------------------
+<span class="token tag">%one</span>
+	<span class="token tag">%two</span>
+
+<span class="token tag">%div#things</span>
+<span class="token tag">%div.articles</span>
+<span class="token tag">%div.article.title</span>
+
+<span class="token tag">%script<span class="token attributes"><span class="token punctuation">{</span><span class="token symbol">:type</span> <span class="token operator">=></span> <span class="token string-literal"><span class="token string">"text/javascript"</span></span><span class="token punctuation">,</span>
+        <span class="token symbol">:src</span>  <span class="token operator">=></span> <span class="token string-literal"><span class="token string">"javascripts/script_</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">42</span></span><span class="token delimiter punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">}</span></span></span>
+
+<span class="token tag">%div<span class="token attributes"><span class="token punctuation">{</span><span class="token symbol">:id</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token variable">@item</span><span class="token punctuation">.</span>type<span class="token punctuation">,</span> <span class="token variable">@item</span><span class="token punctuation">.</span>number<span class="token punctuation">]</span><span class="token punctuation">}</span></span></span>
+
+<span class="token tag">%a<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">title</span><span class="token punctuation">=</span><span class="token attr-value">@title</span> <span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value">href</span><span class="token punctuation">)</span></span></span>
+<span class="token tag">%input<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">selected</span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">%html<span class="token attributes"><span class="token punctuation">{</span>html_attrs<span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'fr-fr'</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span></span></span>
+
+<span class="token tag">%div<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">@user</span><span class="token punctuation">,</span> <span class="token symbol">:greeting</span><span class="token punctuation">]</span></span></span>
+	<span class="token tag">%bar<span class="token attributes"><span class="token punctuation">[</span><span class="token number">290</span><span class="token punctuation">]</span></span>/</span>
+
+<span class="token tag">%div#Article.article.entry<span class="token attributes"><span class="token punctuation">{</span><span class="token symbol">:id</span> <span class="token operator">=></span> <span class="token variable">@article</span><span class="token punctuation">.</span>number<span class="token punctuation">}</span></span></span>
+
+<span class="token tag">#collection</span>
+	<span class="token tag">.item</span>
+
+<span class="token tag">%br/</span>
+<span class="token tag">%blockquote<span class="token punctuation">&lt;</span></span>
+<span class="token tag">%img<span class="token punctuation">></span></span>
+
+----------------------------------------------------

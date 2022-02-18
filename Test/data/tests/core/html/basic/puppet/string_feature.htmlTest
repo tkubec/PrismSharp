@@ -1,0 +1,29 @@
+''
+'fo\'obar'
+'foo
+$bar
+baz'
+""
+"fo\"obar"
+"foo
+$bar
+baz"
+" @(foo) "
+"foo /* bar */ baz"
+"foo #bar baz"
+----------------------------------------------------
+<span class="token string">''</span>
+<span class="token string">'fo\'obar'</span>
+<span class="token string">'foo
+$bar
+baz'</span>
+<span class="token string"><span class="token double-quoted">""</span></span>
+<span class="token string"><span class="token double-quoted">"fo\"obar"</span></span>
+<span class="token string"><span class="token double-quoted">"foo
+<span class="token interpolation variable">$bar</span>
+baz"</span></span>
+<span class="token string"><span class="token double-quoted">" @(foo) "</span></span>
+<span class="token string"><span class="token double-quoted">"foo /* bar */ baz"</span></span>
+<span class="token string"><span class="token double-quoted">"foo #bar baz"</span></span>
+
+----------------------------------------------------

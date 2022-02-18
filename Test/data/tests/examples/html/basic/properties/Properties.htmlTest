@@ -1,0 +1,11 @@
+some_key some_value
+some\ key\ with\ spaces : some value
+some_key = some \
+multiline value
+----------------------------------------------------
+<span class="token attr-name">some_key</span> <span class="token attr-value">some_value</span>
+<span class="token attr-name">some\ key\ with\ spaces</span> <span class="token punctuation">:</span> <span class="token attr-value">some value</span>
+<span class="token attr-name">some_key</span> <span class="token punctuation">=</span> <span class="token attr-value">some \
+multiline value</span>
+
+----------------------------------------------------

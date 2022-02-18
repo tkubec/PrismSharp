@@ -1,0 +1,290 @@
+function To_Functable(t, fn)
+  return setmetatable(t,
+    {
+     __index = function(t, k) return fn(k) end,
+     __call = function(t, k) return t[k] end
+    })
+end
+
+-- Functable bottles of beer implementation
+
+spell_out = {
+  "One", "Two", "Three", "Four", "Five",
+  "Six", "Seven", "Eight", "Nine", "Ten",
+  [0] = "No more",
+  [-1] = "Lots more"
+}
+
+spell_out = To_Functable(spell_out, function(i) return i end)
+
+bottles = To_Functable({"Just one bottle of beer"},
+                       function(i)
+                         return spell_out(i) .. " bottles of beer"
+                       end)
+
+function line1(i)
+  return bottles(i) .. " on the wall, " .. bottles(i) .. "\n"
+end
+
+line2 = To_Functable({[0] = "Go to the store, Buy some more,\n"},
+                     function(i)
+                       return "Take one down and pass it around,\n"
+                     end)
+
+function line3(i)
+  return bottles(i) .. " on the wall.\n"
+end
+
+function song(n)
+  for i = n, 0, -1 do
+    io.write(line1(i), line2(i), line3(i - 1), "\n")
+  end
+end
+----------------------------------------------------
+[
+	["keyword", "function"],
+	["function", "To_Functable"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ","],
+	" fn",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["function", "setmetatable"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ","],
+
+	["punctuation", "{"],
+
+	"\n     __index ",
+	["operator", "="],
+	["keyword", "function"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ","],
+	" k",
+	["punctuation", ")"],
+	["keyword", "return"],
+	["function", "fn"],
+	["punctuation", "("],
+	"k",
+	["punctuation", ")"],
+	["keyword", "end"],
+	["punctuation", ","],
+
+	"\n     __call ",
+	["operator", "="],
+	["keyword", "function"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ","],
+	" k",
+	["punctuation", ")"],
+	["keyword", "return"],
+	" t",
+	["punctuation", "["],
+	"k",
+	["punctuation", "]"],
+	["keyword", "end"],
+
+	["punctuation", "}"],
+	["punctuation", ")"],
+
+	["keyword", "end"],
+
+	["comment", "-- Functable bottles of beer implementation"],
+
+	"\n\nspell_out ",
+	["operator", "="],
+	["punctuation", "{"],
+
+	["string", "\"One\""],
+	["punctuation", ","],
+	["string", "\"Two\""],
+	["punctuation", ","],
+	["string", "\"Three\""],
+	["punctuation", ","],
+	["string", "\"Four\""],
+	["punctuation", ","],
+	["string", "\"Five\""],
+	["punctuation", ","],
+
+	["string", "\"Six\""],
+	["punctuation", ","],
+	["string", "\"Seven\""],
+	["punctuation", ","],
+	["string", "\"Eight\""],
+	["punctuation", ","],
+	["string", "\"Nine\""],
+	["punctuation", ","],
+	["string", "\"Ten\""],
+	["punctuation", ","],
+
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+	["operator", "="],
+	["string", "\"No more\""],
+	["punctuation", ","],
+
+	["punctuation", "["],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", "]"],
+	["operator", "="],
+	["string", "\"Lots more\""],
+
+	["punctuation", "}"],
+
+	"\n\nspell_out ",
+	["operator", "="],
+	["function", "To_Functable"],
+	["punctuation", "("],
+	"spell_out",
+	["punctuation", ","],
+	["keyword", "function"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["keyword", "return"],
+	" i ",
+	["keyword", "end"],
+	["punctuation", ")"],
+
+	"\n\nbottles ",
+	["operator", "="],
+	["function", "To_Functable"],
+	["punctuation", "("],
+	["punctuation", "{"],
+	["string", "\"Just one bottle of beer\""],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["keyword", "function"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["function", "spell_out"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["operator", ".."],
+	["string", "\" bottles of beer\""],
+
+	["keyword", "end"],
+	["punctuation", ")"],
+
+	["keyword", "function"],
+	["function", "line1"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["function", "bottles"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["operator", ".."],
+	["string", "\" on the wall, \""],
+	["operator", ".."],
+	["function", "bottles"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["operator", ".."],
+	["string", "\"\\n\""],
+
+	["keyword", "end"],
+
+	"\n\nline2 ",
+	["operator", "="],
+	["function", "To_Functable"],
+	["punctuation", "("],
+	["punctuation", "{"],
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+	["operator", "="],
+	["string", "\"Go to the store, Buy some more,\\n\""],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["keyword", "function"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["string", "\"Take one down and pass it around,\\n\""],
+
+	["keyword", "end"],
+	["punctuation", ")"],
+
+	["keyword", "function"],
+	["function", "line3"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["function", "bottles"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["operator", ".."],
+	["string", "\" on the wall.\\n\""],
+
+	["keyword", "end"],
+
+	["keyword", "function"],
+	["function", "song"],
+	["punctuation", "("],
+	"n",
+	["punctuation", ")"],
+
+	["keyword", "for"],
+	" i ",
+	["operator", "="],
+	" n",
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ","],
+	["operator", "-"],
+	["number", "1"],
+	["keyword", "do"],
+
+	"\n    io",
+	["punctuation", "."],
+	["function", "write"],
+	["punctuation", "("],
+	["function", "line1"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "line2"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "line3"],
+	["punctuation", "("],
+	"i ",
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"\\n\""],
+	["punctuation", ")"],
+
+	["keyword", "end"],
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

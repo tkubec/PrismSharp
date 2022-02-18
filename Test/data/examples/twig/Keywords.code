@@ -1,0 +1,4 @@
+{% if foo %} bar {% endif %}
+{% for key, value in arr if value %} {{ do_something() }} {% endfor %}
+{% include 'header.html' %}
+{% include 'template.html' with {'foo': 'bar'} %}

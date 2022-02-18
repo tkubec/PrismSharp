@@ -1,0 +1,23 @@
+PREFIX a:      <http://www.w3.org/2000/10/annotation-ns#>
+PREFIX dc:     <http://purl.org/dc/elements/1.1/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
+
+SELECT ?given ?family
+WHERE { ?annot  a:annotates  <http://www.w3.org/TR/rdf-sparql-query/> .
+?annot  dc:creator   ?c .
+OPTIONAL { ?c  foaf:given   ?given ; foaf:family  ?family } .
+FILTER isBlank(?c)
+}
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">a<span class="token punctuation">:</span></span></span>      <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2000/10/annotation-ns#<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">dc<span class="token punctuation">:</span></span></span>     <span class="token url"><span class="token punctuation">&lt;</span>http://purl.org/dc/elements/1.1/<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span></span>   <span class="token url"><span class="token punctuation">&lt;</span>http://xmlns.com/foaf/0.1/<span class="token punctuation">></span></span>
+
+<span class="token keyword">SELECT</span> <span class="token variable">?given</span> <span class="token variable">?family</span>
+<span class="token keyword">WHERE</span> <span class="token punctuation">{</span> <span class="token variable">?annot</span>  <span class="token function"><span class="token prefix">a<span class="token punctuation">:</span></span><span class="token local-name">annotates</span></span>  <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/TR/rdf-sparql-query/<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token variable">?annot</span>  <span class="token function"><span class="token prefix">dc<span class="token punctuation">:</span></span><span class="token local-name">creator</span></span>   <span class="token variable">?c</span> <span class="token punctuation">.</span>
+<span class="token keyword">OPTIONAL</span> <span class="token punctuation">{</span> <span class="token variable">?c</span>  <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">given</span></span>   <span class="token variable">?given</span> <span class="token punctuation">;</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">family</span></span>  <span class="token variable">?family</span> <span class="token punctuation">}</span> <span class="token punctuation">.</span>
+<span class="token keyword">FILTER</span> <span class="token keyword">isBlank</span><span class="token punctuation">(</span><span class="token variable">?c</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

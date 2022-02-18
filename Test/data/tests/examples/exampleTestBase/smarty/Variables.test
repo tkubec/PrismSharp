@@ -1,0 +1,12 @@
+{$foo}
+{$foo.bar}
+{$foo.$bar}
+{$foo[$bar]}
+{$foo->bar}
+{$foo->bar()}
+{#foo#}
+{$smarty.config.foo}
+{$foo[bar]}
+
+--------------------------------------------------
+

@@ -1,0 +1,39 @@
+"a string" "\"" "\x8" "%s"
+
+SBUF" asbdef"
+
+USE: multiline
+
+STRING: name
+content
+;
+
+HEREDOC: marker
+text
+marker
+
+[==[
+	str
+	ing
+]==]
+----------------------------------------------------
+<span class="token string">"a string"</span> <span class="token string">"<span class="token number">\"</span>"</span> <span class="token string">"<span class="token number">\x</span>8"</span> <span class="token string">"<span class="token number">%s</span>"</span>
+
+<span class="token custom-string string">SBUF" asbdef"</span>
+
+<span class="token colon-syntax function">USE: multiline</span>
+
+<span class="token multiline-string string">STRING: name
+content
+<span class="token semicolon-or-setlocal function">;</span></span>
+
+<span class="token multiline-string string">HEREDOC: marker
+text
+marker</span>
+
+<span class="token multiline-string string">[==[
+	str
+	ing
+]==]</span>
+
+----------------------------------------------------

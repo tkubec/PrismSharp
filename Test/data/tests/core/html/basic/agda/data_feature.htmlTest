@@ -1,0 +1,7 @@
+data _≐_ {ℓ} {A : Set ℓ} (x : A) : A → Prop ℓ where
+	refl : x ≐ x
+----------------------------------------------------
+<span class="token keyword">data</span> <span class="token class-name">_≐_</span> <span class="token punctuation">{</span>ℓ<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token function">A </span><span class="token operator">:</span> <span class="token keyword">Set</span> ℓ<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token function">x </span><span class="token operator">:</span> A<span class="token punctuation">)</span> <span class="token operator">:</span> A <span class="token operator">→</span> Prop ℓ <span class="token keyword">where</span>
+	<span class="token function">refl </span><span class="token operator">:</span> x ≐ x
+
+----------------------------------------------------

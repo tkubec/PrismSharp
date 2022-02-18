@@ -1,0 +1,93 @@
+USING: accessors arrays assocs combinators
+combinators.short-circuit effects io kernel sequences
+sequences.deep splitting strings vocabs words ;
+IN: prism
+
+: make-prism-syntax ( syntax-vocab -- seq )
+ 	vocab-words [
+		dup name>> ">>" = [ drop t ] [
+			{
+				[ "delimiter" word-prop ]
+				[ name>> last { CHAR: : CHAR: { CHAR: [ CHAR: ( CHAR: ) CHAR: ? CHAR: " } member? ]
+				[ name>> { "t" "f" } member? ]
+			} 1|| not
+		] if
+	] filter ;
+
+: combinator? ( word -- ? )
+	[ "declared-effect" word-prop in>> flatten
+		[
+			[ effect? ] [ { "quots" "quot" } member? ] bi or
+		] any?
+	] [
+		"help" word-prop ?first flatten [ dup word? [ name>> ] when "quot" swap subseq? ] any?
+	] bi or ;
+
+: classify ( vocab-spec -- seq )
+	vocab-words [
+		dup {
+			{ [ dup combinator? ] [ drop "combinator" ] }
+			{ [ dup "macro" word-prop ] [ drop "macro" ] }
+			[ drop "ordinary" ]
+		} cond 2array
+	] map ;
+
+: print-strings ( strs -- )
+	[ name>> "'" dup surround ] map ", " join print ; recursive ! WARN: not recursive
+
+: combinators. ( vocab-spec -- )
+	classify [ nip "combinator" = ] assoc-filter keys print-strings ; flushable
+
+: ordinaries. ( vocab-spec -- )
+	classify [ nip "ordinary" = ] assoc-filter keys print-strings ; foldable
+
+: macros. ( vocab-spec -- )
+	classify [ nip "macro" = ] assoc-filter keys print-strings ; inline
+----------------------------------------------------
+<span class="token special-using function">USING: <span class="token string">accessors</span> <span class="token string">arrays</span> <span class="token string">assocs</span> <span class="token string">combinators</span>
+<span class="token string">combinators.short-circuit</span> <span class="token string">effects</span> <span class="token string">io</span> <span class="token string">kernel</span> <span class="token string">sequences</span>
+<span class="token string">sequences.deep</span> <span class="token string">splitting</span> <span class="token string">strings</span> <span class="token string">vocabs</span> <span class="token string">words</span></span> <span class="token semicolon-or-setlocal function">;</span>
+<span class="token colon-syntax function">IN: prism</span>
+
+<span class="token colon-syntax function">: make-prism-syntax</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">syntax-vocab</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">seq</span> <span class="token stack-effect-delimiter operator">)</span>
+ 	<span class="token normal-word">vocab-words</span> <span class="token quotation-delimiter operator">[</span>
+		<span class="token kernel-builtin variable">dup</span> <span class="token conventionally-named-word keyword">name>></span> <span class="token string">">>"</span> <span class="token kernel-builtin variable">=</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">drop</span> <span class="token boolean">t</span> <span class="token quotation-delimiter operator">]</span> <span class="token quotation-delimiter operator">[</span>
+			<span class="token curly-brace-literal-delimiter operator">{</span>
+				<span class="token quotation-delimiter operator">[</span> <span class="token string">"delimiter"</span> <span class="token normal-word">word-prop</span> <span class="token quotation-delimiter operator">]</span>
+				<span class="token quotation-delimiter operator">[</span> <span class="token conventionally-named-word keyword">name>></span> <span class="token sequences-builtin variable">last</span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token colon-syntax function">CHAR: :</span> <span class="token colon-syntax function">CHAR: {</span> <span class="token colon-syntax function">CHAR: [</span> <span class="token colon-syntax function">CHAR: (</span> <span class="token colon-syntax function">CHAR: )</span> <span class="token colon-syntax function">CHAR: ?</span> <span class="token colon-syntax function">CHAR: "</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token sequences-builtin variable">member?</span> <span class="token quotation-delimiter operator">]</span>
+				<span class="token quotation-delimiter operator">[</span> <span class="token conventionally-named-word keyword">name>></span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token string">"t"</span> <span class="token string">"f"</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token sequences-builtin variable">member?</span> <span class="token quotation-delimiter operator">]</span>
+			<span class="token curly-brace-literal-delimiter operator">}</span> <span class="token combinators keyword">1||</span> <span class="token kernel-builtin variable">not</span>
+		<span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">if</span>
+	<span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">filter</span> <span class="token semicolon-or-setlocal function">;</span>
+
+<span class="token colon-syntax function">: combinator?</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">word</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token kernel-builtin variable">?</span> <span class="token stack-effect-delimiter operator">)</span>
+	<span class="token quotation-delimiter operator">[</span> <span class="token string">"declared-effect"</span> <span class="token normal-word">word-prop</span> <span class="token conventionally-named-word keyword">in>></span> <span class="token normal-word">flatten</span>
+		<span class="token quotation-delimiter operator">[</span>
+			<span class="token quotation-delimiter operator">[</span> <span class="token conventionally-named-word keyword">effect?</span> <span class="token quotation-delimiter operator">]</span> <span class="token quotation-delimiter operator">[</span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token string">"quots"</span> <span class="token string">"quot"</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token sequences-builtin variable">member?</span> <span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">bi</span> <span class="token kernel-builtin variable">or</span>
+		<span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">any?</span>
+	<span class="token quotation-delimiter operator">]</span> <span class="token quotation-delimiter operator">[</span>
+		<span class="token string">"help"</span> <span class="token normal-word">word-prop</span> <span class="token sequences-builtin variable">?first</span> <span class="token normal-word">flatten</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">dup</span> <span class="token conventionally-named-word keyword">word?</span> <span class="token quotation-delimiter operator">[</span> <span class="token conventionally-named-word keyword">name>></span> <span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">when</span> <span class="token string">"quot"</span> <span class="token kernel-builtin variable">swap</span> <span class="token sequences-builtin variable">subseq?</span> <span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">any?</span>
+	<span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">bi</span> <span class="token kernel-builtin variable">or</span> <span class="token semicolon-or-setlocal function">;</span>
+
+<span class="token colon-syntax function">: classify</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">vocab-spec</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">seq</span> <span class="token stack-effect-delimiter operator">)</span>
+	<span class="token normal-word">vocab-words</span> <span class="token quotation-delimiter operator">[</span>
+		<span class="token kernel-builtin variable">dup</span> <span class="token curly-brace-literal-delimiter operator">{</span>
+			<span class="token curly-brace-literal-delimiter operator">{</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">dup</span> <span class="token conventionally-named-word keyword">combinator?</span> <span class="token quotation-delimiter operator">]</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">drop</span> <span class="token string">"combinator"</span> <span class="token quotation-delimiter operator">]</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+			<span class="token curly-brace-literal-delimiter operator">{</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">dup</span> <span class="token string">"macro"</span> <span class="token normal-word">word-prop</span> <span class="token quotation-delimiter operator">]</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">drop</span> <span class="token string">"macro"</span> <span class="token quotation-delimiter operator">]</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+			<span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">drop</span> <span class="token string">"ordinary"</span> <span class="token quotation-delimiter operator">]</span>
+		<span class="token curly-brace-literal-delimiter operator">}</span> <span class="token combinators keyword">cond</span> <span class="token normal-word">2array</span>
+	<span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">map</span> <span class="token semicolon-or-setlocal function">;</span>
+
+<span class="token colon-syntax function">: print-strings</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">strs</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token stack-effect-delimiter operator">)</span>
+	<span class="token quotation-delimiter operator">[</span> <span class="token conventionally-named-word keyword">name>></span> <span class="token string">"'"</span> <span class="token kernel-builtin variable">dup</span> <span class="token sequences-builtin variable">surround</span> <span class="token quotation-delimiter operator">]</span> <span class="token combinators keyword">map</span> <span class="token string">", "</span> <span class="token sequences-builtin variable">join</span> <span class="token normal-word">print</span> <span class="token semicolon-or-setlocal function">;</span> <span class="token other-builtin-syntax operator">recursive</span> <span class="token comment">! <span class="token function">WARN</span>: not recursive</span>
+
+<span class="token colon-syntax function">: combinators.</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">vocab-spec</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token stack-effect-delimiter operator">)</span>
+	<span class="token normal-word">classify</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">nip</span> <span class="token string">"combinator"</span> <span class="token kernel-builtin variable">=</span> <span class="token quotation-delimiter operator">]</span> <span class="token normal-word">assoc-filter</span> <span class="token normal-word">keys</span> <span class="token normal-word">print-strings</span> <span class="token semicolon-or-setlocal function">;</span> <span class="token other-builtin-syntax operator">flushable</span>
+
+<span class="token colon-syntax function">: ordinaries.</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">vocab-spec</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token stack-effect-delimiter operator">)</span>
+	<span class="token normal-word">classify</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">nip</span> <span class="token string">"ordinary"</span> <span class="token kernel-builtin variable">=</span> <span class="token quotation-delimiter operator">]</span> <span class="token normal-word">assoc-filter</span> <span class="token normal-word">keys</span> <span class="token normal-word">print-strings</span> <span class="token semicolon-or-setlocal function">;</span> <span class="token other-builtin-syntax operator">foldable</span>
+
+<span class="token colon-syntax function">: macros.</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">vocab-spec</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token stack-effect-delimiter operator">)</span>
+	<span class="token normal-word">classify</span> <span class="token quotation-delimiter operator">[</span> <span class="token kernel-builtin variable">nip</span> <span class="token string">"macro"</span> <span class="token kernel-builtin variable">=</span> <span class="token quotation-delimiter operator">]</span> <span class="token normal-word">assoc-filter</span> <span class="token normal-word">keys</span> <span class="token normal-word">print-strings</span> <span class="token semicolon-or-setlocal function">;</span> <span class="token other-builtin-syntax operator">inline</span>
+
+----------------------------------------------------

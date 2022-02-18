@@ -1,0 +1,81 @@
+query withFragments {
+  user(id: 4) {
+    friends(first: 10) {
+      ...friendFields
+    }
+    mutualFriends(first: 10) {
+      ...friendFields
+    }
+  }
+}
+
+fragment friendFields on User {
+  id
+  name
+  profilePic(size: 50)
+}
+----------------------------------------------------
+[
+	["keyword", "query"],
+	["definition-query", "withFragments"],
+	["punctuation", "{"],
+
+	["property-query", "user"],
+	["punctuation", "("],
+	["attr-name", "id"],
+	["punctuation", ":"],
+	["number", "4"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["property-query", "friends"],
+	["punctuation", "("],
+	["attr-name", "first"],
+	["punctuation", ":"],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["operator", "..."],
+	["fragment", "friendFields"],
+
+	["punctuation", "}"],
+
+	["property-query", "mutualFriends"],
+	["punctuation", "("],
+	["attr-name", "first"],
+	["punctuation", ":"],
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["operator", "..."],
+	["fragment", "friendFields"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "fragment"],
+	["fragment", "friendFields"],
+	["keyword", "on"],
+	["class-name", "User"],
+	["punctuation", "{"],
+
+	["property", "id"],
+
+	["property", "name"],
+
+	["property-query", "profilePic"],
+	["punctuation", "("],
+	["attr-name", "size"],
+	["punctuation", ":"],
+	["number", "50"],
+	["punctuation", ")"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

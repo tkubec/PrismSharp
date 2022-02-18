@@ -1,0 +1,61 @@
+.. image:: mylogo.jpeg
+
+.. figure:: larch.png
+
+   The larch.
+
+.. note:: This is a paragraph
+
+   - Here is a bullet list.
+
+.. figure:: picture.png
+   :scale: 50 %
+   :alt: map to buried treasure
+
+   This is the caption of the figure (a simple paragraph).
+
+   The legend consists of all elements after the caption.  In this
+   case, the legend consists of this paragraph and the following
+   table:
+
+   +-----------------------+-----------------------+
+   | Symbol                | Meaning               |
+   +=======================+=======================+
+   | .. image:: tent.png   | Campground            |
+   +-----------------------+-----------------------+
+   | .. image:: waves.png  | Lake                  |
+   +-----------------------+-----------------------+
+   | .. image:: peak.png   | Mountain              |
+   +-----------------------+-----------------------+
+----------------------------------------------------
+<span class="token punctuation">..</span> <span class="token directive function">image<span class="token punctuation">::</span></span> mylogo.jpeg
+
+<span class="token punctuation">..</span> <span class="token directive function">figure<span class="token punctuation">::</span></span> larch.png
+
+   The larch.
+
+<span class="token punctuation">..</span> <span class="token directive function">note<span class="token punctuation">::</span></span> This is a paragraph
+
+   <span class="token list-bullet punctuation">-</span> Here is a bullet list.
+
+<span class="token punctuation">..</span> <span class="token directive function">figure<span class="token punctuation">::</span></span> picture.png
+   <span class="token field attr-name">:scale:</span> 50 %
+   <span class="token field attr-name">:alt:</span> map to buried treasure
+
+   This is the caption of the figure (a simple paragraph).
+
+   The legend consists of all elements after the caption.  In this
+   case, the legend consists of this paragraph and the following
+   table:
+
+   <span class="token table"><span class="token punctuation">+-----------------------+-----------------------+</span>
+   <span class="token punctuation">|</span> Symbol                <span class="token punctuation">|</span> Meaning               <span class="token punctuation">|</span>
+   <span class="token punctuation">+=======================+=======================+</span>
+   <span class="token punctuation">|</span> .. image:: tent.png   <span class="token punctuation">|</span> Campground            <span class="token punctuation">|</span>
+   <span class="token punctuation">+-----------------------+-----------------------+</span>
+   <span class="token punctuation">|</span> .. image:: waves.png  <span class="token punctuation">|</span> Lake                  <span class="token punctuation">|</span>
+   <span class="token punctuation">+-----------------------+-----------------------+</span>
+   <span class="token punctuation">|</span> .. image:: peak.png   <span class="token punctuation">|</span> Mountain              <span class="token punctuation">|</span>
+   <span class="token punctuation">+-----------------------+-----------------------+</span></span>
+
+----------------------------------------------------

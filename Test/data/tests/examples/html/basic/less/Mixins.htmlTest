@@ -1,0 +1,25 @@
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#menu a {
+  .bordered;
+}
+#header a {
+  color: orange;
+  #bundle > .button;
+}
+----------------------------------------------------
+<span class="token selector">.bordered</span> <span class="token punctuation">{</span>
+  <span class="token property">border-top</span><span class="token punctuation">:</span> dotted 1px black<span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> solid 2px black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#menu a</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.bordered</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#header a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+  <span class="token mixin-usage function">#bundle > .button</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

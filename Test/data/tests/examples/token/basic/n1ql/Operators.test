@@ -1,0 +1,33 @@
+SELECT 1 AND 1;
+SELECT 1 OR NULL;
+SELECT EXISTS 1;
+SELECT 2 BETWEEN 1 AND 3;
+----------------------------------------------------
+[
+	["keyword", "SELECT"],
+	["number", "1"],
+	["operator", "AND"],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["keyword", "SELECT"],
+	["number", "1"],
+	["operator", "OR"],
+	["keyword", "NULL"],
+	["punctuation", ";"],
+
+	["keyword", "SELECT"],
+	["operator", "EXISTS"],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["keyword", "SELECT"],
+	["number", "2"],
+	["operator", "BETWEEN"],
+	["number", "1"],
+	["operator", "AND"],
+	["number", "3"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

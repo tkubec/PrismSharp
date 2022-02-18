@@ -1,0 +1,658 @@
+#!/usr/bin/dmd -run
+/* sh style script syntax is supported! */
+/* Hello World in D
+   To compile:
+     dmd hello.d
+   or to optimize:
+     dmd -O -inline -release hello.d
+   or to get generated documentation:
+     dmd hello.d -D
+  */
+import std.stdio;  // References to  commonly used I/O routines.
+void main(char[][] args)   // 'void' here means return 0 by default.
+{
+    // Write-Formatted-Line
+     writefln("Hello World, "   // automatic concatenation of string literals
+              "Reloaded");
+     // Strings are denoted as a dynamic array of chars 'char[]'
+     // auto type inference and built-in foreach
+     foreach(argc, argv; args)
+    {
+        // OOP is supported, of course! And automatic type inference.
+         auto cl = new CmdLin(argc, argv);
+
+        // 'writefln' is the improved 'printf' !!
+         // user-defined class properties.
+         writefln(cl.argnum, cl.suffix, " arg: %s", cl.argv);
+        // Garbage Collection or explicit memory management - your choice!!!
+         delete cl;
+    }
+     // Nested structs, classes and functions!
+     struct specs
+    {
+        // all vars. automatically initialized
+         int count, allocated;
+    }
+
+    // Note that declarations read right-to-left.
+    // So that 'char[][]' reads as an array of an array of chars.
+
+    specs argspecs(char[][] args)
+    // Optional (built-in) function contracts.
+     in{
+        assert (args.length > 0); // assert built in
+     }
+    out(result){
+        assert(result.count == CmdLin.total);
+        assert(result.allocated > 0);
+    }
+    body{
+        specs* s = new specs;
+        // no need for '->'
+         s.count = args.length;  // The 'length' property is number of elements.
+         s.allocated = typeof(args).sizeof; // built-in properties for native types
+         foreach(argv; args)
+            s.allocated += argv.length * typeof(argv[0]).sizeof;
+        return *s;
+    }
+
+    // built-in string and common string operations, e.g. '~' is concatenate.
+     char[] argcmsg  = "argc = %d";
+    char[] allocmsg = "allocated = %d";
+    writefln(argcmsg ~ ", " ~ allocmsg,
+         argspecs(args).count,argspecs(args).allocated);
+}
+/**
+   Stores a single command line argument.
+ */
+ class CmdLin
+{
+    private {
+     int _argc;
+     char[] _argv;
+     static uint _totalc;
+    }
+
+ public:
+/************
+      Object constructor.
+      params:
+        argc = ordinal count of this argument.
+        argv = text of the parameter
+  *********/
+     this(int argc, char[] argv)
+    {
+        _argc = argc + 1;
+        _argv = argv;
+        _totalc++;
+    }
+
+    ~this() /// Object destructor
+     {
+        // Doesn't actually do anything for this example.
+     }
+
+     int argnum() /// A property that returns arg number
+     {
+        return _argc;
+    }
+     char[] argv() /// A property  that returns arg text
+     {
+        return _argv;
+    }
+     wchar[] suffix() /// A property  that returns ordinal suffix
+     {
+        wchar[] suffix;  // Built in  Unicode strings (utf8,utf16, utf32)
+         switch(_argc)
+        {
+        case 1:
+            suffix = "st";
+            break;
+        case 2:
+            suffix = "nd";
+            break;
+        case 3:
+            suffix = "rd";
+            break;
+        default:  // 'default' is mandatory with "-w" compile switch.
+             suffix = "th";
+        }
+        return suffix;
+    }
+
+/* **************
+      * A property of the whole class, not just an instance.
+      * returns: The total number of commandline args added.
+      *************/
+     static typeof(_totalc) total()
+    {
+        return _totalc;
+    }
+     // Class invariant, things that must be true after any method is run.
+     invariant
+     {
+         assert(_argc > 0);
+         assert(_totalc >= _argc);
+     }
+}
+----------------------------------------------------
+[
+	["comment", "#!/usr/bin/dmd -run"],
+
+	["comment", "/* sh style script syntax is supported! */"],
+
+	["comment", "/* Hello World in D\n   To compile:\n     dmd hello.d\n   or to optimize:\n     dmd -O -inline -release hello.d\n   or to get generated documentation:\n     dmd hello.d -D\n  */"],
+
+	["keyword", "import"],
+	" std",
+	["punctuation", "."],
+	"stdio",
+	["punctuation", ";"],
+	["comment", "// References to  commonly used I/O routines."],
+
+	["keyword", "void"],
+	["function", "main"],
+	["punctuation", "("],
+	["keyword", "char"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" args",
+	["punctuation", ")"],
+	["comment", "// 'void' here means return 0 by default."],
+
+	["punctuation", "{"],
+
+	["comment", "// Write-Formatted-Line"],
+
+	["function", "writefln"],
+	["punctuation", "("],
+	["string", "\"Hello World, \""],
+	["comment", "// automatic concatenation of string literals"],
+
+	["string", "\"Reloaded\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Strings are denoted as a dynamic array of chars 'char[]'"],
+
+	["comment", "// auto type inference and built-in foreach"],
+
+	["keyword", "foreach"],
+	["punctuation", "("],
+	"argc",
+	["punctuation", ","],
+	" argv",
+	["punctuation", ";"],
+	" args",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["comment", "// OOP is supported, of course! And automatic type inference."],
+
+	["keyword", "auto"],
+	" cl ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["CmdLin"]],
+	["punctuation", "("],
+	"argc",
+	["punctuation", ","],
+	" argv",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// 'writefln' is the improved 'printf' !!"],
+
+	["comment", "// user-defined class properties."],
+
+	["function", "writefln"],
+	["punctuation", "("],
+	"cl",
+	["punctuation", "."],
+	"argnum",
+	["punctuation", ","],
+	" cl",
+	["punctuation", "."],
+	"suffix",
+	["punctuation", ","],
+	["string", "\" arg: %s\""],
+	["punctuation", ","],
+	" cl",
+	["punctuation", "."],
+	"argv",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Garbage Collection or explicit memory management - your choice!!!"],
+
+	["keyword", "delete"],
+	" cl",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// Nested structs, classes and functions!"],
+
+	["keyword", "struct"],
+	" specs\n    ",
+
+	["punctuation", "{"],
+
+	["comment", "// all vars. automatically initialized"],
+
+	["keyword", "int"],
+	" count",
+	["punctuation", ","],
+	" allocated",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// Note that declarations read right-to-left."],
+	["comment", "// So that 'char[][]' reads as an array of an array of chars."],
+
+	"\n\n    specs ",
+	["function", "argspecs"],
+	["punctuation", "("],
+	["keyword", "char"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" args",
+	["punctuation", ")"],
+
+	["comment", "// Optional (built-in) function contracts."],
+
+	["operator", "in"],
+	["punctuation", "{"],
+
+	["keyword", "assert"],
+	["punctuation", "("],
+	"args",
+	["punctuation", "."],
+	"length ",
+	["operator", ">"],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// assert built in"],
+
+	["punctuation", "}"],
+
+	["keyword", "out"],
+	["punctuation", "("],
+	"result",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "assert"],
+	["punctuation", "("],
+	"result",
+	["punctuation", "."],
+	"count ",
+	["operator", "=="],
+	" CmdLin",
+	["punctuation", "."],
+	"total",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "assert"],
+	["punctuation", "("],
+	"result",
+	["punctuation", "."],
+	"allocated ",
+	["operator", ">"],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "body"],
+	["punctuation", "{"],
+
+	"\n        specs",
+	["operator", "*"],
+	" s ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["specs"]],
+	["punctuation", ";"],
+
+	["comment", "// no need for '->'"],
+
+	"\n         s",
+	["punctuation", "."],
+	"count ",
+	["operator", "="],
+	" args",
+	["punctuation", "."],
+	"length",
+	["punctuation", ";"],
+	["comment", "// The 'length' property is number of elements."],
+
+	"\n         s",
+	["punctuation", "."],
+	"allocated ",
+	["operator", "="],
+	["keyword", "typeof"],
+	["punctuation", "("],
+	"args",
+	["punctuation", ")"],
+	["punctuation", "."],
+	"sizeof",
+	["punctuation", ";"],
+	["comment", "// built-in properties for native types"],
+
+	["keyword", "foreach"],
+	["punctuation", "("],
+	"argv",
+	["punctuation", ";"],
+	" args",
+	["punctuation", ")"],
+
+	"\n            s",
+	["punctuation", "."],
+	"allocated ",
+	["operator", "+="],
+	" argv",
+	["punctuation", "."],
+	"length ",
+	["operator", "*"],
+	["keyword", "typeof"],
+	["punctuation", "("],
+	"argv",
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "."],
+	"sizeof",
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["operator", "*"],
+	"s",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// built-in string and common string operations, e.g. '~' is concatenate."],
+
+	["keyword", "char"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" argcmsg  ",
+	["operator", "="],
+	["string", "\"argc = %d\""],
+	["punctuation", ";"],
+
+	["keyword", "char"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" allocmsg ",
+	["operator", "="],
+	["string", "\"allocated = %d\""],
+	["punctuation", ";"],
+
+	["function", "writefln"],
+	["punctuation", "("],
+	"argcmsg ",
+	["operator", "~"],
+	["string", "\", \""],
+	["operator", "~"],
+	" allocmsg",
+	["punctuation", ","],
+
+	["function", "argspecs"],
+	["punctuation", "("],
+	"args",
+	["punctuation", ")"],
+	["punctuation", "."],
+	"count",
+	["punctuation", ","],
+	["function", "argspecs"],
+	["punctuation", "("],
+	"args",
+	["punctuation", ")"],
+	["punctuation", "."],
+	"allocated",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "/**\n   Stores a single command line argument.\n */"],
+
+	["keyword", "class"],
+	["class-name", ["CmdLin"]],
+
+	["punctuation", "{"],
+
+	["keyword", "private"],
+	["punctuation", "{"],
+
+	["keyword", "int"],
+	" _argc",
+	["punctuation", ";"],
+
+	["keyword", "char"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" _argv",
+	["punctuation", ";"],
+
+	["keyword", "static"],
+	["keyword", "uint"],
+	" _totalc",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "public"],
+	["punctuation", ":"],
+
+	["comment", "/************\n      Object constructor.\n      params:\n        argc = ordinal count of this argument.\n        argv = text of the parameter\n  *********/"],
+
+	["keyword", "this"],
+	["punctuation", "("],
+	["keyword", "int"],
+	" argc",
+	["punctuation", ","],
+	["keyword", "char"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" argv",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n        _argc ",
+	["operator", "="],
+	" argc ",
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ";"],
+
+	"\n        _argv ",
+	["operator", "="],
+	" argv",
+	["punctuation", ";"],
+
+	"\n        _totalc",
+	["operator", "++"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["operator", "~"],
+	["keyword", "this"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["comment", "/// Object destructor"],
+
+	["punctuation", "{"],
+
+	["comment", "// Doesn't actually do anything for this example."],
+
+	["punctuation", "}"],
+
+	["keyword", "int"],
+	["function", "argnum"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["comment", "/// A property that returns arg number"],
+
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" _argc",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "char"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["function", "argv"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["comment", "/// A property  that returns arg text"],
+
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" _argv",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "wchar"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["function", "suffix"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["comment", "/// A property  that returns ordinal suffix"],
+
+	["punctuation", "{"],
+
+	["keyword", "wchar"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" suffix",
+	["punctuation", ";"],
+	["comment", "// Built in  Unicode strings (utf8,utf16, utf32)"],
+
+	["keyword", "switch"],
+	["punctuation", "("],
+	"_argc",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "case"],
+	["number", "1"],
+	["punctuation", ":"],
+
+	"\n            suffix ",
+	["operator", "="],
+	["string", "\"st\""],
+	["punctuation", ";"],
+
+	["keyword", "break"],
+	["punctuation", ";"],
+
+	["keyword", "case"],
+	["number", "2"],
+	["punctuation", ":"],
+
+	"\n            suffix ",
+	["operator", "="],
+	["string", "\"nd\""],
+	["punctuation", ";"],
+
+	["keyword", "break"],
+	["punctuation", ";"],
+
+	["keyword", "case"],
+	["number", "3"],
+	["punctuation", ":"],
+
+	"\n            suffix ",
+	["operator", "="],
+	["string", "\"rd\""],
+	["punctuation", ";"],
+
+	["keyword", "break"],
+	["punctuation", ";"],
+
+	["keyword", "default"],
+	["punctuation", ":"],
+	["comment", "// 'default' is mandatory with \"-w\" compile switch."],
+
+	"\n             suffix ",
+	["operator", "="],
+	["string", "\"th\""],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"],
+	" suffix",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "/* **************\n      * A property of the whole class, not just an instance.\n      * returns: The total number of commandline args added.\n      *************/"],
+
+	["keyword", "static"],
+	["keyword", "typeof"],
+	["punctuation", "("],
+	"_totalc",
+	["punctuation", ")"],
+	["function", "total"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" _totalc",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// Class invariant, things that must be true after any method is run."],
+
+	["keyword", "invariant"],
+
+	["punctuation", "{"],
+
+	["keyword", "assert"],
+	["punctuation", "("],
+	"_argc ",
+	["operator", ">"],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "assert"],
+	["punctuation", "("],
+	"_totalc ",
+	["operator", ">="],
+	" _argc",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

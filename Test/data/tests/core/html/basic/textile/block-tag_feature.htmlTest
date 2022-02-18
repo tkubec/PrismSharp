@@ -1,0 +1,51 @@
+h1. Header 1
+
+h2>. Header 2
+
+bq. A block quotation
+
+p<. Foo
+
+p=. Bar
+
+p<>. Baz
+
+p(. Foobar
+baz
+
+p))). Foo
+
+h1(foo). Foo
+
+h2[en]. Bar
+
+h3{color: red}. Baz
+
+h4[fr]{text-decoration:underline;}(#bar). Foobar
+----------------------------------------------------
+<span class="token phrase"><span class="token block-tag"><span class="token tag">h1</span><span class="token punctuation">.</span></span> Header 1</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">h2</span><span class="token modifier"><span class="token punctuation">></span></span><span class="token punctuation">.</span></span> Header 2</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">bq</span><span class="token punctuation">.</span></span> A block quotation</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">&lt;</span></span><span class="token punctuation">.</span></span> Foo</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">=</span></span><span class="token punctuation">.</span></span> Bar</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">.</span></span> Baz</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">(</span></span><span class="token punctuation">.</span></span> Foobar
+baz</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span></span> Foo</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">h1</span><span class="token modifier"><span class="token punctuation">(</span><span class="token class-id attr-value">foo</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span></span> Foo</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">h2</span><span class="token modifier"><span class="token punctuation">[</span><span class="token lang attr-value">en</span><span class="token punctuation">]</span></span><span class="token punctuation">.</span></span> Bar</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">h3</span><span class="token modifier"><span class="token css"><span class="token punctuation">{</span><span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">}</span></span></span><span class="token punctuation">.</span></span> Baz</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">h4</span><span class="token modifier"><span class="token punctuation">[</span><span class="token lang attr-value">fr</span><span class="token punctuation">]</span><span class="token css"><span class="token punctuation">{</span><span class="token property">text-decoration</span><span class="token punctuation">:</span>underline<span class="token punctuation">;</span><span class="token punctuation">}</span></span><span class="token punctuation">(</span><span class="token class-id attr-value">#bar</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span></span> Foobar</span>
+
+----------------------------------------------------

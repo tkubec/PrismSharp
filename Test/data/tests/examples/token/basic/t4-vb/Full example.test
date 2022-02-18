@@ -1,0 +1,153 @@
+<#@ template hostspecific="false" language="VB" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ output extension=".txt" #>
+<#
+    Imports System.Collections.Generic
+
+    Dim numbers() As Integer = { 0, 1, 2, 3, 4, 5, 6, 8, 9, 10  }
+    ' not including 7
+
+    For Each i In numbers
+#>
+The square of <#= i #> is <#= i * i #>
+<#
+    Next
+#>
+----------------------------------------------------
+[
+	["block", [
+		["directive", [
+			["delimiter", "<#@"],
+			["content", [
+				["keyword", "template"],
+				["attr-name", "hostspecific"],
+				["attr-value", [
+					["punctuation", "="],
+					["punctuation", "\""],
+					"false",
+					["punctuation", "\""]
+				]],
+				["attr-name", "language"],
+				["attr-value", [
+					["punctuation", "="],
+					["punctuation", "\""],
+					"VB",
+					["punctuation", "\""]
+				]]
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	["block", [
+		["directive", [
+			["delimiter", "<#@"],
+			["content", [
+				["keyword", "assembly"],
+				["attr-name", "name"],
+				["attr-value", [
+					["punctuation", "="],
+					["punctuation", "\""],
+					"System.Core.dll",
+					["punctuation", "\""]
+				]]
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	["block", [
+		["directive", [
+			["delimiter", "<#@"],
+			["content", [
+				["keyword", "output"],
+				["attr-name", "extension"],
+				["attr-value", [
+					["punctuation", "="],
+					["punctuation", "\""],
+					".txt",
+					["punctuation", "\""]
+				]]
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	["block", [
+		["standard", [
+			["delimiter", "<#"],
+			["content", [
+				["keyword", "Imports"],
+				["keyword", "System"],
+				".Collections.Generic\n\n    ",
+
+				["keyword", "Dim"],
+				" numbers",
+				["punctuation", "("],
+				["punctuation", ")"],
+				["keyword", "As"],
+				["keyword", "Integer"],
+				["operator", "="],
+				["punctuation", "{"],
+				["number", "0"],
+				["punctuation", ","],
+				["number", "1"],
+				["punctuation", ","],
+				["number", "2"],
+				["punctuation", ","],
+				["number", "3"],
+				["punctuation", ","],
+				["number", "4"],
+				["punctuation", ","],
+				["number", "5"],
+				["punctuation", ","],
+				["number", "6"],
+				["punctuation", ","],
+				["number", "8"],
+				["punctuation", ","],
+				["number", "9"],
+				["punctuation", ","],
+				["number", "10"],
+				["punctuation", "}"],
+
+				["comment", "' not including 7"],
+
+				["keyword", "For Each"], " i ", ["keyword", "In"], " numbers\n"
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	"\nThe square of ",
+	["block", [
+		["expression", [
+			["delimiter", "<#="],
+			["content", [" i "]],
+			["delimiter", "#>"]
+		]]
+	]],
+	" is ",
+	["block", [
+		["expression", [
+			["delimiter", "<#="],
+			["content", [
+				" i ",
+				["operator", "*"],
+				" i "
+			]],
+			["delimiter", "#>"]
+		]]
+	]],
+
+	["block", [
+		["standard", [
+			["delimiter", "<#"],
+			["content", [
+				["keyword", "Next"]
+			]],
+			["delimiter", "#>"]
+		]]
+	]]
+]
+
+----------------------------------------------------

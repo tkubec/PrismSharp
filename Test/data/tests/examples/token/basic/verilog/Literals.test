@@ -1,0 +1,301 @@
+// example code from: http://iroi.seu.edu.cn/books/asics/Book2/CH11/CH11.02.htm
+module declarations;
+  parameter H12_UNSIZED = 'h 12;
+  parameter H12_SIZED = 6'h 12;
+  parameter D42 = 8'B0010_1010;
+  parameter D123 = 123;
+  parameter D63 = 8'o 77;
+  parameter A = 'h x, B = 'o x, C = 8'b x, D = 'h z, E = 16'h ????;
+  reg [3:0] B0011,Bxxx1,Bzzz1;
+  real R1,R2,R3;
+  integer I1,I3,I_3;
+  parameter BXZ = 8'b1x0x1z0z;
+
+  initial begin
+    B0011 = 4'b11; Bxxx1 = 4'bx1; Bzzz1 = 4'bz1;
+    R1 = 0.1e1; R2 = 2.0; R3 = 30E-01;
+    I1 = 1.1; I3 = 2.5; I_3 = -2.5;
+  end
+
+  initial begin #1;
+    $display("H12_UNSIZED, H12_SIZED (hex) = %h, %h",H12_UNSIZED, H12_SIZED);
+    $display("D42 (bin) = %b",D42," (dec) = %d",D42);
+    $display("D123 (hex) = %h",D123," (dec) = %d",D123);
+    $display("D63 (oct) = %o",D63);
+    $display("A (hex) = %h",A," B (hex) = %h",B);
+    $display("C (hex) = %h",C," D (hex) = %h",D," E (hex) = %h",E);
+    $display("BXZ (bin) = %b",BXZ," (hex) = %h",BXZ);
+    $display("B0011, Bxxx1, Bzzz1 (bin) = %b, %b, %b",B0011,Bxxx1,Bzzz1);
+    $display("R1, R2, R3 (e, f, g) = %e, %f, %g", R1, R2, R3);
+    $display("I1, I3, I_3 (d) = %d, %d, %d", I1, I3, I_3);
+  end
+endmodule
+----------------------------------------------------
+[
+	["comment", "// example code from: http://iroi.seu.edu.cn/books/asics/Book2/CH11/CH11.02.htm"],
+
+	["keyword", "module"],
+	" declarations",
+	["punctuation", ";"],
+
+	["keyword", "parameter"],
+	" H12_UNSIZED ",
+	["operator", "="],
+	["number", "'h 12"],
+	["punctuation", ";"],
+
+	["keyword", "parameter"],
+	" H12_SIZED ",
+	["operator", "="],
+	["number", "6'h 12"],
+	["punctuation", ";"],
+
+	["keyword", "parameter"],
+	" D42 ",
+	["operator", "="],
+	["number", "8'B0010_1010"],
+	["punctuation", ";"],
+
+	["keyword", "parameter"],
+	" D123 ",
+	["operator", "="],
+	["number", "123"],
+	["punctuation", ";"],
+
+	["keyword", "parameter"],
+	" D63 ",
+	["operator", "="],
+	["number", "8'o 77"],
+	["punctuation", ";"],
+
+	["keyword", "parameter"],
+	" A ",
+	["operator", "="],
+	["number", "'h x"],
+	["punctuation", ","],
+	" B ",
+	["operator", "="],
+	["number", "'o x"],
+	["punctuation", ","],
+	" C ",
+	["operator", "="],
+	["number", "8'b x"],
+	["punctuation", ","],
+	" D ",
+	["operator", "="],
+	["number", "'h z"],
+	["punctuation", ","],
+	" E ",
+	["operator", "="],
+	["number", "16'h ????"],
+	["punctuation", ";"],
+
+	["keyword", "reg"],
+	["punctuation", "["],
+	["number", "3"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", "]"],
+	" B0011",
+	["punctuation", ","],
+	"Bxxx1",
+	["punctuation", ","],
+	"Bzzz1",
+	["punctuation", ";"],
+
+	["keyword", "real"],
+	" R1",
+	["punctuation", ","],
+	"R2",
+	["punctuation", ","],
+	"R3",
+	["punctuation", ";"],
+
+	["keyword", "integer"],
+	" I1",
+	["punctuation", ","],
+	"I3",
+	["punctuation", ","],
+	"I_3",
+	["punctuation", ";"],
+
+	["keyword", "parameter"],
+	" BXZ ",
+	["operator", "="],
+	["number", "8'b1x0x1z0z"],
+	["punctuation", ";"],
+
+	["keyword", "initial"],
+	["keyword", "begin"],
+
+	"\n    B0011 ",
+	["operator", "="],
+	["number", "4'b11"],
+	["punctuation", ";"],
+	" Bxxx1 ",
+	["operator", "="],
+	["number", "4'bx1"],
+	["punctuation", ";"],
+	" Bzzz1 ",
+	["operator", "="],
+	["number", "4'bz1"],
+	["punctuation", ";"],
+
+	"\n    R1 ",
+	["operator", "="],
+	["number", "0.1e1"],
+	["punctuation", ";"],
+	" R2 ",
+	["operator", "="],
+	["number", "2.0"],
+	["punctuation", ";"],
+	" R3 ",
+	["operator", "="],
+	["number", "30E-01"],
+	["punctuation", ";"],
+
+	"\n    I1 ",
+	["operator", "="],
+	["number", "1.1"],
+	["punctuation", ";"],
+	" I3 ",
+	["operator", "="],
+	["number", "2.5"],
+	["punctuation", ";"],
+	" I_3 ",
+	["operator", "="],
+	["operator", "-"],
+	["number", "2.5"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+
+	["keyword", "initial"],
+	["keyword", "begin"],
+	["number", "#1"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"H12_UNSIZED, H12_SIZED (hex) = %h, %h\""],
+	["punctuation", ","],
+	"H12_UNSIZED",
+	["punctuation", ","],
+	" H12_SIZED",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"D42 (bin) = %b\""],
+	["punctuation", ","],
+	"D42",
+	["punctuation", ","],
+	["string", "\" (dec) = %d\""],
+	["punctuation", ","],
+	"D42",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"D123 (hex) = %h\""],
+	["punctuation", ","],
+	"D123",
+	["punctuation", ","],
+	["string", "\" (dec) = %d\""],
+	["punctuation", ","],
+	"D123",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"D63 (oct) = %o\""],
+	["punctuation", ","],
+	"D63",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"A (hex) = %h\""],
+	["punctuation", ","],
+	"A",
+	["punctuation", ","],
+	["string", "\" B (hex) = %h\""],
+	["punctuation", ","],
+	"B",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"C (hex) = %h\""],
+	["punctuation", ","],
+	"C",
+	["punctuation", ","],
+	["string", "\" D (hex) = %h\""],
+	["punctuation", ","],
+	"D",
+	["punctuation", ","],
+	["string", "\" E (hex) = %h\""],
+	["punctuation", ","],
+	"E",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"BXZ (bin) = %b\""],
+	["punctuation", ","],
+	"BXZ",
+	["punctuation", ","],
+	["string", "\" (hex) = %h\""],
+	["punctuation", ","],
+	"BXZ",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"B0011, Bxxx1, Bzzz1 (bin) = %b, %b, %b\""],
+	["punctuation", ","],
+	"B0011",
+	["punctuation", ","],
+	"Bxxx1",
+	["punctuation", ","],
+	"Bzzz1",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"R1, R2, R3 (e, f, g) = %e, %f, %g\""],
+	["punctuation", ","],
+	" R1",
+	["punctuation", ","],
+	" R2",
+	["punctuation", ","],
+	" R3",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["kernel-function", "$display"],
+	["punctuation", "("],
+	["string", "\"I1, I3, I_3 (d) = %d, %d, %d\""],
+	["punctuation", ","],
+	" I1",
+	["punctuation", ","],
+	" I3",
+	["punctuation", ","],
+	" I_3",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+
+	["keyword", "endmodule"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,85 @@
+for (( i=0;i<$ELEMENTS;i++)); do
+	echo ${ARRAY[${i}]}
+done
+while read LINE; do
+    ARRAY[$count]=$LINE
+    ((count++))
+done
+if [ -d $directory ]; then
+	echo "Directory exists"
+else
+	echo "Directory does not exists"
+fi
+----------------------------------------------------
+[
+	["keyword", "for"],
+	["variable", [
+		["punctuation", "(("],
+		" i",
+		["operator", "="],
+		["number", "0"],
+		["punctuation", ";"],
+		"i",
+		["operator", "<"],
+		"$ELEMENTS",
+		["punctuation", ";"],
+		"i",
+		["operator", "++"],
+		["punctuation", "))"]
+	]],
+	["punctuation", ";"],
+	["keyword", "do"],
+
+	["builtin", "echo"],
+	["variable", [
+		"${ARRAY",
+		["punctuation", "["],
+		"${i}"
+	]],
+	["punctuation", "]"],
+	["punctuation", "}"],
+
+	["keyword", "done"],
+
+	["keyword", "while"],
+	["builtin", "read"],
+	" LINE",
+	["punctuation", ";"],
+	["keyword", "do"],
+
+	"\n    ARRAY",
+	["punctuation", "["],
+	["variable", "$count"],
+	["punctuation", "]"],
+	["operator", ["="]],
+	["variable", "$LINE"],
+
+	["variable", [
+		["punctuation", "(("],
+		"count",
+		["operator", "++"],
+		["punctuation", "))"]
+	]],
+
+	["keyword", "done"],
+
+	["keyword", "if"],
+	["punctuation", "["],
+	" -d ",
+	["variable", "$directory"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+	["keyword", "then"],
+
+	["builtin", "echo"],
+	["string", ["\"Directory exists\""]],
+
+	["keyword", "else"],
+
+	["builtin", "echo"],
+	["string", ["\"Directory does not exists\""]],
+
+	["keyword", "fi"]
+]
+
+----------------------------------------------------

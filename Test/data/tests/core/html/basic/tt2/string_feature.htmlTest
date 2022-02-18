@@ -1,0 +1,27 @@
+[%
+"https://example.com/"
+" # not a comment"
+"multi-line
+string"
+"escaped \"quotes\"\nwork\twell"
+'https://example.com/'
+' # not a comment'
+'multi-line
+string'
+'escaped \'quotes\' work'
+%]
+----------------------------------------------------
+<span class="token delimiter punctuation">[%</span>
+<span class="token double-quoted-string string">"https://example.com/"</span>
+<span class="token double-quoted-string string">" # not a comment"</span>
+<span class="token double-quoted-string string">"multi-line
+string"</span>
+<span class="token double-quoted-string string">"escaped \"quotes\"\nwork\twell"</span>
+<span class="token single-quoted-string string">'https://example.com/'</span>
+<span class="token single-quoted-string string">' # not a comment'</span>
+<span class="token single-quoted-string string">'multi-line
+string'</span>
+<span class="token single-quoted-string string">'escaped \'quotes\' work'</span>
+<span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

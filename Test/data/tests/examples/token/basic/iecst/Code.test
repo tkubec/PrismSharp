@@ -1,0 +1,199 @@
+CONFIGURATION DefaultCfg
+    VAR_GLOBAL
+      Start_Stop AT %IX0.0: BOOL; (* This is a comment *)
+    END_VAR
+    TASK NewTask  (INTERVAL := T#20ms);
+    PROGRAM Main WITH NewTask : PLC_PRG;
+END_CONFIGURATION
+  
+PROGRAM demo
+    VAR_EXTERNAL
+      Start_Stop: BOOL;
+      StringVar: STRING[250] := "Test String"
+    END_VAR
+    VAR
+      a : REAL; // Another comment
+      todTest: TIME_OF_DAY := TOD#12:55;
+    END_VAR
+    a := csq(12.5);
+    IF a > REAL#100 - 16#FAC0 + 2#1001_0110 THEN
+      Start_Stop := TRUE;
+    END_IF
+END_PROGRAM;
+  
+FUNCTION_BLOCK PRIVATE MyName EXTENDS AnotherName
+      
+END_FUNCTION_BLOCK
+
+/* Get a square of the circle */
+FUNCTION csq : REAL 
+    VAR_INPUT
+      r: REAL;
+    END_VAR
+    VAR CONSTANT
+      c_pi: REAL := 3.14;
+    END_VAR
+    csq := ABS(c_pi * (r * 2));
+END_FUNCTION
+----------------------------------------------------
+[
+	["keyword", "CONFIGURATION"],
+	" DefaultCfg\n    ",
+
+	["keyword", "VAR_GLOBAL"],
+
+	"\n      Start_Stop ",
+	["keyword", "AT"],
+	["address", "%IX0.0"],
+	["operator", ":"],
+	["class-name", "BOOL"],
+	["punctuation", ";"],
+	["comment", "(* This is a comment *)"],
+
+	["keyword", "END_VAR"],
+
+	["keyword", "TASK"],
+	["function", "NewTask"],
+	["punctuation", "("],
+	"INTERVAL ",
+	["operator", ":="],
+	["number", "T#20ms"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "PROGRAM"],
+	" Main ",
+	["keyword", "WITH"],
+	" NewTask ",
+	["operator", ":"],
+	" PLC_PRG",
+	["punctuation", ";"],
+
+	["keyword", "END_CONFIGURATION"],
+
+	["keyword", "PROGRAM"],
+	" demo\n    ",
+
+	["keyword", "VAR_EXTERNAL"],
+
+	"\n      Start_Stop",
+	["operator", ":"],
+	["class-name", "BOOL"],
+	["punctuation", ";"],
+
+	"\n      StringVar",
+	["operator", ":"],
+	["class-name", "STRING"],
+	["punctuation", "["],
+	["number", "250"],
+	["punctuation", "]"],
+	["operator", ":="],
+	["string", "\"Test String\""],
+
+	["keyword", "END_VAR"],
+
+	["keyword", "VAR"],
+
+	"\n      a ",
+	["operator", ":"],
+	["class-name", "REAL"],
+	["punctuation", ";"],
+	["comment", "// Another comment"],
+
+	"\n      todTest",
+	["operator", ":"],
+	["class-name", "TIME_OF_DAY"],
+	["operator", ":="],
+	["class-name", "TOD"],
+	["operator", "#"],
+	["number", "12"],
+	["operator", ":"],
+	["number", "55"],
+	["punctuation", ";"],
+
+	["keyword", "END_VAR"],
+
+	"\n    a ",
+	["operator", ":="],
+	["function", "csq"],
+	["punctuation", "("],
+	["number", "12.5"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "IF"],
+	" a ",
+	["operator", ">"],
+	["class-name", "REAL"],
+	["operator", "#"],
+	["number", "100"],
+	["operator", "-"],
+	["number", "16#FAC0"],
+	["operator", "+"],
+	["number", "2#1001_0110"],
+	["keyword", "THEN"],
+
+	"\n      Start_Stop ",
+	["operator", ":="],
+	["boolean", "TRUE"],
+	["punctuation", ";"],
+
+	["keyword", "END_IF"],
+
+	["keyword", "END_PROGRAM"],
+	["punctuation", ";"],
+
+	["keyword", "FUNCTION_BLOCK"],
+	["keyword", "PRIVATE"],
+	" MyName ",
+	["keyword", "EXTENDS"],
+	" AnotherName\n      \n",
+
+	["keyword", "END_FUNCTION_BLOCK"],
+
+	["comment", "/* Get a square of the circle */"],
+
+	["keyword", "FUNCTION"],
+	" csq ",
+	["operator", ":"],
+	["class-name", "REAL"],
+
+	["keyword", "VAR_INPUT"],
+
+	"\n      r",
+	["operator", ":"],
+	["class-name", "REAL"],
+	["punctuation", ";"],
+
+	["keyword", "END_VAR"],
+
+	["keyword", "VAR"],
+	["keyword", "CONSTANT"],
+
+	"\n      c_pi",
+	["operator", ":"],
+	["class-name", "REAL"],
+	["operator", ":="],
+	["number", "3.14"],
+	["punctuation", ";"],
+
+	["keyword", "END_VAR"],
+
+	"\n    csq ",
+	["operator", ":="],
+	["function", "ABS"],
+	["punctuation", "("],
+	"c_pi ",
+	["operator", "*"],
+	["punctuation", "("],
+	"r ",
+	["operator", "*"],
+	["number", "2"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "END_FUNCTION"]
+]
+
+----------------------------------------------------

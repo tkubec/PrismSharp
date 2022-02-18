@@ -1,0 +1,21 @@
+set("/CLASS/inst/paramA/state", WARN);
+if (true) {
+	PslDebug = -1;
+}
+output = execute("OS", "echo test");
+if (errno) {
+	print(ALARM." with errno=".errno."\n");
+}
+print(trim(output, "\n\r\t ", TRIM_LEADING_AND_TRAILING));
+----------------------------------------------------
+<span class="token builtin builtin-function">set</span><span class="token punctuation">(</span><span class="token string">"/CLASS/inst/paramA/state"</span><span class="token punctuation">,</span> <span class="token constant">WARN</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token variable">PslDebug</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+output <span class="token operator">=</span> <span class="token builtin builtin-function">execute</span><span class="token punctuation">(</span><span class="token string">"OS"</span><span class="token punctuation">,</span> <span class="token string">"echo test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">errno</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token builtin builtin-function">print</span><span class="token punctuation">(</span><span class="token constant">ALARM</span><span class="token operator">.</span><span class="token string">" with errno="</span><span class="token operator">.</span><span class="token variable">errno</span><span class="token operator">.</span><span class="token string">"<span class="token symbol">\n</span>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token builtin builtin-function">print</span><span class="token punctuation">(</span><span class="token builtin builtin-function">trim</span><span class="token punctuation">(</span>output<span class="token punctuation">,</span> <span class="token string">"<span class="token symbol">\n</span><span class="token symbol">\r</span><span class="token symbol">\t</span> "</span><span class="token punctuation">,</span> <span class="token constant">TRIM_LEADING_AND_TRAILING</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

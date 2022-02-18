@@ -1,0 +1,383 @@
+Prism.languages.markup = {
+	'comment': /<!--[\s\S]*?-->/,
+	'prolog': /<\?[\s\S]+?\?>/,
+	'doctype': {
+		pattern: /<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,
+		greedy: true
+	},
+	'cdata': /<!\[CDATA\[[\s\S]*?]]>/i,
+	'tag': {
+		pattern: /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/i,
+		greedy: true,
+		inside: {
+			'tag': {
+				pattern: /^<\/?[^\s>\/]+/i,
+				inside: {
+					'punctuation': /^<\/?/,
+					'namespace': /^[^\s>\/:]+:/
+				}
+			},
+			'attr-value': {
+				pattern: /=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,
+				inside: {
+					'punctuation': [
+						/^=/,
+						{
+							pattern: /^(\s*)["']|["']$/,
+							lookbehind: true
+						}
+					]
+				}
+			},
+			'punctuation': /\/?>/,
+			'attr-name': {
+				pattern: /[^\s>\/]+/,
+				inside: {
+					'namespace': /^[^\s>\/:]+:/
+				}
+			}
+
+		}
+	},
+	'entity': /&#?[\da-z]{1,8};/i
+};
+----------------------------------------------------
+[
+	"Prism",
+	["char-set", "."],
+	"languages",
+	["char-set", "."],
+	"markup = {\n\t'comment': /<!--",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-set", "\\s"],
+		["char-set", "\\S"],
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*?"],
+	"-->/,\n\t'prolog': /<",
+	["special-escape", "\\?"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-set", "\\s"],
+		["char-set", "\\S"],
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+?"],
+	["special-escape", "\\?"],
+	">/,\n\t'doctype': {\n\t\tpattern: /<!DOCTYPE",
+	["group", ["(?:"]],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		">\"'[",
+		["special-escape", "\\]"],
+		["char-class-punctuation", "]"]
+	]],
+	["alternation", "|"],
+	"\"",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"\"",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*"],
+	"\"",
+	["alternation", "|"],
+	"'",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"'",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*"],
+	"'",
+	["group", ")"],
+	["quantifier", "+"],
+	["group", ["(?:"]],
+	["special-escape", "\\["],
+	["group", ["(?:"]],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"<\"'",
+		["special-escape", "\\]"],
+		["char-class-punctuation", "]"]
+	]],
+	["alternation", "|"],
+	"\"",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"\"",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*"],
+	"\"",
+	["alternation", "|"],
+	"'",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"'",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*"],
+	"'",
+	["alternation", "|"],
+	"<",
+	["group", ["(?!"]],
+	"!--",
+	["group", ")"],
+	["alternation", "|"],
+	"<!--",
+	["group", ["(?:"]],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"-",
+		["char-class-punctuation", "]"]
+	]],
+	["alternation", "|"],
+	"-",
+	["group", ["(?!"]],
+	"->",
+	["group", ")"],
+	["group", ")"],
+	["quantifier", "*"],
+	"-->",
+	["group", ")"],
+	["quantifier", "*"],
+	["special-escape", "\\]"],
+	["char-set", "\\s"],
+	["quantifier", "*"],
+	["group", ")"],
+	["quantifier", "?"],
+	">/i,\n\t\tgreedy: true\n\t},\n\t'cdata': /<!",
+	["special-escape", "\\["],
+	"CDATA",
+	["special-escape", "\\["],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-set", "\\s"],
+		["char-set", "\\S"],
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*?"],
+	"]]>/i,\n\t'tag': {\n\t\tpattern: /<",
+	["escape", "\\/"],
+	["quantifier", "?"],
+	["group", ["(?!"]],
+	["char-set", "\\d"],
+	["group", ")"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		["char-set", "\\s"],
+		">",
+		["escape", "\\/"],
+		"=$<%",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+"],
+	["group", ["(?:"]],
+	["char-set", "\\s"],
+	["group", ["(?:"]],
+	["char-set", "\\s"],
+	["quantifier", "*"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		["char-set", "\\s"],
+		">",
+		["escape", "\\/"],
+		"=",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+"],
+	["group", ["(?:"]],
+	["char-set", "\\s"],
+	["quantifier", "*"],
+	"=",
+	["char-set", "\\s"],
+	["quantifier", "*"],
+	["group", ["(?:"]],
+	"\"",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"\"",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*"],
+	"\"",
+	["alternation", "|"],
+	"'",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"'",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*"],
+	"'",
+	["alternation", "|"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		["char-set", "\\s"],
+		"'\">=",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+"],
+	["group", ["(?="]],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-set", "\\s"],
+		">",
+		["char-class-punctuation", "]"]
+	]],
+	["group", ")"],
+	["group", ")"],
+	["alternation", "|"],
+	["group", ["(?="]],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-set", "\\s"],
+		"/>",
+		["char-class-punctuation", "]"]
+	]],
+	["group", ")"],
+	["group", ")"],
+	["group", ")"],
+	["quantifier", "+"],
+	["group", ")"],
+	["quantifier", "?"],
+	["char-set", "\\s"],
+	["quantifier", "*"],
+	["escape", "\\/"],
+	["quantifier", "?"],
+	">/i,\n\t\tgreedy: true,\n\t\tinside: {\n\t\t\t'tag': {\n\t\t\t\tpattern: /",
+	["anchor", "^"],
+	"<",
+	["escape", "\\/"],
+	["quantifier", "?"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		["char-set", "\\s"],
+		">",
+		["escape", "\\/"],
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+"],
+	"/i,\n\t\t\t\tinside: {\n\t\t\t\t\t'punctuation': /",
+	["anchor", "^"],
+	"<",
+	["escape", "\\/"],
+	["quantifier", "?"],
+	"/,\n\t\t\t\t\t'namespace': /",
+	["anchor", "^"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		["char-set", "\\s"],
+		">",
+		["escape", "\\/"],
+		":",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+"],
+	":/\n\t\t\t\t}\n\t\t\t},\n\t\t\t'attr-value': {\n\t\t\t\tpattern: /=",
+	["char-set", "\\s"],
+	["quantifier", "*"],
+	["group", ["(?:"]],
+	"\"",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"\"",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*"],
+	"\"",
+	["alternation", "|"],
+	"'",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		"'",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "*"],
+	"'",
+	["alternation", "|"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		["char-set", "\\s"],
+		"'\">=",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+"],
+	["group", ")"],
+	"/i,\n\t\t\t\tinside: {\n\t\t\t\t\t'punctuation': ",
+	["char-class", [
+		["char-class-punctuation", "["],
+
+		"\n\t\t\t\t\t\t/^=/,\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tpattern: /^(",
+		["char-set", "\\s"],
+		"*)[\"'",
+		["char-class-punctuation", "]"]
+	]],
+	["alternation", "|"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		"\"'",
+		["char-class-punctuation", "]"]
+	]],
+	["anchor", "$"],
+	"/,\n\t\t\t\t\t\t\tlookbehind: true\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t}\n\t\t\t},\n\t\t\t'punctuation': /",
+	["escape", "\\/"],
+	["quantifier", "?"],
+	">/,\n\t\t\t'attr-name': {\n\t\t\t\tpattern: /",
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		["char-set", "\\s"],
+		">",
+		["escape", "\\/"],
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+"],
+	"/,\n\t\t\t\tinside: {\n\t\t\t\t\t'namespace': /",
+	["anchor", "^"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-class-negation", "^"],
+		["char-set", "\\s"],
+		">",
+		["escape", "\\/"],
+		":",
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "+"],
+	":/\n\t\t\t\t}\n\t\t\t}\n\n\t\t}\n\t},\n\t'entity': /&#",
+	["quantifier", "?"],
+	["char-class", [
+		["char-class-punctuation", "["],
+		["char-set", "\\d"],
+		["range", [
+			"a",
+			["range-punctuation", "-"],
+			"z"
+		]],
+		["char-class-punctuation", "]"]
+	]],
+	["quantifier", "{1,8}"],
+	";/i\n};"
+]
+
+----------------------------------------------------

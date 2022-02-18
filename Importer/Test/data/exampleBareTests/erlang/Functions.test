@@ -1,0 +1,6 @@
+P = spawn(m, loop, []).
+io:format("I am ~p~n", [self()]).
+'weird function'().
+
+--------------------------------------------------
+

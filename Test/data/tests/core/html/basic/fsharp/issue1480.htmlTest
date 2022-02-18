@@ -1,0 +1,13 @@
+let foo' = failWith "foo"
+
+let bar' = failWith "bar"
+
+let map (f: 'a -> 'b) (xs: 'a list): 'b list = failWith "not implemented"
+----------------------------------------------------
+<span class="token keyword">let</span> foo' <span class="token operator">=</span> failWith <span class="token string">"foo"</span>
+
+<span class="token keyword">let</span> bar' <span class="token operator">=</span> failWith <span class="token string">"bar"</span>
+
+<span class="token keyword">let</span> map <span class="token punctuation">(</span>f<span class="token punctuation">:</span> 'a <span class="token operator">-></span> 'b<span class="token punctuation">)</span> <span class="token punctuation">(</span>xs<span class="token punctuation">:</span> 'a list<span class="token punctuation">)</span><span class="token punctuation">:</span> 'b list <span class="token operator">=</span> failWith <span class="token string">"not implemented"</span>
+
+----------------------------------------------------

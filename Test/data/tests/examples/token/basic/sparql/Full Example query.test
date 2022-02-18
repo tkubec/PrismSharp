@@ -1,0 +1,217 @@
+base <http://example.org/geo#>
+	prefix geo: <http://www.opengis.net/ont/geosparql#>
+	prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+	select ?shape ?shapeColor ?shapeHeight ?shapeName (sample(?shapeLabel) as ?shapeLabel)  {
+		{
+			select * {
+				values (?placeName ?streetName) {
+					"Grenoble" "Paul Mistral"
+				}
+				?place geo:NamePlace ?placeName.
+				?pand geo:hasGeometry/geo:asWKT ?shape;
+			}
+
+		}
+		?pand geo:measuredHeight ?shapeHeight.
+		# Only retrieve buildings larger then 10 meters.
+		FILTER ( ?shapeHeight < 10 ) .
+		BIND(IF(!bound(?EindGeldigheid5), "#22b14c", "#ed1c24" ) AS?tColor)
+		# tekst label
+		bind(concat(str(?streetName),' ',str(?houseNumber),', ',str(?PlaceName)) as ?shapeName)
+		bind("""Multi-line
+		String Element
+		""" as ?shapeLabel)
+	}
+	group by ?shape ?shapeColor ?shapeHeight ?shapeName
+	limit 10
+----------------------------------------------------
+[
+	["keyword", "base"],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/geo#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "prefix"],
+	["function", [
+		["prefix", [
+			"geo",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://www.opengis.net/ont/geosparql#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "prefix"],
+	["function", [
+		["prefix", [
+			"rdfs",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://www.w3.org/2000/01/rdf-schema#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "select"],
+	["variable", "?shape"],
+	["variable", "?shapeColor"],
+	["variable", "?shapeHeight"],
+	["variable", "?shapeName"],
+	["punctuation", "("],
+	["keyword", "sample"],
+	["punctuation", "("],
+	["variable", "?shapeLabel"],
+	["punctuation", ")"],
+	["keyword", "as"],
+	["variable", "?shapeLabel"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["punctuation", "{"],
+
+	["keyword", "select"],
+	" * ",
+	["punctuation", "{"],
+
+	["keyword", "values"],
+	["punctuation", "("],
+	["variable", "?placeName"],
+	["variable", "?streetName"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["string", "\"Grenoble\""],
+	["string", "\"Paul Mistral\""],
+
+	["punctuation", "}"],
+
+	["variable", "?place"],
+	["function", [
+		["prefix", [
+			"geo",
+			["punctuation", ":"]
+		]],
+		["local-name", "NamePlace"]
+	]],
+	["variable", "?placeName"],
+	["punctuation", "."],
+
+	["variable", "?pand"],
+	["function", [
+		["prefix", [
+			"geo",
+			["punctuation", ":"]
+		]],
+		["local-name", "hasGeometry"]
+	]],
+	"/",
+	["function", [
+		["prefix", [
+			"geo",
+			["punctuation", ":"]
+		]],
+		["local-name", "asWKT"]
+	]],
+	["variable", "?shape"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["variable", "?pand"],
+	["function", [
+		["prefix", [
+			"geo",
+			["punctuation", ":"]
+		]],
+		["local-name", "measuredHeight"]
+	]],
+	["variable", "?shapeHeight"],
+	["punctuation", "."],
+
+	["comment", "# Only retrieve buildings larger then 10 meters."],
+
+	["keyword", "FILTER"],
+	["punctuation", "("],
+	["variable", "?shapeHeight"],
+	" < ",
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	["keyword", "BIND"],
+	["punctuation", "("],
+	["keyword", "IF"],
+	["punctuation", "("],
+	"!",
+	["keyword", "bound"],
+	["punctuation", "("],
+	["variable", "?EindGeldigheid5"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\"#22b14c\""],
+	["punctuation", ","],
+	["string", "\"#ed1c24\""],
+	["punctuation", ")"],
+	["keyword", "AS"],
+	["variable", "?tColor"],
+	["punctuation", ")"],
+
+	["comment", "# tekst label"],
+
+	["keyword", "bind"],
+	["punctuation", "("],
+	["keyword", "concat"],
+	["punctuation", "("],
+	["keyword", "str"],
+	["punctuation", "("],
+	["variable", "?streetName"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "' '"],
+	["punctuation", ","],
+	["keyword", "str"],
+	["punctuation", "("],
+	["variable", "?houseNumber"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "', '"],
+	["punctuation", ","],
+	["keyword", "str"],
+	["punctuation", "("],
+	["variable", "?PlaceName"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "as"],
+	["variable", "?shapeName"],
+	["punctuation", ")"],
+
+	["keyword", "bind"],
+	["punctuation", "("],
+	["multiline-string", ["\"\"\"Multi-line\n\t\tString Element\n\t\t\"\"\""]],
+	["keyword", "as"],
+	["variable", "?shapeLabel"],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "group"],
+	["keyword", "by"],
+	["variable", "?shape"],
+	["variable", "?shapeColor"],
+	["variable", "?shapeHeight"],
+	["variable", "?shapeName"],
+
+	["keyword", "limit"],
+	["number", "10"]
+]
+
+----------------------------------------------------

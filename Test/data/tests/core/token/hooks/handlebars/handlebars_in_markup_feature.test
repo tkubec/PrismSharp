@@ -1,0 +1,41 @@
+<div>{{{intro}}}</div>
+<div class="{{foo}}">
+___HANDLEBARS1___{{{intro}}}
+{{!<div></div>}}
+----------------------------------------------------
+[
+	["punctuation", "<"],
+	["variable", "div"],
+	["punctuation", ">"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "intro"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "<"],
+	["punctuation", "/"],
+	["variable", "div"],
+	["punctuation", ">"],
+
+	["punctuation", "<"],
+	["variable", "div"],
+	["variable", "class"],
+	["punctuation", "="],
+	["string", "\"{{foo}}\""],
+	["punctuation", ">"],
+
+	["variable", "___HANDLEBARS1___"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "intro"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["comment", "{{!<div></div>}}"]
+]
+
+----------------------------------------------------

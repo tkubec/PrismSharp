@@ -1,0 +1,29 @@
+$"Hello, {{ {name} }}! Today is {date.DayOfWeek}, it's {date:HH:mm} now."
+@$"Hello, {{ {name} }}! Today is {date.DayOfWeek}, it's {date:HH:mm} now."
+$"{a,5} and {b + "" /* foo ":} */:format} {h(a, b)}"
+$"{1}{2}{3}"
+
+@$"
+"
+$@"
+"
+
+$@"{
+	1 + 2 // some comment ":}{}
+}"
+----------------------------------------------------
+<span class="token interpolation-string"><span class="token string">$"Hello, {{ </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">name</span><span class="token punctuation">}</span></span><span class="token string"> }}! Today is </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">date<span class="token punctuation">.</span>DayOfWeek</span><span class="token punctuation">}</span></span><span class="token string">, it's </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">date</span><span class="token format-string"><span class="token punctuation">:</span>HH:mm</span><span class="token punctuation">}</span></span><span class="token string"> now."</span></span>
+<span class="token interpolation-string"><span class="token string">@$"Hello, {{ </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">name</span><span class="token punctuation">}</span></span><span class="token string"> }}! Today is </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">date<span class="token punctuation">.</span>DayOfWeek</span><span class="token punctuation">}</span></span><span class="token string">, it's </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">date</span><span class="token format-string"><span class="token punctuation">:</span>HH:mm</span><span class="token punctuation">}</span></span><span class="token string"> now."</span></span>
+<span class="token interpolation-string"><span class="token string">$"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">a<span class="token punctuation">,</span><span class="token number">5</span></span><span class="token punctuation">}</span></span><span class="token string"> and </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">b <span class="token operator">+</span> <span class="token string">""</span> <span class="token comment">/* foo ":} */</span></span><span class="token format-string"><span class="token punctuation">:</span>format</span><span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp"><span class="token function">h</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span></span><span class="token punctuation">}</span></span><span class="token string">"</span></span>
+<span class="token interpolation-string"><span class="token string">$"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp"><span class="token number">1</span></span><span class="token punctuation">}</span></span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp"><span class="token number">2</span></span><span class="token punctuation">}</span></span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp"><span class="token number">3</span></span><span class="token punctuation">}</span></span><span class="token string">"</span></span>
+
+<span class="token interpolation-string"><span class="token string">@$"
+"</span></span>
+<span class="token interpolation-string"><span class="token string">$@"
+"</span></span>
+
+<span class="token interpolation-string"><span class="token string">$@"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">
+	<span class="token number">1</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token comment">// some comment ":}{}</span>
+</span><span class="token punctuation">}</span></span><span class="token string">"</span></span>
+
+----------------------------------------------------

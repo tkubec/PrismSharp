@@ -1,0 +1,15 @@
+@import "foo.scss";
+@media (min-width: 600px) {}
+.seriousError {
+    @extend .error;
+}
+@for $i from 1 through 3 {}
+----------------------------------------------------
+<span class="token keyword">@import</span> <span class="token string">"foo.scss"</span><span class="token punctuation">;</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector">.seriousError </span><span class="token punctuation">{</span>
+    <span class="token keyword">@extend</span> .error<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">@for</span> <span class="token variable">$i</span> <span class="token keyword">from</span> 1 <span class="token keyword">through</span> <span class="token selector">3 </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

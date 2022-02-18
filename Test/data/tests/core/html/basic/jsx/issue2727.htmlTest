@@ -1,0 +1,187 @@
+import React from 'react'
+
+import * as MaxMSP from 'maxmsp-gui'
+import 'maxmsp-gui/dist/index.css'
+
+export default function App() {
+    return (
+        <React.Fragment>
+
+            <MaxMSP.Bang
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                ariaPressed={true || false} // default null
+                onClick={() => console.log('bang')}
+            />
+
+            <MaxMSP.Ezdac
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                value={true || false} // default false
+                onClick={(bool) => console.log(bool)} // true or false
+            />
+
+            <MaxMSP.Message
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                ariaPressed={true || false} // default null
+                text='What does the message say?'
+                onClick={() => console.log('bang')}
+            />
+
+            <MaxMSP.Object
+                inactive={true || false} // default false
+                text='What is the object called?'
+            />
+
+            <MaxMSP.Playbar
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                fidelity={100} // max output of slider, default 100
+                inactive={true || false} // diable user interaction, default false
+                setPlaying={true || false} // set isPlaying externally
+                value={50} // inital/updated state, 0 to this.props.fidelity, default 0
+                width={200} // width of the slider in pixels, default 200
+                isPlaying={(bool) => console.log(bool)}
+                onChange={(i) => console.log(`My value is ${i}`)} // 0 - this.props.fidelity
+            />
+
+            <MaxMSP.RadioGroup
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                items={['array', 'of', 'items']} // this sets the amount of radiobuttons, strings create text alongside each button
+                spacing={24} // the height of each button in pixels, defualt 20
+                value={i} // this.props.items[i], default 0
+                onClick={(i) => console.log(`My value is ${i}`)}
+            />
+
+            <MaxMSP.Slider
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                fidelity={100} // max output of slider, default 100
+                length={200} // width of the slider in pixels, default 200
+                value={50} // inital/updated state, 0 to this.props.fidelity, default 0
+                onChange={(i) => console.log(`My value is ${i}`)} // 0 - this.props.fidelity
+            />
+
+            <MaxMSP.TextButton
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                ariaPressed={true || false} // default null, for mode 'false' only
+                inactive={true || false} // diable user interaction, default false
+                mode={true || false} // true for toggle, false for bang, default false
+                text='What does the textbutton say?'
+                toggleText='What does the toggled textbutton say?'
+                value={true || false} // default false, for mode 'true' only
+                // mode 0 onClick
+                onClick={() => console.log('bang')}
+                // mode 1 onClick
+                onClick={(bool) => console.log(bool)}
+            />
+
+            <MaxMSP.Toggle
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                value={true || false} // default false
+                onClick={(bool) => console.log(bool)}
+            />
+
+            <MaxMSP.Umenu
+                ariaLabel='set the aria-label tag' // defaults to the object name
+                items={['array', 'of', 'items']}
+                outputSymbol={true || false} // true for symbol false for int, default false
+                value={i} // this.props.items[i], default 0
+                width={200} // width of the umenu in pixels, default 100
+                onChange={(x) => console.log(`My index/item is ${x}`)}
+            />
+
+        </React.Fragment>
+    )
+}
+----------------------------------------------------
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> MaxMSP <span class="token keyword">from</span> <span class="token string">'maxmsp-gui'</span>
+<span class="token keyword">import</span> <span class="token string">'maxmsp-gui/dist/index.css'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">React.Fragment</span></span><span class="token punctuation">></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.Bang</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">ariaPressed</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// default null</span>
+                <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'bang'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.Ezdac</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// default false</span>
+                <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">bool</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bool<span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token comment">// true or false</span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.Message</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">ariaPressed</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// default null</span>
+                <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>What does the message say?<span class="token punctuation">'</span></span>
+                <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'bang'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.Object</span></span>
+                <span class="token attr-name">inactive</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// default false</span>
+                <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>What is the object called?<span class="token punctuation">'</span></span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.Playbar</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">fidelity</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">}</span></span> <span class="token comment">// max output of slider, default 100</span>
+                <span class="token attr-name">inactive</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// diable user interaction, default false</span>
+                <span class="token attr-name">setPlaying</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// set isPlaying externally</span>
+                <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">50</span><span class="token punctuation">}</span></span> <span class="token comment">// inital/updated state, 0 to this.props.fidelity, default 0</span>
+                <span class="token attr-name">width</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">200</span><span class="token punctuation">}</span></span> <span class="token comment">// width of the slider in pixels, default 200</span>
+                <span class="token attr-name">isPlaying</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">bool</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bool<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+                <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My value is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token comment">// 0 - this.props.fidelity</span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.RadioGroup</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">items</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'array'</span><span class="token punctuation">,</span> <span class="token string">'of'</span><span class="token punctuation">,</span> <span class="token string">'items'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span> <span class="token comment">// this sets the amount of radiobuttons, strings create text alongside each button</span>
+                <span class="token attr-name">spacing</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">24</span><span class="token punctuation">}</span></span> <span class="token comment">// the height of each button in pixels, defualt 20</span>
+                <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>i<span class="token punctuation">}</span></span> <span class="token comment">// this.props.items[i], default 0</span>
+                <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My value is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.Slider</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">fidelity</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">}</span></span> <span class="token comment">// max output of slider, default 100</span>
+                <span class="token attr-name">length</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">200</span><span class="token punctuation">}</span></span> <span class="token comment">// width of the slider in pixels, default 200</span>
+                <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">50</span><span class="token punctuation">}</span></span> <span class="token comment">// inital/updated state, 0 to this.props.fidelity, default 0</span>
+                <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My value is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token comment">// 0 - this.props.fidelity</span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.TextButton</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">ariaPressed</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// default null, for mode 'false' only</span>
+                <span class="token attr-name">inactive</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// diable user interaction, default false</span>
+                <span class="token attr-name">mode</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// true for toggle, false for bang, default false</span>
+                <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>What does the textbutton say?<span class="token punctuation">'</span></span>
+                <span class="token attr-name">toggleText</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>What does the toggled textbutton say?<span class="token punctuation">'</span></span>
+                <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// default false, for mode 'true' only</span>
+                <span class="token comment">// mode 0 onClick</span>
+                <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'bang'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+                <span class="token comment">// mode 1 onClick</span>
+                <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">bool</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bool<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.Toggle</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// default false</span>
+                <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">bool</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bool<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+            <span class="token punctuation">/></span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">MaxMSP.Umenu</span></span>
+                <span class="token attr-name">ariaLabel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>set the aria-label tag<span class="token punctuation">'</span></span> <span class="token comment">// defaults to the object name</span>
+                <span class="token attr-name">items</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'array'</span><span class="token punctuation">,</span> <span class="token string">'of'</span><span class="token punctuation">,</span> <span class="token string">'items'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+                <span class="token attr-name">outputSymbol</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token comment">// true for symbol false for int, default false</span>
+                <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>i<span class="token punctuation">}</span></span> <span class="token comment">// this.props.items[i], default 0</span>
+                <span class="token attr-name">width</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">200</span><span class="token punctuation">}</span></span> <span class="token comment">// width of the umenu in pixels, default 100</span>
+                <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My index/item is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+            <span class="token punctuation">/></span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">React.Fragment</span></span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

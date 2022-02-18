@@ -1,0 +1,57 @@
+0
++0
+-0
+
+123
++123
+-123
+
+0xdeadBEEF
++0xdeadBEEF
+-0xdeadBEEF
+
+NaN
+Infinity
++Infinity
+-Infinity
+
+3.14159
+5.0e8
+5.e8
+0.2E+2
+.2E+2
+47e-5
+-1.23
+-2.34E33
+-4.34E-33
++4.34E+33
+----------------------------------------------------
+<span class="token number">0</span>
+<span class="token number">+0</span>
+<span class="token number">-0</span>
+
+<span class="token number">123</span>
+<span class="token number">+123</span>
+<span class="token number">-123</span>
+
+<span class="token number">0xdeadBEEF</span>
+<span class="token number">+0xdeadBEEF</span>
+<span class="token number">-0xdeadBEEF</span>
+
+<span class="token number">NaN</span>
+<span class="token number">Infinity</span>
+<span class="token number">+Infinity</span>
+<span class="token number">-Infinity</span>
+
+<span class="token number">3.14159</span>
+<span class="token number">5.0e8</span>
+<span class="token number">5.e8</span>
+<span class="token number">0.2E+2</span>
+<span class="token number">.2E+2</span>
+<span class="token number">47e-5</span>
+<span class="token number">-1.23</span>
+<span class="token number">-2.34E33</span>
+<span class="token number">-4.34E-33</span>
+<span class="token number">+4.34E+33</span>
+
+----------------------------------------------------

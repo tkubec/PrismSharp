@@ -1,0 +1,10 @@
+PREFIX foaf:    &lt;http://xmlns.com/foaf/0.1/&gt;
+
+SELECT  ?name
+WHERE   { ?x foaf:name ?name }
+ORDER BY ?name
+LIMIT   5
+OFFSET  10
+
+--------------------------------------------------
+

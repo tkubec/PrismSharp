@@ -1,0 +1,109 @@
+(begin)
+(case)
+(case-lambda)
+(cond)
+(cond-expand)
+(define-library)
+(define-macro)
+(define-record-type)
+(define-syntax)
+(define-values)
+(define)
+(defmacro)
+(delay-force)
+(delay)
+(do)
+(else)
+(export)
+(except)
+(guard)
+(if)
+(import)
+(include)
+(include-ci)
+(include-library-declarations)
+(lambda)
+(let-syntax)
+(let-values)
+(let)
+(let*-values)
+(let*)
+(letrec-syntax)
+(letrec-values)
+(letrec)
+(letrec*)
+(only)
+(parameterize)
+(prefix)
+(quasi-quote)
+(quasiquote)
+(quote)
+(rename)
+(set!)
+(syntax-case)
+(syntax-rules)
+(unless)
+(unquote)
+(unquote-splicing)
+(when)
+
+; with brackets
+
+[if]
+[when]
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token keyword">begin</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">case</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">case-lambda</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">cond</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">cond-expand</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">define-library</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">define-macro</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">define-record-type</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">define-syntax</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">define-values</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">define</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defmacro</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">delay-force</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">delay</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">do</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">else</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">export</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">except</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">guard</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">if</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">import</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">include</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">include-ci</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">include-library-declarations</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">lambda</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">let-syntax</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">let-values</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">let</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">let*-values</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">let*</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">letrec-syntax</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">letrec-values</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">letrec</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">letrec*</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">only</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">parameterize</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">prefix</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">quasi-quote</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">quasiquote</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">quote</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">rename</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">set!</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">syntax-case</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">syntax-rules</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">unless</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">unquote</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">unquote-splicing</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">when</span><span class="token punctuation">)</span>
+
+<span class="token comment">; with brackets</span>
+
+<span class="token punctuation">[</span><span class="token keyword">if</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">when</span><span class="token punctuation">]</span>
+
+----------------------------------------------------

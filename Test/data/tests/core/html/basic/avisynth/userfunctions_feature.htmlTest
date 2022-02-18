@@ -1,0 +1,23 @@
+function CustomUserFunction() {
+
+QTGMC()
+last.QTGMC
+last.QTGMC()
+
+QTGMC
+1func()
+last.1func
+last.1func()
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function">CustomUserFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token function">QTGMC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token variable">last</span><span class="token punctuation">.</span><span class="token function">QTGMC</span>
+<span class="token variable">last</span><span class="token punctuation">.</span><span class="token function">QTGMC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+QTGMC
+1func<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token variable">last</span><span class="token punctuation">.</span>1func
+<span class="token variable">last</span><span class="token punctuation">.</span>1func<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

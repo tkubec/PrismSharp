@@ -1,0 +1,9 @@
+@ifndef ourexp
+@load-sigs somesigs
+----------------------------------------------------
+[
+	["builtin", "@ifndef"], " ourexp\n",
+	["builtin", "@load-sigs"], " somesigs"
+]
+
+----------------------------------------------------

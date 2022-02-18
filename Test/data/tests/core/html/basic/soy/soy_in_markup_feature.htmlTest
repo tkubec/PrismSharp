@@ -1,0 +1,11 @@
+<div>{$msg}</div>
+<div class="{$msg}">
+<h{$headingLevel}>
+___SOY1___{$foo}
+----------------------------------------------------
+<span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span><span class="token variable">$msg</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span>div <span class="token property">class</span><span class="token operator">=</span><span class="token string">"{$msg}"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>h<span class="token punctuation">{</span><span class="token variable">$headingLevel</span><span class="token punctuation">}</span><span class="token operator">></span>
+___SOY1___<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

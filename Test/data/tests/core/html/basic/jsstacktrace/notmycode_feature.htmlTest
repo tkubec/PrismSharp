@@ -1,0 +1,17 @@
+Some text
+	at new Foo (foo.js:3:7)
+	at processTicksAndRejections (internal/process/task_queues.js:98:32)
+
+Foo
+    at throwsA (<unknown>:1:23)
+    at <unknown>:1:13
+----------------------------------------------------
+<span class="token error-message string">Some text</span>
+	<span class="token stack-frame"><span class="token keyword">at</span> <span class="token keyword">new</span> <span class="token function">Foo</span> <span class="token punctuation">(</span><span class="token filename url">foo.js</span><span class="token line-number number"><span class="token punctuation">:</span>3<span class="token punctuation">:</span>7</span><span class="token punctuation">)</span></span>
+	<span class="token stack-frame"><span class="token not-my-code comment">at processTicksAndRejections (internal/process/task_queues.js:98:32)</span></span>
+
+<span class="token error-message string">Foo</span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at throwsA (&lt;unknown>:1:23)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at &lt;unknown>:1:13</span></span>
+
+----------------------------------------------------

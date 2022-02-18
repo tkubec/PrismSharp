@@ -1,0 +1,27 @@
+if has("mac")
+  nmap <D-j> <M-j>
+endif
+----------------------------------------------------
+[
+	["keyword", "if"],
+	["function", "has"],
+	["punctuation", "("],
+	["string", "\"mac\""],
+	["punctuation", ")"],
+
+	"\n  nmap ",
+	["operator", "<"],
+	"D",
+	["operator", "-"],
+	["keyword", "j"],
+	["operator", ">"],
+	["operator", "<"],
+	"M",
+	["operator", "-"],
+	["keyword", "j"],
+	["operator", ">"],
+
+	["keyword", "endif"]
+]
+
+----------------------------------------------------

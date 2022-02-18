@@ -1,0 +1,9 @@
+	PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+	PREFIX xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt;
+	PREFIX eg:   &lt;http://biometrics.example/ns#&gt;
+	SELECT ?name ?shoeSize
+	 WHERE { ?x foaf:name  ?name ; eg:shoeSize  ?shoeSize .
+					 FILTER ( datatype(?shoeSize) = xsd:integer ) }
+
+--------------------------------------------------
+

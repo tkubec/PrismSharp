@@ -1,0 +1,31 @@
+<?php
+
+/** @var \DateTime[] An array of DateTime objects. */
+/** @var string[] An array of string objects. */
+/** @var callable[] An array of with callable functions or methods. */
+
+/** @var \ArrayObject|\DateTime[] */
+$dates = array()
+
+/**
+ * @param bool|\DateTime $foo the first argument
+ * @return string|null
+ */
+function bar($foo) { ... }
+----------------------------------------------------
+&lt;?php
+
+/** <span class="token keyword">@var</span> <span class="token class-name"><span class="token punctuation">\</span>DateTime<span class="token punctuation">[</span><span class="token punctuation">]</span></span> An array of DateTime objects. */
+/** <span class="token keyword">@var</span> <span class="token class-name"><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> An array of string objects. */
+/** <span class="token keyword">@var</span> <span class="token class-name">callable<span class="token punctuation">[</span><span class="token punctuation">]</span></span> An array of with callable functions or methods. */
+
+/** <span class="token keyword">@var</span> <span class="token class-name"><span class="token punctuation">\</span>ArrayObject<span class="token punctuation">|</span><span class="token punctuation">\</span>DateTime<span class="token punctuation">[</span><span class="token punctuation">]</span></span> */
+$dates = array()
+
+/**
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">bool</span><span class="token punctuation">|</span><span class="token punctuation">\</span>DateTime</span> <span class="token parameter">$foo</span> the first argument
+ * <span class="token keyword">@return</span> <span class="token class-name"><span class="token keyword">string</span><span class="token punctuation">|</span><span class="token keyword">null</span></span>
+ */
+function bar($foo) <span class="token punctuation">{</span> ... <span class="token punctuation">}</span>
+
+----------------------------------------------------

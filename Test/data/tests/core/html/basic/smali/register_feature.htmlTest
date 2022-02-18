@@ -1,0 +1,17 @@
+move v1, p1
+
+move v2, p2
+
+move-object v4, p3
+
+move v5, p4
+----------------------------------------------------
+move <span class="token register variable">v1</span><span class="token punctuation">,</span> <span class="token register variable">p1</span>
+
+move <span class="token register variable">v2</span><span class="token punctuation">,</span> <span class="token register variable">p2</span>
+
+move-object <span class="token register variable">v4</span><span class="token punctuation">,</span> <span class="token register variable">p3</span>
+
+move <span class="token register variable">v5</span><span class="token punctuation">,</span> <span class="token register variable">p4</span>
+
+----------------------------------------------------

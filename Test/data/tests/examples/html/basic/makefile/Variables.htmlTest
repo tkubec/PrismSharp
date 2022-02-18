@@ -1,0 +1,27 @@
+objects = main.o kbd.o command.o display.o \
+          insert.o search.o files.o utils.o
+
+edit : $(objects)
+        cc -o edit $(objects)
+
+$(objects) : defs.h
+
+%oo: $$< $$^ $$+ $$*
+
+foo : bar/lose
+        cd $(@D) && gobble $(@F) > ../$@
+----------------------------------------------------
+objects <span class="token operator">=</span> main.o kbd.o command.o display.o \
+          insert.o search.o files.o utils.o
+
+<span class="token target symbol">edit</span> <span class="token punctuation">:</span> <span class="token variable">$</span><span class="token punctuation">(</span>objects<span class="token punctuation">)</span>
+        cc -o edit <span class="token variable">$</span><span class="token punctuation">(</span>objects<span class="token punctuation">)</span>
+
+<span class="token target symbol"><span class="token variable">$</span>(objects)</span> <span class="token punctuation">:</span> defs.h
+
+<span class="token target symbol">%oo</span><span class="token punctuation">:</span> <span class="token variable">$$&lt;</span> <span class="token variable">$$^</span> <span class="token variable">$$+</span> <span class="token variable">$$*</span>
+
+<span class="token target symbol">foo</span> <span class="token punctuation">:</span> bar/lose
+        cd <span class="token variable">$(@D)</span> &amp;&amp; gobble <span class="token variable">$(@F)</span> > ../<span class="token variable">$@</span>
+
+----------------------------------------------------

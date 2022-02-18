@@ -1,0 +1,20 @@
+{$foo[4]}
+{$foo['bar']}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["variable", "$foo"],
+	["punctuation", "["],
+	["number", "4"],
+	["punctuation", "]"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["punctuation", "["],
+	["string", "'bar'"],
+	["punctuation", "]"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

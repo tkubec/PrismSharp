@@ -1,0 +1,11 @@
+<![CDATA[ foo bar baz ]]>
+<![CDATA[
+foo bar baz
+]]>
+----------------------------------------------------
+<span class="token cdata">&lt;![CDATA[ foo bar baz ]]></span>
+<span class="token cdata">&lt;![CDATA[
+foo bar baz
+]]></span>
+
+----------------------------------------------------

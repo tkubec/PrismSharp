@@ -1,0 +1,52 @@
+@author("Nicolas")
+@debug
+class MyClass {
+  @range(1, 8)
+  var value:Int;
+
+  @broken
+  @:noCompletion
+  static function method() { }
+}
+----------------------------------------------------
+[
+	["metadata", "@author"],
+	["punctuation", "("],
+	["string", "\"Nicolas\""],
+	["punctuation", ")"],
+
+	["metadata", "@debug"],
+
+	["keyword", "class"],
+	["class-name", "MyClass"],
+	["punctuation", "{"],
+
+	["metadata", "@range"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "8"],
+	["punctuation", ")"],
+
+	["keyword", "var"],
+	" value",
+	["operator", ":"],
+	["class-name", "Int"],
+	["punctuation", ";"],
+
+	["metadata", "@broken"],
+
+	["metadata", "@:noCompletion"],
+
+	["keyword", "static"],
+	["keyword", "function"],
+	["function", "method"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

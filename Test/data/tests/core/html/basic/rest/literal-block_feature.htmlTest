@@ -1,0 +1,21 @@
+::
+	Foo
+	Bar
+	Baz
+
+Foobar::
+  Foo
+  Bar
+  Baz
+----------------------------------------------------
+<span class="token literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+	Foo
+	Bar
+	Baz</span>
+
+Foobar<span class="token literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+  Foo
+  Bar
+  Baz</span>
+
+----------------------------------------------------

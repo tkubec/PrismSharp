@@ -1,0 +1,13 @@
+"This is a string."
+"This is a string with \"quotes\" in it."
+"""This is
+a "multi-line"
+string."""
+""""A long string within quotes.""""
+R"This is a raw string."
+r"Some ""quotes"" inside a raw string."
+r"""Raw strings
+can also be multi-line."""
+foo"This is a generalized raw string literal."
+bar"""This is also
+a generalized raw string literal."""

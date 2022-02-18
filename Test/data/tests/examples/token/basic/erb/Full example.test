@@ -1,0 +1,205 @@
+<%# index.erb %>
+<h1>Listing Books</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Summary</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @books.each do |book| %>
+  <tr>
+    <td><%= book.title %></td>
+    <td><%= book.content %></td>
+    <td><%= link_to "Show", book %></td>
+    <td><%= link_to "Edit", edit_book_path(book) %></td>
+    <td><%= link_to "Remove", book, method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
+<% end %>
+</table>
+----------------------------------------------------
+[
+	["delimiter", "<%"],
+	["ruby", [
+		["comment", "# index.erb %>"],
+
+		["operator", "<"],
+		"h1",
+		["operator", ">"],
+		"Listing Books",
+		["operator", "<"],
+		["operator", "/"],
+		"h1",
+		["operator", ">"],
+
+		["operator", "<"],
+		"table",
+		["operator", ">"],
+
+		["operator", "<"],
+		"tr",
+		["operator", ">"],
+
+		["operator", "<"],
+		"th",
+		["operator", ">"],
+		"Title",
+		["operator", "<"],
+		["operator", "/"],
+		"th",
+		["operator", ">"],
+
+		["operator", "<"],
+		"th",
+		["operator", ">"],
+		"Summary",
+		["operator", "<"],
+		["operator", "/"],
+		"th",
+		["operator", ">"],
+
+		["operator", "<"],
+		"th",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "/"],
+		"th",
+		["operator", ">"],
+
+		["operator", "<"],
+		"th",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "/"],
+		"th",
+		["operator", ">"],
+
+		["operator", "<"],
+		"th",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "/"],
+		"th",
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "/"],
+		"tr",
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["variable", "@books"],
+		["punctuation", "."],
+		["keyword", "each"],
+		["keyword", "do"],
+		["operator", "|"],
+		"book",
+		["operator", "|"],
+		["string-literal", [
+			["string", "%>\n  <tr>"]
+		]],
+
+		["operator", "<"],
+		"td",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "%="],
+		" book",
+		["punctuation", "."],
+		"title ",
+		["string-literal", [
+			["string", "%></td>"]
+		]],
+
+		["operator", "<"],
+		"td",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "%="],
+		" book",
+		["punctuation", "."],
+		"content ",
+		["string-literal", [
+			["string", "%></td>"]
+		]],
+
+		["operator", "<"],
+		"td",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "%="],
+		" link_to ",
+		["string-literal", [
+			["string", "\"Show\""]
+		]],
+		["punctuation", ","],
+		" book ",
+		["string-literal", [
+			["string", "%></td>"]
+		]],
+
+		["operator", "<"],
+		"td",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "%="],
+		" link_to ",
+		["string-literal", [
+			["string", "\"Edit\""]
+		]],
+		["punctuation", ","],
+		" edit_book_path",
+		["punctuation", "("],
+		"book",
+		["punctuation", ")"],
+		["string-literal", [
+			["string", "%></td>"]
+		]],
+
+		["operator", "<"],
+		"td",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "%="],
+		" link_to ",
+		["string-literal", [
+			["string", "\"Remove\""]
+		]],
+		["punctuation", ","],
+		" book",
+		["punctuation", ","],
+		["symbol", "method"],
+		["operator", ":"],
+		["symbol", ":delete"],
+		["punctuation", ","],
+		["symbol", "data"],
+		["operator", ":"],
+		["punctuation", "{"],
+		["symbol", "confirm"],
+		["operator", ":"],
+		["string-literal", [
+			["string", "\"Are you sure?\""]
+		]],
+		["punctuation", "}"],
+		["string-literal", [
+			["string", "%></td>"]
+		]],
+
+		["operator", "<"],
+		["operator", "/"],
+		"tr",
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["keyword", "end"],
+		["string-literal", [
+			["string", "%>\n</table>"]
+		]]
+	]]
+]
+
+----------------------------------------------------

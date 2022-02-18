@@ -1,0 +1,17 @@
+variable_instance_set(_inst,_var_name,_start+_change);
+----------------------------------------------------
+[
+	["function", "variable_instance_set"],
+	["punctuation", "("],
+	"_inst",
+	["punctuation", ","],
+	"_var_name",
+	["punctuation", ","],
+	"_start",
+	["operator", "+"],
+	"_change",
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

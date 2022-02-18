@@ -1,0 +1,13 @@
+max-age=31536000; includeSubdomains; preload
+----------------------------------------------------
+[
+	["directive", "max-age"],
+	["operator", "="],
+	"31536000",
+	["punctuation", ";"],
+	["directive", "includeSubdomains"],
+	["punctuation", ";"],
+	["directive", "preload"]
+]
+
+----------------------------------------------------

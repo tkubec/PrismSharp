@@ -1,0 +1,21 @@
+always_latch
+always_comb
+always_ff
+always
+
+always_latch @
+always_comb @
+always_ff @
+always @
+----------------------------------------------------
+<span class="token important">always_latch</span>
+<span class="token important">always_comb</span>
+<span class="token important">always_ff</span>
+<span class="token important">always</span>
+
+<span class="token important">always_latch @</span>
+<span class="token important">always_comb @</span>
+<span class="token important">always_ff @</span>
+<span class="token important">always @</span>
+
+----------------------------------------------------

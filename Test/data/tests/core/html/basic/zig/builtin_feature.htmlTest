@@ -1,0 +1,207 @@
+@addWithOverflow()
+@alignCast()
+@alignOf()
+@ArgType()
+@atomicLoad()
+@atomicRmw()
+@bitCast()
+@bitOffsetOf()
+@boolToInt()
+@breakpoint()
+@mulAdd()
+@byteSwap()
+@bitReverse()
+@byteOffsetOf()
+@bytesToSlice()
+@cDefine()
+@cImport()
+@cInclude()
+@clz()
+@cmpxchgStrong()
+@cmpxchgWeak()
+@compileError()
+@compileLog()
+@ctz()
+@cUndef()
+@divExact()
+@divFloor()
+@divTrunc()
+@embedFile()
+@enumToInt()
+@errorName()
+@errorReturnTrace()
+@errorToInt()
+@errSetCast()
+@export()
+@fence()
+@field()
+@fieldParentPtr()
+@floatCast()
+@floatToInt()
+@frameAddress()
+@handle()
+@hasDecl()
+@hasField()
+@import()
+@inlineCall()
+@intCast()
+@intToEnum()
+@intToError()
+@intToFloat()
+@intToPtr()
+@IntType()
+@memberCount()
+@memberName()
+@memberType()
+@memcpy()
+@memset()
+@mod()
+@mulWithOverflow()
+@newStackCall()
+@noInlineCall()
+@OpaqueType()
+@panic()
+@popCount()
+@ptrCast()
+@ptrToInt()
+@rem()
+@returnAddress()
+@setAlignStack()
+@setCold()
+@setEvalBranchQuota()
+@setFloatMode()
+@setRuntimeSafety()
+@shlExact()
+@shlWithOverflow()
+@shrExact()
+@sizeOf()
+@sliceToBytes()
+@sqrt()
+@sin()
+@cos()
+@exp()
+@exp2()
+@ln()
+@log2()
+@log10()
+@fabs()
+@floor()
+@ceil()
+@trunc()
+@round()
+@subWithOverflow()
+@tagName()
+@TagType()
+@This()
+@truncate()
+@typeId()
+@typeInfo()
+@typeName()
+@typeOf()
+@unionInit()
+@Vector()
+----------------------------------------------------
+<span class="token builtin">@addWithOverflow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@alignCast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@alignOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@ArgType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@atomicLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@atomicRmw</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@bitCast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@bitOffsetOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@boolToInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@breakpoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@mulAdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@byteSwap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@bitReverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@byteOffsetOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@bytesToSlice</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@cDefine</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@cImport</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@cInclude</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@clz</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@cmpxchgStrong</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@cmpxchgWeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@compileError</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@compileLog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@ctz</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@cUndef</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@divExact</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@divFloor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@divTrunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@embedFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@enumToInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@errorName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@errorReturnTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@errorToInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@errSetCast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@export</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@fence</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@field</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@fieldParentPtr</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@floatCast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@floatToInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@frameAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@hasDecl</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@hasField</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@import</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@inlineCall</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@intCast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@intToEnum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@intToError</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@intToFloat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@intToPtr</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@IntType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@memberCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@memberName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@memberType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@memcpy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@memset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@mod</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@mulWithOverflow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@newStackCall</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@noInlineCall</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@OpaqueType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@panic</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@popCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@ptrCast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@ptrToInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@rem</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@returnAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@setAlignStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@setCold</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@setEvalBranchQuota</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@setFloatMode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@setRuntimeSafety</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@shlExact</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@shlWithOverflow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@shrExact</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@sizeOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@sliceToBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@sqrt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@sin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@cos</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@exp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@exp2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@ln</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@log2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@log10</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@fabs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@floor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@ceil</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@trunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@round</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@subWithOverflow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@tagName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@TagType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@This</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@truncate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@typeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@typeInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@typeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@typeOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@unionInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">@Vector</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

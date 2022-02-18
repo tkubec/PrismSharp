@@ -1,0 +1,17 @@
+"hi"
+'hi'
+'c'
+'what "yach"'
+s'c'
+"c"
+r"[a-z|A-Z]+"
+----------------------------------------------------
+<span class="token string-literal"><span class="token string">"hi"</span></span>
+<span class="token string-literal"><span class="token string">'hi'</span></span>
+<span class="token string-literal"><span class="token string">'c'</span></span>
+<span class="token string-literal"><span class="token string">'what "yach"'</span></span>
+<span class="token string-literal"><span class="token string">s'c'</span></span>
+<span class="token string-literal"><span class="token string">"c"</span></span>
+<span class="token regex-literal"><span class="token regex">r"[a-z|A-Z]+"</span></span>
+
+----------------------------------------------------

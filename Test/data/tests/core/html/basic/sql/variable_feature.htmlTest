@@ -1,0 +1,23 @@
+@foo
+@foo_bar_42
+@"fo\"o-b
+ar"
+@'fo\'o-b
+ar'
+@`fo\`o-b
+ar`
+@'foo'
+@'bar'
+----------------------------------------------------
+<span class="token variable">@foo</span>
+<span class="token variable">@foo_bar_42</span>
+<span class="token variable">@"fo\"o-b
+ar"</span>
+<span class="token variable">@'fo\'o-b
+ar'</span>
+<span class="token variable">@`fo\`o-b
+ar`</span>
+<span class="token variable">@'foo'</span>
+<span class="token variable">@'bar'</span>
+
+----------------------------------------------------

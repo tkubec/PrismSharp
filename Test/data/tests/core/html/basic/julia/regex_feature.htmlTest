@@ -1,0 +1,11 @@
+r"foo"i
+r"(a|b)(c)?(d)"
+r"^\s*(?:#\s*(.*?)\s*$|$)"
+r"a+.*b+.*?d$"ism
+----------------------------------------------------
+<span class="token regex">r"foo"i</span>
+<span class="token regex">r"(a|b)(c)?(d)"</span>
+<span class="token regex">r"^\s*(?:#\s*(.*?)\s*$|$)"</span>
+<span class="token regex">r"a+.*b+.*?d$"ism</span>
+
+----------------------------------------------------

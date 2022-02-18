@@ -1,0 +1,45 @@
+title 1
+==
+
+foobar
+======
+
+Überschrift
+===========
+
+Überschrift
+--
+
+title 2
+--
+
+# title 1
+## title 2
+### title 3
+#### title 4
+##### title 5
+###### title 6
+----------------------------------------------------
+<span class="token title important">title 1
+<span class="token punctuation">==</span></span>
+
+<span class="token title important">foobar
+<span class="token punctuation">======</span></span>
+
+<span class="token title important">Überschrift
+<span class="token punctuation">===========</span></span>
+
+<span class="token title important">Überschrift
+<span class="token punctuation">--</span></span>
+
+<span class="token title important">title 2
+<span class="token punctuation">--</span></span>
+
+<span class="token title important"><span class="token punctuation">#</span> title 1</span>
+<span class="token title important"><span class="token punctuation">##</span> title 2</span>
+<span class="token title important"><span class="token punctuation">###</span> title 3</span>
+<span class="token title important"><span class="token punctuation">####</span> title 4</span>
+<span class="token title important"><span class="token punctuation">#####</span> title 5</span>
+<span class="token title important"><span class="token punctuation">######</span> title 6</span>
+
+----------------------------------------------------

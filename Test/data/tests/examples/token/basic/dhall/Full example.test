@@ -1,0 +1,203 @@
+-- source: https://github.com/dhall-lang/dhall-lang/blob/master/Prelude/Optional/head.dhall
+
+{-
+Returns the first non-empty `Optional` value in a `List`
+-}
+let head
+    : ∀(a : Type) → List (Optional a) → Optional a
+    = λ(a : Type) →
+      λ(xs : List (Optional a)) →
+        List/fold
+          (Optional a)
+          xs
+          (Optional a)
+          ( λ(l : Optional a) →
+            λ(r : Optional a) →
+              merge { Some = λ(x : a) → Some x, None = r } l
+          )
+          (None a)
+
+let example0 = assert : head Natural [ None Natural, Some 1, Some 2 ] ≡ Some 1
+
+let example1 =
+      assert : head Natural [ None Natural, None Natural ] ≡ None Natural
+
+let example2 =
+      assert : head Natural ([] : List (Optional Natural)) ≡ None Natural
+
+in  head
+----------------------------------------------------
+[
+	["comment", "-- source: https://github.com/dhall-lang/dhall-lang/blob/master/Prelude/Optional/head.dhall"],
+
+	["comment", "{-\nReturns the first non-empty `Optional` value in a `List`\n-}"],
+
+	["keyword", "let"],
+	" head\n    ",
+
+	["operator", ":"],
+	["keyword", "∀"],
+	["punctuation", "("],
+	"a ",
+	["operator", ":"],
+	["class-name", "Type"],
+	["punctuation", ")"],
+	["operator", "→"],
+	["class-name", "List"],
+	["punctuation", "("],
+	["class-name", "Optional"],
+	" a",
+	["punctuation", ")"],
+	["operator", "→"],
+	["class-name", "Optional"],
+	" a\n    ",
+
+	["operator", "="],
+	["operator", "λ"],
+	["punctuation", "("],
+	"a ",
+	["operator", ":"],
+	["class-name", "Type"],
+	["punctuation", ")"],
+	["operator", "→"],
+
+	["operator", "λ"],
+	["punctuation", "("],
+	"xs ",
+	["operator", ":"],
+	["class-name", "List"],
+	["punctuation", "("],
+	["class-name", "Optional"],
+	" a",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator", "→"],
+
+	["class-name", "List"],
+	["punctuation", "/"],
+	"fold\n          ",
+
+	["punctuation", "("],
+	["class-name", "Optional"],
+	" a",
+	["punctuation", ")"],
+
+	"\n          xs\n          ",
+
+	["punctuation", "("],
+	["class-name", "Optional"],
+	" a",
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["operator", "λ"],
+	["punctuation", "("],
+	"l ",
+	["operator", ":"],
+	["class-name", "Optional"],
+	" a",
+	["punctuation", ")"],
+	["operator", "→"],
+
+	["operator", "λ"],
+	["punctuation", "("],
+	"r ",
+	["operator", ":"],
+	["class-name", "Optional"],
+	" a",
+	["punctuation", ")"],
+	["operator", "→"],
+
+	["keyword", "merge"],
+	["punctuation", "{"],
+	["builtin", "Some"],
+	["operator", "="],
+	["operator", "λ"],
+	["punctuation", "("],
+	"x ",
+	["operator", ":"],
+	" a",
+	["punctuation", ")"],
+	["operator", "→"],
+	["builtin", "Some"],
+	" x",
+	["punctuation", ","],
+	["builtin", "None"],
+	["operator", "="],
+	" r ",
+	["punctuation", "}"],
+	" l\n          ",
+
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["builtin", "None"],
+	" a",
+	["punctuation", ")"],
+
+	["keyword", "let"],
+	" example0 ",
+	["operator", "="],
+	["keyword", "assert"],
+	["operator", ":"],
+	" head ",
+	["class-name", "Natural"],
+	["punctuation", "["],
+	["builtin", "None"],
+	["class-name", "Natural"],
+	["punctuation", ","],
+	["builtin", "Some"],
+	["number", "1"],
+	["punctuation", ","],
+	["builtin", "Some"],
+	["number", "2"],
+	["punctuation", "]"],
+	["operator", "≡"],
+	["builtin", "Some"],
+	["number", "1"],
+
+	["keyword", "let"],
+	" example1 ",
+	["operator", "="],
+
+	["keyword", "assert"],
+	["operator", ":"],
+	" head ",
+	["class-name", "Natural"],
+	["punctuation", "["],
+	["builtin", "None"],
+	["class-name", "Natural"],
+	["punctuation", ","],
+	["builtin", "None"],
+	["class-name", "Natural"],
+	["punctuation", "]"],
+	["operator", "≡"],
+	["builtin", "None"],
+	["class-name", "Natural"],
+
+	["keyword", "let"],
+	" example2 ",
+	["operator", "="],
+
+	["keyword", "assert"],
+	["operator", ":"],
+	" head ",
+	["class-name", "Natural"],
+	["punctuation", "("],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["operator", ":"],
+	["class-name", "List"],
+	["punctuation", "("],
+	["class-name", "Optional"],
+	["class-name", "Natural"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator", "≡"],
+	["builtin", "None"],
+	["class-name", "Natural"],
+
+	["keyword", "in"], "  head"
+]
+
+----------------------------------------------------

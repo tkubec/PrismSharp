@@ -1,0 +1,15 @@
+[% text %]
+[% article.title %]
+[%= eat.whitespace.left %]
+[% eat.whitespace.right =%]
+[%= eat.whitespace.both =%]
+[% object.method() %]
+----------------------------------------------------
+<span class="token delimiter punctuation">[%</span> <span class="token variable">text</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">article.title</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>%<span class="token operator">=</span> <span class="token variable">eat.whitespace.left</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">eat.whitespace.right</span> <span class="token operator">=</span>%<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>%<span class="token operator">=</span> <span class="token variable">eat.whitespace.both</span> <span class="token operator">=</span>%<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token variable">object</span>.<span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

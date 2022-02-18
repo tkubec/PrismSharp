@@ -1,0 +1,12 @@
+'foo \'bar\' baz'
+"foo \"bar\" baz"
+"a string # containing an hash"
+$foo = <<<FOO
+    Heredoc strings are supported too!
+FOO;
+$bar = <<<'BAR'
+    And also Nowdoc strings
+BAR;
+
+--------------------------------------------------
+

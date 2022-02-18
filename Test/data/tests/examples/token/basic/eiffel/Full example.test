@@ -1,0 +1,92 @@
+note
+  description: "Represents a person."
+
+class
+  PERSON
+
+create
+  make, make_unknown
+
+feature {NONE} -- Creation
+
+  make (a_name: like name)
+      -- Create a person with `a_name' as `name'.
+    do
+      name := a_name
+    ensure
+      name = a_name
+    end
+
+    make_unknown
+    do ensure
+      name = Void
+      end
+
+feature -- Access
+
+  name: detachable STRING
+      -- Full name or Void if unknown.
+
+end
+----------------------------------------------------
+[
+	["keyword", "note"],
+
+	"\n  description",
+	["punctuation", ":"],
+	["string", "\"Represents a person.\""],
+
+	["keyword", "class"],
+	["class-name", "PERSON"],
+
+	["keyword", "create"],
+	"\n  make", ["punctuation", ","], " make_unknown\n\n",
+
+	["keyword", "feature"],
+	["punctuation", "{"],
+	["class-name", "NONE"],
+	["punctuation", "}"],
+	["comment", "-- Creation"],
+
+	"\n\n  make ",
+	["punctuation", "("],
+	"a_name",
+	["punctuation", ":"],
+	["keyword", "like"],
+	" name",
+	["punctuation", ")"],
+
+	["comment", "-- Create a person with `a_name' as `name'."],
+
+	["keyword", "do"],
+
+	"\n      name ",
+	["punctuation", ":="],
+	" a_name\n    ",
+
+	["keyword", "ensure"],
+
+	"\n      name ",
+	["operator", "="],
+	" a_name\n    ",
+
+	["keyword", "end"],
+
+	"\n\n    make_unknown\n    ",
+	["keyword", "do"], ["keyword", "ensure"],
+	"\n      name ", ["operator", "="], ["keyword", "Void"],
+	["keyword", "end"],
+
+	["keyword", "feature"], ["comment", "-- Access"],
+
+	"\n\n  name",
+	["punctuation", ":"],
+	["keyword", "detachable"],
+	["class-name", "STRING"],
+
+	["comment", "-- Full name or Void if unknown."],
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

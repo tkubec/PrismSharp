@@ -1,0 +1,31 @@
+* This is
+* an unordered list
+
+1. This is an
+2. ordered list
+
+* *List item in italic*
+* **List item in bold**
+* [List item as a link](http://example.com "This is an example")
+
+> This is a quotation
+>> With another quotation inside
+> _italic here_, __bold there__
+> And a [link](http://example.com)
+----------------------------------------------------
+<span class="token list punctuation">*</span> This is
+<span class="token list punctuation">*</span> an unordered list
+
+<span class="token list punctuation">1.</span> This is an
+<span class="token list punctuation">2.</span> ordered list
+
+<span class="token list punctuation">*</span> <span class="token italic"><span class="token punctuation">*</span><span class="token content">List item in italic</span><span class="token punctuation">*</span></span>
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">List item in bold</span><span class="token punctuation">**</span></span>
+<span class="token list punctuation">*</span> <span class="token url">[<span class="token content">List item as a link</span>](<span class="token url">http://example.com</span> <span class="token string">"This is an example"</span>)</span>
+
+<span class="token blockquote punctuation">></span> This is a quotation
+<span class="token blockquote punctuation">>></span> With another quotation inside
+<span class="token blockquote punctuation">></span> <span class="token italic"><span class="token punctuation">_</span><span class="token content">italic here</span><span class="token punctuation">_</span></span>, <span class="token bold"><span class="token punctuation">__</span><span class="token content">bold there</span><span class="token punctuation">__</span></span>
+<span class="token blockquote punctuation">></span> And a <span class="token url">[<span class="token content">link</span>](<span class="token url">http://example.com</span>)</span>
+
+----------------------------------------------------

@@ -1,0 +1,26 @@
+String s1 = 'Strings allow single quotes';
+String s2 = "as well as double quotes";
+var s2 = 'Birb strings are
+	multiline by default';
+----------------------------------------------------
+[
+	["class-name", "String"],
+	["variable", "s1"],
+	["operator", "="],
+	["string", "'Strings allow single quotes'"],
+	["punctuation", ";"],
+
+	["class-name", "String"],
+	["variable", "s2"],
+	["operator", "="],
+	["string", "\"as well as double quotes\""],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	["variable", "s2"],
+	["operator", "="],
+	["string", "'Birb strings are\n\tmultiline by default'"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

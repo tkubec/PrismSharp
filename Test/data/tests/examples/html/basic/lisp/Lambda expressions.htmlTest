@@ -1,0 +1,5 @@
+(lambda (number) (* 7 number))
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token lambda"><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">number</span></span><span class="token punctuation">)</span></span> <span class="token punctuation">(</span><span class="token car">*</span> <span class="token number">7</span> number<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

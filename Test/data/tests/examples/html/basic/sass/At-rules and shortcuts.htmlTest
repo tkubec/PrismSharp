@@ -1,0 +1,27 @@
+@mixin large-text
+  color: #ff0000
+
+@media (min-width: 600px)
+  h1
+    @include large-text
+
+=large-text
+  color: #ff0000
+
+h1
+  +large-text
+----------------------------------------------------
+<span class="token atrule-line"><span class="token atrule">@mixin</span> large-text</span>
+<span class="token property-line">  <span class="token property">color</span><span class="token punctuation">:</span> #ff0000</span>
+
+<span class="token atrule-line"><span class="token atrule">@media</span> (min-width: 600px)</span>
+  <span class="token selector">h1</span>
+<span class="token atrule-line">    <span class="token atrule">@include</span> large-text</span>
+
+<span class="token atrule-line"><span class="token atrule">=</span>large-text</span>
+<span class="token property-line">  <span class="token property">color</span><span class="token punctuation">:</span> #ff0000</span>
+
+<span class="token selector">h1</span>
+<span class="token atrule-line">  <span class="token atrule">+</span>large-text</span>
+
+----------------------------------------------------

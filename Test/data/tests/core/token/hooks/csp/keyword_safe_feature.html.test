@@ -1,0 +1,15 @@
+default-src 'report-sample';
+style-src 'self' 'strict-dynamic';
+----------------------------------------------------
+[
+	["directive", "default-src"],
+	["keyword", "'report-sample'"],
+	["punctuation", ";"],
+
+	["directive", "style-src"],
+	["keyword", "'self'"],
+	["keyword", "'strict-dynamic'"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

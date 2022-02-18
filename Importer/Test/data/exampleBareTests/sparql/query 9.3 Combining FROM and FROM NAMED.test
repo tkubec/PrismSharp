@@ -1,0 +1,15 @@
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+
+SELECT ?who ?g ?mbox
+FROM &lt;http://example.org/dft.ttl&gt;
+FROM NAMED &lt;http://example.org/alice&gt;
+FROM NAMED &lt;http://example.org/bob&gt;
+WHERE
+{
+	 ?g dc:publisher ?who .
+	 GRAPH ?g { ?x foaf:mbox ?mbox }
+}
+
+--------------------------------------------------
+

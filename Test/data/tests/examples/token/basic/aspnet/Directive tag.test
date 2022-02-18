@@ -1,0 +1,96 @@
+<script runat="server">
+	// The following variables are visible to all procedures
+	// within the script block.
+	String str;
+	int i;
+	int i2;
+
+	int DoubleIt(int inpt)
+	{
+		// The following variable is visible only within
+		// the DoubleIt procedure.
+		int factor = 2;
+
+		return inpt * factor;
+	}
+</script>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"script"
+		]],
+		["attr-name", ["runat"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"server",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+	["asp-script", [
+		["comment", "// The following variables are visible to all procedures"],
+
+		["comment", "// within the script block."],
+
+		["class-name", ["String"]],
+		" str",
+		["punctuation", ";"],
+
+		["class-name", [
+			["keyword", "int"]
+		]],
+		" i",
+		["punctuation", ";"],
+
+		["class-name", [
+			["keyword", "int"]
+		]],
+		" i2",
+		["punctuation", ";"],
+
+		["return-type", [
+			["keyword", "int"]
+		]],
+		["function", "DoubleIt"],
+		["punctuation", "("],
+		["class-name", [
+			["keyword", "int"]
+		]],
+		" inpt",
+		["punctuation", ")"],
+
+		["punctuation", "{"],
+
+		["comment", "// The following variable is visible only within"],
+
+		["comment", "// the DoubleIt procedure."],
+
+		["class-name", [
+			["keyword", "int"]
+		]],
+		" factor ",
+		["operator", "="],
+		["number", "2"],
+		["punctuation", ";"],
+
+		["keyword", "return"],
+		" inpt ",
+		["operator", "*"],
+		" factor",
+		["punctuation", ";"],
+
+		["punctuation", "}"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"script"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

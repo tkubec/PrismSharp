@@ -1,0 +1,133 @@
+extends BaseClass
+class_name MyClass, "res://path/to/optional/icon.svg"
+
+# Member Variables
+
+var a = 5
+var s = "Hello"
+var arr = [1, 2, 3]
+var dict = {"key": "value", 2:3}
+var typed_var: int
+var inferred_type := "String"
+
+# Constants
+
+const ANSWER = 42
+const THE_NAME = "Charly"
+
+# Enums
+
+enum {UNIT_NEUTRAL, UNIT_ENEMY, UNIT_ALLY}
+enum Named {THING_1, THING_2, ANOTHER_THING = -1}
+
+# Built-in Vector Types
+
+var v2 = Vector2(1, 2)
+var v3 = Vector3(1, 2, 3)
+
+# Function
+
+func some_function(param1, param2):
+	var local_var = 5
+
+	if param1 < local_var:
+		print(param1)
+	elif param2 > 5:
+		print(param2)
+	else:
+		print("Fail!")
+
+	for i in range(20):
+		print(i)
+
+	while param2 != 0:
+		param2 -= 1
+
+	var local_var2 = param1 + 3
+	return local_var2
+
+# Functions override functions with the same name on the base/parent class.
+# If you still want to call them, use '.' (like 'super' in other languages).
+
+func something(p1, p2):
+	.something(p1, p2)
+
+# Inner Class
+
+class Something:
+	var a = 10
+
+# Constructor
+
+func _init():
+	print("Constructed!")
+	var lv = Something.new()
+	print(lv.a)
+----------------------------------------------------
+<span class="token keyword">extends</span> <span class="token class-name">BaseClass</span>
+<span class="token keyword">class_name</span> <span class="token class-name">MyClass</span><span class="token punctuation">,</span> <span class="token string">"res://path/to/optional/icon.svg"</span>
+
+<span class="token comment"># Member Variables</span>
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token string">"Hello"</span>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">var</span> dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"key"</span><span class="token punctuation">:</span> <span class="token string">"value"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">}</span>
+<span class="token keyword">var</span> typed_var<span class="token punctuation">:</span> <span class="token class-name">int</span>
+<span class="token keyword">var</span> inferred_type <span class="token operator">:=</span> <span class="token string">"String"</span>
+
+<span class="token comment"># Constants</span>
+
+<span class="token keyword">const</span> <span class="token constant">ANSWER</span> <span class="token operator">=</span> <span class="token number">42</span>
+<span class="token keyword">const</span> <span class="token constant">THE_NAME</span> <span class="token operator">=</span> <span class="token string">"Charly"</span>
+
+<span class="token comment"># Enums</span>
+
+<span class="token keyword">enum</span> <span class="token punctuation">{</span><span class="token constant">UNIT_NEUTRAL</span><span class="token punctuation">,</span> <span class="token constant">UNIT_ENEMY</span><span class="token punctuation">,</span> <span class="token constant">UNIT_ALLY</span><span class="token punctuation">}</span>
+<span class="token keyword">enum</span> Named <span class="token punctuation">{</span><span class="token constant">THING_1</span><span class="token punctuation">,</span> <span class="token constant">THING_2</span><span class="token punctuation">,</span> <span class="token constant">ANOTHER_THING</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span>
+
+<span class="token comment"># Built-in Vector Types</span>
+
+<span class="token keyword">var</span> v2 <span class="token operator">=</span> <span class="token function">Vector2</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> v3 <span class="token operator">=</span> <span class="token function">Vector3</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Function</span>
+
+<span class="token keyword">func</span> <span class="token function">some_function</span><span class="token punctuation">(</span>param1<span class="token punctuation">,</span> param2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">var</span> local_var <span class="token operator">=</span> <span class="token number">5</span>
+
+	<span class="token keyword">if</span> param1 <span class="token operator">&lt;</span> local_var<span class="token punctuation">:</span>
+		<span class="token function">print</span><span class="token punctuation">(</span>param1<span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> param2 <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">:</span>
+		<span class="token function">print</span><span class="token punctuation">(</span>param2<span class="token punctuation">)</span>
+	<span class="token keyword">else</span><span class="token punctuation">:</span>
+		<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Fail!"</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+	<span class="token keyword">while</span> param2 <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+		param2 <span class="token operator">-=</span> <span class="token number">1</span>
+
+	<span class="token keyword">var</span> local_var2 <span class="token operator">=</span> param1 <span class="token operator">+</span> <span class="token number">3</span>
+	<span class="token keyword">return</span> local_var2
+
+<span class="token comment"># Functions override functions with the same name on the base/parent class.</span>
+<span class="token comment"># If you still want to call them, use '.' (like 'super' in other languages).</span>
+
+<span class="token keyword">func</span> <span class="token function">something</span><span class="token punctuation">(</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token punctuation">.</span><span class="token function">something</span><span class="token punctuation">(</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">)</span>
+
+<span class="token comment"># Inner Class</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Something</span><span class="token punctuation">:</span>
+	<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">10</span>
+
+<span class="token comment"># Constructor</span>
+
+<span class="token keyword">func</span> <span class="token function">_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Constructed!"</span><span class="token punctuation">)</span>
+	<span class="token keyword">var</span> lv <span class="token operator">=</span> Something<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token function">print</span><span class="token punctuation">(</span>lv<span class="token punctuation">.</span>a<span class="token punctuation">)</span>
+
+----------------------------------------------------

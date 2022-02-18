@@ -1,0 +1,75 @@
+MODULE MOD1
+TYPE INITIALIZED_TYPE
+	INTEGER :: I = 1 ! Default initialization
+END TYPE INITIALIZED_TYPE
+SAVE :: SAVED1, SAVED2
+INTEGER :: SAVED1, UNSAVED1
+TYPE(INITIALIZED_TYPE) :: SAVED2, UNSAVED2
+ALLOCATABLE :: SAVED1(:), SAVED2(:), UNSAVED1(:), UNSAVED2(:)
+END MODULE MOD1
+
+PROGRAM MAIN
+CALL SUB1 ! The values returned by the ALLOCATED intrinsic calls
+          ! in the PRINT statement are:
+          ! .FALSE., .FALSE., .FALSE., and .FALSE.
+          ! Module MOD1 is used, and its variables are allocated.
+          ! After return from the subroutine, whether the variables
+          ! which were not specified with the SAVE attribute
+          ! retain their allocation status is processor dependent.
+CALL SUB1 ! The values returned by the first two ALLOCATED intrinsic
+	      ! calls in the PRINT statement are:
+	      ! .TRUE., .TRUE.
+	      ! The values returned by the second two ALLOCATED
+	      ! intrinsic calls in the PRINT statement are
+	      ! processor dependent and each could be either
+	      ! .TRUE. or .FALSE.
+CONTAINS
+	SUBROUTINE SUB1
+	USE MOD1 ! Brings in saved and not saved variables.
+	PRINT *, ALLOCATED(SAVED1), ALLOCATED(SAVED2), &
+	         ALLOCATED(UNSAVED1), ALLOCATED(UNSAVED2)
+	IF (.NOT. ALLOCATED(SAVED1)) ALLOCATE(SAVED1(10))
+	IF (.NOT. ALLOCATED(SAVED2)) ALLOCATE(SAVED2(10))
+	IF (.NOT. ALLOCATED(UNSAVED1)) ALLOCATE(UNSAVED1(10))
+	IF (.NOT. ALLOCATED(UNSAVED2)) ALLOCATE(UNSAVED2(10))
+	END SUBROUTINE SUB1
+END PROGRAM MAIN
+----------------------------------------------------
+<span class="token keyword">MODULE</span> MOD1
+<span class="token keyword">TYPE</span> INITIALIZED_TYPE
+	<span class="token keyword">INTEGER</span> <span class="token operator">::</span> I <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">! Default initialization</span>
+<span class="token keyword">END TYPE</span> INITIALIZED_TYPE
+<span class="token keyword">SAVE</span> <span class="token operator">::</span> SAVED1<span class="token punctuation">,</span> SAVED2
+<span class="token keyword">INTEGER</span> <span class="token operator">::</span> SAVED1<span class="token punctuation">,</span> UNSAVED1
+<span class="token keyword">TYPE</span><span class="token punctuation">(</span>INITIALIZED_TYPE<span class="token punctuation">)</span> <span class="token operator">::</span> SAVED2<span class="token punctuation">,</span> UNSAVED2
+<span class="token keyword">ALLOCATABLE</span> <span class="token operator">::</span> SAVED1<span class="token punctuation">(</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">,</span> SAVED2<span class="token punctuation">(</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">,</span> UNSAVED1<span class="token punctuation">(</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">,</span> UNSAVED2<span class="token punctuation">(</span><span class="token punctuation">:</span><span class="token punctuation">)</span>
+<span class="token keyword">END MODULE</span> MOD1
+
+<span class="token keyword">PROGRAM</span> MAIN
+<span class="token keyword">CALL</span> SUB1 <span class="token comment">! The values returned by the ALLOCATED intrinsic calls</span>
+          <span class="token comment">! in the PRINT statement are:</span>
+          <span class="token comment">! .FALSE., .FALSE., .FALSE., and .FALSE.</span>
+          <span class="token comment">! Module MOD1 is used, and its variables are allocated.</span>
+          <span class="token comment">! After return from the subroutine, whether the variables</span>
+          <span class="token comment">! which were not specified with the SAVE attribute</span>
+          <span class="token comment">! retain their allocation status is processor dependent.</span>
+<span class="token keyword">CALL</span> SUB1 <span class="token comment">! The values returned by the first two ALLOCATED intrinsic</span>
+	      <span class="token comment">! calls in the PRINT statement are:</span>
+	      <span class="token comment">! .TRUE., .TRUE.</span>
+	      <span class="token comment">! The values returned by the second two ALLOCATED</span>
+	      <span class="token comment">! intrinsic calls in the PRINT statement are</span>
+	      <span class="token comment">! processor dependent and each could be either</span>
+	      <span class="token comment">! .TRUE. or .FALSE.</span>
+<span class="token keyword">CONTAINS</span>
+	<span class="token keyword">SUBROUTINE</span> SUB1
+	<span class="token keyword">USE</span> MOD1 <span class="token comment">! Brings in saved and not saved variables.</span>
+	<span class="token keyword">PRINT</span> <span class="token operator">*</span><span class="token punctuation">,</span> ALLOCATED<span class="token punctuation">(</span>SAVED1<span class="token punctuation">)</span><span class="token punctuation">,</span> ALLOCATED<span class="token punctuation">(</span>SAVED2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">&amp;</span>
+	         ALLOCATED<span class="token punctuation">(</span>UNSAVED1<span class="token punctuation">)</span><span class="token punctuation">,</span> ALLOCATED<span class="token punctuation">(</span>UNSAVED2<span class="token punctuation">)</span>
+	<span class="token keyword">IF</span> <span class="token punctuation">(</span><span class="token operator">.NOT.</span> ALLOCATED<span class="token punctuation">(</span>SAVED1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">ALLOCATE</span><span class="token punctuation">(</span>SAVED1<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">IF</span> <span class="token punctuation">(</span><span class="token operator">.NOT.</span> ALLOCATED<span class="token punctuation">(</span>SAVED2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">ALLOCATE</span><span class="token punctuation">(</span>SAVED2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">IF</span> <span class="token punctuation">(</span><span class="token operator">.NOT.</span> ALLOCATED<span class="token punctuation">(</span>UNSAVED1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">ALLOCATE</span><span class="token punctuation">(</span>UNSAVED1<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">IF</span> <span class="token punctuation">(</span><span class="token operator">.NOT.</span> ALLOCATED<span class="token punctuation">(</span>UNSAVED2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">ALLOCATE</span><span class="token punctuation">(</span>UNSAVED2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">END SUBROUTINE</span> SUB1
+<span class="token keyword">END PROGRAM</span> MAIN
+
+----------------------------------------------------

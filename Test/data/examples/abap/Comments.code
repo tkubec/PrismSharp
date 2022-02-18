@@ -1,0 +1,7 @@
+* Line Comments
+" End of line comment used as line comment.
+value = 1. " End of line comment
+
+DATA:
+  "! ABAPDoc comment
+  value TYPE i.

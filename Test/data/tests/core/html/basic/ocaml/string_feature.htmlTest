@@ -1,0 +1,29 @@
+""
+"Fo\"obar"
+"Call me Ishmael. Some years ago — never mind how long \
+precisely — having little or no money in my purse, and \
+nothing particular to interest me on shore, I thought I\
+\ would sail about a little and see the watery part of t\
+he world."
+
+{|This is a quoted string, here, neither \ nor " are special characters|}
+{|"Hello, World!"|}
+{|"\\"|}
+{delimiter|the end of this|}quoted string is here|delimiter}
+{ext|hello {|world|}|ext}
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Fo\"obar"</span>
+<span class="token string">"Call me Ishmael. Some years ago — never mind how long \
+precisely — having little or no money in my purse, and \
+nothing particular to interest me on shore, I thought I\
+\ would sail about a little and see the watery part of t\
+he world."</span>
+
+<span class="token string">{|This is a quoted string, here, neither \ nor " are special characters|}</span>
+<span class="token string">{|"Hello, World!"|}</span>
+<span class="token string">{|"\\"|}</span>
+<span class="token string">{delimiter|the end of this|}quoted string is here|delimiter}</span>
+<span class="token string">{ext|hello {|world|}|ext}</span>
+
+----------------------------------------------------

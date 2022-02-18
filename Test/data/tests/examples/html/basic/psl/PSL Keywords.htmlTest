@@ -1,0 +1,13 @@
+foreach entry (["aaa", "bbb", "ccc"]) {
+	if (grep("[bc]", entry)) {
+		last;
+	}
+}
+----------------------------------------------------
+<span class="token keyword">foreach</span> <span class="token function">entry</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"aaa"</span><span class="token punctuation">,</span> <span class="token string">"bbb"</span><span class="token punctuation">,</span> <span class="token string">"ccc"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin builtin-function">grep</span><span class="token punctuation">(</span><span class="token string">"[bc]"</span><span class="token punctuation">,</span> entry<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">last</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

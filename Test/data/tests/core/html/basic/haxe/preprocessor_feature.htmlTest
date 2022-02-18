@@ -1,0 +1,35 @@
+#if
+#elseif
+#else
+#end
+
+class Main {
+  public static function main() {
+    #if !debug
+    trace("ok");
+    #elseif (debug_level > 3)
+    trace(3);
+    #else
+    trace("debug level too low");
+    #end
+  }
+}
+----------------------------------------------------
+<span class="token preprocessor property">#if</span>
+<span class="token preprocessor property">#elseif</span>
+<span class="token preprocessor property">#else</span>
+<span class="token preprocessor property">#end</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token preprocessor property">#if !debug</span>
+    <span class="token function">trace</span><span class="token punctuation">(</span><span class="token string">"ok"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token preprocessor property">#elseif (debug_level > 3)</span>
+    <span class="token function">trace</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token preprocessor property">#else</span>
+    <span class="token function">trace</span><span class="token punctuation">(</span><span class="token string">"debug level too low"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token preprocessor property">#end</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

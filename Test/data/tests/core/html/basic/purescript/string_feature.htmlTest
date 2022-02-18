@@ -1,0 +1,15 @@
+""
+"fo\"o"
+"foo \
+  \ bar"
+"foo -- comment lookalike \
+  \ bar"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"o"</span>
+<span class="token string">"foo \
+  \ bar"</span>
+<span class="token string">"foo -- comment lookalike \
+  \ bar"</span>
+
+----------------------------------------------------

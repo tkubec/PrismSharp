@@ -1,0 +1,13 @@
+fyu@home $ sudo ls -l ~/.config 's' && \
+  echo 'hello'
+drwxr-xr-x     - franklinyu 26 Sep  2020  asciinema
+drwxr-xr-x     - franklinyu 26 Jan  2020  'bash'
+hello
+----------------------------------------------------
+<span class="token command"><span class="token info punctuation"><span class="token user">fyu@home </span></span><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token function">sudo</span> <span class="token function">ls</span> -l ~/.config <span class="token string">'s'</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">'hello'</span></span></span>
+<span class="token output">drwxr-xr-x     - franklinyu 26 Sep  2020  asciinema
+drwxr-xr-x     - franklinyu 26 Jan  2020  'bash'
+hello</span>
+
+----------------------------------------------------

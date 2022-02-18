@@ -1,0 +1,31 @@
+0
+123
+123.456
+123.456e65
+123.456e+65
+1_2_3.4_5_6e-6_5
+1_2_3e-6_5
+
+0x0
+0X0
+0xbad.345e
+0xbad.345ep54
+0xbad.345ep+54
+0xb_a_d.3_4_5_ep-5_4
+----------------------------------------------------
+<span class="token number">0</span>
+<span class="token number">123</span>
+<span class="token number">123.456</span>
+<span class="token number">123.456e65</span>
+<span class="token number">123.456e+65</span>
+<span class="token number">1_2_3.4_5_6e-6_5</span>
+<span class="token number">1_2_3e-6_5</span>
+
+<span class="token number">0x0</span>
+<span class="token number">0X0</span>
+<span class="token number">0xbad.345e</span>
+<span class="token number">0xbad.345ep54</span>
+<span class="token number">0xbad.345ep+54</span>
+<span class="token number">0xb_a_d.3_4_5_ep-5_4</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+MAX
+SOME_CONSTANT
+
+// not a constant
+T
+----------------------------------------------------
+[
+	["constant", "MAX"],
+	["constant", "SOME_CONSTANT"],
+
+	["comment", "// not a constant"],
+	["class-name", "T"]
+]
+
+----------------------------------------------------

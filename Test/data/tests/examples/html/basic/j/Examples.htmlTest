@@ -1,0 +1,9 @@
+NB. Implementation of quicksort (tacit programming)
+
+quicksort=: (($:@(<#[), (=#[), $:@(>#[)) ({~ ?@#)) ^: (1<#)
+----------------------------------------------------
+<span class="token comment">NB. Implementation of quicksort (tacit programming)</span>
+
+quicksort<span class="token operator">=:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token verb keyword">$:</span><span class="token conjunction variable">@</span><span class="token punctuation">(</span><span class="token verb keyword">&lt;</span><span class="token verb keyword">#</span><span class="token verb keyword">[</span><span class="token punctuation">)</span><span class="token verb keyword">,</span> <span class="token punctuation">(</span><span class="token verb keyword">=</span><span class="token verb keyword">#</span><span class="token verb keyword">[</span><span class="token punctuation">)</span><span class="token verb keyword">,</span> <span class="token verb keyword">$:</span><span class="token conjunction variable">@</span><span class="token punctuation">(</span><span class="token verb keyword">></span><span class="token verb keyword">#</span><span class="token verb keyword">[</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token verb keyword">{</span><span class="token adverb builtin">~</span> <span class="token verb keyword">?</span><span class="token conjunction variable">@</span><span class="token verb keyword">#</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token conjunction variable">^:</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token verb keyword">&lt;</span><span class="token verb keyword">#</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

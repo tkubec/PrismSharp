@@ -1,0 +1,51 @@
+$MB:{ <!-- Message Output Content --> }:MB$
+$MB:{
+	$#Message$
+	$#MessageType$
+}:MB$
+----------------------------------------------------
+[
+	["directive-block-open", [
+		["punctuation", ["$"]],
+		"MB",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Message Output Content -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"MB",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-open", [
+		["punctuation", ["$"]],
+		"MB",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+
+	["variable", [
+		["punctuation", "$"],
+		["operator", "#"],
+		"Message",
+		["punctuation", "$"]
+	]],
+
+	["variable", [
+		["punctuation", "$"],
+		["operator", "#"],
+		"MessageType",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"MB",
+		["punctuation", "$"]
+	]]
+]
+
+----------------------------------------------------

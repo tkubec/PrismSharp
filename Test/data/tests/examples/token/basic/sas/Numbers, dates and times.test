@@ -1,0 +1,57 @@
+42; 4.5; 4.5e-10; -3; -3.5e2; -4.2e-23;
+0afx; 0123x;
+'1jan2013'd; '01jan09'd;
+'9:25't; '9:25:19pm't;
+'01may12:9:30:00'dt; '18jan2003:9:27:05am'dt;
+'2013-05-17T09:15:30–05:00'dt; '2013-05-17T09:15:30–05'dt;
+'2013-07-20T12:00:00+00:00'dt; '2013-07-20T12:00:00Z'dt;
+----------------------------------------------------
+[
+	["number", "42"],
+	["punctuation", ";"],
+	["number", "4.5"],
+	["punctuation", ";"],
+	["number", "4.5e-10"],
+	["punctuation", ";"],
+	["operator", "-"],
+	["number", "3"],
+	["punctuation", ";"],
+	["operator", "-"],
+	["number", "3.5e2"],
+	["punctuation", ";"],
+	["operator", "-"],
+	["number", "4.2e-23"],
+	["punctuation", ";"],
+
+	["number", "0afx"],
+	["punctuation", ";"],
+	["number", "0123x"],
+	["punctuation", ";"],
+
+	["datetime", "'1jan2013'd"],
+	["punctuation", ";"],
+	["datetime", "'01jan09'd"],
+	["punctuation", ";"],
+
+	["datetime", "'9:25't"],
+	["punctuation", ";"],
+	["datetime", "'9:25:19pm't"],
+	["punctuation", ";"],
+
+	["datetime", "'01may12:9:30:00'dt"],
+	["punctuation", ";"],
+	["datetime", "'18jan2003:9:27:05am'dt"],
+	["punctuation", ";"],
+
+	["datetime", "'2013-05-17T09:15:30–05:00'dt"],
+	["punctuation", ";"],
+	["datetime", "'2013-05-17T09:15:30–05'dt"],
+	["punctuation", ";"],
+
+	["datetime", "'2013-07-20T12:00:00+00:00'dt"],
+	["punctuation", ";"],
+	["datetime", "'2013-07-20T12:00:00Z'dt"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

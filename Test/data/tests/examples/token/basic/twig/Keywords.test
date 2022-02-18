@@ -1,0 +1,79 @@
+{% if foo %} bar {% endif %}
+{% for key, value in arr if value %} {{ do_something() }} {% endfor %}
+{% include 'header.html' %}
+{% include 'template.html' with {'foo': 'bar'} %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["tag-name", "if"],
+	" foo ",
+	["operator", "%"],
+	["punctuation", "}"],
+	" bar ",
+	["punctuation", "{"],
+	["operator", "%"],
+	" endif ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	" for key",
+	["punctuation", ","],
+	" value ",
+	["operator", "in"],
+	" arr ",
+	["keyword", "if"],
+	" value ",
+	["operator", "%"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" do_something",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["operator", "%"],
+	" endfor ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	" include ",
+	["string", [
+		["punctuation", "'"],
+		"header.html",
+		["punctuation", "'"]
+	]],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	" include ",
+	["string", [
+		["punctuation", "'"],
+		"template.html",
+		["punctuation", "'"]
+	]],
+	" with ",
+	["punctuation", "{"],
+	["string", [
+		["punctuation", "'"],
+		"foo",
+		["punctuation", "'"]
+	]],
+	["punctuation", ":"],
+	["string", [
+		["punctuation", "'"],
+		"bar",
+		["punctuation", "'"]
+	]],
+	["punctuation", "}"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

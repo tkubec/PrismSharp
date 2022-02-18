@@ -1,0 +1,6 @@
+[% IF title;
+      INCLUDE header;
+   ELSE;
+      INCLUDE other/header  title="Some Other Title";
+   END
+%]

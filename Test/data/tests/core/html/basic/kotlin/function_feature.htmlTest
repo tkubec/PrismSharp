@@ -1,0 +1,17 @@
+foo()
+foo_Bar_42()
+list.filter {}
+`function 1`()
+` !"#$%^&()*+,=?@{|}~-_`()
+list.`take 1` {}
+`make fun`()
+----------------------------------------------------
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">foo_Bar_42</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+list<span class="token punctuation">.</span><span class="token function">filter</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">`function 1`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">` !"#$%^&amp;()*+,=?@{|}~-_`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+list<span class="token punctuation">.</span><span class="token function">`take 1`</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">`make fun`</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

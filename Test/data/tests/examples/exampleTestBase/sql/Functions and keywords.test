@@ -1,0 +1,8 @@
+SELECT COUNT(*) AS cpt, MAX(t.pos) AS max_pos
+FROM `my_table`
+LEFT JOIN `other_table` AS t
+WHERE `somecol` IS NOT NULL
+ORDER BY t.other_col DESC
+
+--------------------------------------------------
+

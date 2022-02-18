@@ -1,0 +1,29 @@
+---
+!!map {
+  ? !!str friends: !!seq [
+    !!map {
+      ? !!str "age"
+      : !!int 33,
+      ? !!str "name"
+      : !!str "John Smith",
+    }
+  ],
+  men:
+    [ !!str "John Smith", !!str "Bill Jones"]
+}
+----------------------------------------------------
+<span class="token punctuation">---</span>
+<span class="token tag">!!map</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">?</span> <span class="token tag">!!str</span> <span class="token key atrule">friends</span><span class="token punctuation">:</span> <span class="token tag">!!seq</span> <span class="token punctuation">[</span>
+    <span class="token tag">!!map</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">?</span> <span class="token tag">!!str</span> <span class="token key atrule">"age"</span>
+      <span class="token punctuation">:</span> <span class="token tag">!!int</span> <span class="token number">33</span><span class="token punctuation">,</span>
+      <span class="token punctuation">?</span> <span class="token tag">!!str</span> <span class="token key atrule">"name"</span>
+      <span class="token punctuation">:</span> <span class="token tag">!!str</span> <span class="token string">"John Smith"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token key atrule">men</span><span class="token punctuation">:</span>
+    <span class="token punctuation">[</span> <span class="token tag">!!str</span> <span class="token string">"John Smith"</span><span class="token punctuation">,</span> <span class="token tag">!!str</span> <span class="token string">"Bill Jones"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

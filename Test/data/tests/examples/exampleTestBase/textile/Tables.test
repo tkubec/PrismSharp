@@ -1,0 +1,36 @@
+| name | age | sex |
+| joan | 24 | f |
+| archie | 29 | m |
+| bella | 45 | f |
+
+|_. name |_. age |_. sex |
+| joan | 24 | f |
+| archie | 29 | m |
+| bella | 45 | f |
+
+|_. attribute list |
+|<. align left |
+|>. align right|
+|=. center |
+|<>. justify |
+|^. valign top |
+|~. bottom |
+
+|\2. spans two cols |
+| col 1 | col 2 |
+
+|/3. spans 3 rows | a |
+| b |
+| c |
+
+|{background:#ddd}. Grey cell|
+
+table{border:1px solid black}.
+|This|is|a|row|
+|This|is|a|row|
+
+|This|is|a|row|
+{background:#ddd}. |This|is|grey|row|
+
+--------------------------------------------------
+

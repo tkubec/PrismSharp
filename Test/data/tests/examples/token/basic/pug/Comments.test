@@ -1,0 +1,15 @@
+// Some
+  multiline
+  comment !
+
+// This is a comment
+But this is not
+----------------------------------------------------
+[
+	["comment", "// Some\n  multiline\n  comment !"],
+
+	["comment", "// This is a comment"],
+	["tag", ["But"]], ["plain-text", "this is not"]
+]
+
+----------------------------------------------------

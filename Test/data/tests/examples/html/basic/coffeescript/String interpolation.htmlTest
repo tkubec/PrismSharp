@@ -1,0 +1,7 @@
+"String #{interpolation} is supported"
+'This works #{only} between double-quoted strings'
+----------------------------------------------------
+<span class="token string">"String <span class="token interpolation variable">#{interpolation}</span> is supported"</span>
+<span class="token string">'This works #{only} between double-quoted strings'</span>
+
+----------------------------------------------------

@@ -1,0 +1,53 @@
+$ echo 'Foo
+> Bar'
+
+$ echo "Foo
+> Bar"
+
+$ echo <<- STRING_END
+foo
+bar
+STRING_END
+
+$ echo <<- "STRING_END"
+foo
+bar
+STRING_END
+
+$ echo \'a # '
+
+$ cat << "EOF" > /etc/ipsec.secrets
+: RSA vpn-server-a.key
+# : RSA vpn-server-b.key
+EOF
+
+$ LC_ALL=C tr -cd 'a-zA-Z0-9_-;:!?.@\\*/#%$' < /dev/random | head -c 8
+y_#!$U48
+----------------------------------------------------
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">echo</span> <span class="token string">'Foo
+> Bar'</span></span></span>
+
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"Foo
+> Bar"</span></span></span>
+
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">echo</span> <span class="token operator">&lt;&lt;-</span> <span class="token string">STRING_END
+foo
+bar
+STRING_END</span></span></span>
+
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">echo</span> <span class="token operator">&lt;&lt;-</span> <span class="token string">"STRING_END"
+foo
+bar
+STRING_END</span></span></span>
+
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">echo</span> <span class="token punctuation">\</span>'a <span class="token comment"># '</span></span></span>
+
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"EOF"<span class="token bash punctuation"> <span class="token operator">></span> /etc/ipsec.secrets</span>
+: RSA vpn-server-a.key
+# : RSA vpn-server-b.key
+EOF</span></span></span>
+
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>C <span class="token function">tr</span> -cd <span class="token string">'a-zA-Z0-9_-;:!?.@\\*/#%$'</span> <span class="token operator">&lt;</span> /dev/random <span class="token operator">|</span> <span class="token function">head</span> -c <span class="token number">8</span></span></span>
+<span class="token output">y_#!$U48</span>
+
+----------------------------------------------------

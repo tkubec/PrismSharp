@@ -1,0 +1,49 @@
+{
+	'_id': ObjectId('5ec72ffe00316be87cab3927'),
+	'code': Code('function () { return 22; }'),
+	'binary': BinData(1, '232sa3d323sd232a32sda3s2d3a2s1d23s21d3sa'),
+	'dbref': DBRef('namespace', ObjectId('5ec72f4200316be87cab3926'), 'db'),
+	'timestamp': Timestamp(0, 0),
+	'long': NumberLong(9223372036854775807),
+	'decimal': NumberDecimal('1000.55'),
+	'integer': 100,
+	'maxkey': MaxKey(),
+	'minkey': MinKey(),
+	'isodate': ISODate('2012-01-01T00:00:00.000Z'),
+	'regexp': RegExp('prism(js)?', 'i'),
+	'string': 'Hello World',
+	'numberArray': [1, 2, 3],
+	'stringArray': ['1','2','3'],
+	'randomKey': null,
+	'object': { 'a': 1, 'b': 2 },
+	'max_key2': MaxKey(),
+	'number': 1234,
+	'invalid-key': 123,
+	noQuotesKey: 'value',
+}
+----------------------------------------------------
+<span class="token punctuation">{</span>
+	<span class="token string-property property">'_id'</span><span class="token operator">:</span> <span class="token builtin keyword">ObjectId</span><span class="token punctuation">(</span><span class="token string">'5ec72ffe00316be87cab3927'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'code'</span><span class="token operator">:</span> <span class="token builtin keyword">Code</span><span class="token punctuation">(</span><span class="token string">'function () { return 22; }'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'binary'</span><span class="token operator">:</span> <span class="token builtin keyword">BinData</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'232sa3d323sd232a32sda3s2d3a2s1d23s21d3sa'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'dbref'</span><span class="token operator">:</span> <span class="token builtin keyword">DBRef</span><span class="token punctuation">(</span><span class="token string">'namespace'</span><span class="token punctuation">,</span> <span class="token builtin keyword">ObjectId</span><span class="token punctuation">(</span><span class="token string">'5ec72f4200316be87cab3926'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'db'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'timestamp'</span><span class="token operator">:</span> <span class="token builtin keyword">Timestamp</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'long'</span><span class="token operator">:</span> <span class="token builtin keyword">NumberLong</span><span class="token punctuation">(</span><span class="token number">9223372036854775807</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'decimal'</span><span class="token operator">:</span> <span class="token builtin keyword">NumberDecimal</span><span class="token punctuation">(</span><span class="token string">'1000.55'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'integer'</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'maxkey'</span><span class="token operator">:</span> <span class="token builtin keyword">MaxKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'minkey'</span><span class="token operator">:</span> <span class="token builtin keyword">MinKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'isodate'</span><span class="token operator">:</span> <span class="token builtin keyword">ISODate</span><span class="token punctuation">(</span><span class="token string">'2012-01-01T00:00:00.000Z'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'regexp'</span><span class="token operator">:</span> <span class="token builtin keyword">RegExp</span><span class="token punctuation">(</span><span class="token string">'prism(js)?'</span><span class="token punctuation">,</span> <span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'string'</span><span class="token operator">:</span> <span class="token string">'Hello World'</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'numberArray'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'stringArray'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">'2'</span><span class="token punctuation">,</span><span class="token string">'3'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'randomKey'</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'object'</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">'a'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string-property property">'b'</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'max_key2'</span><span class="token operator">:</span> <span class="token builtin keyword">MaxKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'number'</span><span class="token operator">:</span> <span class="token number">1234</span><span class="token punctuation">,</span>
+	<span class="token string-property property">'invalid-key'</span><span class="token operator">:</span> <span class="token number">123</span><span class="token punctuation">,</span>
+	<span class="token property">noQuotesKey</span><span class="token operator">:</span> <span class="token string">'value'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

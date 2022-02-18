@@ -1,0 +1,25 @@
+<%@Assembly foo="bar"%>
+<% @Control foo="bar" %>
+<%@ Implements%>
+<%@Import%>
+<%@Master%>
+<%@MasterType%>
+<%@OutputCache%>
+<%@Page%>
+<%@PreviousPageType%>
+<%@Reference%>
+<%@Register%>
+----------------------------------------------------
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@Assembly</span> <span class="token attr-name">foo</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bar<span class="token punctuation">"</span></span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;% @Control</span> <span class="token attr-name">foo</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bar<span class="token punctuation">"</span></span> <span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@ Implements</span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@Import</span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@Master</span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@MasterType</span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@OutputCache</span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@Page</span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@PreviousPageType</span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@Reference</span><span class="token page-directive tag">%></span></span>
+<span class="token page-directive tag"><span class="token page-directive tag">&lt;%@Register</span><span class="token page-directive tag">%></span></span>
+
+----------------------------------------------------

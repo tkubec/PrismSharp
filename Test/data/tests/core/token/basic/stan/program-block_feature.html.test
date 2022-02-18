@@ -1,0 +1,71 @@
+functions {
+  // ... function declarations and definitions ...
+}
+data {
+  // ... declarations ...
+}
+transformed data {
+   // ... declarations ... statements ...
+}
+parameters {
+   // ... declarations ...
+}
+transformed parameters {
+   // ... declarations ... statements ...
+}
+model {
+   // ... declarations ... statements ...
+}
+generated quantities {
+   // ... declarations ... statements ...
+}
+
+// data-only quantifiers
+real foo(data real x) {
+  return x^2;
+}
+----------------------------------------------------
+[
+	["keyword", "functions"], ["punctuation", "{"],
+	["comment", "// ... function declarations and definitions ..."],
+	["punctuation", "}"],
+	["keyword", "data"], ["punctuation", "{"],
+	["comment", "// ... declarations ..."],
+	["punctuation", "}"],
+	["keyword", "transformed"], ["keyword", "data"], ["punctuation", "{"],
+	["comment", "// ... declarations ... statements ..."],
+	["punctuation", "}"],
+	["keyword", "parameters"], ["punctuation", "{"],
+	["comment", "// ... declarations ..."],
+	["punctuation", "}"],
+	["keyword", "transformed"], ["keyword", "parameters"], ["punctuation", "{"],
+	["comment", "// ... declarations ... statements ..."],
+	["punctuation", "}"],
+	["keyword", "model"], ["punctuation", "{"],
+	["comment", "// ... declarations ... statements ..."],
+	["punctuation", "}"],
+	["keyword", "generated"], ["keyword", "quantities"], ["punctuation", "{"],
+	["comment", "// ... declarations ... statements ..."],
+	["punctuation", "}"],
+
+	["comment", "// data-only quantifiers"],
+
+	["keyword", "real"],
+	["function", "foo"],
+	["punctuation", "("],
+	["keyword", "data"],
+	["keyword", "real"],
+	" x",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" x",
+	["operator", "^"],
+	["number", "2"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

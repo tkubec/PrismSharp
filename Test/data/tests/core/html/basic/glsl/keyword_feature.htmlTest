@@ -1,0 +1,257 @@
+attribute
+const
+uniform
+varying
+buffer
+shared
+coherent
+volatile
+restrict
+readonly
+writeonly
+atomic_uint
+layout
+centroid
+flat
+smooth
+noperspective
+patch
+sample
+break
+continue
+do
+for
+while
+switch
+case
+default
+if
+else
+subroutine
+in
+out
+inout
+float
+double
+int
+void
+bool
+true
+false
+invariant
+precise
+discard
+return
+mat2 mat3 mat4
+mat2x2 mat2x3 mat2x4
+mat3x2 mat3x3 mat3x4
+mat4x2 mat4x3 mat4x4
+dmat2 dmat3 dmat4
+dmat2x2 dmat2x3 dmat2x4
+dmat3x2 dmat3x3 dmat3x4
+dmat4x2 dmat4x3 dmat4x4
+vec2 vec3 vec4
+ivec2 ivec3 ivec4
+bvec2 bvec3 bvec4
+dvec2 dvec3 dvec4
+uvec2 uvec3 uvec4
+uint
+lowp
+mediump
+highp
+precision
+sampler1D sampler2D sampler3D
+isampler1D isampler2D isampler3D
+usampler1D usampler2D usampler3D
+samplerCube isamplerCube usamplerCube
+sampler1DShadow sampler2DShadow
+samplerCubeShadow
+sampler1DArray sampler2DArray
+isampler1DArray isampler2DArray
+usampler1DArray usampler2DArray
+sampler1DArrayShadow sampler2DArrayShadow
+sampler2DRect isampler2DRect usampler2DRect
+sampler2DRectShadow
+samplerBuffer isamplerBuffer usamplerBuffer
+sampler2DMS isampler2DMS usampler2DMS
+sampler2DMSArray isampler2DMSArray usampler2DMSArray
+samplerCubeArray isamplerCubeArray usamplerCubeArray
+samplerCubeArrayShadow
+image1D image2D image3D
+iimage1D iimage2D iimage3D
+uimage1D uimage2D uimage3D
+image2DRect iimage2DRect uimage2DRect
+imageCube iimageCube uimageCube
+imageBuffer iimageBuffer uimageBuffer
+image1DArray image2DArray
+iimage1DArray iimage2DArray
+uimage1DArray uimage2DArray
+imageCubeArray iimageCubeArray uimageCubeArray
+image2DMS iimage2DMS uimage2DMS
+image2DMSArray iimage2DMSArray uimage2DMSArray
+struct;
+common
+partition
+active
+asm
+class;
+union
+enum;
+typedef;
+template
+this
+resource
+goto
+inline
+noinline
+public
+static
+extern
+external
+interface;
+long
+short
+half
+fixed
+unsigned
+superp
+input
+output
+hvec2 hvec3 hvec4
+fvec2 fvec3 fvec4
+sampler3DRect
+filter
+sizeof
+cast
+namespace
+using
+----------------------------------------------------
+<span class="token keyword">attribute</span>
+<span class="token keyword">const</span>
+<span class="token keyword">uniform</span>
+<span class="token keyword">varying</span>
+<span class="token keyword">buffer</span>
+<span class="token keyword">shared</span>
+<span class="token keyword">coherent</span>
+<span class="token keyword">volatile</span>
+<span class="token keyword">restrict</span>
+<span class="token keyword">readonly</span>
+<span class="token keyword">writeonly</span>
+<span class="token keyword">atomic_uint</span>
+<span class="token keyword">layout</span>
+<span class="token keyword">centroid</span>
+<span class="token keyword">flat</span>
+<span class="token keyword">smooth</span>
+<span class="token keyword">noperspective</span>
+<span class="token keyword">patch</span>
+<span class="token keyword">sample</span>
+<span class="token keyword">break</span>
+<span class="token keyword">continue</span>
+<span class="token keyword">do</span>
+<span class="token keyword">for</span>
+<span class="token keyword">while</span>
+<span class="token keyword">switch</span>
+<span class="token keyword">case</span>
+<span class="token keyword">default</span>
+<span class="token keyword">if</span>
+<span class="token keyword">else</span>
+<span class="token keyword">subroutine</span>
+<span class="token keyword">in</span>
+<span class="token keyword">out</span>
+<span class="token keyword">inout</span>
+<span class="token keyword">float</span>
+<span class="token keyword">double</span>
+<span class="token keyword">int</span>
+<span class="token keyword">void</span>
+<span class="token keyword">bool</span>
+<span class="token keyword">true</span>
+<span class="token keyword">false</span>
+<span class="token keyword">invariant</span>
+<span class="token keyword">precise</span>
+<span class="token keyword">discard</span>
+<span class="token keyword">return</span>
+<span class="token keyword">mat2</span> <span class="token keyword">mat3</span> <span class="token keyword">mat4</span>
+<span class="token keyword">mat2x2</span> <span class="token keyword">mat2x3</span> <span class="token keyword">mat2x4</span>
+<span class="token keyword">mat3x2</span> <span class="token keyword">mat3x3</span> <span class="token keyword">mat3x4</span>
+<span class="token keyword">mat4x2</span> <span class="token keyword">mat4x3</span> <span class="token keyword">mat4x4</span>
+<span class="token keyword">dmat2</span> <span class="token keyword">dmat3</span> <span class="token keyword">dmat4</span>
+<span class="token keyword">dmat2x2</span> <span class="token keyword">dmat2x3</span> <span class="token keyword">dmat2x4</span>
+<span class="token keyword">dmat3x2</span> <span class="token keyword">dmat3x3</span> <span class="token keyword">dmat3x4</span>
+<span class="token keyword">dmat4x2</span> <span class="token keyword">dmat4x3</span> <span class="token keyword">dmat4x4</span>
+<span class="token keyword">vec2</span> <span class="token keyword">vec3</span> <span class="token keyword">vec4</span>
+<span class="token keyword">ivec2</span> <span class="token keyword">ivec3</span> <span class="token keyword">ivec4</span>
+<span class="token keyword">bvec2</span> <span class="token keyword">bvec3</span> <span class="token keyword">bvec4</span>
+<span class="token keyword">dvec2</span> <span class="token keyword">dvec3</span> <span class="token keyword">dvec4</span>
+<span class="token keyword">uvec2</span> <span class="token keyword">uvec3</span> <span class="token keyword">uvec4</span>
+<span class="token keyword">uint</span>
+<span class="token keyword">lowp</span>
+<span class="token keyword">mediump</span>
+<span class="token keyword">highp</span>
+<span class="token keyword">precision</span>
+<span class="token keyword">sampler1D</span> <span class="token keyword">sampler2D</span> <span class="token keyword">sampler3D</span>
+<span class="token keyword">isampler1D</span> <span class="token keyword">isampler2D</span> <span class="token keyword">isampler3D</span>
+<span class="token keyword">usampler1D</span> <span class="token keyword">usampler2D</span> <span class="token keyword">usampler3D</span>
+<span class="token keyword">samplerCube</span> <span class="token keyword">isamplerCube</span> <span class="token keyword">usamplerCube</span>
+<span class="token keyword">sampler1DShadow</span> <span class="token keyword">sampler2DShadow</span>
+<span class="token keyword">samplerCubeShadow</span>
+<span class="token keyword">sampler1DArray</span> <span class="token keyword">sampler2DArray</span>
+<span class="token keyword">isampler1DArray</span> <span class="token keyword">isampler2DArray</span>
+<span class="token keyword">usampler1DArray</span> <span class="token keyword">usampler2DArray</span>
+<span class="token keyword">sampler1DArrayShadow</span> <span class="token keyword">sampler2DArrayShadow</span>
+<span class="token keyword">sampler2DRect</span> <span class="token keyword">isampler2DRect</span> <span class="token keyword">usampler2DRect</span>
+<span class="token keyword">sampler2DRectShadow</span>
+<span class="token keyword">samplerBuffer</span> <span class="token keyword">isamplerBuffer</span> <span class="token keyword">usamplerBuffer</span>
+<span class="token keyword">sampler2DMS</span> <span class="token keyword">isampler2DMS</span> <span class="token keyword">usampler2DMS</span>
+<span class="token keyword">sampler2DMSArray</span> <span class="token keyword">isampler2DMSArray</span> <span class="token keyword">usampler2DMSArray</span>
+<span class="token keyword">samplerCubeArray</span> <span class="token keyword">isamplerCubeArray</span> <span class="token keyword">usamplerCubeArray</span>
+<span class="token keyword">samplerCubeArrayShadow</span>
+<span class="token keyword">image1D</span> <span class="token keyword">image2D</span> <span class="token keyword">image3D</span>
+<span class="token keyword">iimage1D</span> <span class="token keyword">iimage2D</span> <span class="token keyword">iimage3D</span>
+<span class="token keyword">uimage1D</span> <span class="token keyword">uimage2D</span> <span class="token keyword">uimage3D</span>
+<span class="token keyword">image2DRect</span> <span class="token keyword">iimage2DRect</span> <span class="token keyword">uimage2DRect</span>
+<span class="token keyword">imageCube</span> <span class="token keyword">iimageCube</span> <span class="token keyword">uimageCube</span>
+<span class="token keyword">imageBuffer</span> <span class="token keyword">iimageBuffer</span> <span class="token keyword">uimageBuffer</span>
+<span class="token keyword">image1DArray</span> <span class="token keyword">image2DArray</span>
+<span class="token keyword">iimage1DArray</span> <span class="token keyword">iimage2DArray</span>
+<span class="token keyword">uimage1DArray</span> <span class="token keyword">uimage2DArray</span>
+<span class="token keyword">imageCubeArray</span> <span class="token keyword">iimageCubeArray</span> <span class="token keyword">uimageCubeArray</span>
+<span class="token keyword">image2DMS</span> <span class="token keyword">iimage2DMS</span> <span class="token keyword">uimage2DMS</span>
+<span class="token keyword">image2DMSArray</span> <span class="token keyword">iimage2DMSArray</span> <span class="token keyword">uimage2DMSArray</span>
+<span class="token keyword">struct</span><span class="token punctuation">;</span>
+<span class="token keyword">common</span>
+<span class="token keyword">partition</span>
+<span class="token keyword">active</span>
+<span class="token keyword">asm</span>
+<span class="token keyword">class</span><span class="token punctuation">;</span>
+<span class="token keyword">union</span>
+<span class="token keyword">enum</span><span class="token punctuation">;</span>
+<span class="token keyword">typedef</span><span class="token punctuation">;</span>
+<span class="token keyword">template</span>
+<span class="token keyword">this</span>
+<span class="token keyword">resource</span>
+<span class="token keyword">goto</span>
+<span class="token keyword">inline</span>
+<span class="token keyword">noinline</span>
+<span class="token keyword">public</span>
+<span class="token keyword">static</span>
+<span class="token keyword">extern</span>
+<span class="token keyword">external</span>
+<span class="token keyword">interface</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span>
+<span class="token keyword">short</span>
+<span class="token keyword">half</span>
+<span class="token keyword">fixed</span>
+<span class="token keyword">unsigned</span>
+<span class="token keyword">superp</span>
+<span class="token keyword">input</span>
+<span class="token keyword">output</span>
+<span class="token keyword">hvec2</span> <span class="token keyword">hvec3</span> <span class="token keyword">hvec4</span>
+<span class="token keyword">fvec2</span> <span class="token keyword">fvec3</span> <span class="token keyword">fvec4</span>
+<span class="token keyword">sampler3DRect</span>
+<span class="token keyword">filter</span>
+<span class="token keyword">sizeof</span>
+<span class="token keyword">cast</span>
+<span class="token keyword">namespace</span>
+<span class="token keyword">using</span>
+
+----------------------------------------------------

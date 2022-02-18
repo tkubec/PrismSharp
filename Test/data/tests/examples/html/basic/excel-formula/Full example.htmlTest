@@ -1,0 +1,21 @@
+=SUM(G7*9)
+=INT(RAND()*999)
+=AVERAGE(A4:A13)+N("Average user rating")
+=CONCATENATE(F4, ",", " ", G4," ",H4)
+=IF($A4>500, $A4, 0)
+=AND($B4>=501,$C4<=500)
+=SUBTOTAL(103,staff[Name])
+=TRIMMEAN(staff[Salary],10%)
+=SUM([Sales.xlsx]Jan!B2:B5)
+----------------------------------------------------
+<span class="token operator">=</span><span class="token function-name keyword">SUM</span><span class="token punctuation">(</span><span class="token cell property">G7</span><span class="token operator">*</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token operator">=</span><span class="token function-name keyword">INT</span><span class="token punctuation">(</span><span class="token function-name keyword">RAND</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">999</span><span class="token punctuation">)</span>
+<span class="token operator">=</span><span class="token function-name keyword">AVERAGE</span><span class="token punctuation">(</span><span class="token range property"><span class="token cell">A4</span><span class="token operator">:</span><span class="token cell">A13</span></span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function-name keyword">N</span><span class="token punctuation">(</span><span class="token comment">"Average user rating"</span><span class="token punctuation">)</span>
+<span class="token operator">=</span><span class="token function-name keyword">CONCATENATE</span><span class="token punctuation">(</span><span class="token cell property">F4</span><span class="token operator">,</span> <span class="token string">","</span><span class="token operator">,</span> <span class="token string">" "</span><span class="token operator">,</span> <span class="token cell property">G4</span><span class="token operator">,</span><span class="token string">" "</span><span class="token operator">,</span><span class="token cell property">H4</span><span class="token punctuation">)</span>
+<span class="token operator">=</span><span class="token function-name keyword">IF</span><span class="token punctuation">(</span><span class="token cell property">$A4</span><span class="token operator">></span><span class="token number">500</span><span class="token operator">,</span> <span class="token cell property">$A4</span><span class="token operator">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token operator">=</span><span class="token function-name keyword">AND</span><span class="token punctuation">(</span><span class="token cell property">$B4</span><span class="token operator">>=</span><span class="token number">501</span><span class="token operator">,</span><span class="token cell property">$C4</span><span class="token operator">&lt;=</span><span class="token number">500</span><span class="token punctuation">)</span>
+<span class="token operator">=</span><span class="token function-name keyword">SUBTOTAL</span><span class="token punctuation">(</span><span class="token number">103</span><span class="token operator">,</span>staff<span class="token punctuation">[</span>Name<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token operator">=</span><span class="token function-name keyword">TRIMMEAN</span><span class="token punctuation">(</span>staff<span class="token punctuation">[</span>Salary<span class="token punctuation">]</span><span class="token operator">,</span><span class="token number">10</span><span class="token operator">%</span><span class="token punctuation">)</span>
+<span class="token operator">=</span><span class="token function-name keyword">SUM</span><span class="token punctuation">(</span><span class="token reference string"><span class="token file"><span class="token punctuation">[</span>Sales.xlsx<span class="token punctuation">]</span></span><span class="token sheet function">Jan</span><span class="token operator">!</span></span><span class="token range property"><span class="token cell">B2</span><span class="token operator">:</span><span class="token cell">B5</span></span><span class="token punctuation">)</span>
+
+----------------------------------------------------

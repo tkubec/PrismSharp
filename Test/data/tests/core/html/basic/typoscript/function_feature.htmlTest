@@ -1,0 +1,9 @@
+@import 'foo'
+@import "bar"
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:baz.typoscript">
+----------------------------------------------------
+<span class="token function">@import <span class="token string">'foo'</span></span>
+<span class="token function">@import <span class="token string">"bar"</span></span>
+<span class="token function">&lt;<span class="token keyword">INCLUDE_TYPOSCRIPT</span>: source=<span class="token string">"<span class="token keyword">FILE</span>:<span class="token keyword">EXT</span>:baz.typoscript"</span>></span>
+
+----------------------------------------------------

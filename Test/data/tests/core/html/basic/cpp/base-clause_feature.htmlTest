@@ -1,0 +1,25 @@
+struct Base {};
+struct Derived : Base {};
+struct Derived : private Base;
+class X : public virtual B {};
+class Y : virtual public B {};
+class Y : virtual baz::B {};
+class Z : public B<foo::T>;
+struct AA : X, Y, foo::bar::Z {};
+
+class service : private Transport // comment
+{};
+----------------------------------------------------
+<span class="token keyword">struct</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token class-name">Base</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">private</span> <span class="token class-name">Base</span></span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">X</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token keyword">virtual</span> <span class="token class-name">B</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Y</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">virtual</span> <span class="token keyword">public</span> <span class="token class-name">B</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Y</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">virtual</span> baz<span class="token double-colon punctuation">::</span><span class="token class-name">B</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Z</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">B</span><span class="token operator">&lt;</span>foo<span class="token double-colon punctuation">::</span><span class="token class-name">T</span><span class="token operator">></span></span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">AA</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token class-name">X</span><span class="token punctuation">,</span> <span class="token class-name">Y</span><span class="token punctuation">,</span> foo<span class="token double-colon punctuation">::</span>bar<span class="token double-colon punctuation">::</span><span class="token class-name">Z</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">service</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">private</span> <span class="token class-name">Transport</span> <span class="token comment">// comment</span></span>
+<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,20 @@
+{if ( $amount < 0 or $amount > 1000 ) and $volume >= #minVolAmt#}
+   ...
+{/if}
+{if count($var) gt 0}{/if}
+{if $var is even by 3}
+   ...
+{/if}
+
+{foreach from=$myArray item=i name=foo}
+	{$smarty.foreach.foo.index}|{$smarty.foreach.foo.iteration},
+{/foreach}
+
+<ul>
+{foreach from=$items key=myId item=i}
+  <li><a href="item.php?id={$myId}">{$i.no}: {$i.label}</li>
+{/foreach}
+</ul>
+
+--------------------------------------------------
+

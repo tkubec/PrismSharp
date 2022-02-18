@@ -1,0 +1,33 @@
+# These examples are taken from: https://prometheus.io/docs/prometheus/latest/querying/examples/
+
+http_requests_total{job="apiserver", handler="/api/comments"}[5m]
+
+http_requests_total{job=~".*server"}
+
+max_over_time(deriv(rate(distance_covered_total[5s])[30s:5s])[10m:])
+
+sum by (job) (
+  rate(http_requests_total[5m])
+)
+
+sum by (app, proc) (
+  instance_memory_limit_bytes - instance_memory_usage_bytes
+) / 1024 / 1024
+----------------------------------------------------
+<span class="token comment"># These examples are taken from: https://prometheus.io/docs/prometheus/latest/querying/examples/</span>
+
+http_requests_total<span class="token context-labels"><span class="token punctuation">{</span><span class="token label-key attr-name">job</span><span class="token punctuation">=</span><span class="token label-value attr-value">"apiserver"</span><span class="token punctuation">,</span> <span class="token label-key attr-name">handler</span><span class="token punctuation">=</span><span class="token label-value attr-value">"/api/comments"</span><span class="token punctuation">}</span></span><span class="token context-range"><span class="token punctuation">[</span><span class="token range-duration number">5m</span><span class="token punctuation">]</span></span>
+
+http_requests_total<span class="token context-labels"><span class="token punctuation">{</span><span class="token label-key attr-name">job</span><span class="token punctuation">=~</span><span class="token label-value attr-value">".*server"</span><span class="token punctuation">}</span></span>
+
+<span class="token function">max_over_time</span><span class="token punctuation">(</span><span class="token function">deriv</span><span class="token punctuation">(</span><span class="token function">rate</span><span class="token punctuation">(</span>distance_covered_total<span class="token context-range"><span class="token punctuation">[</span><span class="token range-duration number">5s</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token context-range"><span class="token punctuation">[</span><span class="token range-duration number">30s</span><span class="token punctuation">:</span><span class="token range-duration number">5s</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token context-range"><span class="token punctuation">[</span><span class="token range-duration number">10m</span><span class="token punctuation">:</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">sum</span> <span class="token keyword">by</span> <span class="token vector-match"><span class="token punctuation">(</span><span class="token label-key attr-name">job</span><span class="token punctuation">)</span></span> <span class="token punctuation">(</span>
+  <span class="token function">rate</span><span class="token punctuation">(</span>http_requests_total<span class="token context-range"><span class="token punctuation">[</span><span class="token range-duration number">5m</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">sum</span> <span class="token keyword">by</span> <span class="token vector-match"><span class="token punctuation">(</span><span class="token label-key attr-name">app</span><span class="token punctuation">,</span> <span class="token label-key attr-name">proc</span><span class="token punctuation">)</span></span> <span class="token punctuation">(</span>
+  instance_memory_limit_bytes <span class="token operator">-</span> instance_memory_usage_bytes
+<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span>
+
+----------------------------------------------------

@@ -1,0 +1,128 @@
+=SUM(G7*9)
+=INT(RAND()*999)
+=AVERAGE(A4:A13)+N("Average user rating")
+=CONCATENATE(F4, ",", " ", G4," ",H4)
+=IF($A4>500, $A4, 0)
+=AND($B4>=501,$C4<=500)
+=SUBTOTAL(103,staff[Name])
+=TRIMMEAN(staff[Salary],10%)
+=SUM([Sales.xlsx]Jan!B2:B5)
+----------------------------------------------------
+[
+	["operator", "="],
+	["function-name", "SUM"],
+	["punctuation", "("],
+	["cell", "G7"],
+	["operator", "*"],
+	["number", "9"],
+	["punctuation", ")"],
+
+	["operator", "="],
+	["function-name", "INT"],
+	["punctuation", "("],
+	["function-name", "RAND"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "*"],
+	["number", "999"],
+	["punctuation", ")"],
+
+	["operator", "="],
+	["function-name", "AVERAGE"],
+	["punctuation", "("],
+	["range", [
+		["cell", "A4"],
+		["operator", ":"],
+		["cell", "A13"]
+	]],
+	["punctuation", ")"],
+	["operator", "+"],
+	["function-name", "N"],
+	["punctuation", "("],
+	["comment", "\"Average user rating\""],
+	["punctuation", ")"],
+
+	["operator", "="],
+	["function-name", "CONCATENATE"],
+	["punctuation", "("],
+	["cell", "F4"],
+	["operator", ","],
+	["string", "\",\""],
+	["operator", ","],
+	["string", "\" \""],
+	["operator", ","],
+	["cell", "G4"],
+	["operator", ","],
+	["string", "\" \""],
+	["operator", ","],
+	["cell", "H4"],
+	["punctuation", ")"],
+
+	["operator", "="],
+	["function-name", "IF"],
+	["punctuation", "("],
+	["cell", "$A4"],
+	["operator", ">"],
+	["number", "500"],
+	["operator", ","],
+	["cell", "$A4"],
+	["operator", ","],
+	["number", "0"],
+	["punctuation", ")"],
+
+	["operator", "="],
+	["function-name", "AND"],
+	["punctuation", "("],
+	["cell", "$B4"],
+	["operator", ">="],
+	["number", "501"],
+	["operator", ","],
+	["cell", "$C4"],
+	["operator", "<="],
+	["number", "500"],
+	["punctuation", ")"],
+
+	["operator", "="],
+	["function-name", "SUBTOTAL"],
+	["punctuation", "("],
+	["number", "103"],
+	["operator", ","],
+	"staff",
+	["punctuation", "["],
+	"Name",
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["operator", "="],
+	["function-name", "TRIMMEAN"],
+	["punctuation", "("],
+	"staff",
+	["punctuation", "["],
+	"Salary",
+	["punctuation", "]"],
+	["operator", ","],
+	["number", "10"],
+	["operator", "%"],
+	["punctuation", ")"],
+
+	["operator", "="],
+	["function-name", "SUM"],
+	["punctuation", "("],
+	["reference", [
+		["file", [
+			["punctuation", "["],
+			"Sales.xlsx",
+			["punctuation", "]"]
+		]],
+		["sheet", "Jan"],
+		["operator", "!"]
+	]],
+	["range", [
+		["cell", "B2"],
+		["operator", ":"],
+		["cell", "B5"]
+	]],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+%union
+%token
+%%
+exp: %empty
+%%
+----------------------------------------------------
+<span class="token bison"><span class="token keyword">%union</span>
+<span class="token keyword">%token</span>
+<span class="token punctuation">%%</span>
+<span class="token property">exp</span><span class="token punctuation">:</span> <span class="token keyword">%empty</span>
+<span class="token punctuation">%%</span></span>
+
+----------------------------------------------------

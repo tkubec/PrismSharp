@@ -1,0 +1,85 @@
+return <ul>
+<!-- {concat(" List of ", $count, " products ")} -->
+plaintext
+{comment{concat(" List of ", $count, " products ")}}
+</ul>
+
+<h1>data($prod/name){data($prod/name)}{{data($prod/name)}}</h1>
+----------------------------------------------------
+[
+	["keyword", "return"],
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"ul"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["comment", "<!-- {concat(\" List of \", $count, \" products \")} -->"],
+
+	"\r\nplaintext\r\n",
+
+	["punctuation", "{"],
+	["builtin", "comment"],
+	["punctuation", "{"],
+	["function", "concat"],
+	["punctuation", "("],
+	["string", "\" List of \""],
+	["punctuation", ","],
+	["variable", "$count"],
+	["punctuation", ","],
+	["string", "\" products \""],
+	["punctuation", ")"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"ul"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"h1"
+		]],
+		["punctuation", ">"]
+	]],
+	["function", "data"],
+	["punctuation", "("],
+	["variable", "$prod"],
+	["punctuation", "/"],
+	"name",
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["function", "data"],
+	["punctuation", "("],
+	["variable", "$prod"],
+	["punctuation", "/"],
+	"name",
+	["punctuation", ")"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["function", "data"],
+	["punctuation", "("],
+	["variable", "$prod"],
+	["punctuation", "/"],
+	"name",
+	["punctuation", ")"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"h1"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

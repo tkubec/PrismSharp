@@ -1,0 +1,191 @@
+// Source: https://avro.apache.org/docs/current/idl.html#example
+
+/**
+ * An example protocol in Avro IDL
+ */
+@namespace("org.apache.avro.test")
+protocol Simple {
+
+	@aliases(["org.foo.KindOf"])
+	enum Kind {
+		FOO,
+		BAR, // the bar enum value
+		BAZ
+	}
+
+	fixed MD5(16);
+
+	record TestRecord {
+		@order("ignore")
+		string name;
+
+		@order("descending")
+		Kind kind;
+
+		MD5 hash;
+
+		union { MD5, null} @aliases(["hash"]) nullableHash;
+
+		array<long> arrayOfLongs;
+	}
+
+	error TestError {
+		string message;
+	}
+
+	string hello(string greeting);
+	TestRecord echo(TestRecord `record`);
+	int add(int arg1, int arg2);
+	bytes echoBytes(bytes data);
+	void `error`() throws TestError;
+	void ping() oneway;
+}
+----------------------------------------------------
+[
+	["comment", "// Source: https://avro.apache.org/docs/current/idl.html#example"],
+
+	["comment", "/**\n * An example protocol in Avro IDL\n */"],
+
+	["annotation", "@namespace"],
+	["punctuation", "("],
+	["string", "\"org.apache.avro.test\""],
+	["punctuation", ")"],
+
+	["keyword", "protocol"],
+	["class-name", "Simple"],
+	["punctuation", "{"],
+
+	["annotation", "@aliases"],
+	["punctuation", "("],
+	["punctuation", "["],
+	["string", "\"org.foo.KindOf\""],
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["keyword", "enum"],
+	["class-name", "Kind"],
+	["punctuation", "{"],
+
+	"\n\t\tFOO",
+	["punctuation", ","],
+
+	"\n\t\tBAR",
+	["punctuation", ","],
+	["comment", "// the bar enum value"],
+
+	"\n\t\tBAZ\n\t",
+
+	["punctuation", "}"],
+
+	["keyword", "fixed"],
+	["function", "MD5"],
+	["punctuation", "("],
+	["number", "16"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "record"],
+	["class-name", "TestRecord"],
+	["punctuation", "{"],
+
+	["annotation", "@order"],
+	["punctuation", "("],
+	["string", "\"ignore\""],
+	["punctuation", ")"],
+
+	["keyword", "string"],
+	" name",
+	["punctuation", ";"],
+
+	["annotation", "@order"],
+	["punctuation", "("],
+	["string", "\"descending\""],
+	["punctuation", ")"],
+
+	"\n\t\tKind kind",
+	["punctuation", ";"],
+
+	"\n\n\t\tMD5 hash", ["punctuation", ";"],
+
+	["keyword", "union"],
+	["punctuation", "{"],
+	" MD5",
+	["punctuation", ","],
+	["keyword", "null"],
+	["punctuation", "}"],
+	["annotation", "@aliases"],
+	["punctuation", "("],
+	["punctuation", "["],
+	["string", "\"hash\""],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	" nullableHash",
+	["punctuation", ";"],
+
+	["keyword", "array"],
+	["punctuation", "<"],
+	["keyword", "long"],
+	["punctuation", ">"],
+	" arrayOfLongs",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "error"], ["class-name", "TestError"], ["punctuation", "{"],
+	["keyword", "string"], " message", ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "string"],
+	["function", "hello"],
+	["punctuation", "("],
+	["keyword", "string"],
+	" greeting",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\tTestRecord ",
+	["function", "echo"],
+	["punctuation", "("],
+	"TestRecord ",
+	["identifier", "`record`"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "int"],
+	["function", "add"],
+	["punctuation", "("],
+	["keyword", "int"],
+	" arg1",
+	["punctuation", ","],
+	["keyword", "int"],
+	" arg2",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "bytes"],
+	["function", "echoBytes"],
+	["punctuation", "("],
+	["keyword", "bytes"],
+	" data",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "void"],
+	["function-identifier", "`error`"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["keyword", "throws"],
+	["class-name", "TestError"],
+	["punctuation", ";"],
+
+	["keyword", "void"],
+	["function", "ping"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["keyword", "oneway"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,36 @@
+"foo${42}bar"
+"foo\${42}bar" # This is not interpolated
+''foo${42}bar''
+''foo''${42}bar'' # This is not interpolated
+----------------------------------------------------
+[
+	["string", [
+		"\"foo",
+		["interpolation", [
+			["antiquotation", "$"],
+			["punctuation", "{"],
+			["number", "42"],
+			["punctuation", "}"]
+		]],
+		"bar\""
+	]],
+
+	["string", ["\"foo\\${42}bar\""]],
+	["comment", "# This is not interpolated"],
+
+	["string", [
+		"''foo",
+		["interpolation", [
+			["antiquotation", "$"],
+			["punctuation", "{"],
+			["number", "42"],
+			["punctuation", "}"]
+		]],
+		"bar''"
+	]],
+
+	["string", ["''foo''${42}bar''"]],
+	["comment", "# This is not interpolated"]
+]
+
+----------------------------------------------------

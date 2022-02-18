@@ -1,0 +1,35 @@
+f'The value is {value}.'
+
+f"The value is {'4'}."
+
+f'input={value!s:#06x}'
+
+f'{{{4*10}}}'
+
+fr'x={4*10}\n'
+
+f'''{x
++1}'''
+
+f'mapping is { {a:b for (a, b) in ((1, 2), (3, 4))} }'
+
+f'{(lambda x: x*2)(3)}'
+----------------------------------------------------
+<span class="token string-interpolation"><span class="token string">f'The value is </span><span class="token interpolation"><span class="token punctuation">{</span>value<span class="token punctuation">}</span></span><span class="token string">.'</span></span>
+
+<span class="token string-interpolation"><span class="token string">f"The value is </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token string">'4'</span><span class="token punctuation">}</span></span><span class="token string">."</span></span>
+
+<span class="token string-interpolation"><span class="token string">f'input=</span><span class="token interpolation"><span class="token punctuation">{</span>value<span class="token conversion-option punctuation">!s</span><span class="token punctuation">:</span><span class="token format-spec">#06x</span><span class="token punctuation">}</span></span><span class="token string">'</span></span>
+
+<span class="token string-interpolation"><span class="token string">f'{{</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">}</span></span><span class="token string">}}'</span></span>
+
+<span class="token string-interpolation"><span class="token string">fr'x=</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+
+<span class="token string-interpolation"><span class="token string">f'''</span><span class="token interpolation"><span class="token punctuation">{</span>x
+<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">}</span></span><span class="token string">'''</span></span>
+
+<span class="token string-interpolation"><span class="token string">f'mapping is </span><span class="token interpolation"><span class="token punctuation">{</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span>b <span class="token keyword">for</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token punctuation">}</span></span><span class="token string">'</span></span>
+
+<span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">'</span></span>
+
+----------------------------------------------------

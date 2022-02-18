@@ -1,0 +1,29 @@
+each val, index in [1,2,3]
+
+if foo
+else if bar
+else
+
+unless foo
+
+while n < 4
+
+case foo
+	when "bar"
+	default
+----------------------------------------------------
+<span class="token flow-control"><span class="token each"><span class="token keyword">each</span> val<span class="token punctuation">,</span> index <span class="token keyword">in</span></span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span></span>
+
+<span class="token flow-control"><span class="token branch keyword">if</span> foo</span>
+<span class="token flow-control"><span class="token branch keyword">else</span> <span class="token keyword">if</span> bar</span>
+<span class="token flow-control"><span class="token branch keyword">else</span></span>
+
+<span class="token flow-control"><span class="token branch keyword">unless</span> foo</span>
+
+<span class="token flow-control"><span class="token branch keyword">while</span> n <span class="token operator">&lt;</span> <span class="token number">4</span></span>
+
+<span class="token flow-control"><span class="token branch keyword">case</span> foo</span>
+	<span class="token flow-control"><span class="token branch keyword">when</span> <span class="token string">"bar"</span></span>
+	<span class="token flow-control"><span class="token branch keyword">default</span></span>
+
+----------------------------------------------------

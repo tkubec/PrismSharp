@@ -1,0 +1,13 @@
+doc("catalog.xml")
+generate-id($prod)
+xs:QName("strings:trim")
+declare function prod:countProds ($prods as element(product)*) as xs:string
+false()
+----------------------------------------------------
+<span class="token function">doc</span><span class="token punctuation">(</span><span class="token string">"catalog.xml"</span><span class="token punctuation">)</span>
+<span class="token function">generate-id</span><span class="token punctuation">(</span><span class="token variable">$prod</span><span class="token punctuation">)</span>
+<span class="token function">xs:QName</span><span class="token punctuation">(</span><span class="token string">"strings:trim"</span><span class="token punctuation">)</span>
+<span class="token keyword">declare</span> <span class="token keyword">function</span> <span class="token function">prod:countProds</span> <span class="token punctuation">(</span><span class="token variable">$prods</span> <span class="token keyword">as</span> <span class="token function">element</span><span class="token punctuation">(</span>product<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">xs:string</span>
+<span class="token function">false</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

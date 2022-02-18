@@ -1,0 +1,11 @@
+%%
+foo: "foo";
+bar: "\"";
+%%
+----------------------------------------------------
+<span class="token bison"><span class="token punctuation">%%</span>
+<span class="token property">foo</span><span class="token punctuation">:</span> <span class="token string">"foo"</span><span class="token punctuation">;</span>
+<span class="token property">bar</span><span class="token punctuation">:</span> <span class="token string">"\""</span><span class="token punctuation">;</span>
+<span class="token punctuation">%%</span></span>
+
+----------------------------------------------------

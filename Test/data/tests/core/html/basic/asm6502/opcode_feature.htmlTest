@@ -1,0 +1,227 @@
+adc
+and
+asl
+bcc
+bcs
+beq
+bit
+bmi
+bne
+bpl
+brk
+bvc
+bvs
+clc
+cld
+cli
+clv
+cmp
+cpx
+cpy
+dec
+dex
+dey
+eor
+inc
+inx
+iny
+jmp
+jsr
+lda
+ldx
+ldy
+lsr
+nop
+ora
+pha
+php
+pla
+plp
+rol
+ror
+rti
+rts
+sbc
+sec
+sed
+sei
+sta
+stx
+sty
+tax
+tay
+tsx
+txa
+txs
+tya
+ADC
+AND
+ASL
+BCC
+BCS
+BEQ
+BIT
+BMI
+BNE
+BPL
+BRK
+BVC
+BVS
+CLC
+CLD
+CLI
+CLV
+CMP
+CPX
+CPY
+DEC
+DEX
+DEY
+EOR
+INC
+INX
+INY
+JMP
+JSR
+LDA
+LDX
+LDY
+LSR
+NOP
+ORA
+PHA
+PHP
+PLA
+PLP
+ROL
+ROR
+RTI
+RTS
+SBC
+SEC
+SED
+SEI
+STA
+STX
+STY
+TAX
+TAY
+TSX
+TXA
+TXS
+TYA
+----------------------------------------------------
+<span class="token op-code keyword">adc</span>
+<span class="token op-code keyword">and</span>
+<span class="token op-code keyword">asl</span>
+<span class="token op-code keyword">bcc</span>
+<span class="token op-code keyword">bcs</span>
+<span class="token op-code keyword">beq</span>
+<span class="token op-code keyword">bit</span>
+<span class="token op-code keyword">bmi</span>
+<span class="token op-code keyword">bne</span>
+<span class="token op-code keyword">bpl</span>
+<span class="token op-code keyword">brk</span>
+<span class="token op-code keyword">bvc</span>
+<span class="token op-code keyword">bvs</span>
+<span class="token op-code keyword">clc</span>
+<span class="token op-code keyword">cld</span>
+<span class="token op-code keyword">cli</span>
+<span class="token op-code keyword">clv</span>
+<span class="token op-code keyword">cmp</span>
+<span class="token op-code keyword">cpx</span>
+<span class="token op-code keyword">cpy</span>
+<span class="token op-code keyword">dec</span>
+<span class="token op-code keyword">dex</span>
+<span class="token op-code keyword">dey</span>
+<span class="token op-code keyword">eor</span>
+<span class="token op-code keyword">inc</span>
+<span class="token op-code keyword">inx</span>
+<span class="token op-code keyword">iny</span>
+<span class="token op-code keyword">jmp</span>
+<span class="token op-code keyword">jsr</span>
+<span class="token op-code keyword">lda</span>
+<span class="token op-code keyword">ldx</span>
+<span class="token op-code keyword">ldy</span>
+<span class="token op-code keyword">lsr</span>
+<span class="token op-code keyword">nop</span>
+<span class="token op-code keyword">ora</span>
+<span class="token op-code keyword">pha</span>
+<span class="token op-code keyword">php</span>
+<span class="token op-code keyword">pla</span>
+<span class="token op-code keyword">plp</span>
+<span class="token op-code keyword">rol</span>
+<span class="token op-code keyword">ror</span>
+<span class="token op-code keyword">rti</span>
+<span class="token op-code keyword">rts</span>
+<span class="token op-code keyword">sbc</span>
+<span class="token op-code keyword">sec</span>
+<span class="token op-code keyword">sed</span>
+<span class="token op-code keyword">sei</span>
+<span class="token op-code keyword">sta</span>
+<span class="token op-code keyword">stx</span>
+<span class="token op-code keyword">sty</span>
+<span class="token op-code keyword">tax</span>
+<span class="token op-code keyword">tay</span>
+<span class="token op-code keyword">tsx</span>
+<span class="token op-code keyword">txa</span>
+<span class="token op-code keyword">txs</span>
+<span class="token op-code keyword">tya</span>
+<span class="token op-code keyword">ADC</span>
+<span class="token op-code keyword">AND</span>
+<span class="token op-code keyword">ASL</span>
+<span class="token op-code keyword">BCC</span>
+<span class="token op-code keyword">BCS</span>
+<span class="token op-code keyword">BEQ</span>
+<span class="token op-code keyword">BIT</span>
+<span class="token op-code keyword">BMI</span>
+<span class="token op-code keyword">BNE</span>
+<span class="token op-code keyword">BPL</span>
+<span class="token op-code keyword">BRK</span>
+<span class="token op-code keyword">BVC</span>
+<span class="token op-code keyword">BVS</span>
+<span class="token op-code keyword">CLC</span>
+<span class="token op-code keyword">CLD</span>
+<span class="token op-code keyword">CLI</span>
+<span class="token op-code keyword">CLV</span>
+<span class="token op-code keyword">CMP</span>
+<span class="token op-code keyword">CPX</span>
+<span class="token op-code keyword">CPY</span>
+<span class="token op-code keyword">DEC</span>
+<span class="token op-code keyword">DEX</span>
+<span class="token op-code keyword">DEY</span>
+<span class="token op-code keyword">EOR</span>
+<span class="token op-code keyword">INC</span>
+<span class="token op-code keyword">INX</span>
+<span class="token op-code keyword">INY</span>
+<span class="token op-code keyword">JMP</span>
+<span class="token op-code keyword">JSR</span>
+<span class="token op-code keyword">LDA</span>
+<span class="token op-code keyword">LDX</span>
+<span class="token op-code keyword">LDY</span>
+<span class="token op-code keyword">LSR</span>
+<span class="token op-code keyword">NOP</span>
+<span class="token op-code keyword">ORA</span>
+<span class="token op-code keyword">PHA</span>
+<span class="token op-code keyword">PHP</span>
+<span class="token op-code keyword">PLA</span>
+<span class="token op-code keyword">PLP</span>
+<span class="token op-code keyword">ROL</span>
+<span class="token op-code keyword">ROR</span>
+<span class="token op-code keyword">RTI</span>
+<span class="token op-code keyword">RTS</span>
+<span class="token op-code keyword">SBC</span>
+<span class="token op-code keyword">SEC</span>
+<span class="token op-code keyword">SED</span>
+<span class="token op-code keyword">SEI</span>
+<span class="token op-code keyword">STA</span>
+<span class="token op-code keyword">STX</span>
+<span class="token op-code keyword">STY</span>
+<span class="token op-code keyword">TAX</span>
+<span class="token op-code keyword">TAY</span>
+<span class="token op-code keyword">TSX</span>
+<span class="token op-code keyword">TXA</span>
+<span class="token op-code keyword">TXS</span>
+<span class="token op-code keyword">TYA</span>
+
+----------------------------------------------------

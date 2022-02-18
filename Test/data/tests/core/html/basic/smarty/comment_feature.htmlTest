@@ -1,0 +1,15 @@
+{**}
+{* foo
+bar *}
+
+{* you cannot nest comments *}
+{* {* foo *} *}
+----------------------------------------------------
+<span class="token comment">{**}</span>
+<span class="token punctuation">{</span><span class="token operator">*</span> foo
+bar <span class="token operator">*</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">*</span> you cannot nest comments <span class="token operator">*</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">*</span> <span class="token punctuation">{</span><span class="token operator">*</span> foo <span class="token operator">*</span><span class="token punctuation">}</span> <span class="token operator">*</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

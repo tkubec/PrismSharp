@@ -1,0 +1,27 @@
+"" ''
+r"" r''
+"""""" ''''''
+r"""""" r''''''
+"fo\"o" 'fo\'o'
+"""foo
+bar"""
+'''foo
+bar'''
+
+'$string has ${string.length} letters'
+"cookie has ${cookie.number_of_chips} chips"
+----------------------------------------------------
+<span class="token string-literal"><span class="token string">""</span></span> <span class="token string-literal"><span class="token string">''</span></span>
+<span class="token string-literal"><span class="token string">r""</span></span> <span class="token string-literal"><span class="token string">r''</span></span>
+<span class="token string-literal"><span class="token string">""""""</span></span> <span class="token string-literal"><span class="token string">''''''</span></span>
+<span class="token string-literal"><span class="token string">r""""""</span></span> <span class="token string-literal"><span class="token string">r''''''</span></span>
+<span class="token string-literal"><span class="token string">"fo\"o"</span></span> <span class="token string-literal"><span class="token string">'fo\'o'</span></span>
+<span class="token string-literal"><span class="token string">"""foo
+bar"""</span></span>
+<span class="token string-literal"><span class="token string">'''foo
+bar'''</span></span>
+
+<span class="token string-literal"><span class="token string">'</span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">string</span></span><span class="token string"> has </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">string<span class="token punctuation">.</span>length</span><span class="token punctuation">}</span></span><span class="token string"> letters'</span></span>
+<span class="token string-literal"><span class="token string">"cookie has </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">cookie<span class="token punctuation">.</span>number_of_chips</span><span class="token punctuation">}</span></span><span class="token string"> chips"</span></span>
+
+----------------------------------------------------

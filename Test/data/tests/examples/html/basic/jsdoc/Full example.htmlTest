@@ -1,0 +1,43 @@
+/**
+ * @typedef {object} Foo
+ * @property {string} bar
+ * @memberof Baz
+ */
+
+/**
+ * Trims the given string.
+ *
+ * @param {string} [str=""] the string.
+ * @returns {string} the trimmed string.
+ * @throws {TypeError} if the argument is not a string.
+ * @example trim(" hello ")
+ */
+function trim(str = "") {
+	if (typeof str != "string") {
+		throw new TypeError("str has to be a string");
+	}
+	return str.trim();
+}
+----------------------------------------------------
+/**
+ * <span class="token keyword">@typedef</span> <span class="token class-name"><span class="token punctuation">{</span>object<span class="token punctuation">}</span></span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@property</span> <span class="token class-name"><span class="token punctuation">{</span>string<span class="token punctuation">}</span></span> <span class="token parameter">bar</span>
+ * <span class="token keyword">@memberof</span> <span class="token class-name">Baz</span>
+ */
+
+/**
+ * Trims the given string.
+ *
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>string<span class="token punctuation">}</span></span> <span class="token optional-parameter"><span class="token punctuation">[</span><span class="token parameter">str</span><span class="token punctuation">=</span><span class="token code language-javascript"><span class="token string">""</span></span><span class="token punctuation">]</span></span> the string.
+ * <span class="token keyword">@returns</span> <span class="token class-name"><span class="token punctuation">{</span>string<span class="token punctuation">}</span></span> the trimmed string.
+ * <span class="token keyword">@throws</span> <span class="token class-name"><span class="token punctuation">{</span>TypeError<span class="token punctuation">}</span></span> if the argument is not a string.
+ * <span class="token keyword">@example</span> <span class="token example"><span class="token code language-javascript"><span class="token function">trim</span><span class="token punctuation">(</span><span class="token string">" hello "</span><span class="token punctuation">)</span></span></span>
+ */
+function trim(str = "") <span class="token punctuation">{</span>
+	if (typeof str != "string") <span class="token punctuation">{</span>
+		throw new TypeError("str has to be a string");
+	<span class="token punctuation">}</span>
+	return str.trim();
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

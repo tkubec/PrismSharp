@@ -1,0 +1,41 @@
+var employees:XML =
+    <employees>
+        <employee ssn="123-123-1234">
+            <name first="John" last="Doe"/>
+            <address>
+                <city>San Francisco</city>
+                <state>CA</state>
+                <zip>98765</zip>
+            </address>
+        </employee>
+        <employee ssn="789-789-7890">
+            <name first="Mary" last="Roe"/>
+            <address>
+                <city>Newton</city>
+                <state>MA</state>
+                <zip>01234</zip>
+            </address>
+        </employee>
+    </employees>;
+----------------------------------------------------
+<span class="token keyword">var</span> employees<span class="token punctuation">:</span><span class="token constant">XML</span> <span class="token operator">=</span>
+    <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>employees</span><span class="token punctuation">></span></span></span>
+        <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>employee</span> <span class="token attr-name">ssn</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>123-123-1234<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+            <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span> <span class="token attr-name">first</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>John<span class="token punctuation">"</span></span> <span class="token attr-name">last</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Doe<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></span>
+            <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>address</span><span class="token punctuation">></span></span></span>
+                <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>city</span><span class="token punctuation">></span></span></span>San Francisco<span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>city</span><span class="token punctuation">></span></span></span>
+                <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>state</span><span class="token punctuation">></span></span></span><span class="token constant">CA</span><span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>state</span><span class="token punctuation">></span></span></span>
+                <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>zip</span><span class="token punctuation">></span></span></span><span class="token number">98765</span><span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>zip</span><span class="token punctuation">></span></span></span>
+            <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>address</span><span class="token punctuation">></span></span></span>
+        <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>employee</span><span class="token punctuation">></span></span></span>
+        <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>employee</span> <span class="token attr-name">ssn</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>789-789-7890<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+            <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span> <span class="token attr-name">first</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Mary<span class="token punctuation">"</span></span> <span class="token attr-name">last</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Roe<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></span>
+            <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>address</span><span class="token punctuation">></span></span></span>
+                <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>city</span><span class="token punctuation">></span></span></span>Newton<span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>city</span><span class="token punctuation">></span></span></span>
+                <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>state</span><span class="token punctuation">></span></span></span><span class="token constant">MA</span><span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>state</span><span class="token punctuation">></span></span></span>
+                <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>zip</span><span class="token punctuation">></span></span></span><span class="token number">01234</span><span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>zip</span><span class="token punctuation">></span></span></span>
+            <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>address</span><span class="token punctuation">></span></span></span>
+        <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>employee</span><span class="token punctuation">></span></span></span>
+    <span class="token xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>employees</span><span class="token punctuation">></span></span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,23 @@
+#const someFlag = true
+#const anotherFlag = false
+#const someOtherFlag = someFlag
+
+#if FeatureA
+#else if FeatureB
+#else
+#end if
+
+#error Your device cannot support this feature.
+----------------------------------------------------
+<span class="token directive-statement property"><span class="token directive keyword">#const</span><span class="token expression"> someFlag <span class="token operator">=</span> <span class="token boolean">true</span></span></span>
+<span class="token directive-statement property"><span class="token directive keyword">#const</span><span class="token expression"> anotherFlag <span class="token operator">=</span> <span class="token boolean">false</span></span></span>
+<span class="token directive-statement property"><span class="token directive keyword">#const</span><span class="token expression"> someOtherFlag <span class="token operator">=</span> someFlag</span></span>
+
+<span class="token directive-statement property"><span class="token directive keyword">#if</span><span class="token expression"> FeatureA</span></span>
+<span class="token directive-statement property"><span class="token directive keyword">#else if</span><span class="token expression"> FeatureB</span></span>
+<span class="token directive-statement property"><span class="token directive keyword">#else</span></span>
+<span class="token directive-statement property"><span class="token directive keyword">#end if</span></span>
+
+<span class="token directive-statement property"><span class="token directive keyword">#error</span><span class="token error-message"> Your device cannot support this feature.</span></span>
+
+----------------------------------------------------

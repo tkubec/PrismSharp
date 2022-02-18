@@ -1,0 +1,55 @@
+type UnionAlias = 1 | 2 | 3;
+opaque type ID = string;
+declare opaque type PositiveNumber: number;
+type Country = $Keys<typeof countries>;
+type RequiredProps = $Diff<Props, DefaultProps>;
+----------------------------------------------------
+[
+	["keyword", "type"],
+	" UnionAlias ",
+	["operator", "="],
+	["number", "1"],
+	["operator", "|"],
+	["number", "2"],
+	["operator", "|"],
+	["number", "3"],
+	["punctuation", ";"],
+
+	["keyword", "opaque"],
+	["keyword", "type"],
+	["constant", "ID"],
+	["operator", "="],
+	["type", "string"],
+	["punctuation", ";"],
+
+	["keyword", "declare"],
+	["keyword", "opaque"],
+	["keyword", "type"],
+	["literal-property", "PositiveNumber"],
+	["operator", ":"],
+	["type", "number"],
+	["punctuation", ";"],
+
+	["keyword", "type"],
+	" Country ",
+	["operator", "="],
+	["keyword", "$Keys"],
+	["operator", "<"],
+	["keyword", "typeof"],
+	" countries",
+	["operator", ">"],
+	["punctuation", ";"],
+
+	["keyword", "type"],
+	" RequiredProps ",
+	["operator", "="],
+	["keyword", "$Diff"],
+	["operator", "<"],
+	"Props",
+	["punctuation", ","],
+	" DefaultProps",
+	["operator", ">"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

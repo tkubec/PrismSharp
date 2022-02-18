@@ -1,0 +1,11 @@
+"foo \"bar\" baz"
+'foo \'bar\' baz'
+"Multi-line strings ending with a \
+are supported too."
+----------------------------------------------------
+<span class="token string">"foo \"bar\" baz"</span>
+<span class="token char">'foo \'bar\' baz'</span>
+<span class="token string">"Multi-line strings ending with a \
+are supported too."</span>
+
+----------------------------------------------------

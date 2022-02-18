@@ -1,0 +1,5 @@
+add_library(foo main.cpp)
+target_link_libraries(foo bar)
+
+--------------------------------------------------
+

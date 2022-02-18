@@ -1,0 +1,13 @@
+{% for key, value in {foo: 100, bar: 20} %}
+	def {{ key.id }}
+		{{ value }}
+	end
+{% end %}
+----------------------------------------------------
+<span class="token expansion"><span class="token delimiter operator">{%</span><span class="token content"> <span class="token keyword">for</span> key<span class="token punctuation">,</span> value in <span class="token punctuation">{</span><span class="token symbol">foo</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token symbol">bar</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">}</span> </span><span class="token delimiter operator">%}</span></span>
+	<span class="token keyword">def</span> <span class="token expansion"><span class="token delimiter operator">{{</span><span class="token content"> key<span class="token punctuation">.</span>id </span><span class="token delimiter operator">}}</span></span>
+		<span class="token expansion"><span class="token delimiter operator">{{</span><span class="token content"> value </span><span class="token delimiter operator">}}</span></span>
+	<span class="token keyword">end</span>
+<span class="token expansion"><span class="token delimiter operator">{%</span><span class="token content"> <span class="token keyword">end</span> </span><span class="token delimiter operator">%}</span></span>
+
+----------------------------------------------------

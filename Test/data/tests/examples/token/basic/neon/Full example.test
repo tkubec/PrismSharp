@@ -1,0 +1,43 @@
+# my web application config
+
+php:
+	date.timezone: Europe/Prague
+	zlib.output_compression: true  # use gzip
+
+database:
+	driver: mysql
+	username: root
+	password: beruska92
+
+users:
+	- Dave
+	- Kryten
+	- Rimmer
+----------------------------------------------------
+[
+	["comment", "# my web application config"],
+
+	["key", "php"],
+	["punctuation", ":"],
+
+	["key", "date.timezone"],
+	["punctuation", ":"],
+	["literal", "Europe/Prague"],
+
+	["key", "zlib.output_compression"],
+	["punctuation", ":"],
+	["boolean", "true"],
+	["comment", "# use gzip"],
+
+	["key", "database"], ["punctuation", ":"],
+	["key", "driver"], ["punctuation", ":"], ["literal", "mysql"],
+	["key", "username"], ["punctuation", ":"], ["literal", "root"],
+	["key", "password"], ["punctuation", ":"], ["literal", "beruska92"],
+
+	["key", "users"], ["punctuation", ":"],
+	["punctuation", "-"], ["literal", "Dave"],
+	["punctuation", "-"], ["literal", "Kryten"],
+	["punctuation", "-"], ["literal", "Rimmer"]
+]
+
+----------------------------------------------------

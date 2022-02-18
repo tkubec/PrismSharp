@@ -1,0 +1,6 @@
+c Match RAlt+E on desktops, Ctrl+Alt+E on web because L/R Alt not consistently supported in browsers.
+$KeymanOnly: + [RALT K_E] > "€"
+$KeymanWeb: + [CTRL ALT K_E] > "€"
+
+--------------------------------------------------
+

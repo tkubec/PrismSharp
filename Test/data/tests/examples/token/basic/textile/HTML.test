@@ -1,0 +1,54 @@
+I am <b>very</b> serious.
+
+<div style="background:#fff">Foo bar</div>
+----------------------------------------------------
+[
+	["phrase", ["I am "]],
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"b"
+		]],
+		["punctuation", ">"]
+	]],
+	["phrase", ["very"]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"b"
+		]],
+		["punctuation", ">"]
+	]],
+	" serious.\n\n",
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"div"
+		]],
+		["special-attr", [
+			["attr-name", "style"],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				["value", [
+					["property", "background"],
+					["punctuation", ":"],
+					"#fff"
+				]],
+				["punctuation", "\""]
+			]]
+		]],
+		["punctuation", ">"]
+	]],
+	["phrase", ["Foo bar"]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,65 @@
+{""}
+{"fo\"obar"}
+{''}
+{'fo\'obar'}
+{$foo="this is message {counter}"}
+
+{func var="test $foo test"}              // sees $foo
+{func var="test $foo_bar test"}          // sees $foo_bar
+{func var="test `$foo[0]` test"}         // sees $foo[0]
+{func var="test `$foo[bar]` test"}       // sees $foo[bar]
+{func var="test $foo.bar test"}          // sees $foo (not $foo.bar)
+{func var="test `$foo.bar` test"}        // sees $foo.bar
+{func var="test `$foo.bar` test"|escape} // modifiers outside quotes!
+{func var="test {$foo|escape} test"}     // modifiers inside quotes!
+{func var="test {time()} test"}          // PHP function result
+{func var="test {counter} test"}         // plugin result
+
+{* will replace $tpl_name with value *}
+{include file="subdir/$tpl_name.tpl"}
+
+{* does NOT replace $tpl_name *}
+{include file='subdir/$tpl_name.tpl'} // vars require double quotes!
+
+{* must have backticks as it contains a dot "." *}
+{cycle values="one,two,`$smarty.config.myval`"}
+
+{* must have backticks as it contains a dot "." *}
+{include file="`$module.contact`.tpl"}
+
+{* can use variable with dot syntax *}
+{include file="`$module.$view`.tpl"}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token string">""</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string">"fo\"obar"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string">''</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string">'fo\'obar'</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token operator">=</span><span class="token string">"this is message <span class="token interpolation"><span class="token interpolation-punctuation punctuation">{</span><span class="token expression">counter</span><span class="token interpolation-punctuation punctuation">}</span></span>"</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token variable">$foo</span> test"</span><span class="token punctuation">}</span>              <span class="token operator">/</span><span class="token operator">/</span> sees <span class="token variable">$foo</span>
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token variable">$foo_bar</span> test"</span><span class="token punctuation">}</span>          <span class="token operator">/</span><span class="token operator">/</span> sees <span class="token variable">$foo_bar</span>
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token interpolation"><span class="token interpolation-punctuation punctuation">`</span><span class="token expression"><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></span><span class="token interpolation-punctuation punctuation">`</span></span> test"</span><span class="token punctuation">}</span>         <span class="token operator">/</span><span class="token operator">/</span> sees <span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token interpolation"><span class="token interpolation-punctuation punctuation">`</span><span class="token expression"><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token variable">bar</span><span class="token punctuation">]</span></span><span class="token interpolation-punctuation punctuation">`</span></span> test"</span><span class="token punctuation">}</span>       <span class="token operator">/</span><span class="token operator">/</span> sees <span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token variable">bar</span><span class="token punctuation">]</span>
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token variable">$foo</span>.bar test"</span><span class="token punctuation">}</span>          <span class="token operator">/</span><span class="token operator">/</span> sees <span class="token variable">$foo</span> <span class="token punctuation">(</span><span class="token operator">not</span> <span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">bar</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token interpolation"><span class="token interpolation-punctuation punctuation">`</span><span class="token expression"><span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">bar</span></span><span class="token interpolation-punctuation punctuation">`</span></span> test"</span><span class="token punctuation">}</span>        <span class="token operator">/</span><span class="token operator">/</span> sees <span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">bar</span>
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token interpolation"><span class="token interpolation-punctuation punctuation">`</span><span class="token expression"><span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">bar</span></span><span class="token interpolation-punctuation punctuation">`</span></span> test"</span><span class="token operator">|</span><span class="token function">escape</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">/</span> modifiers outside quotes<span class="token operator">!</span>
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token interpolation"><span class="token interpolation-punctuation punctuation">{</span><span class="token expression"><span class="token variable">$foo</span><span class="token operator">|</span><span class="token function">escape</span></span><span class="token interpolation-punctuation punctuation">}</span></span> test"</span><span class="token punctuation">}</span>     <span class="token operator">/</span><span class="token operator">/</span> modifiers inside quotes<span class="token operator">!</span>
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token interpolation"><span class="token interpolation-punctuation punctuation">{</span><span class="token expression"><span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token interpolation-punctuation punctuation">}</span></span> test"</span><span class="token punctuation">}</span>          <span class="token operator">/</span><span class="token operator">/</span> PHP function result
+<span class="token punctuation">{</span>func <span class="token attr-name">var</span><span class="token operator">=</span><span class="token string">"test <span class="token interpolation"><span class="token interpolation-punctuation punctuation">{</span><span class="token expression">counter</span><span class="token interpolation-punctuation punctuation">}</span></span> test"</span><span class="token punctuation">}</span>         <span class="token operator">/</span><span class="token operator">/</span> plugin result
+
+<span class="token punctuation">{</span><span class="token operator">*</span> will replace <span class="token variable">$tpl_name</span> with value <span class="token operator">*</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>include <span class="token attr-name">file</span><span class="token operator">=</span><span class="token string">"subdir/<span class="token variable">$tpl_name</span>.tpl"</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">*</span> does NOT replace <span class="token variable">$tpl_name</span> <span class="token operator">*</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>include <span class="token attr-name">file</span><span class="token operator">=</span><span class="token string">'subdir/$tpl_name.tpl'</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">/</span> vars require double quotes<span class="token operator">!</span>
+
+<span class="token punctuation">{</span><span class="token operator">*</span> must have backticks as it contains a dot <span class="token string">"."</span> <span class="token operator">*</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>cycle <span class="token attr-name">values</span><span class="token operator">=</span><span class="token string">"one,two,<span class="token interpolation"><span class="token interpolation-punctuation punctuation">`</span><span class="token expression"><span class="token variable">$smarty</span><span class="token punctuation">.</span><span class="token variable">config</span><span class="token punctuation">.</span><span class="token variable">myval</span></span><span class="token interpolation-punctuation punctuation">`</span></span>"</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">*</span> must have backticks as it contains a dot <span class="token string">"."</span> <span class="token operator">*</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>include <span class="token attr-name">file</span><span class="token operator">=</span><span class="token string">"<span class="token interpolation"><span class="token interpolation-punctuation punctuation">`</span><span class="token expression"><span class="token variable">$module</span><span class="token punctuation">.</span><span class="token variable">contact</span></span><span class="token interpolation-punctuation punctuation">`</span></span>.tpl"</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">*</span> can use variable with dot syntax <span class="token operator">*</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>include <span class="token attr-name">file</span><span class="token operator">=</span><span class="token string">"<span class="token interpolation"><span class="token interpolation-punctuation punctuation">`</span><span class="token expression"><span class="token variable">$module</span><span class="token punctuation">.</span><span class="token variable">$view</span></span><span class="token interpolation-punctuation punctuation">`</span></span>.tpl"</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

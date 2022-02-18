@@ -1,0 +1,13 @@
+Sales YTD := 
+CALCULATE (
+    [Sales Amount], 
+    DATESYTD( 'Date'[Date] )
+)
+----------------------------------------------------
+Sales YTD <span class="token operator">:=</span> 
+<span class="token function">CALCULATE</span> <span class="token punctuation">(</span>
+    <span class="token measure constant">[Sales Amount]</span><span class="token punctuation">,</span> 
+    <span class="token function">DATESYTD</span><span class="token punctuation">(</span> <span class="token data-field symbol">'Date'[Date]</span> <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+----------------------------------------------------

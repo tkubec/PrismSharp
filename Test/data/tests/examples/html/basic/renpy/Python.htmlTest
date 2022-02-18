@@ -1,0 +1,21 @@
+class Dog:
+
+    tricks = []             # mistaken use of a class variable
+
+    def __init__(self, name):
+        self.name = name
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+----------------------------------------------------
+<span class="token keyword">class</span> Dog<span class="token punctuation">:</span>
+
+    tricks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>             <span class="token comment"># mistaken use of a class variable</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span><span class="token tag">self</span><span class="token punctuation">,</span> <span class="token property">name</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token tag">self</span><span class="token punctuation">.</span><span class="token property">name</span> <span class="token operator">=</span> <span class="token property">name</span>
+
+    <span class="token keyword">def</span> <span class="token function">add_trick</span><span class="token punctuation">(</span><span class="token tag">self</span><span class="token punctuation">,</span> trick<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token tag">self</span><span class="token punctuation">.</span>tricks<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>trick<span class="token punctuation">)</span>
+
+----------------------------------------------------

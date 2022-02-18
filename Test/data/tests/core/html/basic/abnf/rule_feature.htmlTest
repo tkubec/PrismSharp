@@ -1,0 +1,9 @@
+foo
+foo-Bar
+<foo-bar>
+----------------------------------------------------
+<span class="token rule">foo</span>
+<span class="token rule">foo-Bar</span>
+<span class="token rule"><span class="token punctuation">&lt;</span>foo-bar<span class="token punctuation">></span></span>
+
+----------------------------------------------------

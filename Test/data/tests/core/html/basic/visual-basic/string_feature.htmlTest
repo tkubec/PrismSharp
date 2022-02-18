@@ -1,0 +1,33 @@
+""
+"Foobar"
+"Foo""bar"
+“”
+“Foo
+bar”
+“Foo""bar”
+““
+””
+”“
+“"
+"Foo”“ba
+r"
+"a"c
+$"Foobar"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Foobar"</span>
+<span class="token string">"Foo""bar"</span>
+<span class="token string">“”</span>
+<span class="token string">“Foo
+bar”</span>
+<span class="token string">“Foo""bar”</span>
+<span class="token string">““</span>
+<span class="token string">””</span>
+<span class="token string">”“</span>
+<span class="token string">“"</span>
+<span class="token string">"Foo”“ba
+r"</span>
+<span class="token string">"a"c</span>
+<span class="token string">$"Foobar"</span>
+
+----------------------------------------------------

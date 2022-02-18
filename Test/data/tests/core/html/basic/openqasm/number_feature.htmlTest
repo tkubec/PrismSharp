@@ -1,0 +1,21 @@
+1234
+1e2
+.5
+
+1000ms
+1000dt
+
+// not a number
+$0
+----------------------------------------------------
+<span class="token number">1234</span>
+<span class="token number">1e2</span>
+<span class="token number">.5</span>
+
+<span class="token number">1000ms</span>
+<span class="token number">1000dt</span>
+
+<span class="token comment">// not a number</span>
+$0
+
+----------------------------------------------------

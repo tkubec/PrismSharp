@@ -1,0 +1,6 @@
+'C'; '\''; '\n'; '\u{7FFF}'; // Characters
+"foo \"bar\" baz"; // String
+r##"foo #"bar"# baz"##; // Raw string with # pairs
+b'C'; b'\''; b'\n'; // Bytes
+b"foo \"bar\" baz"; // Byte string
+br##"foo #"bar"# baz"##; // Raw byte string with # pairs

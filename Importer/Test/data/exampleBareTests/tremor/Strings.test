@@ -1,0 +1,10 @@
+# double quote single line strings
+"foo \"bar\" baz"
+
+# heredocs or multiline strings
+"""
+{ "snot": "badger" }
+"""
+
+--------------------------------------------------
+

@@ -1,0 +1,9 @@
+echo $STRING
+args=("$@")
+echo ${args[0]} ${args[1]} ${args[2]}
+----------------------------------------------------
+<span class="token builtin class-name">echo</span> <span class="token variable">$STRING</span>
+<span class="token assign-left variable">args</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">$@</span>"</span><span class="token punctuation">)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${args<span class="token punctuation">[</span>0<span class="token punctuation">]</span>}</span> <span class="token variable">${args<span class="token punctuation">[</span>1<span class="token punctuation">]</span>}</span> <span class="token variable">${args<span class="token punctuation">[</span>2<span class="token punctuation">]</span>}</span>
+
+----------------------------------------------------

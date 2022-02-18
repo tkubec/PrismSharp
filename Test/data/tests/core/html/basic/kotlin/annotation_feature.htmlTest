@@ -1,0 +1,15 @@
+@Deprecated(SUBSYSTEM_DEPRECATED)
+@SetUp
+@Suppress
+@field:Ann
+@file:JvmName
+@set:[Inject VisibleForTesting]
+----------------------------------------------------
+<span class="token annotation builtin">@Deprecated</span><span class="token punctuation">(</span>SUBSYSTEM_DEPRECATED<span class="token punctuation">)</span>
+<span class="token annotation builtin">@SetUp</span>
+<span class="token annotation builtin">@Suppress</span>
+<span class="token annotation builtin">@field:Ann</span>
+<span class="token annotation builtin">@file:JvmName</span>
+<span class="token annotation builtin">@set:[Inject VisibleForTesting]</span>
+
+----------------------------------------------------

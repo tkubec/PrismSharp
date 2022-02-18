@@ -1,0 +1,115 @@
+// source: http://www.squirrel-lang.org/#look
+
+local table = {
+	a = "10"
+	subtable = {
+		array = [1,2,3]
+	},
+	[10 + 123] = "expression index"
+}
+
+local array=[ 1, 2, 3, { a = 10, b = "string" } ];
+
+foreach (i,val in array)
+{
+	::print("the type of val is"+typeof val);
+}
+
+/////////////////////////////////////////////
+
+class Entity
+{
+	constructor(etype,entityname)
+	{
+		name = entityname;
+		type = etype;
+	}
+
+	x = 0;
+	y = 0;
+	z = 0;
+	name = null;
+	type = null;
+}
+
+function Entity::MoveTo(newx,newy,newz)
+{
+	x = newx;
+	y = newy;
+	z = newz;
+}
+
+class Player extends Entity {
+	constructor(entityname)
+	{
+		base.constructor("Player",entityname)
+	}
+	function DoDomething()
+	{
+		::print("something");
+	}
+
+}
+
+local newplayer = Player("da playar");
+
+newplayer.MoveTo(100,200,300);
+----------------------------------------------------
+<span class="token comment">// source: http://www.squirrel-lang.org/#look</span>
+
+<span class="token keyword">local</span> table <span class="token operator">=</span> <span class="token punctuation">{</span>
+	a <span class="token operator">=</span> <span class="token string">"10"</span>
+	subtable <span class="token operator">=</span> <span class="token punctuation">{</span>
+		array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">[</span><span class="token number">10</span> <span class="token operator">+</span> <span class="token number">123</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"expression index"</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">local</span> array<span class="token operator">=</span><span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token string">"string"</span> <span class="token punctuation">}</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span>val <span class="token keyword">in</span> array<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token operator">::</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"the type of val is"</span><span class="token operator">+</span><span class="token keyword">typeof</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/////////////////////////////////////////////</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Entity</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">constructor</span><span class="token punctuation">(</span>etype<span class="token punctuation">,</span>entityname<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		name <span class="token operator">=</span> entityname<span class="token punctuation">;</span>
+		type <span class="token operator">=</span> etype<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	name <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	type <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> Entity<span class="token operator">::</span><span class="token function">MoveTo</span><span class="token punctuation">(</span>newx<span class="token punctuation">,</span>newy<span class="token punctuation">,</span>newz<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	x <span class="token operator">=</span> newx<span class="token punctuation">;</span>
+	y <span class="token operator">=</span> newy<span class="token punctuation">;</span>
+	z <span class="token operator">=</span> newz<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Player</span> <span class="token keyword">extends</span> <span class="token class-name">Entity</span> <span class="token punctuation">{</span>
+	<span class="token keyword">constructor</span><span class="token punctuation">(</span>entityname<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">base</span><span class="token punctuation">.</span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token string">"Player"</span><span class="token punctuation">,</span>entityname<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">function</span> <span class="token function">DoDomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token operator">::</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"something"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">local</span> newplayer <span class="token operator">=</span> <span class="token function">Player</span><span class="token punctuation">(</span><span class="token string">"da playar"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+newplayer<span class="token punctuation">.</span><span class="token function">MoveTo</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

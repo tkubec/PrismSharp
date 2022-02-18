@@ -1,0 +1,25 @@
+""
+"foo\"bar"
+"foo
+bar"
+
+''''
+''foo'''bar''
+''
+foo
+bar
+''
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo\"bar"</span>
+<span class="token string">"foo
+bar"</span>
+
+<span class="token string">''''</span>
+<span class="token string">''foo'''bar''</span>
+<span class="token string">''
+foo
+bar
+''</span>
+
+----------------------------------------------------

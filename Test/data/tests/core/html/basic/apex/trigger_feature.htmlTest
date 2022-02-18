@@ -1,0 +1,9 @@
+trigger HelloWorldTrigger on Book__c (before insert) {}
+
+trigger T1 on Account (before delete, after delete, after undelete) {}
+----------------------------------------------------
+<span class="token keyword">trigger</span> <span class="token trigger class-name">HelloWorldTrigger</span> <span class="token keyword">on</span> <span class="token class-name">Book__c</span> <span class="token punctuation">(</span><span class="token keyword">before</span> <span class="token keyword">insert</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">trigger</span> <span class="token trigger class-name">T1</span> <span class="token keyword">on</span> <span class="token class-name">Account</span> <span class="token punctuation">(</span><span class="token keyword">before</span> <span class="token keyword">delete</span><span class="token punctuation">,</span> <span class="token keyword">after</span> <span class="token keyword">delete</span><span class="token punctuation">,</span> <span class="token keyword">after</span> <span class="token keyword">undelete</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

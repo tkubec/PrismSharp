@@ -1,0 +1,17 @@
+{$name}
+{$folders.0.name}
+{$folders[0].name}
+{$folders[0]['name']}
+{$aaa?.bbb.ccc?[0]}
+{let $category: $categoryList[0] /}
+{let $isEnabled: $isAaa and not $isBbb and $ccc == $ddd + $eee /}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token variable">$name</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$folders<span class="token punctuation">.</span><span class="token number">0</span><span class="token punctuation">.</span>name</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$folders<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>name</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$folders<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span></span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$aaa<span class="token punctuation">?</span><span class="token punctuation">.</span>bbb<span class="token punctuation">.</span>ccc<span class="token punctuation">?</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">let</span> <span class="token variable">$category</span><span class="token punctuation">:</span> <span class="token variable">$categoryList<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></span> <span class="token operator">/</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">let</span> <span class="token variable">$isEnabled</span><span class="token punctuation">:</span> <span class="token variable">$isAaa</span> <span class="token operator">and</span> <span class="token operator">not</span> <span class="token variable">$isBbb</span> <span class="token operator">and</span> <span class="token variable">$ccc</span> <span class="token operator">==</span> <span class="token variable">$ddd</span> <span class="token operator">+</span> <span class="token variable">$eee</span> <span class="token delimiter punctuation">/}</span>
+
+----------------------------------------------------

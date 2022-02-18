@@ -1,0 +1,11 @@
+FOO=TLIST(A1),"bar","baz";
+FOO=TLIST(A1);
+FOO=TLIST(A1,"bar","baz");
+FOO=TLIST(A1,"1"-"100");
+----------------------------------------------------
+<span class="token keyword"><span class="token keyword">FOO</span></span><span class="token operator">=</span><span class="token tlist"><span class="token function">TLIST</span><span class="token punctuation">(</span><span class="token property">A1</span><span class="token punctuation">)</span></span><span class="token punctuation">,</span><span class="token string">"bar"</span><span class="token punctuation">,</span><span class="token string">"baz"</span><span class="token punctuation">;</span>
+<span class="token keyword"><span class="token keyword">FOO</span></span><span class="token operator">=</span><span class="token tlist"><span class="token function">TLIST</span><span class="token punctuation">(</span><span class="token property">A1</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token keyword"><span class="token keyword">FOO</span></span><span class="token operator">=</span><span class="token tlist"><span class="token function">TLIST</span><span class="token punctuation">(</span><span class="token property">A1</span><span class="token punctuation">,</span><span class="token string">"bar"</span><span class="token punctuation">,</span><span class="token string">"baz"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token keyword"><span class="token keyword">FOO</span></span><span class="token operator">=</span><span class="token tlist"><span class="token function">TLIST</span><span class="token punctuation">(</span><span class="token property">A1</span><span class="token punctuation">,</span><span class="token string">"1"</span><span class="token operator">-</span><span class="token string">"100"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

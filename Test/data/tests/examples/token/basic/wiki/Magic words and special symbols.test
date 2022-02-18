@@ -1,0 +1,27 @@
+#REDIRECT [[somewhere]]
+
+{{SITENAME}}
+{{PAGESINCATEGORY:category}}
+{{#dateformat:2009-12-25|mdy}}
+
+__NOTOC__
+
+{{!}}
+
+~~~ ~~~~ ~~~~~
+----------------------------------------------------
+[
+	["symbol", "#REDIRECT"], ["url", "[[somewhere]]"],
+
+	["variable", "{{SITENAME}}"],
+	["variable", "{{PAGESINCATEGORY:category}}"],
+	["variable", "{{#dateformat:2009-12-25|mdy}}"],
+
+	["variable", "__NOTOC__"],
+
+	["variable", "{{!}}"],
+
+	["symbol", "~~~"], ["symbol", "~~~~"], ["symbol", "~~~~~"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,29 @@
+.foo (@bg: #f5f5f5, @color: #900) {
+  background: @bg;
+  color: @color;
+}
+.bar {
+  .foo();
+}
+.class1 {
+  .mixin(@margin: 20px; @color: #33acfe);
+}
+.class2 {
+  .mixin(#efca44; @padding: 40px);
+}
+----------------------------------------------------
+<span class="token selector">.foo (<span class="token variable">@bg</span>: #f5f5f5, <span class="token variable">@color</span>: #900)</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token variable">@bg</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">@color</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.bar</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.class1</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.mixin</span><span class="token punctuation">(</span><span class="token variable">@margin<span class="token punctuation">:</span></span> 20px<span class="token punctuation">;</span> <span class="token variable">@color<span class="token punctuation">:</span></span> #33acfe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.class2</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.mixin</span><span class="token punctuation">(</span>#efca44<span class="token punctuation">;</span> <span class="token variable">@padding<span class="token punctuation">:</span></span> 40px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

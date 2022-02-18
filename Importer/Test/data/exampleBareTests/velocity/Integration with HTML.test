@@ -1,0 +1,19 @@
+&lt;html>
+  &lt;body>
+    Hello $customer.Name!
+    &lt;table>
+    #foreach( $mud in $mudsOnSpecial )
+      #if ( $customer.hasPurchased($mud) )
+        &lt;tr>
+          &lt;td>
+            $flogger.getPromo( $mud )
+          &lt;/td>
+        &lt;/tr>
+      #end
+    #end
+    &lt;/table>
+  &lt;/body>
+&lt;/html>
+
+--------------------------------------------------
+

@@ -1,0 +1,291 @@
+include "console.iol"
+
+type HubType: void {
+  .sid: undefined
+  .nodes[1,*] : NodeType
+}
+
+type NodeType: void {
+  .sid: string
+  .node: string
+  .load?: int
+}
+
+type NetType: HubType | NodeType
+
+interface NetInterface {
+  OneWay: start( string ), addElement( NetType ), removeElement( NetType ), quit( void )
+  RequestResponse: showElements( void )( NetType ) throws SomeFault
+}
+
+type LogType: void {
+  .message: string
+}
+
+interface LoggerInterface {
+  RequestResponse: log( LogType )( void )
+}
+
+outputPort LoggerService {
+    Interfaces: LoggerInterface
+}
+
+embedded {
+  Jolie: "logger.ol" in LoggerService
+}
+
+type AuthenticationData: void {
+    .key:string
+}
+
+interface extender AuthInterfaceExtender {
+    OneWay: *(AuthenticationData)
+}
+
+service SubService
+{
+  Interfaces: NetInterface
+
+  main
+  {
+     println@Console( "I do nothing" )()
+  }
+}
+
+inputPort ExtLogger {
+  Location: "socket://localhost:9000"
+  Protocol: sodep
+  Interfaces: LoggerInterface
+  Aggregates: LoggerService with AuthInterfaceExtender
+}
+
+courier ExtLogger {
+  [interface LoggerInterface( request )] {
+    if ( key == "secret" ){
+      forward ( request )
+    }
+  }
+}
+
+inputPort In {
+  Location: "socket://localhost:8000"
+  Protocol: http {
+    .debug = true;
+    .debug.showContent = true
+  }
+  Interfaces: NetInterface
+  Aggregates: SubService,
+              LoggerService
+  Redirects: A => SubService,
+             B => SubService
+}
+
+cset {
+  sid: HubType.sid NodeType.sid
+}
+
+execution{ concurrent }
+
+define netmodule {
+  if( request.load == 0 || request.load < 1 &&
+      request.load <= 2 || request.load >= 3 &&
+      request.load > 4  || request.load%4 == 2
+  ) {
+    scope( scopeName ) {
+      // inline comment
+      install( MyFault => println@Console( "Something \"Went\" Wrong" + ' but it\'s ok' )() );
+      /*
+      * Multi-line
+      * Comment
+      */
+      install( this => cH; println@Console( "Something went wrong: " + ^load )() );
+      install( default => comp( scopeName ); println@Console( "Something went wrong" )() );
+      load -> request.( "load" );
+      { ++load | load++ | --load | load-- };
+      throw( MyFault )
+    }
+  } else {
+    foreach ( node -> request.nodes ) {
+      with( node ){
+        while( .load != 100 ) {
+          .load++
+        }
+      }
+    }
+  }
+}
+
+main
+{
+  start( sid );
+  synchronized( unneededSync ){
+    csets.sid = sid;
+    undef( sid )
+  };
+  provide
+    [ addElement( request ) ]{
+      if( request instanceof NodeType ) {
+        netmodule
+      }
+    }
+    [ removeElement() ]
+    [ showElements()( response ){
+       /*
+       * assemble response
+       */
+       nullProcess
+     }]{
+       // log the request
+       log@LoggerService( new )();
+       log @ LoggerService( new )()
+     }
+  until
+   [ quit() ]{ exit }
+}
+----------------------------------------------------
+<span class="token keyword">include</span> <span class="token string">"console.iol"</span>
+
+<span class="token keyword">type</span> HubType<span class="token punctuation">:</span> <span class="token builtin">void</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span>sid<span class="token punctuation">:</span> <span class="token builtin">undefined</span>
+  <span class="token punctuation">.</span>nodes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> NodeType
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> NodeType<span class="token punctuation">:</span> <span class="token builtin">void</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span>sid<span class="token punctuation">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">.</span>node<span class="token punctuation">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">.</span>load<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token builtin">int</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> NetType<span class="token punctuation">:</span> HubType <span class="token operator">|</span> NodeType
+
+<span class="token keyword">interface</span> NetInterface <span class="token punctuation">{</span>
+  <span class="token property">OneWay</span><span class="token punctuation">:</span> <span class="token function">start</span><span class="token punctuation">(</span> <span class="token builtin">string</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">addElement</span><span class="token punctuation">(</span> NetType <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">removeElement</span><span class="token punctuation">(</span> NetType <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">quit</span><span class="token punctuation">(</span> <span class="token builtin">void</span> <span class="token punctuation">)</span>
+  <span class="token property">RequestResponse</span><span class="token punctuation">:</span> <span class="token function">showElements</span><span class="token punctuation">(</span> <span class="token builtin">void</span> <span class="token punctuation">)</span><span class="token punctuation">(</span> NetType <span class="token punctuation">)</span> <span class="token keyword">throws</span> SomeFault
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> LogType<span class="token punctuation">:</span> <span class="token builtin">void</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span>message<span class="token punctuation">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> LoggerInterface <span class="token punctuation">{</span>
+  <span class="token property">RequestResponse</span><span class="token punctuation">:</span> <span class="token function">log</span><span class="token punctuation">(</span> LogType <span class="token punctuation">)</span><span class="token punctuation">(</span> <span class="token builtin">void</span> <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">outputPort</span> <span class="token class-name">LoggerService</span> <span class="token punctuation">{</span>
+    <span class="token property">Interfaces</span><span class="token punctuation">:</span> LoggerInterface
+<span class="token punctuation">}</span>
+
+<span class="token keyword">embedded</span> <span class="token punctuation">{</span>
+  <span class="token property">Jolie</span><span class="token punctuation">:</span> <span class="token string">"logger.ol"</span> <span class="token keyword">in</span> <span class="token class-name">LoggerService</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> AuthenticationData<span class="token punctuation">:</span> <span class="token builtin">void</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span>key<span class="token punctuation">:</span><span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token keyword">extender</span> AuthInterfaceExtender <span class="token punctuation">{</span>
+    <span class="token property">OneWay</span><span class="token punctuation">:</span> <span class="token operator">*</span><span class="token punctuation">(</span>AuthenticationData<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">service</span> <span class="token class-name">SubService</span>
+<span class="token punctuation">{</span>
+  <span class="token property">Interfaces</span><span class="token punctuation">:</span> NetInterface
+
+  <span class="token keyword">main</span>
+  <span class="token punctuation">{</span>
+     <span class="token function">println</span><span class="token operator">@</span><span class="token class-name">Console</span><span class="token punctuation">(</span> <span class="token string">"I do nothing"</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">inputPort</span> <span class="token class-name">ExtLogger</span> <span class="token punctuation">{</span>
+  <span class="token property">Location</span><span class="token punctuation">:</span> <span class="token string">"socket://localhost:9000"</span>
+  <span class="token property">Protocol</span><span class="token punctuation">:</span> sodep
+  <span class="token property">Interfaces</span><span class="token punctuation">:</span> LoggerInterface
+  <span class="token property">Aggregates</span><span class="token punctuation">:</span> <span class="token aggregates"><span class="token class-name">LoggerService</span> <span class="token keyword">with</span> <span class="token class-name">AuthInterfaceExtender</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">courier</span> <span class="token class-name">ExtLogger</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span><span class="token keyword">interface</span> <span class="token function">LoggerInterface</span><span class="token punctuation">(</span> request <span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> key <span class="token operator">==</span> <span class="token string">"secret"</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">forward</span> <span class="token punctuation">(</span> request <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">inputPort</span> <span class="token class-name">In</span> <span class="token punctuation">{</span>
+  <span class="token property">Location</span><span class="token punctuation">:</span> <span class="token string">"socket://localhost:8000"</span>
+  <span class="token property">Protocol</span><span class="token punctuation">:</span> http <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span>debug <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>debug<span class="token punctuation">.</span>showContent <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+  <span class="token property">Interfaces</span><span class="token punctuation">:</span> NetInterface
+  <span class="token property">Aggregates</span><span class="token punctuation">:</span> <span class="token aggregates"><span class="token class-name">SubService</span><span class="token punctuation">,</span>
+              <span class="token class-name">LoggerService</span></span>
+  <span class="token property">Redirects</span><span class="token punctuation">:</span> <span class="token redirects"><span class="token class-name">A</span> <span class="token operator">=></span> <span class="token class-name">SubService</span><span class="token punctuation">,</span>
+             <span class="token class-name">B</span> <span class="token operator">=></span> <span class="token class-name">SubService</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">cset</span> <span class="token punctuation">{</span>
+  sid<span class="token punctuation">:</span> HubType<span class="token punctuation">.</span>sid NodeType<span class="token punctuation">.</span>sid
+<span class="token punctuation">}</span>
+
+<span class="token keyword">execution</span><span class="token punctuation">{</span> <span class="token keyword">concurrent</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">define</span> netmodule <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span> request<span class="token punctuation">.</span>load <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> request<span class="token punctuation">.</span>load <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span>
+      request<span class="token punctuation">.</span>load <span class="token operator">&lt;=</span> <span class="token number">2</span> <span class="token operator">||</span> request<span class="token punctuation">.</span>load <span class="token operator">>=</span> <span class="token number">3</span> <span class="token operator">&amp;&amp;</span>
+      request<span class="token punctuation">.</span>load <span class="token operator">></span> <span class="token number">4</span>  <span class="token operator">||</span> request<span class="token punctuation">.</span>load<span class="token operator">%</span><span class="token number">4</span> <span class="token operator">==</span> <span class="token number">2</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">scope</span><span class="token punctuation">(</span> scopeName <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// inline comment</span>
+      <span class="token keyword">install</span><span class="token punctuation">(</span> MyFault <span class="token operator">=</span><span class="token operator">></span> <span class="token function">println</span><span class="token operator">@</span><span class="token class-name">Console</span><span class="token punctuation">(</span> <span class="token string">"Something \"Went\" Wrong"</span> <span class="token operator">+</span> ' but it\'s ok' <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">/*
+      * Multi-line
+      * Comment
+      */</span>
+      <span class="token keyword">install</span><span class="token punctuation">(</span> <span class="token keyword">this</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">cH</span><span class="token punctuation">;</span> <span class="token function">println</span><span class="token operator">@</span><span class="token class-name">Console</span><span class="token punctuation">(</span> <span class="token string">"Something went wrong: "</span> <span class="token operator">+</span> <span class="token operator">^</span>load <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">install</span><span class="token punctuation">(</span> <span class="token keyword">default</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">comp</span><span class="token punctuation">(</span> scopeName <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">println</span><span class="token operator">@</span><span class="token class-name">Console</span><span class="token punctuation">(</span> <span class="token string">"Something went wrong"</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      load <span class="token operator">-></span> request<span class="token punctuation">.</span><span class="token punctuation">(</span> <span class="token string">"load"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">{</span> <span class="token operator">++</span>load <span class="token operator">|</span> load<span class="token operator">++</span> <span class="token operator">|</span> <span class="token operator">--</span>load <span class="token operator">|</span> load<span class="token operator">--</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token keyword">throw</span><span class="token punctuation">(</span> MyFault <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span> node <span class="token operator">-></span> request<span class="token punctuation">.</span>nodes <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">with</span><span class="token punctuation">(</span> node <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span> <span class="token punctuation">.</span>load <span class="token operator">!=</span> <span class="token number">100</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token punctuation">.</span>load<span class="token operator">++</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">main</span>
+<span class="token punctuation">{</span>
+  <span class="token function">start</span><span class="token punctuation">(</span> sid <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">synchronized</span><span class="token punctuation">(</span> unneededSync <span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">csets</span><span class="token punctuation">.</span>sid <span class="token operator">=</span> sid<span class="token punctuation">;</span>
+    <span class="token keyword">undef</span><span class="token punctuation">(</span> sid <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">provide</span>
+    <span class="token punctuation">[</span> <span class="token function">addElement</span><span class="token punctuation">(</span> request <span class="token punctuation">)</span> <span class="token punctuation">]</span><span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span> request <span class="token keyword">instanceof</span> NodeType <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        netmodule
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">[</span> <span class="token function">removeElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">]</span>
+    <span class="token punctuation">[</span> <span class="token function">showElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span> response <span class="token punctuation">)</span><span class="token punctuation">{</span>
+       <span class="token comment">/*
+       * assemble response
+       */</span>
+       <span class="token keyword">nullProcess</span>
+     <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+       <span class="token comment">// log the request</span>
+       <span class="token function">log</span><span class="token operator">@</span><span class="token class-name">LoggerService</span><span class="token punctuation">(</span> <span class="token keyword">new</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token function">log</span> <span class="token operator">@</span> <span class="token class-name">LoggerService</span><span class="token punctuation">(</span> <span class="token keyword">new</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     <span class="token punctuation">}</span>
+  <span class="token keyword">until</span>
+   <span class="token punctuation">[</span> <span class="token function">quit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">]</span><span class="token punctuation">{</span> <span class="token keyword">exit</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

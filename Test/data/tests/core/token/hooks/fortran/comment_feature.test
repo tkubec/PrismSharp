@@ -1,0 +1,11 @@
+!
+! foobar
+! This "string" should not be highlighted
+----------------------------------------------------
+[
+	["comment", "!"],
+	["comment", "! foobar"],
+	["comment", "! This \"string\" should not be highlighted"]
+]
+
+----------------------------------------------------

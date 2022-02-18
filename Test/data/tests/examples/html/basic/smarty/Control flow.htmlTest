@@ -1,0 +1,37 @@
+{if ( $amount < 0 or $amount > 1000 ) and $volume >= #minVolAmt#}
+   ...
+{/if}
+{if count($var) gt 0}{/if}
+{if $var is even by 3}
+   ...
+{/if}
+
+{foreach from=$myArray item=i name=foo}
+	{$smarty.foreach.foo.index}|{$smarty.foreach.foo.iteration},
+{/foreach}
+
+<ul>
+{foreach from=$items key=myId item=i}
+  <li><a href="item.php?id={$myId}">{$i.no}: {$i.label}</li>
+{/foreach}
+</ul>
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$amount</span> <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">or</span> <span class="token variable">$amount</span> <span class="token operator">></span> <span class="token number">1000</span> <span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token variable">$volume</span> <span class="token operator">>=</span> <span class="token variable">#minVolAmt#</span><span class="token punctuation">}</span>
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">{</span><span class="token operator">/</span>if<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$var</span><span class="token punctuation">)</span> <span class="token operator">gt</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">/</span>if<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$var</span> <span class="token operator">is even by</span> <span class="token number">3</span><span class="token punctuation">}</span>
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">{</span><span class="token operator">/</span>if<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>foreach <span class="token attr-name">from</span><span class="token operator">=</span><span class="token variable">$myArray</span> <span class="token attr-name">item</span><span class="token operator">=</span><span class="token variable">i</span> <span class="token attr-name">name</span><span class="token operator">=</span><span class="token variable">foo</span><span class="token punctuation">}</span>
+	<span class="token punctuation">{</span><span class="token variable">$smarty</span><span class="token punctuation">.</span><span class="token variable">foreach</span><span class="token punctuation">.</span><span class="token variable">foo</span><span class="token punctuation">.</span><span class="token variable">index</span><span class="token punctuation">}</span><span class="token operator">|</span><span class="token punctuation">{</span><span class="token variable">$smarty</span><span class="token punctuation">.</span><span class="token variable">foreach</span><span class="token punctuation">.</span><span class="token variable">foo</span><span class="token punctuation">.</span><span class="token variable">iteration</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token operator">/</span>foreach<span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span>ul<span class="token operator">></span>
+<span class="token punctuation">{</span>foreach <span class="token attr-name">from</span><span class="token operator">=</span><span class="token variable">$items</span> <span class="token attr-name">key</span><span class="token operator">=</span><span class="token variable">myId</span> <span class="token attr-name">item</span><span class="token operator">=</span><span class="token variable">i</span><span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span>a <span class="token attr-name">href</span><span class="token operator">=</span><span class="token string">"item.php?id=<span class="token interpolation"><span class="token interpolation-punctuation punctuation">{</span><span class="token expression"><span class="token variable">$myId</span></span><span class="token interpolation-punctuation punctuation">}</span></span>"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token variable">$i</span><span class="token punctuation">.</span><span class="token variable">no</span><span class="token punctuation">}</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token variable">$i</span><span class="token punctuation">.</span><span class="token variable">label</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">/</span>foreach<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+
+----------------------------------------------------

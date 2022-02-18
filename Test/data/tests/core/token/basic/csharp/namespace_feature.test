@@ -1,0 +1,20 @@
+namespace Foo {}
+namespace Foo.Bar {}
+----------------------------------------------------
+[
+	["keyword", "namespace"],
+	["namespace", ["Foo"]],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["keyword", "namespace"],
+	["namespace", [
+		"Foo",
+		["punctuation", "."],
+		"Bar"
+	]],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

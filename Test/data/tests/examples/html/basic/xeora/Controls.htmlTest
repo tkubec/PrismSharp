@@ -1,0 +1,107 @@
+$C:ControlID$
+$C:ControlID:{ <!-- Something --> }:ControlID$
+$C:ControlID:{ <!-- Something --> }:ControlID:{ <!-- Something (Alternative) --> }:ControlID$
+
+Control with Parent
+$C[Control1]:Control2$
+$C[Control2]:Control3:{ <!-- Something --> }:Control3$
+$C[Control2]:Control3:{ <!-- Something --> }:Control3:{ <!-- Something (Alternative) --> }:Control3$
+
+Control with Parent & Leveling
+$C#1[ParentControlID]:ControlID:{ <!-- Something --> }:ControlID$
+
+All Control Tags has leveling specification;
+$C:LoopControl1:{
+	$#FirstLoopSQLField1$
+
+	$C:ControlID:{ <!-- Something --> }:ControlID$
+
+	$C:LoopControl2:{
+		$##FirstLoopSQLField1$
+		$#SecondLoopSQLField1$
+
+		$C#1:ControlID:{ <!-- Something --> }:ControlID$
+	}:LoopControl2$
+}:LoopControl1$
+
+XML setup on a Control in Controls.xml
+<Control id="[ControlID]">
+	<Type>[ControlType]</Type>
+
+	<Bind>[ThemeID|AddonID]?[ControlClass].[FunctionName],SomeOperatorTags(seperated with |)</Bind>
+
+	<BlockIDsToUpdate localupdate="True|False">
+		<BlockID>[BlockID]</BlockID>
+		<BlockID>[BlockID]</BlockID>
+		<BlockID>[BlockID]</BlockID>
+	</BlockIDsToUpdate>
+
+	<DefaultButtonID>[ControlID]</DefaultButtonID>
+
+	<Text>[TextBox, Password value or Button Text]</Text>
+
+	<Content>[Textarea Content]</Content>
+
+	<Source>[Image URL]</Source>
+
+	<Url>[Link URL]</Url>
+
+	<Attributes>
+		<Attribute key="[HTMLAttributeKey]">[AttributeValue]</Attributes>
+	</Attributes>
+</Control>
+----------------------------------------------------
+<span class="token directive-inline function"><span class="token punctuation">$C:</span>ControlID<span class="token punctuation">$</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$C:</span>ControlID<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>ControlID<span class="token punctuation">$</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$C:</span>ControlID<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-separator function"><span class="token punctuation">}</span><span class="token punctuation">:</span>ControlID<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something (Alternative) --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>ControlID<span class="token punctuation">$</span></span>
+
+Control with Parent
+<span class="token directive-inline function"><span class="token punctuation">$C[</span>Control1<span class="token punctuation">]</span><span class="token punctuation">:</span>Control2<span class="token punctuation">$</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$C[</span>Control2<span class="token punctuation">]</span><span class="token punctuation">:</span>Control3<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>Control3<span class="token punctuation">$</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$C[</span>Control2<span class="token punctuation">]</span><span class="token punctuation">:</span>Control3<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-separator function"><span class="token punctuation">}</span><span class="token punctuation">:</span>Control3<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something (Alternative) --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>Control3<span class="token punctuation">$</span></span>
+
+Control with Parent &amp; Leveling
+<span class="token directive-block-open function"><span class="token punctuation">$C<span class="token tag">#1</span></span><span class="token punctuation">[</span>ParentControlID<span class="token punctuation">]</span><span class="token punctuation">:</span>ControlID<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>ControlID<span class="token punctuation">$</span></span>
+
+All Control Tags has leveling specification;
+<span class="token directive-block-open function"><span class="token punctuation">$C:</span>LoopControl1<span class="token punctuation">:</span><span class="token punctuation">{</span></span>
+	<span class="token variable"><span class="token punctuation">$</span><span class="token operator">#</span>FirstLoopSQLField1<span class="token punctuation">$</span></span>
+
+	<span class="token directive-block-open function"><span class="token punctuation">$C:</span>ControlID<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>ControlID<span class="token punctuation">$</span></span>
+
+	<span class="token directive-block-open function"><span class="token punctuation">$C:</span>LoopControl2<span class="token punctuation">:</span><span class="token punctuation">{</span></span>
+		<span class="token variable"><span class="token punctuation">$</span><span class="token operator">##</span>FirstLoopSQLField1<span class="token punctuation">$</span></span>
+		<span class="token variable"><span class="token punctuation">$</span><span class="token operator">#</span>SecondLoopSQLField1<span class="token punctuation">$</span></span>
+
+		<span class="token directive-block-open function"><span class="token punctuation">$C<span class="token tag">#1</span></span><span class="token punctuation">:</span>ControlID<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>ControlID<span class="token punctuation">$</span></span>
+	<span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>LoopControl2<span class="token punctuation">$</span></span>
+<span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>LoopControl1<span class="token punctuation">$</span></span>
+
+XML setup on a Control in Controls.xml
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Control</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[ControlID]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Type</span><span class="token punctuation">></span></span>[ControlType]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Type</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Bind</span><span class="token punctuation">></span></span>[ThemeID|AddonID]?[ControlClass].[FunctionName],SomeOperatorTags(seperated with |)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Bind</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>BlockIDsToUpdate</span> <span class="token attr-name">localupdate</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>True|False<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>BlockID</span><span class="token punctuation">></span></span>[BlockID]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>BlockID</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>BlockID</span><span class="token punctuation">></span></span>[BlockID]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>BlockID</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>BlockID</span><span class="token punctuation">></span></span>[BlockID]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>BlockID</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>BlockIDsToUpdate</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DefaultButtonID</span><span class="token punctuation">></span></span>[ControlID]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>DefaultButtonID</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span><span class="token punctuation">></span></span>[TextBox, Password value or Button Text]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Text</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span><span class="token punctuation">></span></span>[Textarea Content]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Content</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Source</span><span class="token punctuation">></span></span>[Image URL]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Source</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Url</span><span class="token punctuation">></span></span>[Link URL]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Url</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Attributes</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Attribute</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[HTMLAttributeKey]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>[AttributeValue]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Attributes</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Attributes</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Control</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

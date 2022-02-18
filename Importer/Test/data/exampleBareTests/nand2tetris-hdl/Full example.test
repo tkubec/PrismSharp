@@ -1,0 +1,14 @@
+/*
+ * Checks if two input bits are equal
+ */
+ 
+CHIP Eq {
+  IN a, b;
+  OUT out; // True iff a=b
+  PARTS:
+    Xor(a=a, b=b, out=uneq);
+    Not(in=uneq, out=out);
+}
+
+--------------------------------------------------
+

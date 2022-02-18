@@ -1,0 +1,23 @@
+'foo \'bar\' baz'
+"$foo \"bar\" ${baz}"
+
+@(FOOBAR) # Unquoted heredoc string
+Foo bar baz
+FOOBAR
+
+@("BARBAZ"/$L) # Quoted heredoc string
+	$foo bar ${baz}
+	|-BARBAZ
+----------------------------------------------------
+<span class="token string">'foo \'bar\' baz'</span>
+<span class="token string"><span class="token double-quoted">"<span class="token interpolation variable">$foo</span> \"bar\" <span class="token interpolation"><span class="token delimiter variable">$</span><span class="token punctuation">{</span><span class="token short-variable variable">baz</span><span class="token punctuation">}</span></span>"</span></span>
+
+<span class="token heredoc string">@(<span class="token punctuation">FOOBAR</span>)</span> <span class="token comment"># Unquoted heredoc string</span>
+<span class="token heredoc string">Foo bar baz
+<span class="token punctuation">FOOBAR</span></span>
+
+<span class="token heredoc string">@(<span class="token punctuation">"BARBAZ"/$L</span>)</span> <span class="token comment"># Quoted heredoc string</span>
+<span class="token heredoc string">	<span class="token interpolation variable">$foo</span> bar <span class="token interpolation"><span class="token delimiter variable">$</span><span class="token punctuation">{</span><span class="token short-variable variable">baz</span><span class="token punctuation">}</span></span>
+	<span class="token punctuation">|-BARBAZ</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+{% block %}
+{% endif %}
+{% foo %}
+{% foo_bar some.variable %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token tag keyword">block</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">endif</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">foo</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">foo_bar</span> <span class="token variable">some</span><span class="token punctuation">.</span><span class="token variable">variable</span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

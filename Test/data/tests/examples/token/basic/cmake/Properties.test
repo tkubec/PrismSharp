@@ -1,0 +1,17 @@
+CUDA_STANDARD
+CUDA_STANDARD_REQUIRED
+CXX_EXTENSIONS
+CXX_STANDARD
+cxx_std_17
+cxx_variadic_templates
+----------------------------------------------------
+[
+	["property", "CUDA_STANDARD"],
+	["property", "CUDA_STANDARD_REQUIRED"],
+	["property", "CXX_EXTENSIONS"],
+	["property", "CXX_STANDARD"],
+	["property", "cxx_std_17"],
+	["property", "cxx_variadic_templates"]
+]
+
+----------------------------------------------------

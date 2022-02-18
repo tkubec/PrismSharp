@@ -1,0 +1,39 @@
+^case
+^eval
+^for
+^if
+^switch
+^throw
+
+@BASE
+@CLASS
+@GET
+@GET_DEFAULT
+@OPTIONS
+@SET_DEFAULT
+@USE
+
+(^eval(2+2))
+
+<div class="^if($foo){bar}{baz}">
+----------------------------------------------------
+<span class="token keyword">^case</span>
+<span class="token keyword">^eval</span>
+<span class="token keyword">^for</span>
+<span class="token keyword">^if</span>
+<span class="token keyword">^switch</span>
+<span class="token keyword">^throw</span>
+
+<span class="token keyword">@BASE</span>
+<span class="token keyword">@CLASS</span>
+<span class="token keyword">@GET</span>
+<span class="token keyword">@GET_DEFAULT</span>
+<span class="token keyword">@OPTIONS</span>
+<span class="token keyword">@SET_DEFAULT</span>
+<span class="token keyword">@USE</span>
+
+<span class="token expression"><span class="token punctuation">(</span><span class="token keyword">^eval</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token keyword">^if</span><span class="token expression"><span class="token punctuation">(</span><span class="token variable">$foo</span><span class="token punctuation">)</span></span><span class="token parser-punctuation punctuation">{</span>bar<span class="token parser-punctuation punctuation">}</span><span class="token parser-punctuation punctuation">{</span>baz<span class="token parser-punctuation punctuation">}</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

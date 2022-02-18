@@ -1,0 +1,15 @@
+/ This is comment
+    on multiple lines
+/ This is a comment
+but this is not
+-# This is another comment
+    on multiple lines
+----------------------------------------------------
+<span class="token multiline-comment comment">/ This is comment
+    on multiple lines</span>
+<span class="token multiline-comment comment">/ This is a comment</span>
+but this is not
+<span class="token multiline-comment comment">-# This is another comment
+    on multiple lines</span>
+
+----------------------------------------------------

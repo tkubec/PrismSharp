@@ -1,0 +1,15 @@
+// Some
+  multiline
+  comment !
+
+// This is a comment
+But this is not
+----------------------------------------------------
+<span class="token comment">// Some
+  multiline
+  comment !</span>
+
+<span class="token comment">// This is a comment</span>
+<span class="token tag">But</span> <span class="token plain-text">this is not</span>
+
+----------------------------------------------------

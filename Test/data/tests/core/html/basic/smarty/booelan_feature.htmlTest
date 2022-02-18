@@ -1,0 +1,15 @@
+{if false}
+{if off}
+{if on}
+{if no}
+{if true}
+{if yes}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">if</span> <span class="token boolean">false</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token boolean">off</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token boolean">on</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token boolean">no</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token boolean">true</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token boolean">yes</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

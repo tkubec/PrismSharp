@@ -1,0 +1,15 @@
+let
+    x = 1 + 1,
+    y = 2 + 2,
+    z = y + 1
+in
+    x + y + z
+----------------------------------------------------
+<span class="token keyword">let</span>
+    x <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    y <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    z <span class="token operator">=</span> y <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token keyword">in</span>
+    x <span class="token operator">+</span> y <span class="token operator">+</span> z
+
+----------------------------------------------------

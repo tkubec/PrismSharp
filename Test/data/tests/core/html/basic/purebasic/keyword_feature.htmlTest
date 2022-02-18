@@ -1,0 +1,205 @@
+DECLARECDLL
+DECLAREDLL
+COMPILERSELECT
+COMPILERCASE
+COMPILERDEFAULT
+COMPILERENDSELECT
+COMPILERERROR
+ENABLEEXPLICIT
+DISABLEEXPLICIT
+NOT
+AND
+OR
+XOR
+CALLDEBUGGER
+DEBUGLEVEL
+ENABLEDEBUGGER
+DISABLEDEBUGGER
+RESTORE
+READ
+INCLUDEPATH
+INCLUDEBINARY
+THREADED
+RUNTIME
+WITH
+ENDWITH
+STRUCTUREUNION
+ENDSTRUCTUREUNION
+ALIGN
+NEWLIST
+NEWMAP
+INTERFACE
+ENDINTERFACE
+EXTENDS
+ENUMERATION
+ENDENUMERATION
+SWAP
+FOREACH
+CONTINUE
+FAKERETURN
+GOTO
+GOSUB
+RETURN
+BREAK
+MODULE
+ENDMODULE
+DECLAREMODULE
+ENDDECLAREMODULE
+DECLARE
+DECLAREC
+PROTOTYPE
+PROTOTYPEC
+ENABLEASM
+DISABLEASM
+DIM
+REDIM
+DATA
+DATASECTION
+ENDDATASECTION
+TO
+PROCEDURERETURN
+DEBUG
+DEFAULT
+CASE
+SELECT
+ENDSELECT
+AS
+IMPORT
+ENDIMPORT
+IMPORTC
+COMPILERIF
+COMPILERELSE
+COMPILERENDIF
+COMPILERELSEIF
+END
+STRUCTURE
+ENDSTRUCTURE
+WHILE
+WEND
+FOR
+NEXT
+STEP
+IF
+ELSE
+ELSEIF
+ENDIF
+REPEAT
+UNTIL
+PROCEDURE
+PROCEDUREDLL
+PROCEDUREC
+PROCEDURECDLL
+ENDPROCEDURE
+PROTECTED
+SHARED
+STATIC
+GLOBAL
+DEFINE
+INCLUDEFILE
+XINCLUDEFILE
+MACRO
+ENDMACRO
+----------------------------------------------------
+<span class="token keyword">DECLARECDLL</span>
+<span class="token keyword">DECLAREDLL</span>
+<span class="token keyword">COMPILERSELECT</span>
+<span class="token keyword">COMPILERCASE</span>
+<span class="token keyword">COMPILERDEFAULT</span>
+<span class="token keyword">COMPILERENDSELECT</span>
+<span class="token keyword">COMPILERERROR</span>
+<span class="token keyword">ENABLEEXPLICIT</span>
+<span class="token keyword">DISABLEEXPLICIT</span>
+<span class="token keyword">NOT</span>
+<span class="token keyword">AND</span>
+<span class="token keyword">OR</span>
+<span class="token keyword">XOR</span>
+<span class="token keyword">CALLDEBUGGER</span>
+<span class="token keyword">DEBUGLEVEL</span>
+<span class="token keyword">ENABLEDEBUGGER</span>
+<span class="token keyword">DISABLEDEBUGGER</span>
+<span class="token keyword">RESTORE</span>
+<span class="token keyword">READ</span>
+<span class="token keyword">INCLUDEPATH</span>
+<span class="token keyword">INCLUDEBINARY</span>
+<span class="token keyword">THREADED</span>
+<span class="token keyword">RUNTIME</span>
+<span class="token keyword">WITH</span>
+<span class="token keyword">ENDWITH</span>
+<span class="token keyword">STRUCTUREUNION</span>
+<span class="token keyword">ENDSTRUCTUREUNION</span>
+<span class="token keyword">ALIGN</span>
+<span class="token keyword">NEWLIST</span>
+<span class="token keyword">NEWMAP</span>
+<span class="token keyword">INTERFACE</span>
+<span class="token keyword">ENDINTERFACE</span>
+<span class="token keyword">EXTENDS</span>
+<span class="token keyword">ENUMERATION</span>
+<span class="token keyword">ENDENUMERATION</span>
+<span class="token keyword">SWAP</span>
+<span class="token keyword">FOREACH</span>
+<span class="token keyword">CONTINUE</span>
+<span class="token keyword">FAKERETURN</span>
+<span class="token keyword">GOTO</span>
+<span class="token keyword">GOSUB</span>
+<span class="token keyword">RETURN</span>
+<span class="token keyword">BREAK</span>
+<span class="token keyword">MODULE</span>
+<span class="token keyword">ENDMODULE</span>
+<span class="token keyword">DECLAREMODULE</span>
+<span class="token keyword">ENDDECLAREMODULE</span>
+<span class="token keyword">DECLARE</span>
+<span class="token keyword">DECLAREC</span>
+<span class="token keyword">PROTOTYPE</span>
+<span class="token keyword">PROTOTYPEC</span>
+<span class="token keyword">ENABLEASM</span>
+<span class="token keyword">DISABLEASM</span>
+<span class="token keyword">DIM</span>
+<span class="token keyword">REDIM</span>
+<span class="token keyword">DATA</span>
+<span class="token keyword">DATASECTION</span>
+<span class="token keyword">ENDDATASECTION</span>
+<span class="token keyword">TO</span>
+<span class="token keyword">PROCEDURERETURN</span>
+<span class="token keyword">DEBUG</span>
+<span class="token keyword">DEFAULT</span>
+<span class="token keyword">CASE</span>
+<span class="token keyword">SELECT</span>
+<span class="token keyword">ENDSELECT</span>
+<span class="token keyword">AS</span>
+<span class="token keyword">IMPORT</span>
+<span class="token keyword">ENDIMPORT</span>
+<span class="token keyword">IMPORTC</span>
+<span class="token keyword">COMPILERIF</span>
+<span class="token keyword">COMPILERELSE</span>
+<span class="token keyword">COMPILERENDIF</span>
+<span class="token keyword">COMPILERELSEIF</span>
+<span class="token keyword">END</span>
+<span class="token keyword">STRUCTURE</span>
+<span class="token keyword">ENDSTRUCTURE</span>
+<span class="token keyword">WHILE</span>
+<span class="token keyword">WEND</span>
+<span class="token keyword">FOR</span>
+<span class="token keyword">NEXT</span>
+<span class="token keyword">STEP</span>
+<span class="token keyword">IF</span>
+<span class="token keyword">ELSE</span>
+<span class="token keyword">ELSEIF</span>
+<span class="token keyword">ENDIF</span>
+<span class="token keyword">REPEAT</span>
+<span class="token keyword">UNTIL</span>
+<span class="token keyword">PROCEDURE</span>
+<span class="token keyword">PROCEDUREDLL</span>
+<span class="token keyword">PROCEDUREC</span>
+<span class="token keyword">PROCEDURECDLL</span>
+<span class="token keyword">ENDPROCEDURE</span>
+<span class="token keyword">PROTECTED</span>
+<span class="token keyword">SHARED</span>
+<span class="token keyword">STATIC</span>
+<span class="token keyword">GLOBAL</span>
+<span class="token keyword">DEFINE</span>
+<span class="token keyword">INCLUDEFILE</span>
+<span class="token keyword">XINCLUDEFILE</span>
+<span class="token keyword">MACRO</span>
+<span class="token keyword">ENDMACRO</span>
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+p {
+    color: red !important;
+    line-height: normal!important;
+}
+p{position:absolute!important}
+----------------------------------------------------
+<span class="token selector">p</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> red <span class="token important">!important</span><span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> normal<span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">p</span><span class="token punctuation">{</span><span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token important">!important</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

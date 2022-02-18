@@ -1,0 +1,31 @@
+#define FOO 3
+#define HINTARG(ARG) hint ("Passed argument: " + str ARG)
+#define DRAWBUTTON(NAME)\
+	__EXEC(idcNav = idcNav + 4)
+
+#undef NAME
+
+#ifdef NAME
+#ifndef NAME
+#else
+#endif
+
+#include "file.hpp"
+#include <file.txt> // Brackets are equivalent to quotation marks and may be used in their place.
+----------------------------------------------------
+<span class="token macro property"><span class="token directive keyword">#define</span> FOO 3</span>
+<span class="token macro property"><span class="token directive keyword">#define</span> HINTARG(ARG) hint ("Passed argument: " + str ARG)</span>
+<span class="token macro property"><span class="token directive keyword">#define</span> DRAWBUTTON(NAME)\
+	__EXEC(idcNav = idcNav + 4)</span>
+
+<span class="token macro property"><span class="token directive keyword">#undef</span> NAME</span>
+
+<span class="token macro property"><span class="token directive keyword">#ifdef</span> NAME</span>
+<span class="token macro property"><span class="token directive keyword">#ifndef</span> NAME</span>
+<span class="token macro property"><span class="token directive keyword">#else</span></span>
+<span class="token macro property"><span class="token directive keyword">#endif</span></span>
+
+<span class="token macro property"><span class="token directive keyword">#include</span> "file.hpp"</span>
+<span class="token macro property"><span class="token directive keyword">#include</span> &lt;file.txt> <span class="token comment">// Brackets are equivalent to quotation marks and may be used in their place.</span></span>
+
+----------------------------------------------------

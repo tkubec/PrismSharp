@@ -1,0 +1,56 @@
+$json = json_encode($my_object);
+$array1 = array("a" => "green", "red", "blue", "red");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_diff($array1, $array2);
+----------------------------------------------------
+[
+	["variable", "$json"],
+	["operator", "="],
+	["function", ["json_encode"]],
+	["punctuation", "("],
+	["variable", "$my_object"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$array1"],
+	["operator", "="],
+	["keyword", "array"],
+	["punctuation", "("],
+	["string", ["\"a\""]],
+	["operator", "=>"],
+	["string", ["\"green\""]],
+	["punctuation", ","],
+	["string", ["\"red\""]],
+	["punctuation", ","],
+	["string", ["\"blue\""]],
+	["punctuation", ","],
+	["string", ["\"red\""]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$array2"],
+	["operator", "="],
+	["keyword", "array"],
+	["punctuation", "("],
+	["string", ["\"b\""]],
+	["operator", "=>"],
+	["string", ["\"green\""]],
+	["punctuation", ","],
+	["string", ["\"yellow\""]],
+	["punctuation", ","],
+	["string", ["\"red\""]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$result"],
+	["operator", "="],
+	["function", ["array_diff"]],
+	["punctuation", "("],
+	["variable", "$array1"],
+	["punctuation", ","],
+	["variable", "$array2"],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

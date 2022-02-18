@@ -1,0 +1,71 @@
+Paragraphs can be forced in lists by using HTML tags.
+Two line break symbols, <code><nowiki><br /><br /></nowiki></code>, will create the desired effect. So will enclosing all but the first paragraph with <code><nowiki><p>...</p></nowiki></code>
+----------------------------------------------------
+[
+	"Paragraphs can be forced in lists by using HTML tags.\nTwo line break symbols, ",
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"code"
+		]],
+		["punctuation", ">"]
+	]],
+	["nowiki", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"nowiki"
+			]],
+			["punctuation", ">"]
+		]],
+		"<br /><br />",
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"nowiki"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"code"
+		]],
+		["punctuation", ">"]
+	]],
+	", will create the desired effect. So will enclosing all but the first paragraph with ",
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"code"
+		]],
+		["punctuation", ">"]
+	]],
+	["nowiki", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"nowiki"
+			]],
+			["punctuation", ">"]
+		]],
+		"<p>...</p>",
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"nowiki"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"code"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

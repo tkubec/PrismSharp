@@ -1,0 +1,43 @@
+h2()>. Bingo.
+
+h3()>[no]{color:red}. Bingo
+----------------------------------------------------
+[
+	["phrase", [
+		["block-tag", [
+			["tag", "h2"],
+			["modifier", [
+				["punctuation", "("],
+				["punctuation", ")"],
+				["punctuation", ">"]
+			]],
+			["punctuation", "."]
+		]],
+		" Bingo."
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "h3"],
+			["modifier", [
+				["punctuation", "("],
+				["punctuation", ")"],
+				["punctuation", ">"],
+				["punctuation", "["],
+				["lang", "no"],
+				["punctuation", "]"],
+				["css", [
+					["punctuation", "{"],
+					["property", "color"],
+					["punctuation", ":"],
+					"red",
+					["punctuation", "}"]
+				]]
+			]],
+			["punctuation", "."]
+		]],
+		" Bingo"
+	]]
+]
+
+----------------------------------------------------

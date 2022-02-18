@@ -1,0 +1,11 @@
+<!---->
+<!-- foo bar -->
+<!-- foo bar
+baz -->
+----------------------------------------------------
+<span class="token comment">&lt;!----></span>
+<span class="token comment">&lt;!-- foo bar --></span>
+<span class="token comment">&lt;!-- foo bar
+baz --></span>
+
+----------------------------------------------------

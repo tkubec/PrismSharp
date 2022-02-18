@@ -1,0 +1,11 @@
+; comment
+(some more comments)
+G28 (even in here) X0
+----------------------------------------------------
+[
+	["comment", "; comment"],
+	["comment", "(some more comments)"],
+	["keyword", "G28"], ["comment", "(even in here)"], ["property", "X"], "0"
+]
+
+----------------------------------------------------

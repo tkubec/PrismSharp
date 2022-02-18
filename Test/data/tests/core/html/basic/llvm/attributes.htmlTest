@@ -1,0 +1,19 @@
+; Target-independent attributes:
+attributes #0 = { alwaysinline alignstack=4 }
+
+; Target-dependent attributes:
+attributes #1 = { "no-sse" }
+
+; Function @f has attributes: alwaysinline, alignstack=4, and "no-sse".
+define void @f() #0 #1 { ... }
+----------------------------------------------------
+<span class="token comment">; Target-independent attributes:</span>
+<span class="token keyword">attributes</span> <span class="token variable">#0</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token keyword">alwaysinline</span> <span class="token keyword">alignstack</span><span class="token punctuation">=</span><span class="token number">4</span> <span class="token punctuation">}</span>
+
+<span class="token comment">; Target-dependent attributes:</span>
+<span class="token keyword">attributes</span> <span class="token variable">#1</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token string">"no-sse"</span> <span class="token punctuation">}</span>
+
+<span class="token comment">; Function @f has attributes: alwaysinline, alignstack=4, and "no-sse".</span>
+<span class="token keyword">define</span> <span class="token type class-name">void</span> <span class="token variable">@f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token variable">#0</span> <span class="token variable">#1</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

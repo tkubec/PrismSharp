@@ -1,0 +1,13 @@
+"https://example.com"
+'single quote'
+'age = $user.age'
+'[${int(x):-10}]'
+r'hello\nworld'
+----------------------------------------------------
+<span class="token string quoted-string">"https://example.com"</span>
+<span class="token string quoted-string">'single quote'</span>
+<span class="token string quoted-string">'age = <span class="token interpolation"><span class="token interpolation-variable variable">$user.age</span></span>'</span>
+<span class="token string quoted-string">'[<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token interpolation-expression"><span class="token function">int</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">10</span></span><span class="token interpolation-punctuation punctuation">}</span></span>]'</span>
+<span class="token string quoted-string">r'hello\nworld'</span>
+
+----------------------------------------------------

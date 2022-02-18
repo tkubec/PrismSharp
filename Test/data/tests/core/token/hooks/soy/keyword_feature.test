@@ -1,0 +1,294 @@
+{\n}
+{\r}
+{\t}
+{alias foo as bar}
+{call}
+{case}
+{css}
+{default}
+{delcall}
+{delpackage}
+{deltemplate}
+{else}
+{elseif}
+{fallbackmsg}
+{for}
+{foreach $i in $foo}
+{if}
+{ifempty}
+{lb}
+{let}
+{literal}{/literal}
+{msg}
+{namespace}
+{nil}
+{param}
+{@param}
+{@param?}
+{rb}
+{sp}
+{switch}
+{template}
+{xid}
+{@param foo: any}
+{@param foo: attributes}
+{@param foo: bool}
+{@param foo: css}
+{@param foo: float}
+{@param foo: int}
+{@param foo: js}
+{@param foo: html}
+{@param foo: list<int>}
+{@param foo: map<int,string>}
+{@param foo: null}
+{@param foo: number}
+{@param foo: string}
+{@param foo: uri}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "\\n"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "\\r"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "\\t"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "alias"],
+	["command-arg", ["foo"]],
+	["keyword", "as"],
+	" bar",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "call"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "case"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "css"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "default"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "delcall"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "delpackage"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "deltemplate"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "else"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "elseif"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "fallbackmsg"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "for"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "foreach"],
+	["variable", ["$i"]],
+	["keyword", "in"],
+	["variable", ["$foo"]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "if"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "ifempty"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "lb"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "let"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "literal"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "literal"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "msg"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "namespace"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "nil"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param?"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "rb"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "sp"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "switch"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "template"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "xid"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "any"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "attributes"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "bool"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "css"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "float"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "int"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "js"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "html"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "list"],
+	["operator", "<"],
+	["keyword", "int"],
+	["operator", ">"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "map"],
+	["operator", "<"],
+	["keyword", "int"],
+	["punctuation", ","],
+	["keyword", "string"],
+	["operator", ">"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "null"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "number"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "string"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "@param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["keyword", "uri"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,50 @@
+name = baseNameOf (toString url);
+imap =
+	if builtins ? genList then
+		f: list: genList (n: f (n + 1) (elemAt list n)) (length list)
+----------------------------------------------------
+[
+	"name ",
+	["operator", "="],
+	["function", "baseNameOf"],
+	["punctuation", "("],
+	["function", "toString"],
+	" url",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\nimap ",
+	["operator", "="],
+
+	["keyword", "if"],
+	["keyword", "builtins"],
+	["operator", "?"],
+	["function", "genList"],
+	["keyword", "then"],
+
+	"\n\t\tf",
+	["punctuation", ":"],
+	" list",
+	["punctuation", ":"],
+	["function", "genList"],
+	["punctuation", "("],
+	"n",
+	["punctuation", ":"],
+	" f ",
+	["punctuation", "("],
+	"n ",
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["function", "elemAt"],
+	" list n",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["function", "length"],
+	" list",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

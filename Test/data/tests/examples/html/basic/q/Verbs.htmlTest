@@ -1,0 +1,13 @@
+99+L
+x<42|x>98
+(x<42)|x>98
+42~(4 2;(1 0))
+(4 2)~(4; 2*1)
+----------------------------------------------------
+<span class="token number">99</span><span class="token verb operator">+</span>L
+x<span class="token verb operator">&lt;</span><span class="token number">42</span><span class="token verb operator">|</span>x<span class="token verb operator">></span><span class="token number">98</span>
+<span class="token punctuation">(</span>x<span class="token verb operator">&lt;</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token verb operator">|</span>x<span class="token verb operator">></span><span class="token number">98</span>
+<span class="token number">42</span><span class="token verb operator">~</span><span class="token punctuation">(</span><span class="token number">4</span> <span class="token number">2</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">4</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token verb operator">~</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">;</span> <span class="token number">2</span><span class="token verb operator">*</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

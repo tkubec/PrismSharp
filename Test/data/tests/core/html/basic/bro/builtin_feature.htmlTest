@@ -1,0 +1,23 @@
+@load-sigs
+@load-plugin
+@unload
+@prefixes
+@ifndef
+@ifdef
+@else
+&redef
+&priority
+redef
+----------------------------------------------------
+<span class="token builtin">@load-sigs</span>
+<span class="token builtin">@load-plugin</span>
+<span class="token builtin">@unload</span>
+<span class="token builtin">@prefixes</span>
+<span class="token builtin">@ifndef</span>
+<span class="token builtin">@ifdef</span>
+<span class="token builtin">@else</span>
+<span class="token builtin">&amp;redef</span>
+<span class="token builtin">&amp;priority</span>
+<span class="token builtin">redef</span>
+
+----------------------------------------------------

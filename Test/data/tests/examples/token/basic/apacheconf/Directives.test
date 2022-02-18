@@ -1,0 +1,32 @@
+<Files .htaccess>
+	Order allow,deny
+	Deny from all
+</Files>
+----------------------------------------------------
+[
+	["directive-block", [
+		["directive-block", [
+			["punctuation", "<"],
+			"Files"
+		]],
+		["directive-block-parameter", [" .htaccess"]],
+		["punctuation", ">"]
+	]],
+
+	["directive-inline", "Order"],
+	["directive-inline", "allow"],
+	",deny\n\t",
+
+	["directive-inline", "Deny"],
+	" from all\n",
+
+	["directive-block", [
+		["directive-block", [
+			["punctuation", "</"],
+			"Files"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

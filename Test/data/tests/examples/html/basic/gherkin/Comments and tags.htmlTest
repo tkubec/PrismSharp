@@ -1,0 +1,31 @@
+# user.feature
+@users
+Feature: Sign in to the store
+  In order to view my orders list
+  As a visitor
+  I need to be able to log in to the store
+
+  @javascript @login
+  Scenario: Trying to login without credentials
+      Given I am on the store homepage
+        And I follow "Login"
+       When I press "Login"
+       Then I should be on login page
+       # And I should see "Invalid credentials"
+----------------------------------------------------
+<span class="token comment"># user.feature</span>
+<span class="token tag">@users</span>
+<span class="token feature"><span class="token keyword">Feature:</span><span class="token important"> Sign in to the store</span>
+  In order to view my orders list
+  As a visitor
+  I need to be able to log in to the store
+</span>
+  <span class="token tag">@javascript</span> <span class="token tag">@login</span>
+  <span class="token scenario"><span class="token keyword">Scenario:</span><span class="token important"> Trying to login without credentials</span></span>
+      <span class="token atrule">Given</span> <span class="token atrule">I</span> am on the store homepage
+        <span class="token atrule">And</span> <span class="token atrule">I</span> follow <span class="token string">"Login"</span>
+       <span class="token atrule">When</span> <span class="token atrule">I</span> press <span class="token string">"Login"</span>
+       <span class="token atrule">Then</span> <span class="token atrule">I</span> should be on login page
+       <span class="token comment"># And I should see "Invalid credentials"</span>
+
+----------------------------------------------------

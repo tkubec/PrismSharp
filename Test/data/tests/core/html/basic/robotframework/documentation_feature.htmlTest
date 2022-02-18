@@ -1,0 +1,35 @@
+*** Settings ***
+Documentation    Example using the space separated plain text format.
+Documentation    This is documentation for this test suite.
+...              This kind of documentation can often be get quite long...
+
+*** Keywords ***
+One line documentation
+	[Documentation]    One line documentation.
+
+Multiline documentation
+	[Documentation]    The first line creates the short doc.
+	...
+	...                This is the body of the documentation.
+	...                It is not shown in Libdoc outputs but only
+	...                the short doc is shown in logs.
+	No Operation
+----------------------------------------------------
+<span class="token settings section"><span class="token section-header keyword">*** Settings ***</span>
+<span class="token property">Documentation</span>    <span class="token documentation string">Example using the space separated plain text format.</span>
+<span class="token property">Documentation</span>    <span class="token documentation string">This is documentation for this test suite.
+...              This kind of documentation can often be get quite long...</span>
+</span>
+<span class="token keywords section"><span class="token section-header keyword">*** Keywords ***</span>
+<span class="token keyword-name function">One line documentation</span>
+	<span class="token tag"><span class="token punctuation">[</span>Documentation<span class="token punctuation">]</span></span>    <span class="token documentation string">One line documentation.</span>
+
+<span class="token keyword-name function">Multiline documentation</span>
+	<span class="token tag"><span class="token punctuation">[</span>Documentation<span class="token punctuation">]</span></span>    <span class="token documentation string">The first line creates the short doc.
+	...
+	...                This is the body of the documentation.
+	...                It is not shown in Libdoc outputs but only
+	...                the short doc is shown in logs.</span>
+	<span class="token property">No Operation</span></span>
+
+----------------------------------------------------

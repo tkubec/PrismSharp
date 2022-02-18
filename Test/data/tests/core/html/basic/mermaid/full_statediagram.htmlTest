@@ -1,0 +1,253 @@
+stateDiagram-v2
+    [*] --> Still
+    Still --> [*]
+
+    Still --> Moving
+    Moving --> Still
+    Moving --> Crash
+    Crash --> [*]
+
+stateDiagram-v2
+    s1 --> s2
+
+stateDiagram-v2
+    s1 --> s2: A transition
+
+stateDiagram-v2
+    [*] --> s1
+    s1 --> [*]
+
+stateDiagram-v2
+    [*] --> First
+    state First {
+        [*] --> second
+        second --> [*]
+    }
+
+stateDiagram-v2
+    [*] --> First
+
+    state First {
+        [*] --> Second
+
+        state Second {
+            [*] --> second
+            second --> Third
+
+            state Third {
+                [*] --> third
+                third --> [*]
+            }
+        }
+    }
+
+stateDiagram-v2
+    [*] --> First
+    First --> Second
+    First --> Third
+
+    state First {
+        [*] --> fir
+        fir --> [*]
+    }
+    state Second {
+        [*] --> sec
+        sec --> [*]
+    }
+    state Third {
+        [*] --> thi
+        thi --> [*]
+    }
+
+stateDiagram-v2
+    state if_state <<choice>>
+    [*] --> IsPositive
+    IsPositive --> if_state
+    if_state --> False: if n < 0
+    if_state --> True : if n >= 0
+
+stateDiagram-v2
+    state fork_state <<fork>>
+      [*] --> fork_state
+      fork_state --> State2
+      fork_state --> State3
+
+      state join_state <<join>>
+      State2 --> join_state
+      State3 --> join_state
+      join_state --> State4
+      State4 --> [*]
+
+stateDiagram-v2
+        State1: The state with a note
+        note right of State1
+            Important information! You can write
+            notes.
+        end note
+        State1 --> State2
+        note left of State2 : This is the note to the left.
+
+stateDiagram-v2
+    [*] --> Active
+
+    state Active {
+        [*] --> NumLockOff
+        NumLockOff --> NumLockOn : EvNumLockPressed
+        NumLockOn --> NumLockOff : EvNumLockPressed
+        --
+        [*] --> CapsLockOff
+        CapsLockOff --> CapsLockOn : EvCapsLockPressed
+        CapsLockOn --> CapsLockOff : EvCapsLockPressed
+        --
+        [*] --> ScrollLockOff
+        ScrollLockOff --> ScrollLockOn : EvScrollLockPressed
+        ScrollLockOn --> ScrollLockOff : EvScrollLockPressed
+    }
+
+stateDiagram
+    direction LR
+    [*] --> A
+    A --> B
+    B --> C
+    state B {
+      direction LR
+      a --> b
+    }
+    B --> D
+
+stateDiagram-v2
+    [*] --> Still
+    Still --> [*]
+%% this is a comment
+    Still --> Moving
+    Moving --> Still %% another comment
+    Moving --> Crash
+    Crash --> [*]
+----------------------------------------------------
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> Still
+    Still <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+
+    Still <span class="token arrow operator">--></span> Moving
+    Moving <span class="token arrow operator">--></span> Still
+    Moving <span class="token arrow operator">--></span> Crash
+    Crash <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+
+<span class="token keyword">stateDiagram-v2</span>
+    s1 <span class="token arrow operator">--></span> s2
+
+<span class="token keyword">stateDiagram-v2</span>
+    s1 <span class="token arrow operator">--></span> s2<span class="token operator">:</span> A transition
+
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> s1
+    s1 <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> First
+    <span class="token keyword">state</span> First <span class="token punctuation">{</span>
+        <span class="token text string">[*]</span> <span class="token arrow operator">--></span> second
+        second <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> First
+
+    <span class="token keyword">state</span> First <span class="token punctuation">{</span>
+        <span class="token text string">[*]</span> <span class="token arrow operator">--></span> Second
+
+        <span class="token keyword">state</span> Second <span class="token punctuation">{</span>
+            <span class="token text string">[*]</span> <span class="token arrow operator">--></span> second
+            second <span class="token arrow operator">--></span> Third
+
+            <span class="token keyword">state</span> Third <span class="token punctuation">{</span>
+                <span class="token text string">[*]</span> <span class="token arrow operator">--></span> third
+                third <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> First
+    First <span class="token arrow operator">--></span> Second
+    First <span class="token arrow operator">--></span> Third
+
+    <span class="token keyword">state</span> First <span class="token punctuation">{</span>
+        <span class="token text string">[*]</span> <span class="token arrow operator">--></span> fir
+        fir <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">state</span> Second <span class="token punctuation">{</span>
+        <span class="token text string">[*]</span> <span class="token arrow operator">--></span> sec
+        sec <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">state</span> Third <span class="token punctuation">{</span>
+        <span class="token text string">[*]</span> <span class="token arrow operator">--></span> thi
+        thi <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token keyword">state</span> if_state <span class="token annotation important">&lt;&lt;choice>></span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> IsPositive
+    IsPositive <span class="token arrow operator">--></span> if_state
+    if_state <span class="token arrow operator">--></span> False<span class="token operator">:</span> if n &lt; 0
+    if_state <span class="token arrow operator">--></span> True <span class="token operator">:</span> if n >= 0
+
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token keyword">state</span> fork_state <span class="token annotation important">&lt;&lt;fork>></span>
+      <span class="token text string">[*]</span> <span class="token arrow operator">--></span> fork_state
+      fork_state <span class="token arrow operator">--></span> State2
+      fork_state <span class="token arrow operator">--></span> State3
+
+      <span class="token keyword">state</span> join_state <span class="token annotation important">&lt;&lt;join>></span>
+      State2 <span class="token arrow operator">--></span> join_state
+      State3 <span class="token arrow operator">--></span> join_state
+      join_state <span class="token arrow operator">--></span> State4
+      State4 <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+
+<span class="token keyword">stateDiagram-v2</span>
+        State1<span class="token operator">:</span> The state with a note
+        <span class="token keyword">note right of</span> State1
+            Important information! You can write
+            notes.
+        <span class="token keyword">end note</span>
+        State1 <span class="token arrow operator">--></span> State2
+        <span class="token keyword">note left of</span> State2 <span class="token operator">:</span> This is the note to the left.
+
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> Active
+
+    <span class="token keyword">state</span> Active <span class="token punctuation">{</span>
+        <span class="token text string">[*]</span> <span class="token arrow operator">--></span> NumLockOff
+        NumLockOff <span class="token arrow operator">--></span> NumLockOn <span class="token operator">:</span> EvNumLockPressed
+        NumLockOn <span class="token arrow operator">--></span> NumLockOff <span class="token operator">:</span> EvNumLockPressed
+        <span class="token arrow operator">--</span>
+        <span class="token text string">[*]</span> <span class="token arrow operator">--></span> CapsLockOff
+        CapsLockOff <span class="token arrow operator">--></span> CapsLockOn <span class="token operator">:</span> EvCapsLockPressed
+        CapsLockOn <span class="token arrow operator">--></span> CapsLockOff <span class="token operator">:</span> EvCapsLockPressed
+        <span class="token arrow operator">--</span>
+        <span class="token text string">[*]</span> <span class="token arrow operator">--></span> ScrollLockOff
+        ScrollLockOff <span class="token arrow operator">--></span> ScrollLockOn <span class="token operator">:</span> EvScrollLockPressed
+        ScrollLockOn <span class="token arrow operator">--></span> ScrollLockOff <span class="token operator">:</span> EvScrollLockPressed
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">stateDiagram</span>
+    <span class="token keyword">direction</span> LR
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> A
+    A <span class="token arrow operator">--></span> B
+    B <span class="token arrow operator">--></span> C
+    <span class="token keyword">state</span> B <span class="token punctuation">{</span>
+      <span class="token keyword">direction</span> LR
+      a <span class="token arrow operator">--></span> b
+    <span class="token punctuation">}</span>
+    B <span class="token arrow operator">--></span> D
+
+<span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> Still
+    Still <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+<span class="token comment">%% this is a comment</span>
+    Still <span class="token arrow operator">--></span> Moving
+    Moving <span class="token arrow operator">--></span> Still <span class="token comment">%% another comment</span>
+    Moving <span class="token arrow operator">--></span> Crash
+    Crash <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+
+----------------------------------------------------

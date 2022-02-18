@@ -1,0 +1,178 @@
+%%
+exp:
+  NUM           { $$ = $1;           }
+| exp exp '+'   { $$ = $1 + $2;      }
+| exp exp '-'   { $$ = $1 - $2;      }
+| exp exp '*'   { $$ = $1 * $2;      }
+| exp exp '/'   { $$ = $1 / $2;      }
+| exp exp '^'   { $$ = pow($1, $2);  }  /* Exponentiation */
+| exp 'n'       { $$ = -$1;          }  /* Unary minus    */
+;
+
+$@1: %empty { a(); };
+$@2: %empty { c(); };
+$@3: %empty { d(); };
+exp: $@1 "b" $@2 $@3 "e" { f(); };
+%%
+----------------------------------------------------
+[
+	["bison", [
+		["punctuation", "%%"],
+
+		["property", "exp"],
+		["punctuation", ":"],
+
+		"\n  NUM           ",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["bison-variable", ["$1"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", "|"],
+		" exp exp '+'   ",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["bison-variable", ["$1"]],
+			["operator", "+"],
+			["bison-variable", ["$2"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", "|"],
+		" exp exp '-'   ",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["bison-variable", ["$1"]],
+			["operator", "-"],
+			["bison-variable", ["$2"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", "|"],
+		" exp exp '*'   ",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["bison-variable", ["$1"]],
+			["operator", "*"],
+			["bison-variable", ["$2"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", "|"],
+		" exp exp '/'   ",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["bison-variable", ["$1"]],
+			["operator", "/"],
+			["bison-variable", ["$2"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+
+		["punctuation", "|"],
+		" exp exp '^'   ",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["function", "pow"],
+			["punctuation", "("],
+			["bison-variable", ["$1"]],
+			["punctuation", ","],
+			["bison-variable", ["$2"]],
+			["punctuation", ")"],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+		["comment", "/* Exponentiation */"],
+
+		["punctuation", "|"],
+		" exp 'n'       ",
+		["c", [
+			["delimiter", "{"],
+			["bison-variable", ["$$"]],
+			["operator", "="],
+			["operator", "-"],
+			["bison-variable", ["$1"]],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+		["comment", "/* Unary minus    */"],
+
+		["punctuation", ";"],
+
+		["property", "$@1"],
+		["punctuation", ":"],
+		["keyword", "%empty"],
+		["c", [
+			["delimiter", "{"],
+			["function", "a"],
+			["punctuation", "("],
+			["punctuation", ")"],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+		["punctuation", ";"],
+
+		["property", "$@2"],
+		["punctuation", ":"],
+		["keyword", "%empty"],
+		["c", [
+			["delimiter", "{"],
+			["function", "c"],
+			["punctuation", "("],
+			["punctuation", ")"],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+		["punctuation", ";"],
+
+		["property", "$@3"],
+		["punctuation", ":"],
+		["keyword", "%empty"],
+		["c", [
+			["delimiter", "{"],
+			["function", "d"],
+			["punctuation", "("],
+			["punctuation", ")"],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+		["punctuation", ";"],
+
+		["property", "exp"],
+		["punctuation", ":"],
+		" $@1 ",
+		["string", "\"b\""],
+		" $@2 $@3 ",
+		["string", "\"e\""],
+		["c", [
+			["delimiter", "{"],
+			["function", "f"],
+			["punctuation", "("],
+			["punctuation", ")"],
+			["punctuation", ";"],
+			["delimiter", "}"]
+		]],
+		["punctuation", ";"],
+
+		["punctuation", "%%"]
+	]]
+]
+
+----------------------------------------------------

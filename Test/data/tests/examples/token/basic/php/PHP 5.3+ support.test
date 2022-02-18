@@ -1,0 +1,102 @@
+namespace my\name;
+$c = new \my\name\MyClass;
+$arr = [1,2,3];
+trait ezcReflectionReturnInfo {
+    function getReturnType() { /*1*/ }
+    function getReturnDescription() { /*2*/ }
+}
+function gen_one_to_three() {
+    for ($i = 1; $i <= 3; $i++) {
+        // Note that $i is preserved between yields.
+        yield $i;
+    }
+}
+----------------------------------------------------
+[
+	["keyword", "namespace"],
+	["package", [
+		"my",
+		["punctuation", "\\"],
+		"name"
+	]],
+	["punctuation", ";"],
+
+	["variable", "$c"],
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", [
+		["punctuation", "\\"],
+		"my",
+		["punctuation", "\\"],
+		"name",
+		["punctuation", "\\"],
+		"MyClass"
+	]],
+	["punctuation", ";"],
+
+	["variable", "$arr"],
+	["operator", "="],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "trait"],
+	["class-name-definition", "ezcReflectionReturnInfo"],
+	["punctuation", "{"],
+
+	["keyword", "function"],
+	["function-definition", "getReturnType"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "/*1*/"],
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function-definition", "getReturnDescription"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "/*2*/"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function-definition", "gen_one_to_three"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["variable", "$i"],
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+	["variable", "$i"],
+	["operator", "<="],
+	["number", "3"],
+	["punctuation", ";"],
+	["variable", "$i"],
+	["operator", "++"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// Note that $i is preserved between yields."],
+
+	["keyword", "yield"],
+	["variable", "$i"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

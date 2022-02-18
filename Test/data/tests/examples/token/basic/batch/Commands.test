@@ -1,0 +1,74 @@
+@ECHO OFF
+FOR /l %%a in (5,-1,1) do (TITLE %title% -- closing in %%as)
+SET title=%~n0
+if /i "%InstSize:~0,1%"=="M" set maxcnt=3
+ping -n 2 -w 1 127.0.0.1
+----------------------------------------------------
+[
+	["operator", "@"],
+	["command", [
+		["keyword", "ECHO"],
+		" OFF"
+	]],
+
+	["command", [
+		["keyword", "FOR"],
+		["parameter", ["/l"]],
+		["variable", "%%a"],
+		["keyword", "in"],
+		["punctuation", "("],
+		["number", "5"],
+		["punctuation", ","],
+		["number", "-1"],
+		["punctuation", ","],
+		["number", "1"],
+		["punctuation", ")"],
+		["keyword", "do"]
+	]],
+	["punctuation", "("],
+	["command", [
+		["keyword", "TITLE"],
+		["variable", "%title%"],
+		" -- closing in ",
+		["variable", "%%as"]
+	]],
+	["punctuation", ")"],
+
+	["command", [
+		["keyword", "SET"],
+		["variable", "title"],
+		["operator", "="],
+		["variable", "%~n0"]
+	]],
+
+	["command", [
+		["keyword", "if"],
+		["parameter", ["/i"]],
+		["string", "\"%InstSize:~0,1%\""],
+		["operator", "=="],
+		["string", "\"M\""]
+	]],
+	["command", [
+		["keyword", "set"],
+		["variable", "maxcnt"],
+		["operator", "="],
+		["number", "3"]
+	]],
+
+	["command", [
+		["keyword", "ping"],
+		["parameter", ["-n"]],
+		["number", "2"],
+		["parameter", ["-w"]],
+		["number", "1"],
+		["number", "127"],
+		".",
+		["number", "0"],
+		".",
+		["number", "0"],
+		".",
+		["number", "1"]
+	]]
+]
+
+----------------------------------------------------

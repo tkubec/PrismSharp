@@ -1,0 +1,25 @@
+This is covered elsewhere[1].
+
+fn1. Down here, in fact.
+----------------------------------------------------
+[
+	["phrase", [
+		"This is covered elsewhere",
+		["footnote", [
+			["punctuation", "["],
+			"1",
+			["punctuation", "]"]
+		]],
+		"."
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "fn1"],
+			["punctuation", "."]
+		]],
+		" Down here, in fact."
+	]]
+]
+
+----------------------------------------------------

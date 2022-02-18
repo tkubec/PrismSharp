@@ -1,0 +1,5 @@
+foreach entry (["aaa", "bbb", "ccc"]) {
+	if (grep("[bc]", entry)) {
+		last;
+	}
+}

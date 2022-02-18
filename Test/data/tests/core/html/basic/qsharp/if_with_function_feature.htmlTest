@@ -1,0 +1,9 @@
+if result == One { 
+	X(qubit); 
+}
+----------------------------------------------------
+<span class="token keyword">if</span> result <span class="token operator">==</span> <span class="token keyword">One</span> <span class="token punctuation">{</span> 
+	<span class="token function">X</span><span class="token punctuation">(</span>qubit<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

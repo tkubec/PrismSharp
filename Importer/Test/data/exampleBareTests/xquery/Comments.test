@@ -1,0 +1,17 @@
+(::)
+(: Comment :)
+(: Multi-line
+comment :)
+(:~
+: The &lt;b>functx:substring-after-last&lt;/b> function returns the part
+: of &lt;b>$string&lt;/b> that appears after the last occurrence of
+: &lt;b>$delim&lt;/b>. If &lt;b>$string&lt;/b> does not contain
+: &lt;b>$delim&lt;/b>, the entire string is returned.
+:
+: @param $string the string to substring
+: @param $delim the delimiter
+: @return the substring
+:)
+
+--------------------------------------------------
+

@@ -1,0 +1,11 @@
+# Section
+#Section without whitespace
+ # Section with whitespace
+	# SectionWithTab
+----------------------------------------------------
+<span class="token label regex"># Section</span>
+#Section without whitespace
+ # Section with whitespace
+	<span class="token label regex"># SectionWithTab</span>
+
+----------------------------------------------------

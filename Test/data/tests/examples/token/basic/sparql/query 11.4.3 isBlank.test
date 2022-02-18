@@ -1,0 +1,116 @@
+PREFIX a:      <http://www.w3.org/2000/10/annotation-ns#>
+PREFIX dc:     <http://purl.org/dc/elements/1.1/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
+
+SELECT ?given ?family
+WHERE { ?annot  a:annotates  <http://www.w3.org/TR/rdf-sparql-query/> .
+?annot  dc:creator   ?c .
+OPTIONAL { ?c  foaf:given   ?given ; foaf:family  ?family } .
+FILTER isBlank(?c)
+}
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"a",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://www.w3.org/2000/10/annotation-ns#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://purl.org/dc/elements/1.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?given"],
+	["variable", "?family"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?annot"],
+	["function", [
+		["prefix", [
+			"a",
+			["punctuation", ":"]
+		]],
+		["local-name", "annotates"]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://www.w3.org/TR/rdf-sparql-query/",
+		["punctuation", ">"]
+	]],
+	["punctuation", "."],
+
+	["variable", "?annot"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]],
+		["local-name", "creator"]
+	]],
+	["variable", "?c"],
+	["punctuation", "."],
+
+	["keyword", "OPTIONAL"],
+	["punctuation", "{"],
+	["variable", "?c"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "given"]
+	]],
+	["variable", "?given"],
+	["punctuation", ";"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "family"]
+	]],
+	["variable", "?family"],
+	["punctuation", "}"],
+	["punctuation", "."],
+
+	["keyword", "FILTER"],
+	["keyword", "isBlank"],
+	["punctuation", "("],
+	["variable", "?c"],
+	["punctuation", ")"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

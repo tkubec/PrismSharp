@@ -1,0 +1,12 @@
+' Comment
+REM This is a comment too
+----------------------------------------------------
+[
+	["comment", ["' Comment"]],
+	["comment", [
+		["keyword", "REM"],
+		" This is a comment too"
+	]]
+]
+
+----------------------------------------------------

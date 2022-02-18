@@ -1,0 +1,33 @@
+foo()
+foo ()
+foo
+()
+foo . bar ()
+foo_bar()
+foo_bar ( )
+f42()
+_()
+$()
+ä()
+Ý()
+foo({ x: 1 })
+foo({ y: fun() })
+foo(bar())
+----------------------------------------------------
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">foo </span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">foo
+</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+foo <span class="token punctuation">.</span> <span class="token function">bar </span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">foo_bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">foo_bar </span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
+<span class="token function">f42</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">_</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">ä</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">Ý</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">{</span> y<span class="token operator">:</span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

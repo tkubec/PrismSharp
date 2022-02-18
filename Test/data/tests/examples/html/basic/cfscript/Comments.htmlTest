@@ -1,0 +1,23 @@
+// This is a comment
+
+/* This is a comment
+on multiple lines */
+
+/**
+* This is a Javadoc style comment
+*
+* @hint This is an annotation
+*/
+----------------------------------------------------
+<span class="token comment">// This is a comment</span>
+
+<span class="token comment">/* This is a comment
+on multiple lines */</span>
+
+<span class="token comment">/**
+* This is a Javadoc style comment
+*
+*<span class="token annotation punctuation"> @hint</span> This is an annotation
+*/</span>
+
+----------------------------------------------------

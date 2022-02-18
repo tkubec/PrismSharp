@@ -1,0 +1,552 @@
+c =====================Begin Identity Section===================================================
+c 
+c Mnemonic input method for Amharic script on US-QWERTY
+c keyboards for Keyman version 7.1, compliant with Unicode 4.1 and later.
+c 
+
+store(&VERSION) '9.0'
+store(&Name) "Amharic"
+c store(&MnemonicLayout) "1"
+store(&CapsAlwaysOff) "1"
+store(&Copyright) "Creative Commons Attribution 3.0"
+store(&Message) "This is an Amharic language mnemonic input method for Ethiopic script that requires Unicode 4.1 support."
+store(&WINDOWSLANGUAGES) 'x045E x045E'
+store(&LANGUAGE) 'x045E'
+store(&EthnologueCode) "amh"
+store(&VISUALKEYBOARD) 'gff-amh-7.kvk'
+store(&KMW_EMBEDCSS) 'gff-amh-7.css'
+HOTKEY "^%A"
+c 
+c =====================End Identity Section=====================================================
+
+c =====================Begin Data Section=======================================================
+
+c ---------------------Maps for Numbers---------------------------------------------------------
+store(ArabOnes) '23456789'
+store(ones)     '፪፫፬፭፮፯፰፱'
+store(tens)     '፳፴፵፶፷፸፹፺'
+store(arabNumbers) '123456789'
+store(ethNumbers) '፩፪፫፬፭፮፯፰፱፲፳፴፵፶፷፸፹፺፻፼'
+store(arabNumbersWithZero) '0123456789'
+store(ColonOrComma) ':,'
+store(ethWordspaceOrComma) '፡፣'
+c ---------------------End Numbers--------------------------------------------------------------
+
+c =====================End Data Section=========================================================
+
+c =====================Begin Functional Section=================================================
+c 
+store(&LAYOUTFILE) 'gff-amh-7_layout.js'
+store(&BITMAP) 'amharic.bmp'
+store(&TARGETS) 'any windows'
+begin Unicode > use(main)
+group(main) using keys    
+
+c ---------------------Input of Numbers---------------------------------------------------------
+
+c Special Rule for Arabic Numerals
+c 
+c The following attempts to auto-correct the use of Ethiopic wordspace and
+c Ethiopic comma within an Arabic numeral context.  Ethiopic wordspace gets
+c used erroneously in time formats and Ethiopic commas as an order of thousands
+c delimiter. The correction context is not known until numerals appear on _both_
+c sides of the punctuation.
+c 
+  any(arabNumbersWithZero) any(ethWordspaceOrComma) + any(arabNumbers) > index(arabNumbersWithZero,1) index(ColonOrComma,2) index(arabNumbers,3)
+
+c Ethiopic Numerals
+
+  "'" + '1' > '፩'
+  "'" + any(ArabOnes) > index(ones,2)
+
+c special cases for multiples of one
+  '፩'  + '0' > '፲'
+  '፲'  + '0' > '፻'
+  '፻'  + '0' > '፲፻'
+  '፲፻' + '0' > '፼'
+  '፼'  + '0' > '፲፼'    
+  '፲፼' + '0' > '፻፼' 
+  '፻፼'  + '0' > '፲፻፼'
+  '፲፻፼' + '0' > '፼፼'
+  '፼፼' + '0' > context beep  c do not go any higher, we could beep here
+
+c upto the order of 100 million
+  any(ones)     + '0' > index(tens,1)
+  any(tens)     + '0' > index(ones,1) '፻'  c Hundreds
+  any(ones)  '፻ '+ '0' > index(tens,1) '፻'  c Thousands
+  any(tens)  '፻' + '0' > index(ones,1) '፼'  c Ten Thousands
+  any(ones)  '፼' + '0' > index(tens,1) '፼'  c Hundred Thousands
+  any(tens)  '፼' + '0' > index(ones,1) '፻፼' c Millions
+  any(ones) '፻፼' + '0' > index(tens,1) '፻፼' c Ten Millions
+  any(tens) '፻፼' + '0' > index(ones,1) '፼፼' c Hundred Millions
+
+c enhance this later, look for something that can copy a match over
+  any(ethNumbers) + any(arabNumbers) > index(ethNumbers,1)  index(ethNumbers,2)
+c ---------------------End Input of Numbers-----------------------------------------------------
+                                            
+c =====================End Functional Section===================================================
+----------------------------------------------------
+[
+	["comment", "c =====================Begin Identity Section==================================================="],
+	["comment", "c "],
+	["comment", "c Mnemonic input method for Amharic script on US-QWERTY"],
+	["comment", "c keyboards for Keyman version 7.1, compliant with Unicode 4.1 and later."],
+	["comment", "c "],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&VERSION"],
+	["punctuation", ")"],
+	["string", "'9.0'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&Name"],
+	["punctuation", ")"],
+	["string", "\"Amharic\""],
+
+	["comment", "c store(&MnemonicLayout) \"1\""],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&CapsAlwaysOff"],
+	["punctuation", ")"],
+	["string", "\"1\""],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&Copyright"],
+	["punctuation", ")"],
+	["string", "\"Creative Commons Attribution 3.0\""],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&Message"],
+	["punctuation", ")"],
+	["string", "\"This is an Amharic language mnemonic input method for Ethiopic script that requires Unicode 4.1 support.\""],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&WINDOWSLANGUAGES"],
+	["punctuation", ")"],
+	["string", "'x045E x045E'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&LANGUAGE"],
+	["punctuation", ")"],
+	["string", "'x045E'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&EthnologueCode"],
+	["punctuation", ")"],
+	["string", "\"amh\""],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&VISUALKEYBOARD"],
+	["punctuation", ")"],
+	["string", "'gff-amh-7.kvk'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&KMW_EMBEDCSS"],
+	["punctuation", ")"],
+	["string", "'gff-amh-7.css'"],
+
+	["header-statement", "HOTKEY"],
+	["string", "\"^%A\""],
+
+	["comment", "c "],
+
+	["comment", "c =====================End Identity Section====================================================="],
+
+	["comment", "c =====================Begin Data Section======================================================="],
+
+	["comment", "c ---------------------Maps for Numbers---------------------------------------------------------"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	"ArabOnes",
+	["punctuation", ")"],
+	["string", "'23456789'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ")"],
+	["string", "'፪፫፬፭፮፯፰፱'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ")"],
+	["string", "'፳፴፵፶፷፸፹፺'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	"arabNumbers",
+	["punctuation", ")"],
+	["string", "'123456789'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	"ethNumbers",
+	["punctuation", ")"],
+	["string", "'፩፪፫፬፭፮፯፰፱፲፳፴፵፶፷፸፹፺፻፼'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	"arabNumbersWithZero",
+	["punctuation", ")"],
+	["string", "'0123456789'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	"ColonOrComma",
+	["punctuation", ")"],
+	["string", "':,'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	"ethWordspaceOrComma",
+	["punctuation", ")"],
+	["string", "'፡፣'"],
+
+	["comment", "c ---------------------End Numbers--------------------------------------------------------------"],
+
+	["comment", "c =====================End Data Section========================================================="],
+
+	["comment", "c =====================Begin Functional Section================================================="],
+
+	["comment", "c "],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&LAYOUTFILE"],
+	["punctuation", ")"],
+	["string", "'gff-amh-7_layout.js'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&BITMAP"],
+	["punctuation", ")"],
+	["string", "'amharic.bmp'"],
+
+	["rule-keyword", "store"],
+	["punctuation", "("],
+	["header-keyword", "&TARGETS"],
+	["punctuation", ")"],
+	["string", "'any windows'"],
+
+	["structural-keyword", "begin"],
+	["structural-keyword", "Unicode"],
+	["operator", ">"],
+	["rule-keyword", "use"],
+	["punctuation", "("],
+	"main",
+	["punctuation", ")"],
+
+	["structural-keyword", "group"],
+	["punctuation", "("],
+	"main",
+	["punctuation", ")"],
+	["structural-keyword", "using keys"],
+
+	["comment", "c ---------------------Input of Numbers---------------------------------------------------------"],
+
+	["comment", "c Special Rule for Arabic Numerals"],
+
+	["comment", "c "],
+
+	["comment", "c The following attempts to auto-correct the use of Ethiopic wordspace and"],
+
+	["comment", "c Ethiopic comma within an Arabic numeral context.  Ethiopic wordspace gets"],
+
+	["comment", "c used erroneously in time formats and Ethiopic commas as an order of thousands"],
+
+	["comment", "c delimiter. The correction context is not known until numerals appear on _both_"],
+
+	["comment", "c sides of the punctuation."],
+
+	["comment", "c "],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"arabNumbersWithZero",
+	["punctuation", ")"],
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"ethWordspaceOrComma",
+	["punctuation", ")"],
+	["operator", "+"],
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"arabNumbers",
+	["punctuation", ")"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"arabNumbersWithZero",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"ColonOrComma",
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ")"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"arabNumbers",
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", ")"],
+
+	["comment", "c Ethiopic Numerals"],
+
+	["string", "\"'\""],
+	["operator", "+"],
+	["string", "'1'"],
+	["operator", ">"],
+	["string", "'፩'"],
+
+	["string", "\"'\""],
+	["operator", "+"],
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"ArabOnes",
+	["punctuation", ")"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ")"],
+
+	["comment", "c special cases for multiples of one"],
+
+	["string", "'፩'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["string", "'፲'"],
+
+	["string", "'፲'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["string", "'፻'"],
+
+	["string", "'፻'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["string", "'፲፻'"],
+
+	["string", "'፲፻'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["string", "'፼'"],
+
+	["string", "'፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["string", "'፲፼'"],
+
+	["string", "'፲፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["string", "'፻፼'"],
+
+	["string", "'፻፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["string", "'፲፻፼'"],
+
+	["string", "'፲፻፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["string", "'፼፼'"],
+
+	["string", "'፼፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "context"],
+	["rule-keyword", "beep"],
+	["comment", "c do not go any higher, we could beep here"],
+
+	["comment", "c upto the order of 100 million"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ")"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ")"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["string", "'፻'"],
+	["comment", "c Hundreds"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ")"],
+	["string", "'፻ '"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["string", "'፻'"],
+	["comment", "c Thousands"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ")"],
+	["string", "'፻'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["string", "'፼'"],
+	["comment", "c Ten Thousands"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ")"],
+	["string", "'፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["string", "'፼'"],
+	["comment", "c Hundred Thousands"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ")"],
+	["string", "'፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["string", "'፻፼'"],
+	["comment", "c Millions"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ")"],
+	["string", "'፻፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["string", "'፻፼'"],
+	["comment", "c Ten Millions"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"tens",
+	["punctuation", ")"],
+	["string", "'፻፼'"],
+	["operator", "+"],
+	["string", "'0'"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"ones",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["string", "'፼፼'"],
+	["comment", "c Hundred Millions"],
+
+	["comment", "c enhance this later, look for something that can copy a match over"],
+
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"ethNumbers",
+	["punctuation", ")"],
+	["operator", "+"],
+	["rule-keyword", "any"],
+	["punctuation", "("],
+	"arabNumbers",
+	["punctuation", ")"],
+	["operator", ">"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"ethNumbers",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+	["rule-keyword", "index"],
+	["punctuation", "("],
+	"ethNumbers",
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ")"],
+
+	["comment", "c ---------------------End Input of Numbers-----------------------------------------------------"],
+
+	["comment", "c =====================End Functional Section==================================================="]
+]
+
+----------------------------------------------------

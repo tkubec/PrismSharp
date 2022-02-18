@@ -1,0 +1,21 @@
+'foo \'bar\' baz'
+"foo \"bar\" baz"
+'Multi-line
+strings are supported'
+"Multi-line
+strings are supported"
+''' 'Block strings'
+are supported too'''
+""" "Block strings"
+are supported too"""
+----------------------------------------------------
+[
+	["string", "'foo \\'bar\\' baz'"],
+	["string", ["\"foo \\\"bar\\\" baz\""]],
+	["string", "'Multi-line\nstrings are supported'"],
+	["string", ["\"Multi-line\nstrings are supported\""]],
+	["multiline-string", "''' 'Block strings'\nare supported too'''"],
+	["multiline-string", ["\"\"\" \"Block strings\"\nare supported too\"\"\""]]
+]
+
+----------------------------------------------------

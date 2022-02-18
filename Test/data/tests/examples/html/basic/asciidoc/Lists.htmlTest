@@ -1,0 +1,61 @@
+- List item.
+* List item.
+** List item.
+*** List item.
+**** List item.
+***** List item.
+
+1.   Arabic (decimal) numbered list item.
+a.   Lower case alpha (letter) numbered list item.
+F.   Upper case alpha (letter) numbered list item.
+iii) Lower case roman numbered list item.
+IX)  Upper case roman numbered list item.
+
+. Arabic (decimal) numbered list item.
+.. Lower case alpha (letter) numbered list item.
+... Lower case roman numbered list item.
+.... Upper case alpha (letter) numbered list item.
+..... Upper case roman numbered list item.
+
+Dolor::
+  Donec eget arcu bibendum nunc consequat lobortis.
+  Suspendisse;;
+    A massa id sem aliquam auctor.
+  Morbi;;
+    Pretium nulla vel lorem.
+  In;;
+    Dictum mauris in urna.
+    Vivamus::: Fringilla mi eu lacus.
+    Donec:::   Eget arcu bibendum nunc consequat lobortis.
+----------------------------------------------------
+<span class="token list-punctuation punctuation">-</span> List item.
+<span class="token list-punctuation punctuation">*</span> List item.
+<span class="token list-punctuation punctuation">**</span> List item.
+<span class="token list-punctuation punctuation">***</span> List item.
+<span class="token list-punctuation punctuation">****</span> List item.
+<span class="token list-punctuation punctuation">*****</span> List item.
+
+<span class="token list-punctuation punctuation">1.</span>   Arabic (decimal) numbered list item.
+<span class="token list-punctuation punctuation">a.</span>   Lower case alpha (letter) numbered list item.
+<span class="token list-punctuation punctuation">F.</span>   Upper case alpha (letter) numbered list item.
+<span class="token list-punctuation punctuation">iii)</span> Lower case roman numbered list item.
+<span class="token list-punctuation punctuation">IX)</span>  Upper case roman numbered list item.
+
+<span class="token list-punctuation punctuation">.</span> Arabic (decimal) numbered list item.
+<span class="token list-punctuation punctuation">..</span> Lower case alpha (letter) numbered list item.
+<span class="token list-punctuation punctuation">...</span> Lower case roman numbered list item.
+<span class="token list-punctuation punctuation">....</span> Upper case alpha (letter) numbered list item.
+<span class="token list-punctuation punctuation">.....</span> Upper case roman numbered list item.
+
+<span class="token list-label symbol">Dolor::</span>
+  Donec eget arcu bibendum nunc consequat lobortis.
+  <span class="token list-label symbol">Suspendisse;;</span>
+    A massa id sem aliquam auctor.
+  <span class="token list-label symbol">Morbi;;</span>
+    Pretium nulla vel lorem.
+  <span class="token list-label symbol">In;;</span>
+    Dictum mauris in urna.
+    <span class="token list-label symbol">Vivamus:::</span> Fringilla mi eu lacus.
+    <span class="token list-label symbol">Donec:::</span>   Eget arcu bibendum nunc consequat lobortis.
+
+----------------------------------------------------

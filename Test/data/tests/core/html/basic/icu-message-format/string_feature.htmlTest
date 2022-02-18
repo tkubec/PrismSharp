@@ -1,0 +1,9 @@
+foo '{1}' {1} '' {1}
+
+foo {foo, '{1}'}
+----------------------------------------------------
+foo <span class="token string">'{1}'</span> <span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">1</span></span><span class="token argument-delimiter operator">}</span></span> <span class="token escape operator">''</span> <span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">1</span></span><span class="token argument-delimiter operator">}</span></span>
+
+foo <span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">foo</span><span class="token punctuation">,</span> <span class="token arg-style-text string">'{1}'</span></span><span class="token argument-delimiter operator">}</span></span>
+
+----------------------------------------------------

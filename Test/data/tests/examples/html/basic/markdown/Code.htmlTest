@@ -1,0 +1,17 @@
+Inline code between backticks `<p>Paragraph</p>`
+
+    some_code(); /* Indented
+    with four spaces */
+
+	some_code(); /* Indented
+	with a tab */
+----------------------------------------------------
+Inline code between backticks <span class="token code-snippet code keyword">`&lt;p>Paragraph&lt;/p>`</span>
+
+<span class="token code keyword">    some_code(); /* Indented
+    with four spaces */</span>
+
+<span class="token code keyword">	some_code(); /* Indented
+	with a tab */</span>
+
+----------------------------------------------------

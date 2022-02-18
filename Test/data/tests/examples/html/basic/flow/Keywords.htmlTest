@@ -1,0 +1,13 @@
+type UnionAlias = 1 | 2 | 3;
+opaque type ID = string;
+declare opaque type PositiveNumber: number;
+type Country = $Keys<typeof countries>;
+type RequiredProps = $Diff<Props, DefaultProps>;
+----------------------------------------------------
+<span class="token keyword">type</span> UnionAlias <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token number">2</span> <span class="token operator">|</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">opaque</span> <span class="token keyword">type</span> <span class="token constant">ID</span> <span class="token operator">=</span> <span class="token type tag">string</span><span class="token punctuation">;</span>
+<span class="token keyword">declare</span> <span class="token keyword">opaque</span> <span class="token keyword">type</span> <span class="token literal-property property">PositiveNumber</span><span class="token operator">:</span> <span class="token type tag">number</span><span class="token punctuation">;</span>
+<span class="token keyword">type</span> Country <span class="token operator">=</span> <span class="token keyword">$Keys</span><span class="token operator">&lt;</span><span class="token keyword">typeof</span> countries<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token keyword">type</span> RequiredProps <span class="token operator">=</span> <span class="token keyword">$Diff</span><span class="token operator">&lt;</span>Props<span class="token punctuation">,</span> DefaultProps<span class="token operator">></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

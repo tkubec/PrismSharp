@@ -1,0 +1,23 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX site: <http://example.org/stats#>
+
+CONSTRUCT { [] foaf:name ?name }
+WHERE
+{ [] foaf:name ?name ;
+		 site:hits ?hits .
+}
+ORDER BY desc(?hits)
+LIMIT 2
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://xmlns.com/foaf/0.1/<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">site<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/stats#<span class="token punctuation">></span></span>
+
+<span class="token keyword">CONSTRUCT</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">name</span></span> <span class="token variable">?name</span> <span class="token punctuation">}</span>
+<span class="token keyword">WHERE</span>
+<span class="token punctuation">{</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">name</span></span> <span class="token variable">?name</span> <span class="token punctuation">;</span>
+		 <span class="token function"><span class="token prefix">site<span class="token punctuation">:</span></span><span class="token local-name">hits</span></span> <span class="token variable">?hits</span> <span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">desc</span><span class="token punctuation">(</span><span class="token variable">?hits</span><span class="token punctuation">)</span>
+<span class="token keyword">LIMIT</span> <span class="token number">2</span>
+
+----------------------------------------------------

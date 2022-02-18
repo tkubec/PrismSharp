@@ -1,0 +1,29 @@
+ADD --chown=1 files* /somedir/
+COPY --chown=1 files* /somedir/
+
+HEALTHCHECK --interval=5m --timeout=3s \
+  CMD foo
+
+ONBUILD HEALTHCHECK --interval=5m --timeout=3s \
+  CMD foo
+
+HEALTHCHECK \
+  --interval=5m \
+  --timeout=3s \
+  CMD foo
+----------------------------------------------------
+<span class="token instruction"><span class="token keyword">ADD</span> <span class="token options"><span class="token property">--chown</span><span class="token punctuation">=</span><span class="token string">1</span></span> files* /somedir/</span>
+<span class="token instruction"><span class="token keyword">COPY</span> <span class="token options"><span class="token property">--chown</span><span class="token punctuation">=</span><span class="token string">1</span></span> files* /somedir/</span>
+
+<span class="token instruction"><span class="token keyword">HEALTHCHECK</span> <span class="token options"><span class="token property">--interval</span><span class="token punctuation">=</span><span class="token string">5m</span> <span class="token property">--timeout</span><span class="token punctuation">=</span><span class="token string">3s</span></span> <span class="token operator">\</span>
+  <span class="token keyword">CMD</span> foo</span>
+
+<span class="token instruction"><span class="token keyword">ONBUILD</span> <span class="token keyword">HEALTHCHECK</span> <span class="token options"><span class="token property">--interval</span><span class="token punctuation">=</span><span class="token string">5m</span> <span class="token property">--timeout</span><span class="token punctuation">=</span><span class="token string">3s</span></span> <span class="token operator">\</span>
+  <span class="token keyword">CMD</span> foo</span>
+
+<span class="token instruction"><span class="token keyword">HEALTHCHECK</span> <span class="token operator">\</span>
+  <span class="token options"><span class="token property">--interval</span><span class="token punctuation">=</span><span class="token string">5m</span> <span class="token operator">\</span>
+  <span class="token property">--timeout</span><span class="token punctuation">=</span><span class="token string">3s</span></span> <span class="token operator">\</span>
+  <span class="token keyword">CMD</span> foo</span>
+
+----------------------------------------------------

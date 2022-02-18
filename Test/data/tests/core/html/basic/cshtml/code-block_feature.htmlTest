@@ -1,0 +1,77 @@
+@{
+    var quote = "The future depends on what you do today. - Mahatma Gandhi";
+}
+
+<p>@quote</p>
+
+@{
+    quote = "Hate cannot drive out hate, only love can do that. - Martin Luther King, Jr.";
+}
+
+<p>@quote</p>
+
+@{
+    void RenderName(string name)
+    {
+        <p>Name: <strong>@name</strong></p>
+    }
+
+    RenderName("Mahatma Gandhi");
+    RenderName("Martin Luther King, Jr.");
+}
+
+@{
+    var inCSharp = true;
+    <p>Now in HTML, was in C# @inCSharp</p>
+}
+
+@{
+    Func<dynamic, object> petTemplate = @<p>You have a pet named <strong>@item.Name</strong>.</p>;
+
+    var pets = new List<Pet>
+    {
+        new Pet { Name = "Rin Tin Tin" },
+        new Pet { Name = "Mr. Bigglesworth" },
+        new Pet { Name = "K-9" }
+    };
+}
+----------------------------------------------------
+<span class="token block"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> quote <span class="token operator">=</span> <span class="token string">"The future depends on what you do today. - Mahatma Gandhi"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">quote</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token block"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">{</span>
+    quote <span class="token operator">=</span> <span class="token string">"Hate cannot drive out hate, only love can do that. - Martin Luther King, Jr."</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">quote</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token block"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">{</span>
+    <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">RenderName</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> name<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Name: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">name</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">RenderName</span><span class="token punctuation">(</span><span class="token string">"Mahatma Gandhi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">RenderName</span><span class="token punctuation">(</span><span class="token string">"Martin Luther King, Jr."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></span>
+
+<span class="token block"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> inCSharp <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Now in HTML, was in C# <span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">inCSharp</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+<span class="token punctuation">}</span></span></span>
+
+<span class="token block"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">{</span>
+    <span class="token class-name">Func<span class="token punctuation">&lt;</span><span class="token keyword">dynamic</span><span class="token punctuation">,</span> <span class="token keyword">object</span><span class="token punctuation">></span></span> petTemplate <span class="token operator">=</span> <span class="token html"><span class="token delegate-operator operator">@</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>You have a pet named <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">item<span class="token punctuation">.</span>Name</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span><span class="token punctuation">;</span>
+
+    <span class="token class-name"><span class="token keyword">var</span></span> pets <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span>Pet<span class="token punctuation">></span></span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Pet</span> <span class="token punctuation">{</span> Name <span class="token operator">=</span> <span class="token string">"Rin Tin Tin"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Pet</span> <span class="token punctuation">{</span> Name <span class="token operator">=</span> <span class="token string">"Mr. Bigglesworth"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Pet</span> <span class="token punctuation">{</span> Name <span class="token operator">=</span> <span class="token string">"K-9"</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></span>
+
+----------------------------------------------------

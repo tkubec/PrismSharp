@@ -1,0 +1,15 @@
+abc = "abc"
+"abc" = "abc"
+"abc".'a"b"c'.abc = "abc"
+	a . b . c = "abc"
+
+a = { b = "b", c = "c" }
+----------------------------------------------------
+<span class="token key property">abc</span> <span class="token punctuation">=</span> <span class="token string">"abc"</span>
+<span class="token key property">"abc"</span> <span class="token punctuation">=</span> <span class="token string">"abc"</span>
+<span class="token key property">"abc".'a"b"c'.abc</span> <span class="token punctuation">=</span> <span class="token string">"abc"</span>
+	<span class="token key property">a . b . c</span> <span class="token punctuation">=</span> <span class="token string">"abc"</span>
+
+<span class="token key property">a</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">b</span> <span class="token punctuation">=</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token key property">c</span> <span class="token punctuation">=</span> <span class="token string">"c"</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

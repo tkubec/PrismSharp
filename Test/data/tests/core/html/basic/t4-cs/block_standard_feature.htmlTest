@@ -1,0 +1,25 @@
+<#
+	for (var i = 0; i < 10; i++)
+	{
+		if (i % 2 == 0)
+		{
+#>
+The number <#= i #> is even.
+<#
+		}
+	}
+#>
+----------------------------------------------------
+<span class="token block"><span class="token standard block"><span class="token delimiter important">&lt;#</span><span class="token content language-csharp">
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">var</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+</span><span class="token delimiter important">#></span></span></span>
+The number <span class="token block"><span class="token expression block"><span class="token delimiter important">&lt;#=</span><span class="token content language-csharp"> i </span><span class="token delimiter important">#></span></span></span> is even.
+<span class="token block"><span class="token standard block"><span class="token delimiter important">&lt;#</span><span class="token content language-csharp">
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+</span><span class="token delimiter important">#></span></span></span>
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+bob = new SqlCommand("Select * from test Where Code=@Code");
+bob = new SqlCommand("Select * from test Where Code=Code");
+----------------------------------------------------
+bob <span class="token operator">=</span> <span class="token keyword">new</span> SqlCommand<span class="token punctuation">(</span><span class="token string">"Select * from test Where Code=@Code"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+bob <span class="token operator">=</span> <span class="token keyword">new</span> SqlCommand<span class="token punctuation">(</span><span class="token string">"Select * from test Where Code=Code"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

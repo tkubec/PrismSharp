@@ -1,0 +1,59 @@
+!!map
+!!str
+!!seq
+
+# https://yaml.org/spec/1.2/spec.html#c-ns-tag-property
+
+!<tag:yaml.org,2002:str> foo : !<!bar> baz
+
+- !local foo
+- !!str bar
+- !e!tag%21 baz
+
+!!seq [
+  !<!local> "foo",
+  !<tag:yaml.org,2002:str> "bar",
+  !<tag:example.com,2000:app/tag!> "baz"
+]
+
+# Assuming conventional resolution:
+- "12"
+- 12
+- ! 12
+
+!!seq [
+  !<tag:yaml.org,2002:str> "12",
+  !<tag:yaml.org,2002:int> "12",
+  !<tag:yaml.org,2002:str> "12",
+]
+----------------------------------------------------
+<span class="token tag">!!map</span>
+<span class="token tag">!!str</span>
+<span class="token tag">!!seq</span>
+
+<span class="token comment"># https://yaml.org/spec/1.2/spec.html#c-ns-tag-property</span>
+
+<span class="token tag">!&lt;tag:yaml.org,2002:str></span> <span class="token key atrule">foo</span> <span class="token punctuation">:</span> <span class="token tag">!&lt;!bar></span> baz
+
+<span class="token punctuation">-</span> <span class="token tag">!local</span> foo
+<span class="token punctuation">-</span> <span class="token tag">!!str</span> bar
+<span class="token punctuation">-</span> <span class="token tag">!e!tag%21</span> baz
+
+<span class="token tag">!!seq</span> <span class="token punctuation">[</span>
+  <span class="token tag">!&lt;!local></span> <span class="token string">"foo"</span><span class="token punctuation">,</span>
+  <span class="token tag">!&lt;tag:yaml.org,2002:str></span> <span class="token string">"bar"</span><span class="token punctuation">,</span>
+  <span class="token tag">!&lt;tag:example.com,2000:app/tag!></span> <span class="token string">"baz"</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment"># Assuming conventional resolution:</span>
+<span class="token punctuation">-</span> <span class="token string">"12"</span>
+<span class="token punctuation">-</span> <span class="token number">12</span>
+<span class="token punctuation">-</span> <span class="token tag">!</span> <span class="token number">12</span>
+
+<span class="token tag">!!seq</span> <span class="token punctuation">[</span>
+  <span class="token tag">!&lt;tag:yaml.org,2002:str></span> <span class="token string">"12"</span><span class="token punctuation">,</span>
+  <span class="token tag">!&lt;tag:yaml.org,2002:int></span> <span class="token string">"12"</span><span class="token punctuation">,</span>
+  <span class="token tag">!&lt;tag:yaml.org,2002:str></span> <span class="token string">"12"</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+
+----------------------------------------------------

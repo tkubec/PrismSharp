@@ -1,0 +1,57 @@
+''
+'foo'
+'foo\
+bar'
+""
+"foo"
+"foo\
+bar"
+"foo #{interpolation} bar"
+''''''
+'''foo'''
+'''foo
+bar'''
+
+""""""
+"""foo"""
+"""foo
+bar"""
+"""foo #{interpolation} bar"""
+"foo # comment bar"
+'foo # bar'
+"""foo
+#comment
+bar"""
+'''foo
+#comment
+bar'''
+----------------------------------------------------
+<span class="token string">''</span>
+<span class="token string">'foo'</span>
+<span class="token string">'foo\
+bar'</span>
+<span class="token string">""</span>
+<span class="token string">"foo"</span>
+<span class="token string">"foo\
+bar"</span>
+<span class="token string">"foo <span class="token interpolation variable">#{interpolation}</span> bar"</span>
+<span class="token multiline-string string">''''''</span>
+<span class="token multiline-string string">'''foo'''</span>
+<span class="token multiline-string string">'''foo
+bar'''</span>
+
+<span class="token multiline-string string">""""""</span>
+<span class="token multiline-string string">"""foo"""</span>
+<span class="token multiline-string string">"""foo
+bar"""</span>
+<span class="token multiline-string string">"""foo <span class="token interpolation variable">#{interpolation}</span> bar"""</span>
+<span class="token string">"foo # comment bar"</span>
+<span class="token string">'foo # bar'</span>
+<span class="token multiline-string string">"""foo
+#comment
+bar"""</span>
+<span class="token multiline-string string">'''foo
+#comment
+bar'''</span>
+
+----------------------------------------------------

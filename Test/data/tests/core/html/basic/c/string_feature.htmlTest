@@ -1,0 +1,33 @@
+""
+"foo"
+"\x12"
+"3"
+
+"\xff""f"
+
+"foo\
+bar"
+
+"a猫🍌"
+u8"a猫🍌"
+u"a猫🍌"
+U"a猫🍌"
+L"a猫🍌"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo"</span>
+<span class="token string">"\x12"</span>
+<span class="token string">"3"</span>
+
+<span class="token string">"\xff"</span><span class="token string">"f"</span>
+
+<span class="token string">"foo\
+bar"</span>
+
+<span class="token string">"a猫🍌"</span>
+u8<span class="token string">"a猫🍌"</span>
+u<span class="token string">"a猫🍌"</span>
+U<span class="token string">"a猫🍌"</span>
+L<span class="token string">"a猫🍌"</span>
+
+----------------------------------------------------

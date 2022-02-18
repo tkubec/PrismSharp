@@ -1,0 +1,37 @@
+%macro prnt(var,sum);
+	proc print data=srhigh;
+		var &var;
+		sum &sum;
+	run;
+%mend prnt;
+
+%macro printz/parmbuff;
+	%let num=1;
+	%let dsname=%scan(&syspbuff,&num);
+	%do %while(&dsname ne);
+		proc print data=&dsname;
+		run;
+		%let num=%eval(&num+1);
+		%let dsname=%scan(&syspbuff,&num);
+	%end;
+%mend printz;
+----------------------------------------------------
+<span class="token macro-declaration"><span class="token keyword">%macro</span> prnt(var,sum)</span><span class="token punctuation">;</span>
+	<span class="token step keyword">proc print</span> <span class="token keyword">data</span><span class="token operator">=</span>srhigh<span class="token punctuation">;</span>
+		<span class="token keyword">var</span> <span class="token macro-variable">&amp;var</span><span class="token punctuation">;</span>
+		<span class="token keyword">sum</span> <span class="token macro-variable">&amp;sum</span><span class="token punctuation">;</span>
+	<span class="token step keyword">run</span><span class="token punctuation">;</span>
+<span class="token macro-end"><span class="token keyword">%mend</span> prnt</span><span class="token punctuation">;</span>
+
+<span class="token macro-declaration"><span class="token keyword">%macro</span> printz/parmbuff</span><span class="token punctuation">;</span>
+	<span class="token macro-keyword keyword">%let</span> num<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token macro-keyword keyword">%let</span> dsname<span class="token operator">=</span><span class="token macro-keyword keyword">%scan</span><span class="token punctuation">(</span><span class="token macro-variable">&amp;syspbuff</span><span class="token punctuation">,</span><span class="token macro-variable">&amp;num</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token macro-keyword keyword">%do</span> <span class="token macro-keyword keyword">%while</span><span class="token punctuation">(</span><span class="token macro-variable">&amp;dsname</span> <span class="token operator-keyword operator">ne</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token step keyword">proc print</span> <span class="token keyword">data</span><span class="token operator">=</span><span class="token macro-variable">&amp;dsname</span><span class="token punctuation">;</span>
+		<span class="token step keyword">run</span><span class="token punctuation">;</span>
+		<span class="token macro-keyword keyword">%let</span> num<span class="token operator">=</span><span class="token macro-keyword keyword">%eval</span><span class="token punctuation">(</span><span class="token macro-variable">&amp;num</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token macro-keyword keyword">%let</span> dsname<span class="token operator">=</span><span class="token macro-keyword keyword">%scan</span><span class="token punctuation">(</span><span class="token macro-variable">&amp;syspbuff</span><span class="token punctuation">,</span><span class="token macro-variable">&amp;num</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token macro-keyword keyword">%end</span><span class="token punctuation">;</span>
+<span class="token macro-end"><span class="token keyword">%mend</span> printz</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

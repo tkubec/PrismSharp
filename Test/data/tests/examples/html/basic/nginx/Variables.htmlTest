@@ -1,0 +1,5 @@
+fastcgi_param SERVER_NAME $server_name;
+----------------------------------------------------
+<span class="token directive"><span class="token keyword">fastcgi_param</span> SERVER_NAME <span class="token variable">$server_name</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

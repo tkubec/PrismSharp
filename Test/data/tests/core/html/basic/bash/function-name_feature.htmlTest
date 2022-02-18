@@ -1,0 +1,15 @@
+function foo { :; }
+function foo-bar { :; }
+bar() { :; }
+function foo() { :; }
+# Not a function:
+bar { :; }
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function-name function">foo</span> <span class="token punctuation">{</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">foo-bar</span> <span class="token punctuation">{</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token function-name function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token comment"># Not a function:</span>
+bar <span class="token punctuation">{</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

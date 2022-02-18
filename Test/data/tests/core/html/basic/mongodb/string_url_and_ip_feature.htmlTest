@@ -1,0 +1,11 @@
+{
+	field1: 'Here is url: http://prismjs.com/'
+	field2: 'Here is ip: 192.168.0.1'
+}
+----------------------------------------------------
+<span class="token punctuation">{</span>
+	<span class="token property">field1</span><span class="token operator">:</span> <span class="token string">'Here is url: <span class="token url">http://prismjs.com/</span>'</span>
+	<span class="token property">field2</span><span class="token operator">:</span> <span class="token string">'Here is ip: <span class="token entity">192.168.0.1</span>'</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

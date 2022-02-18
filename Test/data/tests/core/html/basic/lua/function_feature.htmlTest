@@ -1,0 +1,11 @@
+foo ()
+Foo_bar_42()
+foo {}
+Foo_bar_42{}
+----------------------------------------------------
+<span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">Foo_bar_42</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">Foo_bar_42</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

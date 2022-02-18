@@ -1,0 +1,19 @@
+0xff_u8;                           // type u8
+0o70_i16;                          // type i16
+0b1111_1111_1001_0000_i32;         // type i32
+
+123.0f64;        // type f64
+0.1f64;          // type f64
+0.1f32;          // type f32
+12E+99_f64;      // type f64
+----------------------------------------------------
+<span class="token number">0xff_u8</span><span class="token punctuation">;</span>                           <span class="token comment">// type u8</span>
+<span class="token number">0o70_i16</span><span class="token punctuation">;</span>                          <span class="token comment">// type i16</span>
+<span class="token number">0b1111_1111_1001_0000_i32</span><span class="token punctuation">;</span>         <span class="token comment">// type i32</span>
+
+<span class="token number">123.0f64</span><span class="token punctuation">;</span>        <span class="token comment">// type f64</span>
+<span class="token number">0.1f64</span><span class="token punctuation">;</span>          <span class="token comment">// type f64</span>
+<span class="token number">0.1f32</span><span class="token punctuation">;</span>          <span class="token comment">// type f32</span>
+<span class="token number">12E+99_f64</span><span class="token punctuation">;</span>      <span class="token comment">// type f64</span>
+
+----------------------------------------------------

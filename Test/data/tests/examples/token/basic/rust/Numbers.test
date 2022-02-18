@@ -1,0 +1,29 @@
+0xff_u8;                           // type u8
+0o70_i16;                          // type i16
+0b1111_1111_1001_0000_i32;         // type i32
+
+123.0f64;        // type f64
+0.1f64;          // type f64
+0.1f32;          // type f32
+12E+99_f64;      // type f64
+----------------------------------------------------
+[
+	["number", "0xff_u8"],
+	["punctuation", ";"],
+	["comment", "// type u8"],
+
+	["number", "0o70_i16"],
+	["punctuation", ";"],
+	["comment", "// type i16"],
+
+	["number", "0b1111_1111_1001_0000_i32"],
+	["punctuation", ";"],
+	["comment", "// type i32"],
+
+	["number", "123.0f64"], ["punctuation", ";"], ["comment", "// type f64"],
+	["number", "0.1f64"], ["punctuation", ";"], ["comment", "// type f64"],
+	["number", "0.1f32"], ["punctuation", ";"], ["comment", "// type f32"],
+	["number", "12E+99_f64"], ["punctuation", ";"], ["comment", "// type f64"]
+]
+
+----------------------------------------------------

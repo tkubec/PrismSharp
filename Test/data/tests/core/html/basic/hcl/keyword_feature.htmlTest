@@ -1,0 +1,13 @@
+resource "aws_db_instance" "main" {
+data "terraform_remote_state" "main" {
+output "dev_vpc_id" {
+config {
+terraform {
+----------------------------------------------------
+<span class="token keyword">resource <span class="token type variable">"aws_db_instance"</span></span> <span class="token string">"main"</span> <span class="token punctuation">{</span>
+<span class="token keyword">data <span class="token type variable">"terraform_remote_state"</span></span> <span class="token string">"main"</span> <span class="token punctuation">{</span>
+<span class="token keyword">output<span class="token type variable"> "dev_vpc_id" </span></span><span class="token punctuation">{</span>
+<span class="token keyword">config</span> <span class="token punctuation">{</span>
+<span class="token keyword">terraform</span> <span class="token punctuation">{</span>
+
+----------------------------------------------------

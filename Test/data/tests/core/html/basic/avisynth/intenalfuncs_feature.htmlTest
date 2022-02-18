@@ -1,0 +1,383 @@
+isbool
+isclip
+isfloat
+isint
+isstring
+exist
+defined
+functionexists
+internalfunctionexists
+varexist
+
+apply
+eval
+import
+select
+default
+assert
+nop
+undefined
+
+setmemorymax
+setcachemode
+setmaxcpu
+setworkingdir
+setplanarlegacyalignment
+opt_allowfloataudio
+opt_usewaveextensible
+opt_dwchannelmask
+opt_avipadscanlines
+opt_vdubplanarhack
+opt_enable_v210
+opt_enable_y3_10_10
+opt_enable_y3_10_16
+opt_enable_b64a
+opt_enable_planartopackedrgb
+
+value
+hexvalue
+hex
+
+max
+min
+muldiv
+floor
+ceil
+round
+fmod
+pi
+exp
+log
+log10
+pow
+sqrt
+abs
+sign
+frac
+rand
+spline
+continuednumerator
+continueddenominator
+
+sin
+cos
+tan
+asin
+acos
+atan
+atan2
+sinh
+cosh
+tanh
+
+bitand
+bitnot
+bitor
+bitxor
+bitlshift
+bitshl
+bitsal
+bitrshifta
+bitrshifts
+bitsar
+bitrshiftl
+bitrshiftu
+bitshr
+bitlrotate
+bitrol
+bitrrotatel
+bitror
+bittest
+bittst
+bitset
+bitsetcount
+bitclear
+bitclr
+bitchange
+bitchg
+
+averageluma
+averagechromau
+averagechromav
+averageb
+averageg
+averager
+lumadifference
+chromaudifference
+chromavdifference
+rgbdifference
+bdifference
+gdifference
+rdifference
+ydifferencefromprevious
+udifferencefromprevious
+vdifferencefromprevious
+rgbdifferencefromprevious
+bdifferencefromprevious
+gdifferencefromprevious
+rdifferencefromprevious
+ydifferencetonext
+udifferencetonext
+vdifferencetonext
+rgbdifferencetonext
+rdifferencetonext
+gdifferencetonext
+bdifferencetonext
+yplanemedian
+uplanemedian
+vplanemedian
+bplanemedian
+gplanemedian
+rplanemedian
+yplanemin
+uplanemin
+vplanemin
+bplanemin
+gplanemin
+rplanemin
+yplanemax
+uplanemax
+vplanemax
+bplanemax
+gplanemax
+rplanemax
+yplaneminmaxdifference
+uplaneminmaxdifference
+vplaneminmaxdifference
+bplaneminmaxdifference
+gplaneminmaxdifference
+rplaneminmaxdifference
+
+scriptname
+scriptnameutf8
+scriptfile
+scriptfileutf8
+scriptdir
+scriptdirutf8
+setlogparams
+logmsg
+getprocessinfo
+
+lcase
+ucase
+strtoutf8
+strfromutf8
+strlen
+revstr
+leftstr
+rightstr
+midstr
+findstr
+replacestr
+format
+fillstr
+strcmp
+strcmpi
+trimleft
+trimright
+trimall
+chr
+ord
+time
+
+versionnumber
+versionstring
+isversionorgreater
+
+buildpixeltype
+colorspacenametopixeltype
+
+kevincosner
+----------------------------------------------------
+<span class="token builtin-function function">isbool</span>
+<span class="token builtin-function function">isclip</span>
+<span class="token builtin-function function">isfloat</span>
+<span class="token builtin-function function">isint</span>
+<span class="token builtin-function function">isstring</span>
+<span class="token builtin-function function">exist</span>
+<span class="token builtin-function function">defined</span>
+<span class="token builtin-function function">functionexists</span>
+<span class="token builtin-function function">internalfunctionexists</span>
+<span class="token builtin-function function">varexist</span>
+
+<span class="token builtin-function function">apply</span>
+<span class="token builtin-function function">eval</span>
+<span class="token builtin-function function">import</span>
+<span class="token builtin-function function">select</span>
+<span class="token builtin-function function">default</span>
+<span class="token builtin-function function">assert</span>
+<span class="token builtin-function function">nop</span>
+<span class="token builtin-function function">undefined</span>
+
+<span class="token builtin-function function">setmemorymax</span>
+<span class="token builtin-function function">setcachemode</span>
+<span class="token builtin-function function">setmaxcpu</span>
+<span class="token builtin-function function">setworkingdir</span>
+<span class="token builtin-function function">setplanarlegacyalignment</span>
+<span class="token builtin-function function">opt_allowfloataudio</span>
+<span class="token builtin-function function">opt_usewaveextensible</span>
+<span class="token builtin-function function">opt_dwchannelmask</span>
+<span class="token builtin-function function">opt_avipadscanlines</span>
+<span class="token builtin-function function">opt_vdubplanarhack</span>
+<span class="token builtin-function function">opt_enable_v210</span>
+<span class="token builtin-function function">opt_enable_y3_10_10</span>
+<span class="token builtin-function function">opt_enable_y3_10_16</span>
+<span class="token builtin-function function">opt_enable_b64a</span>
+<span class="token builtin-function function">opt_enable_planartopackedrgb</span>
+
+<span class="token builtin-function function">value</span>
+<span class="token builtin-function function">hexvalue</span>
+<span class="token builtin-function function">hex</span>
+
+<span class="token builtin-function function">max</span>
+<span class="token builtin-function function">min</span>
+<span class="token builtin-function function">muldiv</span>
+<span class="token builtin-function function">floor</span>
+<span class="token builtin-function function">ceil</span>
+<span class="token builtin-function function">round</span>
+<span class="token builtin-function function">fmod</span>
+<span class="token builtin-function function">pi</span>
+<span class="token builtin-function function">exp</span>
+<span class="token builtin-function function">log</span>
+<span class="token builtin-function function">log10</span>
+<span class="token builtin-function function">pow</span>
+<span class="token builtin-function function">sqrt</span>
+<span class="token builtin-function function">abs</span>
+<span class="token builtin-function function">sign</span>
+<span class="token builtin-function function">frac</span>
+<span class="token builtin-function function">rand</span>
+<span class="token builtin-function function">spline</span>
+<span class="token builtin-function function">continuednumerator</span>
+<span class="token builtin-function function">continueddenominator</span>
+
+<span class="token builtin-function function">sin</span>
+<span class="token builtin-function function">cos</span>
+<span class="token builtin-function function">tan</span>
+<span class="token builtin-function function">asin</span>
+<span class="token builtin-function function">acos</span>
+<span class="token builtin-function function">atan</span>
+<span class="token builtin-function function">atan2</span>
+<span class="token builtin-function function">sinh</span>
+<span class="token builtin-function function">cosh</span>
+<span class="token builtin-function function">tanh</span>
+
+<span class="token builtin-function function">bitand</span>
+<span class="token builtin-function function">bitnot</span>
+<span class="token builtin-function function">bitor</span>
+<span class="token builtin-function function">bitxor</span>
+<span class="token builtin-function function">bitlshift</span>
+<span class="token builtin-function function">bitshl</span>
+<span class="token builtin-function function">bitsal</span>
+<span class="token builtin-function function">bitrshifta</span>
+<span class="token builtin-function function">bitrshifts</span>
+<span class="token builtin-function function">bitsar</span>
+<span class="token builtin-function function">bitrshiftl</span>
+<span class="token builtin-function function">bitrshiftu</span>
+<span class="token builtin-function function">bitshr</span>
+<span class="token builtin-function function">bitlrotate</span>
+<span class="token builtin-function function">bitrol</span>
+<span class="token builtin-function function">bitrrotatel</span>
+<span class="token builtin-function function">bitror</span>
+<span class="token builtin-function function">bittest</span>
+<span class="token builtin-function function">bittst</span>
+<span class="token builtin-function function">bitset</span>
+<span class="token builtin-function function">bitsetcount</span>
+<span class="token builtin-function function">bitclear</span>
+<span class="token builtin-function function">bitclr</span>
+<span class="token builtin-function function">bitchange</span>
+<span class="token builtin-function function">bitchg</span>
+
+<span class="token builtin-function function">averageluma</span>
+<span class="token builtin-function function">averagechromau</span>
+<span class="token builtin-function function">averagechromav</span>
+<span class="token builtin-function function">averageb</span>
+<span class="token builtin-function function">averageg</span>
+<span class="token builtin-function function">averager</span>
+<span class="token builtin-function function">lumadifference</span>
+<span class="token builtin-function function">chromaudifference</span>
+<span class="token builtin-function function">chromavdifference</span>
+<span class="token builtin-function function">rgbdifference</span>
+<span class="token builtin-function function">bdifference</span>
+<span class="token builtin-function function">gdifference</span>
+<span class="token builtin-function function">rdifference</span>
+<span class="token builtin-function function">ydifferencefromprevious</span>
+<span class="token builtin-function function">udifferencefromprevious</span>
+<span class="token builtin-function function">vdifferencefromprevious</span>
+<span class="token builtin-function function">rgbdifferencefromprevious</span>
+<span class="token builtin-function function">bdifferencefromprevious</span>
+<span class="token builtin-function function">gdifferencefromprevious</span>
+<span class="token builtin-function function">rdifferencefromprevious</span>
+<span class="token builtin-function function">ydifferencetonext</span>
+<span class="token builtin-function function">udifferencetonext</span>
+<span class="token builtin-function function">vdifferencetonext</span>
+<span class="token builtin-function function">rgbdifferencetonext</span>
+<span class="token builtin-function function">rdifferencetonext</span>
+<span class="token builtin-function function">gdifferencetonext</span>
+<span class="token builtin-function function">bdifferencetonext</span>
+<span class="token builtin-function function">yplanemedian</span>
+<span class="token builtin-function function">uplanemedian</span>
+<span class="token builtin-function function">vplanemedian</span>
+<span class="token builtin-function function">bplanemedian</span>
+<span class="token builtin-function function">gplanemedian</span>
+<span class="token builtin-function function">rplanemedian</span>
+<span class="token builtin-function function">yplanemin</span>
+<span class="token builtin-function function">uplanemin</span>
+<span class="token builtin-function function">vplanemin</span>
+<span class="token builtin-function function">bplanemin</span>
+<span class="token builtin-function function">gplanemin</span>
+<span class="token builtin-function function">rplanemin</span>
+<span class="token builtin-function function">yplanemax</span>
+<span class="token builtin-function function">uplanemax</span>
+<span class="token builtin-function function">vplanemax</span>
+<span class="token builtin-function function">bplanemax</span>
+<span class="token builtin-function function">gplanemax</span>
+<span class="token builtin-function function">rplanemax</span>
+<span class="token builtin-function function">yplaneminmaxdifference</span>
+<span class="token builtin-function function">uplaneminmaxdifference</span>
+<span class="token builtin-function function">vplaneminmaxdifference</span>
+<span class="token builtin-function function">bplaneminmaxdifference</span>
+<span class="token builtin-function function">gplaneminmaxdifference</span>
+<span class="token builtin-function function">rplaneminmaxdifference</span>
+
+<span class="token builtin-function function">scriptname</span>
+<span class="token builtin-function function">scriptnameutf8</span>
+<span class="token builtin-function function">scriptfile</span>
+<span class="token builtin-function function">scriptfileutf8</span>
+<span class="token builtin-function function">scriptdir</span>
+<span class="token builtin-function function">scriptdirutf8</span>
+<span class="token builtin-function function">setlogparams</span>
+<span class="token builtin-function function">logmsg</span>
+<span class="token builtin-function function">getprocessinfo</span>
+
+<span class="token builtin-function function">lcase</span>
+<span class="token builtin-function function">ucase</span>
+<span class="token builtin-function function">strtoutf8</span>
+<span class="token builtin-function function">strfromutf8</span>
+<span class="token builtin-function function">strlen</span>
+<span class="token builtin-function function">revstr</span>
+<span class="token builtin-function function">leftstr</span>
+<span class="token builtin-function function">rightstr</span>
+<span class="token builtin-function function">midstr</span>
+<span class="token builtin-function function">findstr</span>
+<span class="token builtin-function function">replacestr</span>
+<span class="token builtin-function function">format</span>
+<span class="token builtin-function function">fillstr</span>
+<span class="token builtin-function function">strcmp</span>
+<span class="token builtin-function function">strcmpi</span>
+<span class="token builtin-function function">trimleft</span>
+<span class="token builtin-function function">trimright</span>
+<span class="token builtin-function function">trimall</span>
+<span class="token builtin-function function">chr</span>
+<span class="token builtin-function function">ord</span>
+<span class="token builtin-function function">time</span>
+
+<span class="token builtin-function function">versionnumber</span>
+<span class="token builtin-function function">versionstring</span>
+<span class="token builtin-function function">isversionorgreater</span>
+
+<span class="token builtin-function function">buildpixeltype</span>
+<span class="token builtin-function function">colorspacenametopixeltype</span>
+
+kevincosner
+
+----------------------------------------------------

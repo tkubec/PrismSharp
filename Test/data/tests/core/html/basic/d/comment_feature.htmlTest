@@ -1,0 +1,31 @@
+#!/usr/bin/env rdmd
+
+/++/
+/+ foo
+bar +/
+/+ foo
+	/+
+	bar +/
+baz +/
+// This q{is} a comment
+// This /* is a */ comment
+/*
+comment
+*/
+----------------------------------------------------
+<span class="token comment">#!/usr/bin/env rdmd</span>
+
+<span class="token comment">/++/</span>
+<span class="token comment">/+ foo
+bar +/</span>
+<span class="token comment">/+ foo
+	/+
+	bar +/
+baz +/</span>
+<span class="token comment">// This q{is} a comment</span>
+<span class="token comment">// This /* is a */ comment</span>
+<span class="token comment">/*
+comment
+*/</span>
+
+----------------------------------------------------

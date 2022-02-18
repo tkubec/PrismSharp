@@ -1,0 +1,52 @@
+{param foo: 42}
+{param foo: 3.14159}
+{param foo: 0.0}
+{param foo: 7e+8}
+{param foo: 2.5E-14}
+{param foo: 0x42BADFACE}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["number", "42"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["number", "3.14159"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["number", "0.0"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["number", "7e+8"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["number", "2.5E-14"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "foo"],
+	["punctuation", ":"],
+	["number", "0x42BADFACE"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

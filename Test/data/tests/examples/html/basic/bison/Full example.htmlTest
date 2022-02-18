@@ -1,0 +1,99 @@
+/* Mini Calculator */
+/* calc.y */
+
+%{
+#include "heading.h"
+int yyerror(char *s);
+int yylex(void);
+%}
+
+%union{
+  int		int_val;
+  string*	op_val;
+}
+
+%start	input
+
+%token	<int_val>	INTEGER_LITERAL
+%type	<int_val>	exp
+%left	PLUS
+%left	MULT
+
+%%
+
+input:		/* empty */
+		| exp	{ cout << "Result: " << $1 << endl; }
+		;
+
+exp:		INTEGER_LITERAL	{ $$ = $1; }
+		| exp PLUS exp	{ $$ = $1 + $3; }
+		| exp MULT exp	{ $$ = $1 * $3; }
+		;
+
+%%
+
+int yyerror(string s)
+{
+  extern int yylineno;	// defined and maintained in lex.c
+  extern char *yytext;	// defined and maintained in lex.c
+
+  cerr << "ERROR: " << s << " at symbol \"" << yytext;
+  cerr << "\" on line " << yylineno << endl;
+  exit(1);
+}
+
+int yyerror(char *s)
+{
+  return yyerror(string(s));
+}
+----------------------------------------------------
+<span class="token bison"><span class="token comment">/* Mini Calculator */</span>
+<span class="token comment">/* calc.y */</span>
+
+<span class="token c"><span class="token delimiter punctuation">%{</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"heading.h"</span></span>
+<span class="token keyword">int</span> <span class="token function">yyerror</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">yylex</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter punctuation">%}</span></span>
+
+<span class="token keyword">%union</span><span class="token c"><span class="token delimiter punctuation">{</span>
+  <span class="token keyword">int</span>		int_val<span class="token punctuation">;</span>
+  string<span class="token operator">*</span>	op_val<span class="token punctuation">;</span>
+<span class="token delimiter punctuation">}</span></span>
+
+<span class="token keyword">%start</span>	input
+
+<span class="token keyword">%token</span>	<span class="token punctuation">&lt;</span>int_val<span class="token punctuation">></span>	INTEGER_LITERAL
+<span class="token keyword">%type</span>	<span class="token punctuation">&lt;</span>int_val<span class="token punctuation">></span>	exp
+<span class="token keyword">%left</span>	PLUS
+<span class="token keyword">%left</span>	MULT
+
+<span class="token punctuation">%%</span>
+
+<span class="token property">input</span><span class="token punctuation">:</span>		<span class="token comment">/* empty */</span>
+		<span class="token punctuation">|</span> exp	<span class="token c"><span class="token delimiter punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Result: "</span> <span class="token operator">&lt;&lt;</span> <span class="token bison-variable variable">$1</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span>
+		<span class="token punctuation">;</span>
+
+<span class="token property">exp</span><span class="token punctuation">:</span>		INTEGER_LITERAL	<span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token bison-variable variable">$1</span><span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span>
+		<span class="token punctuation">|</span> exp PLUS exp	<span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token bison-variable variable">$1</span> <span class="token operator">+</span> <span class="token bison-variable variable">$3</span><span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span>
+		<span class="token punctuation">|</span> exp MULT exp	<span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token bison-variable variable">$1</span> <span class="token operator">*</span> <span class="token bison-variable variable">$3</span><span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span>
+		<span class="token punctuation">;</span>
+
+<span class="token punctuation">%%</span></span>
+
+<span class="token keyword">int</span> <span class="token function">yyerror</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">extern</span> <span class="token keyword">int</span> yylineno<span class="token punctuation">;</span>	<span class="token comment">// defined and maintained in lex.c</span>
+  <span class="token keyword">extern</span> <span class="token keyword">char</span> <span class="token operator">*</span>yytext<span class="token punctuation">;</span>	<span class="token comment">// defined and maintained in lex.c</span>
+
+  cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"ERROR: "</span> <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> <span class="token string">" at symbol \""</span> <span class="token operator">&lt;&lt;</span> yytext<span class="token punctuation">;</span>
+  cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"\" on line "</span> <span class="token operator">&lt;&lt;</span> yylineno <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">yyerror</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>s<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">yyerror</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

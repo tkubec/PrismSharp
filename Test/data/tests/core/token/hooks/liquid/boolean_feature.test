@@ -1,0 +1,20 @@
+{% if true and false and false or true %}
+
+{% nil %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["keyword", "if"],
+	["boolean", "true"],
+	["operator", "and"],
+	["boolean", "false"],
+	["operator", "and"],
+	["boolean", "false"],
+	["operator", "or"],
+	["boolean", "true"],
+	" %}\n\n{% ",
+	["boolean", "nil"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

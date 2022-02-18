@@ -1,0 +1,27 @@
+Function Main()
+	MyFunA(4)
+	MyFunB(4)
+End Function
+
+Function MyFunA(p as Object) as Void
+	print "A",p,type(p)
+End Function
+
+Function MyFunB(p as Integer) as Void
+	print "B",p,type(p)
+End Function
+----------------------------------------------------
+<span class="token keyword">Function</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token function">MyFunA</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+	<span class="token function">MyFunB</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">End</span> <span class="token keyword">Function</span>
+
+<span class="token keyword">Function</span> <span class="token function">MyFunA</span><span class="token punctuation">(</span>p <span class="token keyword">as</span> <span class="token class-name">Object</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token class-name">Void</span>
+	<span class="token keyword">print</span> <span class="token string">"A"</span><span class="token punctuation">,</span>p<span class="token punctuation">,</span><span class="token function">type</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+<span class="token keyword">End</span> <span class="token keyword">Function</span>
+
+<span class="token keyword">Function</span> <span class="token function">MyFunB</span><span class="token punctuation">(</span>p <span class="token keyword">as</span> <span class="token class-name">Integer</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token class-name">Void</span>
+	<span class="token keyword">print</span> <span class="token string">"B"</span><span class="token punctuation">,</span>p<span class="token punctuation">,</span><span class="token function">type</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+<span class="token keyword">End</span> <span class="token keyword">Function</span>
+
+----------------------------------------------------

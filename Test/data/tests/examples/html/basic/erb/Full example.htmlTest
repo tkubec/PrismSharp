@@ -1,0 +1,45 @@
+<%# index.erb %>
+<h1>Listing Books</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Summary</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @books.each do |book| %>
+  <tr>
+    <td><%= book.title %></td>
+    <td><%= book.content %></td>
+    <td><%= link_to "Show", book %></td>
+    <td><%= link_to "Edit", edit_book_path(book) %></td>
+    <td><%= link_to "Remove", book, method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
+<% end %>
+</table>
+----------------------------------------------------
+<span class="token delimiter punctuation">&lt;%</span><span class="token ruby language-ruby"><span class="token comment"># index.erb %></span>
+<span class="token operator">&lt;</span>h1<span class="token operator">></span>Listing Books<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+<span class="token operator">&lt;</span>table<span class="token operator">></span>
+  <span class="token operator">&lt;</span>tr<span class="token operator">></span>
+    <span class="token operator">&lt;</span>th<span class="token operator">></span>Title<span class="token operator">&lt;</span><span class="token operator">/</span>th<span class="token operator">></span>
+    <span class="token operator">&lt;</span>th<span class="token operator">></span>Summary<span class="token operator">&lt;</span><span class="token operator">/</span>th<span class="token operator">></span>
+    <span class="token operator">&lt;</span>th<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>th<span class="token operator">></span>
+    <span class="token operator">&lt;</span>th<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>th<span class="token operator">></span>
+    <span class="token operator">&lt;</span>th<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>th<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>tr<span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token variable">@books</span><span class="token punctuation">.</span><span class="token keyword">each</span> <span class="token keyword">do</span> <span class="token operator">|</span>book<span class="token operator">|</span> <span class="token string-literal"><span class="token string">%>
+  &lt;tr></span></span>
+    <span class="token operator">&lt;</span>td<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%=</span> book<span class="token punctuation">.</span>title <span class="token string-literal"><span class="token string">%>&lt;/td></span></span>
+    <span class="token operator">&lt;</span>td<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%=</span> book<span class="token punctuation">.</span>content <span class="token string-literal"><span class="token string">%>&lt;/td></span></span>
+    <span class="token operator">&lt;</span>td<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%=</span> link_to <span class="token string-literal"><span class="token string">"Show"</span></span><span class="token punctuation">,</span> book <span class="token string-literal"><span class="token string">%>&lt;/td></span></span>
+    <span class="token operator">&lt;</span>td<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%=</span> link_to <span class="token string-literal"><span class="token string">"Edit"</span></span><span class="token punctuation">,</span> edit_book_path<span class="token punctuation">(</span>book<span class="token punctuation">)</span> <span class="token string-literal"><span class="token string">%>&lt;/td></span></span>
+    <span class="token operator">&lt;</span>td<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%=</span> link_to <span class="token string-literal"><span class="token string">"Remove"</span></span><span class="token punctuation">,</span> book<span class="token punctuation">,</span> <span class="token symbol">method</span><span class="token operator">:</span> <span class="token symbol">:delete</span><span class="token punctuation">,</span> <span class="token symbol">data</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token symbol">confirm</span><span class="token operator">:</span> <span class="token string-literal"><span class="token string">"Are you sure?"</span></span> <span class="token punctuation">}</span> <span class="token string-literal"><span class="token string">%>&lt;/td></span></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>tr<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">end</span> <span class="token string-literal"><span class="token string">%>
+&lt;/table></span></span></span>
+
+----------------------------------------------------

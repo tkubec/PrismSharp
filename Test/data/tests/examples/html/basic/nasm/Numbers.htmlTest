@@ -1,0 +1,51 @@
+mov     ax,200          ; decimal
+mov     ax,0200         ; still decimal
+mov     ax,0200d        ; explicitly decimal
+mov     ax,0d200        ; also decimal
+mov     ax,0c8h         ; hex
+mov     ax,$0c8         ; hex again: the 0 is required
+mov     ax,0xc8         ; hex yet again
+mov     ax,0hc8         ; still hex
+mov     ax,310q         ; octal
+mov     ax,310o         ; octal again
+mov     ax,0o310        ; octal yet again
+mov     ax,0q310        ; octal yet again
+mov     ax,11001000b    ; binary
+
+db    -0.2                    ; "Quarter precision"
+dw    -0.5                    ; IEEE 754r/SSE5 half precision
+dd    1.2                     ; an easy one
+dd    0x1p+2                  ; 1.0x2^2 = 4.0
+dq    0x1p+32                 ; 1.0x2^32 = 4 294 967 296.0
+dq    1.e10                   ; 10 000 000 000.0
+dq    1.e+10                  ; synonymous with 1.e10
+dq    1.e-10                  ; 0.000 000 000 1
+dt    3.141592653589793238462 ; pi
+do    1.e+4000                ; IEEE 754r quad precision
+----------------------------------------------------
+mov     <span class="token register variable">ax</span>,<span class="token number">200</span>          <span class="token comment">; decimal</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">0200</span>         <span class="token comment">; still decimal</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">0200d</span>        <span class="token comment">; explicitly decimal</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">0d200</span>        <span class="token comment">; also decimal</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">0c8h</span>         <span class="token comment">; hex</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">$0c8</span>         <span class="token comment">; hex again: the 0 is required</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">0xc8</span>         <span class="token comment">; hex yet again</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">0hc8</span>         <span class="token comment">; still hex</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">310q</span>         <span class="token comment">; octal</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">310o</span>         <span class="token comment">; octal again</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">0o310</span>        <span class="token comment">; octal yet again</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">0q310</span>        <span class="token comment">; octal yet again</span>
+mov     <span class="token register variable">ax</span>,<span class="token number">11001000b</span>    <span class="token comment">; binary</span>
+
+db    <span class="token operator">-</span><span class="token number">0.2</span>                    <span class="token comment">; "Quarter precision"</span>
+dw    <span class="token operator">-</span><span class="token number">0.5</span>                    <span class="token comment">; IEEE 754r/SSE5 half precision</span>
+dd    <span class="token number">1.2</span>                     <span class="token comment">; an easy one</span>
+dd    <span class="token number">0x1p+2</span>                  <span class="token comment">; 1.0x2^2 = 4.0</span>
+dq    <span class="token number">0x1p+32</span>                 <span class="token comment">; 1.0x2^32 = 4 294 967 296.0</span>
+dq    <span class="token number">1.e10</span>                   <span class="token comment">; 10 000 000 000.0</span>
+dq    <span class="token number">1.e+10</span>                  <span class="token comment">; synonymous with 1.e10</span>
+dq    <span class="token number">1.e-10</span>                  <span class="token comment">; 0.000 000 000 1</span>
+dt    <span class="token number">3.141592653589793238462</span> <span class="token comment">; pi</span>
+do    <span class="token number">1.e+4000</span>                <span class="token comment">; IEEE 754r quad precision</span>
+
+----------------------------------------------------

@@ -1,0 +1,41 @@
+"${data.aws_availability_zones.available.names[0]}"
+"${aws_db_subnet_group.default.id}"
+"${var.something ? 1 : 0}"
+"${var.num ? 1.02 : 0}"
+"${length(var.hostnames)}"
+"${format("web-%03d", count.index + 1)}"
+"${file("templates/web_init.tpl")}"
+"${replace(var.sub_domain, ".", "\\\\\\\\.")}"
+"${filepath.foo}"
+
+// keywords
+"${terraform}"
+"${var}"
+"${self}"
+"${count}"
+"${module}"
+"${path}"
+"${data}"
+"${local}"
+----------------------------------------------------
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">aws_availability_zones</span><span class="token punctuation">.</span>available<span class="token punctuation">.</span>names<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>aws_db_subnet_group<span class="token punctuation">.</span>default<span class="token punctuation">.</span>id<span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">var</span><span class="token punctuation">.</span><span class="token type variable">something</span> <span class="token punctuation">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">var</span><span class="token punctuation">.</span><span class="token type variable">num</span> <span class="token punctuation">?</span> <span class="token number">1.02</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token keyword">var</span><span class="token punctuation">.</span><span class="token type variable">hostnames</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"web-%03d"</span><span class="token punctuation">,</span> <span class="token keyword">count</span><span class="token punctuation">.</span><span class="token type variable">index</span> <span class="token punctuation">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">file</span><span class="token punctuation">(</span><span class="token string">"templates/web_init.tpl"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token keyword">var</span><span class="token punctuation">.</span><span class="token type variable">sub_domain</span><span class="token punctuation">,</span> <span class="token string">"."</span><span class="token punctuation">,</span> <span class="token string">"\\\\\\\\."</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>filepath<span class="token punctuation">.</span>foo<span class="token punctuation">}</span></span>"</span>
+
+<span class="token comment">// keywords</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">terraform</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">var</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">self</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">count</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">module</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">path</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">data</span><span class="token punctuation">}</span></span>"</span>
+<span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">local</span><span class="token punctuation">}</span></span>"</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+	PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+	PREFIX eg:   <http://biometrics.example/ns#>
+	SELECT ?name ?shoeSize
+	 WHERE { ?x foaf:name  ?name ; eg:shoeSize  ?shoeSize .
+					 FILTER ( datatype(?shoeSize) = xsd:integer ) }
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://xmlns.com/foaf/0.1/<span class="token punctuation">></span></span>
+	<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">xsd<span class="token punctuation">:</span></span></span>  <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2001/XMLSchema#<span class="token punctuation">></span></span>
+	<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">eg<span class="token punctuation">:</span></span></span>   <span class="token url"><span class="token punctuation">&lt;</span>http://biometrics.example/ns#<span class="token punctuation">></span></span>
+	<span class="token keyword">SELECT</span> <span class="token variable">?name</span> <span class="token variable">?shoeSize</span>
+	 <span class="token keyword">WHERE</span> <span class="token punctuation">{</span> <span class="token variable">?x</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">name</span></span>  <span class="token variable">?name</span> <span class="token punctuation">;</span> <span class="token function"><span class="token prefix">eg<span class="token punctuation">:</span></span><span class="token local-name">shoeSize</span></span>  <span class="token variable">?shoeSize</span> <span class="token punctuation">.</span>
+					 <span class="token keyword">FILTER</span> <span class="token punctuation">(</span> <span class="token keyword">datatype</span><span class="token punctuation">(</span><span class="token variable">?shoeSize</span><span class="token punctuation">)</span> = <span class="token function"><span class="token prefix">xsd<span class="token punctuation">:</span></span><span class="token local-name">integer</span></span> <span class="token punctuation">)</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

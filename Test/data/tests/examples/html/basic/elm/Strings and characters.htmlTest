@@ -1,0 +1,19 @@
+'a'
+'\n'
+'\x03'
+"foo \" bar"
+"""
+"multiline strings" are also
+supported!
+"""
+----------------------------------------------------
+<span class="token char">'a'</span>
+<span class="token char">'\n'</span>
+<span class="token char">'\x03'</span>
+<span class="token string">"foo \" bar"</span>
+<span class="token string">"""
+"multiline strings" are also
+supported!
+"""</span>
+
+----------------------------------------------------

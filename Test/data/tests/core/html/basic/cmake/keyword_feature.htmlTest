@@ -1,0 +1,247 @@
+add_compile_definitions()
+add_compile_options()
+add_custom_command()
+add_custom_target()
+add_definitions()
+add_dependencies()
+add_executable()
+add_library()
+add_link_options()
+add_subdirectory()
+add_test()
+aux_source_directory()
+break()
+build_command()
+build_name()
+cmake_host_system_information()
+cmake_minimum_required()
+cmake_parse_arguments()
+cmake_policy()
+configure_file()
+continue()
+create_test_sourcelist()
+ctest_build()
+ctest_configure()
+ctest_coverage()
+ctest_empty_binary_directory()
+ctest_memcheck()
+ctest_read_custom_files()
+ctest_run_script()
+ctest_sleep()
+ctest_start()
+ctest_submit()
+ctest_test()
+ctest_update()
+ctest_upload()
+define_property()
+else()
+elseif()
+enable_language()
+enable_testing()
+endforeach()
+endfunction()
+endif()
+endmacro()
+endwhile()
+exec_program()
+execute_process()
+export()
+export_library_dependencies()
+file()
+find_file()
+find_library()
+find_package()
+find_path()
+find_program()
+fltk_wrap_ui()
+foreach()
+function()
+get_cmake_property()
+get_directory_property()
+get_filename_component()
+get_property()
+get_source_file_property()
+get_target_property()
+get_test_property()
+if()
+include()
+include_directories()
+include_external_msproject()
+include_guard()
+include_regular_expression()
+install()
+install_files()
+install_programs()
+install_targets()
+link_directories()
+link_libraries()
+list()
+load_cache()
+load_command()
+macro()
+make_directory()
+mark_as_advanced()
+math()
+message()
+option()
+output_required_files()
+project()
+qt_wrap_cpp()
+qt_wrap_ui()
+remove()
+remove_definitions()
+return()
+separate_arguments()
+set()
+set_directory_properties()
+set_property()
+set_source_files_properties()
+set_target_properties()
+set_tests_properties()
+site_name()
+source_group()
+string()
+subdir_depends()
+subdirs()
+target_compile_definitions()
+target_compile_features()
+target_compile_options()
+target_include_directories()
+target_link_directories()
+target_link_libraries()
+target_link_options()
+target_sources()
+try_compile()
+try_run()
+unset()
+use_mangled_mesa()
+utility_source()
+variable_requires()
+variable_watch()
+while()
+write_file()
+----------------------------------------------------
+<span class="token keyword">add_compile_definitions</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_compile_options</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_custom_command</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_custom_target</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_definitions</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_dependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_library</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_link_options</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_subdirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">add_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">aux_source_directory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">break</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">build_command</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">build_name</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">cmake_host_system_information</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">cmake_parse_arguments</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">cmake_policy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">configure_file</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">continue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">create_test_sourcelist</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_configure</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_coverage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_empty_binary_directory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_memcheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_read_custom_files</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_run_script</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_sleep</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_submit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">ctest_upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">define_property</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">elseif</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">enable_language</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">enable_testing</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">endforeach</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">endfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">endif</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">endmacro</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">endwhile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">exec_program</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">execute_process</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export_library_dependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">file</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">find_file</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">find_library</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">find_package</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">find_path</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">find_program</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">fltk_wrap_ui</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">get_cmake_property</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">get_directory_property</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">get_filename_component</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">get_property</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">get_source_file_property</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">get_target_property</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">get_test_property</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">include_directories</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">include_external_msproject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">include_guard</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">include_regular_expression</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">install</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">install_files</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">install_programs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">install_targets</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">link_directories</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">link_libraries</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">load_cache</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">load_command</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">macro</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">make_directory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">mark_as_advanced</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">math</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">message</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">option</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">output_required_files</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">project</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">qt_wrap_cpp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">qt_wrap_ui</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">remove_definitions</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">return</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">separate_arguments</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">set_directory_properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">set_property</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">set_source_files_properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">set_target_properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">set_tests_properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">site_name</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">source_group</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">string</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">subdir_depends</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">subdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">target_compile_definitions</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">target_compile_features</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">target_compile_options</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">target_include_directories</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">target_link_directories</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">target_link_options</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">target_sources</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">try_compile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">try_run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">unset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">use_mangled_mesa</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">utility_source</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">variable_requires</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">variable_watch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">write_file</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

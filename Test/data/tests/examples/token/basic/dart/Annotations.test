@@ -1,0 +1,20 @@
+@todo('seth', 'make this do something')
+@deprecated // Metadata; makes Dart Editor warn about using activate().
+----------------------------------------------------
+[
+	["metadata", "@todo"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "'seth'"]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "'make this do something'"]
+	]],
+	["punctuation", ")"],
+
+	["metadata", "@deprecated"],
+	["comment", "// Metadata; makes Dart Editor warn about using activate()."]
+]
+
+----------------------------------------------------

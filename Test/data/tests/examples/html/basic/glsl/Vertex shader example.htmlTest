@@ -1,0 +1,61 @@
+attribute vec3 vertex;
+attribute vec3 normal;
+
+uniform mat4 _mvProj;
+uniform mat3 _norm;
+
+varying vec3 vColor;
+varying vec3 localPos;
+
+#pragma include "light.glsl"
+
+// constants
+vec3 materialColor = vec3(1.0,0.7,0.8);
+vec3 specularColor = vec3(1.0,1.0,1.0);
+
+void main(void) {
+	// compute position
+	gl_Position = _mvProj * vec4(vertex, 1.0);
+
+	localPos = vertex;
+
+	// compute light info
+	vec3 n = normalize(_norm * normal);
+	vec3 diffuse;
+	float specular;
+	float glowingSpecular = 50.0;
+	getDirectionalLight(n, _dLight, glowingSpecular, diffuse, specular);
+	vColor = max(diffuse,_ambient.xyz)*materialColor+specular*specularColor+_ambient;
+}
+----------------------------------------------------
+<span class="token keyword">attribute</span> <span class="token keyword">vec3</span> vertex<span class="token punctuation">;</span>
+<span class="token keyword">attribute</span> <span class="token keyword">vec3</span> normal<span class="token punctuation">;</span>
+
+<span class="token keyword">uniform</span> <span class="token keyword">mat4</span> _mvProj<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">mat3</span> _norm<span class="token punctuation">;</span>
+
+<span class="token keyword">varying</span> <span class="token keyword">vec3</span> vColor<span class="token punctuation">;</span>
+<span class="token keyword">varying</span> <span class="token keyword">vec3</span> localPos<span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression">include </span><span class="token string">"light.glsl"</span></span>
+
+<span class="token comment">// constants</span>
+<span class="token keyword">vec3</span> materialColor <span class="token operator">=</span> <span class="token keyword">vec3</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token number">0.7</span><span class="token punctuation">,</span><span class="token number">0.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">vec3</span> specularColor <span class="token operator">=</span> <span class="token keyword">vec3</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// compute position</span>
+	gl_Position <span class="token operator">=</span> _mvProj <span class="token operator">*</span> <span class="token keyword">vec4</span><span class="token punctuation">(</span>vertex<span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	localPos <span class="token operator">=</span> vertex<span class="token punctuation">;</span>
+
+	<span class="token comment">// compute light info</span>
+	<span class="token keyword">vec3</span> n <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span>_norm <span class="token operator">*</span> normal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">vec3</span> diffuse<span class="token punctuation">;</span>
+	<span class="token keyword">float</span> specular<span class="token punctuation">;</span>
+	<span class="token keyword">float</span> glowingSpecular <span class="token operator">=</span> <span class="token number">50.0</span><span class="token punctuation">;</span>
+	<span class="token function">getDirectionalLight</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> _dLight<span class="token punctuation">,</span> glowingSpecular<span class="token punctuation">,</span> diffuse<span class="token punctuation">,</span> specular<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	vColor <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>diffuse<span class="token punctuation">,</span>_ambient<span class="token punctuation">.</span>xyz<span class="token punctuation">)</span><span class="token operator">*</span>materialColor<span class="token operator">+</span>specular<span class="token operator">*</span>specularColor<span class="token operator">+</span>_ambient<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

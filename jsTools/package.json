@@ -1,0 +1,15 @@
+{
+  "name": "prismsharpTools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-circular-stringify": "^1.0.1",
+    "prismjs": "^1.26.0"
+  }
+}

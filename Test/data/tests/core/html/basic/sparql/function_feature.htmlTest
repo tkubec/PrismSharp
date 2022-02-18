@@ -1,0 +1,23 @@
+foo:bar
+foo:
+:bar
+foo:ba1
+foo:1ba
+foo:bar:bar
+foo:bar%20bar
+foo:bar.bar
+foo-2:
+foo.-:
+----------------------------------------------------
+<span class="token function"><span class="token prefix">foo<span class="token punctuation">:</span></span><span class="token local-name">bar</span></span>
+<span class="token function"><span class="token prefix">foo<span class="token punctuation">:</span></span></span>
+<span class="token function"><span class="token prefix"><span class="token punctuation">:</span></span><span class="token local-name">bar</span></span>
+<span class="token function"><span class="token prefix">foo<span class="token punctuation">:</span></span><span class="token local-name">ba1</span></span>
+<span class="token function"><span class="token prefix">foo<span class="token punctuation">:</span></span><span class="token local-name">1ba</span></span>
+<span class="token function"><span class="token prefix">foo<span class="token punctuation">:</span></span><span class="token local-name">bar:bar</span></span>
+<span class="token function"><span class="token prefix">foo<span class="token punctuation">:</span></span><span class="token local-name">bar%20bar</span></span>
+<span class="token function"><span class="token prefix">foo<span class="token punctuation">:</span></span><span class="token local-name">bar.bar</span></span>
+<span class="token function"><span class="token prefix">foo-2<span class="token punctuation">:</span></span></span>
+<span class="token function"><span class="token prefix">foo.-<span class="token punctuation">:</span></span></span>
+
+----------------------------------------------------

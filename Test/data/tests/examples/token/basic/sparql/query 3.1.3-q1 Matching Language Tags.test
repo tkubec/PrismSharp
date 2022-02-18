@@ -1,0 +1,18 @@
+SELECT ?x WHERE { ?x ?p "cat"@en }
+----------------------------------------------------
+[
+	["keyword", "SELECT"],
+	["variable", "?x"],
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["variable", "?p"],
+	["string", "\"cat\""],
+	["tag", [
+		["punctuation", "@"],
+		"en"
+	]],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

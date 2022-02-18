@@ -1,0 +1,120 @@
+DECLARE SUB PrintSomeStars (StarCount!)
+REM QuickBASIC example
+INPUT "What is your name: ", UserName$
+PRINT "Hello "; UserName$
+DO
+   INPUT "How many stars do you want: ", NumStars
+   CALL PrintSomeStars(NumStars)
+   DO
+      INPUT "Do you want more stars? ", Answer$
+   LOOP UNTIL Answer$ <> ""
+   Answer$ = LEFT$(Answer$, 1)
+LOOP WHILE UCASE$(Answer$) = "Y"
+PRINT "Goodbye "; UserName$
+
+SUB PrintSomeStars (StarCount)
+   REM This procedure uses a local variable called Stars$
+   Stars$ = STRING$(StarCount, "*")
+   PRINT Stars$
+END SUB
+----------------------------------------------------
+[
+	["keyword", "DECLARE"],
+	["keyword", "SUB"],
+	" PrintSomeStars ",
+	["punctuation", "("],
+	"StarCount",
+	["comment", ["!)"]],
+
+	["comment", [
+		["keyword", "REM"],
+		" QuickBASIC example"
+	]],
+
+	["keyword", "INPUT"],
+	["string", "\"What is your name: \""],
+	["punctuation", ","],
+	" UserName$\n",
+
+	["function", "PRINT"],
+	["string", "\"Hello \""],
+	["punctuation", ";"],
+	" UserName$\n",
+
+	["keyword", "DO"],
+
+	["keyword", "INPUT"],
+	["string", "\"How many stars do you want: \""],
+	["punctuation", ","],
+	" NumStars\n   ",
+
+	["keyword", "CALL"],
+	" PrintSomeStars",
+	["punctuation", "("],
+	"NumStars",
+	["punctuation", ")"],
+
+	["keyword", "DO"],
+
+	["keyword", "INPUT"],
+	["string", "\"Do you want more stars? \""],
+	["punctuation", ","],
+	" Answer$\n   ",
+
+	["keyword", "LOOP"],
+	["keyword", "UNTIL"],
+	" Answer$ ",
+	["operator", "<>"],
+	["string", "\"\""],
+
+	"\n   Answer$ ",
+	["operator", "="],
+	["function", "LEFT$"],
+	["punctuation", "("],
+	"Answer$",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["keyword", "LOOP"],
+	["keyword", "WHILE"],
+	["function", "UCASE$"],
+	["punctuation", "("],
+	"Answer$",
+	["punctuation", ")"],
+	["operator", "="],
+	["string", "\"Y\""],
+
+	["function", "PRINT"],
+	["string", "\"Goodbye \""],
+	["punctuation", ";"],
+	" UserName$\n\n",
+
+	["keyword", "SUB"],
+	" PrintSomeStars ",
+	["punctuation", "("],
+	"StarCount",
+	["punctuation", ")"],
+
+	["comment", [
+		["keyword", "REM"],
+		" This procedure uses a local variable called Stars$"
+	]],
+
+	"\n   Stars$ ",
+	["operator", "="],
+	["keyword", "STRING$"],
+	["punctuation", "("],
+	"StarCount",
+	["punctuation", ","],
+	["string", "\"*\""],
+	["punctuation", ")"],
+
+	["function", "PRINT"],
+	" Stars$\n",
+
+	["keyword", "END"],
+	["keyword", "SUB"]
+]
+
+----------------------------------------------------

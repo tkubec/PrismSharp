@@ -1,0 +1,17 @@
+1..48
+ok 1 Description # Directive
+# Diagnostic
+....
+ok 47 Description
+ok 48 Description
+----------------------------------------------------
+[
+	["plan", "1..48"],
+	["pass", "ok 1 Description "], ["directive", "# Directive"],
+	["directive", "# Diagnostic"],
+	"\n....\n",
+	["pass", "ok 47 Description"],
+	["pass", "ok 48 Description"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+attribute foo
+attribute foo-bar
+attribute foo:bar
+----------------------------------------------------
+<span class="token builtin">attribute</span> <span class="token xquery-attribute attr-name">foo</span>
+<span class="token builtin">attribute</span> <span class="token xquery-attribute attr-name">foo-bar</span>
+<span class="token builtin">attribute</span> <span class="token xquery-attribute attr-name">foo:bar</span>
+
+----------------------------------------------------

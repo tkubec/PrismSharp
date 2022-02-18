@@ -1,0 +1,29 @@
+var float MyVar<TAG=VALUE>;
+
+enum EMyEnum
+{
+	EME_ValA<TAG=VALUE>,
+	EME_ValB<TAG=VALUE>,
+};
+
+var() LinearColor DrawColor<DisplayName=Draw Color|EditCondition=bOverrideDrawColor>;
+
+
+// not metadata
+var array<class<Foo>> Bar;
+----------------------------------------------------
+<span class="token keyword">var</span> <span class="token keyword">float</span> MyVar<span class="token metadata"><span class="token punctuation">&lt;</span><span class="token property">TAG</span><span class="token operator">=</span>VALUE<span class="token punctuation">></span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">EMyEnum</span>
+<span class="token punctuation">{</span>
+	EME_ValA<span class="token metadata"><span class="token punctuation">&lt;</span><span class="token property">TAG</span><span class="token operator">=</span>VALUE<span class="token punctuation">></span></span><span class="token punctuation">,</span>
+	EME_ValB<span class="token metadata"><span class="token punctuation">&lt;</span><span class="token property">TAG</span><span class="token operator">=</span>VALUE<span class="token punctuation">></span></span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span><span class="token punctuation">(</span><span class="token punctuation">)</span> LinearColor DrawColor<span class="token metadata"><span class="token punctuation">&lt;</span><span class="token property">DisplayName</span><span class="token operator">=</span>Draw Color<span class="token punctuation">|</span><span class="token property">EditCondition</span><span class="token operator">=</span>bOverrideDrawColor<span class="token punctuation">></span></span><span class="token punctuation">;</span>
+
+
+<span class="token comment">// not metadata</span>
+<span class="token keyword">var</span> <span class="token keyword">array</span><span class="token operator">&lt;</span><span class="token keyword">class</span><span class="token operator">&lt;</span>Foo<span class="token operator">>></span> Bar<span class="token punctuation">;</span>
+
+----------------------------------------------------

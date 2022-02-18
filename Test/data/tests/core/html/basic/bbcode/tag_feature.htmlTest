@@ -1,0 +1,43 @@
+[list]
+  [*]Entry A
+  [*]Entry B
+[/list]
+
+[list=1]
+  [*]Entry 1
+  [*]Entry 2
+[/list]
+
+[style color="fuchsia"]Text in fuchsia[/style] or
+[style color=#FF00FF]Text in fuchsia[/style] or
+[color=#FF00FF]Text in fuchsia[/color]
+[quote]quoted text[/quote]
+[quote="author"]quoted text[/quote]
+
+[:-)]
+
+[url]https://en.wikipedia.org[/url]
+[url=https://en.wikipedia.org]English Wikipedia[/url]
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>list</span><span class="token punctuation">]</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">[</span>*</span><span class="token punctuation">]</span></span>Entry A
+  <span class="token tag"><span class="token tag"><span class="token punctuation">[</span>*</span><span class="token punctuation">]</span></span>Entry B
+<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>list</span><span class="token punctuation">]</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>list</span><span class="token attr-value"><span class="token punctuation">=</span>1</span><span class="token punctuation">]</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">[</span>*</span><span class="token punctuation">]</span></span>Entry 1
+  <span class="token tag"><span class="token tag"><span class="token punctuation">[</span>*</span><span class="token punctuation">]</span></span>Entry 2
+<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>list</span><span class="token punctuation">]</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>style</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fuchsia<span class="token punctuation">"</span></span><span class="token punctuation">]</span></span>Text in fuchsia<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>style</span><span class="token punctuation">]</span></span> or
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>style</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span>#FF00FF</span><span class="token punctuation">]</span></span>Text in fuchsia<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>style</span><span class="token punctuation">]</span></span> or
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>color</span><span class="token attr-value"><span class="token punctuation">=</span>#FF00FF</span><span class="token punctuation">]</span></span>Text in fuchsia<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>color</span><span class="token punctuation">]</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>quote</span><span class="token punctuation">]</span></span>quoted text<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>quote</span><span class="token punctuation">]</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>quote</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>author<span class="token punctuation">"</span></span><span class="token punctuation">]</span></span>quoted text<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>quote</span><span class="token punctuation">]</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>:-)</span><span class="token punctuation">]</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>url</span><span class="token punctuation">]</span></span>https://en.wikipedia.org<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>url</span><span class="token punctuation">]</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">[</span>url</span><span class="token attr-value"><span class="token punctuation">=</span>https://en.wikipedia.org</span><span class="token punctuation">]</span></span>English Wikipedia<span class="token tag"><span class="token tag"><span class="token punctuation">[/</span>url</span><span class="token punctuation">]</span></span>
+
+----------------------------------------------------

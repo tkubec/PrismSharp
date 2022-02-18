@@ -1,0 +1,25 @@
+PIC 99/99/9999 SOURCE sales-date.
+PIC $$$$9.99 SOURCE sales-amount.
+PIC X(34) SOURCE sales-record.
+
+pic 9 usage computational value is 5.
+pic 99 value is 10.
+
+pic x(2)
+pic a(20).
+
+greeting pic x(12) value is "Hello World".
+----------------------------------------------------
+<span class="token keyword">PIC</span> <span class="token class-name">99/99/9999</span> <span class="token keyword">SOURCE</span> sales-date<span class="token punctuation">.</span>
+<span class="token keyword">PIC</span> <span class="token class-name">$$$$9.99</span> <span class="token keyword">SOURCE</span> sales-amount<span class="token punctuation">.</span>
+<span class="token keyword">PIC</span> <span class="token class-name">X<span class="token punctuation">(</span><span class="token number">34</span><span class="token punctuation">)</span></span> <span class="token keyword">SOURCE</span> sales-record<span class="token punctuation">.</span>
+
+<span class="token keyword">pic</span> <span class="token class-name">9</span> <span class="token keyword">usage</span> <span class="token keyword">computational</span> <span class="token keyword">value</span> <span class="token keyword">is</span> <span class="token number">5</span><span class="token punctuation">.</span>
+<span class="token keyword">pic</span> <span class="token class-name">99</span> <span class="token keyword">value</span> <span class="token keyword">is</span> <span class="token number">10</span><span class="token punctuation">.</span>
+
+<span class="token keyword">pic</span> <span class="token class-name">x<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token keyword">pic</span> <span class="token class-name">a<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span>
+
+greeting <span class="token keyword">pic</span> <span class="token class-name">x<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span></span> <span class="token keyword">value</span> <span class="token keyword">is</span> <span class="token string">"Hello World"</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

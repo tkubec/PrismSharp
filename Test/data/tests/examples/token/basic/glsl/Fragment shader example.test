@@ -1,0 +1,195 @@
+#ifdef GL_ES
+precision highp float;
+#endif
+
+uniform vec3 BrickColor, MortarColor;
+uniform vec3 BrickSize;
+uniform vec3 BrickPct;
+
+varying vec3 vColor;
+varying vec3 localPos;
+void main()
+{
+	vec3 color;
+	vec3 position, useBrick;
+
+
+	position = localPos / BrickSize.xyz;
+
+	if (fract(position.y * 0.5) > 0.5){
+		position.x += 0.5;
+		position.z += 0.5;
+	}
+
+	position = fract(position);
+
+	useBrick = step(position, BrickPct.xyz);
+
+	color = mix(MortarColor, BrickColor, useBrick.x * useBrick.y * useBrick.z);
+	color *= vColor;
+
+	gl_FragColor = vec4(color, 1.0);
+}
+----------------------------------------------------
+[
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "ifdef"],
+		["expression", ["GL_ES"]]
+	]],
+
+	["keyword", "precision"],
+	["keyword", "highp"],
+	["keyword", "float"],
+	["punctuation", ";"],
+
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "endif"]
+	]],
+
+	["keyword", "uniform"],
+	["keyword", "vec3"],
+	" BrickColor",
+	["punctuation", ","],
+	" MortarColor",
+	["punctuation", ";"],
+
+	["keyword", "uniform"],
+	["keyword", "vec3"],
+	" BrickSize",
+	["punctuation", ";"],
+
+	["keyword", "uniform"],
+	["keyword", "vec3"],
+	" BrickPct",
+	["punctuation", ";"],
+
+	["keyword", "varying"],
+	["keyword", "vec3"],
+	" vColor",
+	["punctuation", ";"],
+
+	["keyword", "varying"],
+	["keyword", "vec3"],
+	" localPos",
+	["punctuation", ";"],
+
+	["keyword", "void"],
+	["function", "main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "vec3"],
+	" color",
+	["punctuation", ";"],
+
+	["keyword", "vec3"],
+	" position",
+	["punctuation", ","],
+	" useBrick",
+	["punctuation", ";"],
+
+	"\n\n\n\tposition ",
+	["operator", "="],
+	" localPos ",
+	["operator", "/"],
+	" BrickSize",
+	["punctuation", "."],
+	"xyz",
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["function", "fract"],
+	["punctuation", "("],
+	"position",
+	["punctuation", "."],
+	"y ",
+	["operator", "*"],
+	["number", "0.5"],
+	["punctuation", ")"],
+	["operator", ">"],
+	["number", "0.5"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n\t\tposition",
+	["punctuation", "."],
+	"x ",
+	["operator", "+="],
+	["number", "0.5"],
+	["punctuation", ";"],
+
+	"\n\t\tposition",
+	["punctuation", "."],
+	"z ",
+	["operator", "+="],
+	["number", "0.5"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	"\n\n\tposition ",
+	["operator", "="],
+	["function", "fract"],
+	["punctuation", "("],
+	"position",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n\tuseBrick ",
+	["operator", "="],
+	["function", "step"],
+	["punctuation", "("],
+	"position",
+	["punctuation", ","],
+	" BrickPct",
+	["punctuation", "."],
+	"xyz",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n\tcolor ",
+	["operator", "="],
+	["function", "mix"],
+	["punctuation", "("],
+	"MortarColor",
+	["punctuation", ","],
+	" BrickColor",
+	["punctuation", ","],
+	" useBrick",
+	["punctuation", "."],
+	"x ",
+	["operator", "*"],
+	" useBrick",
+	["punctuation", "."],
+	"y ",
+	["operator", "*"],
+	" useBrick",
+	["punctuation", "."],
+	"z",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\tcolor ",
+	["operator", "*="],
+	" vColor",
+	["punctuation", ";"],
+
+	"\n\n\tgl_FragColor ",
+	["operator", "="],
+	["keyword", "vec4"],
+	["punctuation", "("],
+	"color",
+	["punctuation", ","],
+	["number", "1.0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

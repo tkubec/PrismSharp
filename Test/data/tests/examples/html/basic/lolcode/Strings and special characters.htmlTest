@@ -1,0 +1,9 @@
+"foo :"bar:" baz"
+"foo:)bar:>baz"
+"Interpolation :{works} too!"
+----------------------------------------------------
+<span class="token string">"foo <span class="token symbol">:"</span>bar<span class="token symbol">:"</span> baz"</span>
+<span class="token string">"foo<span class="token symbol">:)</span>bar<span class="token symbol">:></span>baz"</span>
+<span class="token string">"Interpolation <span class="token variable">:{works}</span> too!"</span>
+
+----------------------------------------------------

@@ -1,0 +1,55 @@
+0 .. 2_147_483_647
+2_147_483_648 .. 9_223_372_036_854_775_807
+0L .. 9_223_372_036_854_775_807L
+0U .. 4_294_967_296U
+4_294_967_296U .. 18_446_744_073_709_551_615U
+0UL .. 18_446_744_073_709_551_615UL
+0x0 .. 0x7FFF_FFFF
+0x8000_0000 .. 0xFFFF_FFFF
+0x1_0000_0000 .. 0x7FFF_FFFF_FFFF_FFFF
+0x8000_0000_0000_0000 .. 0xFFFF_FFFF_FFFF_FFFF
+0x0L .. 0x7FFF_FFFF_FFFF_FFFFL
+0x8000_0000_0000_0000L .. 0xFFFF_FFFF_FFFF_FFFFL
+0x0U .. 0xFFFF_FFFFU
+0x1_0000_0000U .. 0xFFFF_FFFF_FFFF_FFFFU
+0x0UL .. 0xFFFF_FFFF_FFFF_FFFFUL
+
+123_456.567_8          // 123456.5678
+1_2_3_4_5_6_.5_6_7_8   // 123456.5678
+1_2_3_4_5_6_.5e-6_     // 123456.5e-6
+0x1.FFFFFFFFFFFFFp1023 // double.max
+0x1p-52                // double.epsilon
+1.175494351e-38F       // float.min
+6.3i                   // idouble 6.3
+6.3fi                  // ifloat 6.3
+6.3Li                  // ireal 6.3
+4.5 + 6.2i             // complex number (phased out)
+----------------------------------------------------
+<span class="token number">0</span> <span class="token operator">..</span> <span class="token number">2_147_483_647</span>
+<span class="token number">2_147_483_648</span> <span class="token operator">..</span> <span class="token number">9_223_372_036_854_775_807</span>
+<span class="token number">0L</span> <span class="token operator">..</span> <span class="token number">9_223_372_036_854_775_807L</span>
+<span class="token number">0U</span> <span class="token operator">..</span> <span class="token number">4_294_967_296U</span>
+<span class="token number">4_294_967_296U</span> <span class="token operator">..</span> <span class="token number">18_446_744_073_709_551_615U</span>
+<span class="token number">0UL</span> <span class="token operator">..</span> <span class="token number">18_446_744_073_709_551_615UL</span>
+<span class="token number">0x0</span> <span class="token operator">..</span> <span class="token number">0x7FFF_FFFF</span>
+<span class="token number">0x8000_0000</span> <span class="token operator">..</span> <span class="token number">0xFFFF_FFFF</span>
+<span class="token number">0x1_0000_0000</span> <span class="token operator">..</span> <span class="token number">0x7FFF_FFFF_FFFF_FFFF</span>
+<span class="token number">0x8000_0000_0000_0000</span> <span class="token operator">..</span> <span class="token number">0xFFFF_FFFF_FFFF_FFFF</span>
+<span class="token number">0x0L</span> <span class="token operator">..</span> <span class="token number">0x7FFF_FFFF_FFFF_FFFFL</span>
+<span class="token number">0x8000_0000_0000_0000L</span> <span class="token operator">..</span> <span class="token number">0xFFFF_FFFF_FFFF_FFFFL</span>
+<span class="token number">0x0U</span> <span class="token operator">..</span> <span class="token number">0xFFFF_FFFFU</span>
+<span class="token number">0x1_0000_0000U</span> <span class="token operator">..</span> <span class="token number">0xFFFF_FFFF_FFFF_FFFFU</span>
+<span class="token number">0x0UL</span> <span class="token operator">..</span> <span class="token number">0xFFFF_FFFF_FFFF_FFFFUL</span>
+
+<span class="token number">123_456.567_8</span>          <span class="token comment">// 123456.5678</span>
+<span class="token number">1_2_3_4_5_6_.5_6_7_8</span>   <span class="token comment">// 123456.5678</span>
+<span class="token number">1_2_3_4_5_6_.5e-6_</span>     <span class="token comment">// 123456.5e-6</span>
+<span class="token number">0x1.FFFFFFFFFFFFFp1023</span> <span class="token comment">// double.max</span>
+<span class="token number">0x1p-52</span>                <span class="token comment">// double.epsilon</span>
+<span class="token number">1.175494351e-38F</span>       <span class="token comment">// float.min</span>
+<span class="token number">6.3i</span>                   <span class="token comment">// idouble 6.3</span>
+<span class="token number">6.3fi</span>                  <span class="token comment">// ifloat 6.3</span>
+<span class="token number">6.3Li</span>                  <span class="token comment">// ireal 6.3</span>
+<span class="token number">4.5</span> <span class="token operator">+</span> <span class="token number">6.2i</span>             <span class="token comment">// complex number (phased out)</span>
+
+----------------------------------------------------

@@ -1,0 +1,49 @@
+* Lists are easy to do:
+** start every line
+* with a star
+** more stars mean
+*** deeper levels
+
+# Numbered lists are good
+## very organized
+## easy to follow
+
+; Definition lists
+; item : definition
+; semicolon plus term
+: colon plus definition
+
+* Or create mixed lists
+*# and nest them
+*#* like this
+*#*; definitions
+*#*: work:
+*#*; apple
+*#*; banana
+*#*: fruits
+----------------------------------------------------
+<span class="token punctuation">*</span> Lists are easy to do:
+<span class="token punctuation">*</span><span class="token punctuation">*</span> start every line
+<span class="token punctuation">*</span> with a star
+<span class="token punctuation">*</span><span class="token punctuation">*</span> more stars mean
+<span class="token punctuation">*</span><span class="token punctuation">*</span><span class="token punctuation">*</span> deeper levels
+
+<span class="token punctuation">#</span> Numbered lists are good
+<span class="token punctuation">#</span><span class="token punctuation">#</span> very organized
+<span class="token punctuation">#</span><span class="token punctuation">#</span> easy to follow
+
+<span class="token punctuation">;</span> Definition lists
+<span class="token punctuation">;</span> item : definition
+<span class="token punctuation">;</span> semicolon plus term
+<span class="token punctuation">:</span> colon plus definition
+
+<span class="token punctuation">*</span> Or create mixed lists
+<span class="token punctuation">*</span><span class="token punctuation">#</span> and nest them
+<span class="token punctuation">*</span><span class="token punctuation">#</span><span class="token punctuation">*</span> like this
+<span class="token punctuation">*</span><span class="token punctuation">#</span><span class="token punctuation">*</span><span class="token punctuation">;</span> definitions
+<span class="token punctuation">*</span><span class="token punctuation">#</span><span class="token punctuation">*</span><span class="token punctuation">:</span> work:
+<span class="token punctuation">*</span><span class="token punctuation">#</span><span class="token punctuation">*</span><span class="token punctuation">;</span> apple
+<span class="token punctuation">*</span><span class="token punctuation">#</span><span class="token punctuation">*</span><span class="token punctuation">;</span> banana
+<span class="token punctuation">*</span><span class="token punctuation">#</span><span class="token punctuation">*</span><span class="token punctuation">:</span> fruits
+
+----------------------------------------------------

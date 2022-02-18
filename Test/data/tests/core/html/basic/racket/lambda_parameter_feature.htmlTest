@@ -1,0 +1,9 @@
+(lambda (foo bar) (concat foo bar))
+
+(lambda [foo bar] [concat foo bar])
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token lambda-parameter">foo</span> bar<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">concat</span> foo bar<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token punctuation">[</span><span class="token lambda-parameter">foo</span> bar<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token function">concat</span> foo bar<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

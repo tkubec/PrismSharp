@@ -1,0 +1,21 @@
+# double quote single line strings
+"foo \"bar\" baz"
+
+# heredocs or multiline strings
+"""
+{ "snot": "badger" }
+"""
+----------------------------------------------------
+[
+	["comment", "# double quote single line strings"],
+	["interpolated-string", [
+		["string", "\"foo \\\"bar\\\" baz\""]
+	]],
+
+	["comment", "# heredocs or multiline strings"],
+	["interpolated-string", [
+		["string", "\"\"\"\n{ \"snot\": \"badger\" }\n\"\"\""]
+	]]
+]
+
+----------------------------------------------------

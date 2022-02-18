@@ -1,0 +1,11 @@
+"foo \"bar\" baz"
+@"Verbatim strings"
+"""Alternate "verbatim" strings"""
+----------------------------------------------------
+[
+	["string", "\"foo \\\"bar\\\" baz\""],
+	["string", "@\"Verbatim strings\""],
+	["string", "\"\"\"Alternate \"verbatim\" strings\"\"\""]
+]
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+While($true){
+    Write-Output "$($($InFiles | Where-Object {$_.ToCopy -eq 0}).count)"
+}
+----------------------------------------------------
+<span class="token keyword">While</span><span class="token punctuation">(</span><span class="token boolean">$true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">Write-Output</span> <span class="token string">"<span class="token function">$<span class="token punctuation">(</span>$<span class="token punctuation">(</span><span class="token variable">$InFiles</span> <span class="token punctuation">|</span> <span class="token function">Where-Object</span> <span class="token punctuation">{</span><span class="token variable">$_</span><span class="token punctuation">.</span>ToCopy <span class="token operator">-eq</span> 0<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">)</span></span>"</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,23 @@
+""""""
+"""foobar"""
+"""fo"o
+#bar
+baz"""
+''''''
+'''foobar'''
+'''fo'o
+#bar
+baz'''
+----------------------------------------------------
+<span class="token triple-quoted-string string">""""""</span>
+<span class="token triple-quoted-string string">"""foobar"""</span>
+<span class="token triple-quoted-string string">"""fo"o
+#bar
+baz"""</span>
+<span class="token triple-quoted-string string">''''''</span>
+<span class="token triple-quoted-string string">'''foobar'''</span>
+<span class="token triple-quoted-string string">'''fo'o
+#bar
+baz'''</span>
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+{if count($foo)}
+{/if}
+
+{* PHP function *}
+{time()}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">if</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$foo</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">/</span>if<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">*</span> PHP function <span class="token operator">*</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,35 @@
+query withFragments {
+  user(id: 4) {
+    friends(first: 10) {
+      ...friendFields
+    }
+    mutualFriends(first: 10) {
+      ...friendFields
+    }
+  }
+}
+
+fragment friendFields on User {
+  id
+  name
+  profilePic(size: 50)
+}
+----------------------------------------------------
+<span class="token keyword">query</span> <span class="token definition-query function">withFragments</span> <span class="token punctuation">{</span>
+  <span class="token property-query">user</span><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property-query">friends</span><span class="token punctuation">(</span><span class="token attr-name">first</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span><span class="token fragment function">friendFields</span>
+    <span class="token punctuation">}</span>
+    <span class="token property-query">mutualFriends</span><span class="token punctuation">(</span><span class="token attr-name">first</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span><span class="token fragment function">friendFields</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fragment</span> <span class="token fragment function">friendFields</span> <span class="token keyword">on</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+  <span class="token property">id</span>
+  <span class="token property">name</span>
+  <span class="token property-query">profilePic</span><span class="token punctuation">(</span><span class="token attr-name">size</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

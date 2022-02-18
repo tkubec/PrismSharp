@@ -1,0 +1,17 @@
+[cols="e,m,^,>s",width="25%"]
+|============================
+|1 >s|2 |3 |4
+^|5 2.2+^.^|6 .3+<.>m|7
+^|8
+|9 2+>|10
+|============================
+----------------------------------------------------
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">cols</span><span class="token operator">=</span><span class="token string">"e,m,^,>s"</span><span class="token punctuation">,</span><span class="token variable">width</span><span class="token operator">=</span><span class="token string">"25%"</span><span class="token punctuation">]</span></span>
+<span class="token table"><span class="token punctuation">|============================</span>
+<span class="token punctuation">|</span>1 <span class="token specifiers attr-value">>s</span><span class="token punctuation">|</span>2 <span class="token punctuation">|</span>3 <span class="token punctuation">|</span>4
+<span class="token specifiers attr-value">^</span><span class="token punctuation">|</span>5 <span class="token specifiers attr-value">2.2+^.^</span><span class="token punctuation">|</span>6 <span class="token specifiers attr-value">.3+&lt;.>m</span><span class="token punctuation">|</span>7
+<span class="token specifiers attr-value">^</span><span class="token punctuation">|</span>8
+<span class="token punctuation">|</span>9 <span class="token specifiers attr-value">2+></span><span class="token punctuation">|</span>10
+<span class="token punctuation">|============================</span></span>
+
+----------------------------------------------------

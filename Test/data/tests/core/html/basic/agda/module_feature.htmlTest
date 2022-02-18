@@ -1,0 +1,11 @@
+module Test.test where
+import Relation.Binary.PropositionalEquality as Eq
+open Eq hiding (_≡_; refl)
+open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎) renaming (begin_ to start_)
+----------------------------------------------------
+<span class="token keyword">module</span> Test<span class="token punctuation">.</span>test <span class="token keyword">where</span>
+<span class="token keyword">import</span> Relation<span class="token punctuation">.</span>Binary<span class="token punctuation">.</span>PropositionalEquality as Eq
+<span class="token keyword">open</span> Eq <span class="token keyword">hiding</span> <span class="token punctuation">(</span>_≡_<span class="token punctuation">;</span> refl<span class="token punctuation">)</span>
+<span class="token keyword">open</span> Eq<span class="token punctuation">.</span>≡-Reasoning <span class="token keyword">using</span> <span class="token punctuation">(</span>begin_<span class="token punctuation">;</span> _≡⟨⟩_<span class="token punctuation">;</span> _∎<span class="token punctuation">)</span> <span class="token keyword">renaming</span> <span class="token punctuation">(</span>begin_ to start_<span class="token punctuation">)</span>
+
+----------------------------------------------------

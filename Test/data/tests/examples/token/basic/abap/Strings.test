@@ -1,0 +1,49 @@
+my_string = 'Simple string'.
+my_string = 'String with an escaped '' inside'.
+my_string = |A string template: { nvalue } times|.
+my_string = |A string template: { nvalue } times|.
+my_string = |Characters \|, \{, and \} have to be escaped by \\ in literal text.|.
+----------------------------------------------------
+[
+	"my_string ",
+	["operator", "="],
+	["string", "'Simple string'"],
+	["punctuation", "."],
+
+	"\nmy_string ",
+	["operator", "="],
+	["string", "'String with an escaped '"],
+	["string", "' inside'"],
+	["punctuation", "."],
+
+	"\nmy_string ",
+	["operator", "="],
+	["token-operator", "|"],
+	["string-template", "A string template: "],
+	["token-operator", "{"],
+	" nvalue ",
+	["token-operator", "}"],
+	["string-template", " times"],
+	["token-operator", "|"],
+	["punctuation", "."],
+
+	"\nmy_string ",
+	["operator", "="],
+	["token-operator", "|"],
+	["string-template", "A string template: "],
+	["token-operator", "{"],
+	" nvalue ",
+	["token-operator", "}"],
+	["string-template", " times"],
+	["token-operator", "|"],
+	["punctuation", "."],
+
+	"\nmy_string ",
+	["operator", "="],
+	["token-operator", "|"],
+	["string-template", "Characters \\|, \\{, and \\} have to be escaped by \\\\ in literal text."],
+	["token-operator", "|"],
+	["punctuation", "."]
+]
+
+----------------------------------------------------

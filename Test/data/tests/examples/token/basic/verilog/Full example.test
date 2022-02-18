@@ -1,0 +1,375 @@
+`include "internal_defines.vh"
+
+//*****************************************************************************
+// memory_decoder: a custom module used to handle memory transactions
+//*****************************************************************************
+//
+// out_mem (output) - The output to memory
+// out_reg (output) - The output to the register file
+// mem_we  (output) - Which byte in the word to write too
+// mem_in  (input)  - The input from memory
+// addr_in (input)  - The lowest 2 bits of byte offset to store in memory
+// data_in (input)  - The input from the register file to be stored
+// l_bit   (input)  - The load bit signal (control)
+// b_bit   (input)  - The byte bit signal (control)
+//
+module memory_decoder(out_mem, out_reg, mem_in, data_in, l_bit, b_bit, addr_in,
+                      mem_we);
+
+  output reg  [31:0]  out_mem, out_reg;
+  output reg  [3:0]   mem_we;
+  input       [31:0]  mem_in, data_in;
+  input       [1:0]   addr_in;
+  input               l_bit, b_bit;
+
+  always_comb begin
+    mem_we = 4'b0000;     // dont write memory by default
+    if (l_bit == 1) begin // ldr and ldrb
+      out_mem = mem_in;   // dont change memory!
+      if (b_bit == 1) begin
+        /* figure out which byte to load from memory */
+        case (addr_in)
+          2'b00: out_reg = {24'b00, mem_in[7:0]};
+          2'b01: out_reg = {24'b00, mem_in[15:8]};
+          2'b10: out_reg = {24'b00, mem_in[23:16]};
+          2'b11: out_reg = {24'b00, mem_in[31:24]};
+        endcase
+      end
+      else begin
+        out_reg = mem_in;
+      end
+    end
+    else begin            // str and strb
+      out_reg = `UNKNOWN; // We are not reading from mem
+      if (b_bit == 1) begin
+        /* figure out which byte to write to in memory */
+        out_mem = {4{data_in[7:0]}};
+        case (addr_in)
+          2'b00: mem_we = 4'b1000;
+          2'b01: mem_we = 4'b0100;
+          2'b10: mem_we = 4'b0010;
+          2'b11: mem_we = 4'b0001;
+        endcase
+      end
+      else begin
+        mem_we = 4'b1111; // write to all channels
+        out_mem = data_in;
+      end
+    end
+  end
+
+endmodule
+----------------------------------------------------
+[
+	["constant", "`include"], ["string", "\"internal_defines.vh\""],
+
+	["comment", "//*****************************************************************************"],
+
+	["comment", "// memory_decoder: a custom module used to handle memory transactions"],
+
+	["comment", "//*****************************************************************************"],
+
+	["comment", "//"],
+
+	["comment", "// out_mem (output) - The output to memory"],
+
+	["comment", "// out_reg (output) - The output to the register file"],
+
+	["comment", "// mem_we  (output) - Which byte in the word to write too"],
+
+	["comment", "// mem_in  (input)  - The input from memory"],
+
+	["comment", "// addr_in (input)  - The lowest 2 bits of byte offset to store in memory"],
+
+	["comment", "// data_in (input)  - The input from the register file to be stored"],
+
+	["comment", "// l_bit   (input)  - The load bit signal (control)"],
+
+	["comment", "// b_bit   (input)  - The byte bit signal (control)"],
+
+	["comment", "//"],
+
+	["keyword", "module"],
+	["function", "memory_decoder"],
+	["punctuation", "("],
+	"out_mem",
+	["punctuation", ","],
+	" out_reg",
+	["punctuation", ","],
+	" mem_in",
+	["punctuation", ","],
+	" data_in",
+	["punctuation", ","],
+	" l_bit",
+	["punctuation", ","],
+	" b_bit",
+	["punctuation", ","],
+	" addr_in",
+	["punctuation", ","],
+
+	"\n                      mem_we",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "output"],
+	["keyword", "reg"],
+	["punctuation", "["],
+	["number", "31"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", "]"],
+	"  out_mem",
+	["punctuation", ","],
+	" out_reg",
+	["punctuation", ";"],
+
+	["keyword", "output"],
+	["keyword", "reg"],
+	["punctuation", "["],
+	["number", "3"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", "]"],
+	"   mem_we",
+	["punctuation", ";"],
+
+	["keyword", "input"],
+	["punctuation", "["],
+	["number", "31"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", "]"],
+	"  mem_in",
+	["punctuation", ","],
+	" data_in",
+	["punctuation", ";"],
+
+	["keyword", "input"],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", "]"],
+	"   addr_in",
+	["punctuation", ";"],
+
+	["keyword", "input"],
+	"               l_bit",
+	["punctuation", ","],
+	" b_bit",
+	["punctuation", ";"],
+
+	["important", "always_comb"],
+	["keyword", "begin"],
+
+	"\n    mem_we ",
+	["operator", "="],
+	["number", "4'b0000"],
+	["punctuation", ";"],
+	["comment", "// dont write memory by default"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"l_bit ",
+	["operator", "=="],
+	["number", "1"],
+	["punctuation", ")"],
+	["keyword", "begin"],
+	["comment", "// ldr and ldrb"],
+
+	"\n      out_mem ",
+	["operator", "="],
+	" mem_in",
+	["punctuation", ";"],
+	["comment", "// dont change memory!"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"b_bit ",
+	["operator", "=="],
+	["number", "1"],
+	["punctuation", ")"],
+	["keyword", "begin"],
+
+	["comment", "/* figure out which byte to load from memory */"],
+
+	["keyword", "case"],
+	["punctuation", "("],
+	"addr_in",
+	["punctuation", ")"],
+
+	["number", "2'b00"],
+	["punctuation", ":"],
+	" out_reg ",
+	["operator", "="],
+	["operator", "{"],
+	["number", "24'b00"],
+	["punctuation", ","],
+	" mem_in",
+	["punctuation", "["],
+	["number", "7"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", "]"],
+	["operator", "}"],
+	["punctuation", ";"],
+
+	["number", "2'b01"],
+	["punctuation", ":"],
+	" out_reg ",
+	["operator", "="],
+	["operator", "{"],
+	["number", "24'b00"],
+	["punctuation", ","],
+	" mem_in",
+	["punctuation", "["],
+	["number", "15"],
+	["punctuation", ":"],
+	["number", "8"],
+	["punctuation", "]"],
+	["operator", "}"],
+	["punctuation", ";"],
+
+	["number", "2'b10"],
+	["punctuation", ":"],
+	" out_reg ",
+	["operator", "="],
+	["operator", "{"],
+	["number", "24'b00"],
+	["punctuation", ","],
+	" mem_in",
+	["punctuation", "["],
+	["number", "23"],
+	["punctuation", ":"],
+	["number", "16"],
+	["punctuation", "]"],
+	["operator", "}"],
+	["punctuation", ";"],
+
+	["number", "2'b11"],
+	["punctuation", ":"],
+	" out_reg ",
+	["operator", "="],
+	["operator", "{"],
+	["number", "24'b00"],
+	["punctuation", ","],
+	" mem_in",
+	["punctuation", "["],
+	["number", "31"],
+	["punctuation", ":"],
+	["number", "24"],
+	["punctuation", "]"],
+	["operator", "}"],
+	["punctuation", ";"],
+
+	["keyword", "endcase"],
+
+	["keyword", "end"],
+
+	["keyword", "else"],
+	["keyword", "begin"],
+
+	"\n        out_reg ",
+	["operator", "="],
+	" mem_in",
+	["punctuation", ";"],
+
+	["keyword", "end"],
+
+	["keyword", "end"],
+
+	["keyword", "else"],
+	["keyword", "begin"],
+	["comment", "// str and strb"],
+
+	"\n      out_reg ",
+	["operator", "="],
+	["constant", "`UNKNOWN"],
+	["punctuation", ";"],
+	["comment", "// We are not reading from mem"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"b_bit ",
+	["operator", "=="],
+	["number", "1"],
+	["punctuation", ")"],
+	["keyword", "begin"],
+
+	["comment", "/* figure out which byte to write to in memory */"],
+
+	"\n        out_mem ",
+	["operator", "="],
+	["operator", "{"],
+	["number", "4"],
+	["operator", "{"],
+	"data_in",
+	["punctuation", "["],
+	["number", "7"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", "]"],
+	["operator", "}}"],
+	["punctuation", ";"],
+
+	["keyword", "case"],
+	["punctuation", "("],
+	"addr_in",
+	["punctuation", ")"],
+
+	["number", "2'b00"],
+	["punctuation", ":"],
+	" mem_we ",
+	["operator", "="],
+	["number", "4'b1000"],
+	["punctuation", ";"],
+
+	["number", "2'b01"],
+	["punctuation", ":"],
+	" mem_we ",
+	["operator", "="],
+	["number", "4'b0100"],
+	["punctuation", ";"],
+
+	["number", "2'b10"],
+	["punctuation", ":"],
+	" mem_we ",
+	["operator", "="],
+	["number", "4'b0010"],
+	["punctuation", ";"],
+
+	["number", "2'b11"],
+	["punctuation", ":"],
+	" mem_we ",
+	["operator", "="],
+	["number", "4'b0001"],
+	["punctuation", ";"],
+
+	["keyword", "endcase"],
+
+	["keyword", "end"],
+
+	["keyword", "else"],
+	["keyword", "begin"],
+
+	"\n        mem_we ",
+	["operator", "="],
+	["number", "4'b1111"],
+	["punctuation", ";"],
+	["comment", "// write to all channels"],
+
+	"\n        out_mem ",
+	["operator", "="],
+	" data_in",
+	["punctuation", ";"],
+
+	["keyword", "end"],
+
+	["keyword", "end"],
+
+	["keyword", "end"],
+
+	["keyword", "endmodule"]
+]
+
+----------------------------------------------------

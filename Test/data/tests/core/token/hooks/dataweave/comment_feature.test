@@ -1,0 +1,15 @@
+// Line comment ""	
+	/* Block comment */
+	/**
+	* MultiLine Comment
+	**/
+/* "" */
+----------------------------------------------------
+[
+	["comment", "// Line comment \"\"\t"],
+	["comment", "/* Block comment */"],
+	["comment", "/**\n\t* MultiLine Comment\n\t**/"],
+	["comment", "/* \"\" */"]
+]
+
+----------------------------------------------------

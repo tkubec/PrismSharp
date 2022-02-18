@@ -1,0 +1,53 @@
++ - * / %
++= -= *= /= %=
+
+~ & | ^ << >>
+~= &= |= ^= <<= >>=
+
+&+ &- &* &<< &>>
+&+= &-= &*= &<<= &>>=
+
+=
+== != === !== <= >= < >
+! && ||
+
+..< ...
+
+->
+
+??
+
+// custom operators
++++
+prefix func +++ (vector: inout Vector2D) -> Vector2D {}
+
+// dot operators (SIMD)
+.!= .== .< .> .<= .>=
+----------------------------------------------------
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">%</span>
+<span class="token operator">+=</span> <span class="token operator">-=</span> <span class="token operator">*=</span> <span class="token operator">/=</span> <span class="token operator">%=</span>
+
+<span class="token operator">~</span> <span class="token operator">&amp;</span> <span class="token operator">|</span> <span class="token operator">^</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">>></span>
+<span class="token operator">~=</span> <span class="token operator">&amp;=</span> <span class="token operator">|=</span> <span class="token operator">^=</span> <span class="token operator">&lt;&lt;=</span> <span class="token operator">>>=</span>
+
+<span class="token operator">&amp;+</span> <span class="token operator">&amp;-</span> <span class="token operator">&amp;*</span> <span class="token operator">&amp;&lt;&lt;</span> <span class="token operator">&amp;>></span>
+<span class="token operator">&amp;+=</span> <span class="token operator">&amp;-=</span> <span class="token operator">&amp;*=</span> <span class="token operator">&amp;&lt;&lt;=</span> <span class="token operator">&amp;>>=</span>
+
+<span class="token operator">=</span>
+<span class="token operator">==</span> <span class="token operator">!=</span> <span class="token operator">===</span> <span class="token operator">!==</span> <span class="token operator">&lt;=</span> <span class="token operator">>=</span> <span class="token operator">&lt;</span> <span class="token operator">></span>
+<span class="token operator">!</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">||</span>
+
+<span class="token operator">..&lt;</span> <span class="token operator">...</span>
+
+<span class="token operator">-></span>
+
+<span class="token operator">??</span>
+
+<span class="token comment">// custom operators</span>
+<span class="token operator">+++</span>
+<span class="token keyword">prefix</span> <span class="token keyword">func</span> <span class="token operator">+++</span> <span class="token punctuation">(</span>vector<span class="token punctuation">:</span> <span class="token keyword">inout</span> <span class="token class-name">Vector2D</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">Vector2D</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// dot operators (SIMD)</span>
+<span class="token operator">.!=</span> <span class="token operator">.==</span> <span class="token operator">.&lt;</span> <span class="token operator">.></span> <span class="token operator">.&lt;=</span> <span class="token operator">.>=</span>
+
+----------------------------------------------------

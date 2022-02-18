@@ -1,0 +1,11 @@
+$str = "This is $great!";
+$foobar = "Another example: {${$foo->bar()}}";
+$a = &lt;&lt;&lt;FOO
+    Hello $world!
+FOO;
+$b = &lt;&lt;&lt;"FOOBAR"
+    Interpolation inside Heredoc strings {$obj->values[3]->name}
+FOOBAR;
+
+--------------------------------------------------
+

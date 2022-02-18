@@ -1,0 +1,15 @@
+:some-language
+	some code
+
+~
+	:some-language
+		some code
+----------------------------------------------------
+<span class="token filter"><span class="token filter-name symbol">:some-language</span>
+	some code
+</span>
+<span class="token punctuation">~</span>
+	<span class="token filter"><span class="token filter-name symbol">:some-language</span>
+		some code</span>
+
+----------------------------------------------------

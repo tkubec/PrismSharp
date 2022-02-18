@@ -1,0 +1,16 @@
+myString = 'Hello, world';
+otherString = 'You''re right';
+----------------------------------------------------
+[
+	"myString ",
+	["operator", "="],
+	["string", "'Hello, world'"],
+	["punctuation", ";"],
+
+	"\notherString ",
+	["operator", "="],
+	["string", "'You''re right'"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

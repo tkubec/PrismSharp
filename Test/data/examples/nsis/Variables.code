@@ -1,0 +1,3 @@
+LicenseLangString myLicenseData ${LANG_ENGLISH} "bigtest.nsi"
+LicenseData $(myLicenseData)
+StrCmp $LANGUAGE ${LANG_ENGLISH} 0 +2

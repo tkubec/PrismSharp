@@ -1,0 +1,49 @@
+%% https://github.com/mermaid-js/mermaid/blob/develop/docs/examples.md#larger-flowchart-with-some-styling
+
+graph TB
+	sq[Square shape] --> ci((Circle shape))
+
+	subgraph A
+		od>Odd shape]-- Two line<br/>edge comment --> ro
+		di{Diamond with <br/> line break} -.-> ro(Rounded<br>square<br>shape)
+		di==>ro2(Rounded square shape)
+	end
+
+	%% Notice that no text in shape are added here instead that is appended further down
+	e --> od3>Really long text with linebreak<br>in an Odd shape]
+
+	%% Comments after double percent signs
+	e((Inner / circle<br>and some odd <br>special characters)) --> f(,.?!+-*ز)
+
+	cyr[Cyrillic]-->cyr2((Circle shape Начало));
+
+	classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+	classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+	class sq,e green
+	class di orange
+----------------------------------------------------
+<span class="token comment">%% https://github.com/mermaid-js/mermaid/blob/develop/docs/examples.md#larger-flowchart-with-some-styling</span>
+
+<span class="token keyword">graph</span> TB
+	sq<span class="token text string">[Square shape]</span> <span class="token arrow operator">--></span> ci<span class="token text string">((Circle shape))</span>
+
+	<span class="token keyword">subgraph</span> A
+		od<span class="token text string">>Odd shape]</span><span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">Two line&lt;br/>edge comment</span> <span class="token arrow operator">--></span></span> ro
+		di<span class="token text string">{Diamond with &lt;br/> line break}</span> <span class="token arrow operator">-.-></span> ro<span class="token text string">(Rounded&lt;br>square&lt;br>shape)</span>
+		di<span class="token arrow operator">==></span>ro2<span class="token text string">(Rounded square shape)</span>
+	<span class="token keyword">end</span>
+
+	<span class="token comment">%% Notice that no text in shape are added here instead that is appended further down</span>
+	e <span class="token arrow operator">--></span> od3<span class="token text string">>Really long text with linebreak&lt;br>in an Odd shape]</span>
+
+	<span class="token comment">%% Comments after double percent signs</span>
+	e<span class="token text string">((Inner / circle&lt;br>and some odd &lt;br>special characters))</span> <span class="token arrow operator">--></span> f<span class="token text string">(,.?!+-*ز)</span>
+
+	cyr<span class="token text string">[Cyrillic]</span><span class="token arrow operator">--></span>cyr2<span class="token text string">((Circle shape Начало))</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">classDef</span> green <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#9f6<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#333<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>2px</span><span class="token punctuation">;</span>
+	<span class="token keyword">classDef</span> orange <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f96<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#333<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>4px</span><span class="token punctuation">;</span>
+	<span class="token keyword">class</span> sq,e green
+	<span class="token keyword">class</span> di orange
+
+----------------------------------------------------

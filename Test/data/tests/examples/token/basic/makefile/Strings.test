@@ -1,0 +1,17 @@
+STR = 'A string!'
+
+HELLO = 'hello \
+world'
+
+HELLO2 = "hello \
+world"
+----------------------------------------------------
+[
+	"STR ", ["operator", "="], ["string", "'A string!'"],
+
+	"\n\nHELLO ", ["operator", "="], ["string", "'hello \\\nworld'"],
+
+	"\n\nHELLO2 ", ["operator", "="], ["string", "\"hello \\\nworld\""]
+]
+
+----------------------------------------------------

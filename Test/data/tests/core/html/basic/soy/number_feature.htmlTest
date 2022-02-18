@@ -1,0 +1,15 @@
+{param foo: 42}
+{param foo: 3.14159}
+{param foo: 0.0}
+{param foo: 7e+8}
+{param foo: 2.5E-14}
+{param foo: 0x42BADFACE}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token number">42</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token number">3.14159</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token number">0.0</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token number">7e+8</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token number">2.5E-14</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token number">0x42BADFACE</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

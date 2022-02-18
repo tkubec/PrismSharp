@@ -1,0 +1,41 @@
+{{ 0xBadFace }}
+{{{ 42 }}}
+{{{ 4e2 }}}
+{{ 3.5e+1 }}
+{{ 0.15e-9 }}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["number", "0xBadFace"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "42"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "4e2"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "3.5e+1"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "0.15e-9"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,312 @@
+| name | age | sex |
+| joan | 24 | f |
+| archie | 29 | m |
+| bella | 45 | f |
+
+|_. name |_. age |_. sex |
+| joan | 24 | f |
+| archie | 29 | m |
+| bella | 45 | f |
+
+|_. attribute list |
+|<. align left |
+|>. align right|
+|=. center |
+|<>. justify |
+|^. valign top |
+|~. bottom |
+
+|\2. spans two cols |
+| col 1 | col 2 |
+
+|/3. spans 3 rows | a |
+| b |
+| c |
+
+|{background:#ddd}. Grey cell|
+
+table{border:1px solid black}.
+|This|is|a|row|
+|This|is|a|row|
+
+|This|is|a|row|
+{background:#ddd}. |This|is|grey|row|
+----------------------------------------------------
+[
+	["phrase", [
+		["table", [
+			["punctuation", "|"],
+			" name ",
+			["punctuation", "|"],
+			" age ",
+			["punctuation", "|"],
+			" sex ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" joan ",
+			["punctuation", "|"],
+			" 24 ",
+			["punctuation", "|"],
+			" f ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" archie ",
+			["punctuation", "|"],
+			" 29 ",
+			["punctuation", "|"],
+			" m ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" bella ",
+			["punctuation", "|"],
+			" 45 ",
+			["punctuation", "|"],
+			" f ",
+			["punctuation", "|"]
+		]]
+	]],
+
+	["phrase", [
+		["table", [
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "_"]
+			]],
+			["punctuation", "."],
+			" name ",
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "_"]
+			]],
+			["punctuation", "."],
+			" age ",
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "_"]
+			]],
+			["punctuation", "."],
+			" sex ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" joan ",
+			["punctuation", "|"],
+			" 24 ",
+			["punctuation", "|"],
+			" f ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" archie ",
+			["punctuation", "|"],
+			" 29 ",
+			["punctuation", "|"],
+			" m ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" bella ",
+			["punctuation", "|"],
+			" 45 ",
+			["punctuation", "|"],
+			" f ",
+			["punctuation", "|"]
+		]]
+	]],
+
+	["phrase", [
+		["table", [
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "_"]
+			]],
+			["punctuation", "."],
+			" attribute list ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "<"]
+			]],
+			["punctuation", "."],
+			" align left ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", ">"]
+			]],
+			["punctuation", "."],
+			" align right",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "="]
+			]],
+			["punctuation", "."],
+			" center ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "<"],
+				["punctuation", ">"]
+			]],
+			["punctuation", "."],
+			" justify ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "^"]
+			]],
+			["punctuation", "."],
+			" valign top ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "~"]
+			]],
+			["punctuation", "."],
+			" bottom ",
+			["punctuation", "|"]
+		]]
+	]],
+
+	["phrase", [
+		["table", [
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "\\2"]
+			]],
+			["punctuation", "."],
+			" spans two cols ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" col 1 ",
+			["punctuation", "|"],
+			" col 2 ",
+			["punctuation", "|"]
+		]]
+	]],
+
+	["phrase", [
+		["table", [
+			["punctuation", "|"],
+			["modifier", [
+				["punctuation", "/3"]
+			]],
+			["punctuation", "."],
+			" spans 3 rows ",
+			["punctuation", "|"],
+			" a ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" b ",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			" c ",
+			["punctuation", "|"]
+		]]
+	]],
+
+	["phrase", [
+		["table", [
+			["punctuation", "|"],
+			["modifier", [
+				["css", [
+					["punctuation", "{"],
+					["property", "background"],
+					["punctuation", ":"],
+					"#ddd",
+					["punctuation", "}"]
+				]]
+			]],
+			["punctuation", "."],
+			" Grey cell",
+			["punctuation", "|"]
+		]]
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "table"],
+			["modifier", [
+				["css", [
+					["punctuation", "{"],
+					["property", "border"],
+					["punctuation", ":"],
+					"1px solid black",
+					["punctuation", "}"]
+				]]
+			]],
+			["punctuation", "."]
+		]],
+
+		["table", [
+			["punctuation", "|"],
+			"This",
+			["punctuation", "|"],
+			"is",
+			["punctuation", "|"],
+			"a",
+			["punctuation", "|"],
+			"row",
+			["punctuation", "|"],
+
+			["punctuation", "|"],
+			"This",
+			["punctuation", "|"],
+			"is",
+			["punctuation", "|"],
+			"a",
+			["punctuation", "|"],
+			"row",
+			["punctuation", "|"]
+		]]
+	]],
+
+	["phrase", [
+		["table", [
+			["punctuation", "|"],
+			"This",
+			["punctuation", "|"],
+			"is",
+			["punctuation", "|"],
+			"a",
+			["punctuation", "|"],
+			"row",
+			["punctuation", "|"],
+
+			["modifier", [
+				["css", [
+					["punctuation", "{"],
+					["property", "background"],
+					["punctuation", ":"],
+					"#ddd",
+					["punctuation", "}"]
+				]]
+			]],
+			["punctuation", "."],
+			["punctuation", "|"],
+			"This",
+			["punctuation", "|"],
+			"is",
+			["punctuation", "|"],
+			"grey",
+			["punctuation", "|"],
+			"row",
+			["punctuation", "|"]
+		]]
+	]]
+]
+
+----------------------------------------------------

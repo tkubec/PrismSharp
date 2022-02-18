@@ -1,0 +1,9 @@
+foo : FOO ;
+FOO : BAR ;
+fragment BAR : 'bar' ;
+----------------------------------------------------
+<span class="token definition rule class-name">foo</span> <span class="token punctuation">:</span> <span class="token constant">FOO</span> <span class="token punctuation">;</span>
+<span class="token definition token constant">FOO</span> <span class="token punctuation">:</span> <span class="token constant">BAR</span> <span class="token punctuation">;</span>
+<span class="token keyword">fragment</span> <span class="token definition token constant">BAR</span> <span class="token punctuation">:</span> <span class="token string">'bar'</span> <span class="token punctuation">;</span>
+
+----------------------------------------------------

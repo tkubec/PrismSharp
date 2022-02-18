@@ -1,0 +1,171 @@
+cmake_minimum_required(VERSION 3.13)
+
+project(crypto)
+
+add_library(base INTERFACE)
+target_compile_features(base INTERFACE
+    cxx_std_17
+    )
+
+add_subdirectory(helpers)
+add_subdirectory(msg)
+
+add_library(analyzers-obj OBJECT
+    CryptoAnalyzer.cpp
+    )
+
+target_include_directories(analyzers-obj
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+
+find_package(predi REQUIRED)
+target_link_libraries(analyzers-obj
+    PUBLIC
+        base
+        predi::predi
+        crypto::helpers
+    )
+
+set_target_properties(analyzers-obj
+    PROPERTIES
+        POSITION_INDEPENDENT_CODE ON
+    )
+
+add_library(analyzers SHARED
+    $<TARGET_OBJECTS:analyzers-obj>
+    )
+
+target_link_libraries(analyzers PUBLIC analyzers-obj)
+
+add_executable(crypto
+    main.cpp
+    )
+
+target_link_libraries(crypto
+    PUBLIC
+        analyzers
+    PRIVATE
+        base
+        messages
+    )
+
+enable_testing()
+add_subdirectory(tests)
+----------------------------------------------------
+[
+	["keyword", "cmake_minimum_required"],
+	["punctuation", "("],
+	["property", "VERSION"],
+	["number", "3.13"],
+	["punctuation", ")"],
+
+	["keyword", "project"], ["punctuation", "("], "crypto", ["punctuation", ")"],
+
+	["keyword", "add_library"],
+	["punctuation", "("],
+	"base ",
+	["namespace", "INTERFACE"],
+	["punctuation", ")"],
+
+	["keyword", "target_compile_features"],
+	["punctuation", "("],
+	"base ",
+	["namespace", "INTERFACE"],
+
+	["property", "cxx_std_17"],
+
+	["punctuation", ")"],
+
+	["keyword", "add_subdirectory"],
+	["punctuation", "("],
+	"helpers",
+	["punctuation", ")"],
+
+	["keyword", "add_subdirectory"],
+	["punctuation", "("],
+	"msg",
+	["punctuation", ")"],
+
+	["keyword", "add_library"],
+	["punctuation", "("],
+	"analyzers-obj OBJECT\n    CryptoAnalyzer.cpp\n    ",
+
+	["punctuation", ")"],
+
+	["keyword", "target_include_directories"],
+	["punctuation", "("],
+	"analyzers-obj\n    ",
+
+	["namespace", "PUBLIC"],
+
+	["punctuation", "${"],
+	["variable", "CMAKE_CURRENT_SOURCE_DIR"],
+	["punctuation", "}"],
+
+	["punctuation", ")"],
+
+	["keyword", "find_package"],
+	["punctuation", "("],
+	"predi REQUIRED",
+	["punctuation", ")"],
+	["keyword", "target_link_libraries"],
+	["punctuation", "("],
+	"analyzers-obj\n    ",
+	["namespace", "PUBLIC"],
+	"\n        base\n        ",
+	["inserted", "predi::predi"],
+	["inserted", "crypto::helpers"],
+	["punctuation", ")"],
+
+	["keyword", "set_target_properties"],
+	["punctuation", "("],
+	"analyzers-obj\n    ",
+	["namespace", "PROPERTIES"],
+	["property", "POSITION_INDEPENDENT_CODE"],
+	["boolean", "ON"],
+	["punctuation", ")"],
+
+	["keyword", "add_library"],
+	["punctuation", "("],
+	"analyzers ",
+	["namespace", "SHARED"],
+
+	["punctuation", "$<"],
+	["namespace", "TARGET_OBJECTS"],
+	":analyzers-obj",
+	["punctuation", ">"],
+
+	["punctuation", ")"],
+
+	["keyword", "target_link_libraries"],
+	["punctuation", "("],
+	"analyzers ",
+	["namespace", "PUBLIC"],
+	" analyzers-obj",
+	["punctuation", ")"],
+
+	["keyword", "add_executable"],
+	["punctuation", "("],
+	"crypto\n    main.cpp\n    ",
+
+	["punctuation", ")"],
+
+	["keyword", "target_link_libraries"], ["punctuation", "("], "crypto\n    ",
+	["namespace", "PUBLIC"],
+	"\n        analyzers\n    ",
+	["namespace", "PRIVATE"],
+	"\n        base\n        messages\n    ",
+	["punctuation", ")"],
+
+	["keyword", "enable_testing"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "add_subdirectory"],
+	["punctuation", "("],
+	"tests",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

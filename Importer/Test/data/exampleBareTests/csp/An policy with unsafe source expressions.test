@@ -1,0 +1,5 @@
+script-src 'self' 'unsafe-eval' 'unsafe-inline';
+style-src 'unsafe-inline' 'unsafe-hashed-attributes' 'self';
+
+--------------------------------------------------
+

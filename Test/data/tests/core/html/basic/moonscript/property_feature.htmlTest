@@ -1,0 +1,25 @@
+collection =
+  height: 32434
+  hats: {"tophat", "bball", "bowler"}
+
+my_function dance: "Tango", partner: "none"
+y = type: "dog", legs: 4, tails: 1
+
+hair = "golden"
+height = 200
+person = { :hair, :height, shoe_size: 40 }
+print_table :hair, :height
+----------------------------------------------------
+collection <span class="token operator">=</span>
+  <span class="token property">height</span><span class="token operator">:</span> <span class="token number">32434</span>
+  <span class="token property">hats</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">"tophat"</span><span class="token punctuation">,</span> <span class="token string">"bball"</span><span class="token punctuation">,</span> <span class="token string">"bowler"</span><span class="token punctuation">}</span>
+
+my_function <span class="token property">dance</span><span class="token operator">:</span> <span class="token string">"Tango"</span><span class="token punctuation">,</span> <span class="token property">partner</span><span class="token operator">:</span> <span class="token string">"none"</span>
+y <span class="token operator">=</span> <span class="token property">type</span><span class="token operator">:</span> <span class="token string">"dog"</span><span class="token punctuation">,</span> <span class="token property">legs</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token property">tails</span><span class="token operator">:</span> <span class="token number">1</span>
+
+hair <span class="token operator">=</span> <span class="token string">"golden"</span>
+height <span class="token operator">=</span> <span class="token number">200</span>
+person <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">:</span><span class="token property">hair</span><span class="token punctuation">,</span> <span class="token operator">:</span><span class="token property">height</span><span class="token punctuation">,</span> <span class="token property">shoe_size</span><span class="token operator">:</span> <span class="token number">40</span> <span class="token punctuation">}</span>
+print_table <span class="token operator">:</span><span class="token property">hair</span><span class="token punctuation">,</span> <span class="token operator">:</span><span class="token property">height</span>
+
+----------------------------------------------------

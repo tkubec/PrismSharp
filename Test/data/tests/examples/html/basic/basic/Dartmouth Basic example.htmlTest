@@ -1,0 +1,23 @@
+5 LET S = 0
+10 MAT INPUT V
+20 LET N = NUM
+30 IF N = 0 THEN 99
+40 FOR I = 1 TO N
+45 LET S = S + V(I)
+50 NEXT I
+60 PRINT S/N
+70 GO TO 5
+99 END
+----------------------------------------------------
+<span class="token number">5</span> <span class="token function">LET</span> S <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token number">10</span> <span class="token function">MAT</span> <span class="token keyword">INPUT</span> V
+<span class="token number">20</span> <span class="token function">LET</span> N <span class="token operator">=</span> NUM
+<span class="token number">30</span> <span class="token keyword">IF</span> N <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">THEN</span> <span class="token number">99</span>
+<span class="token number">40</span> <span class="token keyword">FOR</span> I <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">TO</span> N
+<span class="token number">45</span> <span class="token function">LET</span> S <span class="token operator">=</span> S <span class="token operator">+</span> V<span class="token punctuation">(</span>I<span class="token punctuation">)</span>
+<span class="token number">50</span> <span class="token keyword">NEXT</span> I
+<span class="token number">60</span> <span class="token function">PRINT</span> S<span class="token operator">/</span>N
+<span class="token number">70</span> <span class="token function">GO</span> <span class="token keyword">TO</span> <span class="token number">5</span>
+<span class="token number">99</span> <span class="token keyword">END</span>
+
+----------------------------------------------------

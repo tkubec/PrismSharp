@@ -1,0 +1,39 @@
+P = spawn(m, loop, []).
+io:format("I am ~p~n", [self()]).
+'weird function'().
+----------------------------------------------------
+[
+	["variable", "P"],
+	["operator", "="],
+	["function", "spawn"],
+	["punctuation", "("],
+	["atom", "m"],
+	["punctuation", ","],
+	["atom", "loop"],
+	["punctuation", ","],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	["atom", "io"],
+	["punctuation", ":"],
+	["function", "format"],
+	["punctuation", "("],
+	["string", "\"I am ~p~n\""],
+	["punctuation", ","],
+	["punctuation", "["],
+	["function", "self"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	["quoted-function", "'weird function'"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "."]
+]
+
+----------------------------------------------------

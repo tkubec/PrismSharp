@@ -1,0 +1,39 @@
+readBooleanOrIntAsBoolean ∷ Foreign → Foreign.F Boolean
+readBooleanOrIntAsBoolean value =
+  Foreign.readBoolean value
+    <|> (toBool =<< Foreign.readInt value)
+  where
+  toBool ∷ Int → Foreign.F Boolean
+  toBool = case _ of
+    0 → pure false
+    1 → pure true
+    int → Foreign.fail (Foreign.ForeignError ("Invalid integer: " <> show int))
+
+isSuccessResponse ∷ ∀ a. AX.Response a → Boolean
+isSuccessResponse { status } = status >= (StatusCode 200) && status < (StatusCode 400)
+
+infix 4 eq as ≡
+
+isMempty ∷ ∀ m. Monoid m → Boolean
+isMempty = _ ≡ mempty
+----------------------------------------------------
+<span class="token hvariable">readBooleanOrIntAsBoolean</span> <span class="token operator">∷</span> <span class="token constant">Foreign</span> <span class="token operator">→</span> <span class="token constant">Foreign<span class="token punctuation">.</span>F</span> <span class="token constant">Boolean</span>
+<span class="token hvariable">readBooleanOrIntAsBoolean</span> <span class="token hvariable">value</span> <span class="token operator">=</span>
+  <span class="token hvariable">Foreign<span class="token punctuation">.</span>readBoolean</span> <span class="token hvariable">value</span>
+    <span class="token operator">&lt;|></span> <span class="token punctuation">(</span><span class="token hvariable">toBool</span> <span class="token operator">=&lt;&lt;</span> <span class="token hvariable">Foreign<span class="token punctuation">.</span>readInt</span> <span class="token hvariable">value</span><span class="token punctuation">)</span>
+  <span class="token keyword">where</span>
+  <span class="token hvariable">toBool</span> <span class="token operator">∷</span> <span class="token constant">Int</span> <span class="token operator">→</span> <span class="token constant">Foreign<span class="token punctuation">.</span>F</span> <span class="token constant">Boolean</span>
+  <span class="token hvariable">toBool</span> <span class="token operator">=</span> <span class="token keyword">case</span> <span class="token hvariable">_</span> <span class="token keyword">of</span>
+    <span class="token number">0</span> <span class="token operator">→</span> <span class="token hvariable">pure</span> <span class="token hvariable">false</span>
+    <span class="token number">1</span> <span class="token operator">→</span> <span class="token hvariable">pure</span> <span class="token hvariable">true</span>
+    <span class="token hvariable">int</span> <span class="token operator">→</span> <span class="token hvariable">Foreign<span class="token punctuation">.</span>fail</span> <span class="token punctuation">(</span><span class="token constant">Foreign<span class="token punctuation">.</span>ForeignError</span> <span class="token punctuation">(</span><span class="token string">"Invalid integer: "</span> <span class="token operator">&lt;></span> <span class="token builtin">show</span> <span class="token hvariable">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token hvariable">isSuccessResponse</span> <span class="token operator">∷</span> <span class="token keyword">∀</span> <span class="token hvariable">a</span><span class="token punctuation">.</span> <span class="token constant">AX<span class="token punctuation">.</span>Response</span> <span class="token hvariable">a</span> <span class="token operator">→</span> <span class="token constant">Boolean</span>
+<span class="token hvariable">isSuccessResponse</span> <span class="token punctuation">{</span> <span class="token hvariable">status</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token hvariable">status</span> <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token constant">StatusCode</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token hvariable">status</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token constant">StatusCode</span> <span class="token number">400</span><span class="token punctuation">)</span>
+
+<span class="token hvariable">infix</span> <span class="token number">4</span> <span class="token builtin">eq</span> <span class="token hvariable">as</span> <span class="token operator">≡</span>
+
+<span class="token hvariable">isMempty</span> <span class="token operator">∷</span> <span class="token keyword">∀</span> <span class="token hvariable">m</span><span class="token punctuation">.</span> <span class="token constant">Monoid</span> <span class="token hvariable">m</span> <span class="token operator">→</span> <span class="token constant">Boolean</span>
+<span class="token hvariable">isMempty</span> <span class="token operator">=</span> <span class="token hvariable">_</span> <span class="token operator">≡</span> <span class="token builtin">mempty</span>
+
+----------------------------------------------------

@@ -1,0 +1,41 @@
+0
+123
+0xFFF
+-0
+-123
+-0xFF
+12343324234L
+0xFFFFFFFFFl
+
+0.342e4
+0.342e-4f
+0.342e-4d
+.324
+123.
+0x.2Fp+323f
+0x234.p+323d
+
+NaN
+Infinity
+----------------------------------------------------
+<span class="token number">0</span>
+<span class="token number">123</span>
+<span class="token number">0xFFF</span>
+<span class="token number">-0</span>
+<span class="token number">-123</span>
+<span class="token number">-0xFF</span>
+<span class="token number">12343324234L</span>
+<span class="token number">0xFFFFFFFFFl</span>
+
+<span class="token number">0.342e4</span>
+<span class="token number">0.342e-4f</span>
+<span class="token number">0.342e-4d</span>
+<span class="token number">.324</span>
+<span class="token number">123.</span>
+<span class="token number">0x.2Fp+323f</span>
+<span class="token number">0x234.p+323d</span>
+
+<span class="token number">NaN</span>
+<span class="token number">Infinity</span>
+
+----------------------------------------------------

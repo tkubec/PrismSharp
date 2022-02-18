@@ -1,0 +1,451 @@
+add
+add.ovf
+add.ovf.un
+and
+arglist
+beq
+beq.s
+bge
+bge.s
+bge.un
+bge.un.s
+bgt
+bgt.s
+bgt.un
+bgt.un.s
+ble
+ble.s
+ble.un
+ble.un.s
+blt
+blt.s
+blt.un
+blt.un.s
+bne.un
+bne.un.s
+box
+br
+br.s
+break
+brfalse
+brfalse.s
+brinst
+brinst.s
+brnull
+brnull.s
+brtrue
+brtrue.s
+brzero
+brzero.s
+call
+calli
+callvirt
+castclass
+ceq
+cgt
+cgt.un
+ckfinite
+clt
+clt.un
+conv.i
+conv.i1
+conv.i2
+conv.i4
+conv.i8
+conv.ovf.i
+conv.ovf.i.un
+conv.ovf.i1
+conv.ovf.i1.un
+conv.ovf.i2
+conv.ovf.i2.un
+conv.ovf.i4
+conv.ovf.i4.un
+conv.ovf.i8
+conv.ovf.i8.un
+conv.ovf.u
+conv.ovf.u.un
+conv.ovf.u1
+conv.ovf.u1.un
+conv.ovf.u2
+conv.ovf.u2.un
+conv.ovf.u4
+conv.ovf.u4.un
+conv.ovf.u8
+conv.ovf.u8.un
+conv.r.un
+conv.r4
+conv.r8
+conv.u
+conv.u1
+conv.u2
+conv.u4
+conv.u8
+cpblk
+cpobj
+div
+div.un
+dup
+endfault
+endfilter
+endfinally
+initblk
+initobj
+isinst
+jmp
+ldarg
+ldarg.0
+ldarg.1
+ldarg.2
+ldarg.3
+ldarg.s
+ldarga
+ldarga.s
+ldc.i4
+ldc.i4.0
+ldc.i4.1
+ldc.i4.2
+ldc.i4.3
+ldc.i4.4
+ldc.i4.5
+ldc.i4.6
+ldc.i4.7
+ldc.i4.8
+ldc.i4.m1
+ldc.i4.M1
+ldc.i4.s
+ldc.i8
+ldc.r4
+ldc.r8
+ldelem
+ldelem.i
+ldelem.i1
+ldelem.i2
+ldelem.i4
+ldelem.i8
+ldelem.r4
+ldelem.r8
+ldelem.ref
+ldelem.u1
+ldelem.u2
+ldelem.u4
+ldelem.u8
+ldelema
+ldfld
+ldflda
+ldftn
+ldind.i
+ldind.i1
+ldind.i2
+ldind.i4
+ldind.i8
+ldind.r4
+ldind.r8
+ldind.ref
+ldind.u1
+ldind.u2
+ldind.u4
+ldind.u8
+ldlen
+ldloc
+ldloc.0
+ldloc.1
+ldloc.2
+ldloc.3
+ldloc.s
+ldloca
+ldloca.s
+ldnull
+ldobj
+ldsfld
+ldsflda
+ldstr
+ldtoken
+ldvirtftn
+leave
+leave.s
+localloc
+mkrefany
+mul
+mul.ovf
+mul.ovf.un
+neg
+newarr
+newobj
+nop
+not
+or
+pop
+refanytype
+refanyval
+rem
+rem.un
+ret
+rethrow
+shl
+shr
+shr.un
+sizeof
+starg
+starg.s
+stelem
+stelem.i
+stelem.i1
+stelem.i2
+stelem.i4
+stelem.i8
+stelem.r4
+stelem.r8
+stelem.ref
+stfld
+stind.i
+stind.i1
+stind.i2
+stind.i4
+stind.i8
+stind.r4
+stind.r8
+stind.ref
+stloc
+stloc.0
+stloc.1
+stloc.2
+stloc.3
+stloc.s
+stobj
+stsfld
+sub
+sub.ovf
+sub.ovf.un
+switch
+throw
+alignment
+unbox
+unbox.any
+xor
+----------------------------------------------------
+<span class="token function">add</span>
+<span class="token function">add.ovf</span>
+<span class="token function">add.ovf.un</span>
+<span class="token function">and</span>
+<span class="token function">arglist</span>
+<span class="token function">beq</span>
+<span class="token function">beq.s</span>
+<span class="token function">bge</span>
+<span class="token function">bge.s</span>
+<span class="token function">bge.un</span>
+<span class="token function">bge.un.s</span>
+<span class="token function">bgt</span>
+<span class="token function">bgt.s</span>
+<span class="token function">bgt.un</span>
+<span class="token function">bgt.un.s</span>
+<span class="token function">ble</span>
+<span class="token function">ble.s</span>
+<span class="token function">ble.un</span>
+<span class="token function">ble.un.s</span>
+<span class="token function">blt</span>
+<span class="token function">blt.s</span>
+<span class="token function">blt.un</span>
+<span class="token function">blt.un.s</span>
+<span class="token function">bne.un</span>
+<span class="token function">bne.un.s</span>
+<span class="token function">box</span>
+<span class="token function">br</span>
+<span class="token function">br.s</span>
+<span class="token function">break</span>
+<span class="token function">brfalse</span>
+<span class="token function">brfalse.s</span>
+<span class="token function">brinst</span>
+<span class="token function">brinst.s</span>
+<span class="token function">brnull</span>
+<span class="token function">brnull.s</span>
+<span class="token function">brtrue</span>
+<span class="token function">brtrue.s</span>
+<span class="token function">brzero</span>
+<span class="token function">brzero.s</span>
+<span class="token function">call</span>
+<span class="token function">calli</span>
+<span class="token function">callvirt</span>
+<span class="token function">castclass</span>
+<span class="token function">ceq</span>
+<span class="token function">cgt</span>
+<span class="token function">cgt.un</span>
+<span class="token function">ckfinite</span>
+<span class="token function">clt</span>
+<span class="token function">clt.un</span>
+<span class="token function">conv.i</span>
+<span class="token function">conv.i1</span>
+<span class="token function">conv.i2</span>
+<span class="token function">conv.i4</span>
+<span class="token function">conv.i8</span>
+<span class="token function">conv.ovf.i</span>
+<span class="token function">conv.ovf.i.un</span>
+<span class="token function">conv.ovf.i1</span>
+<span class="token function">conv.ovf.i1.un</span>
+<span class="token function">conv.ovf.i2</span>
+<span class="token function">conv.ovf.i2.un</span>
+<span class="token function">conv.ovf.i4</span>
+<span class="token function">conv.ovf.i4.un</span>
+<span class="token function">conv.ovf.i8</span>
+<span class="token function">conv.ovf.i8.un</span>
+<span class="token function">conv.ovf.u</span>
+<span class="token function">conv.ovf.u.un</span>
+<span class="token function">conv.ovf.u1</span>
+<span class="token function">conv.ovf.u1.un</span>
+<span class="token function">conv.ovf.u2</span>
+<span class="token function">conv.ovf.u2.un</span>
+<span class="token function">conv.ovf.u4</span>
+<span class="token function">conv.ovf.u4.un</span>
+<span class="token function">conv.ovf.u8</span>
+<span class="token function">conv.ovf.u8.un</span>
+<span class="token function">conv.r.un</span>
+<span class="token function">conv.r4</span>
+<span class="token function">conv.r8</span>
+<span class="token function">conv.u</span>
+<span class="token function">conv.u1</span>
+<span class="token function">conv.u2</span>
+<span class="token function">conv.u4</span>
+<span class="token function">conv.u8</span>
+<span class="token function">cpblk</span>
+<span class="token function">cpobj</span>
+<span class="token function">div</span>
+<span class="token function">div.un</span>
+<span class="token function">dup</span>
+<span class="token function">endfault</span>
+<span class="token function">endfilter</span>
+<span class="token function">endfinally</span>
+<span class="token function">initblk</span>
+<span class="token function">initobj</span>
+<span class="token function">isinst</span>
+<span class="token function">jmp</span>
+<span class="token function">ldarg</span>
+<span class="token function">ldarg.0</span>
+<span class="token function">ldarg.1</span>
+<span class="token function">ldarg.2</span>
+<span class="token function">ldarg.3</span>
+<span class="token function">ldarg.s</span>
+<span class="token function">ldarga</span>
+<span class="token function">ldarga.s</span>
+<span class="token function">ldc.i4</span>
+<span class="token function">ldc.i4.0</span>
+<span class="token function">ldc.i4.1</span>
+<span class="token function">ldc.i4.2</span>
+<span class="token function">ldc.i4.3</span>
+<span class="token function">ldc.i4.4</span>
+<span class="token function">ldc.i4.5</span>
+<span class="token function">ldc.i4.6</span>
+<span class="token function">ldc.i4.7</span>
+<span class="token function">ldc.i4.8</span>
+<span class="token function">ldc.i4.m1</span>
+<span class="token function">ldc.i4.M1</span>
+<span class="token function">ldc.i4.s</span>
+<span class="token function">ldc.i8</span>
+<span class="token function">ldc.r4</span>
+<span class="token function">ldc.r8</span>
+<span class="token function">ldelem</span>
+<span class="token function">ldelem.i</span>
+<span class="token function">ldelem.i1</span>
+<span class="token function">ldelem.i2</span>
+<span class="token function">ldelem.i4</span>
+<span class="token function">ldelem.i8</span>
+<span class="token function">ldelem.r4</span>
+<span class="token function">ldelem.r8</span>
+<span class="token function">ldelem.ref</span>
+<span class="token function">ldelem.u1</span>
+<span class="token function">ldelem.u2</span>
+<span class="token function">ldelem.u4</span>
+<span class="token function">ldelem.u8</span>
+<span class="token function">ldelema</span>
+<span class="token function">ldfld</span>
+<span class="token function">ldflda</span>
+<span class="token function">ldftn</span>
+<span class="token function">ldind.i</span>
+<span class="token function">ldind.i1</span>
+<span class="token function">ldind.i2</span>
+<span class="token function">ldind.i4</span>
+<span class="token function">ldind.i8</span>
+<span class="token function">ldind.r4</span>
+<span class="token function">ldind.r8</span>
+<span class="token function">ldind.ref</span>
+<span class="token function">ldind.u1</span>
+<span class="token function">ldind.u2</span>
+<span class="token function">ldind.u4</span>
+<span class="token function">ldind.u8</span>
+<span class="token function">ldlen</span>
+<span class="token function">ldloc</span>
+<span class="token function">ldloc.0</span>
+<span class="token function">ldloc.1</span>
+<span class="token function">ldloc.2</span>
+<span class="token function">ldloc.3</span>
+<span class="token function">ldloc.s</span>
+<span class="token function">ldloca</span>
+<span class="token function">ldloca.s</span>
+<span class="token function">ldnull</span>
+<span class="token function">ldobj</span>
+<span class="token function">ldsfld</span>
+<span class="token function">ldsflda</span>
+<span class="token function">ldstr</span>
+<span class="token function">ldtoken</span>
+<span class="token function">ldvirtftn</span>
+<span class="token function">leave</span>
+<span class="token function">leave.s</span>
+<span class="token function">localloc</span>
+<span class="token function">mkrefany</span>
+<span class="token function">mul</span>
+<span class="token function">mul.ovf</span>
+<span class="token function">mul.ovf.un</span>
+<span class="token function">neg</span>
+<span class="token function">newarr</span>
+<span class="token function">newobj</span>
+<span class="token function">nop</span>
+<span class="token function">not</span>
+<span class="token function">or</span>
+<span class="token function">pop</span>
+<span class="token function">refanytype</span>
+<span class="token function">refanyval</span>
+<span class="token function">rem</span>
+<span class="token function">rem.un</span>
+<span class="token function">ret</span>
+<span class="token function">rethrow</span>
+<span class="token function">shl</span>
+<span class="token function">shr</span>
+<span class="token function">shr.un</span>
+<span class="token function">sizeof</span>
+<span class="token function">starg</span>
+<span class="token function">starg.s</span>
+<span class="token function">stelem</span>
+<span class="token function">stelem.i</span>
+<span class="token function">stelem.i1</span>
+<span class="token function">stelem.i2</span>
+<span class="token function">stelem.i4</span>
+<span class="token function">stelem.i8</span>
+<span class="token function">stelem.r4</span>
+<span class="token function">stelem.r8</span>
+<span class="token function">stelem.ref</span>
+<span class="token function">stfld</span>
+<span class="token function">stind.i</span>
+<span class="token function">stind.i1</span>
+<span class="token function">stind.i2</span>
+<span class="token function">stind.i4</span>
+<span class="token function">stind.i8</span>
+<span class="token function">stind.r4</span>
+<span class="token function">stind.r8</span>
+<span class="token function">stind.ref</span>
+<span class="token function">stloc</span>
+<span class="token function">stloc.0</span>
+<span class="token function">stloc.1</span>
+<span class="token function">stloc.2</span>
+<span class="token function">stloc.3</span>
+<span class="token function">stloc.s</span>
+<span class="token function">stobj</span>
+<span class="token function">stsfld</span>
+<span class="token function">sub</span>
+<span class="token function">sub.ovf</span>
+<span class="token function">sub.ovf.un</span>
+<span class="token function">switch</span>
+<span class="token function">throw</span>
+<span class="token function">alignment</span>
+<span class="token function">unbox</span>
+<span class="token function">unbox.any</span>
+<span class="token function">xor</span>
+
+----------------------------------------------------

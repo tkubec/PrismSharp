@@ -1,0 +1,15 @@
+'C'; '\''; '\n'; '\u{7FFF}'; // Characters
+"foo \"bar\" baz"; // String
+r##"foo #"bar"# baz"##; // Raw string with # pairs
+b'C'; b'\''; b'\n'; // Bytes
+b"foo \"bar\" baz"; // Byte string
+br##"foo #"bar"# baz"##; // Raw byte string with # pairs
+----------------------------------------------------
+<span class="token char">'C'</span><span class="token punctuation">;</span> <span class="token char">'\''</span><span class="token punctuation">;</span> <span class="token char">'\n'</span><span class="token punctuation">;</span> <span class="token char">'\u{7FFF}'</span><span class="token punctuation">;</span> <span class="token comment">// Characters</span>
+<span class="token string">"foo \"bar\" baz"</span><span class="token punctuation">;</span> <span class="token comment">// String</span>
+<span class="token string">r##"foo #"bar"# baz"##</span><span class="token punctuation">;</span> <span class="token comment">// Raw string with # pairs</span>
+<span class="token char">b'C'</span><span class="token punctuation">;</span> <span class="token char">b'\''</span><span class="token punctuation">;</span> <span class="token char">b'\n'</span><span class="token punctuation">;</span> <span class="token comment">// Bytes</span>
+<span class="token string">b"foo \"bar\" baz"</span><span class="token punctuation">;</span> <span class="token comment">// Byte string</span>
+<span class="token string">br##"foo #"bar"# baz"##</span><span class="token punctuation">;</span> <span class="token comment">// Raw byte string with # pairs</span>
+
+----------------------------------------------------

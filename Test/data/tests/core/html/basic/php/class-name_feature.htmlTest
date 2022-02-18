@@ -1,0 +1,55 @@
+public Foo $a;
+
+Foo::bar();
+
+\Foo::bar();
+
+\Package\Foo::bar();
+
+function f(Foo $variable): Foo {}
+
+function f(\Foo $variable): \Foo {}
+
+function f(\Package\Foo $variable): \Package\Foo {}
+
+function f($variable): ?Foo {}
+
+function f(Foo|Bar $variable): Foo|Bar {}
+
+function f(Foo|false $variable): Foo|Bar {}
+function f(Foo|null $variable): Foo|Bar {}
+
+function f(\Package\Foo|\Package\Bar $variable): \Package\Foo|\Package\Bar {}
+
+class Foo extends Bar implements Baz {}
+
+class Foo extends \Package\Bar implements App\Baz {}
+----------------------------------------------------
+<span class="token keyword">public</span> <span class="token class-name type-declaration">Foo</span> <span class="token variable">$a</span><span class="token punctuation">;</span>
+
+<span class="token class-name static-context">Foo</span><span class="token operator">::</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name class-name-fully-qualified static-context"><span class="token punctuation">\</span>Foo</span><span class="token operator">::</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name class-name-fully-qualified static-context"><span class="token punctuation">\</span>Package<span class="token punctuation">\</span>Foo</span><span class="token operator">::</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">f</span><span class="token punctuation">(</span><span class="token class-name type-declaration">Foo</span> <span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name return-type">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">f</span><span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified type-declaration"><span class="token punctuation">\</span>Foo</span> <span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name class-name-fully-qualified return-type"><span class="token punctuation">\</span>Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">f</span><span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified type-declaration"><span class="token punctuation">\</span>Package<span class="token punctuation">\</span>Foo</span> <span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name class-name-fully-qualified return-type"><span class="token punctuation">\</span>Package<span class="token punctuation">\</span>Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">f</span><span class="token punctuation">(</span><span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token operator">?</span><span class="token class-name return-type">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">f</span><span class="token punctuation">(</span><span class="token class-name">Foo</span><span class="token operator">|</span><span class="token class-name">Bar</span> <span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span><span class="token operator">|</span><span class="token class-name">Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">f</span><span class="token punctuation">(</span><span class="token class-name">Foo</span><span class="token operator">|</span><span class="token keyword type-declaration">false</span> <span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span><span class="token operator">|</span><span class="token class-name">Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-definition function">f</span><span class="token punctuation">(</span><span class="token class-name">Foo</span><span class="token operator">|</span><span class="token keyword type-declaration">null</span> <span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span><span class="token operator">|</span><span class="token class-name">Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">f</span><span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Package<span class="token punctuation">\</span>Foo</span><span class="token operator">|</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Package<span class="token punctuation">\</span>Bar</span> <span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Package<span class="token punctuation">\</span>Foo</span><span class="token operator">|</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Package<span class="token punctuation">\</span>Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Foo</span> <span class="token keyword">extends</span> <span class="token class-name">Bar</span> <span class="token keyword">implements</span> <span class="token class-name">Baz</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Foo</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Package<span class="token punctuation">\</span>Bar</span> <span class="token keyword">implements</span> <span class="token class-name class-name-fully-qualified">App<span class="token punctuation">\</span>Baz</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

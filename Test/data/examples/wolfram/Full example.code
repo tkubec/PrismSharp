@@ -1,0 +1,7 @@
+(* Most operators are supported *)
+f /@ {1, 2, 3};
+f @@ Range[10];
+f @@@ y;
+Module[{x=1}, 
+    Return @ $Failed
+]

@@ -1,0 +1,39 @@
+<<<FOO_BAR
+Heredoc string
+FOO_BAR;
+<<<"FOO"
+	some
+	content
+FOO;
+<<<'NOWDOC'
+This is a nowdoc string
+NOWDOC;
+"https://example.com"
+" /* not a comment */ "
+"multi-line
+string"
+'multi-line
+string'
+`multi-line
+shell exec string`
+----------------------------------------------------
+<span class="token string heredoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;</span>FOO_BAR</span>
+Heredoc string
+<span class="token delimiter symbol">FOO_BAR<span class="token punctuation">;</span></span></span>
+<span class="token string heredoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;"</span>FOO<span class="token punctuation">"</span></span>
+	some
+	content
+<span class="token delimiter symbol">FOO<span class="token punctuation">;</span></span></span>
+<span class="token string nowdoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;'</span>NOWDOC<span class="token punctuation">'</span></span>
+This is a nowdoc string
+<span class="token delimiter symbol">NOWDOC<span class="token punctuation">;</span></span></span>
+<span class="token string double-quoted-string">"https://example.com"</span>
+<span class="token string double-quoted-string">" /* not a comment */ "</span>
+<span class="token string double-quoted-string">"multi-line
+string"</span>
+<span class="token string single-quoted-string">'multi-line
+string'</span>
+<span class="token string backtick-quoted-string">`multi-line
+shell exec string`</span>
+
+----------------------------------------------------

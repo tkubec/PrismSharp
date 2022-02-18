@@ -1,0 +1,103 @@
+function method(x: number, y: string, z: boolean) {}
+function stringifyBasicValue(value: string | number) {}
+function add(one: any, two: any): number {
+  return one + two;
+}
+
+const bar: number = 2;
+var barVar: number = 2;
+let barLet: number = 2;
+let isOneOf: number | boolean | string = foo;
+----------------------------------------------------
+[
+	["keyword", "function"],
+	["function", "method"],
+	["punctuation", "("],
+	"x",
+	["operator", ":"],
+	["type", "number"],
+	["punctuation", ","],
+	["literal-property", "y"],
+	["operator", ":"],
+	["type", "string"],
+	["punctuation", ","],
+	["literal-property", "z"],
+	["operator", ":"],
+	["type", "boolean"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "stringifyBasicValue"],
+	["punctuation", "("],
+	"value",
+	["operator", ":"],
+	["type", "string"],
+	["operator", "|"],
+	["type", "number"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "add"],
+	["punctuation", "("],
+	"one",
+	["operator", ":"],
+	["type", "any"],
+	["punctuation", ","],
+	["literal-property", "two"],
+	["operator", ":"],
+	["type", "any"],
+	["punctuation", ")"],
+	["operator", ":"],
+	["type", "number"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" one ",
+	["operator", "+"],
+	" two",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "const"],
+	["literal-property", "bar"],
+	["operator", ":"],
+	["type", "number"],
+	["operator", "="],
+	["number", "2"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	["literal-property", "barVar"],
+	["operator", ":"],
+	["type", "number"],
+	["operator", "="],
+	["number", "2"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	["literal-property", "barLet"],
+	["operator", ":"],
+	["type", "number"],
+	["operator", "="],
+	["number", "2"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	["literal-property", "isOneOf"],
+	["operator", ":"],
+	["type", "number"],
+	["operator", "|"],
+	["type", "boolean"],
+	["operator", "|"],
+	["type", "string"],
+	["operator", "="],
+	" foo",
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

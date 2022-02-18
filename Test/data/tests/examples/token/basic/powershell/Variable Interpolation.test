@@ -1,0 +1,17 @@
+$Name = "Alice"
+Write-Host "Hello, my name is $Name."
+----------------------------------------------------
+[
+	["variable", "$Name"],
+	" = ",
+	["string", ["\"Alice\""]],
+
+	["function", "Write-Host"],
+	["string", [
+		"\"Hello, my name is ",
+		["variable", "$Name"],
+		".\""
+	]]
+]
+
+----------------------------------------------------

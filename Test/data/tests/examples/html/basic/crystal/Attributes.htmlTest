@@ -1,0 +1,11 @@
+@[AlwaysInline]
+def foo
+	1
+end
+----------------------------------------------------
+<span class="token attribute"><span class="token delimiter punctuation">@[</span><span class="token attribute class-name">AlwaysInline</span><span class="token delimiter punctuation">]</span></span>
+<span class="token keyword">def</span> <span class="token method-definition"><span class="token function">foo</span></span>
+	<span class="token number">1</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

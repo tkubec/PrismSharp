@@ -1,0 +1,17 @@
+{* This is a comment with <p>some markup</p> in it *}
+{* Multi-line
+comment *}
+----------------------------------------------------
+[
+	["comment", "{* This is a comment with <p>some markup</p> in it *}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" Multi",
+	["operator", "-"],
+	"line\ncomment ",
+	["operator", "*"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

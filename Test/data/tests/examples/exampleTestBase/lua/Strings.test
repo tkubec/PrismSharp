@@ -1,0 +1,17 @@
+""
+"Foo\"bar"
+"Foo\
+bar \z
+baz"
+''
+'Foo\'bar'
+'Foo\
+bar \z
+baz'
+[[Multi "line"
+string]]
+[==[Multi [["line"]]
+string]==]
+
+--------------------------------------------------
+

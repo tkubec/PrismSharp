@@ -1,0 +1,34 @@
+module Codewars.Kata.SumFracts (sumFracts) where
+
+import Prelude
+
+import Data.Foldable (foldl)
+import Data.BigInt (BigInt, fromInt, toString)
+import Data.List (List, length)
+import Data.Tuple (Tuple(..))
+import Data.Maybe (Maybe(..))
+import Data.Ord (abs, signum)
+
+reduce :: Tuple BigInt BigInt -> Tuple BigInt BigInt
+reduce (Tuple num den) =
+  let gcd' = gcd num den
+      den' = den / gcd'
+   in Tuple (num / gcd' * (signum den')) (abs den')
+   
+sumFracts :: List (Tuple Int Int) -> Maybe String
+sumFracts fracts =
+  let fracts' = fracts <#> (\(Tuple n d) -> Tuple (fromInt n) (fromInt d)) >>> reduce
+      
+      den = foldl (\acc (Tuple _ d) -> lcm acc d) one fracts'
+      num = foldl (\acc (Tuple n d) -> acc + n * (den / d)) zero fracts'
+      
+      Tuple n d = reduce $ Tuple num den
+      
+   in if length fracts == 0
+        then Nothing
+        else if d == one
+                then Just $ toString n
+                else Just $ (toString n) >< " " >< (toString d)
+
+--------------------------------------------------
+

@@ -1,0 +1,185 @@
+package com.example.html
+
+interface Element {
+    fun render(builder: StringBuilder, indent: String)
+
+    override fun toString(): String {
+        val builder = StringBuilder()
+        render(builder, "")
+        return builder.toString()
+    }
+}
+
+class TextElement(val text: String): Element {
+    override fun render(builder: StringBuilder, indent: String) {
+        builder.append("$indent$text\n")
+    }
+}
+
+abstract class Tag(val name: String): Element {
+    val children = arrayListOf<Element>()
+    val attributes = hashMapOf<String, String>()
+
+    protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
+        tag.init()
+        children.add(tag)
+        return tag
+    }
+
+    override fun render(builder: StringBuilder, indent: String) {
+        builder.append("$indent<$name${renderAttributes()}>\n")
+        for (c in children) {
+            c.render(builder, indent + "  ")
+        }
+        builder.append("$indent</$name>\n")
+    }
+
+    private fun renderAttributes(): String? {
+        val builder = StringBuilder()
+        for (a in attributes.keySet()) {
+            builder.append(" $a=\"${attributes[a]}\"")
+        }
+        return builder.toString()
+    }
+}
+
+abstract class TagWithText(name: String): Tag(name) {
+    operator fun String.plus() {
+        children.add(TextElement(this))
+    }
+}
+
+class HTML(): TagWithText("html") {
+    fun head(init: Head.() -> Unit) = initTag(Head(), init)
+
+    fun body(init: Body.() -> Unit) = initTag(Body(), init)
+}
+
+class Head(): TagWithText("head") {
+    fun title(init: Title.() -> Unit) = initTag(Title(), init)
+}
+
+class Title(): TagWithText("title")
+
+abstract class BodyTag(name: String): TagWithText(name) {
+    fun b(init: B.() -> Unit) = initTag(B(), init)
+    fun p(init: P.() -> Unit) = initTag(P(), init)
+    fun h1(init: H1.() -> Unit) = initTag(H1(), init)
+    fun a(href: String, init: A.() -> Unit) {
+        val a = initTag(A(), init)
+        a.href = href
+    }
+}
+
+class Body(): BodyTag("body")
+
+class B(): BodyTag("b")
+class P(): BodyTag("p")
+class H1(): BodyTag("h1")
+class A(): BodyTag("a") {
+    public var href: String
+        get() = attributes["href"]!!
+        set(value) {
+            attributes["href"] = value
+        }
+}
+
+fun html(init: HTML.() -> Unit): HTML {
+    val html = HTML()
+    html.init()
+    return html
+}
+----------------------------------------------------
+<span class="token keyword">package</span> com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>html
+
+<span class="token keyword">interface</span> Element <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token function">render</span><span class="token punctuation">(</span>builder<span class="token operator">:</span> StringBuilder<span class="token punctuation">,</span> indent<span class="token operator">:</span> String<span class="token punctuation">)</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> builder <span class="token operator">=</span> <span class="token function">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">render</span><span class="token punctuation">(</span>builder<span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">""</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> builder<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token function">TextElement</span><span class="token punctuation">(</span><span class="token keyword">val</span> text<span class="token operator">:</span> String<span class="token punctuation">)</span><span class="token operator">:</span> Element <span class="token punctuation">{</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">render</span><span class="token punctuation">(</span>builder<span class="token operator">:</span> StringBuilder<span class="token punctuation">,</span> indent<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">indent</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">text</span></span><span class="token string">\n"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token function">Tag</span><span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span> String<span class="token punctuation">)</span><span class="token operator">:</span> Element <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> children <span class="token operator">=</span> arrayListOf<span class="token operator">&lt;</span>Element<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> attributes <span class="token operator">=</span> hashMapOf<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">protected</span> <span class="token keyword">fun</span> initTag<span class="token operator">&lt;</span>T<span class="token operator">:</span> Element<span class="token operator">></span><span class="token punctuation">(</span>tag<span class="token operator">:</span> T<span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token operator">:</span> T<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span><span class="token operator">:</span> T <span class="token punctuation">{</span>
+        tag<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        children<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> tag
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">render</span><span class="token punctuation">(</span>builder<span class="token operator">:</span> StringBuilder<span class="token punctuation">,</span> indent<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">indent</span></span><span class="token string">&lt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">name</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression"><span class="token function">renderAttributes</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">>\n"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>c <span class="token keyword">in</span> children<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            c<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>builder<span class="token punctuation">,</span> indent <span class="token operator">+</span> <span class="token string-literal singleline"><span class="token string">"  "</span></span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">indent</span></span><span class="token string">&lt;/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">name</span></span><span class="token string">>\n"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">fun</span> <span class="token function">renderAttributes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String<span class="token operator">?</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> builder <span class="token operator">=</span> <span class="token function">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>a <span class="token keyword">in</span> attributes<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">" </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">a</span></span><span class="token string">=\"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">attributes<span class="token punctuation">[</span>a<span class="token punctuation">]</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">\""</span></span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> builder<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token function">TagWithText</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">Tag</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">operator</span> <span class="token keyword">fun</span> String<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        children<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">TextElement</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token function">HTML</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">TagWithText</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"html"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token function">head</span><span class="token punctuation">(</span><span class="token keyword">init</span><span class="token operator">:</span> Head<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">initTag</span><span class="token punctuation">(</span><span class="token function">Head</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">fun</span> <span class="token function">body</span><span class="token punctuation">(</span><span class="token keyword">init</span><span class="token operator">:</span> Body<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">initTag</span><span class="token punctuation">(</span><span class="token function">Body</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token function">Head</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">TagWithText</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"head"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token function">title</span><span class="token punctuation">(</span><span class="token keyword">init</span><span class="token operator">:</span> Title<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">initTag</span><span class="token punctuation">(</span><span class="token function">Title</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token function">Title</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">TagWithText</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"title"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token function">BodyTag</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">TagWithText</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token keyword">init</span><span class="token operator">:</span> B<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">initTag</span><span class="token punctuation">(</span><span class="token function">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token punctuation">)</span>
+    <span class="token keyword">fun</span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token keyword">init</span><span class="token operator">:</span> P<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">initTag</span><span class="token punctuation">(</span><span class="token function">P</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token punctuation">)</span>
+    <span class="token keyword">fun</span> <span class="token function">h1</span><span class="token punctuation">(</span><span class="token keyword">init</span><span class="token operator">:</span> H1<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">initTag</span><span class="token punctuation">(</span><span class="token function">H1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token punctuation">)</span>
+    <span class="token keyword">fun</span> <span class="token function">a</span><span class="token punctuation">(</span>href<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token operator">:</span> A<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> a <span class="token operator">=</span> <span class="token function">initTag</span><span class="token punctuation">(</span><span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">init</span><span class="token punctuation">)</span>
+        a<span class="token punctuation">.</span>href <span class="token operator">=</span> href
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token function">Body</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">BodyTag</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"body"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token function">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">BodyTag</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"b"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token function">P</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">BodyTag</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"p"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token function">H1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">BodyTag</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"h1"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">BodyTag</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"a"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">var</span> href<span class="token operator">:</span> String
+        <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> attributes<span class="token punctuation">[</span><span class="token string-literal singleline"><span class="token string">"href"</span></span><span class="token punctuation">]</span><span class="token operator">!!</span>
+        <span class="token keyword">set</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            attributes<span class="token punctuation">[</span><span class="token string-literal singleline"><span class="token string">"href"</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> value
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">html</span><span class="token punctuation">(</span><span class="token keyword">init</span><span class="token operator">:</span> HTML<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> Unit<span class="token punctuation">)</span><span class="token operator">:</span> HTML <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> html <span class="token operator">=</span> <span class="token function">HTML</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    html<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> html
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

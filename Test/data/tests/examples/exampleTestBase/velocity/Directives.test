@@ -1,0 +1,9 @@
+#set($foo.bar[1] = 3)
+#if($a==1)true enough#{else}no way!#end
+#macro( d )
+<tr><td>$!bodyContent</td></tr>
+#end
+#@d()Hello!#end
+
+--------------------------------------------------
+

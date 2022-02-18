@@ -1,0 +1,19 @@
+$str = "This is $great!";
+$foobar = "Another example: {${$foo->bar()}}";
+$a = <<<FOO
+    Hello $world!
+FOO;
+$b = <<<"FOOBAR"
+    Interpolation inside Heredoc strings {$obj->values[3]->name}
+FOOBAR;
+----------------------------------------------------
+<span class="token variable">$str</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"This is <span class="token interpolation"><span class="token variable">$great</span></span>!"</span><span class="token punctuation">;</span>
+<span class="token variable">$foobar</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"Another example: <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token operator">-></span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>"</span><span class="token punctuation">;</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string heredoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;</span>FOO</span>
+    Hello <span class="token interpolation"><span class="token variable">$world</span></span>!
+<span class="token delimiter symbol">FOO<span class="token punctuation">;</span></span></span>
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token string heredoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;"</span>FOOBAR<span class="token punctuation">"</span></span>
+    Interpolation inside Heredoc strings <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$obj</span><span class="token operator">-></span><span class="token property">values</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">-></span><span class="token property">name</span><span class="token punctuation">}</span></span>
+<span class="token delimiter symbol">FOOBAR<span class="token punctuation">;</span></span></span>
+
+----------------------------------------------------

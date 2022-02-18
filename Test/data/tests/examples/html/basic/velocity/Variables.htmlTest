@@ -1,0 +1,21 @@
+$mud
+$customer.Name
+$flogger.getPromo( $mud )
+$!{mudSlinger_9}
+$foo[0]
+$foo[$i]
+$foo["bar"]
+$foo.bar[1].junk
+$foo.callMethod()[1]
+----------------------------------------------------
+<span class="token variable">$mud</span>
+<span class="token variable">$customer<span class="token punctuation">.</span>Name</span>
+<span class="token variable">$flogger<span class="token punctuation">.</span><span class="token function">getPromo</span><span class="token punctuation">(</span> $mud <span class="token punctuation">)</span></span>
+<span class="token variable">$!<span class="token punctuation">{</span>mudSlinger_9<span class="token punctuation">}</span></span>
+<span class="token variable">$foo<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></span>
+<span class="token variable">$foo<span class="token punctuation">[</span>$i<span class="token punctuation">]</span></span>
+<span class="token variable">$foo<span class="token punctuation">[</span><span class="token string">"bar"</span><span class="token punctuation">]</span></span>
+<span class="token variable">$foo<span class="token punctuation">.</span>bar<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>junk</span>
+<span class="token variable">$foo<span class="token punctuation">.</span><span class="token function">callMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span></span>
+
+----------------------------------------------------

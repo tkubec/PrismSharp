@@ -1,0 +1,11 @@
+// react tsx
+function log(msg: string): void {
+  console.log(msg);
+}
+----------------------------------------------------
+<span class="token comment">// react tsx</span>
+<span class="token keyword">function</span> <span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

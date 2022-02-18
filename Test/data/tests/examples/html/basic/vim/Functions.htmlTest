@@ -1,0 +1,13 @@
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+----------------------------------------------------
+func<span class="token operator">!</span> <span class="token function">DeleteTrailingWS</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  exe <span class="token string">"normal mz"</span>
+  <span class="token operator">%</span>s<span class="token operator">/</span>\s\<span class="token operator">+</span>$<span class="token operator">/</span><span class="token operator">/</span>ge
+  exe <span class="token string">"normal `z"</span>
+endfunc
+
+----------------------------------------------------

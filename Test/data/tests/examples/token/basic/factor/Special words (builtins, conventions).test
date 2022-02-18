@@ -1,0 +1,49 @@
+and not with map filter
+
+new last-index + - neg
+
+<array> <=> SYNTAX: x $[ xyz ]
+
+set-x change-x with-variable ?of if* (gensym) hex. $description reader>> >>setter writer<<
+
+string>number >hex base> mutater!
+----------------------------------------------------
+[
+	["kernel-builtin", "and"],
+	["kernel-builtin", "not"],
+	["combinators", "with"],
+	["combinators", "map"],
+	["combinators", "filter"],
+
+	["kernel-builtin", "new"],
+	["sequences-builtin", "last-index"],
+	["math-builtin", "+"],
+	["math-builtin", "-"],
+	["math-builtin", "neg"],
+
+	["constructor-word", "<array>"],
+	["conventionally-named-word", "<=>"],
+	["colon-syntax", "SYNTAX: x"],
+	["other-builtin-syntax", "$["],
+	["normal-word", "xyz"],
+	["quotation-delimiter", "]"],
+
+	["conventionally-named-word", "set-x"],
+	["conventionally-named-word", "change-x"],
+	["conventionally-named-word", "with-variable"],
+	["conventionally-named-word", "?of"],
+	["combinators", "if*"],
+	["conventionally-named-word", "(gensym)"],
+	["conventionally-named-word", "hex."],
+	["conventionally-named-word", "$description"],
+	["conventionally-named-word", "reader>>"],
+	["conventionally-named-word", ">>setter"],
+	["conventionally-named-word", "writer<<"],
+
+	["conventionally-named-word", "string>number"],
+	["conventionally-named-word", ">hex"],
+	["conventionally-named-word", "base>"],
+	["conventionally-named-word", "mutater!"]
+]
+
+----------------------------------------------------

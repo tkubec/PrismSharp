@@ -1,0 +1,33 @@
+{% block %}
+{% endif %}
+{% foo %}
+{% foo_bar some.variable %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["tag", "block"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "endif"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "foo"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "foo_bar"],
+	["variable", "some"],
+	["punctuation", "."],
+	["variable", "variable"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

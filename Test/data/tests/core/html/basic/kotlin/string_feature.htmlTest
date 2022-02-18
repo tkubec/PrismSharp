@@ -1,0 +1,39 @@
+""
+"foo"
+"\"\""
+
+""""""
+"""Foo "bar"" baz"""
+"""
+"Foo"
+bar
+"""
+
+// interpolation
+
+"$foo ${bar} ${'$'} ${foobar()}"
+"""
+$foo ${bar}
+${'$'} ${foobar()}
+"""
+----------------------------------------------------
+<span class="token string-literal singleline"><span class="token string">""</span></span>
+<span class="token string-literal singleline"><span class="token string">"foo"</span></span>
+<span class="token string-literal singleline"><span class="token string">"\"\""</span></span>
+
+<span class="token string-literal multiline"><span class="token string">""""""</span></span>
+<span class="token string-literal multiline"><span class="token string">"""Foo "bar"" baz"""</span></span>
+<span class="token string-literal multiline"><span class="token string">"""
+"Foo"
+bar
+"""</span></span>
+
+<span class="token comment">// interpolation</span>
+
+<span class="token string-literal singleline"><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">foo</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">bar</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression"><span class="token char">'$'</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression"><span class="token function">foobar</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span></span>
+<span class="token string-literal multiline"><span class="token string">"""
+</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">foo</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">bar</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression"><span class="token char">'$'</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression"><span class="token function">foobar</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+"""</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+foo(
+    a: 'bar',
+    qux: 'baz'
+);
+----------------------------------------------------
+<span class="token function">foo</span><span class="token punctuation">(</span>
+    <span class="token argument-name">a</span><span class="token punctuation">:</span> <span class="token string single-quoted-string">'bar'</span><span class="token punctuation">,</span>
+    <span class="token argument-name">qux</span><span class="token punctuation">:</span> <span class="token string single-quoted-string">'baz'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

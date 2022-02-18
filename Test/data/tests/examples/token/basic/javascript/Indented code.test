@@ -1,0 +1,30 @@
+if (true) {
+	while (true) {
+		doSomething();
+	}
+}
+----------------------------------------------------
+[
+	["keyword", "if"],
+	["punctuation", "("],
+	["boolean", "true"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "while"],
+	["punctuation", "("],
+	["boolean", "true"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "doSomething"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

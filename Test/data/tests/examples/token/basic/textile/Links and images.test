@@ -1,0 +1,133 @@
+I searched "Google":http://google.com.
+
+I am crazy about "Hobix":hobix
+and "it's":hobix "all":hobix I ever
+"link to":hobix!
+
+[hobix]http://hobix.com
+
+And "(some-link)[en]links":# can have attributes too!
+
+!http://redcloth.org/hobix.com/textile/sample.jpg!
+!openwindow1.gif(Bunny.)!
+!openwindow1.gif!:http://hobix.com/
+
+!>obake.gif!
+
+And others sat all round the small
+machine and paid it to sing to them.
+----------------------------------------------------
+[
+	["phrase", [
+		"I searched ",
+		["link", [
+			["punctuation", "\""],
+			["text", "Google"],
+			["punctuation", "\""],
+			["punctuation", ":"],
+			["url", "http://google.com"]
+		]],
+		"."
+	]],
+
+	["phrase", [
+		"I am crazy about ",
+		["link", [
+			["punctuation", "\""],
+			["text", "Hobix"],
+			["punctuation", "\""],
+			["punctuation", ":"],
+			["url", "hobix"]
+		]],
+
+		"\nand ",
+		["link", [
+			["punctuation", "\""],
+			["text", "it's"],
+			["punctuation", "\""],
+			["punctuation", ":"],
+			["url", "hobix"]
+		]],
+		["link", [
+			["punctuation", "\""],
+			["text", "all"],
+			["punctuation", "\""],
+			["punctuation", ":"],
+			["url", "hobix"]
+		]],
+		" I ever\n",
+
+		["link", [
+			["punctuation", "\""],
+			["text", "link to"],
+			["punctuation", "\""],
+			["punctuation", ":"],
+			["url", "hobix"]
+		]],
+		"!"
+	]],
+
+	["phrase", [
+		["link-ref", [
+			["punctuation", "["],
+			["string", "hobix"],
+			["punctuation", "]"],
+			["url", "http://hobix.com"]
+		]]
+	]],
+
+	["phrase", [
+		"And ",
+		["link", [
+			["punctuation", "\""],
+			["modifier", [
+				["punctuation", "("],
+				["class-id", "some-link"],
+				["punctuation", ")"],
+				["punctuation", "["],
+				["lang", "en"],
+				["punctuation", "]"]
+			]],
+			["text", "links"],
+			["punctuation", "\""],
+			["punctuation", ":"],
+			["url", "#"]
+		]],
+		" can have attributes too!"
+	]],
+
+	["phrase", [
+		["image", [
+			["punctuation", "!"],
+			["source", "http://redcloth.org/hobix.com/textile/sample.jpg"],
+			["punctuation", "!"]
+		]],
+		["image", [
+			["punctuation", "!"],
+			["source", "openwindow1.gif(Bunny.)"],
+			["punctuation", "!"]
+		]],
+		["image", [
+			["punctuation", "!"],
+			["source", "openwindow1.gif"],
+			["punctuation", "!"],
+			["punctuation", ":"],
+			["url", "http://hobix.com/"]
+		]]
+	]],
+
+	["phrase", [
+		["image", [
+			["punctuation", "!"],
+			["modifier", [
+				["punctuation", ">"]
+			]],
+			["source", "obake.gif"],
+			["punctuation", "!"]
+		]]
+	]],
+
+	["phrase", ["And others sat all round the small\nmachine and paid it to sing to them."]]
+]
+
+----------------------------------------------------

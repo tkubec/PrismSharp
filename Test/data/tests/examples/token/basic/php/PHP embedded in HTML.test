@@ -1,0 +1,56 @@
+<div class="<?php echo $a ? 'foo' : 'bar'; ?>">
+<?php if($var < 42) {
+    echo "Something";
+} else {
+    echo "Something else";
+} ?>
+</div>
+----------------------------------------------------
+[
+	["operator", "<"],
+	"div ",
+	["keyword", "class"],
+	["operator", "="],
+	["string", [
+		"\"<?php echo ",
+		["interpolation", [
+			["variable", "$a"]
+		]],
+		" ? 'foo' : 'bar'; ?>\""
+	]],
+	["operator", ">"],
+
+	["operator", "<"],
+	["operator", "?"],
+	"php ",
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$var"],
+	["operator", "<"],
+	["number", "42"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "echo"],
+	["string", ["\"Something\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["keyword", "echo"],
+	["string", ["\"Something else\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["operator", "?"],
+	["operator", ">"],
+
+	["operator", "<"],
+	["operator", "/"],
+	"div",
+	["operator", ">"]
+]
+
+----------------------------------------------------

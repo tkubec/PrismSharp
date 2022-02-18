@@ -1,0 +1,11 @@
+foo
+foo@_bar
+'foo bar'
+'\'\\'
+----------------------------------------------------
+<span class="token atom">foo</span>
+<span class="token atom">foo@_bar</span>
+<span class="token quoted-atom atom">'foo bar'</span>
+<span class="token quoted-atom atom">'\'\\'</span>
+
+----------------------------------------------------

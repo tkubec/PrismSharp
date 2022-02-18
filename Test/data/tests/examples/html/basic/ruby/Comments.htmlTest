@@ -1,0 +1,13 @@
+# This is a comment
+=begin
+Multi-line
+comment
+=end
+----------------------------------------------------
+<span class="token comment"># This is a comment</span>
+<span class="token comment">=begin
+Multi-line
+comment
+=end</span>
+
+----------------------------------------------------

@@ -1,0 +1,25 @@
+'
+' Foo "bar"
+‘
+‘ Foobar
+’
+’ Foobar
+REM
+REM Foobar
+
+' multi-line _
+  comment
+----------------------------------------------------
+<span class="token comment">'</span>
+<span class="token comment">' Foo "bar"</span>
+<span class="token comment">‘</span>
+<span class="token comment">‘ Foobar</span>
+<span class="token comment">’</span>
+<span class="token comment">’ Foobar</span>
+<span class="token comment"><span class="token keyword">REM</span></span>
+<span class="token comment"><span class="token keyword">REM</span> Foobar</span>
+
+<span class="token comment">' multi-line _
+  comment</span>
+
+----------------------------------------------------

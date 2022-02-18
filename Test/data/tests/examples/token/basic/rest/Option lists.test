@@ -1,0 +1,56 @@
+-a         Output all.
+-b         Output both (this description is
+           quite long).
+-c arg     Output just arg.
+--long     Output all day long.
+
+-p         This option has two paragraphs in the description.
+           This is the first.
+
+           This is the second.  Blank lines may be omitted between
+           options (as above) or left in (as here and below).
+
+--very-long-option  A VMS-style option.  Note the adjustment for
+                    the required two spaces.
+
+--an-even-longer-option
+           The description can also start on the next line.
+
+-2, --two  This option has two variants.
+
+-f FILE, --file=FILE  These two options are synonyms; both have
+                      arguments.
+
+/V         A VMS/DOS-style option.
+----------------------------------------------------
+[
+	["command-line-option", "-a"],
+	"         Output all.\n",
+
+	["command-line-option", "-b"],
+	"         Output both (this description is\n           quite long).\n",
+
+	["command-line-option", "-c arg"],
+	"     Output just arg.\n",
+
+	["command-line-option", "--long"],
+	"     Output all day long.\n\n",
+
+	["command-line-option", "-p"],
+	"         This option has two paragraphs in the description.\n           This is the first.\n\n           This is the second.  Blank lines may be omitted between\n           options (as above) or left in (as here and below).\n\n",
+
+	["command-line-option", "--very-long-option"],
+	"  A VMS-style option.  Note the adjustment for\n                    the required two spaces.\n\n",
+
+	["command-line-option", "--an-even-longer-option"],
+	"\n           The description can also start on the next line.\n\n",
+
+	["command-line-option", "-2, --two"], "  This option has two variants.\n\n",
+
+	["command-line-option", "-f FILE, --file=FILE"],
+	"  These two options are synonyms; both have\n                      arguments.\n\n",
+
+	["command-line-option", "/V"], "         A VMS/DOS-style option."
+]
+
+----------------------------------------------------

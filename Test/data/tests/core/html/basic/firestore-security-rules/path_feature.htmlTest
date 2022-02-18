@@ -1,0 +1,19 @@
+/databases/foo
+
+/foo/{wildcard}
+/foo/{wildcard}/bar
+/foo/{x}/{y}/{z}/bar
+
+/foo/$(x)/$(y)/bar/$(request.auth.uid)
+/cities/{document=**}
+----------------------------------------------------
+<span class="token path"><span class="token punctuation">/</span>databases<span class="token punctuation">/</span>foo</span>
+
+<span class="token path"><span class="token punctuation">/</span>foo<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>wildcard<span class="token punctuation">}</span></span></span>
+<span class="token path"><span class="token punctuation">/</span>foo<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>wildcard<span class="token punctuation">}</span></span><span class="token punctuation">/</span>bar</span>
+<span class="token path"><span class="token punctuation">/</span>foo<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>x<span class="token punctuation">}</span></span><span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>y<span class="token punctuation">}</span></span><span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>z<span class="token punctuation">}</span></span><span class="token punctuation">/</span>bar</span>
+
+<span class="token path"><span class="token punctuation">/</span>foo<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">$</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span></span><span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">$</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span></span><span class="token punctuation">/</span>bar<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">$</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>uid<span class="token punctuation">)</span></span></span>
+<span class="token path"><span class="token punctuation">/</span>cities<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>document<span class="token operator">=</span><span class="token keyword">**</span><span class="token punctuation">}</span></span></span>
+
+----------------------------------------------------

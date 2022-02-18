@@ -1,0 +1,53 @@
+<p>@@Username</p>
+<p>@Username</p>
+
+<p>@DateTime.Now</p>
+<p>@DateTime.IsLeapYear(2016)</p>
+
+<p>@await DoSomething("hello", "world")</p>
+
+<p>@GenericMethod<int>()</p>
+
+<p>Last week this time: @(DateTime.Now - TimeSpan.FromDays(7))</p>
+<p>Last week: @DateTime.Now - TimeSpan.FromDays(7)</p>
+<p>Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)</p>
+
+@{
+    var joe = new Person("Joe", 33);
+}
+
+<p>Age@(joe.Age)</p>
+
+<p>@(GenericMethod<int>())</p>
+
+@("<span>Hello World</span>")
+
+@Html.Raw("<span>Hello World</span>")
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>@@Username<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">Username</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">DateTime<span class="token punctuation">.</span>Now</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">DateTime<span class="token punctuation">.</span><span class="token function">IsLeapYear</span><span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">)</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token keyword">await</span> <span class="token function">DoSomething</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">)</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token generic-method"><span class="token function">GenericMethod</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Last week this time: <span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">(</span>DateTime<span class="token punctuation">.</span>Now <span class="token operator">-</span> TimeSpan<span class="token punctuation">.</span><span class="token function">FromDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Last week: <span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">DateTime<span class="token punctuation">.</span>Now</span></span> - TimeSpan.FromDays(7)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token block"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> joe <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Joe"</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Age<span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">(</span>joe<span class="token punctuation">.</span>Age<span class="token punctuation">)</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">(</span><span class="token generic-method"><span class="token function">GenericMethod</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">(</span><span class="token string">"&lt;span>Hello World&lt;/span>"</span><span class="token punctuation">)</span></span></span>
+
+<span class="token value variable"><span class="token keyword">@</span><span class="token csharp language-csharp">Html<span class="token punctuation">.</span><span class="token function">Raw</span><span class="token punctuation">(</span><span class="token string">"&lt;span>Hello World&lt;/span>"</span><span class="token punctuation">)</span></span></span>
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+// this is a comment
+
+/* this
+is a
+multi line comment */
+
+/* so is
+this */
+----------------------------------------------------
+<span class="token comment">// this is a comment</span>
+
+<span class="token comment">/* this
+is a
+multi line comment */</span>
+
+<span class="token comment">/* so is
+this */</span>
+
+----------------------------------------------------

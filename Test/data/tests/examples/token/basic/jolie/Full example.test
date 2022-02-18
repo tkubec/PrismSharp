@@ -1,0 +1,779 @@
+include "console.iol"
+
+type HubType: void {
+  .sid: undefined
+  .nodes[1,*] : NodeType
+}
+
+type NodeType: void {
+  .sid: string
+  .node: string
+  .load?: int
+}
+
+type NetType: HubType | NodeType
+
+interface NetInterface {
+  OneWay: start( string ), addElement( NetType ), removeElement( NetType ), quit( void )
+  RequestResponse: showElements( void )( NetType ) throws SomeFault
+}
+
+type LogType: void {
+  .message: string
+}
+
+interface LoggerInterface {
+  RequestResponse: log( LogType )( void )
+}
+
+outputPort LoggerService {
+    Interfaces: LoggerInterface
+}
+
+embedded {
+  Jolie: "logger.ol" in LoggerService
+}
+
+type AuthenticationData: void {
+    .key:string
+}
+
+interface extender AuthInterfaceExtender {
+    OneWay: *(AuthenticationData)
+}
+
+service SubService
+{
+  Interfaces: NetInterface
+
+  main
+  {
+     println@Console( "I do nothing" )()
+  }
+}
+
+inputPort ExtLogger {
+  Location: "socket://localhost:9000"
+  Protocol: sodep
+  Interfaces: LoggerInterface
+  Aggregates: LoggerService with AuthInterfaceExtender
+}
+
+courier ExtLogger {
+  [interface LoggerInterface( request )] {
+    if ( key == "secret" ){
+      forward ( request )
+    }
+  }
+}
+
+inputPort In {
+  Location: "socket://localhost:8000"
+  Protocol: http {
+    .debug = true;
+    .debug.showContent = true
+  }
+  Interfaces: NetInterface
+  Aggregates: SubService,
+              LoggerService
+  Redirects: A => SubService,
+             B => SubService
+}
+
+cset {
+  sid: HubType.sid NodeType.sid
+}
+
+execution{ concurrent }
+
+define netmodule {
+  if( request.load == 0 || request.load < 1 &&
+      request.load <= 2 || request.load >= 3 &&
+      request.load > 4  || request.load%4 == 2
+  ) {
+    scope( scopeName ) {
+      // inline comment
+      install( MyFault => println@Console( "Something \"Went\" Wrong" + ' but it\'s ok' )() );
+      /*
+      * Multi-line
+      * Comment
+      */
+      install( this => cH; println@Console( "Something went wrong: " + ^load )() );
+      install( default => comp( scopeName ); println@Console( "Something went wrong" )() );
+      load -> request.( "load" );
+      { ++load | load++ | --load | load-- };
+      throw( MyFault )
+    }
+  } else {
+    foreach ( node -> request.nodes ) {
+      with( node ){
+        while( .load != 100 ) {
+          .load++
+        }
+      }
+    }
+  }
+}
+
+main
+{
+  start( sid );
+  synchronized( unneededSync ){
+    csets.sid = sid;
+    undef( sid )
+  };
+  provide
+    [ addElement( request ) ]{
+      if( request instanceof NodeType ) {
+        netmodule
+      }
+    }
+    [ removeElement() ]
+    [ showElements()( response ){
+       /*
+       * assemble response
+       */
+       nullProcess
+     }]{
+       // log the request
+       log@LoggerService( new )();
+       log @ LoggerService( new )()
+     }
+  until
+   [ quit() ]{ exit }
+}
+----------------------------------------------------
+[
+	["keyword", "include"], ["string", "\"console.iol\""],
+
+	["keyword", "type"],
+	" HubType",
+	["punctuation", ":"],
+	["builtin", "void"],
+	["punctuation", "{"],
+
+	["punctuation", "."],
+	"sid",
+	["punctuation", ":"],
+	["builtin", "undefined"],
+
+	["punctuation", "."],
+	"nodes",
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ","],
+	["operator", "*"],
+	["punctuation", "]"],
+	["punctuation", ":"],
+	" NodeType\n",
+
+	["punctuation", "}"],
+
+	["keyword", "type"],
+	" NodeType",
+	["punctuation", ":"],
+	["builtin", "void"],
+	["punctuation", "{"],
+
+	["punctuation", "."],
+	"sid",
+	["punctuation", ":"],
+	["builtin", "string"],
+
+	["punctuation", "."],
+	"node",
+	["punctuation", ":"],
+	["builtin", "string"],
+
+	["punctuation", "."],
+	"load",
+	["operator", "?"],
+	["punctuation", ":"],
+	["builtin", "int"],
+
+	["punctuation", "}"],
+
+	["keyword", "type"],
+	" NetType",
+	["punctuation", ":"],
+	" HubType ",
+	["operator", "|"],
+	" NodeType\n\n",
+
+	["keyword", "interface"],
+	" NetInterface ",
+	["punctuation", "{"],
+
+	["property", "OneWay"],
+	["punctuation", ":"],
+	["function", "start"],
+	["punctuation", "("],
+	["builtin", "string"],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "addElement"],
+	["punctuation", "("],
+	" NetType ",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "removeElement"],
+	["punctuation", "("],
+	" NetType ",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "quit"],
+	["punctuation", "("],
+	["builtin", "void"],
+	["punctuation", ")"],
+
+	["property", "RequestResponse"],
+	["punctuation", ":"],
+	["function", "showElements"],
+	["punctuation", "("],
+	["builtin", "void"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	" NetType ",
+	["punctuation", ")"],
+	["keyword", "throws"],
+	" SomeFault\n",
+
+	["punctuation", "}"],
+
+	["keyword", "type"],
+	" LogType",
+	["punctuation", ":"],
+	["builtin", "void"],
+	["punctuation", "{"],
+
+	["punctuation", "."],
+	"message",
+	["punctuation", ":"],
+	["builtin", "string"],
+
+	["punctuation", "}"],
+
+	["keyword", "interface"],
+	" LoggerInterface ",
+	["punctuation", "{"],
+
+	["property", "RequestResponse"],
+	["punctuation", ":"],
+	["function", "log"],
+	["punctuation", "("],
+	" LogType ",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["builtin", "void"],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "outputPort"],
+	["class-name", "LoggerService"],
+	["punctuation", "{"],
+
+	["property", "Interfaces"],
+	["punctuation", ":"],
+	" LoggerInterface\n",
+
+	["punctuation", "}"],
+
+	["keyword", "embedded"],
+	["punctuation", "{"],
+
+	["property", "Jolie"],
+	["punctuation", ":"],
+	["string", "\"logger.ol\""],
+	["keyword", "in"],
+	["class-name", "LoggerService"],
+
+	["punctuation", "}"],
+
+	["keyword", "type"],
+	" AuthenticationData",
+	["punctuation", ":"],
+	["builtin", "void"],
+	["punctuation", "{"],
+
+	["punctuation", "."],
+	"key",
+	["punctuation", ":"],
+	["builtin", "string"],
+
+	["punctuation", "}"],
+
+	["keyword", "interface"],
+	["keyword", "extender"],
+	" AuthInterfaceExtender ",
+	["punctuation", "{"],
+
+	["property", "OneWay"],
+	["punctuation", ":"],
+	["operator", "*"],
+	["punctuation", "("],
+	"AuthenticationData",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "service"], ["class-name", "SubService"],
+	["punctuation", "{"],
+	["property", "Interfaces"], ["punctuation", ":"], " NetInterface\n\n  ",
+
+	["keyword", "main"],
+
+	["punctuation", "{"],
+
+	["function", "println"],
+	["operator", "@"],
+	["class-name", "Console"],
+	["punctuation", "("],
+	["string", "\"I do nothing\""],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "inputPort"],
+	["class-name", "ExtLogger"],
+	["punctuation", "{"],
+
+	["property", "Location"],
+	["punctuation", ":"],
+	["string", "\"socket://localhost:9000\""],
+
+	["property", "Protocol"],
+	["punctuation", ":"],
+	" sodep\n  ",
+
+	["property", "Interfaces"],
+	["punctuation", ":"],
+	" LoggerInterface\n  ",
+
+	["property", "Aggregates"],
+	["punctuation", ":"],
+	["aggregates", [
+		["class-name", "LoggerService"],
+		["keyword", "with"],
+		["class-name", "AuthInterfaceExtender"]
+	]],
+
+	["punctuation", "}"],
+
+	["keyword", "courier"],
+	["class-name", "ExtLogger"],
+	["punctuation", "{"],
+
+	["punctuation", "["],
+	["keyword", "interface"],
+	["function", "LoggerInterface"],
+	["punctuation", "("],
+	" request ",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" key ",
+	["operator", "=="],
+	["string", "\"secret\""],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "forward"],
+	["punctuation", "("],
+	" request ",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "inputPort"],
+	["class-name", "In"],
+	["punctuation", "{"],
+
+	["property", "Location"],
+	["punctuation", ":"],
+	["string", "\"socket://localhost:8000\""],
+
+	["property", "Protocol"],
+	["punctuation", ":"],
+	" http ",
+	["punctuation", "{"],
+
+	["punctuation", "."],
+	"debug ",
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", ";"],
+
+	["punctuation", "."],
+	"debug",
+	["punctuation", "."],
+	"showContent ",
+	["operator", "="],
+	["boolean", "true"],
+
+	["punctuation", "}"],
+
+	["property", "Interfaces"],
+	["punctuation", ":"],
+	" NetInterface\n  ",
+
+	["property", "Aggregates"],
+	["punctuation", ":"],
+	["aggregates", [
+		["class-name", "SubService"], ["punctuation", ","],
+		["class-name", "LoggerService"]
+	]],
+
+	["property", "Redirects"],
+	["punctuation", ":"],
+	["redirects", [
+		["class-name", "A"],
+		["operator", "=>"],
+		["class-name", "SubService"],
+		["punctuation", ","],
+
+		["class-name", "B"],
+		["operator", "=>"],
+		["class-name", "SubService"]
+	]],
+
+	["punctuation", "}"],
+
+	["keyword", "cset"],
+	["punctuation", "{"],
+
+	"\n  sid",
+	["punctuation", ":"],
+	" HubType",
+	["punctuation", "."],
+	"sid NodeType",
+	["punctuation", "."],
+	"sid\n",
+
+	["punctuation", "}"],
+
+	["keyword", "execution"],
+	["punctuation", "{"],
+	["keyword", "concurrent"],
+	["punctuation", "}"],
+
+	["keyword", "define"],
+	" netmodule ",
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" request",
+	["punctuation", "."],
+	"load ",
+	["operator", "=="],
+	["number", "0"],
+	["operator", "||"],
+	" request",
+	["punctuation", "."],
+	"load ",
+	["operator", "<"],
+	["number", "1"],
+	["operator", "&&"],
+
+	"\n      request",
+	["punctuation", "."],
+	"load ",
+	["operator", "<="],
+	["number", "2"],
+	["operator", "||"],
+	" request",
+	["punctuation", "."],
+	"load ",
+	["operator", ">="],
+	["number", "3"],
+	["operator", "&&"],
+
+	"\n      request",
+	["punctuation", "."],
+	"load ",
+	["operator", ">"],
+	["number", "4"],
+	["operator", "||"],
+	" request",
+	["punctuation", "."],
+	"load",
+	["operator", "%"],
+	["number", "4"],
+	["operator", "=="],
+	["number", "2"],
+
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "scope"],
+	["punctuation", "("],
+	" scopeName ",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// inline comment"],
+
+	["keyword", "install"],
+	["punctuation", "("],
+	" MyFault ",
+	["operator", "="],
+	["operator", ">"],
+	["function", "println"],
+	["operator", "@"],
+	["class-name", "Console"],
+	["punctuation", "("],
+	["string", "\"Something \\\"Went\\\" Wrong\""],
+	["operator", "+"],
+	" ' but it\\'s ok' ",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "/*\n      * Multi-line\n      * Comment\n      */"],
+
+	["keyword", "install"],
+	["punctuation", "("],
+	["keyword", "this"],
+	["operator", "="],
+	["operator", ">"],
+	["keyword", "cH"],
+	["punctuation", ";"],
+	["function", "println"],
+	["operator", "@"],
+	["class-name", "Console"],
+	["punctuation", "("],
+	["string", "\"Something went wrong: \""],
+	["operator", "+"],
+	["operator", "^"],
+	"load ",
+	["punctuation", ")"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "install"],
+	["punctuation", "("],
+	["keyword", "default"],
+	["operator", "="],
+	["operator", ">"],
+	["keyword", "comp"],
+	["punctuation", "("],
+	" scopeName ",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["function", "println"],
+	["operator", "@"],
+	["class-name", "Console"],
+	["punctuation", "("],
+	["string", "\"Something went wrong\""],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n      load ",
+	["operator", "->"],
+	" request",
+	["punctuation", "."],
+	["punctuation", "("],
+	["string", "\"load\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "{"],
+	["operator", "++"],
+	"load ",
+	["operator", "|"],
+	" load",
+	["operator", "++"],
+	["operator", "|"],
+	["operator", "--"],
+	"load ",
+	["operator", "|"],
+	" load",
+	["operator", "--"],
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "throw"],
+	["punctuation", "("],
+	" MyFault ",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["keyword", "foreach"],
+	["punctuation", "("],
+	" node ",
+	["operator", "->"],
+	" request",
+	["punctuation", "."],
+	"nodes ",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "with"],
+	["punctuation", "("],
+	" node ",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "while"],
+	["punctuation", "("],
+	["punctuation", "."],
+	"load ",
+	["operator", "!="],
+	["number", "100"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["punctuation", "."],
+	"load",
+	["operator", "++"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "main"],
+
+	["punctuation", "{"],
+
+	["function", "start"],
+	["punctuation", "("],
+	" sid ",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "synchronized"],
+	["punctuation", "("],
+	" unneededSync ",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "csets"],
+	["punctuation", "."],
+	"sid ",
+	["operator", "="],
+	" sid",
+	["punctuation", ";"],
+
+	["keyword", "undef"],
+	["punctuation", "("],
+	" sid ",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "provide"],
+
+	["punctuation", "["],
+	["function", "addElement"],
+	["punctuation", "("],
+	" request ",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" request ",
+	["keyword", "instanceof"],
+	" NodeType ",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n        netmodule\n      ",
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "["],
+	["function", "removeElement"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	["function", "showElements"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "("],
+	" response ",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "/*\n       * assemble response\n       */"],
+
+	["keyword", "nullProcess"],
+
+	["punctuation", "}"],
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["comment", "// log the request"],
+
+	["function", "log"],
+	["operator", "@"],
+	["class-name", "LoggerService"],
+	["punctuation", "("],
+	["keyword", "new"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "log"],
+	["operator", "@"],
+	["class-name", "LoggerService"],
+	["punctuation", "("],
+	["keyword", "new"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "until"],
+
+	["punctuation", "["],
+	["function", "quit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["keyword", "exit"],
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

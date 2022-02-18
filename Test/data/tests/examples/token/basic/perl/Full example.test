@@ -1,0 +1,224 @@
+sub read_config_file {
+  my ($class, $filename) = @_;
+
+  unless (defined $filename) {
+    my $home  = File::HomeDir->my_home || '.';
+    $filename = File::Spec->catfile($home, '.pause');
+
+    return {} unless -e $filename and -r _;
+  }
+
+  my %conf;
+  if ( eval { require Config::Identity } ) {
+    %conf = Config::Identity->load($filename);
+    $conf{user} = delete $conf{username} unless $conf{user};
+  }
+  else { # Process .pause manually
+    open my $pauserc, '<', $filename
+      or die "can't open $filename for reading: $!";
+
+    while (<$pauserc>) {
+      chomp;
+      next unless $_ and $_ !~ /^\s*#/;
+
+      my ($k, $v) = /^\s*(\w+)\s+(.+)$/;
+      Carp::croak "multiple enties for $k" if $conf{$k};
+      $conf{$k} = $v;
+    }
+  }
+
+  return \%conf;
+}
+----------------------------------------------------
+[
+	["keyword", "sub"],
+	["function", "read_config_file"],
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["punctuation", "("],
+	["variable", "$class"],
+	["punctuation", ","],
+	["variable", "$filename"],
+	["punctuation", ")"],
+	["operator", "="],
+	["variable", "@_"],
+	["punctuation", ";"],
+
+	["keyword", "unless"],
+	["punctuation", "("],
+	"defined ",
+	["variable", "$filename"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "my"],
+	["variable", "$home"],
+	["operator", "="],
+	" File",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"HomeDir",
+	["operator", "->"],
+	"my_home ",
+	["operator", "||"],
+	["string", "'.'"],
+	["punctuation", ";"],
+
+	["variable", "$filename"],
+	["operator", "="],
+	" File",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"Spec",
+	["operator", "->"],
+	"catfile",
+	["punctuation", "("],
+	["variable", "$home"],
+	["punctuation", ","],
+	["string", "'.pause'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["keyword", "unless"],
+	["operator", "-e"],
+	["variable", "$filename"],
+	["operator", "and"],
+	["operator", "-r"],
+	["filehandle", "_"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "my"],
+	["variable", "%conf"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["keyword", "eval"],
+	["punctuation", "{"],
+	["keyword", "require"],
+	" Config",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"Identity ",
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "%conf"],
+	["operator", "="],
+	" Config",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"Identity",
+	["operator", "->"],
+	"load",
+	["punctuation", "("],
+	["variable", "$filename"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["variable", "$conf"],
+	["punctuation", "{"],
+	"user",
+	["punctuation", "}"],
+	["operator", "="],
+	["keyword", "delete"],
+	["variable", "$conf"],
+	["punctuation", "{"],
+	"username",
+	["punctuation", "}"],
+	["keyword", "unless"],
+	["variable", "$conf"],
+	["punctuation", "{"],
+	"user",
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["punctuation", "{"],
+	["comment", "# Process .pause manually"],
+
+	"\n    open ",
+	["keyword", "my"],
+	["variable", "$pauserc"],
+	["punctuation", ","],
+	["string", "'<'"],
+	["punctuation", ","],
+	["variable", "$filename"],
+
+	["operator", "or"],
+	["keyword", "die"],
+	["string", "\"can't open $filename for reading: $!\""],
+	["punctuation", ";"],
+
+	["keyword", "while"],
+	["punctuation", "("],
+	["operator", "<"],
+	["variable", "$pauserc"],
+	["operator", ">"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n      chomp",
+	["punctuation", ";"],
+
+	["keyword", "next"],
+	["keyword", "unless"],
+	["variable", "$_"],
+	["operator", "and"],
+	["variable", "$_"],
+	["operator", "!~"],
+	["regex", "/^\\s*#/"],
+	["punctuation", ";"],
+
+	["keyword", "my"],
+	["punctuation", "("],
+	["variable", "$k"],
+	["punctuation", ","],
+	["variable", "$v"],
+	["punctuation", ")"],
+	["operator", "="],
+	["regex", "/^\\s*(\\w+)\\s+(.+)$/"],
+	["punctuation", ";"],
+
+	"\n      Carp",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"croak ",
+	["string", "\"multiple enties for $k\""],
+	["keyword", "if"],
+	["variable", "$conf"],
+	["punctuation", "{"],
+	["variable", "$k"],
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["variable", "$conf"],
+	["punctuation", "{"],
+	["variable", "$k"],
+	["punctuation", "}"],
+	["operator", "="],
+	["variable", "$v"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"],
+	["operator", "\\"],
+	["variable", "%conf"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

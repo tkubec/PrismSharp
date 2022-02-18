@@ -1,0 +1,197 @@
+(node:40780) DeprecationWarning: Using Buffer without `new` will soon stop working. Use `new Buffer()`, or preferably `Buffer.from()`, `Buffer.allocUnsafe()` or `Buffer.alloc()` instead.
+    at Buffer (buffer.js:79:13)
+    at repl:1:1
+    at sigintHandlersWrap (vm.js:22:35)
+    at sigintHandlersWrap (vm.js:96:12)
+    at ContextifyScript.Script.runInThisContext (vm.js:21:12)
+    at REPLServer.defaultEval (repl.js:313:29)
+    at bound (domain.js:280:14)
+    at REPLServer.runBound [as eval] (domain.js:293:12)
+    at REPLServer.onLine (repl.js:513:10)
+    at emitOne (events.js:101:20)
+
+Error: custom error
+    at Server.<anonymous> (/trace/showcases/http.js:4:9)
+    at emitTwo (events.js:106:13)
+    at Server.emit (events.js:191:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:543:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:105:23)
+    at new <anonymous> (_http_common.js:159:16)
+    at exports.FreeList.alloc (internal/freelist.js:14:46)
+    at Server.connectionListener (_http_server.js:316:24)
+    at emitOne (events.js:96:13)
+    at Server.emit (events.js:188:7)
+    at TCP.onconnection (net.js:1460:8)
+    at createServerHandle (net.js:1181:14)
+    at Server._listen2 (net.js:1225:14)
+    at listen (net.js:1290:10)
+    at Server.listen (net.js:1386:5)
+    at Object.<anonymous> (/trace/showcases/http.js:5:4)
+    at Module._compile (module.js:541:32)
+    at Object.Module._extensions..js (module.js:550:10)
+    at Module.load (module.js:458:32)
+    at tryModuleLoad (module.js:417:12)
+    at Function.Module._load (module.js:409:3)
+    at Module.runMain (module.js:575:10)
+    at run (bootstrap_node.js:340:7)
+    at startup (bootstrap_node.js:132:9)
+    at bootstrap_node.js:455:3
+
+
+Error: custom error
+    at /trace/showcases/basic.js:7:13
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+    at InternalFieldObject.ondone (/trace/showcases/basic.js:6:13)
+    at /trace/showcases/basic.js:5:10
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:445:3)
+    at ReadFileContext.close (fs.js:358:11)
+    at FSReqWrap.readFileAfterRead [as oncomplete] (fs.js:414:15)
+    at ReadFileContext.read (fs.js:342:11)
+    at FSReqWrap.readFileAfterStat [as oncomplete] (fs.js:398:11)
+    at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:374:11)
+    at Object.fs.readFile (fs.js:303:11)
+    at Object.<anonymous> (/trace/showcases/basic.js:4:4)
+    at Module._compile (module.js:541:32)
+    at Object.Module._extensions..js (module.js:550:10)
+    at Module.load (module.js:458:32)
+    at tryModuleLoad (module.js:417:12)
+    at Function.Module._load (module.js:409:3)
+    at Module.runMain (module.js:575:10)
+    at run (bootstrap_node.js:340:7)
+    at startup (bootstrap_node.js:132:9)
+    at bootstrap_node.js:455:3
+
+
+BulkWriteError: E11000 duplicate key error collection: test.test index: _id_ dup key: { : 1 }
+    at OrderedBulkOperation.handleWriteError (/workspace/node_modules/mongodb/lib/bulk/common.js:1048:11)
+    at resultHandler (/workspace/node_modules/mongodb/lib/bulk/ordered.js:159:23)
+    at /workspace/node_modules/mongodb/node_modules/mongodb-core/lib/connection/pool.js:532:18
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+
+Error
+    at Collection.(anonymous function) [as insertMany] (/workspace/node_modules/monogram/lib/collection.js:80:21)
+    at insert (/workspace/test.js:14:31)
+    at run (/workspace/test.js:9:9)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+
+Error
+    at Collection.(anonymous function) [as insertMany] (/workspace/node_modules/monogram/lib/collection.js:80:21)
+    at insert (/workspace/test.js:15:31)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)
+
+
+Deno:
+
+Error: Some error
+    at throwsA (<unknown>:1:23)
+    at <unknown>:1:13
+    at evaluate ($deno$/repl.ts:64:34)
+    at Object.replLoop ($deno$/repl.ts:153:13)
+
+Uncaught NotFound: No such file or directory (os error 2)
+    at DenoError (deno/js/errors.ts:22:5)
+    at maybeError (deno/js/errors.ts:41:12)
+    at handleAsyncMsgFromRust (deno/js/dispatch.ts:27:17)
+----------------------------------------------------
+<span class="token error-message string">(node:40780) DeprecationWarning: Using Buffer without `new` will soon stop working. Use `new Buffer()`, or preferably `Buffer.from()`, `Buffer.allocUnsafe()` or `Buffer.alloc()` instead.</span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Buffer</span> <span class="token punctuation">(</span><span class="token filename url">buffer.js</span><span class="token line-number number"><span class="token punctuation">:</span>79<span class="token punctuation">:</span>13</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token filename url">repl</span><span class="token line-number number"><span class="token punctuation">:</span>1<span class="token punctuation">:</span>1</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">sigintHandlersWrap</span> <span class="token punctuation">(</span><span class="token filename url">vm.js</span><span class="token line-number number"><span class="token punctuation">:</span>22<span class="token punctuation">:</span>35</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">sigintHandlersWrap</span> <span class="token punctuation">(</span><span class="token filename url">vm.js</span><span class="token line-number number"><span class="token punctuation">:</span>96<span class="token punctuation">:</span>12</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">ContextifyScript<span class="token punctuation">.</span>Script<span class="token punctuation">.</span>runInThisContext</span> <span class="token punctuation">(</span><span class="token filename url">vm.js</span><span class="token line-number number"><span class="token punctuation">:</span>21<span class="token punctuation">:</span>12</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">REPLServer<span class="token punctuation">.</span>defaultEval</span> <span class="token punctuation">(</span><span class="token filename url">repl.js</span><span class="token line-number number"><span class="token punctuation">:</span>313<span class="token punctuation">:</span>29</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">bound</span> <span class="token punctuation">(</span><span class="token filename url">domain.js</span><span class="token line-number number"><span class="token punctuation">:</span>280<span class="token punctuation">:</span>14</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">REPLServer<span class="token punctuation">.</span>runBound</span> <span class="token alias variable">[as eval]</span> <span class="token punctuation">(</span><span class="token filename url">domain.js</span><span class="token line-number number"><span class="token punctuation">:</span>293<span class="token punctuation">:</span>12</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">REPLServer<span class="token punctuation">.</span>onLine</span> <span class="token punctuation">(</span><span class="token filename url">repl.js</span><span class="token line-number number"><span class="token punctuation">:</span>513<span class="token punctuation">:</span>10</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">emitOne</span> <span class="token punctuation">(</span><span class="token filename url">events.js</span><span class="token line-number number"><span class="token punctuation">:</span>101<span class="token punctuation">:</span>20</span><span class="token punctuation">)</span></span>
+
+<span class="token error-message string">Error: custom error</span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Server<span class="token punctuation">.</span>&lt;anonymous></span> <span class="token punctuation">(</span><span class="token filename url">/trace/showcases/http.js</span><span class="token line-number number"><span class="token punctuation">:</span>4<span class="token punctuation">:</span>9</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">emitTwo</span> <span class="token punctuation">(</span><span class="token filename url">events.js</span><span class="token line-number number"><span class="token punctuation">:</span>106<span class="token punctuation">:</span>13</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Server<span class="token punctuation">.</span>emit</span> <span class="token punctuation">(</span><span class="token filename url">events.js</span><span class="token line-number number"><span class="token punctuation">:</span>191<span class="token punctuation">:</span>7</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">HTTPParser<span class="token punctuation">.</span>parserOnIncoming</span> <span class="token alias variable">[as onIncoming]</span> <span class="token punctuation">(</span><span class="token filename url">_http_server.js</span><span class="token line-number number"><span class="token punctuation">:</span>543<span class="token punctuation">:</span>12</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">HTTPParser<span class="token punctuation">.</span>parserOnHeadersComplete</span> <span class="token punctuation">(</span><span class="token filename url">_http_common.js</span><span class="token line-number number"><span class="token punctuation">:</span>105<span class="token punctuation">:</span>23</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token keyword">new</span> <span class="token function">&lt;anonymous></span> <span class="token punctuation">(</span><span class="token filename url">_http_common.js</span><span class="token line-number number"><span class="token punctuation">:</span>159<span class="token punctuation">:</span>16</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at exports.FreeList.alloc (internal/freelist.js:14:46)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Server<span class="token punctuation">.</span>connectionListener</span> <span class="token punctuation">(</span><span class="token filename url">_http_server.js</span><span class="token line-number number"><span class="token punctuation">:</span>316<span class="token punctuation">:</span>24</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">emitOne</span> <span class="token punctuation">(</span><span class="token filename url">events.js</span><span class="token line-number number"><span class="token punctuation">:</span>96<span class="token punctuation">:</span>13</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Server<span class="token punctuation">.</span>emit</span> <span class="token punctuation">(</span><span class="token filename url">events.js</span><span class="token line-number number"><span class="token punctuation">:</span>188<span class="token punctuation">:</span>7</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">TCP<span class="token punctuation">.</span>onconnection</span> <span class="token punctuation">(</span><span class="token filename url">net.js</span><span class="token line-number number"><span class="token punctuation">:</span>1460<span class="token punctuation">:</span>8</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">createServerHandle</span> <span class="token punctuation">(</span><span class="token filename url">net.js</span><span class="token line-number number"><span class="token punctuation">:</span>1181<span class="token punctuation">:</span>14</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Server<span class="token punctuation">.</span>_listen2</span> <span class="token punctuation">(</span><span class="token filename url">net.js</span><span class="token line-number number"><span class="token punctuation">:</span>1225<span class="token punctuation">:</span>14</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">listen</span> <span class="token punctuation">(</span><span class="token filename url">net.js</span><span class="token line-number number"><span class="token punctuation">:</span>1290<span class="token punctuation">:</span>10</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Server<span class="token punctuation">.</span>listen</span> <span class="token punctuation">(</span><span class="token filename url">net.js</span><span class="token line-number number"><span class="token punctuation">:</span>1386<span class="token punctuation">:</span>5</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Object<span class="token punctuation">.</span>&lt;anonymous></span> <span class="token punctuation">(</span><span class="token filename url">/trace/showcases/http.js</span><span class="token line-number number"><span class="token punctuation">:</span>5<span class="token punctuation">:</span>4</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Module<span class="token punctuation">.</span>_compile</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>541<span class="token punctuation">:</span>32</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Object<span class="token punctuation">.</span>Module<span class="token punctuation">.</span>_extensions<span class="token punctuation">.</span><span class="token punctuation">.</span>js</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>550<span class="token punctuation">:</span>10</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Module<span class="token punctuation">.</span>load</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>458<span class="token punctuation">:</span>32</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">tryModuleLoad</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>417<span class="token punctuation">:</span>12</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Function<span class="token punctuation">.</span>Module<span class="token punctuation">.</span>_load</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>409<span class="token punctuation">:</span>3</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Module<span class="token punctuation">.</span>runMain</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>575<span class="token punctuation">:</span>10</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">run</span> <span class="token punctuation">(</span><span class="token filename url">bootstrap_node.js</span><span class="token line-number number"><span class="token punctuation">:</span>340<span class="token punctuation">:</span>7</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">startup</span> <span class="token punctuation">(</span><span class="token filename url">bootstrap_node.js</span><span class="token line-number number"><span class="token punctuation">:</span>132<span class="token punctuation">:</span>9</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token filename url">bootstrap_node.js</span><span class="token line-number number"><span class="token punctuation">:</span>455<span class="token punctuation">:</span>3</span></span>
+
+
+<span class="token error-message string">Error: custom error</span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token filename url">/trace/showcases/basic.js</span><span class="token line-number number"><span class="token punctuation">:</span>7<span class="token punctuation">:</span>13</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at _combinedTickCallback (internal/process/next_tick.js:67:7)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at process._tickCallback (internal/process/next_tick.js:98:9)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">InternalFieldObject<span class="token punctuation">.</span>ondone</span> <span class="token punctuation">(</span><span class="token filename url">/trace/showcases/basic.js</span><span class="token line-number number"><span class="token punctuation">:</span>6<span class="token punctuation">:</span>13</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token filename url">/trace/showcases/basic.js</span><span class="token line-number number"><span class="token punctuation">:</span>5<span class="token punctuation">:</span>10</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">FSReqWrap<span class="token punctuation">.</span>readFileAfterClose</span> <span class="token alias variable">[as oncomplete]</span> <span class="token punctuation">(</span><span class="token filename url">fs.js</span><span class="token line-number number"><span class="token punctuation">:</span>445<span class="token punctuation">:</span>3</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">ReadFileContext<span class="token punctuation">.</span>close</span> <span class="token punctuation">(</span><span class="token filename url">fs.js</span><span class="token line-number number"><span class="token punctuation">:</span>358<span class="token punctuation">:</span>11</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">FSReqWrap<span class="token punctuation">.</span>readFileAfterRead</span> <span class="token alias variable">[as oncomplete]</span> <span class="token punctuation">(</span><span class="token filename url">fs.js</span><span class="token line-number number"><span class="token punctuation">:</span>414<span class="token punctuation">:</span>15</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">ReadFileContext<span class="token punctuation">.</span>read</span> <span class="token punctuation">(</span><span class="token filename url">fs.js</span><span class="token line-number number"><span class="token punctuation">:</span>342<span class="token punctuation">:</span>11</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">FSReqWrap<span class="token punctuation">.</span>readFileAfterStat</span> <span class="token alias variable">[as oncomplete]</span> <span class="token punctuation">(</span><span class="token filename url">fs.js</span><span class="token line-number number"><span class="token punctuation">:</span>398<span class="token punctuation">:</span>11</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">FSReqWrap<span class="token punctuation">.</span>readFileAfterOpen</span> <span class="token alias variable">[as oncomplete]</span> <span class="token punctuation">(</span><span class="token filename url">fs.js</span><span class="token line-number number"><span class="token punctuation">:</span>374<span class="token punctuation">:</span>11</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Object<span class="token punctuation">.</span>fs<span class="token punctuation">.</span>readFile</span> <span class="token punctuation">(</span><span class="token filename url">fs.js</span><span class="token line-number number"><span class="token punctuation">:</span>303<span class="token punctuation">:</span>11</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Object<span class="token punctuation">.</span>&lt;anonymous></span> <span class="token punctuation">(</span><span class="token filename url">/trace/showcases/basic.js</span><span class="token line-number number"><span class="token punctuation">:</span>4<span class="token punctuation">:</span>4</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Module<span class="token punctuation">.</span>_compile</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>541<span class="token punctuation">:</span>32</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Object<span class="token punctuation">.</span>Module<span class="token punctuation">.</span>_extensions<span class="token punctuation">.</span><span class="token punctuation">.</span>js</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>550<span class="token punctuation">:</span>10</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Module<span class="token punctuation">.</span>load</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>458<span class="token punctuation">:</span>32</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">tryModuleLoad</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>417<span class="token punctuation">:</span>12</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Function<span class="token punctuation">.</span>Module<span class="token punctuation">.</span>_load</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>409<span class="token punctuation">:</span>3</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Module<span class="token punctuation">.</span>runMain</span> <span class="token punctuation">(</span><span class="token filename url">module.js</span><span class="token line-number number"><span class="token punctuation">:</span>575<span class="token punctuation">:</span>10</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">run</span> <span class="token punctuation">(</span><span class="token filename url">bootstrap_node.js</span><span class="token line-number number"><span class="token punctuation">:</span>340<span class="token punctuation">:</span>7</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">startup</span> <span class="token punctuation">(</span><span class="token filename url">bootstrap_node.js</span><span class="token line-number number"><span class="token punctuation">:</span>132<span class="token punctuation">:</span>9</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token filename url">bootstrap_node.js</span><span class="token line-number number"><span class="token punctuation">:</span>455<span class="token punctuation">:</span>3</span></span>
+
+
+<span class="token error-message string">BulkWriteError: E11000 duplicate key error collection: test.test index: _id_ dup key: { : 1 }</span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at OrderedBulkOperation.handleWriteError (/workspace/node_modules/mongodb/lib/bulk/common.js:1048:11)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at resultHandler (/workspace/node_modules/mongodb/lib/bulk/ordered.js:159:23)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at /workspace/node_modules/mongodb/node_modules/mongodb-core/lib/connection/pool.js:532:18</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at _combinedTickCallback (internal/process/next_tick.js:131:7)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at process._tickCallback (internal/process/next_tick.js:180:9)</span></span>
+
+<span class="token error-message string">Error</span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at Collection.(anonymous function) [as insertMany] (/workspace/node_modules/monogram/lib/collection.js:80:21)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">insert</span> <span class="token punctuation">(</span><span class="token filename url">/workspace/test.js</span><span class="token line-number number"><span class="token punctuation">:</span>14<span class="token punctuation">:</span>31</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">run</span> <span class="token punctuation">(</span><span class="token filename url">/workspace/test.js</span><span class="token line-number number"><span class="token punctuation">:</span>9<span class="token punctuation">:</span>9</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at &lt;anonymous></span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at process._tickCallback (internal/process/next_tick.js:188:7)</span></span>
+
+<span class="token error-message string">Error</span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at Collection.(anonymous function) [as insertMany] (/workspace/node_modules/monogram/lib/collection.js:80:21)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">insert</span> <span class="token punctuation">(</span><span class="token filename url">/workspace/test.js</span><span class="token line-number number"><span class="token punctuation">:</span>15<span class="token punctuation">:</span>31</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at processTicksAndRejections (internal/process/next_tick.js:81:5)</span></span>
+
+
+<span class="token error-message string">Deno:</span>
+
+<span class="token error-message string">Error: Some error</span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at throwsA (&lt;unknown>:1:23)</span></span>
+    <span class="token stack-frame"><span class="token not-my-code comment">at &lt;unknown>:1:13</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">evaluate</span> <span class="token punctuation">(</span><span class="token filename url">$deno$/repl.ts</span><span class="token line-number number"><span class="token punctuation">:</span>64<span class="token punctuation">:</span>34</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">Object<span class="token punctuation">.</span>replLoop</span> <span class="token punctuation">(</span><span class="token filename url">$deno$/repl.ts</span><span class="token line-number number"><span class="token punctuation">:</span>153<span class="token punctuation">:</span>13</span><span class="token punctuation">)</span></span>
+
+<span class="token error-message string">Uncaught NotFound: No such file or directory (os error 2)</span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">DenoError</span> <span class="token punctuation">(</span><span class="token filename url">deno/js/errors.ts</span><span class="token line-number number"><span class="token punctuation">:</span>22<span class="token punctuation">:</span>5</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">maybeError</span> <span class="token punctuation">(</span><span class="token filename url">deno/js/errors.ts</span><span class="token line-number number"><span class="token punctuation">:</span>41<span class="token punctuation">:</span>12</span><span class="token punctuation">)</span></span>
+    <span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">handleAsyncMsgFromRust</span> <span class="token punctuation">(</span><span class="token filename url">deno/js/dispatch.ts</span><span class="token line-number number"><span class="token punctuation">:</span>27<span class="token punctuation">:</span>17</span><span class="token punctuation">)</span></span>
+
+----------------------------------------------------

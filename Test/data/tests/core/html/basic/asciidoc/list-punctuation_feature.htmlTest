@@ -1,0 +1,67 @@
+- Foo
+* Foo
+** Foo bar
+*** Foo
+	1. Foo
+	2. Foo bar
+	42. Foo
+**** Foo
+***** Foo bar
+
+. Foo
+.. Foo
+    a. Foo
+    b. Foo
+    z. Foo
+... Foo bar
+.... Foo
+	i) Foo
+	vi) Bar
+	xxvii) Baz
+..... Foo
+
+____
+. 1
+.. 2
+____
+
+|===
+|
+xi) a
+xii) b
+|===
+----------------------------------------------------
+<span class="token list-punctuation punctuation">-</span> Foo
+<span class="token list-punctuation punctuation">*</span> Foo
+<span class="token list-punctuation punctuation">**</span> Foo bar
+<span class="token list-punctuation punctuation">***</span> Foo
+	<span class="token list-punctuation punctuation">1.</span> Foo
+	<span class="token list-punctuation punctuation">2.</span> Foo bar
+	<span class="token list-punctuation punctuation">42.</span> Foo
+<span class="token list-punctuation punctuation">****</span> Foo
+<span class="token list-punctuation punctuation">*****</span> Foo bar
+
+<span class="token list-punctuation punctuation">.</span> Foo
+<span class="token list-punctuation punctuation">..</span> Foo
+    <span class="token list-punctuation punctuation">a.</span> Foo
+    <span class="token list-punctuation punctuation">b.</span> Foo
+    <span class="token list-punctuation punctuation">z.</span> Foo
+<span class="token list-punctuation punctuation">...</span> Foo bar
+<span class="token list-punctuation punctuation">....</span> Foo
+	<span class="token list-punctuation punctuation">i)</span> Foo
+	<span class="token list-punctuation punctuation">vi)</span> Bar
+	<span class="token list-punctuation punctuation">xxvii)</span> Baz
+<span class="token list-punctuation punctuation">.....</span> Foo
+
+<span class="token other-block"><span class="token punctuation">____</span>
+<span class="token list-punctuation punctuation">.</span> 1
+<span class="token list-punctuation punctuation">..</span> 2
+<span class="token punctuation">____</span></span>
+
+<span class="token table"><span class="token punctuation">|===</span>
+<span class="token punctuation">|</span>
+<span class="token list-punctuation punctuation">xi)</span> a
+<span class="token list-punctuation punctuation">xii)</span> b
+<span class="token punctuation">|===</span></span>
+
+----------------------------------------------------

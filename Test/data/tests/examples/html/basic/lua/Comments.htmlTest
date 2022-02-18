@@ -1,0 +1,17 @@
+#!/usr/local/bin/lua
+--
+-- Single line comment
+--[[ Multi line
+comment ]]
+--[====[ Multi line
+comment ]====]
+----------------------------------------------------
+<span class="token comment">#!/usr/local/bin/lua</span>
+<span class="token comment">--</span>
+<span class="token comment">-- Single line comment</span>
+<span class="token comment">--[[ Multi line
+comment ]]</span>
+<span class="token comment">--[====[ Multi line
+comment ]====]</span>
+
+----------------------------------------------------

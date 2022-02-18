@@ -1,0 +1,19 @@
+$PC:{ <!-- Page Content Part --> }:PC$
+----------------------------------------------------
+[
+	["directive-block-open", [
+		["punctuation", ["$"]],
+		"PC",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Page Content Part -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"PC",
+		["punctuation", "$"]
+	]]
+]
+
+----------------------------------------------------

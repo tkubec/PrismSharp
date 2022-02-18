@@ -1,0 +1,57 @@
+# This is a comment
+
+key = "value"
+paths.home = 'c:\foo\'
+
+[database.prod]
+server = "192.168.1.1"
+ports = [ 8001, 8001, 8002 ]
+connection_max = 5000
+enabled = true
+
+
+[[users]]
+name = "John"
+bday = 1995-09-22
+bio = ""
+interests = [ "biking", "fishing" ]
+
+[[users]]
+name = "Jane"
+bday = 1989-05-09
+bio = """\
+Hi!
+
+I love programming!\
+"""
+interests = [ "programming" ]
+----------------------------------------------------
+<span class="token comment"># This is a comment</span>
+
+<span class="token key property">key</span> <span class="token punctuation">=</span> <span class="token string">"value"</span>
+<span class="token key property">paths.home</span> <span class="token punctuation">=</span> <span class="token string">'c:\foo\'</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">database.prod</span><span class="token punctuation">]</span>
+<span class="token key property">server</span> <span class="token punctuation">=</span> <span class="token string">"192.168.1.1"</span>
+<span class="token key property">ports</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span> <span class="token number">8001</span><span class="token punctuation">,</span> <span class="token number">8001</span><span class="token punctuation">,</span> <span class="token number">8002</span> <span class="token punctuation">]</span>
+<span class="token key property">connection_max</span> <span class="token punctuation">=</span> <span class="token number">5000</span>
+<span class="token key property">enabled</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
+
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token table class-name">users</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token key property">name</span> <span class="token punctuation">=</span> <span class="token string">"John"</span>
+<span class="token key property">bday</span> <span class="token punctuation">=</span> <span class="token date number">1995-09-22</span>
+<span class="token key property">bio</span> <span class="token punctuation">=</span> <span class="token string">""</span>
+<span class="token key property">interests</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span> <span class="token string">"biking"</span><span class="token punctuation">,</span> <span class="token string">"fishing"</span> <span class="token punctuation">]</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token table class-name">users</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token key property">name</span> <span class="token punctuation">=</span> <span class="token string">"Jane"</span>
+<span class="token key property">bday</span> <span class="token punctuation">=</span> <span class="token date number">1989-05-09</span>
+<span class="token key property">bio</span> <span class="token punctuation">=</span> <span class="token string">"""\
+Hi!
+
+I love programming!\
+"""</span>
+<span class="token key property">interests</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span> <span class="token string">"programming"</span> <span class="token punctuation">]</span>
+
+----------------------------------------------------

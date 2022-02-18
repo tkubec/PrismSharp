@@ -1,0 +1,148 @@
+mov     ax,200          ; decimal
+mov     ax,0200         ; still decimal
+mov     ax,0200d        ; explicitly decimal
+mov     ax,0d200        ; also decimal
+mov     ax,0c8h         ; hex
+mov     ax,$0c8         ; hex again: the 0 is required
+mov     ax,0xc8         ; hex yet again
+mov     ax,0hc8         ; still hex
+mov     ax,310q         ; octal
+mov     ax,310o         ; octal again
+mov     ax,0o310        ; octal yet again
+mov     ax,0q310        ; octal yet again
+mov     ax,11001000b    ; binary
+
+db    -0.2                    ; "Quarter precision"
+dw    -0.5                    ; IEEE 754r/SSE5 half precision
+dd    1.2                     ; an easy one
+dd    0x1p+2                  ; 1.0x2^2 = 4.0
+dq    0x1p+32                 ; 1.0x2^32 = 4 294 967 296.0
+dq    1.e10                   ; 10 000 000 000.0
+dq    1.e+10                  ; synonymous with 1.e10
+dq    1.e-10                  ; 0.000 000 000 1
+dt    3.141592653589793238462 ; pi
+do    1.e+4000                ; IEEE 754r quad precision
+----------------------------------------------------
+[
+	"mov     ",
+	["register", "ax"],
+	",",
+	["number", "200"],
+	["comment", "; decimal"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "0200"],
+	["comment", "; still decimal"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "0200d"],
+	["comment", "; explicitly decimal"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "0d200"],
+	["comment", "; also decimal"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "0c8h"],
+	["comment", "; hex"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "$0c8"],
+	["comment", "; hex again: the 0 is required"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "0xc8"],
+	["comment", "; hex yet again"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "0hc8"],
+	["comment", "; still hex"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "310q"],
+	["comment", "; octal"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "310o"],
+	["comment", "; octal again"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "0o310"],
+	["comment", "; octal yet again"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "0q310"],
+	["comment", "; octal yet again"],
+
+	"\nmov     ",
+	["register", "ax"],
+	",",
+	["number", "11001000b"],
+	["comment", "; binary"],
+
+	"\n\ndb    ",
+	["operator", "-"],
+	["number", "0.2"],
+	["comment", "; \"Quarter precision\""],
+
+	"\ndw    ",
+	["operator", "-"],
+	["number", "0.5"],
+	["comment", "; IEEE 754r/SSE5 half precision"],
+
+	"\ndd    ",
+	["number", "1.2"],
+	["comment", "; an easy one"],
+
+	"\ndd    ",
+	["number", "0x1p+2"],
+	["comment", "; 1.0x2^2 = 4.0"],
+
+	"\ndq    ",
+	["number", "0x1p+32"],
+	["comment", "; 1.0x2^32 = 4 294 967 296.0"],
+
+	"\ndq    ",
+	["number", "1.e10"],
+	["comment", "; 10 000 000 000.0"],
+
+	"\ndq    ",
+	["number", "1.e+10"],
+	["comment", "; synonymous with 1.e10"],
+
+	"\ndq    ",
+	["number", "1.e-10"],
+	["comment", "; 0.000 000 000 1"],
+
+	"\ndt    ",
+	["number", "3.141592653589793238462"],
+	["comment", "; pi"],
+
+	"\ndo    ",
+	["number", "1.e+4000"],
+	["comment", "; IEEE 754r quad precision"]
+]
+
+----------------------------------------------------

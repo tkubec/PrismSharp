@@ -1,0 +1,17 @@
+@media print
+@import "reset.css"
+@font-face {
+@keyframes {
+@media (max-{foo}: bar)
+@namespace url(http://www.w3.org/1999/xhtml)	// comment
+@namespace svg url(http://www.w3.org/2000/svg)	// comment
+----------------------------------------------------
+<span class="token atrule-declaration"><span class="token atrule">@media</span> print</span>
+<span class="token atrule-declaration"><span class="token atrule">@import</span> <span class="token string">"reset.css"</span></span>
+<span class="token atrule-declaration"><span class="token atrule">@font-face</span> <span class="token punctuation">{</span></span>
+<span class="token atrule-declaration"><span class="token atrule">@keyframes</span> <span class="token punctuation">{</span></span>
+<span class="token atrule-declaration"><span class="token atrule">@media</span> <span class="token punctuation">(</span>max-<span class="token interpolation variable"><span class="token delimiter punctuation">{</span>foo<span class="token delimiter punctuation">}</span></span><span class="token punctuation">:</span> bar<span class="token punctuation">)</span></span>
+<span class="token atrule-declaration"><span class="token atrule">@namespace</span> <span class="token url">url(http://www.w3.org/1999/xhtml)</span>	<span class="token comment">// comment</span></span>
+<span class="token atrule-declaration"><span class="token atrule">@namespace</span> svg <span class="token url">url(http://www.w3.org/2000/svg)</span>	<span class="token comment">// comment</span></span>
+
+----------------------------------------------------

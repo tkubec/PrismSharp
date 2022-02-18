@@ -1,0 +1,15 @@
+~s"""This is a sigil
+using heredoc delimiters"""
+~r/a [reg]exp/
+~r(another|regexp)
+~w[some words]s
+~c<a char list>
+----------------------------------------------------
+<span class="token string">~s"""This is a sigil
+using heredoc delimiters"""</span>
+<span class="token regex">~r/a [reg]exp/</span>
+<span class="token regex">~r(another|regexp)</span>
+<span class="token string">~w[some words]s</span>
+<span class="token string">~c&lt;a char list></span>
+
+----------------------------------------------------

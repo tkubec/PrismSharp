@@ -1,0 +1,39 @@
+public class Solo<T extends com.foo.Foo.Bar> {}
+Solo<Integer> val = new Solo<>();
+Duo<Double, Character> dual = new Duo<Double, Character>(12.2585, 'C');
+
+List<?> list
+List<? extends Number> nums = ints;
+List<? super Integer> list
+Entry<String, String> pair = Entry.<String>twice("Hello");
+
+public class Entry<KeyType, ValueType> {}
+class D <T extends A & B & C> {}
+
+public <T extends Throwable> void throwMeConditional(boolean conditional, T exception) throws T {}
+
+<T> T instantiateElementType(List<T> arg) {}
+
+// not generics
+if (a<6&&b>6){}
+----------------------------------------------------
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span> <span class="token keyword">extends</span> <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>foo<span class="token punctuation">.</span></span>Foo<span class="token punctuation">.</span>Bar</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token class-name">Solo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> val <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Solo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Duo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Double</span><span class="token punctuation">,</span> <span class="token class-name">Character</span><span class="token punctuation">></span></span> dual <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Double</span><span class="token punctuation">,</span> <span class="token class-name">Character</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token number">12.2585</span><span class="token punctuation">,</span> <span class="token char">'C'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span> list
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">Number</span><span class="token punctuation">></span></span> nums <span class="token operator">=</span> ints<span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> list
+<span class="token class-name">Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> pair <span class="token operator">=</span> <span class="token class-name">Entry</span><span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token function">twice</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">KeyType</span><span class="token punctuation">,</span> <span class="token class-name">ValueType</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">D</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token operator">&amp;</span> <span class="token class-name">B</span> <span class="token operator">&amp;</span> <span class="token class-name">C</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span> <span class="token keyword">extends</span> <span class="token class-name">Throwable</span><span class="token punctuation">></span></span> <span class="token keyword">void</span> <span class="token function">throwMeConditional</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> conditional<span class="token punctuation">,</span> <span class="token class-name">T</span> exception<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">T</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token class-name">T</span> <span class="token function">instantiateElementType</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// not generics</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token operator">&lt;</span><span class="token number">6</span><span class="token operator">&amp;&amp;</span>b<span class="token operator">></span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

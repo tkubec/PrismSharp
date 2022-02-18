@@ -1,0 +1,28 @@
+func(a, b int, z float64) bool { return a*b < int(z) }
+----------------------------------------------------
+[
+	["keyword", "func"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ","],
+	" b ",
+	["builtin", "int"],
+	["punctuation", ","],
+	" z ",
+	["builtin", "float64"],
+	["punctuation", ")"],
+	["builtin", "bool"],
+	["punctuation", "{"],
+	["keyword", "return"],
+	" a",
+	["operator", "*"],
+	"b ",
+	["operator", "<"],
+	["function", "int"],
+	["punctuation", "("],
+	"z",
+	["punctuation", ")"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

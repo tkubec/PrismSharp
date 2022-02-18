@@ -1,0 +1,51 @@
+(+
+(-
+(*
+(/
+(%
+(<
+(<=
+(>
+(>=
+(=
+(=>
+
+[+
+[-
+[*
+[/
+[%
+[<
+[<=
+[>
+[>=
+[=
+[=>
+----------------------------------------------------
+[
+	["punctuation", "("], ["operator", "+"],
+	["punctuation", "("], ["operator", "-"],
+	["punctuation", "("], ["operator", "*"],
+	["punctuation", "("], ["operator", "/"],
+	["punctuation", "("], ["operator", "%"],
+	["punctuation", "("], ["operator", "<"],
+	["punctuation", "("], ["operator", "<="],
+	["punctuation", "("], ["operator", ">"],
+	["punctuation", "("], ["operator", ">="],
+	["punctuation", "("], ["operator", "="],
+	["punctuation", "("], ["operator", "=>"],
+
+	["punctuation", "["], ["operator", "+"],
+	["punctuation", "["], ["operator", "-"],
+	["punctuation", "["], ["operator", "*"],
+	["punctuation", "["], ["operator", "/"],
+	["punctuation", "["], ["operator", "%"],
+	["punctuation", "["], ["operator", "<"],
+	["punctuation", "["], ["operator", "<="],
+	["punctuation", "["], ["operator", ">"],
+	["punctuation", "["], ["operator", ">="],
+	["punctuation", "["], ["operator", "="],
+	["punctuation", "["], ["operator", "=>"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,22 @@
+foo(void);
+bar
+(1, 2);
+----------------------------------------------------
+[
+	["function", "foo"],
+	["punctuation", "("],
+	["keyword", "void"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "bar"],
+
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

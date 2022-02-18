@@ -1,0 +1,21 @@
+int add(int foo, int bar = 0);
+
+void logMessage(string message);
+
+void goKaboom() throws Kaboom;
+
+void fireAndForget(string message) oneway;
+
+void `error`();
+----------------------------------------------------
+<span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> foo<span class="token punctuation">,</span> <span class="token keyword">int</span> bar <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">logMessage</span><span class="token punctuation">(</span><span class="token keyword">string</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">goKaboom</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Kaboom</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">fireAndForget</span><span class="token punctuation">(</span><span class="token keyword">string</span> message<span class="token punctuation">)</span> <span class="token keyword">oneway</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function-identifier function">`error`</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

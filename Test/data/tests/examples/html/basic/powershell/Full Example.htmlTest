@@ -1,0 +1,19 @@
+Function SayHello([string]$name) {
+    Write-Host "Hello, $name."
+}
+$Names = @("Bob", "Alice")
+
+$Names | ForEach {
+    SayHello $_
+}
+----------------------------------------------------
+<span class="token keyword">Function</span> SayHello<span class="token punctuation">(</span><span class="token namespace">[string]</span><span class="token variable">$name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">Write-Host</span> <span class="token string">"Hello, <span class="token variable">$name</span>."</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$Names</span> = @<span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Alice"</span><span class="token punctuation">)</span>
+
+<span class="token variable">$Names</span> <span class="token punctuation">|</span> <span class="token keyword">ForEach</span> <span class="token punctuation">{</span>
+    SayHello <span class="token variable">$_</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

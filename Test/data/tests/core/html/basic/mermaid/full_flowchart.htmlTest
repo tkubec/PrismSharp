@@ -1,0 +1,491 @@
+flowchart LR
+    id
+
+flowchart LR
+    id1[This is the text in the box]
+
+flowchart TD
+    Start --> Stop
+
+flowchart LR
+    Start --> Stop
+
+flowchart LR
+    id1(This is the text in the box)
+
+flowchart LR
+    id1([This is the text in the box])
+
+flowchart LR
+    id1[[This is the text in the box]]
+
+flowchart LR
+    id1[(Database)]
+
+flowchart LR
+    id1((This is the text in the circle))
+
+flowchart LR
+    id1>This is the text in the box]
+
+flowchart LR
+    id1{This is the text in the box}
+
+flowchart LR
+    id1{{This is the text in the box}}
+
+flowchart TD
+    id1[/This is the text in the box/]
+
+flowchart TD
+    id1[\This is the text in the box\]
+
+flowchart TD
+    A[/Christmas\]
+
+flowchart TD
+    B[\Go shopping/]
+
+flowchart LR
+    A-->B
+
+flowchart LR
+    A --- B
+
+flowchart LR
+    A-- This is the text! ---B
+
+flowchart LR
+    A---|This is the text|B
+
+flowchart LR
+    A-->|text|B
+
+flowchart LR
+    A-- text -->B
+
+flowchart LR;
+   A-.->B;
+
+flowchart LR
+   A-. text .-> B
+
+flowchart LR
+   A ==> B
+
+flowchart LR
+   A == text ==> B
+
+flowchart LR
+   A -- text --> B -- text2 --> C
+
+flowchart LR
+   a --> b & c--> d
+
+flowchart TB
+    A & B--> C & D
+
+flowchart TB
+    A --> C
+    A --> D
+    B --> C
+    B --> D
+
+flowchart LR
+    A --o B
+    B --x C
+
+flowchart LR
+    A o--o B
+    B <--> C
+    C x--x D
+
+flowchart TD
+    A[Start] --> B{Is it?};
+    B -->|Yes| C[OK];
+    C --> D[Rethink];
+    D --> B;
+    B ---->|No| E[End];
+
+flowchart TD
+    A[Start] --> B{Is it?};
+    B -- Yes --> C[OK];
+    C --> D[Rethink];
+    D --> B;
+    B -- No ----> E[End];
+
+flowchart LR
+    id1["This is the (text) in the box"]
+
+flowchart LR
+        A["A double quote:#quot;"] -->B["A dec char:#9829;"]
+
+subgraph title
+    graph definition
+end
+
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+
+flowchart TB
+    c1-->a2
+    subgraph ide1 [one]
+    a1-->a2
+    end
+
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+    one --> two
+    three --> two
+    two --> c2
+
+flowchart LR
+  subgraph TOP
+    direction TB
+    subgraph B1
+        direction RL
+        i1 -->f1
+    end
+    subgraph B2
+        direction BT
+        i2 -->f2
+    end
+  end
+  A --> TOP --> B
+  B1 --> B2
+
+click nodeId callback
+click nodeId call callback()
+
+flowchart LR;
+    A-->B;
+    B-->C;
+    C-->D;
+    click A callback "Tooltip for a callback"
+    click B "http://www.github.com" "This is a tooltip for a link"
+    click A call callback() "Tooltip for a callback"
+    click B href "http://www.github.com" "This is a tooltip for a link"
+
+flowchart LR;
+    A-->B;
+    B-->C;
+    C-->D;
+    D-->E;
+    click A "http://www.github.com" _blank
+    click B "http://www.github.com" "Open this in a new tab" _blank
+    click C href "http://www.github.com" _blank
+    click D href "http://www.github.com" "Open this in a new tab" _blank
+
+flowchart LR
+%% this is a comment A -- text --> B{node}
+   A -- text --> B -- text2 --> C
+
+linkStyle 3 stroke:#ff3,stroke-width:4px,color:red;
+
+flowchart LR
+    id1(Start)-->id2(Stop)
+    style id1 fill:#f9f,stroke:#333,stroke-width:4px
+    style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+
+classDef className fill:#f9f,stroke:#333,stroke-width:4px;
+
+class nodeId1 className;
+
+class nodeId1,nodeId2 className;
+
+flowchart LR
+    A:::someclass --> B
+    classDef someclass fill:#f96;
+
+flowchart LR;
+    A-->B[AAA<span>BBB</span>];
+    B-->D;
+    class A cssClass;
+
+classDef default fill:#f9f,stroke:#333,stroke-width:4px;
+
+flowchart TD
+    B["fa:fa-twitter for peace"]
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner);
+    B-->E(A fa:fa-camera-retro perhaps?);
+
+flowchart LR
+    A[Hard edge] -->|Link text| B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
+
+    flowchart LR;
+        A-->B;
+        B-->C;
+        C-->D;
+        click A callback "Tooltip"
+        click B "http://www.github.com" "This is a link"
+        click C call callback() "Tooltip"
+        click D href "http://www.github.com" "This is a link"
+----------------------------------------------------
+<span class="token keyword">flowchart</span> LR
+    id
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">[This is the text in the box]</span>
+
+<span class="token keyword">flowchart</span> TD
+    Start <span class="token arrow operator">--></span> Stop
+
+<span class="token keyword">flowchart</span> LR
+    Start <span class="token arrow operator">--></span> Stop
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">(This is the text in the box)</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">([This is the text in the box])</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">[[This is the text in the box]]</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">[(Database)]</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">((This is the text in the circle))</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">>This is the text in the box]</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">{This is the text in the box}</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">{{This is the text in the box}}</span>
+
+<span class="token keyword">flowchart</span> TD
+    id1<span class="token text string">[/This is the text in the box/]</span>
+
+<span class="token keyword">flowchart</span> TD
+    id1<span class="token text string">[\This is the text in the box\]</span>
+
+<span class="token keyword">flowchart</span> TD
+    A<span class="token text string">[/Christmas\]</span>
+
+<span class="token keyword">flowchart</span> TD
+    B<span class="token text string">[\Go shopping/]</span>
+
+<span class="token keyword">flowchart</span> LR
+    A<span class="token arrow operator">--></span>B
+
+<span class="token keyword">flowchart</span> LR
+    A <span class="token arrow operator">---</span> B
+
+<span class="token keyword">flowchart</span> LR
+    A<span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">This is the text!</span> <span class="token arrow operator">---</span></span>B
+
+<span class="token keyword">flowchart</span> LR
+    A<span class="token arrow operator">---</span><span class="token label property">|This is the text|</span>B
+
+<span class="token keyword">flowchart</span> LR
+    A<span class="token arrow operator">--></span><span class="token label property">|text|</span>B
+
+<span class="token keyword">flowchart</span> LR
+    A<span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">text</span> <span class="token arrow operator">--></span></span>B
+
+<span class="token keyword">flowchart</span> LR<span class="token punctuation">;</span>
+   A<span class="token arrow operator">-.-></span>B<span class="token punctuation">;</span>
+
+<span class="token keyword">flowchart</span> LR
+   A<span class="token inter-arrow-label"><span class="token arrow-head arrow operator">-.</span> <span class="token label property">text</span> <span class="token arrow operator">.-></span></span> B
+
+<span class="token keyword">flowchart</span> LR
+   A <span class="token arrow operator">==></span> B
+
+<span class="token keyword">flowchart</span> LR
+   A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">==</span> <span class="token label property">text</span> <span class="token arrow operator">==></span></span> B
+
+<span class="token keyword">flowchart</span> LR
+   A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">text</span> <span class="token arrow operator">--></span></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">text2</span> <span class="token arrow operator">--></span></span> C
+
+<span class="token keyword">flowchart</span> LR
+   a <span class="token arrow operator">--></span> b <span class="token operator">&amp;</span> c<span class="token arrow operator">--></span> d
+
+<span class="token keyword">flowchart</span> TB
+    A <span class="token operator">&amp;</span> B<span class="token arrow operator">--></span> C <span class="token operator">&amp;</span> D
+
+<span class="token keyword">flowchart</span> TB
+    A <span class="token arrow operator">--></span> C
+    A <span class="token arrow operator">--></span> D
+    B <span class="token arrow operator">--></span> C
+    B <span class="token arrow operator">--></span> D
+
+<span class="token keyword">flowchart</span> LR
+    A <span class="token arrow operator">--o</span> B
+    B <span class="token arrow operator">--x</span> C
+
+<span class="token keyword">flowchart</span> LR
+    A <span class="token arrow operator">o--o</span> B
+    B <span class="token arrow operator">&lt;--></span> C
+    C <span class="token arrow operator">x--x</span> D
+
+<span class="token keyword">flowchart</span> TD
+    A<span class="token text string">[Start]</span> <span class="token arrow operator">--></span> B<span class="token text string">{Is it?}</span><span class="token punctuation">;</span>
+    B <span class="token arrow operator">--></span><span class="token label property">|Yes|</span> C<span class="token text string">[OK]</span><span class="token punctuation">;</span>
+    C <span class="token arrow operator">--></span> D<span class="token text string">[Rethink]</span><span class="token punctuation">;</span>
+    D <span class="token arrow operator">--></span> B<span class="token punctuation">;</span>
+    B <span class="token arrow operator">----></span><span class="token label property">|No|</span> E<span class="token text string">[End]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">flowchart</span> TD
+    A<span class="token text string">[Start]</span> <span class="token arrow operator">--></span> B<span class="token text string">{Is it?}</span><span class="token punctuation">;</span>
+    B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">Yes</span> <span class="token arrow operator">--></span></span> C<span class="token text string">[OK]</span><span class="token punctuation">;</span>
+    C <span class="token arrow operator">--></span> D<span class="token text string">[Rethink]</span><span class="token punctuation">;</span>
+    D <span class="token arrow operator">--></span> B<span class="token punctuation">;</span>
+    B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">No</span> <span class="token arrow operator">----></span></span> E<span class="token text string">[End]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">["This is the (text) in the box"]</span>
+
+<span class="token keyword">flowchart</span> LR
+        A<span class="token text string">["A double quote:#quot;"]</span> <span class="token arrow operator">--></span>B<span class="token text string">["A dec char:#9829;"]</span>
+
+<span class="token keyword">subgraph</span> title
+    <span class="token keyword">graph</span> definition
+<span class="token keyword">end</span>
+
+<span class="token keyword">flowchart</span> TB
+    c1<span class="token arrow operator">--></span>a2
+    <span class="token keyword">subgraph</span> one
+    a1<span class="token arrow operator">--></span>a2
+    <span class="token keyword">end</span>
+    <span class="token keyword">subgraph</span> two
+    b1<span class="token arrow operator">--></span>b2
+    <span class="token keyword">end</span>
+    <span class="token keyword">subgraph</span> three
+    c1<span class="token arrow operator">--></span>c2
+    <span class="token keyword">end</span>
+
+<span class="token keyword">flowchart</span> TB
+    c1<span class="token arrow operator">--></span>a2
+    <span class="token keyword">subgraph</span> ide1 <span class="token text string">[one]</span>
+    a1<span class="token arrow operator">--></span>a2
+    <span class="token keyword">end</span>
+
+<span class="token keyword">flowchart</span> TB
+    c1<span class="token arrow operator">--></span>a2
+    <span class="token keyword">subgraph</span> one
+    a1<span class="token arrow operator">--></span>a2
+    <span class="token keyword">end</span>
+    <span class="token keyword">subgraph</span> two
+    b1<span class="token arrow operator">--></span>b2
+    <span class="token keyword">end</span>
+    <span class="token keyword">subgraph</span> three
+    c1<span class="token arrow operator">--></span>c2
+    <span class="token keyword">end</span>
+    one <span class="token arrow operator">--></span> two
+    three <span class="token arrow operator">--></span> two
+    two <span class="token arrow operator">--></span> c2
+
+<span class="token keyword">flowchart</span> LR
+  <span class="token keyword">subgraph</span> TOP
+    <span class="token keyword">direction</span> TB
+    <span class="token keyword">subgraph</span> B1
+        <span class="token keyword">direction</span> RL
+        i1 <span class="token arrow operator">--></span>f1
+    <span class="token keyword">end</span>
+    <span class="token keyword">subgraph</span> B2
+        <span class="token keyword">direction</span> BT
+        i2 <span class="token arrow operator">--></span>f2
+    <span class="token keyword">end</span>
+  <span class="token keyword">end</span>
+  A <span class="token arrow operator">--></span> TOP <span class="token arrow operator">--></span> B
+  B1 <span class="token arrow operator">--></span> B2
+
+<span class="token keyword">click</span> nodeId callback
+<span class="token keyword">click</span> nodeId call callback<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">flowchart</span> LR<span class="token punctuation">;</span>
+    A<span class="token arrow operator">--></span>B<span class="token punctuation">;</span>
+    B<span class="token arrow operator">--></span>C<span class="token punctuation">;</span>
+    C<span class="token arrow operator">--></span>D<span class="token punctuation">;</span>
+    <span class="token keyword">click</span> A callback <span class="token string">"Tooltip for a callback"</span>
+    <span class="token keyword">click</span> B <span class="token string">"http://www.github.com"</span> <span class="token string">"This is a tooltip for a link"</span>
+    <span class="token keyword">click</span> A call callback<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token string">"Tooltip for a callback"</span>
+    <span class="token keyword">click</span> B href <span class="token string">"http://www.github.com"</span> <span class="token string">"This is a tooltip for a link"</span>
+
+<span class="token keyword">flowchart</span> LR<span class="token punctuation">;</span>
+    A<span class="token arrow operator">--></span>B<span class="token punctuation">;</span>
+    B<span class="token arrow operator">--></span>C<span class="token punctuation">;</span>
+    C<span class="token arrow operator">--></span>D<span class="token punctuation">;</span>
+    D<span class="token arrow operator">--></span>E<span class="token punctuation">;</span>
+    <span class="token keyword">click</span> A <span class="token string">"http://www.github.com"</span> _blank
+    <span class="token keyword">click</span> B <span class="token string">"http://www.github.com"</span> <span class="token string">"Open this in a new tab"</span> _blank
+    <span class="token keyword">click</span> C href <span class="token string">"http://www.github.com"</span> _blank
+    <span class="token keyword">click</span> D href <span class="token string">"http://www.github.com"</span> <span class="token string">"Open this in a new tab"</span> _blank
+
+<span class="token keyword">flowchart</span> LR
+<span class="token comment">%% this is a comment A -- text --> B{node}</span>
+   A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">text</span> <span class="token arrow operator">--></span></span> B <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">text2</span> <span class="token arrow operator">--></span></span> C
+
+<span class="token keyword">linkStyle</span> 3 <span class="token style"><span class="token property">stroke</span><span class="token operator">:</span>#ff3<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>4px<span class="token punctuation">,</span><span class="token property">color</span><span class="token operator">:</span>red</span><span class="token punctuation">;</span>
+
+<span class="token keyword">flowchart</span> LR
+    id1<span class="token text string">(Start)</span><span class="token arrow operator">--></span>id2<span class="token text string">(Stop)</span>
+    <span class="token keyword">style</span> id1 <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f9f<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#333<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>4px</span>
+    <span class="token keyword">style</span> id2 <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#bbf<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#f66<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>2px<span class="token punctuation">,</span><span class="token property">color</span><span class="token operator">:</span>#fff<span class="token punctuation">,</span><span class="token property">stroke-dasharray</span><span class="token operator">:</span> 5 5</span>
+
+<span class="token keyword">classDef</span> className <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f9f<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#333<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>4px</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> nodeId1 className<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> nodeId1,nodeId2 className<span class="token punctuation">;</span>
+
+<span class="token keyword">flowchart</span> LR
+    A<span class="token operator">:::</span>someclass <span class="token arrow operator">--></span> B
+    <span class="token keyword">classDef</span> someclass <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f96</span><span class="token punctuation">;</span>
+
+<span class="token keyword">flowchart</span> LR<span class="token punctuation">;</span>
+    A<span class="token arrow operator">--></span>B<span class="token text string">[AAA&lt;span>BBB&lt;/span>]</span><span class="token punctuation">;</span>
+    B<span class="token arrow operator">--></span>D<span class="token punctuation">;</span>
+    <span class="token keyword">class</span> A cssClass<span class="token punctuation">;</span>
+
+<span class="token keyword">classDef</span> default <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f9f<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#333<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>4px</span><span class="token punctuation">;</span>
+
+<span class="token keyword">flowchart</span> TD
+    B<span class="token text string">["fa:fa-twitter for peace"]</span>
+    B<span class="token arrow operator">--></span>C<span class="token text string">[fa:fa-ban forbidden]</span>
+    B<span class="token arrow operator">--></span>D<span class="token text string">(fa:fa-spinner)</span><span class="token punctuation">;</span>
+    B<span class="token arrow operator">--></span>E<span class="token text string">(A fa:fa-camera-retro perhaps?)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">flowchart</span> LR
+    A<span class="token text string">[Hard edge]</span> <span class="token arrow operator">--></span><span class="token label property">|Link text|</span> B<span class="token text string">(Round edge)</span>
+    B <span class="token arrow operator">--></span> C<span class="token text string">{Decision}</span>
+    C <span class="token arrow operator">--></span><span class="token label property">|One|</span> D<span class="token text string">[Result one]</span>
+    C <span class="token arrow operator">--></span><span class="token label property">|Two|</span> E<span class="token text string">[Result two]</span>
+
+    <span class="token keyword">flowchart</span> LR<span class="token punctuation">;</span>
+        A<span class="token arrow operator">--></span>B<span class="token punctuation">;</span>
+        B<span class="token arrow operator">--></span>C<span class="token punctuation">;</span>
+        C<span class="token arrow operator">--></span>D<span class="token punctuation">;</span>
+        <span class="token keyword">click</span> A callback <span class="token string">"Tooltip"</span>
+        <span class="token keyword">click</span> B <span class="token string">"http://www.github.com"</span> <span class="token string">"This is a link"</span>
+        <span class="token keyword">click</span> C call callback<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token string">"Tooltip"</span>
+        <span class="token keyword">click</span> D href <span class="token string">"http://www.github.com"</span> <span class="token string">"This is a link"</span>
+
+----------------------------------------------------

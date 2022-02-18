@@ -1,0 +1,31 @@
+-- source: https://github.com/dhall-lang/dhall-lang/blob/master/Prelude/Optional/head.dhall
+
+{-
+Returns the first non-empty `Optional` value in a `List`
+-}
+let head
+    : â€(a : Type) â†’ List (Optional a) â†’ Optional a
+    = Î»(a : Type) â†’
+      Î»(xs : List (Optional a)) â†’
+        List/fold
+          (Optional a)
+          xs
+          (Optional a)
+          ( Î»(l : Optional a) â†’
+            Î»(r : Optional a) â†’
+              merge { Some = Î»(x : a) â†’ Some x, None = r } l
+          )
+          (None a)
+
+let example0 = assert : head Natural [ None Natural, Some 1, Some 2 ] â‰ˇ Some 1
+
+let example1 =
+      assert : head Natural [ None Natural, None Natural ] â‰ˇ None Natural
+
+let example2 =
+      assert : head Natural ([] : List (Optional Natural)) â‰ˇ None Natural
+
+in  head
+
+--------------------------------------------------
+

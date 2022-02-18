@@ -1,0 +1,59 @@
+<p>{{ text }}</p>
+<h1>{{article.title}}</h1>
+{{{ triple_stash_is_supported }}}
+{{articles.[10].[#comments]}}
+----------------------------------------------------
+[
+	["punctuation", "<"],
+	["variable", "p"],
+	["punctuation", ">"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "text"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "<"],
+	["punctuation", "/"],
+	["variable", "p"],
+	["punctuation", ">"],
+
+	["punctuation", "<"],
+	["variable", "h1"],
+	["punctuation", ">"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "article"],
+	["punctuation", "."],
+	["variable", "title"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "<"],
+	["punctuation", "/"],
+	["variable", "h1"],
+	["punctuation", ">"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "triple_stash_is_supported"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "articles"],
+	["punctuation", "."],
+	["punctuation", "["],
+	["number", "10"],
+	["punctuation", "]"],
+	["punctuation", "."],
+	["brackets", [
+		["punctuation", "["],
+		["variable", "#comments"],
+		["punctuation", "]"]
+	]],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

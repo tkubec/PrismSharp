@@ -1,0 +1,95 @@
+[* comment [* global *] DEFAULT_MT_MODE *]
+
+notacomment
+
+/* comment
+global "a string"
+DEFAULT_MT_MODE */
+
+notacomment
+
+# comment global DEFAULT_MT_MODE
+
+notacomment
+
+"a simple string"
+
+"""a
+complex
+string"""
+
+"DEFAULT_MT_MODE"
+"SCRIPTDIR"
+"MAINSCRIPTDIR"
+"PROGRAMDIR"
+"USER_PLUS_PLUGINS"
+"MACHINE_PLUS_PLUGINS"
+"USER_CLASSIC_PLUGINS"
+"MACHINE_CLASSIC_PLUGINS"
+
+"default_mt_mode"
+"scriptdir"
+"mainscriptdir"
+"programdir"
+"user_plus_plugins"
+"machine_plus_plugins"
+"user_classic_plugins"
+"machine_classic_plugins"
+
+DEFAULT_MT_MODE
+# SCRIPTDIR is also an internal function
+MAINSCRIPTDIR
+PROGRAMDIR
+USER_PLUS_PLUGINS
+MACHINE_PLUS_PLUGINS
+USER_CLASSIC_PLUGINS
+MACHINE_CLASSIC_PLUGINS
+----------------------------------------------------
+<span class="token comment">[* comment [* global *] DEFAULT_MT_MODE *]</span>
+
+notacomment
+
+<span class="token comment">/* comment
+global "a string"
+DEFAULT_MT_MODE */</span>
+
+notacomment
+
+<span class="token comment"># comment global DEFAULT_MT_MODE</span>
+
+notacomment
+
+<span class="token string">"a simple string"</span>
+
+<span class="token string">"""a
+complex
+string"""</span>
+
+<span class="token string">"<span class="token constant">DEFAULT_MT_MODE</span>"</span>
+<span class="token string">"<span class="token constant">SCRIPTDIR</span>"</span>
+<span class="token string">"<span class="token constant">MAINSCRIPTDIR</span>"</span>
+<span class="token string">"<span class="token constant">PROGRAMDIR</span>"</span>
+<span class="token string">"<span class="token constant">USER_PLUS_PLUGINS</span>"</span>
+<span class="token string">"<span class="token constant">MACHINE_PLUS_PLUGINS</span>"</span>
+<span class="token string">"<span class="token constant">USER_CLASSIC_PLUGINS</span>"</span>
+<span class="token string">"<span class="token constant">MACHINE_CLASSIC_PLUGINS</span>"</span>
+
+<span class="token string">"default_mt_mode"</span>
+<span class="token string">"scriptdir"</span>
+<span class="token string">"mainscriptdir"</span>
+<span class="token string">"programdir"</span>
+<span class="token string">"user_plus_plugins"</span>
+<span class="token string">"machine_plus_plugins"</span>
+<span class="token string">"user_classic_plugins"</span>
+<span class="token string">"machine_classic_plugins"</span>
+
+DEFAULT_MT_MODE
+<span class="token comment"># SCRIPTDIR is also an internal function</span>
+MAINSCRIPTDIR
+PROGRAMDIR
+USER_PLUS_PLUGINS
+MACHINE_PLUS_PLUGINS
+USER_CLASSIC_PLUGINS
+MACHINE_CLASSIC_PLUGINS
+
+----------------------------------------------------

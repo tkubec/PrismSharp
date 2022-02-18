@@ -1,0 +1,7 @@
+ok # SKIP test not written
+ok 42 this is the description # TODO write test
+----------------------------------------------------
+<span class="token pass">ok </span><span class="token directive"># SKIP test not written</span>
+<span class="token pass">ok 42 this is the description </span><span class="token directive"># TODO write test</span>
+
+----------------------------------------------------

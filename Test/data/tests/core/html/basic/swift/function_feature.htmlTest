@@ -1,0 +1,31 @@
+func greetAgain(person: String) -> String {
+    return "Hello again, " + person + "!"
+}
+print(greetAgain(person: "Anna"))
+func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
+    // function body goes here
+}
+
+
+// none of the below are functions
+subscript(index: Int) -> Int {
+    get {}
+    set(newValue) {}
+}
+----------------------------------------------------
+<span class="token keyword">func</span> <span class="token function-definition function">greetAgain</span><span class="token punctuation">(</span>person<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">String</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string-literal"><span class="token string">"Hello again, "</span></span> <span class="token operator">+</span> person <span class="token operator">+</span> <span class="token string-literal"><span class="token string">"!"</span></span>
+<span class="token punctuation">}</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">greetAgain</span><span class="token punctuation">(</span>person<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"Anna"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token function-definition function">someFunction</span><span class="token operator">&lt;</span><span class="token class-name">T</span><span class="token punctuation">:</span> <span class="token class-name">SomeClass</span><span class="token punctuation">,</span> <span class="token class-name">U</span><span class="token punctuation">:</span> <span class="token class-name">SomeProtocol</span><span class="token operator">></span><span class="token punctuation">(</span>someT<span class="token punctuation">:</span> <span class="token class-name">T</span><span class="token punctuation">,</span> someU<span class="token punctuation">:</span> <span class="token class-name">U</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// function body goes here</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// none of the below are functions</span>
+<span class="token keyword">subscript</span><span class="token punctuation">(</span>index<span class="token punctuation">:</span> <span class="token class-name">Int</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">Int</span> <span class="token punctuation">{</span>
+    <span class="token keyword">get</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,36 @@
+default-src 'none';
+script-src my.cdn.com;
+img-src 'self' data:;
+child-src 'self' data: ms-appx-web:;
+block-all-mixed-content;
+report-uri https://my-reports.com/submit;
+----------------------------------------------------
+[
+	["directive", "default-src"],
+	["none", "'none'"],
+	["punctuation", ";"],
+
+	["directive", "script-src"],
+	["host", ["my.cdn.com"]],
+	["punctuation", ";"],
+
+	["directive", "img-src"],
+	["keyword", "'self'"],
+	["scheme", "data:"],
+	["punctuation", ";"],
+
+	["directive", "child-src"],
+	["keyword", "'self'"],
+	["scheme", "data:"],
+	["scheme", "ms-appx-web:"],
+	["punctuation", ";"],
+
+	["directive", "block-all-mixed-content"],
+	["punctuation", ";"],
+
+	["directive", "report-uri"],
+	["host", ["https://my-reports.com/submit"]],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

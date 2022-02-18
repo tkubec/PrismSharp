@@ -1,0 +1,374 @@
+алг
+нач
+  | Решение квадратного уравнения.
+  вещ a, b, c
+  вещ таб корни[1:2]
+  цел индекс, число корней
+  вывод "Укажите первый коэффициент: "
+  ввод a
+  вывод нс, "Укажите второй коэффициент: "
+  ввод b
+  вывод нс, "Укажите свободный член: "
+  ввод c
+  решить квур(a, b, c, число корней, корни)
+  если число корней = -1
+    то
+      вывод нс, "Первый коэффициент не может быть равен нулю.", нс
+    иначе
+      если число корней = 0
+        то
+          вывод нс, "Уравнение не имеет корней.", нс
+        иначе
+          если число корней = 1
+            то
+              вывод нс, "Уравнение имеет один корень.", нс
+              вывод "x = ", корни[1], нс
+            иначе
+              вывод нс, "Уравнение имеет два корня.", нс
+              нц для индекс от 1 до число корней шаг 1
+                вывод "x", индекс, " = ", корни[индекс], нс
+              кц
+          все
+      все
+  все
+кон
+
+алг решить квур(арг вещ a, b, c, арг рез цел число корней, арг рез вещ таб корни[1:2])
+нач
+  вещ дискриминант
+  если a = 0
+    то
+      число корней := -1
+    иначе
+      дискриминант := b**2 - 4 * a * c
+      если дискриминант > 0
+        то
+          корни[1] := (-b - sqrt(дискриминант)) / (2 * a)
+          корни[2] := (-b + sqrt(дискриминант)) / (2 * a)
+          число корней := 2
+        иначе
+          если дискриминант = 0
+            то
+              корни[1] := -b / (2 * a)
+              число корней := 1
+            иначе
+              число корней := 0
+          все
+      все
+  все
+кон
+----------------------------------------------------
+[
+	["keyword", "алг"],
+
+	["keyword", "нач"],
+
+	["comment", "| Решение квадратного уравнения."],
+
+	["type", "вещ"],
+	["name", "a"],
+	["punctuation", ","],
+	["name", "b"],
+	["punctuation", ","],
+	["name", "c"],
+
+	["type", "вещ таб"],
+	["name", "корни"],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ":"],
+	["number", "2"],
+	["punctuation", "]"],
+
+	["type", "цел"],
+	["name", "индекс"],
+	["punctuation", ","],
+	["name", "число корней"],
+
+	["keyword", "вывод"],
+	["string", "\"Укажите первый коэффициент: \""],
+
+	["keyword", "ввод"],
+	["name", "a"],
+
+	["keyword", "вывод"],
+	["keyword", "нс"],
+	["punctuation", ","],
+	["string", "\"Укажите второй коэффициент: \""],
+
+	["keyword", "ввод"],
+	["name", "b"],
+
+	["keyword", "вывод"],
+	["keyword", "нс"],
+	["punctuation", ","],
+	["string", "\"Укажите свободный член: \""],
+
+	["keyword", "ввод"],
+	["name", "c"],
+
+	["name", "решить квур"],
+	["punctuation", "("],
+	["name", "a"],
+	["punctuation", ","],
+	["name", "b"],
+	["punctuation", ","],
+	["name", "c"],
+	["punctuation", ","],
+	["name", "число корней"],
+	["punctuation", ","],
+	["name", "корни"],
+	["punctuation", ")"],
+
+	["keyword", "если"],
+	["name", "число корней"],
+	["operator-char", "="],
+	["operator-char", "-"],
+	["number", "1"],
+
+	["keyword", "то"],
+
+	["keyword", "вывод"],
+	["keyword", "нс"],
+	["punctuation", ","],
+	["string", "\"Первый коэффициент не может быть равен нулю.\""],
+	["punctuation", ","],
+	["keyword", "нс"],
+
+	["keyword", "иначе"],
+
+	["keyword", "если"],
+	["name", "число корней"],
+	["operator-char", "="],
+	["number", "0"],
+
+	["keyword", "то"],
+
+	["keyword", "вывод"],
+	["keyword", "нс"],
+	["punctuation", ","],
+	["string", "\"Уравнение не имеет корней.\""],
+	["punctuation", ","],
+	["keyword", "нс"],
+
+	["keyword", "иначе"],
+
+	["keyword", "если"],
+	["name", "число корней"],
+	["operator-char", "="],
+	["number", "1"],
+
+	["keyword", "то"],
+
+	["keyword", "вывод"],
+	["keyword", "нс"],
+	["punctuation", ","],
+	["string", "\"Уравнение имеет один корень.\""],
+	["punctuation", ","],
+	["keyword", "нс"],
+
+	["keyword", "вывод"],
+	["string", "\"x = \""],
+	["punctuation", ","],
+	["name", "корни"],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	["keyword", "нс"],
+
+	["keyword", "иначе"],
+
+	["keyword", "вывод"],
+	["keyword", "нс"],
+	["punctuation", ","],
+	["string", "\"Уравнение имеет два корня.\""],
+	["punctuation", ","],
+	["keyword", "нс"],
+
+	["keyword", "нц"],
+	["keyword", "для"],
+	["name", "индекс"],
+	["keyword", "от"],
+	["number", "1"],
+	["keyword", "до"],
+	["name", "число корней"],
+	["keyword", "шаг"],
+	["number", "1"],
+
+	["keyword", "вывод"],
+	["string", "\"x\""],
+	["punctuation", ","],
+	["name", "индекс"],
+	["punctuation", ","],
+	["string", "\" = \""],
+	["punctuation", ","],
+	["name", "корни"],
+	["punctuation", "["],
+	["name", "индекс"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	["keyword", "нс"],
+
+	["keyword", "кц"],
+
+	["keyword", "все"],
+
+	["keyword", "все"],
+
+	["keyword", "все"],
+
+	["keyword", "кон"],
+
+	["keyword", "алг"],
+	["name", "решить квур"],
+	["punctuation", "("],
+	["keyword", "арг"],
+	["type", "вещ"],
+	["name", "a"],
+	["punctuation", ","],
+	["name", "b"],
+	["punctuation", ","],
+	["name", "c"],
+	["punctuation", ","],
+	["keyword", "арг рез"],
+	["type", "цел"],
+	["name", "число корней"],
+	["punctuation", ","],
+	["keyword", "арг рез"],
+	["type", "вещ таб"],
+	["name", "корни"],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ":"],
+	["number", "2"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["keyword", "нач"],
+
+	["type", "вещ"],
+	["name", "дискриминант"],
+
+	["keyword", "если"],
+	["name", "a"],
+	["operator-char", "="],
+	["number", "0"],
+
+	["keyword", "то"],
+
+	["name", "число корней"],
+	["punctuation", ":="],
+	["operator-char", "-"],
+	["number", "1"],
+
+	["keyword", "иначе"],
+
+	["name", "дискриминант"],
+	["punctuation", ":="],
+	["name", "b"],
+	["operator-char", "**"],
+	["number", "2"],
+	["operator-char", "-"],
+	["number", "4"],
+	["operator-char", "*"],
+	["name", "a"],
+	["operator-char", "*"],
+	["name", "c"],
+
+	["keyword", "если"],
+	["name", "дискриминант"],
+	["operator-char", ">"],
+	["number", "0"],
+
+	["keyword", "то"],
+
+	["name", "корни"],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["punctuation", ":="],
+	["punctuation", "("],
+	["operator-char", "-"],
+	["name", "b"],
+	["operator-char", "-"],
+	["name", "sqrt"],
+	["punctuation", "("],
+	["name", "дискриминант"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator-char", "/"],
+	["punctuation", "("],
+	["number", "2"],
+	["operator-char", "*"],
+	["name", "a"],
+	["punctuation", ")"],
+
+	["name", "корни"],
+	["punctuation", "["],
+	["number", "2"],
+	["punctuation", "]"],
+	["punctuation", ":="],
+	["punctuation", "("],
+	["operator-char", "-"],
+	["name", "b"],
+	["operator-char", "+"],
+	["name", "sqrt"],
+	["punctuation", "("],
+	["name", "дискриминант"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator-char", "/"],
+	["punctuation", "("],
+	["number", "2"],
+	["operator-char", "*"],
+	["name", "a"],
+	["punctuation", ")"],
+
+	["name", "число корней"],
+	["punctuation", ":="],
+	["number", "2"],
+
+	["keyword", "иначе"],
+
+	["keyword", "если"],
+	["name", "дискриминант"],
+	["operator-char", "="],
+	["number", "0"],
+
+	["keyword", "то"],
+
+	["name", "корни"],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["punctuation", ":="],
+	["operator-char", "-"],
+	["name", "b"],
+	["operator-char", "/"],
+	["punctuation", "("],
+	["number", "2"],
+	["operator-char", "*"],
+	["name", "a"],
+	["punctuation", ")"],
+
+	["name", "число корней"],
+	["punctuation", ":="],
+	["number", "1"],
+
+	["keyword", "иначе"],
+
+	["name", "число корней"],
+	["punctuation", ":="],
+	["number", "0"],
+
+	["keyword", "все"],
+
+	["keyword", "все"],
+
+	["keyword", "все"],
+
+	["keyword", "кон"]
+]
+
+----------------------------------------------------

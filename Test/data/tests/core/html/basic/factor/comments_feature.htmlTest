@@ -1,0 +1,63 @@
+a! ! word
+!a ! word
+! comment
+! TODO: something
+!	bad
+! 	fine
+! "also a comment"
+! : ( -- ) ;
+! ! leading comment-like token
+   ! whitespace before
+words blah ! comment after code on a line
+
+![[ comment ]]
+"![[ string ]]"
+![[ "comment" ]]
+
+![[ comment]]
+![==[ comment ]==]
+![==[ comment]==]
+![=[word ]=]
+![=======[ words ]=======]
+
+/* com
+ment */
+/* com
+ment*/
+/*word */
+
+/* "comment" */
+"/* "strings" */"
+----------------------------------------------------
+<span class="token conventionally-named-word keyword">a!</span> <span class="token comment">! word</span>
+<span class="token normal-word">!a</span> <span class="token comment">! word</span>
+<span class="token comment">! comment</span>
+<span class="token comment">! <span class="token function">TODO</span>: something</span>
+<span class="token normal-word">!</span>	<span class="token normal-word">bad</span>
+<span class="token comment">! 	fine</span>
+<span class="token comment">! "also a comment"</span>
+<span class="token comment">! : ( -- ) ;</span>
+<span class="token comment">! ! leading comment-like token</span>
+   <span class="token comment">! whitespace before</span>
+<span class="token normal-word">words</span> <span class="token normal-word">blah</span> <span class="token comment">! comment after code on a line</span>
+
+<span class="token comment">![[ comment ]]</span>
+<span class="token string">"![[ string ]]"</span>
+<span class="token comment">![[ "comment" ]]</span>
+
+<span class="token comment">![[ comment]]</span>
+<span class="token comment">![==[ comment ]==]</span>
+<span class="token comment">![==[ comment]==]</span>
+<span class="token normal-word">![=[word</span> <span class="token normal-word">]=]</span>
+<span class="token normal-word">![=======[</span> <span class="token normal-word">words</span> <span class="token normal-word">]=======]</span>
+
+<span class="token comment">/* com
+ment */</span>
+<span class="token comment">/* com
+ment*/</span>
+<span class="token normal-word">/*word</span> <span class="token normal-word">*/</span>
+
+<span class="token comment">/* "comment" */</span>
+<span class="token string">"/* "</span>strings<span class="token string">" */"</span>
+
+----------------------------------------------------

@@ -1,0 +1,37 @@
+|%
+::  #  %math
+::    unsigned arithmetic
++|  %math
+++  add
+  ~/  %add
+  ::  unsigned addition
+  ::
+  ::  a: augend
+  ::  b: addend
+  |=  [a=@ b=@]
+  ::  sum
+  ^-  @
+  ?:  =(0 a)  b
+  $(a (dec a), b +(b))
+::
+++  dec
+----------------------------------------------------
+<span class="token keyword">|%</span>
+<span class="token comment">::  #  %math</span>
+<span class="token comment">::    unsigned arithmetic</span>
+<span class="token keyword">+|</span>  <span class="token constant">%math</span>
+<span class="token function">++  add</span>
+  <span class="token keyword">~/</span>  <span class="token constant">%add</span>
+  <span class="token comment">::  unsigned addition</span>
+  <span class="token comment">::</span>
+  <span class="token comment">::  a: augend</span>
+  <span class="token comment">::  b: addend</span>
+  <span class="token keyword">|=</span>  [<span class="token function">a</span>=<span class="token class-name">@</span> <span class="token function">b</span>=<span class="token class-name">@</span>]
+  <span class="token comment">::  sum</span>
+  <span class="token keyword">^-</span>  <span class="token class-name">@</span>
+  <span class="token keyword">?:</span>  =(0 <span class="token function">a</span>)  <span class="token function">b</span>
+  $(<span class="token function">a</span> (<span class="token function">dec</span> <span class="token function">a</span>), <span class="token function">b</span> +(<span class="token function">b</span>))
+<span class="token comment">::</span>
+<span class="token function">++  dec</span>
+
+----------------------------------------------------

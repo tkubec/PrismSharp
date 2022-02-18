@@ -1,0 +1,15 @@
+fun = &Math.zero?/1
+(&is_function/1).(fun)
+fun = &(&1 + 1)
+fun.(1)
+fun = &List.flatten(&1, &2)
+fun.([1, [[2], 3]], [4, 5])
+----------------------------------------------------
+fun <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token module class-name">Math</span><span class="token punctuation">.</span><span class="token function">zero?</span><span class="token operator">/</span><span class="token number">1</span>
+<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token function">is_function</span><span class="token operator">/</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span>fun<span class="token punctuation">)</span>
+fun <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token punctuation">(</span><span class="token argument variable">&amp;1</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">fun</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+fun <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token module class-name">List</span><span class="token punctuation">.</span><span class="token function">flatten</span><span class="token punctuation">(</span><span class="token argument variable">&amp;1</span><span class="token punctuation">,</span> <span class="token argument variable">&amp;2</span><span class="token punctuation">)</span>
+<span class="token function">fun</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

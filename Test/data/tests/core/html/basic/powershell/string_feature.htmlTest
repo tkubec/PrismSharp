@@ -1,0 +1,31 @@
+"a simple string"
+"has $interpolated variables"
+"has $($nesting -and 'interpolation')"
+"string `"with`" escaping"
+'non-interpolated $string'
+'also ''with'' escaping'
+'''twas also escaped'
+an empty '' string
+'can''t'
+"a simple #comment string"
+"has $interpolated <# variables #>"
+"$($expression)"
+"`$(escaped expression)"
+"$($($exp))"
+----------------------------------------------------
+<span class="token string">"a simple string"</span>
+<span class="token string">"has <span class="token variable">$interpolated</span> variables"</span>
+<span class="token string">"has <span class="token function">$<span class="token punctuation">(</span><span class="token variable">$nesting</span> <span class="token operator">-and</span> <span class="token string">'interpolation'</span><span class="token punctuation">)</span></span>"</span>
+<span class="token string">"string `"with`" escaping"</span>
+<span class="token string">'non-interpolated $string'</span>
+<span class="token string">'also ''with'' escaping'</span>
+<span class="token string">'''twas also escaped'</span>
+an empty <span class="token string">''</span> string
+<span class="token string">'can''t'</span>
+<span class="token string">"a simple #comment string"</span>
+<span class="token string">"has <span class="token variable">$interpolated</span> &lt;# variables #>"</span>
+<span class="token string">"<span class="token function">$<span class="token punctuation">(</span><span class="token variable">$expression</span><span class="token punctuation">)</span></span>"</span>
+<span class="token string">"`$(escaped expression)"</span>
+<span class="token string">"<span class="token function">$<span class="token punctuation">(</span>$<span class="token punctuation">(</span><span class="token variable">$exp</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span>"</span>
+
+----------------------------------------------------

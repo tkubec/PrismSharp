@@ -1,0 +1,25 @@
+{{ null }}
+{{- true -}}
+{{ false }}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["boolean", "null"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["operator", "-"],
+	["boolean", "true"],
+	["operator", "-"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["boolean", "false"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

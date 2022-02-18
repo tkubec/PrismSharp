@@ -1,0 +1,7 @@
+script alert(42);
+	script(type='text/javascript') alert(42);
+----------------------------------------------------
+<span class="token tag">script</span> <span class="token script"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+	<span class="token tag">script<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">'text/javascript'</span></span><span class="token punctuation">)</span></span></span> <span class="token script"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+
+----------------------------------------------------

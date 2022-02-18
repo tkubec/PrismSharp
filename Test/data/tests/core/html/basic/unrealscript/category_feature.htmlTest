@@ -1,0 +1,23 @@
+// MyBool is visible but not editable in UnrealEd
+var(MyCategory) editconst bool MyBool;
+
+// MyBool is visible but not editable in UnrealEd and
+// not changeable in script
+var(MyCategory) const editconst bool MyBool;
+
+// MyBool is visible and can be set in UnrealEd but
+// not changeable in script
+var(MyCategory) const bool MyBool;
+----------------------------------------------------
+<span class="token comment">// MyBool is visible but not editable in UnrealEd</span>
+<span class="token keyword">var</span><span class="token punctuation">(</span><span class="token category property">MyCategory</span><span class="token punctuation">)</span> <span class="token keyword">editconst</span> <span class="token keyword">bool</span> MyBool<span class="token punctuation">;</span>
+
+<span class="token comment">// MyBool is visible but not editable in UnrealEd and</span>
+<span class="token comment">// not changeable in script</span>
+<span class="token keyword">var</span><span class="token punctuation">(</span><span class="token category property">MyCategory</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token keyword">editconst</span> <span class="token keyword">bool</span> MyBool<span class="token punctuation">;</span>
+
+<span class="token comment">// MyBool is visible and can be set in UnrealEd but</span>
+<span class="token comment">// not changeable in script</span>
+<span class="token keyword">var</span><span class="token punctuation">(</span><span class="token category property">MyCategory</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token keyword">bool</span> MyBool<span class="token punctuation">;</span>
+
+----------------------------------------------------

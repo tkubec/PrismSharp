@@ -1,0 +1,25 @@
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#>
+
+CONSTRUCT { ?x  vcard:N _:v .
+						_:v vcard:givenName ?gname .
+						_:v vcard:familyName ?fname }
+WHERE
+ {
+		{ ?x foaf:firstname ?gname } UNION  { ?x foaf:givenname   ?gname } .
+		{ ?x foaf:surname   ?fname } UNION  { ?x foaf:family_name ?fname } .
+ }
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span></span>    <span class="token url"><span class="token punctuation">&lt;</span>http://xmlns.com/foaf/0.1/<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">vcard<span class="token punctuation">:</span></span></span>   <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2001/vcard-rdf/3.0#<span class="token punctuation">></span></span>
+
+<span class="token keyword">CONSTRUCT</span> <span class="token punctuation">{</span> <span class="token variable">?x</span>  <span class="token function"><span class="token prefix">vcard<span class="token punctuation">:</span></span><span class="token local-name">N</span></span> <span class="token function"><span class="token prefix">_<span class="token punctuation">:</span></span><span class="token local-name">v</span></span> <span class="token punctuation">.</span>
+						<span class="token function"><span class="token prefix">_<span class="token punctuation">:</span></span><span class="token local-name">v</span></span> <span class="token function"><span class="token prefix">vcard<span class="token punctuation">:</span></span><span class="token local-name">givenName</span></span> <span class="token variable">?gname</span> <span class="token punctuation">.</span>
+						<span class="token function"><span class="token prefix">_<span class="token punctuation">:</span></span><span class="token local-name">v</span></span> <span class="token function"><span class="token prefix">vcard<span class="token punctuation">:</span></span><span class="token local-name">familyName</span></span> <span class="token variable">?fname</span> <span class="token punctuation">}</span>
+<span class="token keyword">WHERE</span>
+ <span class="token punctuation">{</span>
+		<span class="token punctuation">{</span> <span class="token variable">?x</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">firstname</span></span> <span class="token variable">?gname</span> <span class="token punctuation">}</span> <span class="token keyword">UNION</span>  <span class="token punctuation">{</span> <span class="token variable">?x</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">givenname</span></span>   <span class="token variable">?gname</span> <span class="token punctuation">}</span> <span class="token punctuation">.</span>
+		<span class="token punctuation">{</span> <span class="token variable">?x</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">surname</span></span>   <span class="token variable">?fname</span> <span class="token punctuation">}</span> <span class="token keyword">UNION</span>  <span class="token punctuation">{</span> <span class="token variable">?x</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">family_name</span></span> <span class="token variable">?fname</span> <span class="token punctuation">}</span> <span class="token punctuation">.</span>
+ <span class="token punctuation">}</span>
+
+----------------------------------------------------

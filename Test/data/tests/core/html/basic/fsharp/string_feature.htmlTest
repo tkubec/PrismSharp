@@ -1,0 +1,33 @@
+""
+"fo\"o"
+"foo\
+bar"
+"foo"B
+
+@""
+@"foo"
+@"fo""o"
+@"foo"B
+
+""""""
+"""fo""o"
+bar"""
+"""foo"""B
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"o"</span>
+<span class="token string">"foo\
+bar"</span>
+<span class="token string">"foo"B</span>
+
+<span class="token string">@""</span>
+<span class="token string">@"foo"</span>
+<span class="token string">@"fo""o"</span>
+<span class="token string">@"foo"B</span>
+
+<span class="token string">""""""</span>
+<span class="token string">"""fo""o"
+bar"""</span>
+<span class="token string">"""foo"""B</span>
+
+----------------------------------------------------

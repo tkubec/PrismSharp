@@ -1,0 +1,19 @@
+kids =
+  brother:
+    name: "Max"
+    age:  11
+  sister:
+    name: "Ida"
+    age:  9
+----------------------------------------------------
+[
+	"kids ", ["operator", "="],
+	["property", "brother"], ["operator", ":"],
+	["property", "name"], ["operator", ":"], ["string", ["\"Max\""]],
+	["property", "age"], ["operator", ":"], ["number", "11"],
+	["property", "sister"], ["operator", ":"],
+	["property", "name"], ["operator", ":"], ["string", ["\"Ida\""]],
+	["property", "age"], ["operator", ":"], ["number", "9"]
+]
+
+----------------------------------------------------

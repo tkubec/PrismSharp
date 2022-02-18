@@ -1,0 +1,20 @@
+SELECT ?v WHERE { ?v ?p "abc"^^<http://example.org/datatype#specialDatatype> }
+----------------------------------------------------
+[
+	["keyword", "SELECT"],
+	["variable", "?v"],
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?v"],
+	["variable", "?p"],
+	["string", "\"abc\""],
+	["punctuation", "^^"],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/datatype#specialDatatype",
+		["punctuation", ">"]
+	]],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

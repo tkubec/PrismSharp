@@ -1,0 +1,29 @@
+<div class="<%= Time.now.strftime('%A') %>">
+___ERB1___<%= 1 %>___ERB2___<%= 2 %>
+----------------------------------------------------
+[
+	["ruby", [
+		["operator", "<"],
+		"div ",
+		["keyword", "class"],
+		["operator", "="],
+		["string-literal", [
+			["string", "\"<%= Time.now.strftime('%A') %>\""]
+		]],
+		["operator", ">"],
+
+		"\n___ERB1___",
+		["operator", "<"],
+		["operator", "%="],
+		["number", "1"],
+		["operator", "%"],
+		["operator", ">"],
+		"___ERB2___",
+		["operator", "<"],
+		["operator", "%="],
+		["number", "2"]
+	]],
+	["delimiter", "%>"]
+]
+
+----------------------------------------------------

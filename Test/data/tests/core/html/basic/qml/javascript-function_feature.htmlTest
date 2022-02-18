@@ -1,0 +1,23 @@
+Foo {
+	function onClicked(mouse) { foo(mouse) }
+
+	function calculateMyHeight() {
+		return Math.max(otherItem.height, thirdItem.height);
+		var foo = "//";
+		let bar = (1 / 1);
+		if (true) {} else {}
+	}
+}
+----------------------------------------------------
+<span class="token class-name">Foo</span> <span class="token punctuation">{</span>
+	<span class="token javascript-function language-javascript"><span class="token keyword">function</span> <span class="token function">onClicked</span><span class="token punctuation">(</span><span class="token parameter">mouse</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">foo</span><span class="token punctuation">(</span>mouse<span class="token punctuation">)</span> <span class="token punctuation">}</span></span>
+
+	<span class="token javascript-function language-javascript"><span class="token keyword">function</span> <span class="token function">calculateMyHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>otherItem<span class="token punctuation">.</span>height<span class="token punctuation">,</span> thirdItem<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token string">"//"</span><span class="token punctuation">;</span>
+		<span class="token keyword">let</span> bar <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">/</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token punctuation">}</span></span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

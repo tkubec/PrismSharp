@@ -1,0 +1,5 @@
+var foo = /([^/])\/(\\?.|\[.+?])+?\/[gim]{0,3}/g;
+----------------------------------------------------
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">([^/])\/(\\?.|\[.+?])+?\/[gim]{0,3}</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

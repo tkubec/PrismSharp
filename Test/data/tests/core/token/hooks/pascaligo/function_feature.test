@@ -1,0 +1,11 @@
+somefunc()
+some_func()
+somefunc42()
+----------------------------------------------------
+[
+	["function", "somefunc"], ["punctuation", "("], ["punctuation", ")"],
+	["function", "some_func"], ["punctuation", "("], ["punctuation", ")"],
+	["function", "somefunc42"], ["punctuation", "("], ["punctuation", ")"]
+]
+
+----------------------------------------------------

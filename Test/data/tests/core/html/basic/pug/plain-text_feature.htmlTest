@@ -1,0 +1,7 @@
+div foo
+	span foo bar
+----------------------------------------------------
+<span class="token tag">div</span> <span class="token plain-text">foo</span>
+	<span class="token tag">span</span> <span class="token plain-text">foo bar</span>
+
+----------------------------------------------------

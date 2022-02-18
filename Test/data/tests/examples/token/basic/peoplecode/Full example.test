@@ -1,0 +1,694 @@
+/* Source: https://github.com/chrismalek/psoftToXML/blob/master/psftToXML.pcode */
+
+class psoftToXML
+	method RowsetToXML(&parentNode As XmlNode, &rowSetIn As Rowset) Returns XmlNode;
+	method RecordToXML(&parentNode As XmlNode, &recordIn As Record) Returns XmlNode;
+	method FieldToXML(&ParentNode As XmlNode, &fieldIn As Field) Returns XmlNode;
+	method RowToXML(&ParentNode As XmlNode, &rowIn As Row) Returns XmlNode;
+	method psoftToXML();
+	property array of string fieldsToSkip;
+private
+	instance string &psObjectTypeString;
+end-class;
+
+method psoftToXML
+	&psObjectTypeString = "PSOBJECTTYPE";
+	%This.fieldsToSkip = CreateArrayRept("", 0);
+end-method;
+
+method FieldToXML
+	/+ &ParentNode as XmlNode, +/
+	/+ &fieldIn as Field +/
+	/+ Returns XmlNode +/
+	Local XmlNode &outNode;
+
+	Local XmlNode &fldNode, &tempNode;
+
+	&fldNode = &ParentNode.AddElement(&fieldIn.Name);
+
+	&fldNode.AddAttribute("PSFIELDTYPE", &fieldIn.Type);
+	&fldNode.AddAttribute(%This.psObjectTypeString, "FIELD");
+
+	If &fieldIn.IsEditXlat Then
+		&fldNode.AddAttribute("LongTranslateValue", &fieldIn.LongTranslateValue);
+	End-If;
+
+	Evaluate &fieldIn.Type
+	When = "LONGCHAR"
+	When = "IMAGE"
+	When = "IMAGEREFERENCE"
+		If All(&fieldIn.Value) Then
+
+			&tempNode = &fldNode.AddCDataSection(&fieldIn.Value);
+		End-If;
+		Break;
+
+	When = "NUMBER";
+		&tempNode = &fldNode.AddText(&fieldIn.Value);
+		Break;
+	When-Other
+		If All(&fieldIn.Value) Then
+			&tempNode = &fldNode.AddText(&fieldIn.Value);
+		End-If;
+
+		Break;
+	End-Evaluate;
+
+	Return &outNode;
+end-method;
+
+
+method RecordToXML
+	/+ &parentNode as XmlNode, +/
+	/+ &recordIn as Record +/
+	/+ Returns XmlNode +/
+
+	Local XmlNode &outNode, &fieldNode;
+
+	Local integer &i;
+
+	&outNode = &parentNode.AddElement(&recordIn.Name);
+
+	&outNode.AddAttribute(%This.psObjectTypeString, "RECORD");
+
+	For &i = 1 To &recordIn.FieldCount
+
+		If %This.fieldsToSkip.Find(&recordIn.GetField(&i).Name) <= 0 Then
+			&fieldNode = %This.FieldToXML(&outNode, &recordIn.GetField(&i));
+		End-If;
+	End-For;
+
+	Return &outNode;
+end-method;
+
+
+method RowToXML
+	/+ &ParentNode as XmlNode, +/
+	/+ &rowIn as Row +/
+	/+ Returns XmlNode +/
+
+	Local XmlNode &outNode, &recNode;
+
+	Local integer &i;
+
+	&outNode = &ParentNode.AddElement("ROW");
+	&outNode.AddAttribute(&psObjectTypeString, "ROW");
+	&outNode.AddAttribute("RowNumber", String(&rowIn.RowNumber));
+
+	For &i = 1 To &rowIn.RecordCount
+		&recNode = %This.RecordToXML(&outNode, &rowIn.GetRecord(&i));
+	End-For;
+
+	Local XmlNode &rsNode;
+	For &i = 1 To &rowIn.ChildCount
+		&rsNode = %This.RowsetToXML(&outNode, &rowIn.GetRowset(&i));
+
+	End-For;
+
+	Return &outNode;
+end-method;
+
+
+method RowsetToXML
+	/+ &parentNode as XmlNode, +/
+	/+ &rowSetIn as Rowset +/
+	/+ Returns XmlNode +/
+
+	Local XmlNode &outNode, &rowNode;
+
+	Local integer &i;
+	&outNode = &parentNode.AddElement(&rowSetIn.DBRecordName);
+	&outNode.AddAttribute(&psObjectTypeString, "ROWSET");
+
+	For &i = 1 To &rowSetIn.ActiveRowCount
+		&rowNode = %This.RowToXML(&outNode, &rowSetIn.GetRow(&i));
+	End-For;
+	Return &outNode;
+end-method;
+----------------------------------------------------
+[
+	["comment", "/* Source: https://github.com/chrismalek/psoftToXML/blob/master/psftToXML.pcode */"],
+
+	["keyword", "class"],
+	["class-name", ["psoftToXML"]],
+
+	["keyword", "method"],
+	["function-definition", "RowsetToXML"],
+	["punctuation", "("],
+	"&parentNode ",
+	["keyword", "As"],
+	["class-name", ["XmlNode"]],
+	["punctuation", ","],
+	" &rowSetIn ",
+	["keyword", "As"],
+	["class-name", ["Rowset"]],
+	["punctuation", ")"],
+	["keyword", "Returns"],
+	["class-name", ["XmlNode"]],
+	["punctuation", ";"],
+
+	["keyword", "method"],
+	["function-definition", "RecordToXML"],
+	["punctuation", "("],
+	"&parentNode ",
+	["keyword", "As"],
+	["class-name", ["XmlNode"]],
+	["punctuation", ","],
+	" &recordIn ",
+	["keyword", "As"],
+	["class-name", ["Record"]],
+	["punctuation", ")"],
+	["keyword", "Returns"],
+	["class-name", ["XmlNode"]],
+	["punctuation", ";"],
+
+	["keyword", "method"],
+	["function-definition", "FieldToXML"],
+	["punctuation", "("],
+	"&ParentNode ",
+	["keyword", "As"],
+	["class-name", ["XmlNode"]],
+	["punctuation", ","],
+	" &fieldIn ",
+	["keyword", "As"],
+	["class-name", ["Field"]],
+	["punctuation", ")"],
+	["keyword", "Returns"],
+	["class-name", ["XmlNode"]],
+	["punctuation", ";"],
+
+	["keyword", "method"],
+	["function-definition", "RowToXML"],
+	["punctuation", "("],
+	"&ParentNode ",
+	["keyword", "As"],
+	["class-name", ["XmlNode"]],
+	["punctuation", ","],
+	" &rowIn ",
+	["keyword", "As"],
+	["class-name", ["Row"]],
+	["punctuation", ")"],
+	["keyword", "Returns"],
+	["class-name", ["XmlNode"]],
+	["punctuation", ";"],
+
+	["keyword", "method"],
+	["function-definition", "psoftToXML"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "property"],
+	["class-name", ["array"]],
+	["keyword", "of"],
+	["class-name", ["string"]],
+	" fieldsToSkip",
+	["punctuation", ";"],
+
+	["keyword", "private"],
+
+	["keyword", "instance"],
+	["class-name", ["string"]],
+	" &psObjectTypeString",
+	["punctuation", ";"],
+
+	["keyword", "end-class"],
+	["punctuation", ";"],
+
+	["keyword", "method"],
+	["function-definition", "psoftToXML"],
+
+	"\n\t&psObjectTypeString ",
+	["operator", "="],
+	["string", "\"PSOBJECTTYPE\""],
+	["punctuation", ";"],
+
+	["variable", "%This"],
+	["punctuation", "."],
+	"fieldsToSkip ",
+	["operator", "="],
+	["function", "CreateArrayRept"],
+	["punctuation", "("],
+	["string", "\"\""],
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "end-method"],
+	["punctuation", ";"],
+
+	["keyword", "method"],
+	["function-definition", "FieldToXML"],
+	["comment", "/+ &ParentNode as XmlNode, +/"],
+	["comment", "/+ &fieldIn as Field +/"],
+	["comment", "/+ Returns XmlNode +/"],
+	["keyword", "Local"],
+	["class-name", ["XmlNode"]],
+	" &outNode",
+	["punctuation", ";"],
+
+	["keyword", "Local"],
+	["class-name", ["XmlNode"]],
+	" &fldNode",
+	["punctuation", ","],
+	" &tempNode",
+	["punctuation", ";"],
+
+	"\n\n\t&fldNode ",
+	["operator", "="],
+	" &ParentNode",
+	["punctuation", "."],
+	["function", "AddElement"],
+	["punctuation", "("],
+	"&fieldIn",
+	["punctuation", "."],
+	"Name",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n\t&fldNode",
+	["punctuation", "."],
+	["function", "AddAttribute"],
+	["punctuation", "("],
+	["string", "\"PSFIELDTYPE\""],
+	["punctuation", ","],
+	" &fieldIn",
+	["punctuation", "."],
+	"Type",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t&fldNode",
+	["punctuation", "."],
+	["function", "AddAttribute"],
+	["punctuation", "("],
+	["variable", "%This"],
+	["punctuation", "."],
+	"psObjectTypeString",
+	["punctuation", ","],
+	["string", "\"FIELD\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "If"],
+	" &fieldIn",
+	["punctuation", "."],
+	"IsEditXlat ",
+	["keyword", "Then"],
+
+	"\n\t\t&fldNode",
+	["punctuation", "."],
+	["function", "AddAttribute"],
+	["punctuation", "("],
+	["string", "\"LongTranslateValue\""],
+	["punctuation", ","],
+	" &fieldIn",
+	["punctuation", "."],
+	"LongTranslateValue",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "End-If"],
+	["punctuation", ";"],
+
+	["keyword", "Evaluate"],
+	" &fieldIn",
+	["punctuation", "."],
+	"Type\n\t",
+
+	["keyword", "When"],
+	["operator", "="],
+	["string", "\"LONGCHAR\""],
+
+	["keyword", "When"],
+	["operator", "="],
+	["string", "\"IMAGE\""],
+
+	["keyword", "When"],
+	["operator", "="],
+	["string", "\"IMAGEREFERENCE\""],
+
+	["keyword", "If"],
+	["function", "All"],
+	["punctuation", "("],
+	"&fieldIn",
+	["punctuation", "."],
+	["keyword", "Value"],
+	["punctuation", ")"],
+	["keyword", "Then"],
+
+	"\n\n\t\t\t&tempNode ",
+	["operator", "="],
+	" &fldNode",
+	["punctuation", "."],
+	["function", "AddCDataSection"],
+	["punctuation", "("],
+	"&fieldIn",
+	["punctuation", "."],
+	["keyword", "Value"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "End-If"],
+	["punctuation", ";"],
+
+	"\n\t\tBreak",
+	["punctuation", ";"],
+
+	["keyword", "When"],
+	["operator", "="],
+	["string", "\"NUMBER\""],
+	["punctuation", ";"],
+
+	"\n\t\t&tempNode ",
+	["operator", "="],
+	" &fldNode",
+	["punctuation", "."],
+	["function", "AddText"],
+	["punctuation", "("],
+	"&fieldIn",
+	["punctuation", "."],
+	["keyword", "Value"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\tBreak",
+	["punctuation", ";"],
+
+	["keyword", "When-Other"],
+
+	["keyword", "If"],
+	["function", "All"],
+	["punctuation", "("],
+	"&fieldIn",
+	["punctuation", "."],
+	["keyword", "Value"],
+	["punctuation", ")"],
+	["keyword", "Then"],
+
+	"\n\t\t\t&tempNode ",
+	["operator", "="],
+	" &fldNode",
+	["punctuation", "."],
+	["function", "AddText"],
+	["punctuation", "("],
+	"&fieldIn",
+	["punctuation", "."],
+	["keyword", "Value"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "End-If"],
+	["punctuation", ";"],
+
+	"\n\n\t\tBreak", ["punctuation", ";"],
+	["keyword", "End-Evaluate"], ["punctuation", ";"],
+
+	["keyword", "Return"], " &outNode", ["punctuation", ";"],
+	["keyword", "end-method"], ["punctuation", ";"],
+
+	["keyword", "method"], ["function-definition", "RecordToXML"],
+	["comment", "/+ &parentNode as XmlNode, +/"],
+	["comment", "/+ &recordIn as Record +/"],
+	["comment", "/+ Returns XmlNode +/"],
+
+	["keyword", "Local"],
+	["class-name", ["XmlNode"]],
+	" &outNode",
+	["punctuation", ","],
+	" &fieldNode",
+	["punctuation", ";"],
+
+	["keyword", "Local"],
+	["class-name", ["integer"]],
+	" &i",
+	["punctuation", ";"],
+
+	"\n\n\t&outNode ",
+	["operator", "="],
+	" &parentNode",
+	["punctuation", "."],
+	["function", "AddElement"],
+	["punctuation", "("],
+	"&recordIn",
+	["punctuation", "."],
+	"Name",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n\t&outNode",
+	["punctuation", "."],
+	["function", "AddAttribute"],
+	["punctuation", "("],
+	["variable", "%This"],
+	["punctuation", "."],
+	"psObjectTypeString",
+	["punctuation", ","],
+	["string", "\"RECORD\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "For"],
+	" &i ",
+	["operator", "="],
+	["number", "1"],
+	["keyword", "To"],
+	" &recordIn",
+	["punctuation", "."],
+	"FieldCount\n\n\t\t",
+
+	["keyword", "If"],
+	["variable", "%This"],
+	["punctuation", "."],
+	"fieldsToSkip",
+	["punctuation", "."],
+	["function", "Find"],
+	["punctuation", "("],
+	"&recordIn",
+	["punctuation", "."],
+	["function", "GetField"],
+	["punctuation", "("],
+	"&i",
+	["punctuation", ")"],
+	["punctuation", "."],
+	"Name",
+	["punctuation", ")"],
+	["operator", "<="],
+	["number", "0"],
+	["keyword", "Then"],
+
+	"\n\t\t\t&fieldNode ",
+	["operator", "="],
+	["variable", "%This"],
+	["punctuation", "."],
+	["function", "FieldToXML"],
+	["punctuation", "("],
+	"&outNode",
+	["punctuation", ","],
+	" &recordIn",
+	["punctuation", "."],
+	["function", "GetField"],
+	["punctuation", "("],
+	"&i",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "End-If"],
+	["punctuation", ";"],
+
+	["keyword", "End-For"],
+	["punctuation", ";"],
+
+	["keyword", "Return"], " &outNode", ["punctuation", ";"],
+	["keyword", "end-method"], ["punctuation", ";"],
+
+	["keyword", "method"], ["function-definition", "RowToXML"],
+	["comment", "/+ &ParentNode as XmlNode, +/"],
+	["comment", "/+ &rowIn as Row +/"],
+	["comment", "/+ Returns XmlNode +/"],
+
+	["keyword", "Local"],
+	["class-name", ["XmlNode"]],
+	" &outNode",
+	["punctuation", ","],
+	" &recNode",
+	["punctuation", ";"],
+
+	["keyword", "Local"],
+	["class-name", ["integer"]],
+	" &i",
+	["punctuation", ";"],
+
+	"\n\n\t&outNode ",
+	["operator", "="],
+	" &ParentNode",
+	["punctuation", "."],
+	["function", "AddElement"],
+	["punctuation", "("],
+	["string", "\"ROW\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t&outNode",
+	["punctuation", "."],
+	["function", "AddAttribute"],
+	["punctuation", "("],
+	"&psObjectTypeString",
+	["punctuation", ","],
+	["string", "\"ROW\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t&outNode",
+	["punctuation", "."],
+	["function", "AddAttribute"],
+	["punctuation", "("],
+	["string", "\"RowNumber\""],
+	["punctuation", ","],
+	["function", "String"],
+	["punctuation", "("],
+	"&rowIn",
+	["punctuation", "."],
+	"RowNumber",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "For"],
+	" &i ",
+	["operator", "="],
+	["number", "1"],
+	["keyword", "To"],
+	" &rowIn",
+	["punctuation", "."],
+	"RecordCount\n\t\t&recNode ",
+	["operator", "="],
+	["variable", "%This"],
+	["punctuation", "."],
+	["function", "RecordToXML"],
+	["punctuation", "("],
+	"&outNode",
+	["punctuation", ","],
+	" &rowIn",
+	["punctuation", "."],
+	["function", "GetRecord"],
+	["punctuation", "("],
+	"&i",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "End-For"],
+	["punctuation", ";"],
+
+	["keyword", "Local"],
+	["class-name", ["XmlNode"]],
+	" &rsNode",
+	["punctuation", ";"],
+
+	["keyword", "For"],
+	" &i ",
+	["operator", "="],
+	["number", "1"],
+	["keyword", "To"],
+	" &rowIn",
+	["punctuation", "."],
+	"ChildCount\n\t\t&rsNode ",
+	["operator", "="],
+	["variable", "%This"],
+	["punctuation", "."],
+	["function", "RowsetToXML"],
+	["punctuation", "("],
+	"&outNode",
+	["punctuation", ","],
+	" &rowIn",
+	["punctuation", "."],
+	["function", "GetRowset"],
+	["punctuation", "("],
+	"&i",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "End-For"], ["punctuation", ";"],
+
+	["keyword", "Return"], " &outNode", ["punctuation", ";"],
+	["keyword", "end-method"], ["punctuation", ";"],
+
+	["keyword", "method"], ["function-definition", "RowsetToXML"],
+	["comment", "/+ &parentNode as XmlNode, +/"],
+	["comment", "/+ &rowSetIn as Rowset +/"],
+	["comment", "/+ Returns XmlNode +/"],
+
+	["keyword", "Local"],
+	["class-name", ["XmlNode"]],
+	" &outNode",
+	["punctuation", ","],
+	" &rowNode",
+	["punctuation", ";"],
+
+	["keyword", "Local"],
+	["class-name", ["integer"]],
+	" &i",
+	["punctuation", ";"],
+
+	"\n\t&outNode ",
+	["operator", "="],
+	" &parentNode",
+	["punctuation", "."],
+	["function", "AddElement"],
+	["punctuation", "("],
+	"&rowSetIn",
+	["punctuation", "."],
+	"DBRecordName",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t&outNode",
+	["punctuation", "."],
+	["function", "AddAttribute"],
+	["punctuation", "("],
+	"&psObjectTypeString",
+	["punctuation", ","],
+	["string", "\"ROWSET\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "For"],
+	" &i ",
+	["operator", "="],
+	["number", "1"],
+	["keyword", "To"],
+	" &rowSetIn",
+	["punctuation", "."],
+	"ActiveRowCount\n\t\t&rowNode ",
+	["operator", "="],
+	["variable", "%This"],
+	["punctuation", "."],
+	["function", "RowToXML"],
+	["punctuation", "("],
+	"&outNode",
+	["punctuation", ","],
+	" &rowSetIn",
+	["punctuation", "."],
+	["function", "GetRow"],
+	["punctuation", "("],
+	"&i",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "End-For"],
+	["punctuation", ";"],
+
+	["keyword", "Return"],
+	" &outNode",
+	["punctuation", ";"],
+
+	["keyword", "end-method"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

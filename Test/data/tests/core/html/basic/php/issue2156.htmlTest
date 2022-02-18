@@ -1,0 +1,233 @@
+<?
+	// Session starten und confog.php includen
+	session_start();
+	include ("config.php");
+
+	// CaptchaCodes abfragen
+	$CAPTCHA_RandomText = "";
+	if (isset($_POST['txtCode'])){
+	$CAPTCHA_EnteredText = str_replace("<","",str_replace(">","",str_replace("'","",str_replace("[","",str_replace("]","",$_POST['txtCode'])))));
+	}
+	if (isset($_SESSION['CAPTCHA_RndText'])) {
+	$CAPTCHA_RandomText = $_SESSION['CAPTCHA_RndText'];
+	}
+
+	// Eingabefelder abfragen
+	$_SESSION['company'] = $_POST['company'];
+	$_SESSION['name'] = $_POST['name'];
+	$_SESSION['address'] = $_POST['address'];
+	$_SESSION['zip_code'] = $_POST['zip_code'];
+	$_SESSION['city'] = $_POST['city'];
+	$_SESSION['county'] = $_POST['county'];
+	$_SESSION['country'] = $_POST['country'];
+	$_SESSION['phone'] = $_POST['phone'];
+	$_SESSION['fax'] = $_POST['fax'];
+	$_SESSION['email'] = $_POST['email'];
+	$_SESSION['nachricht'] = $_POST['nachricht'];
+
+	$email_i = $_SESSION['email'];
+
+	// Email Funktion
+	function pruefe_mail($email_i) {
+		  if(strstr($email_i, "@")) {
+			$email_i = explode ("@", $email_i);
+			if(strstr($email_i[1], ".")) $ok = TRUE;
+		  }
+		  return $ok;
+		}
+
+	// Eingaben prüfen
+	$fehler = "";
+	if(!pruefe_mail($email_i) && !empty($email_i)) {
+			$fehler .= "<li>email</li>";
+			}
+			if ($_SESSION['name'] == ""){
+			$fehler .= "<li>name</li>";
+			}
+			if ($_SESSION['city'] == ""){
+			$fehler .= "<li>city</li>";
+			}
+			if ($_SESSION['country'] == ""){
+			$fehler .= "<li>country</li>";
+			}
+			if ($_SESSION['phone'] == ""){
+			$fehler .= "<li>phone</li>";
+			}
+			if ($_SESSION['email'] == ""){
+			$fehler .= "<li>email</li>";
+			}
+			if ($_SESSION['message'] == ""){
+			$fehler .= "<li>message</li>";
+			}
+			if ($CAPTCHA_EnteredText == $CAPTCHA_RandomText and isset($_POST['txtCode']) == true and isset($_SESSION['CAPTCHA_RndText'])){
+			$captcha = true;
+			} else {
+			$fehler .= "<li>code</li>";
+			}
+	echo '<div>';
+	if ($fehler == ""){
+	// Email zumsammensetzen
+	$email = "From: " . $_SESSION['email'];
+
+
+	$nachrichtfertig =
+	"Company: " . $_SESSION['company'] "n\"
+	"Name: " $_SESSION['name'] "n\"
+	"Address: " $_SESSION['address'] "n\"
+	"ZIP Code: " $_SESSION['zip_code'] "n\"
+	"City: " $_SESSION['city'] "n\"
+	"County: " $_SESSION['county'] "n\"
+	"Country: " $_SESSION['country'] "n\"
+	"Phone: " $_SESSION['phone'] "n\"
+	"Fax: " $_SESSION['fax'] "n\"
+	"eMail: " $_SESSION['email'] "n\n\"
+	"Message: " $_SESSION['message'];
+
+
+	$versand = mail($empfaenger, $betreff, $nachrichtfertig, $email);
+			if ($versand) {
+			echo '<p class=titles>Thank you very much!</p>
+				  <p>The message were send successfully</p>';
+
+			// Sessionvariablen löschen
+			unset($_SESSION['company']);
+			unset($_SESSION['name']);
+			unset($_SESSION['address']);
+			unset($_SESSION['zip_code']);
+			unset($_SESSION['city']);
+			unset($_SESSION['county']);
+			unset($_SESSION['country']);
+			unset($_SESSION['phone']);
+			unset($_SESSION['fax']);
+			unset($_SESSION['email']);
+			unset($_SESSION['nachricht']);
+			}
+
+	} else {
+	echo '<p class=titles>Error</p>';
+	echo '<p>Please fill in all the $fehler field. <a href="contact.php">back</a></p>';
+	}
+	echo '</div>';
+
+	// Session unset
+	unset($_SESSION['CAPTCHA_RndText']);
+
+?>
+----------------------------------------------------
+<span class="token delimiter important">&lt;?</span>
+	<span class="token comment">// Session starten und confog.php includen</span>
+	<span class="token function">session_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">include</span> <span class="token punctuation">(</span><span class="token string double-quoted-string">"config.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// CaptchaCodes abfragen</span>
+	<span class="token variable">$CAPTCHA_RandomText</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'txtCode'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token variable">$CAPTCHA_EnteredText</span> <span class="token operator">=</span> <span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"&lt;"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">""</span><span class="token punctuation">,</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token string double-quoted-string">">"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">""</span><span class="token punctuation">,</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"'"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">""</span><span class="token punctuation">,</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"["</span><span class="token punctuation">,</span><span class="token string double-quoted-string">""</span><span class="token punctuation">,</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"]"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">""</span><span class="token punctuation">,</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'txtCode'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'CAPTCHA_RndText'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token variable">$CAPTCHA_RandomText</span> <span class="token operator">=</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'CAPTCHA_RndText'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// Eingabefelder abfragen</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'company'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'company'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'address'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'address'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'zip_code'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'zip_code'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'city'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'county'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'county'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'country'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'country'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'phone'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'phone'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'fax'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'fax'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'email'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'email'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'nachricht'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'nachricht'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$email_i</span> <span class="token operator">=</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'email'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Email Funktion</span>
+	<span class="token keyword">function</span> <span class="token function-definition function">pruefe_mail</span><span class="token punctuation">(</span><span class="token variable">$email_i</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strstr</span><span class="token punctuation">(</span><span class="token variable">$email_i</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"@"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token variable">$email_i</span> <span class="token operator">=</span> <span class="token function">explode</span> <span class="token punctuation">(</span><span class="token string double-quoted-string">"@"</span><span class="token punctuation">,</span> <span class="token variable">$email_i</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strstr</span><span class="token punctuation">(</span><span class="token variable">$email_i</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token variable">$ok</span> <span class="token operator">=</span> <span class="token constant boolean">TRUE</span><span class="token punctuation">;</span>
+		  <span class="token punctuation">}</span>
+		  <span class="token keyword">return</span> <span class="token variable">$ok</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+	<span class="token comment">// Eingaben prüfen</span>
+	<span class="token variable">$fehler</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">pruefe_mail</span><span class="token punctuation">(</span><span class="token variable">$email_i</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$email_i</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token variable">$fehler</span> <span class="token operator">.=</span> <span class="token string double-quoted-string">"&lt;li>email&lt;/li>"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token variable">$fehler</span> <span class="token operator">.=</span> <span class="token string double-quoted-string">"&lt;li>name&lt;/li>"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'city'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token variable">$fehler</span> <span class="token operator">.=</span> <span class="token string double-quoted-string">"&lt;li>city&lt;/li>"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'country'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token variable">$fehler</span> <span class="token operator">.=</span> <span class="token string double-quoted-string">"&lt;li>country&lt;/li>"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'phone'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token variable">$fehler</span> <span class="token operator">.=</span> <span class="token string double-quoted-string">"&lt;li>phone&lt;/li>"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'email'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token variable">$fehler</span> <span class="token operator">.=</span> <span class="token string double-quoted-string">"&lt;li>email&lt;/li>"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'message'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token variable">$fehler</span> <span class="token operator">.=</span> <span class="token string double-quoted-string">"&lt;li>message&lt;/li>"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$CAPTCHA_EnteredText</span> <span class="token operator">==</span> <span class="token variable">$CAPTCHA_RandomText</span> <span class="token keyword">and</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'txtCode'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token constant boolean">true</span> <span class="token keyword">and</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'CAPTCHA_RndText'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token variable">$captcha</span> <span class="token operator">=</span> <span class="token constant boolean">true</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			<span class="token variable">$fehler</span> <span class="token operator">.=</span> <span class="token string double-quoted-string">"&lt;li>code&lt;/li>"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+	<span class="token keyword">echo</span> <span class="token string single-quoted-string">'&lt;div>'</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$fehler</span> <span class="token operator">==</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token comment">// Email zumsammensetzen</span>
+	<span class="token variable">$email</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"From: "</span> <span class="token operator">.</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'email'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+
+	<span class="token variable">$nachrichtfertig</span> <span class="token operator">=</span>
+	<span class="token string double-quoted-string">"Company: "</span> <span class="token operator">.</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'company'</span><span class="token punctuation">]</span> <span class="token string double-quoted-string">"n\"
+	"</span>Name<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span></span> "</span>n\<span class="token string double-quoted-string">"
+	"</span>Address<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'address'</span><span class="token punctuation">]</span></span> "</span>n\<span class="token string double-quoted-string">"
+	"</span><span class="token constant">ZIP</span> Code<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'zip_code'</span><span class="token punctuation">]</span></span> "</span>n\<span class="token string double-quoted-string">"
+	"</span>City<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'city'</span><span class="token punctuation">]</span></span> "</span>n\<span class="token string double-quoted-string">"
+	"</span>County<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'county'</span><span class="token punctuation">]</span></span> "</span>n\<span class="token string double-quoted-string">"
+	"</span>Country<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'country'</span><span class="token punctuation">]</span></span> "</span>n\<span class="token string double-quoted-string">"
+	"</span>Phone<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'phone'</span><span class="token punctuation">]</span></span> "</span>n\<span class="token string double-quoted-string">"
+	"</span>Fax<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'fax'</span><span class="token punctuation">]</span></span> "</span>n\<span class="token string double-quoted-string">"
+	"</span>eMail<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'email'</span><span class="token punctuation">]</span></span> "</span>n\n\<span class="token string double-quoted-string">"
+	"</span>Message<span class="token punctuation">:</span> <span class="token string double-quoted-string">" <span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'message'</span><span class="token punctuation">]</span></span>;
+
+
+	<span class="token interpolation"><span class="token variable">$versand</span></span> = mail(<span class="token interpolation"><span class="token variable">$empfaenger</span></span>, <span class="token interpolation"><span class="token variable">$betreff</span></span>, <span class="token interpolation"><span class="token variable">$nachrichtfertig</span></span>, <span class="token interpolation"><span class="token variable">$email</span></span>);
+			if (<span class="token interpolation"><span class="token variable">$versand</span></span>) {
+			echo '&lt;p class=titles>Thank you very much!&lt;/p>
+				  &lt;p>The message were send successfully&lt;/p>';
+
+			// Sessionvariablen löschen
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'company'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'address'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'zip_code'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'city'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'county'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'country'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'phone'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'fax'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'email'</span><span class="token punctuation">]</span></span>);
+			unset(<span class="token interpolation"><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'nachricht'</span><span class="token punctuation">]</span></span>);
+			}
+
+	} else {
+	echo '&lt;p class=titles>Error&lt;/p>';
+	echo '&lt;p>Please fill in all the <span class="token interpolation"><span class="token variable">$fehler</span></span> field. &lt;a href="</span>contact<span class="token operator">.</span>php"<span class="token operator">></span>back<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span><span class="token string single-quoted-string">';
+	}
+	echo '</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token string single-quoted-string">';
+
+	// Session unset
+	unset($_SESSION['</span>CAPTCHA_RndText'<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token delimiter important">?></span>
+
+----------------------------------------------------

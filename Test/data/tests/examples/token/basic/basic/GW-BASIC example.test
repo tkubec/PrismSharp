@@ -1,0 +1,114 @@
+10 INPUT "What is your name: ", U$
+20 PRINT "Hello "; U$
+30 INPUT "How many stars do you want: ", N
+40 S$ = ""
+50 FOR I = 1 TO N
+60 S$ = S$ + "*"
+70 NEXT I
+80 PRINT S$
+90 INPUT "Do you want more stars? ", A$
+100 IF LEN(A$) = 0 THEN GOTO 90
+110 A$ = LEFT$(A$, 1)
+120 IF A$ = "Y" OR A$ = "y" THEN GOTO 30
+130 PRINT "Goodbye "; U$
+140 END
+----------------------------------------------------
+[
+	["number", "10"],
+	["keyword", "INPUT"],
+	["string", "\"What is your name: \""],
+	["punctuation", ","],
+	" U$\n",
+
+	["number", "20"],
+	["function", "PRINT"],
+	["string", "\"Hello \""],
+	["punctuation", ";"],
+	" U$\n",
+
+	["number", "30"],
+	["keyword", "INPUT"],
+	["string", "\"How many stars do you want: \""],
+	["punctuation", ","],
+	" N\n",
+
+	["number", "40"],
+	" S$ ",
+	["operator", "="],
+	["string", "\"\""],
+
+	["number", "50"],
+	["keyword", "FOR"],
+	" I ",
+	["operator", "="],
+	["number", "1"],
+	["keyword", "TO"],
+	" N\n",
+
+	["number", "60"],
+	" S$ ",
+	["operator", "="],
+	" S$ ",
+	["operator", "+"],
+	["string", "\"*\""],
+
+	["number", "70"],
+	["keyword", "NEXT"],
+	" I\n",
+
+	["number", "80"],
+	["function", "PRINT"],
+	" S$\n",
+
+	["number", "90"],
+	["keyword", "INPUT"],
+	["string", "\"Do you want more stars? \""],
+	["punctuation", ","],
+	" A$\n",
+
+	["number", "100"],
+	["keyword", "IF"],
+	["function", "LEN"],
+	["punctuation", "("],
+	"A$",
+	["punctuation", ")"],
+	["operator", "="],
+	["number", "0"],
+	["keyword", "THEN"],
+	["keyword", "GOTO"],
+	["number", "90"],
+
+	["number", "110"],
+	" A$ ",
+	["operator", "="],
+	["function", "LEFT$"],
+	["punctuation", "("],
+	"A$",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["number", "120"],
+	["keyword", "IF"],
+	" A$ ",
+	["operator", "="],
+	["string", "\"Y\""],
+	["operator", "OR"],
+	" A$ ",
+	["operator", "="],
+	["string", "\"y\""],
+	["keyword", "THEN"],
+	["keyword", "GOTO"],
+	["number", "30"],
+
+	["number", "130"],
+	["function", "PRINT"],
+	["string", "\"Goodbye \""],
+	["punctuation", ";"],
+	" U$\n",
+
+	["number", "140"],
+	["keyword", "END"]
+]
+
+----------------------------------------------------

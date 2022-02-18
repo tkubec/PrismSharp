@@ -1,0 +1,19 @@
+div.
+ foobar
+
+ baz
+.
+	div.
+		foobar
+		baz
+----------------------------------------------------
+<span class="token tag">div</span><span class="token punctuation">.</span><span class="token multiline-plain-text">
+ foobar
+
+ baz</span>
+<span class="token punctuation">.</span>
+	<span class="token tag">div</span><span class="token punctuation">.</span><span class="token multiline-plain-text">
+		foobar
+		baz</span>
+
+----------------------------------------------------

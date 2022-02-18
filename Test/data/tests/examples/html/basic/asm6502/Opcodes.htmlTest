@@ -1,0 +1,15 @@
+SEI
+CLC
+
+; lowercase
+inx
+bne label1
+----------------------------------------------------
+<span class="token op-code keyword">SEI</span>
+<span class="token op-code keyword">CLC</span>
+
+<span class="token comment">; lowercase</span>
+<span class="token op-code keyword">inx</span>
+<span class="token op-code keyword">bne</span> label1
+
+----------------------------------------------------

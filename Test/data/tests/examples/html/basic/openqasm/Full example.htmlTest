@@ -1,0 +1,85 @@
+// https://github.com/Qiskit/openqasm
+/*
+ * Repeat-until-success circuit for Rz(theta),
+ * cos(theta-pi)=3/5, from Nielsen and Chuang, Chapter 4.
+ */
+OPENQASM 3;
+include "stdgates.inc";
+
+/*
+ * Applies identity if out is 01, 10, or 11 and a Z-rotation by
+ * theta + pi where cos(theta)=3/5 if out is 00.
+ * The 00 outcome occurs with probability 5/8.
+ */
+def segment qubit[2]:anc, qubit:psi -> bit[2] {
+  bit[2] b;
+  reset anc;
+  h anc;
+  ccx anc[0], anc[1], psi;
+  s psi;
+  ccx anc[0], anc[1], psi;
+  z psi;
+  h anc;
+  measure anc -> b;
+  return b;
+}
+
+qubit input;
+qubit ancilla[2];
+bit flags[2] = "11";
+bit output;
+
+reset input;
+h input;
+
+// braces are optional in this case
+while(int(flags) != 0) {
+  flags = segment ancilla, input;
+}
+rz(pi - arccos(3 / 5)) input;
+h input;
+output = measure input;  // should get zero
+----------------------------------------------------
+<span class="token comment">// https://github.com/Qiskit/openqasm</span>
+<span class="token comment">/*
+ * Repeat-until-success circuit for Rz(theta),
+ * cos(theta-pi)=3/5, from Nielsen and Chuang, Chapter 4.
+ */</span>
+<span class="token keyword">OPENQASM</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">include</span> <span class="token string">"stdgates.inc"</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*
+ * Applies identity if out is 01, 10, or 11 and a Z-rotation by
+ * theta + pi where cos(theta)=3/5 if out is 00.
+ * The 00 outcome occurs with probability 5/8.
+ */</span>
+<span class="token keyword">def</span> segment <span class="token class-name">qubit</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span>anc<span class="token punctuation">,</span> <span class="token class-name">qubit</span><span class="token punctuation">:</span>psi <span class="token operator">-></span> <span class="token class-name">bit</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token class-name">bit</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">reset</span> anc<span class="token punctuation">;</span>
+  h anc<span class="token punctuation">;</span>
+  ccx anc<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> anc<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> psi<span class="token punctuation">;</span>
+  s psi<span class="token punctuation">;</span>
+  ccx anc<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> anc<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> psi<span class="token punctuation">;</span>
+  z psi<span class="token punctuation">;</span>
+  h anc<span class="token punctuation">;</span>
+  <span class="token keyword">measure</span> anc <span class="token operator">-></span> b<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">qubit</span> input<span class="token punctuation">;</span>
+<span class="token class-name">qubit</span> ancilla<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token class-name">bit</span> flags<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"11"</span><span class="token punctuation">;</span>
+<span class="token class-name">bit</span> output<span class="token punctuation">;</span>
+
+<span class="token keyword">reset</span> input<span class="token punctuation">;</span>
+h input<span class="token punctuation">;</span>
+
+<span class="token comment">// braces are optional in this case</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token class-name">int</span><span class="token punctuation">(</span>flags<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  flags <span class="token operator">=</span> segment ancilla<span class="token punctuation">,</span> input<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+rz<span class="token punctuation">(</span><span class="token constant">pi</span> <span class="token operator">-</span> arccos<span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">/</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> input<span class="token punctuation">;</span>
+h input<span class="token punctuation">;</span>
+output <span class="token operator">=</span> <span class="token keyword">measure</span> input<span class="token punctuation">;</span>  <span class="token comment">// should get zero</span>
+
+----------------------------------------------------

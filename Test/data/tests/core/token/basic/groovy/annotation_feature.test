@@ -1,0 +1,14 @@
+@BaseScript MyBaseClass baseScript
+@DelegatesTo(EmailSpec)
+----------------------------------------------------
+[
+	["annotation", "@BaseScript"],
+	" MyBaseClass baseScript\r\n",
+
+	["annotation", "@DelegatesTo"],
+	["punctuation", "("],
+	"EmailSpec",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

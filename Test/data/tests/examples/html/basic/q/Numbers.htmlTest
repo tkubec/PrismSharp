@@ -1,0 +1,35 @@
+42
+b:-123h
+c:1234567890j
+pi:3.14159265
+float1:1f
+r:1.4142e
+2.0
+4.00e
+f:1.23456789e-10
+r:1.2345678e-10e
+bit:0b
+byte:0x2a
+a:42
+bit:1b
+
+0w 0n 0W 0Wh 0Wj
+----------------------------------------------------
+<span class="token number">42</span>
+b<span class="token verb operator">:</span><span class="token verb operator">-</span><span class="token number">123h</span>
+c<span class="token verb operator">:</span><span class="token number">1234567890j</span>
+pi<span class="token verb operator">:</span><span class="token number">3.14159265</span>
+float1<span class="token verb operator">:</span><span class="token number">1f</span>
+r<span class="token verb operator">:</span><span class="token number">1.4142e</span>
+<span class="token number">2.0</span>
+<span class="token number">4.00e</span>
+f<span class="token verb operator">:</span><span class="token number">1.23456789e-10</span>
+r<span class="token verb operator">:</span><span class="token number">1.2345678e-10e</span>
+bit<span class="token verb operator">:</span><span class="token number">0b</span>
+byte<span class="token verb operator">:</span><span class="token number">0x2a</span>
+a<span class="token verb operator">:</span><span class="token number">42</span>
+bit<span class="token verb operator">:</span><span class="token number">1b</span>
+
+<span class="token number">0w</span> <span class="token number">0n</span> <span class="token number">0W</span> <span class="token number">0Wh</span> <span class="token number">0Wj</span>
+
+----------------------------------------------------

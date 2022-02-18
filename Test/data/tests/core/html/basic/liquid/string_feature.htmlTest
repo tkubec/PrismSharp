@@ -1,0 +1,17 @@
+{%
+
+'one-half'
+
+"foo bar"
+
+%}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span>
+
+<span class="token string">'one-half'</span>
+
+<span class="token string">"foo bar"</span>
+
+<span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

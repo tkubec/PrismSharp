@@ -1,0 +1,269 @@
+for index in 1...5 {
+	println("\(index) times 5 is \(index * 5)")
+}
+for _ in 1...power {
+	answer *= base
+}
+while square < finalSquare {
+	// roll the dice
+	if ++diceRoll == 7 { diceRoll = 1 }
+	// move by the rolled amount
+	square += diceRoll
+	if square < board.count {
+		// if we're still on the board, move up or down for a snake or a ladder
+		square += board[square]
+	}
+}
+switch someCharacter {
+	case "a", "e", "i", "o", "u":
+		println("\(someCharacter) is a vowel")
+	case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
+		"n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+		println("\(someCharacter) is a consonant")
+	default:
+		println("\(someCharacter) is not a vowel or a consonant")
+}
+----------------------------------------------------
+[
+	["keyword", "for"],
+	" index ",
+	["keyword", "in"],
+	["number", "1"],
+	["operator", "..."],
+	["number", "5"],
+	["punctuation", "{"],
+
+	["function", "println"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\""],
+		["interpolation-punctuation", "\\("],
+		["interpolation", ["index"]],
+		["interpolation-punctuation", ")"],
+		["string", " times 5 is "],
+		["interpolation-punctuation", "\\("],
+		["interpolation", [
+			"index ",
+			["operator", "*"],
+			["number", "5"]
+		]],
+		["interpolation-punctuation", ")"],
+		["string", "\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "for"],
+	["omit", "_"],
+	["keyword", "in"],
+	["number", "1"],
+	["operator", "..."],
+	"power ",
+	["punctuation", "{"],
+
+	"\n\tanswer ",
+	["operator", "*="],
+	" base\n",
+
+	["punctuation", "}"],
+
+	["keyword", "while"],
+	" square ",
+	["operator", "<"],
+	" finalSquare ",
+	["punctuation", "{"],
+
+	["comment", "// roll the dice"],
+
+	["keyword", "if"],
+	["operator", "++"],
+	"diceRoll ",
+	["operator", "=="],
+	["number", "7"],
+	["punctuation", "{"],
+	" diceRoll ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", "}"],
+
+	["comment", "// move by the rolled amount"],
+
+	"\n\tsquare ",
+	["operator", "+="],
+	" diceRoll\n\t",
+
+	["keyword", "if"],
+	" square ",
+	["operator", "<"],
+	" board",
+	["punctuation", "."],
+	"count ",
+	["punctuation", "{"],
+
+	["comment", "// if we're still on the board, move up or down for a snake or a ladder"],
+
+	"\n\t\tsquare ",
+	["operator", "+="],
+	" board",
+	["punctuation", "["],
+	"square",
+	["punctuation", "]"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "switch"],
+	" someCharacter ",
+	["punctuation", "{"],
+
+	["keyword", "case"],
+	["string-literal", [
+		["string", "\"a\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"e\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"i\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"o\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"u\""]
+	]],
+	["punctuation", ":"],
+
+	["function", "println"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\""],
+		["interpolation-punctuation", "\\("],
+		["interpolation", ["someCharacter"]],
+		["interpolation-punctuation", ")"],
+		["string", " is a vowel\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "case"],
+	["string-literal", [
+		["string", "\"b\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"c\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"d\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"f\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"g\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"h\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"j\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"k\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"l\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"m\""]
+	]],
+	["punctuation", ","],
+
+	["string-literal", [
+		["string", "\"n\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"p\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"q\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"r\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"s\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"t\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"v\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"w\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"x\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"y\""]
+	]],
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"z\""]
+	]],
+	["punctuation", ":"],
+
+	["function", "println"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\""],
+		["interpolation-punctuation", "\\("],
+		["interpolation", ["someCharacter"]],
+		["interpolation-punctuation", ")"],
+		["string", " is a consonant\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "default"],
+	["punctuation", ":"],
+
+	["function", "println"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\""],
+		["interpolation-punctuation", "\\("],
+		["interpolation", ["someCharacter"]],
+		["interpolation-punctuation", ")"],
+		["string", " is not a vowel or a consonant\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

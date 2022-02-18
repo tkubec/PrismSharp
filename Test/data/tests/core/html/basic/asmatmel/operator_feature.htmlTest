@@ -1,0 +1,7 @@
+OUT PORTB,x
+ldi r17,(1<<PD07)
+----------------------------------------------------
+<span class="token op-code keyword">OUT</span> <span class="token constant">PORTB</span><span class="token punctuation">,</span><span class="token register variable">x</span>
+<span class="token op-code keyword">ldi</span> <span class="token r-register variable">r17</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD07</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

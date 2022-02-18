@@ -1,0 +1,5 @@
+foo@bar:/$ cd ~
+foo@bar:~$ sudo -i
+[sudo] password for foo:
+root@bar:~# echo "hello!"
+hello!

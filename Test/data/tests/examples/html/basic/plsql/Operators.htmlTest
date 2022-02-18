@@ -1,0 +1,5 @@
+l_message  := 'Hello ' || place_in;
+----------------------------------------------------
+l_message  <span class="token operator">:=</span> <span class="token string">'Hello '</span> <span class="token operator">||</span> place_in<span class="token punctuation">;</span>
+
+----------------------------------------------------

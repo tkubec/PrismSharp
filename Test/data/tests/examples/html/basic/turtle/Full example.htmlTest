@@ -1,0 +1,37 @@
+@base <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rel: <http://www.perceive.net/schemas/relationship/> .
+
+GRAPH <urn:myGraph> {
+<#green-goblin>
+    rel:enemyOf <#spiderman> ;
+    a foaf:Person ;    # in the context of the Marvel universe
+    foaf:name "Green Goblin" .
+
+<#spiderman>
+    rel:enemyOf <#green-goblin> ;
+    a foaf:Person ;
+    foaf:name "Spiderman", "Человек-паук"@ru .
+}
+----------------------------------------------------
+<span class="token keyword">@base</span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token keyword">@prefix</span> <span class="token function"><span class="token prefix">rdf<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/1999/02/22-rdf-syntax-ns#<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token keyword">@prefix</span> <span class="token function"><span class="token prefix">rdfs<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2000/01/rdf-schema#<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token keyword">@prefix</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://xmlns.com/foaf/0.1/<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token keyword">@prefix</span> <span class="token function"><span class="token prefix">rel<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://www.perceive.net/schemas/relationship/<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+
+<span class="token keyword">GRAPH</span> <span class="token url"><span class="token punctuation">&lt;</span>urn:myGraph<span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+<span class="token url"><span class="token punctuation">&lt;</span>#green-goblin<span class="token punctuation">></span></span>
+    <span class="token function"><span class="token prefix">rel<span class="token punctuation">:</span></span><span class="token local-name">enemyOf</span></span> <span class="token url"><span class="token punctuation">&lt;</span>#spiderman<span class="token punctuation">></span></span> <span class="token punctuation">;</span>
+    <span class="token keyword">a</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">Person</span></span> <span class="token punctuation">;</span>    <span class="token comment"># in the context of the Marvel universe</span>
+    <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">name</span></span> <span class="token string">"Green Goblin"</span> <span class="token punctuation">.</span>
+
+<span class="token url"><span class="token punctuation">&lt;</span>#spiderman<span class="token punctuation">></span></span>
+    <span class="token function"><span class="token prefix">rel<span class="token punctuation">:</span></span><span class="token local-name">enemyOf</span></span> <span class="token url"><span class="token punctuation">&lt;</span>#green-goblin<span class="token punctuation">></span></span> <span class="token punctuation">;</span>
+    <span class="token keyword">a</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">Person</span></span> <span class="token punctuation">;</span>
+    <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">name</span></span> <span class="token string">"Spiderman"</span><span class="token punctuation">,</span> <span class="token string">"Человек-паук"</span><span class="token tag"><span class="token punctuation">@</span>ru</span> <span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

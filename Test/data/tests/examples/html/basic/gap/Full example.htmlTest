@@ -1,0 +1,29 @@
+# Source: https://www.gap-system.org/Manuals/doc/ref/chap4.html#X815F71EA7BC0EB6F
+gap> fib := function ( n )
+>     local f1, f2, f3, i;
+>     f1 := 1; f2 := 1;
+>     for i in [3..n] do
+>       f3 := f1 + f2;
+>       f1 := f2;
+>       f2 := f3;
+>     od;
+>     return f2;
+>   end;;
+gap> List( [1..10], fib );
+[ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]
+----------------------------------------------------
+<span class="token comment"># Source: https://www.gap-system.org/Manuals/doc/ref/chap4.html#X815F71EA7BC0EB6F</span>
+<span class="token shell"><span class="token punctuation">gap></span><span class="token gap"> fib <span class="token operator">:=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span> n <span class="token punctuation">)</span>
+<span class="token continuation punctuation">></span>     <span class="token keyword">local</span> f1<span class="token punctuation">,</span> f2<span class="token punctuation">,</span> f3<span class="token punctuation">,</span> i<span class="token punctuation">;</span>
+<span class="token continuation punctuation">></span>     f1 <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span> f2 <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token continuation punctuation">></span>     <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token operator">..</span>n<span class="token punctuation">]</span> <span class="token keyword">do</span>
+<span class="token continuation punctuation">></span>       f3 <span class="token operator">:=</span> f1 <span class="token operator">+</span> f2<span class="token punctuation">;</span>
+<span class="token continuation punctuation">></span>       f1 <span class="token operator">:=</span> f2<span class="token punctuation">;</span>
+<span class="token continuation punctuation">></span>       f2 <span class="token operator">:=</span> f3<span class="token punctuation">;</span>
+<span class="token continuation punctuation">></span>     <span class="token keyword">od</span><span class="token punctuation">;</span>
+<span class="token continuation punctuation">></span>     <span class="token keyword">return</span> f2<span class="token punctuation">;</span>
+<span class="token continuation punctuation">></span>   <span class="token keyword">end</span><span class="token punctuation">;</span><span class="token punctuation">;</span></span>
+</span><span class="token shell"><span class="token punctuation">gap></span><span class="token gap"> <span class="token function">List</span><span class="token punctuation">(</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">..</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fib <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+[ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]</span>
+
+----------------------------------------------------

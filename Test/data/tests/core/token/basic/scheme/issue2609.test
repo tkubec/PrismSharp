@@ -1,0 +1,29 @@
+'(foo bar baz)
+`(foo bar baz)
+#(foo bar baz)
+'#(foo bar baz)
+----------------------------------------------------
+[
+	["punctuation", "'"],
+	["punctuation", "("],
+	"foo bar baz",
+	["punctuation", ")"],
+
+	"\r\n`",
+	["punctuation", "("],
+	"foo bar baz",
+	["punctuation", ")"],
+
+	"\r\n#",
+	["punctuation", "("],
+	"foo bar baz",
+	["punctuation", ")"],
+
+	["punctuation", "'"],
+	"#",
+	["punctuation", "("],
+	"foo bar baz",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

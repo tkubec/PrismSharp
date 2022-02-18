@@ -1,0 +1,35 @@
+""
+"fo\"obar"
+
+"""fo"o
+bar"""
+"""fo"o
+// comment
+bar"""
+"""{"name":"James"}"""
+"foo /* comment */ bar"
+
+s"Hello, $name"
+s"1 + 1 = ${1 + 1}"
+s"New offers starting at $$14.99"
+f"$name%s is $height%2.2f meters tall"
+json"{ name: $name, id: $id }"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"obar"</span>
+
+<span class="token triple-quoted-string string">"""fo"o
+bar"""</span>
+<span class="token triple-quoted-string string">"""fo"o
+// comment
+bar"""</span>
+<span class="token triple-quoted-string string">"""{"name":"James"}"""</span>
+<span class="token string">"foo /* comment */ bar"</span>
+
+s<span class="token string">"Hello, $name"</span>
+s<span class="token string">"1 + 1 = ${1 + 1}"</span>
+s<span class="token string">"New offers starting at $$14.99"</span>
+f<span class="token string">"$name%s is $height%2.2f meters tall"</span>
+json<span class="token string">"{ name: $name, id: $id }"</span>
+
+----------------------------------------------------

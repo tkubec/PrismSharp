@@ -1,0 +1,11 @@
+{ foo: 1, "bar": 2, "foo\("Bar")": 3 }
+
+# not a property
+foo::bar
+----------------------------------------------------
+<span class="token punctuation">{</span> <span class="token property-literal property">foo</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token property">"bar"</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token property">"foo<span class="token interpolation"><span class="token punctuation">\(</span><span class="token content"><span class="token string">"Bar"</span></span><span class="token punctuation">)</span></span>"</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token punctuation">}</span>
+
+<span class="token comment"># not a property</span>
+foo<span class="token punctuation">::</span>bar
+
+----------------------------------------------------

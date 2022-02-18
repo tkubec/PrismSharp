@@ -1,0 +1,15 @@
+#foo
+# bar
+$(
+	# foo
+	bar
+)
+----------------------------------------------------
+<span class="token comment">#foo</span>
+<span class="token comment"># bar</span>
+<span class="token variable"><span class="token variable">$(</span>
+	<span class="token comment"># foo</span>
+	bar
+<span class="token variable">)</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,52 @@
+// Source: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer
+
+StormEvents
+| where StartTime > datetime(2007-02-01) and StartTime < datetime(2007-03-01)
+| where EventType == 'Flood' and State == 'CALIFORNIA'
+| project StartTime, EndTime , State , EventType , EpisodeNarrative
+----------------------------------------------------
+[
+	["comment", "// Source: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer"],
+
+	"\n\nStormEvents\n",
+
+	["operator", "|"],
+	["verb", "where"],
+	" StartTime ",
+	["operator", ">"],
+	["class-name", "datetime"],
+	["punctuation", "("],
+	["datetime", "2007-02-01"],
+	["punctuation", ")"],
+	["keyword", "and"],
+	" StartTime ",
+	["operator", "<"],
+	["class-name", "datetime"],
+	["punctuation", "("],
+	["datetime", "2007-03-01"],
+	["punctuation", ")"],
+
+	["operator", "|"],
+	["verb", "where"],
+	" EventType ",
+	["operator", "=="],
+	["string", "'Flood'"],
+	["keyword", "and"],
+	" State ",
+	["operator", "=="],
+	["string", "'CALIFORNIA'"],
+
+	["operator", "|"],
+	["verb", "project"],
+	" StartTime",
+	["punctuation", ","],
+	" EndTime ",
+	["punctuation", ","],
+	" State ",
+	["punctuation", ","],
+	" EventType ",
+	["punctuation", ","],
+	" EpisodeNarrative"
+]
+
+----------------------------------------------------

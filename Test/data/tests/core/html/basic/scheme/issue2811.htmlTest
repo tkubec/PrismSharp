@@ -1,0 +1,9 @@
+(let ([x 10]
+      [y 20])
+  (+ x y))
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token function">x</span> <span class="token number">10</span><span class="token punctuation">]</span>
+      <span class="token punctuation">[</span><span class="token function">y</span> <span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token operator">+</span> x y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

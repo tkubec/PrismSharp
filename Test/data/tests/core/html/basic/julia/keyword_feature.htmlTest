@@ -1,0 +1,27 @@
+abstract baremodule begin
+bitstype break catch
+ccall const continue
+do else elseif end
+export finally for
+function global if
+immutable import importall in
+let local macro module
+print println quote
+return try type
+struct
+typealias using while
+----------------------------------------------------
+<span class="token keyword">abstract</span> <span class="token keyword">baremodule</span> <span class="token keyword">begin</span>
+<span class="token keyword">bitstype</span> <span class="token keyword">break</span> <span class="token keyword">catch</span>
+<span class="token keyword">ccall</span> <span class="token keyword">const</span> <span class="token keyword">continue</span>
+<span class="token keyword">do</span> <span class="token keyword">else</span> <span class="token keyword">elseif</span> <span class="token keyword">end</span>
+<span class="token keyword">export</span> <span class="token keyword">finally</span> <span class="token keyword">for</span>
+<span class="token keyword">function</span> <span class="token keyword">global</span> <span class="token keyword">if</span>
+<span class="token keyword">immutable</span> <span class="token keyword">import</span> <span class="token keyword">importall</span> <span class="token keyword">in</span>
+<span class="token keyword">let</span> <span class="token keyword">local</span> <span class="token keyword">macro</span> <span class="token keyword">module</span>
+<span class="token keyword">print</span> <span class="token keyword">println</span> <span class="token keyword">quote</span>
+<span class="token keyword">return</span> <span class="token keyword">try</span> <span class="token keyword">type</span>
+<span class="token keyword">struct</span>
+<span class="token keyword">typealias</span> <span class="token keyword">using</span> <span class="token keyword">while</span>
+
+----------------------------------------------------

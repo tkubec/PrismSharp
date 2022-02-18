@@ -1,0 +1,17 @@
+'Caf%C3%A9'
+
+"foo"
+
+<'
+ foo
+'>
+----------------------------------------------------
+<span class="token string">'Caf%C3%A9'</span>
+
+<span class="token string">"foo"</span>
+
+<span class="token string">&lt;'
+ foo
+'></span>
+
+----------------------------------------------------

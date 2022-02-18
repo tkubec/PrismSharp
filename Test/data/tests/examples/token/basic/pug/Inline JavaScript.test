@@ -1,0 +1,82 @@
+script alert('test');
+script(type="text/javascript").
+  alert('foo');
+  alert('bar');
+- var classes = ['foo', 'bar', 'baz']
+- for (var x = 0; x < 3; x++)
+  li item
+----------------------------------------------------
+[
+	["tag", ["script"]],
+	["script", [
+		["function", "alert"],
+		["punctuation", "("],
+		["string", "'test'"],
+		["punctuation", ")"],
+		["punctuation", ";"]
+	]],
+
+	["tag", [
+		"script",
+		["attributes", [
+			["punctuation", "("],
+			["attr-name", "type"],
+			["punctuation", "="],
+			["attr-value", [
+				["string", "\"text/javascript\""]
+			]],
+			["punctuation", ")"]
+		]]
+	]],
+	["punctuation", "."],
+	["multiline-script", [
+		["function", "alert"],
+		["punctuation", "("],
+		["string", "'foo'"],
+		["punctuation", ")"],
+		["punctuation", ";"],
+
+		["function", "alert"],
+		["punctuation", "("],
+		["string", "'bar'"],
+		["punctuation", ")"],
+		["punctuation", ";"]
+	]],
+
+	["punctuation", "-"],
+	["code", [
+		["keyword", "var"],
+		" classes ",
+		["operator", "="],
+		["punctuation", "["],
+		["string", "'foo'"],
+		["punctuation", ","],
+		["string", "'bar'"],
+		["punctuation", ","],
+		["string", "'baz'"],
+		["punctuation", "]"]
+	]],
+
+	["punctuation", "-"],
+	["code", [
+		["keyword", "for"],
+		["punctuation", "("],
+		["keyword", "var"],
+		" x ",
+		["operator", "="],
+		["number", "0"],
+		["punctuation", ";"],
+		" x ",
+		["operator", "<"],
+		["number", "3"],
+		["punctuation", ";"],
+		" x",
+		["operator", "++"],
+		["punctuation", ")"]
+	]],
+
+	["tag", ["li"]],
+	["plain-text", "item"]
+]
+
+----------------------------------------------------

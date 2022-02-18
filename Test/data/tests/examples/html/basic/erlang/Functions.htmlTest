@@ -1,0 +1,9 @@
+P = spawn(m, loop, []).
+io:format("I am ~p~n", [self()]).
+'weird function'().
+----------------------------------------------------
+<span class="token variable">P</span> <span class="token operator">=</span> <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token atom">m</span><span class="token punctuation">,</span> <span class="token atom">loop</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+<span class="token atom">io</span><span class="token punctuation">:</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"I am ~p~n"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token function">self</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+<span class="token quoted-function function">'weird function'</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

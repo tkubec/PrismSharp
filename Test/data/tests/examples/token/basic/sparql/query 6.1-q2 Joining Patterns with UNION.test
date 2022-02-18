@@ -1,0 +1,92 @@
+PREFIX dc10:  <http://purl.org/dc/elements/1.1/>
+PREFIX dc11:  <http://purl.org/dc/elements/1.0/>
+
+SELECT ?title ?author
+WHERE  { { ?book dc10:title ?title .  ?book dc10:creator ?author }
+				 UNION
+				 { ?book dc11:title ?title .  ?book dc11:creator ?author }
+			 }
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"dc10",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://purl.org/dc/elements/1.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"dc11",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://purl.org/dc/elements/1.0/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?title"],
+	["variable", "?author"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "?book"],
+	["function", [
+		["prefix", [
+			"dc10",
+			["punctuation", ":"]
+		]],
+		["local-name", "title"]
+	]],
+	["variable", "?title"],
+	["punctuation", "."],
+	["variable", "?book"],
+	["function", [
+		["prefix", [
+			"dc10",
+			["punctuation", ":"]
+		]],
+		["local-name", "creator"]
+	]],
+	["variable", "?author"],
+	["punctuation", "}"],
+
+	["keyword", "UNION"],
+
+	["punctuation", "{"],
+	["variable", "?book"],
+	["function", [
+		["prefix", [
+			"dc11",
+			["punctuation", ":"]
+		]],
+		["local-name", "title"]
+	]],
+	["variable", "?title"],
+	["punctuation", "."],
+	["variable", "?book"],
+	["function", [
+		["prefix", [
+			"dc11",
+			["punctuation", ":"]
+		]],
+		["local-name", "creator"]
+	]],
+	["variable", "?author"],
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

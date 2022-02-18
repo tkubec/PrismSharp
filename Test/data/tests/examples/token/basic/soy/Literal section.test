@@ -1,0 +1,23 @@
+{literal}
+This is not a {$variable}
+{/literal}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "literal"],
+	["punctuation", "}"],
+
+	"\nThis is ",
+	["operator", "not"],
+	" a ",
+	["punctuation", "{"],
+	["variable", ["$variable"]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "literal"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

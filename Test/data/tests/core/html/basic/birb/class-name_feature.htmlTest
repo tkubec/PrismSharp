@@ -1,0 +1,25 @@
+class Birb {
+	String name = "Birb";
+	int age = 5;
+	bool isMale = true;
+
+	String getName() {
+		return name;
+	}
+}
+
+List list = ["Seeb", 10, false];
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Birb</span> <span class="token punctuation">{</span>
+	<span class="token class-name">String</span> <span class="token variable">name</span> <span class="token operator">=</span> <span class="token string">"Birb"</span><span class="token punctuation">;</span>
+	<span class="token class-name">int</span> <span class="token variable">age</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+	<span class="token class-name">bool</span> <span class="token variable">isMale</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+	<span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">return</span> <span class="token variable">name</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">List</span> <span class="token variable">list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Seeb"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

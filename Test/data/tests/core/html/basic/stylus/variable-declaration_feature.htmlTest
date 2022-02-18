@@ -1,0 +1,13 @@
+foo = 'bar'
+a = 4
+bar-baz = 5
+a += 8
+url = "http://example.com"	// comment
+----------------------------------------------------
+<span class="token variable-declaration"><span class="token variable">foo</span> <span class="token operator">=</span> <span class="token string">'bar'</span></span>
+<span class="token variable-declaration"><span class="token variable">a</span> <span class="token operator">=</span> <span class="token number">4</span></span>
+<span class="token variable-declaration"><span class="token variable">bar-baz</span> <span class="token operator">=</span> <span class="token number">5</span></span>
+<span class="token variable-declaration"><span class="token variable">a</span> <span class="token operator">+=</span> <span class="token number">8</span></span>
+<span class="token variable-declaration"><span class="token variable">url</span> <span class="token operator">=</span> <span class="token string">"http://example.com"</span>	<span class="token comment">// comment</span></span>
+
+----------------------------------------------------

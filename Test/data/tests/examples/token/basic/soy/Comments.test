@@ -1,0 +1,10 @@
+/* Multi-line
+comment */
+// This is a comment with <p>some markup</p> in it
+----------------------------------------------------
+[
+	["comment", "/* Multi-line\ncomment */"],
+	["comment", "// This is a comment with <p>some markup</p> in it"]
+]
+
+----------------------------------------------------

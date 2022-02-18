@@ -1,0 +1,4 @@
+if $host =~ /^www(\d+)\./ {}
+$foo = /foo
+	bar # Extended regexes can include comments
+baz/x

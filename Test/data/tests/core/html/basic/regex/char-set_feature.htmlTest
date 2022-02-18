@@ -1,0 +1,15 @@
+.
+\w \W
+\s \S
+\d \D
+\p{ASCII}
+\P{ASCII}
+----------------------------------------------------
+<span class="token char-set class-name">.</span>
+<span class="token char-set class-name">\w</span> <span class="token char-set class-name">\W</span>
+<span class="token char-set class-name">\s</span> <span class="token char-set class-name">\S</span>
+<span class="token char-set class-name">\d</span> <span class="token char-set class-name">\D</span>
+<span class="token char-set class-name">\p{ASCII}</span>
+<span class="token char-set class-name">\P{ASCII}</span>
+
+----------------------------------------------------

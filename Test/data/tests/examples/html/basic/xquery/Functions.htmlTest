@@ -1,0 +1,9 @@
+document-node(schema-element(catalog))
+strings:trim($arg as xs:string?)
+false()
+----------------------------------------------------
+<span class="token function">document-node</span><span class="token punctuation">(</span><span class="token function">schema-element</span><span class="token punctuation">(</span>catalog<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">strings:trim</span><span class="token punctuation">(</span><span class="token variable">$arg</span> <span class="token keyword">as</span> <span class="token builtin">xs:string</span><span class="token operator">?</span><span class="token punctuation">)</span>
+<span class="token function">false</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

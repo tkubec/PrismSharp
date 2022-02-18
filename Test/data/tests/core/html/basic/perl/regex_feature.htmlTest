@@ -1,0 +1,153 @@
+m//
+qr!foo\!bar!msix
+m,foo
+bar,aa
+
+qr aa
+m afoob\araaa
+qr pfoo
+barpxpn
+
+m()c
+qr(foo\(\)bar)u
+m(foo
+bar)l
+
+qr{}d
+m{foo\{\}bar}
+qr{foo
+bar}
+
+m[]
+qr[foo\[\]bar]
+m[foo
+bar]
+
+qr<>s
+m<foo\<\>bar>i
+qr<foo
+bar>x
+
+s///
+tr%foo\%bar%baz%c
+y!foo
+bar!foo
+baz!d
+
+s kkkmsix
+tr afoob\arab\azas
+y pfoo
+barpfoo
+bazpr
+
+s()()
+tr(foo\(bar)(ba\)z)
+y(foo
+bar)(foo
+baz)csr
+
+s{}{}
+tr{foo\{bar}{ba\}z}
+y{foo
+bar}{foo
+baz}
+
+y[][]
+s[foo\[bar][ba\]z]u
+y[foo
+bar][foo
+baz]
+
+tr<><>c
+y<foo\<bar><ba\>a>
+s<foo
+bar><foo
+baz>
+
+tr()<>c
+y{foo\<bar}[ba\>a]
+s<foo
+bar>(foo
+baz)
+
+//
+/foo/gsx
+/foo\/bar/n
+----------------------------------------------------
+<span class="token regex">m//</span>
+<span class="token regex">qr!foo\!bar!msix</span>
+<span class="token regex">m,foo
+bar,aa</span>
+
+<span class="token regex">qr aa</span>
+<span class="token regex">m afoob\araaa</span>
+<span class="token regex">qr pfoo
+barpxpn</span>
+
+<span class="token regex">m()c</span>
+<span class="token regex">qr(foo\(\)bar)u</span>
+<span class="token regex">m(foo
+bar)l</span>
+
+<span class="token regex">qr{}d</span>
+<span class="token regex">m{foo\{\}bar}</span>
+<span class="token regex">qr{foo
+bar}</span>
+
+<span class="token regex">m[]</span>
+<span class="token regex">qr[foo\[\]bar]</span>
+<span class="token regex">m[foo
+bar]</span>
+
+<span class="token regex">qr&lt;>s</span>
+<span class="token regex">m&lt;foo\&lt;\>bar>i</span>
+<span class="token regex">qr&lt;foo
+bar>x</span>
+
+<span class="token regex">s///</span>
+<span class="token regex">tr%foo\%bar%baz%c</span>
+<span class="token regex">y!foo
+bar!foo
+baz!d</span>
+
+<span class="token regex">s kkkmsix</span>
+<span class="token regex">tr afoob\arab\azas</span>
+<span class="token regex">y pfoo
+barpfoo
+bazpr</span>
+
+<span class="token regex">s()()</span>
+<span class="token regex">tr(foo\(bar)(ba\)z)</span>
+<span class="token regex">y(foo
+bar)(foo
+baz)csr</span>
+
+<span class="token regex">s{}{}</span>
+<span class="token regex">tr{foo\{bar}{ba\}z}</span>
+<span class="token regex">y{foo
+bar}{foo
+baz}</span>
+
+<span class="token regex">y[][]</span>
+<span class="token regex">s[foo\[bar][ba\]z]u</span>
+<span class="token regex">y[foo
+bar][foo
+baz]</span>
+
+<span class="token regex">tr&lt;>&lt;>c</span>
+<span class="token regex">y&lt;foo\&lt;bar>&lt;ba\>a></span>
+<span class="token regex">s&lt;foo
+bar>&lt;foo
+baz></span>
+
+<span class="token regex">tr()&lt;>c</span>
+<span class="token regex">y{foo\&lt;bar}[ba\>a]</span>
+<span class="token regex">s&lt;foo
+bar>(foo
+baz)</span>
+
+<span class="token regex">//</span>
+<span class="token regex">/foo/gsx</span>
+<span class="token regex">/foo\/bar/n</span>
+
+----------------------------------------------------

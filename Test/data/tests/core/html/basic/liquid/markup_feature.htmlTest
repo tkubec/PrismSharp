@@ -1,0 +1,9 @@
+<a href="{{ url }}">link</a>
+
+<div class="foo"></div>
+----------------------------------------------------
+<span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"{{ url }}"</span><span class="token operator">></span><span class="token object">link</span><span class="token operator">&lt;</span>/a<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"foo"</span><span class="token operator">></span><span class="token operator">&lt;</span>/div<span class="token operator">></span>
+
+----------------------------------------------------

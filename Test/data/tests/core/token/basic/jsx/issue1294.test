@@ -1,0 +1,90 @@
+export default () => (
+	<div>
+		<h1>Hi! I'm building a fake Gatsby site as part of a tutorial!</h1>
+		<p>
+			What do I like to do? Lots of course but definitely enjoy building
+			websites.
+		</p>
+	</div>
+);
+----------------------------------------------------
+[
+	["keyword", "export"],
+	["keyword", "default"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "=>"],
+	["punctuation", "("],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"h1"
+		]],
+		["punctuation", ">"]
+	]],
+	"Hi",
+	["operator", "!"],
+	["constant", "I"],
+	"'m building a fake Gatsby site ",
+	["keyword", "as"],
+	" part ",
+	["keyword", "of"],
+	" a tutorial",
+	["operator", "!"],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"h1"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+
+	"\r\n\t\t\tWhat ",
+	["keyword", "do"],
+	["constant", "I"],
+	" like to ",
+	["keyword", "do"],
+	["operator", "?"],
+	" Lots ",
+	["keyword", "of"],
+	" course but definitely enjoy building\r\n\t\t\twebsites",
+	["punctuation", "."],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

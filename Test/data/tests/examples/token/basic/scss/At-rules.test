@@ -1,0 +1,43 @@
+@import "foo.scss";
+@media (min-width: 600px) {}
+.seriousError {
+    @extend .error;
+}
+@for $i from 1 through 3 {}
+----------------------------------------------------
+[
+	["keyword", "@import"],
+	["string", "\"foo.scss\""],
+	["punctuation", ";"],
+
+	["atrule", [
+		["rule", "@media"],
+		["punctuation", "("],
+		["property", ["min-width"]],
+		["punctuation", ":"],
+		" 600px",
+		["punctuation", ")"]
+	]],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["selector", [".seriousError "]],
+	["punctuation", "{"],
+
+	["keyword", "@extend"],
+	" .error",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "@for"],
+	["variable", "$i"],
+	["keyword", "from"],
+	" 1 ",
+	["keyword", "through"],
+	["selector", ["3 "]],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+put x $hex16.;
+format salary uscurrency.;
+format=dollar12.;
+----------------------------------------------------
+<span class="token altformat"><span class="token keyword">put</span> x <span class="token format number">$hex16.</span></span><span class="token punctuation">;</span>
+<span class="token altformat"><span class="token keyword">format</span> salary <span class="token format number">uscurrency.</span></span><span class="token punctuation">;</span>
+<span class="token format"><span class="token keyword">format</span><span class="token equals">=</span><span class="token format number">dollar12.</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

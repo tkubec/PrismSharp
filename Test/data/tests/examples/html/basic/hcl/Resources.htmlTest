@@ -1,0 +1,19 @@
+resource "aws_instance" "web" {
+  ami           = "${data.aws_ami.ubuntu.id}"
+  instance_type = "t2.micro"
+
+  tags {
+    Name = "HelloWorld"
+  }
+}
+----------------------------------------------------
+<span class="token keyword">resource <span class="token type variable">"aws_instance"</span></span> <span class="token string">"web"</span> <span class="token punctuation">{</span>
+  <span class="token property">ami</span>           <span class="token punctuation">=</span> <span class="token string">"<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">aws_ami</span><span class="token punctuation">.</span>ubuntu<span class="token punctuation">.</span>id<span class="token punctuation">}</span></span>"</span>
+  <span class="token property">instance_type</span> <span class="token punctuation">=</span> <span class="token string">"t2.micro"</span>
+
+  <span class="token keyword">tags</span> <span class="token punctuation">{</span>
+    <span class="token property">Name</span> <span class="token punctuation">=</span> <span class="token string">"HelloWorld"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

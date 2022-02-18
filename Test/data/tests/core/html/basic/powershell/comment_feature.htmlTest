@@ -1,0 +1,17 @@
+# single comment
+# comment with $variable
+<# multi
+	line
+	comment
+#>
+not a `# comment # is a comment
+----------------------------------------------------
+<span class="token comment"># single comment</span>
+<span class="token comment"># comment with $variable</span>
+<span class="token comment">&lt;# multi
+	line
+	comment
+#></span>
+not a `# comment <span class="token comment"># is a comment</span>
+
+----------------------------------------------------

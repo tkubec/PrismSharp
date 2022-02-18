@@ -1,0 +1,13 @@
+new Foo();
+new Foo<A, B<C>>();
+new Foo<A, B<C>>[0];
+new Foo<A, B<C>>[] {};
+new Foo<A, B<C>> {};
+----------------------------------------------------
+<span class="token keyword">new</span> <span class="token constructor-invocation class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token constructor-invocation class-name">Foo<span class="token punctuation">&lt;</span>A<span class="token punctuation">,</span> B<span class="token punctuation">&lt;</span>C<span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token constructor-invocation class-name">Foo<span class="token punctuation">&lt;</span>A<span class="token punctuation">,</span> B<span class="token punctuation">&lt;</span>C<span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token constructor-invocation class-name">Foo<span class="token punctuation">&lt;</span>A<span class="token punctuation">,</span> B<span class="token punctuation">&lt;</span>C<span class="token punctuation">></span><span class="token punctuation">></span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token constructor-invocation class-name">Foo<span class="token punctuation">&lt;</span>A<span class="token punctuation">,</span> B<span class="token punctuation">&lt;</span>C<span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

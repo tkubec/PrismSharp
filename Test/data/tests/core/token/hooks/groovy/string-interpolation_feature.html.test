@@ -1,0 +1,71 @@
+// Double quoted: interpolation
+"$foo"
+"${42}"
+
+// Triple double quoted: interpolation
+"""$foo"""
+"""${42}"""
+
+// Slashy string: interpolation
+/$foo/
+/${42}/
+
+// Dollar slashy string: interpolation
+$/$foo/$
+$/${42}/$
+
+// Double quoted: no interpolation (escaped)
+"\$foo \${42}"
+
+// Triple double quoted: no interpolation (escaped)
+"""\$foo \${42}"""
+
+// Slashy string: no interpolation (escaped)
+/\$foo \${42}/
+
+// Dollar slashy string: no interpolation (escaped)
+$/$$foo $${42}/$
+
+// Single quoted string: no interpolation
+'$foo ${42}'
+
+// Triple single quoted string: no interpolation
+'''$foo ${42}'''
+----------------------------------------------------
+[
+	["comment", "// Double quoted: interpolation"],
+	["string", "\"$foo\""],
+	["string", "\"${42}\""],
+
+	["comment", "// Triple double quoted: interpolation"],
+	["string", "\"\"\"$foo\"\"\""],
+	["string", "\"\"\"${42}\"\"\""],
+
+	["comment", "// Slashy string: interpolation"],
+	["string", "/$foo/"],
+	["string", "/${42}/"],
+
+	["comment", "// Dollar slashy string: interpolation"],
+	["string", "$/$foo/$"],
+	["string", "$/${42}/$"],
+
+	["comment", "// Double quoted: no interpolation (escaped)"],
+	["string", "\"\\$foo \\${42}\""],
+
+	["comment", "// Triple double quoted: no interpolation (escaped)"],
+	["string", "\"\"\"\\$foo \\${42}\"\"\""],
+
+	["comment", "// Slashy string: no interpolation (escaped)"],
+	["string", "/\\$foo \\${42}/"],
+
+	["comment", "// Dollar slashy string: no interpolation (escaped)"],
+	["string", "$/$$foo $${42}/$"],
+
+	["comment", "// Single quoted string: no interpolation"],
+	["string", "'$foo ${42}'"],
+
+	["comment", "// Triple single quoted string: no interpolation"],
+	["string", "'''$foo ${42}'''"]
+]
+
+----------------------------------------------------

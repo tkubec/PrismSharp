@@ -1,0 +1,29 @@
+$foo
+$foo[bar]
+$foo_bar[
+	$.baz[foo]
+	$.1[bar]
+]
+$foo.$bar
+$foo.[$bar.baz]
+$math:PI
+
+($foo)
+
+<div class="$foo">
+----------------------------------------------------
+<span class="token variable">$foo</span>
+<span class="token variable">$foo</span><span class="token punctuation">[</span>bar<span class="token punctuation">]</span>
+<span class="token variable">$foo_bar</span><span class="token punctuation">[</span>
+	<span class="token variable">$<span class="token punctuation">.</span>baz</span><span class="token punctuation">[</span>foo<span class="token punctuation">]</span>
+	<span class="token variable">$<span class="token punctuation">.</span>1</span><span class="token punctuation">[</span>bar<span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+<span class="token variable">$foo<span class="token punctuation">.</span></span><span class="token variable">$bar</span>
+<span class="token variable">$foo<span class="token punctuation">.</span></span><span class="token punctuation">[</span><span class="token variable">$bar<span class="token punctuation">.</span>baz</span><span class="token punctuation">]</span>
+<span class="token variable">$math<span class="token punctuation">:</span>PI</span>
+
+<span class="token expression"><span class="token punctuation">(</span><span class="token variable">$foo</span><span class="token punctuation">)</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token variable">$foo</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

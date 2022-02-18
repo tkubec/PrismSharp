@@ -1,0 +1,55 @@
+(defun foo ())
+(defun foo (bar))
+
+(defun foo (bar &body arg1) )
+
+(defun foo (bar &rest arg1) )
+
+(defun foo (bar &body arg1 arg2) )
+
+(defun foo (bar &key arg1) )
+(defun foo (bar &key arg1 &allow-other-keys) )
+
+(defun foo (&optional arg1) )
+
+(defun defabc ())
+
+(defun show-members (a b &rest values) (write (list a b values)))
+(cl-defun find-thing (thing &rest rest &key need &allow-other-keys)
+  (or (apply 'cl-member thing thing-list :allow-other-keys t rest)
+      (if need (error "Thing not found"))))
+
+(defun foo (a b &optional (c 3 c-supplied-p))
+  (list a b c c-supplied-p))
+
+(defun foo (&key ((:apple a)) ((:box b) 0) ((:charlie c) 0 c-supplied-p))
+  (list a b c c-supplied-p))
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"></span><span class="token punctuation">)</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">bar</span></span><span class="token punctuation">)</span></span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">bar</span> <span class="token rest-vars"><span class="token lisp-marker">&amp;body</span> <span class="token argument variable">arg1</span></span></span><span class="token punctuation">)</span></span> <span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">bar</span> <span class="token rest-vars"><span class="token lisp-marker">&amp;rest</span> <span class="token argument variable">arg1</span></span></span><span class="token punctuation">)</span></span> <span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">bar</span> <span class="token rest-vars"><span class="token lisp-marker">&amp;body</span> <span class="token argument variable">arg1</span> <span class="token argument variable">arg2</span></span></span><span class="token punctuation">)</span></span> <span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">bar</span> <span class="token keys"><span class="token lisp-marker">&amp;key</span> <span class="token argument variable">arg1</span></span></span><span class="token punctuation">)</span></span> <span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">bar</span> <span class="token keys"><span class="token lisp-marker">&amp;key</span> <span class="token argument variable">arg1</span> <span class="token lisp-marker">&amp;allow-other-keys</span></span></span><span class="token punctuation">)</span></span> <span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token other-marker-vars"><span class="token lisp-marker">&amp;optional</span> <span class="token argument variable">arg1</span></span></span><span class="token punctuation">)</span></span> <span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">defabc</span> <span class="token punctuation">(</span><span class="token arguments"></span><span class="token punctuation">)</span></span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">show-members</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">a</span> <span class="token argument variable">b</span> <span class="token rest-vars"><span class="token lisp-marker">&amp;rest</span> <span class="token argument variable">values</span></span></span><span class="token punctuation">)</span></span> <span class="token punctuation">(</span><span class="token car">write</span> <span class="token punctuation">(</span><span class="token car">list</span> a b values<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">cl-defun</span> <span class="token function">find-thing</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">thing</span> <span class="token rest-vars"><span class="token lisp-marker">&amp;rest</span> <span class="token argument variable">rest</span> <span class="token lisp-marker">&amp;key</span> <span class="token argument variable">need</span> <span class="token lisp-marker">&amp;allow-other-keys</span></span></span><span class="token punctuation">)</span></span>
+  <span class="token punctuation">(</span><span class="token keyword">or</span> <span class="token punctuation">(</span><span class="token car">apply</span> <span class="token quoted-symbol variable symbol">'cl-member</span> thing thing-list <span class="token lisp-property property">:allow-other-keys</span> <span class="token boolean">t</span> rest<span class="token punctuation">)</span>
+      <span class="token punctuation">(</span><span class="token keyword">if</span> need <span class="token punctuation">(</span><span class="token keyword">error</span> <span class="token string">"Thing not found"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">a</span> <span class="token argument variable">b</span> <span class="token other-marker-vars"><span class="token lisp-marker">&amp;optional</span> <span class="token varform"><span class="token punctuation">(</span><span class="token car">c</span> <span class="token number">3</span> c-supplied-p<span class="token punctuation">)</span></span></span></span><span class="token punctuation">)</span></span>
+  <span class="token punctuation">(</span><span class="token car">list</span> a b c c-supplied-p<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token keys"><span class="token lisp-marker">&amp;key</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token lisp-property property">:apple</span> <span class="token argument variable">a</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token lisp-property property">:box</span> <span class="token argument variable">b</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token lisp-property property">:charlie</span> <span class="token argument variable">c</span><span class="token punctuation">)</span> <span class="token number">0</span> <span class="token argument variable">c-supplied-p</span><span class="token punctuation">)</span></span></span><span class="token punctuation">)</span></span>
+  <span class="token punctuation">(</span><span class="token car">list</span> a b c c-supplied-p<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

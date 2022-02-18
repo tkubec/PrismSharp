@@ -1,0 +1,19 @@
+'A string with \'quotes\'!'
+"A string with \"quotes\"!"
+"Multi-line
+strings are supported"
+""" "Heredoc" strings are
+also supported.
+"""
+----------------------------------------------------
+[
+	["string", ["'A string with \\'quotes\\'!'"]],
+	["string", ["\"A string with \\\"quotes\\\"!\""]],
+	"\n\"",
+	["module", "Multi"],
+	["operator", "-"],
+	"line\nstrings are supported\"\n",
+	["string", ["\"\"\" \"Heredoc\" strings are\nalso supported.\n\"\"\""]]
+]
+
+----------------------------------------------------

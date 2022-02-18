@@ -1,0 +1,27 @@
+This is *emphasized text*.
+This is **strong text**.
+This is `interpreted text`.
+:role:`interpreted text`
+`interpreted text`:role:
+This text is an example of ``inline literals``.
+The regular expression ``[+-]?(\d+(\.\d*)?|\.\d+)`` matches
+floating-point numbers (without exponents).
+
+See the `Python home page <http://www.python.org>`_ for info.
+
+Oh yes, the _`Norwegian Blue`.  What's, um, what's wrong with it?
+----------------------------------------------------
+This is <span class="token inline"><span class="token punctuation">*</span><span class="token italic">emphasized text</span><span class="token punctuation">*</span></span>.
+This is <span class="token inline"><span class="token punctuation">**</span><span class="token bold">strong text</span><span class="token punctuation">**</span></span>.
+This is <span class="token inline"><span class="token punctuation">`</span><span class="token interpreted-text attr-value">interpreted text</span><span class="token punctuation">`</span></span>.
+<span class="token inline"><span class="token role function"><span class="token punctuation">:</span>role<span class="token punctuation">:</span></span><span class="token punctuation">`</span><span class="token interpreted-text attr-value">interpreted text</span><span class="token punctuation">`</span></span>
+<span class="token inline"><span class="token punctuation">`</span><span class="token interpreted-text attr-value">interpreted text</span><span class="token punctuation">`</span><span class="token role function"><span class="token punctuation">:</span>role<span class="token punctuation">:</span></span></span>
+This text is an example of <span class="token inline"><span class="token punctuation">``</span><span class="token inline-literal symbol">inline literals</span><span class="token punctuation">``</span></span>.
+The regular expression <span class="token inline"><span class="token punctuation">``</span><span class="token inline-literal symbol">[+-]?(\d+(\.\d*)?|\.\d+)</span><span class="token punctuation">``</span></span> matches
+floating-point numbers (without exponents).
+
+See the <span class="token link string"><span class="token punctuation">`</span>Python home page &lt;http://www.python.org><span class="token punctuation">`_</span></span> for info.
+
+Oh yes, the <span class="token link string"><span class="token punctuation">_`</span>Norwegian Blue<span class="token punctuation">`</span></span>.  What's, um, what's wrong with it?
+
+----------------------------------------------------

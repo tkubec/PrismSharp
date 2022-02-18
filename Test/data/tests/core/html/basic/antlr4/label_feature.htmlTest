@@ -1,0 +1,17 @@
+stat: 'return' e ';' # Return
+	| 'break' ';' # Break
+	;
+e   : e '*' e # Mult
+	| e '+' e # Add
+	| INT # Int
+	;
+----------------------------------------------------
+<span class="token definition rule class-name">stat</span><span class="token punctuation">:</span> <span class="token string">'return'</span> e <span class="token string">';'</span> <span class="token label punctuation"># Return</span>
+	<span class="token operator">|</span> <span class="token string">'break'</span> <span class="token string">';'</span> <span class="token label punctuation"># Break</span>
+	<span class="token punctuation">;</span>
+<span class="token definition rule class-name">e</span>   <span class="token punctuation">:</span> e <span class="token string">'*'</span> e <span class="token label punctuation"># Mult</span>
+	<span class="token operator">|</span> e <span class="token string">'+'</span> e <span class="token label punctuation"># Add</span>
+	<span class="token operator">|</span> <span class="token constant">INT</span> <span class="token label punctuation"># Int</span>
+	<span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+foo: hello:abc
+bar: @test\x\b
+----------------------------------------------------
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token literal string">hello:abc</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token literal string">@test\x\b</span>
+
+----------------------------------------------------

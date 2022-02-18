@@ -1,0 +1,37 @@
+-include
+define
+else
+endef
+endif
+export
+ifdef
+ifeq
+ifndef
+ifneq
+include
+override
+private
+sinclude
+undefine
+unexport
+vpath
+----------------------------------------------------
+<span class="token keyword">-include</span>
+<span class="token keyword">define</span>
+<span class="token keyword">else</span>
+<span class="token keyword">endef</span>
+<span class="token keyword">endif</span>
+<span class="token keyword">export</span>
+<span class="token keyword">ifdef</span>
+<span class="token keyword">ifeq</span>
+<span class="token keyword">ifndef</span>
+<span class="token keyword">ifneq</span>
+<span class="token keyword">include</span>
+<span class="token keyword">override</span>
+<span class="token keyword">private</span>
+<span class="token keyword">sinclude</span>
+<span class="token keyword">undefine</span>
+<span class="token keyword">unexport</span>
+<span class="token keyword">vpath</span>
+
+----------------------------------------------------

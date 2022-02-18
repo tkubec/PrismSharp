@@ -1,0 +1,13 @@
+db.orders.aggregate([
+	{ $sort : { age : -1 } },
+	{ $project : { age : 1, status : 1, name : 1 } },
+	{ $limit: 5 }
+])
+----------------------------------------------------
+db<span class="token punctuation">.</span>orders<span class="token punctuation">.</span><span class="token function">aggregate</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span> <span class="token property"><span class="token keyword">$sort</span></span> <span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">age</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span> <span class="token property"><span class="token keyword">$project</span></span> <span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">age</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token property">status</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token property">name</span> <span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span> <span class="token property"><span class="token keyword">$limit</span></span><span class="token operator">:</span> <span class="token number">5</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

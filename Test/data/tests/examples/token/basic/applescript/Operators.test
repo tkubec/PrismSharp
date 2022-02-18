@@ -1,0 +1,65 @@
+a ≠ b
+12 + 2 * 5
+"DUMPtruck" is equal to "dumptruck"
+"zebra" comes after "aardvark"
+{ "this", "is", 2, "cool" } starts with "this"
+{ "is", 2} is contained by { "this", "is", 2, "cool" }
+set docRef to a reference to the first document
+----------------------------------------------------
+[
+	"a ",
+	["operator", "≠"],
+	" b\n",
+
+	["number", "12"],
+	["operator", "+"],
+	["number", "2"],
+	["operator", "*"],
+	["number", "5"],
+
+	["string", "\"DUMPtruck\""],
+	["operator", "is equal to"],
+	["string", "\"dumptruck\""],
+
+	["string", "\"zebra\""],
+	["operator", "comes after"],
+	["string", "\"aardvark\""],
+
+	["punctuation", "{"],
+	["string", "\"this\""],
+	["punctuation", ","],
+	["string", "\"is\""],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"cool\""],
+	["punctuation", "}"],
+	["operator", "starts with"],
+	["string", "\"this\""],
+
+	["punctuation", "{"],
+	["string", "\"is\""],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", "}"],
+	["operator", "is contained by"],
+	["punctuation", "{"],
+	["string", "\"this\""],
+	["punctuation", ","],
+	["string", "\"is\""],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["string", "\"cool\""],
+	["punctuation", "}"],
+
+	["keyword", "set"],
+	" docRef ",
+	["keyword", "to"],
+	["operator", "a reference to"],
+	["keyword", "the"],
+	["keyword", "first"],
+	" document"
+]
+
+----------------------------------------------------

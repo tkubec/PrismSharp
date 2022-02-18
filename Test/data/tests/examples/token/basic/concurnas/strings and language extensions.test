@@ -1,0 +1,33 @@
+"hi"
+'hi'
+'c'
+'what "yach"'
+s'c'
+"c"
+r"[a-z|A-Z]+"
+----------------------------------------------------
+[
+	["string-literal", [
+		["string", "\"hi\""]
+	]],
+	["string-literal", [
+		["string", "'hi'"]
+	]],
+	["string-literal", [
+		["string", "'c'"]
+	]],
+	["string-literal", [
+		["string", "'what \"yach\"'"]
+	]],
+	["string-literal", [
+		["string", "s'c'"]
+	]],
+	["string-literal", [
+		["string", "\"c\""]
+	]],
+	["regex-literal", [
+		["regex", "r\"[a-z|A-Z]+\""]
+	]]
+]
+
+----------------------------------------------------

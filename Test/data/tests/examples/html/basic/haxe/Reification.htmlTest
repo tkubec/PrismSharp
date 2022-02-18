@@ -1,0 +1,9 @@
+macro static function add(e:Expr) {
+  return macro $e + $e;
+}
+----------------------------------------------------
+<span class="token keyword">macro</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>e<span class="token operator">:</span><span class="token class-name">Expr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">macro</span> <span class="token reification important">$e</span> <span class="token operator">+</span> <span class="token reification important">$e</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

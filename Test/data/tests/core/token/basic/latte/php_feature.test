@@ -1,0 +1,69 @@
+{tag $a = true ? 10 * 5}
+<div n:attr="$a = true ? 10 * 5">
+{php '' }
+{php "" }
+{php "ba\"r" }
+{php 'ba\'z' }
+{php /* " */ }
+{php /* } */ }
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["latte-tag", "tag"],
+	["php", [
+		["variable", "$a"],
+		["operator", "="],
+		["constant", "true"],
+		["operator", "?"],
+		["number", "10"],
+		["operator", "*"],
+		["number", "5"],
+		["punctuation", "}"],
+
+		["operator", "<"],
+		"div n",
+		["punctuation", ":"],
+		"attr",
+		["operator", "="],
+		["string", [
+			"\"",
+			["interpolation", [
+				["variable", "$a"]
+			]],
+			" = true ? 10 * 5\""
+		]],
+		["operator", ">"],
+
+		["punctuation", "{"],
+		"php ",
+		["string", "''"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["string", ["\"\""]],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["string", ["\"ba\\\"r\""]],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["string", "'ba\\'z'"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["comment", "/* \" */"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["comment", "/* } */"]
+	]],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

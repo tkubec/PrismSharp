@@ -1,0 +1,73 @@
+HTTP/1.1 200 OK
+Server: GitHub.com
+Date: Mon, 22 Dec 2014 18:25:30 GMT
+Content-Type: text/html; charset=utf-8
+Last-Modified: Sun, 21 Dec 2014 20:29:48 GMT
+Transfer-Encoding: chunked
+Expires: Mon, 22 Dec 2014 18:35:30 GMT
+Cache-Control: max-age=600
+Vary: Accept-Encoding
+Content-Encoding: gzip
+
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body></body>
+</html>
+----------------------------------------------------
+[
+	["response-status", [
+		["http-version", "HTTP/1.1"],
+		["status-code", "200"],
+		["reason-phrase", "OK"]
+	]],
+	["header", [
+		["header-name", "Server"],
+		["punctuation", ":"],
+		["header-value", "GitHub.com"]
+	]],
+	["header", [
+		["header-name", "Date"],
+		["punctuation", ":"],
+		["header-value", "Mon, 22 Dec 2014 18:25:30 GMT"]
+	]],
+	["header", [
+		["header-name", "Content-Type"],
+		["punctuation", ":"],
+		["header-value", "text/html; charset=utf-8"]
+	]],
+	["header", [
+		["header-name", "Last-Modified"],
+		["punctuation", ":"],
+		["header-value", "Sun, 21 Dec 2014 20:29:48 GMT"]
+	]],
+	["header", [
+		["header-name", "Transfer-Encoding"],
+		["punctuation", ":"],
+		["header-value", "chunked"]
+	]],
+	["header", [
+		["header-name", "Expires"],
+		["punctuation", ":"],
+		["header-value", "Mon, 22 Dec 2014 18:35:30 GMT"]
+	]],
+	["header", [
+		["header-name", "Cache-Control"],
+		["punctuation", ":"],
+		["header-value", "max-age=600"]
+	]],
+	["header", [
+		["header-name", "Vary"],
+		["punctuation", ":"],
+		["header-value", "Accept-Encoding"]
+	]],
+	["header", [
+		["header-name", "Content-Encoding"],
+		["punctuation", ":"],
+		["header-value", "gzip"]
+	]],
+
+	"\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head></head>\n<body></body>\n</html>"
+]
+
+----------------------------------------------------

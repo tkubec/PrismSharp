@@ -1,0 +1,13 @@
+' This is a comment
+
+#Rem            ' This is the start of a comment block
+Some comment    ' We are inside the comment block
+#End
+----------------------------------------------------
+[
+	["comment", "' This is a comment"],
+
+	["comment", "#Rem            ' This is the start of a comment block\nSome comment    ' We are inside the comment block\n#End"]
+]
+
+----------------------------------------------------

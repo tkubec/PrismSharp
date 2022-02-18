@@ -1,0 +1,9 @@
+I HAS A var
+var R "THREE"
+var R 3
+----------------------------------------------------
+<span class="token keyword">I HAS A</span> var
+var <span class="token keyword">R</span> <span class="token string">"THREE"</span>
+var <span class="token keyword">R</span> <span class="token number">3</span>
+
+----------------------------------------------------

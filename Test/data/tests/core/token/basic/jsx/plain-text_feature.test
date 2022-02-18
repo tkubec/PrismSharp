@@ -1,0 +1,62 @@
+<div>
+	foobar for
+	<div>
+		foobar for
+	</div>
+	foobar for {i == 0 ? 42 : 0}}
+</div>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]],
+
+	"\r\n\tfoobar ",
+	["keyword", "for"],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]],
+
+	"\r\n\t\tfoobar ",
+	["keyword", "for"],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]],
+
+	"\r\n\tfoobar ",
+	["keyword", "for"],
+	["punctuation", "{"],
+	"i ",
+	["operator", "=="],
+	["number", "0"],
+	["operator", "?"],
+	["number", "42"],
+	["operator", ":"],
+	["number", "0"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

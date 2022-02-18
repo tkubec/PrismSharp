@@ -1,0 +1,35 @@
+%%
+exp:
+  NUM           { $$ = $1;           }
+| exp exp '+'   { $$ = $1 + $2;      }
+| exp exp '-'   { $$ = $1 - $2;      }
+| exp exp '*'   { $$ = $1 * $2;      }
+| exp exp '/'   { $$ = $1 / $2;      }
+| exp exp '^'   { $$ = pow($1, $2);  }  /* Exponentiation */
+| exp 'n'       { $$ = -$1;          }  /* Unary minus    */
+;
+
+$@1: %empty { a(); };
+$@2: %empty { c(); };
+$@3: %empty { d(); };
+exp: $@1 "b" $@2 $@3 "e" { f(); };
+%%
+----------------------------------------------------
+<span class="token bison"><span class="token punctuation">%%</span>
+<span class="token property">exp</span><span class="token punctuation">:</span>
+  NUM           <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token bison-variable variable">$1</span><span class="token punctuation">;</span>           <span class="token delimiter punctuation">}</span></span>
+<span class="token punctuation">|</span> exp exp '+'   <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token bison-variable variable">$1</span> <span class="token operator">+</span> <span class="token bison-variable variable">$2</span><span class="token punctuation">;</span>      <span class="token delimiter punctuation">}</span></span>
+<span class="token punctuation">|</span> exp exp '-'   <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token bison-variable variable">$1</span> <span class="token operator">-</span> <span class="token bison-variable variable">$2</span><span class="token punctuation">;</span>      <span class="token delimiter punctuation">}</span></span>
+<span class="token punctuation">|</span> exp exp '*'   <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token bison-variable variable">$1</span> <span class="token operator">*</span> <span class="token bison-variable variable">$2</span><span class="token punctuation">;</span>      <span class="token delimiter punctuation">}</span></span>
+<span class="token punctuation">|</span> exp exp '/'   <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token bison-variable variable">$1</span> <span class="token operator">/</span> <span class="token bison-variable variable">$2</span><span class="token punctuation">;</span>      <span class="token delimiter punctuation">}</span></span>
+<span class="token punctuation">|</span> exp exp '^'   <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token bison-variable variable">$1</span><span class="token punctuation">,</span> <span class="token bison-variable variable">$2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token delimiter punctuation">}</span></span>  <span class="token comment">/* Exponentiation */</span>
+<span class="token punctuation">|</span> exp 'n'       <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token bison-variable variable">$$</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token bison-variable variable">$1</span><span class="token punctuation">;</span>          <span class="token delimiter punctuation">}</span></span>  <span class="token comment">/* Unary minus    */</span>
+<span class="token punctuation">;</span>
+
+<span class="token property">$@1</span><span class="token punctuation">:</span> <span class="token keyword">%empty</span> <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span><span class="token punctuation">;</span>
+<span class="token property">$@2</span><span class="token punctuation">:</span> <span class="token keyword">%empty</span> <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span><span class="token punctuation">;</span>
+<span class="token property">$@3</span><span class="token punctuation">:</span> <span class="token keyword">%empty</span> <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token function">d</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span><span class="token punctuation">;</span>
+<span class="token property">exp</span><span class="token punctuation">:</span> $@1 <span class="token string">"b"</span> $@2 $@3 <span class="token string">"e"</span> <span class="token c"><span class="token delimiter punctuation">{</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter punctuation">}</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">%%</span></span>
+
+----------------------------------------------------

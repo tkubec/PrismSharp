@@ -1,0 +1,25 @@
+https://john.doe@www.example.com:123/forum/questions/?tag=networking&order=newest#top
+https://example.com/path/resource.txt#fragment
+ldap://[2001:db8::7]/c=GB?objectClass?one
+mailto:John.Doe@example.com
+news:comp.infosystems.www.servers.unix
+tel:+1-816-555-1212
+telnet://192.0.2.16:80/
+urn:oasis:names:specification:docbook:dtd:xml:4.1.2
+//example.com/path/resource.txt
+/path/resource.txt
+path/resource.txt
+----------------------------------------------------
+<span class="token scheme">https<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token user-info-segment"><span class="token user-info">john.doe</span><span class="token user-info-delimiter">@</span></span><span class="token host">www.example.com</span><span class="token port-segment"><span class="token port-delimiter">:</span><span class="token port">123</span></span></span><span class="token path"><span class="token path-separator">/</span>forum<span class="token path-separator">/</span>questions<span class="token path-separator">/</span></span><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">tag</span>=<span class="token value">networking</span></span><span class="token pair-delimiter">&amp;</span><span class="token pair"><span class="token key">order</span>=<span class="token value">newest</span></span></span><span class="token fragment"><span class="token fragment-delimiter">#</span>top</span>
+<span class="token scheme">https<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">example.com</span></span><span class="token path"><span class="token path-separator">/</span>path<span class="token path-separator">/</span>resource.txt</span><span class="token fragment"><span class="token fragment-delimiter">#</span>fragment</span>
+<span class="token scheme">ldap<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host"><span class="token ip-literal"><span class="token ip-literal-delimiter">[</span><span class="token ipv6-address">2001:db8::7</span><span class="token ip-literal-delimiter">]</span></span></span></span><span class="token path"><span class="token path-separator">/</span>c=GB</span><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">objectClass?one</span></span></span>
+<span class="token scheme">mailto<span class="token scheme-delimiter">:</span></span><span class="token path">John.Doe@example.com</span>
+<span class="token scheme">news<span class="token scheme-delimiter">:</span></span><span class="token path">comp.infosystems.www.servers.unix</span>
+<span class="token scheme">tel<span class="token scheme-delimiter">:</span></span><span class="token path">+1-816-555-1212</span>
+<span class="token scheme">telnet<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host"><span class="token ipv4-address">192.0.2.16</span></span><span class="token port-segment"><span class="token port-delimiter">:</span><span class="token port">80</span></span></span><span class="token path"><span class="token path-separator">/</span></span>
+<span class="token scheme">urn<span class="token scheme-delimiter">:</span></span><span class="token path">oasis:names:specification:docbook:dtd:xml:4.1.2</span>
+<span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">example.com</span></span><span class="token path"><span class="token path-separator">/</span>path<span class="token path-separator">/</span>resource.txt</span>
+<span class="token path"><span class="token path-separator">/</span>path<span class="token path-separator">/</span>resource.txt</span>
+<span class="token path">path<span class="token path-separator">/</span>resource.txt</span>
+
+----------------------------------------------------

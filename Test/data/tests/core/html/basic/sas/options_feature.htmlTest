@@ -1,0 +1,9 @@
+options nodate linesize=72;
+options validmemname=extend validvarname=any;
+options insert=(fmtsearch="c:/myformats");
+----------------------------------------------------
+<span class="token keyword">options</span><span class="token options-args"> <span class="token arg keyword">nodate</span> <span class="token arg keyword">linesize</span><span class="token operator">=</span><span class="token number">72</span></span><span class="token punctuation">;</span>
+<span class="token keyword">options</span><span class="token options-args"> <span class="token arg keyword">validmemname</span><span class="token operator">=</span><span class="token arg-value">extend</span> <span class="token arg keyword">validvarname</span><span class="token operator">=</span><span class="token arg-value">any</span></span><span class="token punctuation">;</span>
+<span class="token keyword">options</span><span class="token options-args"> <span class="token arg keyword">insert</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token arg keyword">fmtsearch</span><span class="token operator">=</span><span class="token string">"c:/myformats"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

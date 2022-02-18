@@ -1,0 +1,9 @@
+; comment
+(some more comments)
+G28 (even in here) X0
+----------------------------------------------------
+<span class="token comment">; comment</span>
+<span class="token comment">(some more comments)</span>
+<span class="token keyword">G28</span> <span class="token comment">(even in here)</span> <span class="token property">X</span>0
+
+----------------------------------------------------

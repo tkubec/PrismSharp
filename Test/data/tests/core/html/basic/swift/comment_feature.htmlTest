@@ -1,0 +1,27 @@
+// foo
+/**/
+/* foo */
+/*
+ foo
+*/
+
+/*
+/*
+ foo
+*/
+*/
+----------------------------------------------------
+<span class="token comment">// foo</span>
+<span class="token comment">/**/</span>
+<span class="token comment">/* foo */</span>
+<span class="token comment">/*
+ foo
+*/</span>
+
+<span class="token comment">/*
+/*
+ foo
+*/
+*/</span>
+
+----------------------------------------------------

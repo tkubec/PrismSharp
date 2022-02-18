@@ -1,0 +1,48 @@
+proc foobar {baz} {
+	puts $baz
+}
+
+proc RESTORE/post/:post_id/comment/:comment_id {post_id comment_id} {
+    #| Restore a comment handler
+    comment_restore $comment_id
+    qc::actions redirect [url "/post/$post_id" show_deleted_comment_ids $comment_id]
+}
+----------------------------------------------------
+[
+	["builtin", "proc"],
+	["function", "foobar"],
+	["punctuation", "{"],
+	"baz",
+	["punctuation", "}"],
+	["punctuation", "{"],
+
+	["keyword", "puts"],
+	" $",
+	["variable", "baz"],
+
+	["punctuation", "}"],
+
+	["builtin", "proc"],
+	["function", "RESTORE/post/:post_id/comment/:comment_id"],
+	["punctuation", "{"],
+	"post_id comment_id",
+	["punctuation", "}"],
+	["punctuation", "{"],
+
+	["comment", "#| Restore a comment handler"],
+
+	"\n    comment_restore $",
+	["variable", "comment_id"],
+
+	"\n    qc::actions redirect ",
+	["punctuation", "["],
+	"url ",
+	["string", "\"/post/$post_id\""],
+	" show_deleted_comment_ids $",
+	["variable", "comment_id"],
+	["punctuation", "]"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

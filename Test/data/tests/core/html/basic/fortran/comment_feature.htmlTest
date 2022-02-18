@@ -1,0 +1,9 @@
+!
+! foobar
+! This "string" should not be highlighted
+----------------------------------------------------
+<span class="token comment">!</span>
+<span class="token comment">! foobar</span>
+<span class="token comment">! This "string" should not be highlighted</span>
+
+----------------------------------------------------

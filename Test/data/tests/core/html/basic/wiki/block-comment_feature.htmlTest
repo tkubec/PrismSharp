@@ -1,0 +1,11 @@
+/**/
+/* foo */
+/* foo
+bar */
+----------------------------------------------------
+<span class="token block-comment comment">/**/</span>
+<span class="token block-comment comment">/* foo */</span>
+<span class="token block-comment comment">/* foo
+bar */</span>
+
+----------------------------------------------------

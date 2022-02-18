@@ -1,0 +1,48 @@
+Procedure.s Test(s.s)
+	Protected a$, b$, Result.s
+
+	Result = Mid(s, 1, 3)
+
+	ProcedureReturn Result
+EndProcedure
+
+Test()
+End
+----------------------------------------------------
+[
+	["keyword", "Procedure"],
+	["punctuation", "."],
+	"s ",
+	["function", "Test"],
+	["punctuation", "("],
+	"s",
+	["punctuation", "."],
+	"s",
+	["punctuation", ")"],
+
+	["keyword", "Protected"],
+	" a$",
+	["punctuation", ","],
+	" b$",
+	["punctuation", ","],
+	" Result",
+	["punctuation", "."],
+	"s\n\n\tResult ",
+	["operator", "="],
+	["function", "Mid"],
+	["punctuation", "("],
+	"s",
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", ")"],
+
+	["keyword", "ProcedureReturn"], " Result\n",
+	["keyword", "EndProcedure"],
+
+	["function", "Test"], ["punctuation", "("], ["punctuation", ")"],
+	["keyword", "End"]
+]
+
+----------------------------------------------------

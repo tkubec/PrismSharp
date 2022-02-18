@@ -1,0 +1,24 @@
+^ * / % + -
+== != <= < >= >
+
+and unless or
+----------------------------------------------------
+[
+	["operator", "^"],
+	["operator", "*"],
+	["operator", "/"],
+	["operator", "%"],
+	["operator", "+"],
+	["operator", "-"],
+
+	["operator", "=="],
+	["operator", "!="],
+	["operator", "<="],
+	["operator", "<"],
+	["operator", ">="],
+	["operator", ">"],
+
+	["operator", "and"], ["operator", "unless"], ["operator", "or"]
+]
+
+----------------------------------------------------

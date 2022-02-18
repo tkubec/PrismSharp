@@ -1,0 +1,22 @@
+<p title="foo
+bar
+baz">
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["attr-name", ["title"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"foo\nbar\nbaz",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

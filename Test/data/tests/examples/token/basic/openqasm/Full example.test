@@ -1,0 +1,205 @@
+// https://github.com/Qiskit/openqasm
+/*
+ * Repeat-until-success circuit for Rz(theta),
+ * cos(theta-pi)=3/5, from Nielsen and Chuang, Chapter 4.
+ */
+OPENQASM 3;
+include "stdgates.inc";
+
+/*
+ * Applies identity if out is 01, 10, or 11 and a Z-rotation by
+ * theta + pi where cos(theta)=3/5 if out is 00.
+ * The 00 outcome occurs with probability 5/8.
+ */
+def segment qubit[2]:anc, qubit:psi -> bit[2] {
+  bit[2] b;
+  reset anc;
+  h anc;
+  ccx anc[0], anc[1], psi;
+  s psi;
+  ccx anc[0], anc[1], psi;
+  z psi;
+  h anc;
+  measure anc -> b;
+  return b;
+}
+
+qubit input;
+qubit ancilla[2];
+bit flags[2] = "11";
+bit output;
+
+reset input;
+h input;
+
+// braces are optional in this case
+while(int(flags) != 0) {
+  flags = segment ancilla, input;
+}
+rz(pi - arccos(3 / 5)) input;
+h input;
+output = measure input;  // should get zero
+----------------------------------------------------
+[
+	["comment", "// https://github.com/Qiskit/openqasm"],
+	["comment", "/*\n * Repeat-until-success circuit for Rz(theta),\n * cos(theta-pi)=3/5, from Nielsen and Chuang, Chapter 4.\n */"],
+	["keyword", "OPENQASM"], ["number", "3"], ["punctuation", ";"],
+	["keyword", "include"], ["string", "\"stdgates.inc\""], ["punctuation", ";"],
+
+	["comment", "/*\n * Applies identity if out is 01, 10, or 11 and a Z-rotation by\n * theta + pi where cos(theta)=3/5 if out is 00.\n * The 00 outcome occurs with probability 5/8.\n */"],
+
+	["keyword", "def"],
+	" segment ",
+	["class-name", "qubit"],
+	["punctuation", "["],
+	["number", "2"],
+	["punctuation", "]"],
+	["punctuation", ":"],
+	"anc",
+	["punctuation", ","],
+	["class-name", "qubit"],
+	["punctuation", ":"],
+	"psi ",
+	["operator", "->"],
+	["class-name", "bit"],
+	["punctuation", "["],
+	["number", "2"],
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["class-name", "bit"],
+	["punctuation", "["],
+	["number", "2"],
+	["punctuation", "]"],
+	" b",
+	["punctuation", ";"],
+
+	["keyword", "reset"],
+	" anc",
+	["punctuation", ";"],
+
+	"\n  h anc",
+	["punctuation", ";"],
+
+	"\n  ccx anc",
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" anc",
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" psi",
+	["punctuation", ";"],
+
+	"\n  s psi",
+	["punctuation", ";"],
+
+	"\n  ccx anc",
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" anc",
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" psi",
+	["punctuation", ";"],
+
+	"\n  z psi",
+	["punctuation", ";"],
+
+	"\n  h anc",
+	["punctuation", ";"],
+
+	["keyword", "measure"],
+	" anc ",
+	["operator", "->"],
+	" b",
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	" b",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["class-name", "qubit"],
+	" input",
+	["punctuation", ";"],
+
+	["class-name", "qubit"],
+	" ancilla",
+	["punctuation", "["],
+	["number", "2"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["class-name", "bit"],
+	" flags",
+	["punctuation", "["],
+	["number", "2"],
+	["punctuation", "]"],
+	["operator", "="],
+	["string", "\"11\""],
+	["punctuation", ";"],
+
+	["class-name", "bit"],
+	" output",
+	["punctuation", ";"],
+
+	["keyword", "reset"], " input", ["punctuation", ";"],
+	"\nh input", ["punctuation", ";"],
+
+	["comment", "// braces are optional in this case"],
+
+	["keyword", "while"],
+	["punctuation", "("],
+	["class-name", "int"],
+	["punctuation", "("],
+	"flags",
+	["punctuation", ")"],
+	["operator", "!="],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n  flags ",
+	["operator", "="],
+	" segment ancilla",
+	["punctuation", ","],
+	" input",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	"\nrz",
+	["punctuation", "("],
+	["constant", "pi"],
+	["operator", "-"],
+	" arccos",
+	["punctuation", "("],
+	["number", "3"],
+	["operator", "/"],
+	["number", "5"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	" input",
+	["punctuation", ";"],
+
+	"\nh input",
+	["punctuation", ";"],
+
+	"\noutput ",
+	["operator", "="],
+	["keyword", "measure"],
+	" input",
+	["punctuation", ";"],
+	["comment", "// should get zero"]
+]
+
+----------------------------------------------------

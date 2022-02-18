@@ -1,0 +1,34 @@
+sub read_config_file {
+  my ($class, $filename) = @_;
+
+  unless (defined $filename) {
+    my $home  = File::HomeDir->my_home || '.';
+    $filename = File::Spec->catfile($home, '.pause');
+
+    return {} unless -e $filename and -r _;
+  }
+
+  my %conf;
+  if ( eval { require Config::Identity } ) {
+    %conf = Config::Identity->load($filename);
+    $conf{user} = delete $conf{username} unless $conf{user};
+  }
+  else { # Process .pause manually
+    open my $pauserc, '&lt;', $filename
+      or die "can't open $filename for reading: $!";
+
+    while (&lt;$pauserc>) {
+      chomp;
+      next unless $_ and $_ !~ /^\s*#/;
+
+      my ($k, $v) = /^\s*(\w+)\s+(.+)$/;
+      Carp::croak "multiple enties for $k" if $conf{$k};
+      $conf{$k} = $v;
+    }
+  }
+
+  return \%conf;
+}
+
+--------------------------------------------------
+

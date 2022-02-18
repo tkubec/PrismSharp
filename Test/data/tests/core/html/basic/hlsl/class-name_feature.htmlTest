@@ -1,0 +1,89 @@
+struct Foo {};
+
+AppendStructuredBuffer
+BlendState
+Buffer
+ByteAddressBuffer
+CompileShader
+ComputeShader
+ConsumeStructuredBuffer
+DepthStencilState
+DepthStencilView
+DomainShader
+GeometryShader
+Hullshader
+InputPatch
+LineStream
+OutputPatch
+PixelShader
+PointStream
+RWBuffer
+RWByteAddressBuffer
+RWStructuredBuffer
+RWTexture1D
+RWTexture1DArray
+RWTexture2D
+RWTexture2DArray
+RWTexture3D
+RasterizerState
+RenderTargetView
+SamplerComparisonState
+SamplerState
+StructuredBuffer
+Texture1D
+Texture1DArray
+Texture2D
+Texture2DArray
+Texture2DMS
+Texture2DMSArray
+Texture3D
+TextureCube
+TextureCubeArray
+TriangleStream
+VertexShader
+----------------------------------------------------
+<span class="token keyword">struct</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token class-name">AppendStructuredBuffer</span>
+<span class="token class-name">BlendState</span>
+<span class="token class-name">Buffer</span>
+<span class="token class-name">ByteAddressBuffer</span>
+<span class="token class-name">CompileShader</span>
+<span class="token class-name">ComputeShader</span>
+<span class="token class-name">ConsumeStructuredBuffer</span>
+<span class="token class-name">DepthStencilState</span>
+<span class="token class-name">DepthStencilView</span>
+<span class="token class-name">DomainShader</span>
+<span class="token class-name">GeometryShader</span>
+<span class="token class-name">Hullshader</span>
+<span class="token class-name">InputPatch</span>
+<span class="token class-name">LineStream</span>
+<span class="token class-name">OutputPatch</span>
+<span class="token class-name">PixelShader</span>
+<span class="token class-name">PointStream</span>
+<span class="token class-name">RWBuffer</span>
+<span class="token class-name">RWByteAddressBuffer</span>
+<span class="token class-name">RWStructuredBuffer</span>
+<span class="token class-name">RWTexture1D</span>
+<span class="token class-name">RWTexture1DArray</span>
+<span class="token class-name">RWTexture2D</span>
+<span class="token class-name">RWTexture2DArray</span>
+<span class="token class-name">RWTexture3D</span>
+<span class="token class-name">RasterizerState</span>
+<span class="token class-name">RenderTargetView</span>
+<span class="token class-name">SamplerComparisonState</span>
+<span class="token class-name">SamplerState</span>
+<span class="token class-name">StructuredBuffer</span>
+<span class="token class-name">Texture1D</span>
+<span class="token class-name">Texture1DArray</span>
+<span class="token class-name">Texture2D</span>
+<span class="token class-name">Texture2DArray</span>
+<span class="token class-name">Texture2DMS</span>
+<span class="token class-name">Texture2DMSArray</span>
+<span class="token class-name">Texture3D</span>
+<span class="token class-name">TextureCube</span>
+<span class="token class-name">TextureCubeArray</span>
+<span class="token class-name">TriangleStream</span>
+<span class="token class-name">VertexShader</span>
+
+----------------------------------------------------

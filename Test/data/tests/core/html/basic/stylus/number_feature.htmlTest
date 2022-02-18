@@ -1,0 +1,11 @@
+z-index 42
+foo = 3.14159
+width: 23%
+bar = 1.5%
+----------------------------------------------------
+<span class="token property-declaration"><span class="token property">z-index</span> <span class="token number">42</span></span>
+<span class="token variable-declaration"><span class="token variable">foo</span> <span class="token operator">=</span> <span class="token number">3.14159</span></span>
+<span class="token property-declaration"><span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">23</span><span class="token unit">%</span></span>
+<span class="token variable-declaration"><span class="token variable">bar</span> <span class="token operator">=</span> <span class="token number">1.5</span><span class="token unit">%</span></span>
+
+----------------------------------------------------

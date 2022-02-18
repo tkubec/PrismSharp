@@ -1,0 +1,40 @@
+foreach entry (["aaa", "bbb", "ccc"]) {
+	if (grep("[bc]", entry)) {
+		last;
+	}
+}
+----------------------------------------------------
+[
+	["keyword", "foreach"],
+	["function", "entry"],
+	["punctuation", "("],
+	["punctuation", "["],
+	["string", ["\"aaa\""]],
+	["punctuation", ","],
+	["string", ["\"bbb\""]],
+	["punctuation", ","],
+	["string", ["\"ccc\""]],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["builtin", "grep"],
+	["punctuation", "("],
+	["string", ["\"[bc]\""]],
+	["punctuation", ","],
+	" entry",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "last"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,257 @@
+# Configuration File for keepalived
+global_defs {
+    notification_email {
+        admin@domain.com
+        0633225522@domain.com
+    }
+    notification_email_from keepalived@domain.com
+    smtp_server 192.168.200.20
+    smtp_connect_timeout 30
+    router_id LVS_MAIN
+}
+
+# VRRP Instances definitions
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 150
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass k@l!ve1
+    }
+    virtual_ipaddress {
+        192.168.200.10
+        192.168.200.11
+    }
+}
+vrrp_instance VI_2 {
+    state MASTER
+    interface eth1
+    virtual_router_id 52
+    priority 150
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass k@l!ve2
+    }
+    virtual_ipaddress {
+        192.168.100.10
+    }
+}
+vrrp_instance VI_3 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 53
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass k@l!ve3
+    }
+    virtual_ipaddress {
+        192.168.200.12
+        192.168.200.13
+    }
+}
+vrrp_instance VI_4 {
+    state BACKUP
+    interface eth1
+    virtual_router_id 54
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass k@l!ve4
+    }
+    virtual_ipaddress {
+        192.168.100.11
+    }
+}
+# Virtual Servers definitions
+virtual_server 192.168.200.10 80 {
+    delay_loop 30
+    lb_algo wrr
+    lb_kind NAT
+    persistence_timeout 50
+    protocol TCP
+    sorry_server 192.168.100.100 80
+    real_server 192.168.100.2 80 {
+        weight 2
+        HTTP_GET {
+            url {
+                path /testurl/test.jsp
+                digest ec90a42b99ea9a2f5ecbe213ac9eba03
+            }
+            url {
+                path /testurl2/test.jsp
+                digest 640205b7b0fc66c1ea91c463fac6334c
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 2
+        }
+    }
+    real_server 192.168.100.3 80 {
+        weight 1
+        HTTP_GET {
+            url {
+                path /testurl/test.jsp
+                digest 640205b7b0fc66c1ea91c463fac6334c
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 2
+        }
+    }
+}
+virtual_server 192.168.200.12 443 {
+    delay_loop 20
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout 360
+    protocol TCP
+    real_server 192.168.100.2 443 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 3
+        }
+    }
+    real_server 192.168.100.3 443 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 3
+        }
+    }
+}
+----------------------------------------------------
+<span class="token comment"># Configuration File for keepalived</span>
+<span class="token property">global_defs</span> <span class="token punctuation">{</span>
+    <span class="token property">notification_email</span> <span class="token punctuation">{</span>
+        <span class="token email string">admin@domain.com</span>
+        <span class="token email string">0633225522@domain.com</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">notification_email_from</span> <span class="token email string">keepalived@domain.com</span>
+    <span class="token property">smtp_server</span> <span class="token ip number">192.168.200.20</span>
+    <span class="token property">smtp_connect_timeout</span> <span class="token number">30</span>
+    <span class="token property">router_id</span> LVS_MAIN
+<span class="token punctuation">}</span>
+
+<span class="token comment"># VRRP Instances definitions</span>
+<span class="token property">vrrp_instance</span> VI_1 <span class="token punctuation">{</span>
+    <span class="token property">state</span> <span class="token constant">MASTER</span>
+    <span class="token property">interface</span> eth0
+    <span class="token property">virtual_router_id</span> <span class="token number">51</span>
+    <span class="token property">priority</span> <span class="token number">150</span>
+    <span class="token property">advert_int</span> <span class="token number">1</span>
+    <span class="token property">authentication</span> <span class="token punctuation">{</span>
+        <span class="token property">auth_type</span> <span class="token constant">PASS</span>
+        <span class="token property">auth_pass</span> k<span class="token conditional-configuration variable">@l</span><span class="token comment">!ve1</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">virtual_ipaddress</span> <span class="token punctuation">{</span>
+        <span class="token ip number">192.168.200.10</span>
+        <span class="token ip number">192.168.200.11</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token property">vrrp_instance</span> VI_2 <span class="token punctuation">{</span>
+    <span class="token property">state</span> <span class="token constant">MASTER</span>
+    <span class="token property">interface</span> eth1
+    <span class="token property">virtual_router_id</span> <span class="token number">52</span>
+    <span class="token property">priority</span> <span class="token number">150</span>
+    <span class="token property">advert_int</span> <span class="token number">1</span>
+    <span class="token property">authentication</span> <span class="token punctuation">{</span>
+        <span class="token property">auth_type</span> <span class="token constant">PASS</span>
+        <span class="token property">auth_pass</span> k<span class="token conditional-configuration variable">@l</span><span class="token comment">!ve2</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">virtual_ipaddress</span> <span class="token punctuation">{</span>
+        <span class="token ip number">192.168.100.10</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token property">vrrp_instance</span> VI_3 <span class="token punctuation">{</span>
+    <span class="token property">state</span> <span class="token constant">BACKUP</span>
+    <span class="token property">interface</span> eth0
+    <span class="token property">virtual_router_id</span> <span class="token number">53</span>
+    <span class="token property">priority</span> <span class="token number">100</span>
+    <span class="token property">advert_int</span> <span class="token number">1</span>
+    <span class="token property">authentication</span> <span class="token punctuation">{</span>
+        <span class="token property">auth_type</span> <span class="token constant">PASS</span>
+        <span class="token property">auth_pass</span> k<span class="token conditional-configuration variable">@l</span><span class="token comment">!ve3</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">virtual_ipaddress</span> <span class="token punctuation">{</span>
+        <span class="token ip number">192.168.200.12</span>
+        <span class="token ip number">192.168.200.13</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token property">vrrp_instance</span> VI_4 <span class="token punctuation">{</span>
+    <span class="token property">state</span> <span class="token constant">BACKUP</span>
+    <span class="token property">interface</span> eth1
+    <span class="token property">virtual_router_id</span> <span class="token number">54</span>
+    <span class="token property">priority</span> <span class="token number">100</span>
+    <span class="token property">advert_int</span> <span class="token number">1</span>
+    <span class="token property">authentication</span> <span class="token punctuation">{</span>
+        <span class="token property">auth_type</span> <span class="token constant">PASS</span>
+        <span class="token property">auth_pass</span> k<span class="token conditional-configuration variable">@l</span><span class="token comment">!ve4</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">virtual_ipaddress</span> <span class="token punctuation">{</span>
+        <span class="token ip number">192.168.100.11</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># Virtual Servers definitions</span>
+<span class="token property">virtual_server</span> <span class="token ip number">192.168.200.10</span> <span class="token number">80</span> <span class="token punctuation">{</span>
+    <span class="token property">delay_loop</span> <span class="token number">30</span>
+    lb_algo <span class="token constant">wrr</span>
+    lb_kind <span class="token constant">NAT</span>
+    <span class="token property">persistence_timeout</span> <span class="token number">50</span>
+    <span class="token property">protocol</span> <span class="token constant">TCP</span>
+    <span class="token property">sorry_server</span> <span class="token ip number">192.168.100.100</span> <span class="token number">80</span>
+    <span class="token property">real_server</span> <span class="token ip number">192.168.100.2</span> <span class="token number">80</span> <span class="token punctuation">{</span>
+        <span class="token property">weight</span> <span class="token number">2</span>
+        <span class="token property">HTTP_GET</span> <span class="token punctuation">{</span>
+            <span class="token property">url</span> <span class="token punctuation">{</span>
+                <span class="token property">path</span> <span class="token path string">/testurl/test.jsp</span>
+                <span class="token property">digest</span> ec90a42b99ea9a2f5ecbe213ac9eba03
+            <span class="token punctuation">}</span>
+            <span class="token property">url</span> <span class="token punctuation">{</span>
+                <span class="token property">path</span> <span class="token path string">/testurl2/test.jsp</span>
+                <span class="token property">digest</span> <span class="token number">640205</span>b7b0fc66c1ea91c463fac6334c
+            <span class="token punctuation">}</span>
+            <span class="token property">connect_timeout</span> <span class="token number">3</span>
+            <span class="token property">retry</span> <span class="token number">3</span>
+            <span class="token property">delay_before_retry</span> <span class="token number">2</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">real_server</span> <span class="token ip number">192.168.100.3</span> <span class="token number">80</span> <span class="token punctuation">{</span>
+        <span class="token property">weight</span> <span class="token number">1</span>
+        <span class="token property">HTTP_GET</span> <span class="token punctuation">{</span>
+            <span class="token property">url</span> <span class="token punctuation">{</span>
+                <span class="token property">path</span> <span class="token path string">/testurl/test.jsp</span>
+                <span class="token property">digest</span> <span class="token number">640205</span>b7b0fc66c1ea91c463fac6334c
+            <span class="token punctuation">}</span>
+            <span class="token property">connect_timeout</span> <span class="token number">3</span>
+            <span class="token property">retry</span> <span class="token number">3</span>
+            <span class="token property">delay_before_retry</span> <span class="token number">2</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token property">virtual_server</span> <span class="token ip number">192.168.200.12</span> <span class="token number">443</span> <span class="token punctuation">{</span>
+    <span class="token property">delay_loop</span> <span class="token number">20</span>
+    lb_algo <span class="token constant">rr</span>
+    lb_kind <span class="token constant">NAT</span>
+    <span class="token property">persistence_timeout</span> <span class="token number">360</span>
+    <span class="token property">protocol</span> <span class="token constant">TCP</span>
+    <span class="token property">real_server</span> <span class="token ip number">192.168.100.2</span> <span class="token number">443</span> <span class="token punctuation">{</span>
+        <span class="token property">weight</span> <span class="token number">1</span>
+        <span class="token property">TCP_CHECK</span> <span class="token punctuation">{</span>
+            <span class="token property">connect_timeout</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">real_server</span> <span class="token ip number">192.168.100.3</span> <span class="token number">443</span> <span class="token punctuation">{</span>
+        <span class="token property">weight</span> <span class="token number">1</span>
+        <span class="token property">TCP_CHECK</span> <span class="token punctuation">{</span>
+            <span class="token property">connect_timeout</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

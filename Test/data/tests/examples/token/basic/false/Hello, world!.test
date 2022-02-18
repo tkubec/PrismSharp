@@ -1,0 +1,46 @@
+"Enter the string character by character (or a space to finish):
+"0i: [ß ^ $ 32=~][i;1+ i:]# % "Reverse: " [i;0>][, i;1- i:]#
+----------------------------------------------------
+[
+	["string", "\"Enter the string character by character (or a space to finish):\n\""],
+	["number", "0"],
+	["variable", "i"],
+	["operator", ":"],
+	["punctuation", "["],
+	["operator", "ß"],
+	["operator", "^"],
+	["operator", "$"],
+	["number", "32"],
+	["operator", "="],
+	["operator", "~"],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["variable", "i"],
+	["operator", ";"],
+	["number", "1"],
+	["operator", "+"],
+	["variable", "i"],
+	["operator", ":"],
+	["punctuation", "]"],
+	["operator", "#"],
+	["operator", "%"],
+	["string", "\"Reverse: \""],
+	["punctuation", "["],
+	["variable", "i"],
+	["operator", ";"],
+	["number", "0"],
+	["operator", ">"],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["operator", ","],
+	["variable", "i"],
+	["operator", ";"],
+	["number", "1"],
+	["operator", "-"],
+	["variable", "i"],
+	["operator", ":"],
+	["punctuation", "]"],
+	["operator", "#"]
+]
+
+----------------------------------------------------

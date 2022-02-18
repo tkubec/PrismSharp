@@ -1,0 +1,17 @@
+// foobar
+(**)
+(* foo
+bar *)
+
+// the next one is not a comment
+(*) (*)
+----------------------------------------------------
+<span class="token comment">// foobar</span>
+<span class="token comment">(**)</span>
+<span class="token comment">(* foo
+bar *)</span>
+
+<span class="token comment">// the next one is not a comment</span>
+<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

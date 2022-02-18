@@ -1,0 +1,91 @@
+<AuthnProviderAlias file file2>
+</AuthnProviderAlias>
+<AuthzProviderAlias ldap-group ldap-group-alias1 "cn=my-group,o=ctx">
+</AuthzProviderAlias>
+<Directory "/webpages/secure">
+</Directory>
+<DirectoryMatch "^/www/(.+/)?[0-9]{3}">
+</DirectoryMatch>
+<Else>
+</Else>
+<ElseIf "-R '10.0.0.0/8'">
+</ElseIf>
+<Files ~ "\.(gif|jpe?g|png)$">
+</Files>
+<FilesMatch ".+\.(gif|jpe?g|png)$">
+</FilesMatch>
+<If "-z req('Host')">
+</If>
+<IfDefine !MemCache>
+</IfDefine>
+<IfModule mod_rewrite.c>
+</IfModule>
+<IfVersion 2.1.0>
+</IfVersion>
+<Limit POST PUT DELETE>
+</Limit>
+<LimitExcept POST GET>
+</LimitExcept>
+<Location /private1>
+</Location>
+<LocationMatch "/(extra|special)/data">
+</LocationMatch>
+<Macro LocalAccessPolicy>
+</Macro>
+<Proxy "*">
+</Proxy>
+<RequireAll>
+</RequireAll>
+<RequireAny>
+</RequireAny>
+<RequireNone>
+</RequireNone>
+<VirtualHost [2001:db8::a00:20ff:fea7:ccea]:80>
+</VirtualHost>
+----------------------------------------------------
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>AuthnProviderAlias</span><span class="token directive-block-parameter attr-value"> file file2</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>AuthnProviderAlias</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>AuthzProviderAlias</span><span class="token directive-block-parameter attr-value"> ldap-group ldap-group-alias1 <span class="token string">"cn=my-group,o=ctx"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>AuthzProviderAlias</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>Directory</span><span class="token directive-block-parameter attr-value"> <span class="token string">"/webpages/secure"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>Directory</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>DirectoryMatch</span><span class="token directive-block-parameter attr-value"> <span class="token string">"^/www/(.+/)?[0-9]{3}"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>DirectoryMatch</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>Else</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>Else</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>ElseIf</span><span class="token directive-block-parameter attr-value"> <span class="token string">"-R '10.0.0.0/8'"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>ElseIf</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>Files</span><span class="token directive-block-parameter attr-value"> ~ <span class="token string">"\.(gif|jpe?g|png)$"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>Files</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>FilesMatch</span><span class="token directive-block-parameter attr-value"> <span class="token string">".+\.(gif|jpe?g|png)$"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>FilesMatch</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>If</span><span class="token directive-block-parameter attr-value"> <span class="token string">"-z req('Host')"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>If</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>IfDefine</span><span class="token directive-block-parameter attr-value"> !MemCache</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>IfDefine</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>IfModule</span><span class="token directive-block-parameter attr-value"> mod_rewrite.c</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>IfModule</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>IfVersion</span><span class="token directive-block-parameter attr-value"> 2.1.0</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>IfVersion</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>Limit</span><span class="token directive-block-parameter attr-value"> POST PUT DELETE</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>Limit</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>LimitExcept</span><span class="token directive-block-parameter attr-value"> POST GET</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>LimitExcept</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>Location</span><span class="token directive-block-parameter attr-value"> /private1</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>Location</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>LocationMatch</span><span class="token directive-block-parameter attr-value"> <span class="token string">"/(extra|special)/data"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>LocationMatch</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>Macro</span><span class="token directive-block-parameter attr-value"> LocalAccessPolicy</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>Macro</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>Proxy</span><span class="token directive-block-parameter attr-value"> <span class="token string">"*"</span></span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>Proxy</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>RequireAll</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>RequireAll</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>RequireAny</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>RequireAny</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>RequireNone</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>RequireNone</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>VirtualHost</span><span class="token directive-block-parameter attr-value"> [2001<span class="token punctuation">:</span>db8<span class="token punctuation">:</span><span class="token punctuation">:</span>a00<span class="token punctuation">:</span>20ff<span class="token punctuation">:</span>fea7<span class="token punctuation">:</span>ccea]<span class="token punctuation">:</span>80</span><span class="token punctuation">></span></span>
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>VirtualHost</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

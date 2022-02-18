@@ -1,0 +1,15 @@
+define pipeline passthrough
+pipeline
+  select event from in into out;
+end;
+
+deploy pipeline passthrough;
+----------------------------------------------------
+<span class="token keyword">define</span> <span class="token keyword">pipeline</span> passthrough
+<span class="token keyword">pipeline</span>
+  <span class="token keyword">select</span> <span class="token keyword">event</span> <span class="token keyword">from</span> in <span class="token keyword">into</span> out<span class="token punctuation">;</span>
+<span class="token keyword">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword">deploy</span> <span class="token keyword">pipeline</span> passthrough<span class="token punctuation">;</span>
+
+----------------------------------------------------

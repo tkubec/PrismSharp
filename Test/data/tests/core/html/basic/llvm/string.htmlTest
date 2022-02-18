@@ -1,0 +1,15 @@
+" ; "
+""
+"\00\FF"
+"\22\5cI appreciate that LLVM strings only one kind of escaping"
+"/some/path"
+b"hello"
+----------------------------------------------------
+<span class="token string">" ; "</span>
+<span class="token string">""</span>
+<span class="token string">"\00\FF"</span>
+<span class="token string">"\22\5cI appreciate that LLVM strings only one kind of escaping"</span>
+<span class="token string">"/some/path"</span>
+<span class="token keyword">b</span><span class="token string">"hello"</span>
+
+----------------------------------------------------

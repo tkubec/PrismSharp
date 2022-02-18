@@ -1,0 +1,11 @@
+foo {
+  bar => bar,
+  * => {}
+}
+----------------------------------------------------
+foo <span class="token punctuation">{</span>
+  <span class="token attr-name">bar</span> <span class="token operator">=></span> bar<span class="token punctuation">,</span>
+  <span class="token attr-name">*</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

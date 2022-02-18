@@ -1,0 +1,64 @@
+class Birb {
+  final String name;
+  int age = 19;
+
+  void construct(String newName){
+	nest.name = newName;
+  }
+}
+Birb.construct('Yoko');
+screm(Birb.name);
+----------------------------------------------------
+[
+	["keyword", "class"],
+	["class-name", "Birb"],
+	["punctuation", "{"],
+
+	["keyword", "final"],
+	["class-name", "String"],
+	["variable", "name"],
+	["punctuation", ";"],
+
+	["class-name", "int"],
+	["variable", "age"],
+	["operator", "="],
+	["number", "19"],
+	["punctuation", ";"],
+
+	["keyword", "void"],
+	["function", "construct"],
+	["punctuation", "("],
+	["class-name", "String"],
+	["variable", "newName"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "nest"],
+	["punctuation", "."],
+	["variable", "name"],
+	["operator", "="],
+	["variable", "newName"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["class-name", "Birb"],
+	["punctuation", "."],
+	["function", "construct"],
+	["punctuation", "("],
+	["string", "'Yoko'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "screm"],
+	["punctuation", "("],
+	["class-name", "Birb"],
+	["punctuation", "."],
+	["variable", "name"],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

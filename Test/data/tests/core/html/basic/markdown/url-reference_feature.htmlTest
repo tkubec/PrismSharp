@@ -1,0 +1,13 @@
+[foo]: http://prismjs.com
+[foo]: http://prismjs.com "foo\"bar"
+[foo]: http://prismjs.com 'foo\'bar'
+![foo]: http://prismjs.com (foo (bar\) baz)
+[foo]: <http://prismjs.com> "Prism"
+----------------------------------------------------
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">foo</span><span class="token punctuation">]</span><span class="token punctuation">:</span> http://prismjs.com</span>
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">foo</span><span class="token punctuation">]</span><span class="token punctuation">:</span> http://prismjs.com <span class="token string">"foo\"bar"</span></span>
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">foo</span><span class="token punctuation">]</span><span class="token punctuation">:</span> http://prismjs.com <span class="token string">'foo\'bar'</span></span>
+<span class="token url-reference url"><span class="token punctuation">!</span><span class="token punctuation">[</span><span class="token variable">foo</span><span class="token punctuation">]</span><span class="token punctuation">:</span> http://prismjs.com <span class="token string">(foo (bar\) baz)</span></span>
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">foo</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token punctuation">&lt;</span>http://prismjs.com<span class="token punctuation">></span> <span class="token string">"Prism"</span></span>
+
+----------------------------------------------------

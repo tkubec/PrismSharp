@@ -1,0 +1,6 @@
+@import "foo.scss";
+@media (min-width: 600px) {}
+.seriousError {
+    @extend .error;
+}
+@for $i from 1 through 3 {}

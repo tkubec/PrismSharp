@@ -1,0 +1,13 @@
+class Foo {}
+class FakeNamespace.Utils.SuperClass {}
+class SuperFoo extends Foo {}
+log(b instanceof Kid);
+enum Stuff {}
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">FakeNamespace<span class="token punctuation">.</span>Utils<span class="token punctuation">.</span>SuperClass</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">SuperFoo</span> <span class="token keyword">extends</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">log</span><span class="token punctuation">(</span>b <span class="token keyword">instanceof</span> <span class="token class-name">Kid</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">enum</span> <span class="token class-name">Stuff</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

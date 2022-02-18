@@ -1,0 +1,23 @@
+""
+"Foo
+\"bar\"
+baz"
+''
+'Foo
+\'bar\'
+baz'
+'$bar ${4+2}'
+'The sum of $x and 3 is ${x + 3}'
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Foo
+\"bar\"
+baz"</span>
+<span class="token string-interpolation"><span class="token string">''</span></span>
+<span class="token string-interpolation"><span class="token string">'Foo
+\'bar\'
+baz'</span></span>
+<span class="token string-interpolation"><span class="token string">'</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">bar</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression"><span class="token number">4</span><span class="token operator">+</span><span class="token number">2</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'</span></span>
+<span class="token string-interpolation"><span class="token string">'The sum of </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">x</span></span><span class="token string"> and 3 is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">x <span class="token operator">+</span> <span class="token number">3</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'</span></span>
+
+----------------------------------------------------

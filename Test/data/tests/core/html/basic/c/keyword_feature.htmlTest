@@ -1,0 +1,29 @@
+__attribute__
+_Alignas _Alignof _Atomic _Bool
+_Complex _Generic _Imaginary
+_Noreturn _Static_assert _Thread_local
+asm typeof inline auto break
+case char const continue default
+do double else enum;
+extern
+float for goto if int
+long register return short signed
+sizeof static struct;
+switch typedef
+union unsigned void volatile while
+----------------------------------------------------
+<span class="token keyword">__attribute__</span>
+<span class="token keyword">_Alignas</span> <span class="token keyword">_Alignof</span> <span class="token keyword">_Atomic</span> <span class="token keyword">_Bool</span>
+<span class="token keyword">_Complex</span> <span class="token keyword">_Generic</span> <span class="token keyword">_Imaginary</span>
+<span class="token keyword">_Noreturn</span> <span class="token keyword">_Static_assert</span> <span class="token keyword">_Thread_local</span>
+<span class="token keyword">asm</span> <span class="token keyword">typeof</span> <span class="token keyword">inline</span> <span class="token keyword">auto</span> <span class="token keyword">break</span>
+<span class="token keyword">case</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token keyword">continue</span> <span class="token keyword">default</span>
+<span class="token keyword">do</span> <span class="token keyword">double</span> <span class="token keyword">else</span> <span class="token keyword">enum</span><span class="token punctuation">;</span>
+<span class="token keyword">extern</span>
+<span class="token keyword">float</span> <span class="token keyword">for</span> <span class="token keyword">goto</span> <span class="token keyword">if</span> <span class="token keyword">int</span>
+<span class="token keyword">long</span> <span class="token keyword">register</span> <span class="token keyword">return</span> <span class="token keyword">short</span> <span class="token keyword">signed</span>
+<span class="token keyword">sizeof</span> <span class="token keyword">static</span> <span class="token keyword">struct</span><span class="token punctuation">;</span>
+<span class="token keyword">switch</span> <span class="token keyword">typedef</span>
+<span class="token keyword">union</span> <span class="token keyword">unsigned</span> <span class="token keyword">void</span> <span class="token keyword">volatile</span> <span class="token keyword">while</span>
+
+----------------------------------------------------

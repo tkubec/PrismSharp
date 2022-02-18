@@ -1,0 +1,21 @@
+RUN echo ""
+RUN echo "fo\"obar"
+RUN echo "foo\
+bar"
+
+RUN echo ''
+RUN echo 'fo\'obar'
+RUN echo 'foo\
+bar'
+----------------------------------------------------
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">""</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">"fo\"obar"</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">"foo\
+bar"</span></span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">''</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">'fo\'obar'</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">'foo\
+bar'</span></span>
+
+----------------------------------------------------

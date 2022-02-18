@@ -1,0 +1,17 @@
+"f\"oo"
+'f\'oo'
+"foo\
+bar"
+'foo\
+bar'
+"foo /* bar" /* and out */
+----------------------------------------------------
+<span class="token string">"f\"oo"</span>
+<span class="token string">'f\'oo'</span>
+<span class="token string">"foo\
+bar"</span>
+<span class="token string">'foo\
+bar'</span>
+<span class="token string">"foo /* bar"</span> <span class="token comment">/* and out */</span>
+
+----------------------------------------------------

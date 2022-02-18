@@ -1,0 +1,155 @@
+program asmDemo(input, output, stderr);
+
+// The $asmMode directive informs the compiler
+// which syntax is used in asm-blocks.
+// Alternatives are 'att' (AT&T syntax) and 'direct'.
+{$asmMode intel}
+
+var
+	n, m: longint;
+begin
+	n := 42;
+	m := -7;
+	writeLn('n = ', n, '; m = ', m);
+
+	// instead of declaring another temporary variable
+	// and writing "tmp := n; n := m; m := tmp;":
+	asm
+		mov eax, n  // eax := n
+		// xchg can only operate at most on one memory address
+		xchg eax, m // swaps values in eax and at m
+		mov n, eax  // n := eax (holding the former m value)
+	// an array of strings after the asm-block closing 'end'
+	// tells the compiler which registers have changed
+	// (you don't wanna mess with the compiler's notion
+	// which registers mean what)
+	end ['eax'];
+
+	writeLn('n = ', n, '; m = ', m);
+end.
+
+program sign(input, output, stderr);
+
+type
+	signumCodomain = -1..1;
+
+{ returns the sign of an integer }
+function signum({$ifNDef CPUx86_64} const {$endIf} x: longint): signumCodomain;
+{$ifDef CPUx86_64} // ============= optimized implementation
+assembler;
+{$asmMode intel}
+asm
+	xor rax, rax                  // ensure result is not wrong
+	                              // due to any residue
+
+	test x, x                     // x ≟ 0
+	setnz al                      // al ≔ ¬ZF
+
+	sar x, 63                     // propagate sign-bit through reg.
+	cmovs rax, x                  // if SF then rax ≔ −1
+end;
+{$else} // ========================== default implementation
+begin
+	// This is what math.sign virtually does.
+	// The compiled code requires _two_ cmp instructions, though.
+	if x > 0 then
+	begin
+		signum := 1;
+	end
+	else if x < 0 then
+	begin
+		signum := -1;
+	end
+	else
+	begin
+		signum := 0;
+	end;
+end;
+{$endIf}
+
+// M A I N =================================================
+var
+	x: longint;
+begin
+	readLn(x);
+	writeLn(signum(x));
+end.
+----------------------------------------------------
+<span class="token keyword">program</span> asmDemo<span class="token punctuation">(</span>input<span class="token punctuation">,</span> output<span class="token punctuation">,</span> stderr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// The $asmMode directive informs the compiler</span>
+<span class="token comment">// which syntax is used in asm-blocks.</span>
+<span class="token comment">// Alternatives are 'att' (AT&amp;T syntax) and 'direct'.</span>
+<span class="token directive marco property">{$asmMode intel}</span>
+
+<span class="token keyword">var</span>
+	n<span class="token punctuation">,</span> m<span class="token punctuation">:</span> longint<span class="token punctuation">;</span>
+<span class="token keyword">begin</span>
+	n <span class="token operator">:=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+	m <span class="token operator">:=</span> <span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">;</span>
+	writeLn<span class="token punctuation">(</span><span class="token string">'n = '</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> <span class="token string">'; m = '</span><span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// instead of declaring another temporary variable</span>
+	<span class="token comment">// and writing "tmp := n; n := m; m := tmp;":</span>
+	<span class="token keyword">asm</span><span class="token asm">
+		mov eax<span class="token punctuation">,</span> n  <span class="token comment">// eax := n</span>
+		<span class="token comment">// xchg can only operate at most on one memory address</span>
+		xchg eax<span class="token punctuation">,</span> m <span class="token comment">// swaps values in eax and at m</span>
+		mov n<span class="token punctuation">,</span> eax  <span class="token comment">// n := eax (holding the former m value)</span>
+	<span class="token comment">// an array of strings after the asm-block closing 'end'</span>
+	<span class="token comment">// tells the compiler which registers have changed</span>
+	<span class="token comment">// (you don't wanna mess with the compiler's notion</span>
+	<span class="token comment">// which registers mean what)</span>
+	</span><span class="token keyword">end</span> <span class="token punctuation">[</span><span class="token string">'eax'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+	writeLn<span class="token punctuation">(</span><span class="token string">'n = '</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> <span class="token string">'; m = '</span><span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span><span class="token punctuation">.</span>
+
+<span class="token keyword">program</span> sign<span class="token punctuation">(</span>input<span class="token punctuation">,</span> output<span class="token punctuation">,</span> stderr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span>
+	signumCodomain <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token operator">..</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">{ returns the sign of an integer }</span>
+<span class="token keyword">function</span> signum<span class="token punctuation">(</span><span class="token directive marco property">{$ifNDef CPUx86_64}</span> <span class="token keyword">const</span> <span class="token directive marco property">{$endIf}</span> x<span class="token punctuation">:</span> longint<span class="token punctuation">)</span><span class="token punctuation">:</span> signumCodomain<span class="token punctuation">;</span>
+<span class="token directive marco property">{$ifDef CPUx86_64}</span> <span class="token comment">// ============= optimized implementation</span>
+<span class="token keyword">assembler</span><span class="token punctuation">;</span>
+<span class="token directive marco property">{$asmMode intel}</span>
+<span class="token keyword">asm</span><span class="token asm">
+	xor rax<span class="token punctuation">,</span> rax                  <span class="token comment">// ensure result is not wrong</span>
+	                              <span class="token comment">// due to any residue</span>
+
+	test x<span class="token punctuation">,</span> x                     <span class="token comment">// x ≟ 0</span>
+	setnz al                      <span class="token comment">// al ≔ ¬ZF</span>
+
+	sar x<span class="token punctuation">,</span> <span class="token number">63</span>                     <span class="token comment">// propagate sign-bit through reg.</span>
+	cmovs rax<span class="token punctuation">,</span> x                  <span class="token comment">// if SF then rax ≔ −1</span>
+</span><span class="token keyword">end</span><span class="token punctuation">;</span>
+<span class="token directive marco property">{$else}</span> <span class="token comment">// ========================== default implementation</span>
+<span class="token keyword">begin</span>
+	<span class="token comment">// This is what math.sign virtually does.</span>
+	<span class="token comment">// The compiled code requires _two_ cmp instructions, though.</span>
+	<span class="token keyword">if</span> x <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">then</span>
+	<span class="token keyword">begin</span>
+		signum <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">end</span>
+	<span class="token keyword">else</span> <span class="token keyword">if</span> x <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">then</span>
+	<span class="token keyword">begin</span>
+		signum <span class="token operator">:=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">end</span>
+	<span class="token keyword">else</span>
+	<span class="token keyword">begin</span>
+		signum <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">end</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span><span class="token punctuation">;</span>
+<span class="token directive marco property">{$endIf}</span>
+
+<span class="token comment">// M A I N =================================================</span>
+<span class="token keyword">var</span>
+	x<span class="token punctuation">:</span> longint<span class="token punctuation">;</span>
+<span class="token keyword">begin</span>
+	readLn<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	writeLn<span class="token punctuation">(</span>signum<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

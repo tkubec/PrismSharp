@@ -1,0 +1,61 @@
+{% unless pages == empty %}
+  <!-- This will only print if the page with handle "about" is not empty -->
+  <h1>{{ pages.frontpage.not_empty_title }}</h1>
+  <div>{{ pages.frontpage.content }}</div>
+{% endunless %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["keyword", "unless"],
+	" pages ",
+	["operator", "=="],
+	["empty", "empty"],
+	" %}\n  ",
+
+	["operator", "<"],
+	"!",
+	["operator", "-"],
+	["operator", "-"],
+	" This will only print ",
+	["keyword", "if"],
+	" the ",
+	["object", "page"],
+	["keyword", "with"],
+	["object", "handle"],
+	["string", "\"about\""],
+	" is not ",
+	["empty", "empty"],
+	["operator", "-"],
+	["operator", "-"],
+	["operator", ">"],
+
+	["operator", "<"],
+	"h1",
+	["operator", ">"],
+	"{{ pages",
+	["punctuation", "."],
+	"frontpage",
+	["punctuation", "."],
+	"not_empty_title }}",
+	["operator", "<"],
+	"/h1",
+	["operator", ">"],
+
+	["operator", "<"],
+	"div",
+	["operator", ">"],
+	"{{ pages",
+	["punctuation", "."],
+	"frontpage",
+	["punctuation", "."],
+	"content }}",
+	["operator", "<"],
+	"/div",
+	["operator", ">"],
+
+	"\n{% ",
+	["keyword", "endunless"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

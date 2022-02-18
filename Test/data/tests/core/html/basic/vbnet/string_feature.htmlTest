@@ -1,0 +1,11 @@
+Dim x = "hello
+world"
+
+Console.WriteLine("Message: {0}", message)
+----------------------------------------------------
+<span class="token keyword">Dim</span> x <span class="token operator">=</span> <span class="token string">"hello
+world"</span>
+
+Console.WriteLine<span class="token punctuation">(</span><span class="token string">"Message: {0}"</span><span class="token punctuation">,</span> message<span class="token punctuation">)</span>
+
+----------------------------------------------------

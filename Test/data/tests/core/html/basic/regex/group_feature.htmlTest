@@ -1,0 +1,29 @@
+()
+(?:)
+(?>)
+(?=) (?!)
+(?<=) (?<!)
+
+(?<name>)
+(?'name')
+
+(?i)
+(?i:)
+(?idmsuxU-idmsuxU)
+(?idmsux-idmsux:X)
+----------------------------------------------------
+<span class="token group punctuation">(</span><span class="token group punctuation">)</span>
+<span class="token group punctuation">(?:</span><span class="token group punctuation">)</span>
+<span class="token group punctuation">(?></span><span class="token group punctuation">)</span>
+<span class="token group punctuation">(?=</span><span class="token group punctuation">)</span> <span class="token group punctuation">(?!</span><span class="token group punctuation">)</span>
+<span class="token group punctuation">(?&lt;=</span><span class="token group punctuation">)</span> <span class="token group punctuation">(?&lt;!</span><span class="token group punctuation">)</span>
+
+<span class="token group punctuation">(?&lt;<span class="token group-name variable">name</span>></span><span class="token group punctuation">)</span>
+<span class="token group punctuation">(?'<span class="token group-name variable">name</span>'</span><span class="token group punctuation">)</span>
+
+<span class="token group punctuation">(?i</span><span class="token group punctuation">)</span>
+<span class="token group punctuation">(?i:</span><span class="token group punctuation">)</span>
+<span class="token group punctuation">(?idmsuxU-idmsuxU</span><span class="token group punctuation">)</span>
+<span class="token group punctuation">(?idmsux-idmsux:</span>X<span class="token group punctuation">)</span>
+
+----------------------------------------------------

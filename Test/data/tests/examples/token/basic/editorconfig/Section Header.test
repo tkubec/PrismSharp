@@ -1,0 +1,32 @@
+[*]
+[*.js]
+[*.{bash,sh,zsh}]
+----------------------------------------------------
+[
+	["section", [
+		["punctuation", "["],
+		["operator", "*"],
+		["punctuation", "]"]
+	]],
+	["section", [
+		["punctuation", "["],
+		["operator", "*"],
+		".js",
+		["punctuation", "]"]
+	]],
+	["section", [
+		["punctuation", "["],
+		["operator", "*"],
+		".",
+		["punctuation", "{"],
+		"bash",
+		["punctuation", ","],
+		"sh",
+		["punctuation", ","],
+		"zsh",
+		["punctuation", "}"],
+		["punctuation", "]"]
+	]]
+]
+
+----------------------------------------------------

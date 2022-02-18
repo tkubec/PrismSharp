@@ -1,0 +1,22 @@
+$ git diff
+diff --git file.txt file.txt
+index 6214953..1d54a52 100644
+--- file.txt
++++ file.txt
+@@ -1 +1,2 @@
+-Here's my tetx file
++Here's my text file
++And this is the second line
+----------------------------------------------------
+[
+	["command", ["$ git diff"]],
+	"\ndiff --git file.txt file.txt\nindex 6214953..1d54a52 100644\n",
+	["deleted", "--- file.txt"],
+	["inserted", "+++ file.txt"],
+	["coord", "@@ -1 +1,2 @@"],
+	["deleted", "-Here's my tetx file"],
+	["inserted", "+Here's my text file"],
+	["inserted", "+And this is the second line"]
+]
+
+----------------------------------------------------

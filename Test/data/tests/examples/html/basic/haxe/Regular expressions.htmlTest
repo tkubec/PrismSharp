@@ -1,0 +1,9 @@
+~/haxe/i
+~/[A-Z0-9._%-]+@[A-Z0-9.-]+.[A-Z][A-Z][A-Z]?/i
+~/(dog|fox)/g
+----------------------------------------------------
+<span class="token regex"><span class="token regex-delimiter">~/</span><span class="token regex-source language-regex">haxe</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span>
+<span class="token regex"><span class="token regex-delimiter">~/</span><span class="token regex-source language-regex">[A-Z0-9._%-]+@[A-Z0-9.-]+.[A-Z][A-Z][A-Z]?</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span>
+<span class="token regex"><span class="token regex-delimiter">~/</span><span class="token regex-source language-regex">(dog|fox)</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span>
+
+----------------------------------------------------

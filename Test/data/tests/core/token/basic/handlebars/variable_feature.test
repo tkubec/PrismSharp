@@ -1,0 +1,26 @@
+{{comments}}
+{{@comments}}
+{{this.comments}}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["variable", "comments"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "@"],
+	["variable", "comments"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "this"],
+	["punctuation", "."],
+	["variable", "comments"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,57 @@
+# https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2015&redirectedfrom=MSDN
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Project1", "Project1.vbproj", "{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}"
+EndProject
+Global
+	GlobalSection(SolutionNotes) = postSolution
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Debug.ActiveCfg = Debug|x86
+		{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Debug.Build.0 = Debug|x86
+		{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Release.ActiveCfg = Release|x86
+		{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Release.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
+----------------------------------------------------
+<span class="token comment"># https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2015&amp;redirectedfrom=MSDN</span>
+Microsoft Visual Studio Solution File<span class="token punctuation">,</span> Format Version <span class="token number">12.00</span>
+<span class="token comment"># Visual Studio Version 16</span>
+<span class="token property">VisualStudioVersion</span> <span class="token operator">=</span> <span class="token number">16.0.29709.97</span>
+<span class="token property">MinimumVisualStudioVersion</span> <span class="token operator">=</span> <span class="token number">10.0.40219.1</span>
+<span class="token object keyword">Project</span><span class="token punctuation">(</span><span class="token string">"<span class="token guid constant"><span class="token punctuation">{</span>F184B08F-C81C-45F6-A57F-5ABD9991F28F<span class="token punctuation">}</span></span>"</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"Project1"</span><span class="token punctuation">,</span> <span class="token string">"Project1.vbproj"</span><span class="token punctuation">,</span> <span class="token string">"<span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>"</span>
+<span class="token object keyword">EndProject</span>
+<span class="token object keyword">Global</span>
+	<span class="token object keyword">GlobalSection</span><span class="token punctuation">(</span>SolutionNotes<span class="token punctuation">)</span> <span class="token operator">=</span> postSolution
+	<span class="token object keyword">EndGlobalSection</span>
+	<span class="token object keyword">GlobalSection</span><span class="token punctuation">(</span>SolutionConfiguration<span class="token punctuation">)</span> <span class="token operator">=</span> preSolution
+		<span class="token property">ConfigName.0</span> <span class="token operator">=</span> Debug
+		<span class="token property">ConfigName.1</span> <span class="token operator">=</span> Release
+	<span class="token object keyword">EndGlobalSection</span>
+	<span class="token object keyword">GlobalSection</span><span class="token punctuation">(</span>ProjectDependencies<span class="token punctuation">)</span> <span class="token operator">=</span> postSolution
+	<span class="token object keyword">EndGlobalSection</span>
+	<span class="token object keyword">GlobalSection</span><span class="token punctuation">(</span>ProjectConfiguration<span class="token punctuation">)</span> <span class="token operator">=</span> postSolution
+		<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Debug.ActiveCfg</span> <span class="token operator">=</span> Debug|x86
+		<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Debug.Build.0</span> <span class="token operator">=</span> Debug|x86
+		<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Release.ActiveCfg</span> <span class="token operator">=</span> Release|x86
+		<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Release.Build.0</span> <span class="token operator">=</span> Release|x86
+	<span class="token object keyword">EndGlobalSection</span>
+	<span class="token object keyword">GlobalSection</span><span class="token punctuation">(</span>ExtensibilityGlobals<span class="token punctuation">)</span> <span class="token operator">=</span> postSolution
+	<span class="token object keyword">EndGlobalSection</span>
+	<span class="token object keyword">GlobalSection</span><span class="token punctuation">(</span>ExtensibilityAddIns<span class="token punctuation">)</span> <span class="token operator">=</span> postSolution
+	<span class="token object keyword">EndGlobalSection</span>
+<span class="token object keyword">EndGlobal</span>
+
+----------------------------------------------------

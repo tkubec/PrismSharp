@@ -1,0 +1,11 @@
+BASE    <http://example.org/book/>
+PREFIX  dc: <http://purl.org/dc/elements/1.1/>
+SELECT  $title
+WHERE   { <book1>  dc:title  ?title }
+----------------------------------------------------
+<span class="token keyword">BASE</span>    <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/book/<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span>  <span class="token function"><span class="token prefix">dc<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://purl.org/dc/elements/1.1/<span class="token punctuation">></span></span>
+<span class="token keyword">SELECT</span>  <span class="token variable">$title</span>
+<span class="token keyword">WHERE</span>   <span class="token punctuation">{</span> <span class="token url"><span class="token punctuation">&lt;</span>book1<span class="token punctuation">></span></span>  <span class="token function"><span class="token prefix">dc<span class="token punctuation">:</span></span><span class="token local-name">title</span></span>  <span class="token variable">?title</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

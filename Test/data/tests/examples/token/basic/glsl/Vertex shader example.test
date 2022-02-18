@@ -1,0 +1,184 @@
+attribute vec3 vertex;
+attribute vec3 normal;
+
+uniform mat4 _mvProj;
+uniform mat3 _norm;
+
+varying vec3 vColor;
+varying vec3 localPos;
+
+#pragma include "light.glsl"
+
+// constants
+vec3 materialColor = vec3(1.0,0.7,0.8);
+vec3 specularColor = vec3(1.0,1.0,1.0);
+
+void main(void) {
+	// compute position
+	gl_Position = _mvProj * vec4(vertex, 1.0);
+
+	localPos = vertex;
+
+	// compute light info
+	vec3 n = normalize(_norm * normal);
+	vec3 diffuse;
+	float specular;
+	float glowingSpecular = 50.0;
+	getDirectionalLight(n, _dLight, glowingSpecular, diffuse, specular);
+	vColor = max(diffuse,_ambient.xyz)*materialColor+specular*specularColor+_ambient;
+}
+----------------------------------------------------
+[
+	["keyword", "attribute"],
+	["keyword", "vec3"],
+	" vertex",
+	["punctuation", ";"],
+
+	["keyword", "attribute"],
+	["keyword", "vec3"],
+	" normal",
+	["punctuation", ";"],
+
+	["keyword", "uniform"],
+	["keyword", "mat4"],
+	" _mvProj",
+	["punctuation", ";"],
+
+	["keyword", "uniform"],
+	["keyword", "mat3"],
+	" _norm",
+	["punctuation", ";"],
+
+	["keyword", "varying"],
+	["keyword", "vec3"],
+	" vColor",
+	["punctuation", ";"],
+
+	["keyword", "varying"],
+	["keyword", "vec3"],
+	" localPos",
+	["punctuation", ";"],
+
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "pragma"],
+		["expression", ["include "]],
+		["string", "\"light.glsl\""]
+	]],
+
+	["comment", "// constants"],
+
+	["keyword", "vec3"],
+	" materialColor ",
+	["operator", "="],
+	["keyword", "vec3"],
+	["punctuation", "("],
+	["number", "1.0"],
+	["punctuation", ","],
+	["number", "0.7"],
+	["punctuation", ","],
+	["number", "0.8"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "vec3"],
+	" specularColor ",
+	["operator", "="],
+	["keyword", "vec3"],
+	["punctuation", "("],
+	["number", "1.0"],
+	["punctuation", ","],
+	["number", "1.0"],
+	["punctuation", ","],
+	["number", "1.0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "void"],
+	["function", "main"],
+	["punctuation", "("],
+	["keyword", "void"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// compute position"],
+
+	"\n\tgl_Position ",
+	["operator", "="],
+	" _mvProj ",
+	["operator", "*"],
+	["keyword", "vec4"],
+	["punctuation", "("],
+	"vertex",
+	["punctuation", ","],
+	["number", "1.0"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n\tlocalPos ", ["operator", "="], " vertex", ["punctuation", ";"],
+
+	["comment", "// compute light info"],
+
+	["keyword", "vec3"],
+	" n ",
+	["operator", "="],
+	["function", "normalize"],
+	["punctuation", "("],
+	"_norm ",
+	["operator", "*"],
+	" normal",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "vec3"],
+	" diffuse",
+	["punctuation", ";"],
+
+	["keyword", "float"],
+	" specular",
+	["punctuation", ";"],
+
+	["keyword", "float"],
+	" glowingSpecular ",
+	["operator", "="],
+	["number", "50.0"],
+	["punctuation", ";"],
+
+	["function", "getDirectionalLight"],
+	["punctuation", "("],
+	"n",
+	["punctuation", ","],
+	" _dLight",
+	["punctuation", ","],
+	" glowingSpecular",
+	["punctuation", ","],
+	" diffuse",
+	["punctuation", ","],
+	" specular",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\tvColor ",
+	["operator", "="],
+	["function", "max"],
+	["punctuation", "("],
+	"diffuse",
+	["punctuation", ","],
+	"_ambient",
+	["punctuation", "."],
+	"xyz",
+	["punctuation", ")"],
+	["operator", "*"],
+	"materialColor",
+	["operator", "+"],
+	"specular",
+	["operator", "*"],
+	"specularColor",
+	["operator", "+"],
+	"_ambient",
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

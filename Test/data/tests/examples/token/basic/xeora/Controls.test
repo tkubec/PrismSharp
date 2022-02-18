@@ -1,0 +1,500 @@
+$C:ControlID$
+$C:ControlID:{ <!-- Something --> }:ControlID$
+$C:ControlID:{ <!-- Something --> }:ControlID:{ <!-- Something (Alternative) --> }:ControlID$
+
+Control with Parent
+$C[Control1]:Control2$
+$C[Control2]:Control3:{ <!-- Something --> }:Control3$
+$C[Control2]:Control3:{ <!-- Something --> }:Control3:{ <!-- Something (Alternative) --> }:Control3$
+
+Control with Parent & Leveling
+$C#1[ParentControlID]:ControlID:{ <!-- Something --> }:ControlID$
+
+All Control Tags has leveling specification;
+$C:LoopControl1:{
+	$#FirstLoopSQLField1$
+
+	$C:ControlID:{ <!-- Something --> }:ControlID$
+
+	$C:LoopControl2:{
+		$##FirstLoopSQLField1$
+		$#SecondLoopSQLField1$
+
+		$C#1:ControlID:{ <!-- Something --> }:ControlID$
+	}:LoopControl2$
+}:LoopControl1$
+
+XML setup on a Control in Controls.xml
+<Control id="[ControlID]">
+	<Type>[ControlType]</Type>
+
+	<Bind>[ThemeID|AddonID]?[ControlClass].[FunctionName],SomeOperatorTags(seperated with |)</Bind>
+
+	<BlockIDsToUpdate localupdate="True|False">
+		<BlockID>[BlockID]</BlockID>
+		<BlockID>[BlockID]</BlockID>
+		<BlockID>[BlockID]</BlockID>
+	</BlockIDsToUpdate>
+
+	<DefaultButtonID>[ControlID]</DefaultButtonID>
+
+	<Text>[TextBox, Password value or Button Text]</Text>
+
+	<Content>[Textarea Content]</Content>
+
+	<Source>[Image URL]</Source>
+
+	<Url>[Link URL]</Url>
+
+	<Attributes>
+		<Attribute key="[HTMLAttributeKey]">[AttributeValue]</Attributes>
+	</Attributes>
+</Control>
+----------------------------------------------------
+[
+	["directive-inline", [
+		["punctuation", ["$C:"]],
+		"ControlID",
+		["punctuation", ["$"]]
+	]],
+
+	["directive-block-open", [
+		["punctuation", ["$C:"]],
+		"ControlID",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"ControlID",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-open", [
+		["punctuation", ["$C:"]],
+		"ControlID",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-separator", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"ControlID",
+		["punctuation", ":"],
+		["punctuation", "{"]
+	]],
+	["comment", "<!-- Something (Alternative) -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"ControlID",
+		["punctuation", "$"]
+	]],
+
+	"\n\nControl with Parent\n",
+
+	["directive-inline", [
+		["punctuation", ["$C["]],
+		"Control1",
+		["punctuation", ["]"]],
+		["punctuation", [":"]],
+		"Control2",
+		["punctuation", ["$"]]
+	]],
+
+	["directive-block-open", [
+		["punctuation", ["$C["]],
+		"Control2",
+		["punctuation", ["]"]],
+		["punctuation", [":"]],
+		"Control3",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"Control3",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-open", [
+		["punctuation", ["$C["]],
+		"Control2",
+		["punctuation", ["]"]],
+		["punctuation", [":"]],
+		"Control3",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-separator", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"Control3",
+		["punctuation", ":"],
+		["punctuation", "{"]
+	]],
+	["comment", "<!-- Something (Alternative) -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"Control3",
+		["punctuation", "$"]
+	]],
+
+	"\n\nControl with Parent & Leveling\n",
+
+	["directive-block-open", [
+		["punctuation", [
+			"$C",
+			["tag", "#1"]
+		]],
+		["punctuation", ["["]],
+		"ParentControlID",
+		["punctuation", ["]"]],
+		["punctuation", [":"]],
+		"ControlID",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"ControlID",
+		["punctuation", "$"]
+	]],
+
+	"\n\nAll Control Tags has leveling specification;\n",
+	["directive-block-open", [
+		["punctuation", ["$C:"]],
+		"LoopControl1",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "#"],
+		"FirstLoopSQLField1",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-open", [
+		["punctuation", ["$C:"]],
+		"ControlID",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"ControlID",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-open", [
+		["punctuation", ["$C:"]],
+		"LoopControl2",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "##"],
+		"FirstLoopSQLField1",
+		["punctuation", "$"]
+	]],
+	["variable", [
+		["punctuation", "$"],
+		["operator", "#"],
+		"SecondLoopSQLField1",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-open", [
+		["punctuation", [
+			"$C",
+			["tag", "#1"]
+		]],
+		["punctuation", [":"]],
+		"ControlID",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"ControlID",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"LoopControl2",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"LoopControl1",
+		["punctuation", "$"]
+	]],
+
+	"\n\nXML setup on a Control in Controls.xml\n",
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Control"
+		]],
+		["attr-name", ["id"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"[ControlID]",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Type"
+		]],
+		["punctuation", ">"]
+	]],
+	"[ControlType]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Type"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Bind"
+		]],
+		["punctuation", ">"]
+	]],
+	"[ThemeID|AddonID]?[ControlClass].[FunctionName],SomeOperatorTags(seperated with |)",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Bind"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"BlockIDsToUpdate"
+		]],
+		["attr-name", ["localupdate"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"True|False",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"BlockID"
+		]],
+		["punctuation", ">"]
+	]],
+	"[BlockID]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"BlockID"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"BlockID"
+		]],
+		["punctuation", ">"]
+	]],
+	"[BlockID]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"BlockID"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"BlockID"
+		]],
+		["punctuation", ">"]
+	]],
+	"[BlockID]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"BlockID"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"BlockIDsToUpdate"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"DefaultButtonID"
+		]],
+		["punctuation", ">"]
+	]],
+	"[ControlID]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"DefaultButtonID"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Text"
+		]],
+		["punctuation", ">"]
+	]],
+	"[TextBox, Password value or Button Text]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Text"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Content"
+		]],
+		["punctuation", ">"]
+	]],
+	"[Textarea Content]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Content"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Source"
+		]],
+		["punctuation", ">"]
+	]],
+	"[Image URL]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Source"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Url"
+		]],
+		["punctuation", ">"]
+	]],
+	"[Link URL]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Url"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Attributes"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Attribute"
+		]],
+		["attr-name", ["key"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"[HTMLAttributeKey]",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+	"[AttributeValue]",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Attributes"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Attributes"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Control"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

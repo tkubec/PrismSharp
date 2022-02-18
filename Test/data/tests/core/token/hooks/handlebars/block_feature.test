@@ -1,0 +1,54 @@
+{{#each comments}}{{/each}}
+{{~#if isActive~}}{{~/if~}}
+{{#let a as |b|}}{{/let}}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["block", "#each"],
+	["variable", "comments"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "/"],
+	["variable", "each"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "~"],
+	["punctuation", "#"],
+	["variable", "if"],
+	["variable", "isActive"],
+	["punctuation", "~"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "~"],
+	["punctuation", "/"],
+	["variable", "if"],
+	["punctuation", "~"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "#"],
+	["variable", "let"],
+	["variable", "a"],
+	["variable", "as"],
+	["punctuation", "|"],
+	["variable", "b"],
+	["punctuation", "|"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "/"],
+	["variable", "let"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

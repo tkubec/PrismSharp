@@ -1,0 +1,111 @@
+whoami    := $(shell whoami)
+host-type := $(shell arch)
+
+y = $(subst 1,2,$(x))
+
+dirs := a b c d
+files := $(foreach dir,$(dirs),$(wildcard $(dir)/*))
+
+reverse = $(2) $(1)
+foo = $(call reverse,a,b)
+
+$(foreach prog,$(PROGRAMS),$(eval $(call PROGRAM_template,$(prog))))
+----------------------------------------------------
+[
+	"whoami    ",
+	["operator", ":="],
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "shell"],
+	" whoami",
+	["punctuation", ")"],
+
+	"\nhost-type ",
+	["operator", ":="],
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "shell"],
+	" arch",
+	["punctuation", ")"],
+
+	"\n\ny ",
+	["operator", "="],
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "subst"],
+	" 1,2,",
+	["variable", "$"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	"\n\ndirs ",
+	["operator", ":="],
+	" a b c d\nfiles ",
+	["operator", ":="],
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "foreach"],
+	" dir,",
+	["variable", "$"],
+	["punctuation", "("],
+	"dirs",
+	["punctuation", ")"],
+	",",
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "wildcard"],
+	["variable", "$"],
+	["punctuation", "("],
+	"dir",
+	["punctuation", ")"],
+	"/*",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	"\n\nreverse ",
+	["operator", "="],
+	["variable", "$"],
+	["punctuation", "("],
+	"2",
+	["punctuation", ")"],
+	["variable", "$"],
+	["punctuation", "("],
+	"1",
+	["punctuation", ")"],
+
+	"\nfoo ",
+	["operator", "="],
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "call"],
+	" reverse,a,b",
+	["punctuation", ")"],
+
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "foreach"],
+	" prog,",
+	["variable", "$"],
+	["punctuation", "("],
+	"PROGRAMS",
+	["punctuation", ")"],
+	",",
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "eval"],
+	["variable", "$"],
+	["punctuation", "("],
+	["function", "call"],
+	" PROGRAM_template,",
+	["variable", "$"],
+	["punctuation", "("],
+	"prog",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

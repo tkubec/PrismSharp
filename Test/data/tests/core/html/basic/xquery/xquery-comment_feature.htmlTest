@@ -1,0 +1,15 @@
+(::)
+(: Single line comment :)
+(:Multi
+line
+comment:)
+(: <html> :)
+----------------------------------------------------
+<span class="token xquery-comment comment">(::)</span>
+<span class="token xquery-comment comment">(: Single line comment :)</span>
+<span class="token xquery-comment comment">(:Multi
+line
+comment:)</span>
+<span class="token xquery-comment comment">(: &lt;html> :)</span>
+
+----------------------------------------------------

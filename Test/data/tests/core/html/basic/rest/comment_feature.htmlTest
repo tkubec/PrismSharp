@@ -1,0 +1,21 @@
+.. foo
+
+.. foo
+bar
+
+..
+	_foo:
+	[bar]
+	|baz|
+----------------------------------------------------
+<span class="token punctuation">..</span><span class="token comment"> foo</span>
+
+<span class="token punctuation">..</span><span class="token comment"> foo
+bar</span>
+
+<span class="token punctuation">..</span><span class="token comment">
+	_foo:
+	[bar]
+	|baz|</span>
+
+----------------------------------------------------

@@ -1,0 +1,31 @@
+* Line Comments
+" End of line comment used as line comment.
+value = 1. " End of line comment
+
+DATA:
+  "! ABAPDoc comment
+  value TYPE i.
+----------------------------------------------------
+[
+	["comment", "* Line Comments"],
+
+	["eol-comment", "\" End of line comment used as line comment."],
+
+	["keyword", "value"],
+	["operator", "="],
+	["number", "1"],
+	["punctuation", "."],
+	["eol-comment", "\" End of line comment"],
+
+	["keyword", "DATA"],
+	["punctuation", ":"],
+
+	["eol-comment", "\"! ABAPDoc comment"],
+
+	["keyword", "value"],
+	["keyword", "TYPE"],
+	["keyword", "i"],
+	["punctuation", "."]
+]
+
+----------------------------------------------------

@@ -1,0 +1,6 @@
+<div>
+{% if foo %}
+	<p>Foo!</p>
+{% else %}
+	<p>Not foo...</p>
+{% endif %}

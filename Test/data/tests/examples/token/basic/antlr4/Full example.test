@@ -1,0 +1,313 @@
+// Source: https://github.com/antlr/grammars-v4/blob/master/json/JSON.g4
+
+/** Taken from "The Definitive ANTLR 4 Reference" by Terence Parr */
+
+// Derived from http://json.org
+grammar JSON;
+
+json
+   : value
+   ;
+
+obj
+   : '{' pair (',' pair)* '}'
+   | '{' '}'
+   ;
+
+pair
+   : STRING ':' value
+   ;
+
+array
+   : '[' value (',' value)* ']'
+   | '[' ']'
+   ;
+
+value
+   : STRING
+   | NUMBER
+   | obj
+   | array
+   | 'true'
+   | 'false'
+   | 'null'
+   ;
+
+
+STRING
+   : '"' (ESC | SAFECODEPOINT)* '"'
+   ;
+
+
+fragment ESC
+   : '\\' (["\\/bfnrt] | UNICODE)
+   ;
+fragment UNICODE
+   : 'u' HEX HEX HEX HEX
+   ;
+fragment HEX
+   : [0-9a-fA-F]
+   ;
+fragment SAFECODEPOINT
+   : ~ ["\\\u0000-\u001F]
+   ;
+
+
+NUMBER
+   : '-'? INT ('.' [0-9] +)? EXP?
+   ;
+
+fragment INT
+   : '0' | [1-9] [0-9]*
+   ;
+
+// no leading zeros
+
+fragment EXP
+   : [Ee] [+\-]? INT
+   ;
+
+// \- since - means "range" inside [...]
+
+WS
+   : [ \t\n\r] + -> skip
+   ;
+----------------------------------------------------
+[
+	["comment", "// Source: https://github.com/antlr/grammars-v4/blob/master/json/JSON.g4"],
+
+	["comment", "/** Taken from \"The Definitive ANTLR 4 Reference\" by Terence Parr */"],
+
+	["comment", "// Derived from http://json.org"],
+	["keyword", "grammar"], ["constant", "JSON"], ["punctuation", ";"],
+
+	["definition", "json"],
+	["punctuation", ":"], " value\n   ",
+	["punctuation", ";"],
+
+	["definition", "obj"],
+
+	["punctuation", ":"],
+	["string", "'{'"],
+	" pair ",
+	["punctuation", "("],
+	["string", "','"],
+	" pair",
+	["punctuation", ")"],
+	["operator", "*"],
+	["string", "'}'"],
+
+	["operator", "|"],
+	["string", "'{'"],
+	["string", "'}'"],
+
+	["punctuation", ";"],
+
+	["definition", "pair"],
+
+	["punctuation", ":"],
+	["constant", "STRING"],
+	["string", "':'"],
+	" value\n   ",
+
+	["punctuation", ";"],
+
+	["definition", "array"],
+
+	["punctuation", ":"],
+	["string", "'['"],
+	" value ",
+	["punctuation", "("],
+	["string", "','"],
+	" value",
+	["punctuation", ")"],
+	["operator", "*"],
+	["string", "']'"],
+
+	["operator", "|"],
+	["string", "'['"],
+	["string", "']'"],
+
+	["punctuation", ";"],
+
+	["definition", "value"],
+	["punctuation", ":"], ["constant", "STRING"],
+	["operator", "|"], ["constant", "NUMBER"],
+	["operator", "|"], " obj\n   ",
+	["operator", "|"], " array\n   ",
+	["operator", "|"], ["string", "'true'"],
+	["operator", "|"], ["string", "'false'"],
+	["operator", "|"], ["string", "'null'"],
+	["punctuation", ";"],
+
+	["definition", "STRING"],
+
+	["punctuation", ":"],
+	["string", "'\"'"],
+	["punctuation", "("],
+	["constant", "ESC"],
+	["operator", "|"],
+	["constant", "SAFECODEPOINT"],
+	["punctuation", ")"],
+	["operator", "*"],
+	["string", "'\"'"],
+
+	["punctuation", ";"],
+
+	["keyword", "fragment"],
+	["definition", "ESC"],
+
+	["punctuation", ":"],
+	["string", "'\\\\'"],
+	["punctuation", "("],
+	["character-class", [
+		["punctuation", "["],
+		"\"",
+		["escape", "\\\\"],
+		"/bfnrt",
+		["punctuation", "]"]
+	]],
+	["operator", "|"],
+	["constant", "UNICODE"],
+	["punctuation", ")"],
+
+	["punctuation", ";"],
+
+	["keyword", "fragment"],
+	["definition", "UNICODE"],
+
+	["punctuation", ":"],
+	["string", "'u'"],
+	["constant", "HEX"],
+	["constant", "HEX"],
+	["constant", "HEX"],
+	["constant", "HEX"],
+
+	["punctuation", ";"],
+
+	["keyword", "fragment"],
+	["definition", "HEX"],
+
+	["punctuation", ":"],
+	["character-class", [
+		["punctuation", "["],
+		"0",
+		["range", "-"],
+		"9a",
+		["range", "-"],
+		"fA",
+		["range", "-"],
+		"F",
+		["punctuation", "]"]
+	]],
+
+	["punctuation", ";"],
+
+	["keyword", "fragment"],
+	["definition", "SAFECODEPOINT"],
+
+	["punctuation", ":"],
+	["operator", "~"],
+	["character-class", [
+		["punctuation", "["],
+		"\"",
+		["escape", "\\\\"],
+		["escape", "\\u0000"],
+		["range", "-"],
+		["escape", "\\u001F"],
+		["punctuation", "]"]
+	]],
+
+	["punctuation", ";"],
+
+	["definition", "NUMBER"],
+
+	["punctuation", ":"],
+	["string", "'-'"],
+	["operator", "?"],
+	["constant", "INT"],
+	["punctuation", "("],
+	["string", "'.'"],
+	["character-class", [
+		["punctuation", "["],
+		"0",
+		["range", "-"],
+		"9",
+		["punctuation", "]"]
+	]],
+	["operator", "+"],
+	["punctuation", ")"],
+	["operator", "?"],
+	["constant", "EXP"],
+	["operator", "?"],
+
+	["punctuation", ";"],
+
+	["keyword", "fragment"],
+	["definition", "INT"],
+
+	["punctuation", ":"],
+	["string", "'0'"],
+	["operator", "|"],
+	["character-class", [
+		["punctuation", "["],
+		"1",
+		["range", "-"],
+		"9",
+		["punctuation", "]"]
+	]],
+	["character-class", [
+		["punctuation", "["],
+		"0",
+		["range", "-"],
+		"9",
+		["punctuation", "]"]
+	]],
+	["operator", "*"],
+
+	["punctuation", ";"],
+
+	["comment", "// no leading zeros"],
+
+	["keyword", "fragment"],
+	["definition", "EXP"],
+
+	["punctuation", ":"],
+	["character-class", [
+		["punctuation", "["],
+		"Ee",
+		["punctuation", "]"]
+	]],
+	["character-class", [
+		["punctuation", "["],
+		"+",
+		["escape", "\\-"],
+		["punctuation", "]"]
+	]],
+	["operator", "?"],
+	["constant", "INT"],
+
+	["punctuation", ";"],
+
+	["comment", "// \\- since - means \"range\" inside [...]"],
+
+	["definition", "WS"],
+
+	["punctuation", ":"],
+	["character-class", [
+		["punctuation", "["],
+		["escape", "\\t"],
+		["escape", "\\n"],
+		["escape", "\\r"],
+		["punctuation", "]"]
+	]],
+	["operator", "+"],
+	["operator", "->"],
+	["command", [
+		["function", "skip"]
+	]],
+
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

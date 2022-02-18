@@ -1,0 +1,11 @@
+{msg meaning="noun" desc="The word 'Archive' used as a noun, i.e. an information store."}
+{param content kind="html"}
+{let $message kind="text"}
+{template .googleUri autoescape="strict" kind="uri"}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">msg</span> <span class="token property">meaning</span><span class="token operator">=</span><span class="token string">"noun"</span> <span class="token property">desc</span><span class="token operator">=</span><span class="token string">"The word 'Archive' used as a noun, i.e. an information store."</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">content</span> <span class="token property">kind</span><span class="token operator">=</span><span class="token string">"html"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">let</span> <span class="token variable">$message</span> <span class="token property">kind</span><span class="token operator">=</span><span class="token string">"text"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">template</span> <span class="token command-arg string"><span class="token punctuation">.</span>googleUri</span> <span class="token property">autoescape</span><span class="token operator">=</span><span class="token string">"strict"</span> <span class="token property">kind</span><span class="token operator">=</span><span class="token string">"uri"</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

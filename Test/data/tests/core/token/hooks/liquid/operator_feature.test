@@ -1,0 +1,37 @@
+{%
+
+== != <> < <= > >=
+| : ? - =
+..
+
+and or
+contains foo
+
+%}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+
+	["operator", "=="],
+	["operator", "!="],
+	["operator", "<>"],
+	["operator", "<"],
+	["operator", "<="],
+	["operator", ">"],
+	["operator", ">="],
+
+	["operator", "|"],
+	["operator", ":"],
+	["operator", "?"],
+	["operator", "-"],
+	["operator", "="],
+
+	["range", ".."],
+
+	["operator", "and"], ["operator", "or"],
+	["operator", "contains"], " foo\n\n",
+
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

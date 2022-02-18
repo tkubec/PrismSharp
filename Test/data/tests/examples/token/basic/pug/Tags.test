@@ -1,0 +1,89 @@
+ul
+  li Item A
+  li Item B
+  li Item C
+foo(bar='baz')/
+input(type='checkbox', checked=true.toString())
+#content
+div#foo(data-bar="foo")&attributes({'data-foo': 'bar'})
+----------------------------------------------------
+[
+	["tag", ["ul"]],
+
+	["tag", ["li"]],
+	["plain-text", "Item A"],
+
+	["tag", ["li"]],
+	["plain-text", "Item B"],
+
+	["tag", ["li"]],
+	["plain-text", "Item C"],
+
+	["tag", [
+		"foo",
+		["attributes", [
+			["punctuation", "("],
+			["attr-name", "bar"],
+			["punctuation", "="],
+			["attr-value", [
+				["string", "'baz'"]
+			]],
+			["punctuation", ")"]
+		]],
+		"/"
+	]],
+
+	["tag", [
+		"input",
+		["attributes", [
+			["punctuation", "("],
+			["attr-name", "type"],
+			["punctuation", "="],
+			["attr-value", [
+				["string", "'checkbox'"]
+			]],
+			["punctuation", ","],
+			["attr-name", "checked"],
+			["punctuation", "="],
+			["attr-value", [
+				["boolean", "true"],
+				["punctuation", "."],
+				["function", "toString"],
+				["punctuation", "("]
+			]],
+			["punctuation", ")"]
+		]]
+	]],
+	")\n",
+
+	["tag", [
+		["attr-id", "#content"]
+	]],
+
+	["tag", [
+		"div",
+		["attr-id", "#foo"],
+		["attributes", [
+			["punctuation", "("],
+			["attr-name", "data-bar"],
+			["punctuation", "="],
+			["attr-value", [
+				["string", "\"foo\""]
+			]],
+			["punctuation", ")"]
+		]],
+		["attributes", [
+			["operator", "&"],
+			["function", "attributes"],
+			["punctuation", "("],
+			["punctuation", "{"],
+			["string-property", "'data-foo'"],
+			["operator", ":"],
+			["string", "'bar'"],
+			["punctuation", "}"],
+			["punctuation", ")"]
+		]]
+	]]
+]
+
+----------------------------------------------------

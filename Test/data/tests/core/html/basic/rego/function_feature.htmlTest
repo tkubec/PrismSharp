@@ -1,0 +1,35 @@
+object.remove({"a": {"b": {"c": 2}}, "x": 123}, {"a": 1}) == {"x": 123}
+
+output := is_set(x)
+output := intersection(set[set])
+output := regex.match(pattern, value)
+output := glob.match("*.github.com", [], "api.github.com")
+output := bits.rsh(x, s)
+output := io.jwt.verify_ps384(string, certificate)
+
+io.jwt.encode_sign({
+    "typ": "JWT",
+    "alg": "HS256"},
+    {}, {
+    "kty": "oct",
+    "k": "AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow"
+})
+----------------------------------------------------
+<span class="token function"><span class="token namespace">object</span><span class="token punctuation">.</span>remove</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token property">"a"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token property">"b"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token property">"c"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token property">"x"</span><span class="token operator">:</span> <span class="token number">123</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token property">"a"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token punctuation">{</span><span class="token property">"x"</span><span class="token operator">:</span> <span class="token number">123</span><span class="token punctuation">}</span>
+
+output <span class="token operator">:=</span> <span class="token function">is_set</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+output <span class="token operator">:=</span> <span class="token function">intersection</span><span class="token punctuation">(</span>set<span class="token punctuation">[</span>set<span class="token punctuation">]</span><span class="token punctuation">)</span>
+output <span class="token operator">:=</span> <span class="token function"><span class="token namespace">regex</span><span class="token punctuation">.</span>match</span><span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+output <span class="token operator">:=</span> <span class="token function"><span class="token namespace">glob</span><span class="token punctuation">.</span>match</span><span class="token punctuation">(</span><span class="token string">"*.github.com"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"api.github.com"</span><span class="token punctuation">)</span>
+output <span class="token operator">:=</span> <span class="token function"><span class="token namespace">bits</span><span class="token punctuation">.</span>rsh</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> s<span class="token punctuation">)</span>
+output <span class="token operator">:=</span> <span class="token function"><span class="token namespace">io</span><span class="token punctuation">.</span><span class="token namespace">jwt</span><span class="token punctuation">.</span>verify_ps384</span><span class="token punctuation">(</span>string<span class="token punctuation">,</span> certificate<span class="token punctuation">)</span>
+
+<span class="token function"><span class="token namespace">io</span><span class="token punctuation">.</span><span class="token namespace">jwt</span><span class="token punctuation">.</span>encode_sign</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token property">"typ"</span><span class="token operator">:</span> <span class="token string">"JWT"</span><span class="token punctuation">,</span>
+    <span class="token property">"alg"</span><span class="token operator">:</span> <span class="token string">"HS256"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"oct"</span><span class="token punctuation">,</span>
+    <span class="token property">"k"</span><span class="token operator">:</span> <span class="token string">"AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

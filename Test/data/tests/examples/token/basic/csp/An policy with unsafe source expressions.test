@@ -1,0 +1,18 @@
+script-src 'self' 'unsafe-eval' 'unsafe-inline';
+style-src 'unsafe-inline' 'unsafe-hashed-attributes' 'self';
+----------------------------------------------------
+[
+	["directive", "script-src"],
+	["keyword", "'self'"],
+	["keyword", "'unsafe-eval'"],
+	["keyword", "'unsafe-inline'"],
+	["punctuation", ";"],
+
+	["directive", "style-src"],
+	["keyword", "'unsafe-inline'"],
+	["keyword", "'unsafe-hashed-attributes'"],
+	["keyword", "'self'"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

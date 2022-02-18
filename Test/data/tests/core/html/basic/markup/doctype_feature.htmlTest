@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE greeting SYSTEM "hello.dtd">
+<!DOCTYPE greeting [
+	<!ELEMENT greeting (#PCDATA)>
+]>
+<!DOCTYPE greeting [
+	<!ELEMENT greeting (#PCDATA)>
+	<!ELEMENT subject (#PCDATA)>
+	<!-- comment ]> -->
+]>
+----------------------------------------------------
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">HTML</span> <span class="token name">PUBLIC</span> <span class="token string">"-//W3C//DTD HTML 4.01//EN"</span><span class="token punctuation">></span></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span> <span class="token name">PUBLIC</span> <span class="token string">"-//W3C//DTD XHTML 1.0 Strict//EN"</span>
+<span class="token string">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span><span class="token punctuation">></span></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">greeting</span> <span class="token name">SYSTEM</span> <span class="token string">"hello.dtd"</span><span class="token punctuation">></span></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">greeting</span> <span class="token punctuation">[</span><span class="token internal-subset">
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ELEMENT</span> <span class="token attr-name">greeting</span> <span class="token attr-name">(#PCDATA)</span><span class="token punctuation">></span></span>
+</span><span class="token punctuation">]</span><span class="token punctuation">></span></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">greeting</span> <span class="token punctuation">[</span><span class="token internal-subset">
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ELEMENT</span> <span class="token attr-name">greeting</span> <span class="token attr-name">(#PCDATA)</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ELEMENT</span> <span class="token attr-name">subject</span> <span class="token attr-name">(#PCDATA)</span><span class="token punctuation">></span></span>
+	<span class="token comment">&lt;!-- comment ]> --></span>
+</span><span class="token punctuation">]</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

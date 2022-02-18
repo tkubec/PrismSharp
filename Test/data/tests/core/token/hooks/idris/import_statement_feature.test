@@ -1,0 +1,16 @@
+import Foo
+import Maths.NumOps
+----------------------------------------------------
+[
+	["keyword", "import"],
+	["import-statement", ["Foo"]],
+
+	["keyword", "import"],
+	["import-statement", [
+		"Maths",
+		["punctuation", "."],
+		"NumOps"
+	]]
+]
+
+----------------------------------------------------

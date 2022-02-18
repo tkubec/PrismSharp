@@ -1,0 +1,5 @@
+SELECT ?x WHERE { ?x ?p "cat"@en }
+----------------------------------------------------
+<span class="token keyword">SELECT</span> <span class="token variable">?x</span> <span class="token keyword">WHERE</span> <span class="token punctuation">{</span> <span class="token variable">?x</span> <span class="token variable">?p</span> <span class="token string">"cat"</span><span class="token tag"><span class="token punctuation">@</span>en</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

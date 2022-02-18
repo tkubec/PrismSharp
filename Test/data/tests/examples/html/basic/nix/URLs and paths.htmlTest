@@ -1,0 +1,13 @@
+ftp://ftp.nluug.nl/pub/gnu/hello/hello-2.1.1.tar.gz
+http://example.org/foo.tar.bz2
+/bin/sh
+./builder.sh
+~/foo.bar
+----------------------------------------------------
+<span class="token url">ftp://ftp.nluug.nl/pub/gnu/hello/hello-2.1.1.tar.gz</span>
+<span class="token url">http://example.org/foo.tar.bz2</span>
+<span class="token url">/bin/sh</span>
+<span class="token url">./builder.sh</span>
+<span class="token url">~/foo.bar</span>
+
+----------------------------------------------------

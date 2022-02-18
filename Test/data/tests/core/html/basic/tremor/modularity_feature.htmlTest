@@ -1,0 +1,15 @@
+foo
+foo::bar
+foo::bar::baz
+`foo`::bar::`baz`
+`foo`
+`foo`::`bar`::`baz`
+----------------------------------------------------
+foo
+foo<span class="token punctuation">::</span>bar
+foo<span class="token punctuation">::</span>bar<span class="token punctuation">::</span>baz
+<span class="token identifier">`foo`</span><span class="token punctuation">::</span>bar<span class="token punctuation">::</span><span class="token identifier">`baz`</span>
+<span class="token identifier">`foo`</span>
+<span class="token identifier">`foo`</span><span class="token punctuation">::</span><span class="token identifier">`bar`</span><span class="token punctuation">::</span><span class="token identifier">`baz`</span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+---
+Integers: [ 0, -0, 3, 0o7, 0x3A, -19 ]
+Floats: [ 0., -0.0, .5, 12e03, +12e03, -2E+05 ]
+Also floats: [ .inf, -.Inf, +.INF, .NAN ]
+Timestamps:
+  canonical: 2001-12-15T02:59:43.1Z
+  iso8601: 2001-12-14t21:59:43.10-05:00
+  spaced: 2001-12-14 21:59:43.10 -5
+  date: 2002-12-14
+  times:
+    - 10:53
+    - 10:53:20.53
+----------------------------------------------------
+<span class="token punctuation">---</span>
+<span class="token key atrule">Integers</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">-0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0o7</span><span class="token punctuation">,</span> <span class="token number">0x3A</span><span class="token punctuation">,</span> <span class="token number">-19</span> <span class="token punctuation">]</span>
+<span class="token key atrule">Floats</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token number">0.</span><span class="token punctuation">,</span> <span class="token number">-0.0</span><span class="token punctuation">,</span> <span class="token number">.5</span><span class="token punctuation">,</span> <span class="token number">12e03</span><span class="token punctuation">,</span> <span class="token number">+12e03</span><span class="token punctuation">,</span> <span class="token number">-2E+05</span> <span class="token punctuation">]</span>
+<span class="token key atrule">Also floats</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token number">.inf</span><span class="token punctuation">,</span> <span class="token number">-.Inf</span><span class="token punctuation">,</span> <span class="token number">+.INF</span><span class="token punctuation">,</span> <span class="token number">.NAN</span> <span class="token punctuation">]</span>
+<span class="token key atrule">Timestamps</span><span class="token punctuation">:</span>
+  <span class="token key atrule">canonical</span><span class="token punctuation">:</span> <span class="token datetime number">2001-12-15T02:59:43.1Z</span>
+  <span class="token key atrule">iso8601</span><span class="token punctuation">:</span> <span class="token datetime number">2001-12-14t21:59:43.10-05:00</span>
+  <span class="token key atrule">spaced</span><span class="token punctuation">:</span> <span class="token datetime number">2001-12-14 21:59:43.10 -5</span>
+  <span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2002-12-14</span>
+  <span class="token key atrule">times</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token datetime number">10:53</span>
+    <span class="token punctuation">-</span> <span class="token datetime number">10:53:20.53</span>
+
+----------------------------------------------------

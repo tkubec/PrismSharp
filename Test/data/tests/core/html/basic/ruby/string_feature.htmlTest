@@ -1,0 +1,107 @@
+''
+""
+'foo'
+"foo"
+'foo\
+bar'
+"foo\
+bar"
+
+"foo #bar"
+"foo #{ 42 } bar"
+"\#{a + b}"
+
+%!foo #{ 42 }!
+%(foo #{ 42 })
+%{foo #{ 42 }}
+%[foo #{ 42 }]
+%<foo #{ 42 }>
+%Q!foo #{ 42 }!
+%Q(foo #{ 42 })
+%Q{foo #{ 42 }}
+%Q[foo #{ 42 }]
+%Q<foo #{ 42 }>
+%I!foo #{ 42 }!
+%I(foo #{ 42 })
+%I{foo #{ 42 }}
+%I[foo #{ 42 }]
+%I<foo #{ 42 }>
+%W!foo #{ 42 }!
+%W(foo #{ 42 })
+%W{foo #{ 42 }}
+%W[foo #{ 42 }]
+%W<foo #{ 42 }>
+
+<<STRING
+  foo #{42} bar
+STRING
+  <<-STRING
+    foo #{42} bar
+  STRING
+  <<~STRING
+    foo #{42} bar
+  STRING
+<<'STRING'
+  foo #{42} bar
+STRING
+  <<-'STRING'
+    foo #{42} bar
+  STRING
+  <<~'STRING'
+    foo #{42} bar
+  STRING
+----------------------------------------------------
+<span class="token string-literal"><span class="token string">''</span></span>
+<span class="token string-literal"><span class="token string">""</span></span>
+<span class="token string-literal"><span class="token string">'foo'</span></span>
+<span class="token string-literal"><span class="token string">"foo"</span></span>
+<span class="token string-literal"><span class="token string">'foo\
+bar'</span></span>
+<span class="token string-literal"><span class="token string">"foo\
+bar"</span></span>
+
+<span class="token string-literal"><span class="token string">"foo #bar"</span></span>
+<span class="token string-literal"><span class="token string">"foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string"> bar"</span></span>
+<span class="token string-literal"><span class="token string">"\#{a + b}"</span></span>
+
+<span class="token string-literal"><span class="token string">%!foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">!</span></span>
+<span class="token string-literal"><span class="token string">%(foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">)</span></span>
+<span class="token string-literal"><span class="token string">%{foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">}</span></span>
+<span class="token string-literal"><span class="token string">%[foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">]</span></span>
+<span class="token string-literal"><span class="token string">%&lt;foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">></span></span>
+<span class="token string-literal"><span class="token string">%Q!foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">!</span></span>
+<span class="token string-literal"><span class="token string">%Q(foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">)</span></span>
+<span class="token string-literal"><span class="token string">%Q{foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">}</span></span>
+<span class="token string-literal"><span class="token string">%Q[foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">]</span></span>
+<span class="token string-literal"><span class="token string">%Q&lt;foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">></span></span>
+<span class="token string-literal"><span class="token string">%I!foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">!</span></span>
+<span class="token string-literal"><span class="token string">%I(foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">)</span></span>
+<span class="token string-literal"><span class="token string">%I{foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">}</span></span>
+<span class="token string-literal"><span class="token string">%I[foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">]</span></span>
+<span class="token string-literal"><span class="token string">%I&lt;foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">></span></span>
+<span class="token string-literal"><span class="token string">%W!foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">!</span></span>
+<span class="token string-literal"><span class="token string">%W(foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">)</span></span>
+<span class="token string-literal"><span class="token string">%W{foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">}</span></span>
+<span class="token string-literal"><span class="token string">%W[foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">]</span></span>
+<span class="token string-literal"><span class="token string">%W&lt;foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"> <span class="token number">42</span> </span><span class="token delimiter punctuation">}</span></span><span class="token string">></span></span>
+
+<span class="token string-literal heredoc-string"><span class="token delimiter"><span class="token punctuation">&lt;&lt;</span><span class="token symbol">STRING</span></span><span class="token string">
+  foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">42</span></span><span class="token delimiter punctuation">}</span></span><span class="token string"> bar
+</span><span class="token delimiter"><span class="token symbol">STRING</span></span></span>
+  <span class="token string-literal heredoc-string"><span class="token delimiter"><span class="token punctuation">&lt;&lt;-</span><span class="token symbol">STRING</span></span><span class="token string">
+    foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">42</span></span><span class="token delimiter punctuation">}</span></span><span class="token string"> bar
+  </span><span class="token delimiter"><span class="token symbol">STRING</span></span></span>
+  <span class="token string-literal heredoc-string"><span class="token delimiter"><span class="token punctuation">&lt;&lt;~</span><span class="token symbol">STRING</span></span><span class="token string">
+    foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token number">42</span></span><span class="token delimiter punctuation">}</span></span><span class="token string"> bar
+  </span><span class="token delimiter"><span class="token symbol">STRING</span></span></span>
+<span class="token string-literal heredoc-string"><span class="token delimiter"><span class="token punctuation">&lt;&lt;'</span><span class="token symbol">STRING</span><span class="token punctuation">'</span></span><span class="token string">
+  foo #{42} bar
+</span><span class="token delimiter"><span class="token symbol">STRING</span></span></span>
+  <span class="token string-literal heredoc-string"><span class="token delimiter"><span class="token punctuation">&lt;&lt;-'</span><span class="token symbol">STRING</span><span class="token punctuation">'</span></span><span class="token string">
+    foo #{42} bar
+  </span><span class="token delimiter"><span class="token symbol">STRING</span></span></span>
+  <span class="token string-literal heredoc-string"><span class="token delimiter"><span class="token punctuation">&lt;&lt;~'</span><span class="token symbol">STRING</span><span class="token punctuation">'</span></span><span class="token string">
+    foo #{42} bar
+  </span><span class="token delimiter"><span class="token symbol">STRING</span></span></span>
+
+----------------------------------------------------

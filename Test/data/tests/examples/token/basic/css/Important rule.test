@@ -1,0 +1,34 @@
+p {
+    color: red !important;
+    line-height: normal!important;
+}
+p{position:absolute!important}
+----------------------------------------------------
+[
+	["selector", "p"],
+	["punctuation", "{"],
+
+	["property", "color"],
+	["punctuation", ":"],
+	" red ",
+	["important", "!important"],
+	["punctuation", ";"],
+
+	["property", "line-height"],
+	["punctuation", ":"],
+	" normal",
+	["important", "!important"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["selector", "p"],
+	["punctuation", "{"],
+	["property", "position"],
+	["punctuation", ":"],
+	"absolute",
+	["important", "!important"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

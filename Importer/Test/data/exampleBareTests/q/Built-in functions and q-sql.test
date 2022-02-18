@@ -1,0 +1,9 @@
+string 42
+L1 cross L2
+type c
+select from t where price=(max;price) fby ([]sym;ex)
+ungroup `p xgroup sp
+`instrument insert (`g; `$"Google"; `$"Internet")
+
+--------------------------------------------------
+

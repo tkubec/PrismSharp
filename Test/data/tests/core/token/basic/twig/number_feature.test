@@ -1,0 +1,44 @@
+{{ 0xBadFace }}
+{{ 42 }}
+{{ 3.14159 }}
+{{ 3e15 }}
+{{ 4.5E-4 }}
+{{ 0.2e+8 }}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["number", "0xBadFace"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "42"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "3.14159"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "3e15"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "4.5E-4"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "0.2e+8"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

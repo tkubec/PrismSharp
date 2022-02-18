@@ -1,0 +1,11 @@
+facet Foo {}
+instance of Bar {}
+external
+import
+----------------------------------------------------
+<span class="token keyword">facet</span> <span class="token component variable">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">instance of</span> <span class="token component variable">Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">external</span>
+<span class="token keyword">import</span>
+
+----------------------------------------------------

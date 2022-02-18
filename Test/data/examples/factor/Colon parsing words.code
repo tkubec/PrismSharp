@@ -1,0 +1,8 @@
+: a ( -- ) ;
+:: ; ! ; is not a word name
+:: ;a ! ;a is a word name
+USING: a b c ;
+USE: a
+IN: a.b
+CHAR: a
+GENERIC#: x 1 ( x: integer quot: ( x -- y ) -- )

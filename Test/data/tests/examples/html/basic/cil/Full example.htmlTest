@@ -1,0 +1,99 @@
+// Metadata version: v4.0.30319
+.assembly extern mscorlib
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 4:0:0:0
+}
+.assembly i1ohgbkl
+{
+  .hash algorithm 0x00008004
+  .ver 0:0:0:0
+}
+.module i1ohgbkl.dll
+// MVID: {AC981AA1-16FE-413D-BBED-D83AE719F45C}
+.imagebase 0x10000000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x017C0000
+​
+​
+// =============== CLASS MEMBERS DECLARATION ===================
+​
+.class public auto ansi beforefieldinit Program
+       extends [mscorlib]System.Object
+{
+  .method public hidebysig static void  Main() cil managed
+  {
+    //
+    .maxstack  8
+    IL_0000:  nop
+    IL_0001:  ldstr      "Hello World"
+    IL_0006:  call       void [mscorlib]System.Console::WriteLine(string)
+    IL_000b:  nop
+    IL_000c:  ret
+  } // end of method Program::Main
+​
+  .method public hidebysig specialname rtspecialname
+          instance void  .ctor() cil managed
+  {
+    //
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ret
+  } // end of method Program::.ctor
+​
+} // end of class Program
+----------------------------------------------------
+<span class="token comment">// Metadata version: v4.0.30319</span>
+<span class="token directive class-name">.assembly</span> <span class="token keyword">extern</span> mscorlib
+<span class="token punctuation">{</span>
+  <span class="token directive class-name">.publickeytoken</span> <span class="token punctuation">=</span> <span class="token punctuation">(</span>B7 7A 5C <span class="token number">56</span> <span class="token number">19</span> <span class="token number">34</span> E0 <span class="token number">89</span> <span class="token punctuation">)</span>                         <span class="token comment">// .z\V.4..</span>
+  <span class="token directive class-name">.ver</span> <span class="token number">4</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">0</span>
+<span class="token punctuation">}</span>
+<span class="token directive class-name">.assembly</span> i1ohgbkl
+<span class="token punctuation">{</span>
+  <span class="token directive class-name">.hash</span> algorithm <span class="token number">0x00008004</span>
+  <span class="token directive class-name">.ver</span> <span class="token number">0</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">0</span>
+<span class="token punctuation">}</span>
+<span class="token directive class-name">.module</span> i1ohgbkl.dll
+<span class="token comment">// MVID: {AC981AA1-16FE-413D-BBED-D83AE719F45C}</span>
+<span class="token directive class-name">.imagebase</span> <span class="token number">0x10000000</span>
+<span class="token directive class-name">.file</span> <span class="token function">alignment</span> <span class="token number">0x00000200</span>
+<span class="token directive class-name">.stackreserve</span> <span class="token number">0x00100000</span>
+<span class="token directive class-name">.subsystem</span> <span class="token number">0x0003</span>       <span class="token comment">// WINDOWS_CUI</span>
+<span class="token directive class-name">.corflags</span> <span class="token number">0x00000001</span>    <span class="token comment">//  ILONLY</span>
+<span class="token comment">// Image base: 0x017C0000</span>
+​
+​
+<span class="token comment">// =============== CLASS MEMBERS DECLARATION ===================</span>
+​
+<span class="token directive class-name">.class</span> <span class="token keyword">public</span> <span class="token keyword">auto</span> <span class="token keyword">ansi</span> <span class="token keyword">beforefieldinit</span> Program
+       <span class="token keyword">extends</span> <span class="token variable">[mscorlib]</span>System.Object
+<span class="token punctuation">{</span>
+  <span class="token directive class-name">.method</span> <span class="token keyword">public</span> <span class="token keyword">hidebysig</span> <span class="token keyword">static</span> <span class="token keyword">void</span>  Main<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">cil</span> <span class="token keyword">managed</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+    <span class="token directive class-name">.maxstack</span>  <span class="token number">8</span>
+    <span class="token punctuation">IL_0000</span><span class="token punctuation">:</span>  <span class="token function">nop</span>
+    <span class="token punctuation">IL_0001</span><span class="token punctuation">:</span>  <span class="token function">ldstr</span>      <span class="token string">"Hello World"</span>
+    <span class="token punctuation">IL_0006</span><span class="token punctuation">:</span>  <span class="token function">call</span>       <span class="token keyword">void</span> <span class="token variable">[mscorlib]</span>System.Console<span class="token punctuation">:</span><span class="token punctuation">:</span>WriteLine<span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">)</span>
+    <span class="token punctuation">IL_000b</span><span class="token punctuation">:</span>  <span class="token function">nop</span>
+    <span class="token punctuation">IL_000c</span><span class="token punctuation">:</span>  <span class="token function">ret</span>
+  <span class="token punctuation">}</span> <span class="token comment">// end of method Program::Main</span>
+​
+  <span class="token directive class-name">.method</span> <span class="token keyword">public</span> <span class="token keyword">hidebysig</span> <span class="token keyword">specialname</span> <span class="token keyword">rtspecialname</span>
+          <span class="token keyword">instance</span> <span class="token keyword">void</span>  .ctor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">cil</span> <span class="token keyword">managed</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+    <span class="token directive class-name">.maxstack</span>  <span class="token number">8</span>
+    <span class="token punctuation">IL_0000</span><span class="token punctuation">:</span>  <span class="token function">ldarg.0</span>
+    <span class="token punctuation">IL_0001</span><span class="token punctuation">:</span>  <span class="token function">call</span>       <span class="token keyword">instance</span> <span class="token keyword">void</span> <span class="token variable">[mscorlib]</span>System.Object<span class="token punctuation">:</span><span class="token punctuation">:</span>.ctor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">IL_0006</span><span class="token punctuation">:</span>  <span class="token function">ret</span>
+  <span class="token punctuation">}</span> <span class="token comment">// end of method Program::.ctor</span>
+​
+<span class="token punctuation">}</span> <span class="token comment">// end of class Program</span>
+
+----------------------------------------------------

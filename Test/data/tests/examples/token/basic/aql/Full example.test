@@ -1,0 +1,123 @@
+FOR u IN users
+    FOR f IN friends
+        FILTER u.active == @active && f.active == true && u.id == f.userId
+        RETURN { "name" : u.name, "friends" : friends }
+
+LET name = "Peter"
+LET age = 42
+RETURN { name, age }
+
+FOR u IN users
+    FILTER u.status == "not active"
+    UPDATE u WITH { status: "inactive" } IN users
+
+FOR i IN 1..100
+    INSERT { value: i } IN test
+    RETURN NEW
+----------------------------------------------------
+[
+	["keyword", "FOR"],
+	" u ",
+	["keyword", "IN"],
+	" users\n    ",
+
+	["keyword", "FOR"],
+	" f ",
+	["keyword", "IN"],
+	" friends\n        ",
+
+	["keyword", "FILTER"],
+	" u",
+	["punctuation", "."],
+	"active ",
+	["operator", "=="],
+	["variable", "@active"],
+	["operator", "&&"],
+	" f",
+	["punctuation", "."],
+	"active ",
+	["operator", "=="],
+	["boolean", "true"],
+	["operator", "&&"],
+	" u",
+	["punctuation", "."],
+	"id ",
+	["operator", "=="],
+	" f",
+	["punctuation", "."],
+	"userId\n        ",
+
+	["keyword", "RETURN"],
+	["punctuation", "{"],
+	["property", "\"name\""],
+	["punctuation", ":"],
+	" u",
+	["punctuation", "."],
+	"name",
+	["punctuation", ","],
+	["property", "\"friends\""],
+	["punctuation", ":"],
+	" friends ",
+	["punctuation", "}"],
+
+	["keyword", "LET"],
+	" name ",
+	["operator", "="],
+	["string", "\"Peter\""],
+
+	["keyword", "LET"],
+	" age ",
+	["operator", "="],
+	["number", "42"],
+
+	["keyword", "RETURN"],
+	["punctuation", "{"],
+	" name",
+	["punctuation", ","],
+	" age ",
+	["punctuation", "}"],
+
+	["keyword", "FOR"],
+	" u ",
+	["keyword", "IN"],
+	" users\n    ",
+
+	["keyword", "FILTER"],
+	" u",
+	["punctuation", "."],
+	"status ",
+	["operator", "=="],
+	["string", "\"not active\""],
+
+	["keyword", "UPDATE"],
+	" u ",
+	["keyword", "WITH"],
+	["punctuation", "{"],
+	["property", "status"],
+	["punctuation", ":"],
+	["string", "\"inactive\""],
+	["punctuation", "}"],
+	["keyword", "IN"],
+	" users\n\n",
+
+	["keyword", "FOR"],
+	" i ",
+	["keyword", "IN"],
+	["number", "1"],
+	["range", ".."],
+	["number", "100"],
+
+	["keyword", "INSERT"],
+	["punctuation", "{"],
+	["property", "value"],
+	["punctuation", ":"],
+	" i ",
+	["punctuation", "}"],
+	["keyword", "IN"],
+	" test\n    ",
+
+	["keyword", "RETURN"],
+	["keyword", "NEW"]
+]
+
+----------------------------------------------------

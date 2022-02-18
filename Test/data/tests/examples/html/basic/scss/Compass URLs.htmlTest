@@ -1,0 +1,11 @@
+@font-face {
+	font-family: "opensans";
+	src: font-url("opensans.ttf");
+}
+----------------------------------------------------
+<span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">{</span>
+	<span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"opensans"</span><span class="token punctuation">;</span>
+	<span class="token property">src</span><span class="token punctuation">:</span> <span class="token url">font-url</span><span class="token punctuation">(</span><span class="token string">"opensans.ttf"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

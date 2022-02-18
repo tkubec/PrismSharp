@@ -1,0 +1,22 @@
+ldi r24,#127
+ldi r24,$80f0
+ldi r24,#%01011000
+----------------------------------------------------
+[
+	["op-code", "ldi"],
+	["r-register", "r24"],
+	["punctuation", ","],
+	["decimal-number", "#127"],
+
+	["op-code", "ldi"],
+	["r-register", "r24"],
+	["punctuation", ","],
+	["hex-number", "$80f0"],
+
+	["op-code", "ldi"],
+	["r-register", "r24"],
+	["punctuation", ","],
+	["binary-number", "#%01011000"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,53 @@
+/
+
+/ foo
+
+/foo
+ bar
+
+  /foo
+   bar
+
+	/foo
+	 bar
+
+-#
+
+-# foo
+
+-#foo
+ bar
+
+  -#foo
+   bar
+
+	-#foo
+	 bar
+----------------------------------------------------
+<span class="token multiline-comment comment">/</span>
+
+<span class="token multiline-comment comment">/ foo</span>
+
+<span class="token multiline-comment comment">/foo
+ bar</span>
+
+  <span class="token multiline-comment comment">/foo
+   bar</span>
+
+	<span class="token multiline-comment comment">/foo
+	 bar</span>
+
+<span class="token multiline-comment comment">-#</span>
+
+<span class="token multiline-comment comment">-# foo</span>
+
+<span class="token multiline-comment comment">-#foo
+ bar</span>
+
+  <span class="token multiline-comment comment">-#foo
+   bar</span>
+
+	<span class="token multiline-comment comment">-#foo
+	 bar</span>
+
+----------------------------------------------------

@@ -1,0 +1,347 @@
+__attribute__
+__constant
+__global
+__kernel
+__local
+__private
+__read_only
+__read_write
+__write_only
+auto
+bool
+bool16
+bool2
+bool3
+bool4
+bool8
+break
+case
+char
+char16
+char2
+char3
+char4
+char8
+complex
+const
+constant
+continue
+do
+double
+double16
+double16x1
+double16x16
+double16x2
+double16x4
+double16x8
+double1x1
+double1x16
+double1x2
+double1x4
+double1x8
+double2
+double2x1
+double2x16
+double2x2
+double2x4
+double2x8
+double3
+double4
+double4x1
+double4x16
+double4x2
+double4x4
+double4x8
+double8
+double8x1
+double8x16
+double8x2
+double8x4
+double8x8
+else
+enum;
+extern
+float
+float16
+float16x1
+float16x16
+float16x2
+float16x4
+float16x8
+float1x1
+float1x16
+float1x2
+float1x4
+float1x8
+float2
+float2x1
+float2x16
+float2x2
+float2x4
+float2x8
+float3
+float4
+float4x1
+float4x16
+float4x2
+float4x4
+float4x8
+float8
+float8x1
+float8x16
+float8x2
+float8x4
+float8x8
+for
+global
+half
+half16
+half2
+half3
+half4
+half8
+if
+imaginary
+int
+int16
+int2
+int3
+int4
+int8
+kernel
+local
+long
+long16
+long2
+long3
+long4
+long8
+packed
+pipe
+private
+quad
+quad16
+quad2
+quad3
+quad4
+quad8
+read_only
+read_write
+register
+restrict
+short
+short16
+short2
+short3
+short4
+short8
+static
+struct;
+switch
+typedef
+uchar
+uchar16
+uchar2
+uchar3
+uchar4
+uchar8
+uint
+uint16
+uint2
+uint3
+uint4
+uint8
+ulong
+ulong16
+ulong2
+ulong3
+ulong4
+ulong8
+uniform
+union
+unsigned
+ushort
+ushort16
+ushort2
+ushort3
+ushort4
+ushort8
+void
+volatile
+while
+write_only
+----------------------------------------------------
+<span class="token keyword">__attribute__</span>
+<span class="token keyword">__constant</span>
+<span class="token keyword">__global</span>
+<span class="token keyword">__kernel</span>
+<span class="token keyword">__local</span>
+<span class="token keyword">__private</span>
+<span class="token keyword">__read_only</span>
+<span class="token keyword">__read_write</span>
+<span class="token keyword">__write_only</span>
+<span class="token keyword">auto</span>
+<span class="token keyword">bool</span>
+<span class="token keyword">bool16</span>
+<span class="token keyword">bool2</span>
+<span class="token keyword">bool3</span>
+<span class="token keyword">bool4</span>
+<span class="token keyword">bool8</span>
+<span class="token keyword">break</span>
+<span class="token keyword">case</span>
+<span class="token keyword">char</span>
+<span class="token keyword">char16</span>
+<span class="token keyword">char2</span>
+<span class="token keyword">char3</span>
+<span class="token keyword">char4</span>
+<span class="token keyword">char8</span>
+<span class="token keyword">complex</span>
+<span class="token keyword">const</span>
+<span class="token keyword">constant</span>
+<span class="token keyword">continue</span>
+<span class="token keyword">do</span>
+<span class="token keyword">double</span>
+<span class="token keyword">double16</span>
+<span class="token keyword">double16x1</span>
+<span class="token keyword">double16x16</span>
+<span class="token keyword">double16x2</span>
+<span class="token keyword">double16x4</span>
+<span class="token keyword">double16x8</span>
+<span class="token keyword">double1x1</span>
+<span class="token keyword">double1x16</span>
+<span class="token keyword">double1x2</span>
+<span class="token keyword">double1x4</span>
+<span class="token keyword">double1x8</span>
+<span class="token keyword">double2</span>
+<span class="token keyword">double2x1</span>
+<span class="token keyword">double2x16</span>
+<span class="token keyword">double2x2</span>
+<span class="token keyword">double2x4</span>
+<span class="token keyword">double2x8</span>
+<span class="token keyword">double3</span>
+<span class="token keyword">double4</span>
+<span class="token keyword">double4x1</span>
+<span class="token keyword">double4x16</span>
+<span class="token keyword">double4x2</span>
+<span class="token keyword">double4x4</span>
+<span class="token keyword">double4x8</span>
+<span class="token keyword">double8</span>
+<span class="token keyword">double8x1</span>
+<span class="token keyword">double8x16</span>
+<span class="token keyword">double8x2</span>
+<span class="token keyword">double8x4</span>
+<span class="token keyword">double8x8</span>
+<span class="token keyword">else</span>
+<span class="token keyword">enum</span><span class="token punctuation">;</span>
+<span class="token keyword">extern</span>
+<span class="token keyword">float</span>
+<span class="token keyword">float16</span>
+<span class="token keyword">float16x1</span>
+<span class="token keyword">float16x16</span>
+<span class="token keyword">float16x2</span>
+<span class="token keyword">float16x4</span>
+<span class="token keyword">float16x8</span>
+<span class="token keyword">float1x1</span>
+<span class="token keyword">float1x16</span>
+<span class="token keyword">float1x2</span>
+<span class="token keyword">float1x4</span>
+<span class="token keyword">float1x8</span>
+<span class="token keyword">float2</span>
+<span class="token keyword">float2x1</span>
+<span class="token keyword">float2x16</span>
+<span class="token keyword">float2x2</span>
+<span class="token keyword">float2x4</span>
+<span class="token keyword">float2x8</span>
+<span class="token keyword">float3</span>
+<span class="token keyword">float4</span>
+<span class="token keyword">float4x1</span>
+<span class="token keyword">float4x16</span>
+<span class="token keyword">float4x2</span>
+<span class="token keyword">float4x4</span>
+<span class="token keyword">float4x8</span>
+<span class="token keyword">float8</span>
+<span class="token keyword">float8x1</span>
+<span class="token keyword">float8x16</span>
+<span class="token keyword">float8x2</span>
+<span class="token keyword">float8x4</span>
+<span class="token keyword">float8x8</span>
+<span class="token keyword">for</span>
+<span class="token keyword">global</span>
+<span class="token keyword">half</span>
+<span class="token keyword">half16</span>
+<span class="token keyword">half2</span>
+<span class="token keyword">half3</span>
+<span class="token keyword">half4</span>
+<span class="token keyword">half8</span>
+<span class="token keyword">if</span>
+<span class="token keyword">imaginary</span>
+<span class="token keyword">int</span>
+<span class="token keyword">int16</span>
+<span class="token keyword">int2</span>
+<span class="token keyword">int3</span>
+<span class="token keyword">int4</span>
+<span class="token keyword">int8</span>
+<span class="token keyword">kernel</span>
+<span class="token keyword">local</span>
+<span class="token keyword">long</span>
+<span class="token keyword">long16</span>
+<span class="token keyword">long2</span>
+<span class="token keyword">long3</span>
+<span class="token keyword">long4</span>
+<span class="token keyword">long8</span>
+<span class="token keyword">packed</span>
+<span class="token keyword">pipe</span>
+<span class="token keyword">private</span>
+<span class="token keyword">quad</span>
+<span class="token keyword">quad16</span>
+<span class="token keyword">quad2</span>
+<span class="token keyword">quad3</span>
+<span class="token keyword">quad4</span>
+<span class="token keyword">quad8</span>
+<span class="token keyword">read_only</span>
+<span class="token keyword">read_write</span>
+<span class="token keyword">register</span>
+<span class="token keyword">restrict</span>
+<span class="token keyword">short</span>
+<span class="token keyword">short16</span>
+<span class="token keyword">short2</span>
+<span class="token keyword">short3</span>
+<span class="token keyword">short4</span>
+<span class="token keyword">short8</span>
+<span class="token keyword">static</span>
+<span class="token keyword">struct</span><span class="token punctuation">;</span>
+<span class="token keyword">switch</span>
+<span class="token keyword">typedef</span>
+<span class="token keyword">uchar</span>
+<span class="token keyword">uchar16</span>
+<span class="token keyword">uchar2</span>
+<span class="token keyword">uchar3</span>
+<span class="token keyword">uchar4</span>
+<span class="token keyword">uchar8</span>
+<span class="token keyword">uint</span>
+<span class="token keyword">uint16</span>
+<span class="token keyword">uint2</span>
+<span class="token keyword">uint3</span>
+<span class="token keyword">uint4</span>
+<span class="token keyword">uint8</span>
+<span class="token keyword">ulong</span>
+<span class="token keyword">ulong16</span>
+<span class="token keyword">ulong2</span>
+<span class="token keyword">ulong3</span>
+<span class="token keyword">ulong4</span>
+<span class="token keyword">ulong8</span>
+<span class="token keyword">uniform</span>
+<span class="token keyword">union</span>
+<span class="token keyword">unsigned</span>
+<span class="token keyword">ushort</span>
+<span class="token keyword">ushort16</span>
+<span class="token keyword">ushort2</span>
+<span class="token keyword">ushort3</span>
+<span class="token keyword">ushort4</span>
+<span class="token keyword">ushort8</span>
+<span class="token keyword">void</span>
+<span class="token keyword">volatile</span>
+<span class="token keyword">while</span>
+<span class="token keyword">write_only</span>
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+<img src="{{ static('path/to/company-logo.png') }}" alt="Company Logo">
+<a href="{{ url('admin:index') }}">Administration</a>
+----------------------------------------------------
+<span class="token operator">&lt;</span><span class="token variable">img</span> <span class="token variable">src</span><span class="token operator">=</span><span class="token string">"{{ static('path/to/company-logo.png') }}"</span> <span class="token variable">alt</span><span class="token operator">=</span><span class="token string">"Company Logo"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token variable">a</span> <span class="token variable">href</span><span class="token operator">=</span><span class="token string">"{{ url('admin:index') }}"</span><span class="token operator">></span><span class="token variable">Administration</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token variable">a</span><span class="token operator">></span>
+
+----------------------------------------------------

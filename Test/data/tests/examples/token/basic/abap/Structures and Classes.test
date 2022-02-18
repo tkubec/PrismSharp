@@ -1,0 +1,113 @@
+DATA:
+  BEGIN OF my_structure,
+    scomponent TYPE i,
+  END OF my_structure.
+
+CLASS lcl_my_class DEFINITION.
+  PUBLIC SECTION.
+    METHODS my_method
+      RETURNING
+        VALUE(ret_value) TYPE i.
+ENDCLASS.
+
+CLASS lcl_my_class IMPLEMENTATION.
+  METHOD my_method.
+    ret_value = 1.
+  ENDMETHOD
+ENDCLASS.
+
+DATA lo_instace TYPE REF TO lcl_my_class.
+
+CREATE OBJECT lo_instace.
+
+my_structure-component = lo_instace->my_method( ).
+----------------------------------------------------
+[
+	["keyword", "DATA"],
+	["punctuation", ":"],
+
+	["keyword", "BEGIN"],
+	["keyword", "OF"],
+	" my_structure",
+	["punctuation", ","],
+
+	"\n    scomponent ",
+	["keyword", "TYPE"],
+	["keyword", "i"],
+	["punctuation", ","],
+
+	["keyword", "END"],
+	["keyword", "OF"],
+	" my_structure",
+	["punctuation", "."],
+
+	["keyword", "CLASS"],
+	" lcl_my_class ",
+	["keyword", "DEFINITION"],
+	["punctuation", "."],
+
+	["keyword", "PUBLIC"],
+	["keyword", "SECTION"],
+	["punctuation", "."],
+
+	["keyword", "METHODS"],
+	" my_method\n      ",
+
+	["keyword", "RETURNING"],
+
+	["keyword", "VALUE"],
+	["punctuation", "("],
+	"ret_value",
+	["punctuation", ")"],
+	["keyword", "TYPE"],
+	["keyword", "i"],
+	["punctuation", "."],
+
+	["keyword", "ENDCLASS"],
+	["punctuation", "."],
+
+	["keyword", "CLASS"],
+	" lcl_my_class ",
+	["keyword", "IMPLEMENTATION"],
+	["punctuation", "."],
+
+	["keyword", "METHOD"],
+	" my_method",
+	["punctuation", "."],
+
+	"\n    ret_value ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", "."],
+
+	["keyword", "ENDMETHOD"],
+
+	["keyword", "ENDCLASS"],
+	["punctuation", "."],
+
+	["keyword", "DATA"],
+	" lo_instace ",
+	["keyword", "TYPE"],
+	["keyword", "REF"],
+	["keyword", "TO"],
+	" lcl_my_class",
+	["punctuation", "."],
+
+	["keyword", "CREATE"],
+	["keyword", "OBJECT"],
+	" lo_instace",
+	["punctuation", "."],
+
+	"\n\nmy_structure",
+	["token-operator", "-"],
+	"component ",
+	["operator", "="],
+	" lo_instace",
+	["token-operator", "->"],
+	"my_method",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "."]
+]
+
+----------------------------------------------------

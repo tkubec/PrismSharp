@@ -1,0 +1,37 @@
+#[program]
+#[program=yes]
+#[deprecated(since="8.9.0")]
+#[local, universes(polymorphic)]
+#[universes(polymorphic(foo,bar))]
+#[canonical=yes, canonical=no]
+#[ export ]
+
+(* legacy *)
+Cumulative
+Global
+Local
+Monomorphic
+NonCumulative
+Polymorphic
+Private
+Program
+----------------------------------------------------
+<span class="token attribute attr-name"><span class="token punctuation">#[</span>program<span class="token punctuation">]</span></span>
+<span class="token attribute attr-name"><span class="token punctuation">#[</span>program<span class="token operator">=</span>yes<span class="token punctuation">]</span></span>
+<span class="token attribute attr-name"><span class="token punctuation">#[</span>deprecated<span class="token punctuation">(</span>since<span class="token operator">=</span><span class="token string">"8.9.0"</span><span class="token punctuation">)</span><span class="token punctuation">]</span></span>
+<span class="token attribute attr-name"><span class="token punctuation">#[</span>local<span class="token punctuation">,</span> universes<span class="token punctuation">(</span>polymorphic<span class="token punctuation">)</span><span class="token punctuation">]</span></span>
+<span class="token attribute attr-name"><span class="token punctuation">#[</span>universes<span class="token punctuation">(</span>polymorphic<span class="token punctuation">(</span>foo<span class="token punctuation">,</span>bar<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span></span>
+<span class="token attribute attr-name"><span class="token punctuation">#[</span>canonical<span class="token operator">=</span>yes<span class="token punctuation">,</span> canonical<span class="token operator">=</span>no<span class="token punctuation">]</span></span>
+<span class="token attribute attr-name"><span class="token punctuation">#[</span> export <span class="token punctuation">]</span></span>
+
+<span class="token comment">(* legacy *)</span>
+<span class="token attribute attr-name">Cumulative</span>
+<span class="token attribute attr-name">Global</span>
+<span class="token attribute attr-name">Local</span>
+<span class="token attribute attr-name">Monomorphic</span>
+<span class="token attribute attr-name">NonCumulative</span>
+<span class="token attribute attr-name">Polymorphic</span>
+<span class="token attribute attr-name">Private</span>
+<span class="token attribute attr-name">Program</span>
+
+----------------------------------------------------

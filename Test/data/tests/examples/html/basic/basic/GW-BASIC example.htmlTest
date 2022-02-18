@@ -1,0 +1,31 @@
+10 INPUT "What is your name: ", U$
+20 PRINT "Hello "; U$
+30 INPUT "How many stars do you want: ", N
+40 S$ = ""
+50 FOR I = 1 TO N
+60 S$ = S$ + "*"
+70 NEXT I
+80 PRINT S$
+90 INPUT "Do you want more stars? ", A$
+100 IF LEN(A$) = 0 THEN GOTO 90
+110 A$ = LEFT$(A$, 1)
+120 IF A$ = "Y" OR A$ = "y" THEN GOTO 30
+130 PRINT "Goodbye "; U$
+140 END
+----------------------------------------------------
+<span class="token number">10</span> <span class="token keyword">INPUT</span> <span class="token string">"What is your name: "</span><span class="token punctuation">,</span> U$
+<span class="token number">20</span> <span class="token function">PRINT</span> <span class="token string">"Hello "</span><span class="token punctuation">;</span> U$
+<span class="token number">30</span> <span class="token keyword">INPUT</span> <span class="token string">"How many stars do you want: "</span><span class="token punctuation">,</span> N
+<span class="token number">40</span> S$ <span class="token operator">=</span> <span class="token string">""</span>
+<span class="token number">50</span> <span class="token keyword">FOR</span> I <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">TO</span> N
+<span class="token number">60</span> S$ <span class="token operator">=</span> S$ <span class="token operator">+</span> <span class="token string">"*"</span>
+<span class="token number">70</span> <span class="token keyword">NEXT</span> I
+<span class="token number">80</span> <span class="token function">PRINT</span> S$
+<span class="token number">90</span> <span class="token keyword">INPUT</span> <span class="token string">"Do you want more stars? "</span><span class="token punctuation">,</span> A$
+<span class="token number">100</span> <span class="token keyword">IF</span> <span class="token function">LEN</span><span class="token punctuation">(</span>A$<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">THEN</span> <span class="token keyword">GOTO</span> <span class="token number">90</span>
+<span class="token number">110</span> A$ <span class="token operator">=</span> <span class="token function">LEFT$</span><span class="token punctuation">(</span>A$<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token number">120</span> <span class="token keyword">IF</span> A$ <span class="token operator">=</span> <span class="token string">"Y"</span> <span class="token operator">OR</span> A$ <span class="token operator">=</span> <span class="token string">"y"</span> <span class="token keyword">THEN</span> <span class="token keyword">GOTO</span> <span class="token number">30</span>
+<span class="token number">130</span> <span class="token function">PRINT</span> <span class="token string">"Goodbye "</span><span class="token punctuation">;</span> U$
+<span class="token number">140</span> <span class="token keyword">END</span>
+
+----------------------------------------------------

@@ -1,0 +1,21 @@
+//
+// foobar
+/* foo
+bar */
+/* <me@example.com> */
+/**/
+/** doc comment */
+#
+# foobar
+----------------------------------------------------
+<span class="token comment">//</span>
+<span class="token comment">// foobar</span>
+<span class="token comment">/* foo
+bar */</span>
+<span class="token comment">/* &lt;me@example.com> */</span>
+<span class="token comment">/**/</span>
+<span class="token comment">/** doc comment */</span>
+<span class="token comment">#</span>
+<span class="token comment"># foobar</span>
+
+----------------------------------------------------

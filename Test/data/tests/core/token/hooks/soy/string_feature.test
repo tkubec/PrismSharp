@@ -1,0 +1,39 @@
+{msg desc=""}
+{msg desc="Foo \"bar\" 'baz'"}
+{$foo['bar\'baz\"\"\'']}
+{{msg desc="Example: The set of prime numbers is {2, 3, 5, 7, 11, 13, ...}."}}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "msg"],
+	["property", "desc"],
+	["operator", "="],
+	["string", "\"\""],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "msg"],
+	["property", "desc"],
+	["operator", "="],
+	["string", "\"Foo \\\"bar\\\" 'baz'\""],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", [
+		"$foo",
+		["punctuation", "["],
+		["string", "'bar\\'baz\\\"\\\"\\''"],
+		["punctuation", "]"]
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["keyword", "msg"],
+	["property", "desc"],
+	["operator", "="],
+	["string", "\"Example: The set of prime numbers is {2, 3, 5, 7, 11, 13, ...}.\""],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

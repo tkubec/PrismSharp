@@ -1,0 +1,68 @@
+include foo *.mk $(bar)
+
+vpath %.c foo
+
+override define two-lines =
+foo
+$(bar)
+endef
+
+ifeq ($(CC),gcc)
+  libs=$(libs_for_gcc)
+else
+  libs=$(normal_libs)
+endif
+----------------------------------------------------
+[
+	["keyword", "include"],
+	" foo *.mk ",
+	["variable", "$"],
+	["punctuation", "("],
+	"bar",
+	["punctuation", ")"],
+
+	["keyword", "vpath"], " %.c foo\n\n",
+
+	["keyword", "override"],
+	["keyword", "define"],
+	" two-lines ",
+	["operator", "="],
+
+	"\nfoo\n",
+
+	["variable", "$"],
+	["punctuation", "("],
+	"bar",
+	["punctuation", ")"],
+
+	["keyword", "endef"],
+
+	["keyword", "ifeq"],
+	["punctuation", "("],
+	["variable", "$"],
+	["punctuation", "("],
+	"CC",
+	["punctuation", ")"],
+	",gcc",
+	["punctuation", ")"],
+
+	"\n  libs",
+	["operator", "="],
+	["variable", "$"],
+	["punctuation", "("],
+	"libs_for_gcc",
+	["punctuation", ")"],
+
+	["keyword", "else"],
+
+	"\n  libs",
+	["operator", "="],
+	["variable", "$"],
+	["punctuation", "("],
+	"normal_libs",
+	["punctuation", ")"],
+
+	["keyword", "endif"]
+]
+
+----------------------------------------------------

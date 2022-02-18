@@ -1,0 +1,79 @@
+module golang.org/x/net
+
+go 1.14
+
+require golang.org/x/net v1.2.3
+
+require (
+    golang.org/x/crypto v1.4.5 // indirect
+    golang.org/x/text v1.6.7
+)
+
+exclude golang.org/x/net v1.2.3
+
+exclude (
+    golang.org/x/crypto v1.4.5
+    golang.org/x/text v1.6.7
+)
+
+replace golang.org/x/net v1.2.3 => example.com/fork/net v1.4.5
+
+replace (
+    golang.org/x/net v1.2.3 => example.com/fork/net v1.4.5
+    golang.org/x/net => example.com/fork/net v1.4.5
+    golang.org/x/net v1.2.3 => ./fork/net
+    golang.org/x/net => ./fork/net
+)
+
+retract (
+    v1.0.0 // Published accidentally.
+    v1.0.1 // Contains retractions only.
+)
+
+retract v1.0.0
+retract [v1.0.0, v1.9.9]
+retract (
+    v1.0.0
+    [v1.0.0, v1.9.9]
+)
+----------------------------------------------------
+<span class="token keyword">module</span> golang.org/x/net
+
+<span class="token keyword">go</span> <span class="token go-version number">1.14</span>
+
+<span class="token keyword">require</span> golang.org/x/net <span class="token version number">v1.2.3</span>
+
+<span class="token keyword">require</span> <span class="token punctuation">(</span>
+    golang.org/x/crypto <span class="token version number">v1.4.5</span> <span class="token comment">// indirect</span>
+    golang.org/x/text <span class="token version number">v1.6.7</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">exclude</span> golang.org/x/net <span class="token version number">v1.2.3</span>
+
+<span class="token keyword">exclude</span> <span class="token punctuation">(</span>
+    golang.org/x/crypto <span class="token version number">v1.4.5</span>
+    golang.org/x/text <span class="token version number">v1.6.7</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">replace</span> golang.org/x/net <span class="token version number">v1.2.3</span> <span class="token operator">=></span> example.com/fork/net <span class="token version number">v1.4.5</span>
+
+<span class="token keyword">replace</span> <span class="token punctuation">(</span>
+    golang.org/x/net <span class="token version number">v1.2.3</span> <span class="token operator">=></span> example.com/fork/net <span class="token version number">v1.4.5</span>
+    golang.org/x/net <span class="token operator">=></span> example.com/fork/net <span class="token version number">v1.4.5</span>
+    golang.org/x/net <span class="token version number">v1.2.3</span> <span class="token operator">=></span> ./fork/net
+    golang.org/x/net <span class="token operator">=></span> ./fork/net
+<span class="token punctuation">)</span>
+
+<span class="token keyword">retract</span> <span class="token punctuation">(</span>
+    <span class="token version number">v1.0.0</span> <span class="token comment">// Published accidentally.</span>
+    <span class="token version number">v1.0.1</span> <span class="token comment">// Contains retractions only.</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">retract</span> <span class="token version number">v1.0.0</span>
+<span class="token keyword">retract</span> <span class="token punctuation">[</span><span class="token version number">v1.0.0</span><span class="token punctuation">,</span> <span class="token version number">v1.9.9</span><span class="token punctuation">]</span>
+<span class="token keyword">retract</span> <span class="token punctuation">(</span>
+    <span class="token version number">v1.0.0</span>
+    <span class="token punctuation">[</span><span class="token version number">v1.0.0</span><span class="token punctuation">,</span> <span class="token version number">v1.9.9</span><span class="token punctuation">]</span>
+<span class="token punctuation">)</span>
+
+----------------------------------------------------

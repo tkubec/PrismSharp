@@ -1,0 +1,30 @@
+define('MAXSIZE', 42);
+echo MAXSIZE;
+json_decode($json, false, 512, JSON_BIGINT_AS_STRING)
+----------------------------------------------------
+[
+	["function", ["define"]],
+	["punctuation", "("],
+	["string", "'MAXSIZE'"],
+	["punctuation", ","],
+	["number", "42"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "echo"],
+	["constant", "MAXSIZE"],
+	["punctuation", ";"],
+
+	["function", ["json_decode"]],
+	["punctuation", "("],
+	["variable", "$json"],
+	["punctuation", ","],
+	["constant", "false"],
+	["punctuation", ","],
+	["number", "512"],
+	["punctuation", ","],
+	["constant", "JSON_BIGINT_AS_STRING"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+<li dep="{$prod/@dept}">number: {data($prod/number)
+}, name: {data($prod/name)}</li>
+
+return <item num="{$item/@num}"
+name="{$name}"
+quan="{$item/@quantity}"/>
+
+<li dep="{substring-after($prod/@dept, "-")}"/>
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">dep</span><span class="token attr-value"><span class="token punctuation">="</span><span class="token expression language-xquery"><span class="token punctuation">{</span><span class="token variable">$prod</span><span class="token punctuation">/</span><span class="token operator">@</span>dept<span class="token punctuation">}</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>number<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token variable">$prod</span><span class="token punctuation">/</span>number<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token variable">$prod</span><span class="token punctuation">/</span>name<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+
+<span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>item</span> <span class="token attr-name">num</span><span class="token attr-value"><span class="token punctuation">="</span><span class="token expression language-xquery"><span class="token punctuation">{</span><span class="token variable">$item</span><span class="token punctuation">/</span><span class="token operator">@</span>num<span class="token punctuation">}</span></span><span class="token punctuation">"</span></span>
+<span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">="</span><span class="token expression language-xquery"><span class="token punctuation">{</span><span class="token variable">$name</span><span class="token punctuation">}</span></span><span class="token punctuation">"</span></span>
+<span class="token attr-name">quan</span><span class="token attr-value"><span class="token punctuation">="</span><span class="token expression language-xquery"><span class="token punctuation">{</span><span class="token variable">$item</span><span class="token punctuation">/</span><span class="token operator">@</span>quantity<span class="token punctuation">}</span></span><span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">dep</span><span class="token attr-value"><span class="token punctuation">="</span><span class="token expression language-xquery"><span class="token punctuation">{</span><span class="token function">substring-after</span><span class="token punctuation">(</span><span class="token variable">$prod</span><span class="token punctuation">/</span><span class="token operator">@</span>dept<span class="token punctuation">,</span> <span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+----------------------------------------------------

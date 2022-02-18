@@ -1,0 +1,99 @@
+0 HEAD
+1 CHAR ASCII
+1 SOUR ID_OF_CREATING_FILE
+1 GEDC
+2 VERS 5.5
+2 FORM Lineage-Linked
+1 SUBM @SUBMITTER@
+0 @SUBMITTER@ SUBM
+1 NAME /Submitter/
+1 ADDR Submitters address
+2 CONT address continued here
+0 @FATHER@ INDI
+1 NAME /Father/
+1 SEX M
+1 BIRT
+2 PLAC birth place
+2 DATE 1 JAN 1899
+1 DEAT
+2 PLAC death place
+2 DATE 31 DEC 1990
+1 FAMS @FAMILY@
+0 @MOTHER@ INDI
+1 NAME /Mother/
+1 SEX F
+1 BIRT
+2 PLAC birth place
+2 DATE 1 JAN 1899
+1 DEAT
+2 PLAC death place
+2 DATE 31 DEC 1990
+1 FAMS @FAMILY@
+0 @CHILD@ INDI
+1 NAME /Child/
+1 BIRT
+2 PLAC birth place
+2 DATE 31 JUL 1950
+1 DEAT
+2 PLAC death place
+2 DATE 29 FEB 2000
+1 FAMC @FAMILY@
+0 @FAMILY@ FAM
+1 MARR
+2 PLAC marriage place
+2 DATE 1 APR 1950
+1 HUSB @FATHER@
+1 WIFE @MOTHER@
+1 CHIL @CHILD@
+0 TRLR
+----------------------------------------------------
+<span class="token level number">0</span> <span class="token tag string">HEAD</span>
+<span class="token level number">1</span> <span class="token tag string">CHAR</span> <span class="token line-value">ASCII</span>
+<span class="token level number">1</span> <span class="token tag string">SOUR</span> <span class="token line-value">ID_OF_CREATING_FILE</span>
+<span class="token level number">1</span> <span class="token tag string">GEDC</span>
+<span class="token level number">2</span> <span class="token tag string">VERS</span> <span class="token line-value">5.5</span>
+<span class="token level number">2</span> <span class="token tag string">FORM</span> <span class="token line-value">Lineage-Linked</span>
+<span class="token level number">1</span> <span class="token tag string">SUBM</span> <span class="token line-value"><span class="token pointer variable">@SUBMITTER@</span></span>
+<span class="token level number">0</span> <span class="token pointer variable">@SUBMITTER@</span> <span class="token tag string">SUBM</span>
+<span class="token level number">1</span> <span class="token tag string">NAME</span> <span class="token line-value">/Submitter/</span>
+<span class="token level number">1</span> <span class="token tag string">ADDR</span> <span class="token line-value">Submitters address</span>
+<span class="token level number">2</span> <span class="token tag string">CONT</span> <span class="token line-value">address continued here</span>
+<span class="token level number">0</span> <span class="token pointer variable">@FATHER@</span> <span class="token tag string">INDI</span>
+<span class="token level number">1</span> <span class="token tag string">NAME</span> <span class="token line-value">/Father/</span>
+<span class="token level number">1</span> <span class="token tag string">SEX</span> <span class="token line-value">M</span>
+<span class="token level number">1</span> <span class="token tag string">BIRT</span>
+<span class="token level number">2</span> <span class="token tag string">PLAC</span> <span class="token line-value">birth place</span>
+<span class="token level number">2</span> <span class="token tag string">DATE</span> <span class="token line-value">1 JAN 1899</span>
+<span class="token level number">1</span> <span class="token tag string">DEAT</span>
+<span class="token level number">2</span> <span class="token tag string">PLAC</span> <span class="token line-value">death place</span>
+<span class="token level number">2</span> <span class="token tag string">DATE</span> <span class="token line-value">31 DEC 1990</span>
+<span class="token level number">1</span> <span class="token tag string">FAMS</span> <span class="token line-value"><span class="token pointer variable">@FAMILY@</span></span>
+<span class="token level number">0</span> <span class="token pointer variable">@MOTHER@</span> <span class="token tag string">INDI</span>
+<span class="token level number">1</span> <span class="token tag string">NAME</span> <span class="token line-value">/Mother/</span>
+<span class="token level number">1</span> <span class="token tag string">SEX</span> <span class="token line-value">F</span>
+<span class="token level number">1</span> <span class="token tag string">BIRT</span>
+<span class="token level number">2</span> <span class="token tag string">PLAC</span> <span class="token line-value">birth place</span>
+<span class="token level number">2</span> <span class="token tag string">DATE</span> <span class="token line-value">1 JAN 1899</span>
+<span class="token level number">1</span> <span class="token tag string">DEAT</span>
+<span class="token level number">2</span> <span class="token tag string">PLAC</span> <span class="token line-value">death place</span>
+<span class="token level number">2</span> <span class="token tag string">DATE</span> <span class="token line-value">31 DEC 1990</span>
+<span class="token level number">1</span> <span class="token tag string">FAMS</span> <span class="token line-value"><span class="token pointer variable">@FAMILY@</span></span>
+<span class="token level number">0</span> <span class="token pointer variable">@CHILD@</span> <span class="token tag string">INDI</span>
+<span class="token level number">1</span> <span class="token tag string">NAME</span> <span class="token line-value">/Child/</span>
+<span class="token level number">1</span> <span class="token tag string">BIRT</span>
+<span class="token level number">2</span> <span class="token tag string">PLAC</span> <span class="token line-value">birth place</span>
+<span class="token level number">2</span> <span class="token tag string">DATE</span> <span class="token line-value">31 JUL 1950</span>
+<span class="token level number">1</span> <span class="token tag string">DEAT</span>
+<span class="token level number">2</span> <span class="token tag string">PLAC</span> <span class="token line-value">death place</span>
+<span class="token level number">2</span> <span class="token tag string">DATE</span> <span class="token line-value">29 FEB 2000</span>
+<span class="token level number">1</span> <span class="token tag string">FAMC</span> <span class="token line-value"><span class="token pointer variable">@FAMILY@</span></span>
+<span class="token level number">0</span> <span class="token pointer variable">@FAMILY@</span> <span class="token tag string">FAM</span>
+<span class="token level number">1</span> <span class="token tag string">MARR</span>
+<span class="token level number">2</span> <span class="token tag string">PLAC</span> <span class="token line-value">marriage place</span>
+<span class="token level number">2</span> <span class="token tag string">DATE</span> <span class="token line-value">1 APR 1950</span>
+<span class="token level number">1</span> <span class="token tag string">HUSB</span> <span class="token line-value"><span class="token pointer variable">@FATHER@</span></span>
+<span class="token level number">1</span> <span class="token tag string">WIFE</span> <span class="token line-value"><span class="token pointer variable">@MOTHER@</span></span>
+<span class="token level number">1</span> <span class="token tag string">CHIL</span> <span class="token line-value"><span class="token pointer variable">@CHILD@</span></span>
+<span class="token level number">0</span> <span class="token tag string">TRLR</span>
+
+----------------------------------------------------

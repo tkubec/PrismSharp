@@ -1,0 +1,13 @@
+[System.String]::Empty;
+[Foo.Bar+Baz]::Abc;
+[int] 42;
+[string[]]
+[OutputType([System.Collections.Generic.List[int]])]
+----------------------------------------------------
+<span class="token namespace">[System.String]</span>::Empty<span class="token punctuation">;</span>
+<span class="token namespace">[Foo.Bar+Baz]</span>::Abc<span class="token punctuation">;</span>
+<span class="token namespace">[int]</span> 42<span class="token punctuation">;</span>
+<span class="token namespace">[string[]]</span>
+<span class="token namespace">[OutputType([System.Collections.Generic.List[int]])]</span>
+
+----------------------------------------------------

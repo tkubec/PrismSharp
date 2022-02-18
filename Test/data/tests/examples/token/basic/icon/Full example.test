@@ -1,0 +1,1112 @@
+# Author: Robert J. Alexander
+global GameObject, Tree, Learn
+record Question(question, yes, no)
+procedure main()
+   GameObject := "animal"
+   Tree := Question("Does it live in water", "goldfish", "canary")
+   Get()                                  # Recall prior knowledge
+   Game()                                 # Play a game
+   return
+end
+#  Game() -- Conducts a game.
+#
+procedure Game()
+   while Confirm("Are you thinking of ", Article(GameObject), " ",
+      GameObject) do Ask(Tree)
+   write("Thanks for a great game.")
+   if \Learn &Confirm("Want to save knowledge learned this session")
+   then Save()
+   return
+end
+#  Confirm() -- Handles yes/no questions and answers.
+#
+procedure Confirm(q[])
+   local answer, s
+   static ok
+   initial {
+      ok := table()
+      every ok["y" | "yes" | "yeah" | "uh huh"] := "yes"
+      every ok["n" | "no"  | "nope" | "uh uh" ] := "no"
+      }
+   while /answer do {
+      every writes(!q)
+      write("?")
+      case s := read() | exit(1) of {
+         #  Commands recognized at a yes/no prompt.
+         #
+         "save":    Save()
+         "get":     Get()
+         "list":    List()
+         "dump":    Output(Tree)
+         default:   {
+            (answer := \ok[map(s, &ucase, &lcase)]) |
+               write("This is a \"yes\" or \"no\" question.")
+            }
+         }
+      }
+   return answer == "yes"
+end
+#  Ask() -- Navigates through the barrage of questions leading to a
+#  guess.
+#
+procedure Ask(node)
+   local guess, question
+   case type(node) of {
+      "string":        {
+         if not Confirm("It must be ", Article(node), " ", node, ", right") then {
+            Learn := "yes"
+            write("What were you thinking of?")
+            guess := read() | exit(1)
+            write("What question would distinguish ", Article(guess), " ",
+               guess, " from ", Article(node), " ", node, "?")
+            question := read() | exit(1)
+            if question[-1] == "?" then question[-1] := ""
+            question[1] := map(question[1], &lcase, &ucase)
+            if Confirm("For ", Article(guess), " ", guess, ", what would the answer be")
+            then return Question(question, guess, node)
+         else return Question(question, node, guess)
+         }
+      }
+      "Question":  {
+         if Confirm(node.question) then node.yes := Ask(node.yes)
+         else node.no := Ask(node.no)
+         }
+      }
+end
+#  Article() -- Come up with the appropriate indefinite article.
+#
+procedure Article(word)
+   return if any('aeiouAEIOU', word) then "an" else "a"
+end
+#  Save() -- Store our acquired knowledge in a disk file name
+#  based on the GameObject.
+#
+procedure Save()
+   local f
+   f := open(GameObject || "s", "w")
+   Output(Tree, f)
+   close(f)
+   return
+end
+#  Output() -- Recursive procedure used to output the knowledge tree.
+#
+procedure Output(node, f, sense)
+   static indent
+   initial indent := 0
+   /f := &output
+   /sense := " "
+   case type(node) of {
+      "string":        write(f, repl(" ", indent), sense, "A: ", node)
+      "Question":  {
+         write(f, repl(" ", indent), sense, "Q: ", node.question)
+         indent +:= 1
+         Output(node.yes, f, "y")
+         Output(node.no, f, "n")
+         indent -:= 1
+         }
+      }
+   return
+end
+#  Get() -- Read in a knowledge base from a file.
+#
+procedure Get()
+   local f
+   f := open(GameObject || "s", "r") | fail
+   Tree := Input(f)
+   close(f)
+   return
+end
+#  Input() -- Recursive procedure used to input the knowledge tree.
+#
+procedure Input(f)
+   local nodetype, s
+   read(f) ? (tab(upto(~' \t')) & =("y" | "n" | "") &
+      nodetype := move(1) & move(2) & s := tab(0))
+   return if nodetype == "Q" then Question(s, Input(f), Input(f)) else s
+end
+#  List() -- Lists the objects in the knowledge base.
+#
+$define Length           78
+procedure List()
+   local lst, line, item
+   lst := Show(Tree, [ ])
+   line := ""
+   every item := !sort(lst) do {
+      if *line + *item > Length then {
+         write(trim(line))
+         line := ""
+         }
+      line ||:= item || ", "
+      }
+   write(line[1:-2])
+   return
+end
+#
+#  Show() -- Recursive procedure used to navigate the knowledge tree.
+#
+procedure Show(node, lst)
+   if type(node) == "Question" then {
+      lst := Show(node.yes, lst)
+      lst := Show(node.no, lst)
+      }
+   else put(lst, node)
+   return lst
+end
+----------------------------------------------------
+[
+	["comment", "# Author: Robert J. Alexander"],
+
+	["keyword", "global"],
+	" GameObject",
+	["punctuation", ","],
+	" Tree",
+	["punctuation", ","],
+	" Learn\n",
+
+	["keyword", "record"],
+	["function", "Question"],
+	["punctuation", "("],
+	"question",
+	["punctuation", ","],
+	" yes",
+	["punctuation", ","],
+	" no",
+	["punctuation", ")"],
+
+	["keyword", "procedure"],
+	["function", "main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	"\n   GameObject ",
+	["operator", ":="],
+	["string", "\"animal\""],
+
+	"\n   Tree ",
+	["operator", ":="],
+	["function", "Question"],
+	["punctuation", "("],
+	["string", "\"Does it live in water\""],
+	["punctuation", ","],
+	["string", "\"goldfish\""],
+	["punctuation", ","],
+	["string", "\"canary\""],
+	["punctuation", ")"],
+
+	["function", "Get"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["comment", "# Recall prior knowledge"],
+
+	["function", "Game"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["comment", "# Play a game"],
+
+	["keyword", "return"],
+
+	["keyword", "end"],
+
+	["comment", "#  Game() -- Conducts a game."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Game"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "while"],
+	["function", "Confirm"],
+	["punctuation", "("],
+	["string", "\"Are you thinking of \""],
+	["punctuation", ","],
+	["function", "Article"],
+	["punctuation", "("],
+	"GameObject",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\" \""],
+	["punctuation", ","],
+
+	"\n      GameObject",
+	["punctuation", ")"],
+	["keyword", "do"],
+	["function", "Ask"],
+	["punctuation", "("],
+	"Tree",
+	["punctuation", ")"],
+
+	["function", "write"],
+	["punctuation", "("],
+	["string", "\"Thanks for a great game.\""],
+	["punctuation", ")"],
+
+	["keyword", "if"],
+	["operator", "\\"],
+	"Learn ",
+	["operator", "&"],
+	["function", "Confirm"],
+	["punctuation", "("],
+	["string", "\"Want to save knowledge learned this session\""],
+	["punctuation", ")"],
+
+	["keyword", "then"],
+	["function", "Save"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "return"],
+
+	["keyword", "end"],
+
+	["comment", "#  Confirm() -- Handles yes/no questions and answers."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Confirm"],
+	["punctuation", "("],
+	"q",
+	["punctuation", "["],
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["keyword", "local"],
+	" answer",
+	["punctuation", ","],
+	" s\n   ",
+
+	["keyword", "static"],
+	" ok\n   ",
+
+	["keyword", "initial"],
+	["punctuation", "{"],
+
+	"\n      ok ",
+	["operator", ":="],
+	["function", "table"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "every"],
+	" ok",
+	["punctuation", "["],
+	["string", "\"y\""],
+	["operator", "|"],
+	["string", "\"yes\""],
+	["operator", "|"],
+	["string", "\"yeah\""],
+	["operator", "|"],
+	["string", "\"uh huh\""],
+	["punctuation", "]"],
+	["operator", ":="],
+	["string", "\"yes\""],
+
+	["keyword", "every"],
+	" ok",
+	["punctuation", "["],
+	["string", "\"n\""],
+	["operator", "|"],
+	["string", "\"no\""],
+	["operator", "|"],
+	["string", "\"nope\""],
+	["operator", "|"],
+	["string", "\"uh uh\""],
+	["punctuation", "]"],
+	["operator", ":="],
+	["string", "\"no\""],
+
+	["punctuation", "}"],
+
+	["keyword", "while"],
+	["operator", "/"],
+	"answer ",
+	["keyword", "do"],
+	["punctuation", "{"],
+
+	["keyword", "every"],
+	["function", "writes"],
+	["punctuation", "("],
+	["operator", "!"],
+	"q",
+	["punctuation", ")"],
+
+	["function", "write"],
+	["punctuation", "("],
+	["string", "\"?\""],
+	["punctuation", ")"],
+
+	["keyword", "case"],
+	" s ",
+	["operator", ":="],
+	["function", "read"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "|"],
+	["function", "exit"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["keyword", "of"],
+	["punctuation", "{"],
+
+	["comment", "#  Commands recognized at a yes/no prompt."],
+
+	["comment", "#"],
+
+	["string", "\"save\""],
+	["operator", ":"],
+	["function", "Save"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["string", "\"get\""],
+	["operator", ":"],
+	["function", "Get"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["string", "\"list\""],
+	["operator", ":"],
+	["function", "List"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["string", "\"dump\""],
+	["operator", ":"],
+	["function", "Output"],
+	["punctuation", "("],
+	"Tree",
+	["punctuation", ")"],
+
+	["keyword", "default"],
+	["operator", ":"],
+	["punctuation", "{"],
+
+	["punctuation", "("],
+	"answer ",
+	["operator", ":="],
+	["operator", "\\"],
+	"ok",
+	["punctuation", "["],
+	["function", "map"],
+	["punctuation", "("],
+	"s",
+	["punctuation", ","],
+	["builtin-keyword", "&ucase"],
+	["punctuation", ","],
+	["builtin-keyword", "&lcase"],
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["operator", "|"],
+
+	["function", "write"],
+	["punctuation", "("],
+	["string", "\"This is a \\\"yes\\\" or \\\"no\\\" question.\""],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"],
+	" answer ",
+	["operator", "=="],
+	["string", "\"yes\""],
+
+	["keyword", "end"],
+
+	["comment", "#  Ask() -- Navigates through the barrage of questions leading to a"],
+
+	["comment", "#  guess."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Ask"],
+	["punctuation", "("],
+	"node",
+	["punctuation", ")"],
+
+	["keyword", "local"],
+	" guess",
+	["punctuation", ","],
+	" question\n   ",
+
+	["keyword", "case"],
+	["function", "type"],
+	["punctuation", "("],
+	"node",
+	["punctuation", ")"],
+	["keyword", "of"],
+	["punctuation", "{"],
+
+	["string", "\"string\""],
+	["operator", ":"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["keyword", "not"],
+	["function", "Confirm"],
+	["punctuation", "("],
+	["string", "\"It must be \""],
+	["punctuation", ","],
+	["function", "Article"],
+	["punctuation", "("],
+	"node",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\" \""],
+	["punctuation", ","],
+	" node",
+	["punctuation", ","],
+	["string", "\", right\""],
+	["punctuation", ")"],
+	["keyword", "then"],
+	["punctuation", "{"],
+
+	"\n            Learn ",
+	["operator", ":="],
+	["string", "\"yes\""],
+
+	["function", "write"],
+	["punctuation", "("],
+	["string", "\"What were you thinking of?\""],
+	["punctuation", ")"],
+
+	"\n            guess ",
+	["operator", ":="],
+	["function", "read"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "|"],
+	["function", "exit"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["function", "write"],
+	["punctuation", "("],
+	["string", "\"What question would distinguish \""],
+	["punctuation", ","],
+	["function", "Article"],
+	["punctuation", "("],
+	"guess",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\" \""],
+	["punctuation", ","],
+
+	"\n               guess",
+	["punctuation", ","],
+	["string", "\" from \""],
+	["punctuation", ","],
+	["function", "Article"],
+	["punctuation", "("],
+	"node",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\" \""],
+	["punctuation", ","],
+	" node",
+	["punctuation", ","],
+	["string", "\"?\""],
+	["punctuation", ")"],
+
+	"\n            question ",
+	["operator", ":="],
+	["function", "read"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "|"],
+	["function", "exit"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["keyword", "if"],
+	" question",
+	["punctuation", "["],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", "]"],
+	["operator", "=="],
+	["string", "\"?\""],
+	["keyword", "then"],
+	" question",
+	["punctuation", "["],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", "]"],
+	["operator", ":="],
+	["string", "\"\""],
+
+	"\n            question",
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["operator", ":="],
+	["function", "map"],
+	["punctuation", "("],
+	"question",
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	["builtin-keyword", "&lcase"],
+	["punctuation", ","],
+	["builtin-keyword", "&ucase"],
+	["punctuation", ")"],
+
+	["keyword", "if"],
+	["function", "Confirm"],
+	["punctuation", "("],
+	["string", "\"For \""],
+	["punctuation", ","],
+	["function", "Article"],
+	["punctuation", "("],
+	"guess",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["string", "\" \""],
+	["punctuation", ","],
+	" guess",
+	["punctuation", ","],
+	["string", "\", what would the answer be\""],
+	["punctuation", ")"],
+
+	["keyword", "then"],
+	["keyword", "return"],
+	["function", "Question"],
+	["punctuation", "("],
+	"question",
+	["punctuation", ","],
+	" guess",
+	["punctuation", ","],
+	" node",
+	["punctuation", ")"],
+
+	["keyword", "else"],
+	["keyword", "return"],
+	["function", "Question"],
+	["punctuation", "("],
+	"question",
+	["punctuation", ","],
+	" node",
+	["punctuation", ","],
+	" guess",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["string", "\"Question\""],
+	["operator", ":"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["function", "Confirm"],
+	["punctuation", "("],
+	"node",
+	["operator", "."],
+	"question",
+	["punctuation", ")"],
+	["keyword", "then"],
+	" node",
+	["operator", "."],
+	"yes ",
+	["operator", ":="],
+	["function", "Ask"],
+	["punctuation", "("],
+	"node",
+	["operator", "."],
+	"yes",
+	["punctuation", ")"],
+
+	["keyword", "else"],
+	" node",
+	["operator", "."],
+	"no ",
+	["operator", ":="],
+	["function", "Ask"],
+	["punctuation", "("],
+	"node",
+	["operator", "."],
+	"no",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "end"],
+
+	["comment", "#  Article() -- Come up with the appropriate indefinite article."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Article"],
+	["punctuation", "("],
+	"word",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["keyword", "if"],
+	["function", "any"],
+	["punctuation", "("],
+	["string", "'aeiouAEIOU'"],
+	["punctuation", ","],
+	" word",
+	["punctuation", ")"],
+	["keyword", "then"],
+	["string", "\"an\""],
+	["keyword", "else"],
+	["string", "\"a\""],
+
+	["keyword", "end"],
+
+	["comment", "#  Save() -- Store our acquired knowledge in a disk file name"],
+
+	["comment", "#  based on the GameObject."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Save"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "local"],
+	" f\n   f ",
+	["operator", ":="],
+	["function", "open"],
+	["punctuation", "("],
+	"GameObject ",
+	["operator", "||"],
+	["string", "\"s\""],
+	["punctuation", ","],
+	["string", "\"w\""],
+	["punctuation", ")"],
+
+	["function", "Output"],
+	["punctuation", "("],
+	"Tree",
+	["punctuation", ","],
+	" f",
+	["punctuation", ")"],
+
+	["function", "close"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+
+	["keyword", "end"],
+
+	["comment", "#  Output() -- Recursive procedure used to output the knowledge tree."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Output"],
+	["punctuation", "("],
+	"node",
+	["punctuation", ","],
+	" f",
+	["punctuation", ","],
+	" sense",
+	["punctuation", ")"],
+
+	["keyword", "static"],
+	" indent\n   ",
+
+	["keyword", "initial"],
+	" indent ",
+	["operator", ":="],
+	["number", "0"],
+
+	["operator", "/"],
+	"f ",
+	["operator", ":="],
+	["builtin-keyword", "&output"],
+
+	["operator", "/"],
+	"sense ",
+	["operator", ":="],
+	["string", "\" \""],
+
+	["keyword", "case"],
+	["function", "type"],
+	["punctuation", "("],
+	"node",
+	["punctuation", ")"],
+	["keyword", "of"],
+	["punctuation", "{"],
+
+	["string", "\"string\""],
+	["operator", ":"],
+	["function", "write"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ","],
+	["function", "repl"],
+	["punctuation", "("],
+	["string", "\" \""],
+	["punctuation", ","],
+	" indent",
+	["punctuation", ")"],
+	["punctuation", ","],
+	" sense",
+	["punctuation", ","],
+	["string", "\"A: \""],
+	["punctuation", ","],
+	" node",
+	["punctuation", ")"],
+
+	["string", "\"Question\""],
+	["operator", ":"],
+	["punctuation", "{"],
+
+	["function", "write"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ","],
+	["function", "repl"],
+	["punctuation", "("],
+	["string", "\" \""],
+	["punctuation", ","],
+	" indent",
+	["punctuation", ")"],
+	["punctuation", ","],
+	" sense",
+	["punctuation", ","],
+	["string", "\"Q: \""],
+	["punctuation", ","],
+	" node",
+	["operator", "."],
+	"question",
+	["punctuation", ")"],
+
+	"\n         indent ",
+	["operator", "+:="],
+	["number", "1"],
+
+	["function", "Output"],
+	["punctuation", "("],
+	"node",
+	["operator", "."],
+	"yes",
+	["punctuation", ","],
+	" f",
+	["punctuation", ","],
+	["string", "\"y\""],
+	["punctuation", ")"],
+
+	["function", "Output"],
+	["punctuation", "("],
+	"node",
+	["operator", "."],
+	"no",
+	["punctuation", ","],
+	" f",
+	["punctuation", ","],
+	["string", "\"n\""],
+	["punctuation", ")"],
+
+	"\n         indent ",
+	["operator", "-:="],
+	["number", "1"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"],
+
+	["keyword", "end"],
+
+	["comment", "#  Get() -- Read in a knowledge base from a file."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Get"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "local"],
+	" f\n   f ",
+	["operator", ":="],
+	["function", "open"],
+	["punctuation", "("],
+	"GameObject ",
+	["operator", "||"],
+	["string", "\"s\""],
+	["punctuation", ","],
+	["string", "\"r\""],
+	["punctuation", ")"],
+	["operator", "|"],
+	["keyword", "fail"],
+
+	"\n   Tree ",
+	["operator", ":="],
+	["function", "Input"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ")"],
+
+	["function", "close"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+
+	["keyword", "end"],
+
+	["comment", "#  Input() -- Recursive procedure used to input the knowledge tree."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Input"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ")"],
+
+	["keyword", "local"],
+	" nodetype",
+	["punctuation", ","],
+	" s\n   ",
+
+	["function", "read"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ")"],
+	["operator", "?"],
+	["punctuation", "("],
+	["function", "tab"],
+	["punctuation", "("],
+	["function", "upto"],
+	["punctuation", "("],
+	["operator", "~"],
+	["string", "' \\t'"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator", "&"],
+	["operator", "="],
+	["punctuation", "("],
+	["string", "\"y\""],
+	["operator", "|"],
+	["string", "\"n\""],
+	["operator", "|"],
+	["string", "\"\""],
+	["punctuation", ")"],
+	["operator", "&"],
+
+	"\n      nodetype ",
+	["operator", ":="],
+	["function", "move"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["operator", "&"],
+	["function", "move"],
+	["punctuation", "("],
+	["number", "2"],
+	["punctuation", ")"],
+	["operator", "&"],
+	" s ",
+	["operator", ":="],
+	["function", "tab"],
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["keyword", "if"],
+	" nodetype ",
+	["operator", "=="],
+	["string", "\"Q\""],
+	["keyword", "then"],
+	["function", "Question"],
+	["punctuation", "("],
+	"s",
+	["punctuation", ","],
+	["function", "Input"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["function", "Input"],
+	["punctuation", "("],
+	"f",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "else"],
+	" s\n",
+
+	["keyword", "end"],
+
+	["comment", "#  List() -- Lists the objects in the knowledge base."],
+
+	["comment", "#"],
+
+	["directive", "$define"],
+	" Length           ",
+	["number", "78"],
+
+	["keyword", "procedure"],
+	["function", "List"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "local"],
+	" lst",
+	["punctuation", ","],
+	" line",
+	["punctuation", ","],
+	" item\n   lst ",
+	["operator", ":="],
+	["function", "Show"],
+	["punctuation", "("],
+	"Tree",
+	["punctuation", ","],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	"\n   line ",
+	["operator", ":="],
+	["string", "\"\""],
+
+	["keyword", "every"],
+	" item ",
+	["operator", ":="],
+	["operator", "!"],
+	["function", "sort"],
+	["punctuation", "("],
+	"lst",
+	["punctuation", ")"],
+	["keyword", "do"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["operator", "*"],
+	"line ",
+	["operator", "+"],
+	["operator", "*"],
+	"item ",
+	["operator", ">"],
+	" Length ",
+	["keyword", "then"],
+	["punctuation", "{"],
+
+	["function", "write"],
+	["punctuation", "("],
+	["function", "trim"],
+	["punctuation", "("],
+	"line",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	"\n         line ",
+	["operator", ":="],
+	["string", "\"\""],
+
+	["punctuation", "}"],
+
+	"\n      line ",
+	["operator", "||:="],
+	" item ",
+	["operator", "||"],
+	["string", "\", \""],
+
+	["punctuation", "}"],
+
+	["function", "write"],
+	["punctuation", "("],
+	"line",
+	["punctuation", "["],
+	["number", "1"],
+	["operator", ":"],
+	["operator", "-"],
+	["number", "2"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["keyword", "return"],
+
+	["keyword", "end"],
+
+	["comment", "#"],
+
+	["comment", "#  Show() -- Recursive procedure used to navigate the knowledge tree."],
+
+	["comment", "#"],
+
+	["keyword", "procedure"],
+	["function", "Show"],
+	["punctuation", "("],
+	"node",
+	["punctuation", ","],
+	" lst",
+	["punctuation", ")"],
+
+	["keyword", "if"],
+	["function", "type"],
+	["punctuation", "("],
+	"node",
+	["punctuation", ")"],
+	["operator", "=="],
+	["string", "\"Question\""],
+	["keyword", "then"],
+	["punctuation", "{"],
+
+	"\n      lst ",
+	["operator", ":="],
+	["function", "Show"],
+	["punctuation", "("],
+	"node",
+	["operator", "."],
+	"yes",
+	["punctuation", ","],
+	" lst",
+	["punctuation", ")"],
+
+	"\n      lst ",
+	["operator", ":="],
+	["function", "Show"],
+	["punctuation", "("],
+	"node",
+	["operator", "."],
+	"no",
+	["punctuation", ","],
+	" lst",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["function", "put"],
+	["punctuation", "("],
+	"lst",
+	["punctuation", ","],
+	" node",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	" lst\n",
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

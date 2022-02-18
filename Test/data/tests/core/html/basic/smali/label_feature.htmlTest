@@ -1,0 +1,11 @@
+.line 989
+:cond_2b
+
+goto :goto_1f
+----------------------------------------------------
+<span class="token keyword">.line</span> <span class="token number">989</span>
+<span class="token punctuation">:</span><span class="token label property">cond_2b</span>
+
+goto <span class="token punctuation">:</span><span class="token label property">goto_1f</span>
+
+----------------------------------------------------

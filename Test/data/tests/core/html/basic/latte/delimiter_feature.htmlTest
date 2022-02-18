@@ -1,0 +1,27 @@
+{aa}
+{/aa}
+{/}
+{{aa}}
+{10}
+{=10}
+{test()}
+{'no'}
+{"no"}
+{ no }
+{multi
+line}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token latte-tag important">aa</span><span class="token php language-php"><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">/</span>aa<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">/</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span>aa<span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string single-quoted-string">'no'</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string double-quoted-string">"no"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span> no <span class="token punctuation">}</span>
+<span class="token punctuation">{</span>multi
+line</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

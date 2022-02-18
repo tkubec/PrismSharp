@@ -1,0 +1,31 @@
+module com.js.prism {
+	exports java.net.http;
+	exports jdk.internal.editor.spi to jdk.jshell;
+
+	requires java.base;
+	requires transitive java.xml;
+
+	uses java.net.ContentHandlerFactory;
+
+	opens java.time.DateTime;
+	opens java.time.LocalDateTime to java.logging;
+
+	provides com.modules.hello.HelloInterface with com.modules.hello.HelloModules;
+}
+----------------------------------------------------
+<span class="token keyword">module</span> <span class="token namespace">com<span class="token punctuation">.</span>js<span class="token punctuation">.</span>prism</span> <span class="token punctuation">{</span>
+	<span class="token keyword">exports</span> <span class="token namespace">java<span class="token punctuation">.</span>net<span class="token punctuation">.</span>http</span><span class="token punctuation">;</span>
+	<span class="token keyword">exports</span> <span class="token namespace">jdk<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>editor<span class="token punctuation">.</span>spi</span> <span class="token keyword">to</span> <span class="token namespace">jdk<span class="token punctuation">.</span>jshell</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">requires</span> <span class="token namespace">java<span class="token punctuation">.</span>base</span><span class="token punctuation">;</span>
+	<span class="token keyword">requires</span> <span class="token keyword">transitive</span> <span class="token namespace">java<span class="token punctuation">.</span>xml</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">uses</span> <span class="token namespace">java<span class="token punctuation">.</span>net<span class="token punctuation">.</span></span><span class="token class-name">ContentHandlerFactory</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">opens</span> <span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">DateTime</span><span class="token punctuation">;</span>
+	<span class="token keyword">opens</span> <span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">LocalDateTime</span> <span class="token keyword">to</span> <span class="token namespace">java<span class="token punctuation">.</span>logging</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">provides</span> <span class="token namespace">com<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>hello<span class="token punctuation">.</span></span><span class="token class-name">HelloInterface</span> <span class="token keyword">with</span> <span class="token namespace">com<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>hello<span class="token punctuation">.</span></span><span class="token class-name">HelloModules</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

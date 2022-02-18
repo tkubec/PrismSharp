@@ -1,0 +1,15 @@
+#language: fr
+FonctionnalitĂ©: ContrĂ´le le format de la valeur saisie d'un champ d'une rĂ©vision
+  En tant qu'expert ou analyste
+  Je ne dois pas pouvoir soumettre des donnĂ©es au mauvais format
+
+  Contexte:
+    Etant donnĂ© que je suis connectĂ© avec le pseudo "p_flore" et le mot de passe "p4flore"
+    Et que la gamme du contrat 27156 supporte les rĂ©visions
+    Etant donnĂ© que le contrat ayant l'id "27156" a une rĂ©vision
+    Et je suis sur "/contrat/27156/revision/1"
+    Et que j'attends quelques secondes
+    ...
+
+--------------------------------------------------
+

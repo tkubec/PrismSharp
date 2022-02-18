@@ -1,0 +1,11 @@
+{% if foo %} bar {% endif %}
+{% for key, value in arr if value %} {{ do_something() }} {% endfor %}
+{% include 'header.html' %}
+{% include 'template.html' with {'foo': 'bar'} %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token tag-name keyword">if</span> foo <span class="token operator">%</span><span class="token punctuation">}</span> bar <span class="token punctuation">{</span><span class="token operator">%</span> endif <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> for key<span class="token punctuation">,</span> value <span class="token operator">in</span> arr <span class="token keyword">if</span> value <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> do_something<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> include <span class="token string"><span class="token punctuation">'</span>header.html<span class="token punctuation">'</span></span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> include <span class="token string"><span class="token punctuation">'</span>template.html<span class="token punctuation">'</span></span> with <span class="token punctuation">{</span><span class="token string"><span class="token punctuation">'</span>foo<span class="token punctuation">'</span></span><span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span>bar<span class="token punctuation">'</span></span><span class="token punctuation">}</span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

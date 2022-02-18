@@ -1,0 +1,395 @@
+#!/usr/bin/make -f
+# Generated automatically from Makefile.in by configure.
+# Un*x Makefile for GNU tar program.
+# Copyright (C) 1991 Free Software Foundation, Inc.
+
+# This program is free software; you can redistribute
+# it and/or modify it under the terms of the GNU
+# General Public License …
+…
+…
+
+SHELL = /bin/sh
+
+#### Start of system configuration section. ####
+
+srcdir = .
+
+# If you use gcc, you should either run the
+# fixincludes script that comes with it or else use
+# gcc with the -traditional option.  Otherwise ioctl
+# calls will be compiled incorrectly on some systems.
+CC = gcc -O
+YACC = bison -y
+INSTALL = /usr/local/bin/install -c
+INSTALLDATA = /usr/local/bin/install -c -m 644
+
+# Things you might add to DEFS:
+# -DSTDC_HEADERS        If you have ANSI C headers and
+#                       libraries.
+# -DPOSIX               If you have POSIX.1 headers and
+#                       libraries.
+# -DBSD42               If you have sys/dir.h (unless
+#                       you use -DPOSIX), sys/file.h,
+#                       and st_blocks in `struct stat'.
+# -DUSG                 If you have System V/ANSI C
+#                       string and memory functions
+#                       and headers, sys/sysmacros.h,
+#                       fcntl.h, getcwd, no valloc,
+#                       and ndir.h (unless
+#                       you use -DDIRENT).
+# -DNO_MEMORY_H         If USG or STDC_HEADERS but do not
+#                       include memory.h.
+# -DDIRENT              If USG and you have dirent.h
+#                       instead of ndir.h.
+# -DSIGTYPE=int         If your signal handlers
+#                       return int, not void.
+# -DNO_MTIO             If you lack sys/mtio.h
+#                       (magtape ioctls).
+# -DNO_REMOTE           If you do not have a remote shell
+#                       or rexec.
+# -DUSE_REXEC           To use rexec for remote tape
+#                       operations instead of
+#                       forking rsh or remsh.
+# -DVPRINTF_MISSING     If you lack vprintf function
+#                       (but have _doprnt).
+# -DDOPRNT_MISSING      If you lack _doprnt function.
+#                       Also need to define
+#                       -DVPRINTF_MISSING.
+# -DFTIME_MISSING       If you lack ftime system call.
+# -DSTRSTR_MISSING      If you lack strstr function.
+# -DVALLOC_MISSING      If you lack valloc function.
+# -DMKDIR_MISSING       If you lack mkdir and
+#                       rmdir system calls.
+# -DRENAME_MISSING      If you lack rename system call.
+# -DFTRUNCATE_MISSING   If you lack ftruncate
+#                       system call.
+# -DV7                  On Version 7 Unix (not
+#                       tested in a long time).
+# -DEMUL_OPEN3          If you lack a 3-argument version
+#                       of open, and want to emulate it
+#                       with system calls you do have.
+# -DNO_OPEN3            If you lack the 3-argument open
+#                       and want to disable the tar -k
+#                       option instead of emulating open.
+# -DXENIX               If you have sys/inode.h
+#                       and need it 94 to be included.
+
+DEFS =  -DSIGTYPE=int -DDIRENT -DSTRSTR_MISSING \
+        -DVPRINTF_MISSING -DBSD42
+# Set this to rtapelib.o unless you defined NO_REMOTE,
+# in which case make it empty.
+RTAPELIB = rtapelib.o
+LIBS =
+DEF_AR_FILE = /dev/rmt8
+DEFBLOCKING = 20
+
+CDEBUG = -g
+CFLAGS = $(CDEBUG) -I. -I$(srcdir) $(DEFS) \
+        -DDEF_AR_FILE=\"$(DEF_AR_FILE)\" \
+        -DDEFBLOCKING=$(DEFBLOCKING)
+LDFLAGS = -g
+
+prefix = /usr/local
+# Prefix for each installed program,
+# normally empty or `g'.
+binprefix =
+
+# The directory to install tar in.
+bindir = $(prefix)/bin
+
+# The directory to install the info files in.
+infodir = $(prefix)/info
+
+#### End of system configuration section. ####
+
+SRCS_C  = tar.c create.c extract.c buffer.c   \
+          getoldopt.c update.c gnu.c mangle.c \
+          version.c list.c names.c diffarch.c \
+          port.c wildmat.c getopt.c getopt1.c \
+          regex.c
+SRCS_Y  = getdate.y
+SRCS    = $(SRCS_C) $(SRCS_Y)
+OBJS    = $(SRCS_C:.c=.o) $(SRCS_Y:.y=.o) $(RTAPELIB)
+
+AUX =   README COPYING ChangeLog Makefile.in  \
+        makefile.pc configure configure.in \
+        tar.texinfo tar.info* texinfo.tex \
+        tar.h port.h open3.h getopt.h regex.h \
+        rmt.h rmt.c rtapelib.c alloca.c \
+        msd_dir.h msd_dir.c tcexparg.c \
+        level-0 level-1 backup-specs testpad.c
+
+.PHONY: all
+all:    tar rmt tar.info
+
+tar:    $(OBJS)
+        $(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+
+rmt:    rmt.c
+        $(CC) $(CFLAGS) $(LDFLAGS) -o $@ rmt.c
+
+tar.info: tar.texinfo
+        makeinfo tar.texinfo
+
+.PHONY: install
+install: all
+        $(INSTALL) tar $(bindir)/$(binprefix)tar
+        -test ! -f rmt || $(INSTALL) rmt /etc/rmt
+        $(INSTALLDATA) $(srcdir)/tar.info* $(infodir)
+
+$(OBJS): tar.h port.h testpad.h
+regex.o buffer.o tar.o: regex.h
+# getdate.y has 8 shift/reduce conflicts.
+
+testpad.h: testpad
+        ./testpad
+
+testpad: testpad.o
+        $(CC) -o $@ testpad.o
+
+TAGS:   $(SRCS)
+        etags $(SRCS)
+
+.PHONY: clean
+clean:
+        rm -f *.o tar rmt testpad testpad.h core
+
+.PHONY: distclean
+distclean: clean
+        rm -f TAGS Makefile config.status
+
+.PHONY: realclean
+realclean: distclean
+        rm -f tar.info*
+
+.PHONY: shar
+shar: $(SRCS) $(AUX)
+        shar $(SRCS) $(AUX) | compress \
+          > tar-`sed -e '/version_string/!d' \
+                     -e 's/[^0-9.]*\([0-9.]*\).*/\1/' \
+                     -e q
+                     version.c`.shar.Z
+
+.PHONY: dist
+dist: $(SRCS) $(AUX)
+        echo tar-`sed \
+             -e '/version_string/!d' \
+             -e 's/[^0-9.]*\([0-9.]*\).*/\1/' \
+             -e q
+             version.c` > .fname
+        -rm -rf `cat .fname`
+        mkdir `cat .fname`
+        ln $(SRCS) $(AUX) `cat .fname`
+        tar chZf `cat .fname`.tar.Z `cat .fname`
+        -rm -rf `cat .fname` .fname
+
+tar.zoo: $(SRCS) $(AUX)
+        -rm -rf tmp.dir
+        -mkdir tmp.dir
+        -rm tar.zoo
+        for X in $(SRCS) $(AUX) ; do \
+            echo $$X ; \
+            sed 's/$$/^M/' $$X \
+            > tmp.dir/$$X ; done
+        cd tmp.dir ; zoo aM ../tar.zoo *
+        -rm -rf tmp.dir
+----------------------------------------------------
+<span class="token comment">#!/usr/bin/make -f</span>
+<span class="token comment"># Generated automatically from Makefile.in by configure.</span>
+<span class="token comment"># Un*x Makefile for GNU tar program.</span>
+<span class="token comment"># Copyright (C) 1991 Free Software Foundation, Inc.</span>
+
+<span class="token comment"># This program is free software; you can redistribute</span>
+<span class="token comment"># it and/or modify it under the terms of the GNU</span>
+<span class="token comment"># General Public License …</span>
+…
+…
+
+SHELL <span class="token operator">=</span> /bin/sh
+
+<span class="token comment">#### Start of system configuration section. ####</span>
+
+srcdir <span class="token operator">=</span> .
+
+<span class="token comment"># If you use gcc, you should either run the</span>
+<span class="token comment"># fixincludes script that comes with it or else use</span>
+<span class="token comment"># gcc with the -traditional option.  Otherwise ioctl</span>
+<span class="token comment"># calls will be compiled incorrectly on some systems.</span>
+CC <span class="token operator">=</span> gcc -O
+YACC <span class="token operator">=</span> bison -y
+INSTALL <span class="token operator">=</span> /usr/local/bin/install -c
+INSTALLDATA <span class="token operator">=</span> /usr/local/bin/install -c -m 644
+
+<span class="token comment"># Things you might add to DEFS:</span>
+<span class="token comment"># -DSTDC_HEADERS        If you have ANSI C headers and</span>
+<span class="token comment">#                       libraries.</span>
+<span class="token comment"># -DPOSIX               If you have POSIX.1 headers and</span>
+<span class="token comment">#                       libraries.</span>
+<span class="token comment"># -DBSD42               If you have sys/dir.h (unless</span>
+<span class="token comment">#                       you use -DPOSIX), sys/file.h,</span>
+<span class="token comment">#                       and st_blocks in `struct stat'.</span>
+<span class="token comment"># -DUSG                 If you have System V/ANSI C</span>
+<span class="token comment">#                       string and memory functions</span>
+<span class="token comment">#                       and headers, sys/sysmacros.h,</span>
+<span class="token comment">#                       fcntl.h, getcwd, no valloc,</span>
+<span class="token comment">#                       and ndir.h (unless</span>
+<span class="token comment">#                       you use -DDIRENT).</span>
+<span class="token comment"># -DNO_MEMORY_H         If USG or STDC_HEADERS but do not</span>
+<span class="token comment">#                       include memory.h.</span>
+<span class="token comment"># -DDIRENT              If USG and you have dirent.h</span>
+<span class="token comment">#                       instead of ndir.h.</span>
+<span class="token comment"># -DSIGTYPE=int         If your signal handlers</span>
+<span class="token comment">#                       return int, not void.</span>
+<span class="token comment"># -DNO_MTIO             If you lack sys/mtio.h</span>
+<span class="token comment">#                       (magtape ioctls).</span>
+<span class="token comment"># -DNO_REMOTE           If you do not have a remote shell</span>
+<span class="token comment">#                       or rexec.</span>
+<span class="token comment"># -DUSE_REXEC           To use rexec for remote tape</span>
+<span class="token comment">#                       operations instead of</span>
+<span class="token comment">#                       forking rsh or remsh.</span>
+<span class="token comment"># -DVPRINTF_MISSING     If you lack vprintf function</span>
+<span class="token comment">#                       (but have _doprnt).</span>
+<span class="token comment"># -DDOPRNT_MISSING      If you lack _doprnt function.</span>
+<span class="token comment">#                       Also need to define</span>
+<span class="token comment">#                       -DVPRINTF_MISSING.</span>
+<span class="token comment"># -DFTIME_MISSING       If you lack ftime system call.</span>
+<span class="token comment"># -DSTRSTR_MISSING      If you lack strstr function.</span>
+<span class="token comment"># -DVALLOC_MISSING      If you lack valloc function.</span>
+<span class="token comment"># -DMKDIR_MISSING       If you lack mkdir and</span>
+<span class="token comment">#                       rmdir system calls.</span>
+<span class="token comment"># -DRENAME_MISSING      If you lack rename system call.</span>
+<span class="token comment"># -DFTRUNCATE_MISSING   If you lack ftruncate</span>
+<span class="token comment">#                       system call.</span>
+<span class="token comment"># -DV7                  On Version 7 Unix (not</span>
+<span class="token comment">#                       tested in a long time).</span>
+<span class="token comment"># -DEMUL_OPEN3          If you lack a 3-argument version</span>
+<span class="token comment">#                       of open, and want to emulate it</span>
+<span class="token comment">#                       with system calls you do have.</span>
+<span class="token comment"># -DNO_OPEN3            If you lack the 3-argument open</span>
+<span class="token comment">#                       and want to disable the tar -k</span>
+<span class="token comment">#                       option instead of emulating open.</span>
+<span class="token comment"># -DXENIX               If you have sys/inode.h</span>
+<span class="token comment">#                       and need it 94 to be included.</span>
+
+DEFS <span class="token operator">=</span>  -DSIGTYPE<span class="token operator">=</span>int -DDIRENT -DSTRSTR_MISSING \
+        -DVPRINTF_MISSING -DBSD42
+<span class="token comment"># Set this to rtapelib.o unless you defined NO_REMOTE,</span>
+<span class="token comment"># in which case make it empty.</span>
+RTAPELIB <span class="token operator">=</span> rtapelib.o
+LIBS <span class="token operator">=</span>
+DEF_AR_FILE <span class="token operator">=</span> /dev/rmt8
+DEFBLOCKING <span class="token operator">=</span> 20
+
+CDEBUG <span class="token operator">=</span> -g
+CFLAGS <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">(</span>CDEBUG<span class="token punctuation">)</span> -I. -I<span class="token variable">$</span><span class="token punctuation">(</span>srcdir<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>DEFS<span class="token punctuation">)</span> \
+        -DDEF_AR_FILE<span class="token operator">=</span>\"<span class="token variable">$</span><span class="token punctuation">(</span>DEF_AR_FILE<span class="token punctuation">)</span>\" \
+        -DDEFBLOCKING<span class="token operator">=</span><span class="token variable">$</span><span class="token punctuation">(</span>DEFBLOCKING<span class="token punctuation">)</span>
+LDFLAGS <span class="token operator">=</span> -g
+
+prefix <span class="token operator">=</span> /usr/local
+<span class="token comment"># Prefix for each installed program,</span>
+<span class="token comment"># normally empty or `g'.</span>
+binprefix <span class="token operator">=</span>
+
+<span class="token comment"># The directory to install tar in.</span>
+bindir <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>/bin
+
+<span class="token comment"># The directory to install the info files in.</span>
+infodir <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>/info
+
+<span class="token comment">#### End of system configuration section. ####</span>
+
+SRCS_C  <span class="token operator">=</span> tar.c create.c extract.c buffer.c   \
+          getoldopt.c update.c gnu.c mangle.c \
+          version.c list.c names.c diffarch.c \
+          port.c wildmat.c getopt.c getopt1.c \
+          regex.c
+SRCS_Y  <span class="token operator">=</span> getdate.y
+SRCS    <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">(</span>SRCS_C<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>SRCS_Y<span class="token punctuation">)</span>
+OBJS    <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">(</span>SRCS_C<span class="token punctuation">:</span>.c<span class="token operator">=</span>.o<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>SRCS_Y<span class="token punctuation">:</span>.y<span class="token operator">=</span>.o<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>RTAPELIB<span class="token punctuation">)</span>
+
+AUX <span class="token operator">=</span>   README COPYING ChangeLog Makefile.in  \
+        makefile.pc configure configure.in \
+        tar.texinfo tar.info* texinfo.tex \
+        tar.h port.h open3.h getopt.h regex.h \
+        rmt.h rmt.c rtapelib.c alloca.c \
+        msd_dir.h msd_dir.c tcexparg.c \
+        level-0 level-1 backup-specs testpad.c
+
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> all
+<span class="token target symbol">all</span><span class="token punctuation">:</span>    tar rmt tar.info
+
+<span class="token target symbol">tar</span><span class="token punctuation">:</span>    <span class="token variable">$</span><span class="token punctuation">(</span>OBJS<span class="token punctuation">)</span>
+        <span class="token variable">$</span><span class="token punctuation">(</span>CC<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>LDFLAGS<span class="token punctuation">)</span> -o <span class="token variable">$@</span> <span class="token variable">$</span><span class="token punctuation">(</span>OBJS<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>LIBS<span class="token punctuation">)</span>
+
+<span class="token target symbol">rmt</span><span class="token punctuation">:</span>    rmt.c
+        <span class="token variable">$</span><span class="token punctuation">(</span>CC<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>CFLAGS<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>LDFLAGS<span class="token punctuation">)</span> -o <span class="token variable">$@</span> rmt.c
+
+<span class="token target symbol">tar.info</span><span class="token punctuation">:</span> tar.texinfo
+        makeinfo tar.texinfo
+
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> install
+<span class="token target symbol">install</span><span class="token punctuation">:</span> all
+        <span class="token variable">$</span><span class="token punctuation">(</span>INSTALL<span class="token punctuation">)</span> tar <span class="token variable">$</span><span class="token punctuation">(</span>bindir<span class="token punctuation">)</span>/<span class="token variable">$</span><span class="token punctuation">(</span>binprefix<span class="token punctuation">)</span>tar
+        -test ! -f rmt <span class="token operator">|</span><span class="token operator">|</span> <span class="token variable">$</span><span class="token punctuation">(</span>INSTALL<span class="token punctuation">)</span> rmt /etc/rmt
+        <span class="token variable">$</span><span class="token punctuation">(</span>INSTALLDATA<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>srcdir<span class="token punctuation">)</span>/tar.info* <span class="token variable">$</span><span class="token punctuation">(</span>infodir<span class="token punctuation">)</span>
+
+<span class="token target symbol"><span class="token variable">$</span>(OBJS)</span><span class="token punctuation">:</span> tar.h port.h testpad.h
+<span class="token target symbol">regex.o buffer.o tar.o</span><span class="token punctuation">:</span> regex.h
+<span class="token comment"># getdate.y has 8 shift/reduce conflicts.</span>
+
+<span class="token target symbol">testpad.h</span><span class="token punctuation">:</span> testpad
+        ./testpad
+
+<span class="token target symbol">testpad</span><span class="token punctuation">:</span> testpad.o
+        <span class="token variable">$</span><span class="token punctuation">(</span>CC<span class="token punctuation">)</span> -o <span class="token variable">$@</span> testpad.o
+
+<span class="token target symbol">TAGS</span><span class="token punctuation">:</span>   <span class="token variable">$</span><span class="token punctuation">(</span>SRCS<span class="token punctuation">)</span>
+        etags <span class="token variable">$</span><span class="token punctuation">(</span>SRCS<span class="token punctuation">)</span>
+
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> clean
+<span class="token target symbol">clean</span><span class="token punctuation">:</span>
+        rm -f *.o tar rmt testpad testpad.h core
+
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> distclean
+<span class="token target symbol">distclean</span><span class="token punctuation">:</span> clean
+        rm -f TAGS Makefile config.status
+
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> realclean
+<span class="token target symbol">realclean</span><span class="token punctuation">:</span> distclean
+        rm -f tar.info*
+
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> shar
+<span class="token target symbol">shar</span><span class="token punctuation">:</span> <span class="token variable">$</span><span class="token punctuation">(</span>SRCS<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>AUX<span class="token punctuation">)</span>
+        shar <span class="token variable">$</span><span class="token punctuation">(</span>SRCS<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>AUX<span class="token punctuation">)</span> <span class="token operator">|</span> compress \
+          > tar-`sed -e <span class="token string">'/version_string/!d'</span> \
+                     -e <span class="token string">'s/[^0-9.]*\([0-9.]*\).*/\1/'</span> \
+                     -e q
+                     version.c`.shar.Z
+
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> dist
+<span class="token target symbol">dist</span><span class="token punctuation">:</span> <span class="token variable">$</span><span class="token punctuation">(</span>SRCS<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>AUX<span class="token punctuation">)</span>
+        echo tar-`sed \
+             -e <span class="token string">'/version_string/!d'</span> \
+             -e <span class="token string">'s/[^0-9.]*\([0-9.]*\).*/\1/'</span> \
+             -e q
+             version.c` > .fname
+        -rm -rf `cat .fname`
+        mkdir `cat .fname`
+        ln <span class="token variable">$</span><span class="token punctuation">(</span>SRCS<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>AUX<span class="token punctuation">)</span> `cat .fname`
+        tar chZf `cat .fname`.tar.Z `cat .fname`
+        -rm -rf `cat .fname` .fname
+
+<span class="token target symbol">tar.zoo</span><span class="token punctuation">:</span> <span class="token variable">$</span><span class="token punctuation">(</span>SRCS<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>AUX<span class="token punctuation">)</span>
+        -rm -rf tmp.dir
+        -mkdir tmp.dir
+        -rm tar.zoo
+        for X in <span class="token variable">$</span><span class="token punctuation">(</span>SRCS<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>AUX<span class="token punctuation">)</span> <span class="token punctuation">;</span> do \
+            echo <span class="token variable">$$X</span> <span class="token punctuation">;</span> \
+            sed <span class="token string">'s/$$/^M/'</span> <span class="token variable">$$X</span> \
+            > tmp.dir/<span class="token variable">$$X</span> <span class="token punctuation">;</span> done
+        cd tmp.dir <span class="token punctuation">;</span> zoo aM ../tar.zoo *
+        -rm -rf tmp.dir
+
+----------------------------------------------------

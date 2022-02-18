@@ -1,0 +1,11 @@
+{{ "" }}
+{{{''}}}
+{{{"foobar"}}}
+{{ 'foobar' }}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> <span class="token string">""</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token string">"foobar"</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token string">'foobar'</span> <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

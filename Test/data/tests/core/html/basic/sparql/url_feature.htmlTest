@@ -1,0 +1,77 @@
+<http://foo.com/blah_blah>
+<http://foo.com/blah_blah/>
+<http://foo.com/blah_blah_(wikipedia)>
+<http://foo.com/blah_blah_(wikipedia)_(again)>
+<http://www.example.com/wpstyle/?p=364>
+<https://www.example.com/foo/?bar=baz&inga=42&quux>
+<http://✪df.ws/123>
+<http://userid:password@example.com:8080>
+<http://userid:password@example.com:8080/>
+<http://userid@example.com>
+<http://userid@example.com/>
+<http://userid@example.com:8080>
+<http://userid@example.com:8080/>
+<http://userid:password@example.com>
+<http://userid:password@example.com/>
+<http://142.42.1.1/>
+<http://142.42.1.1:8080/>
+<http://➡.ws/䨹>
+<http://⌘.ws>
+<http://⌘.ws/>
+<http://foo.com/blah_(wikipedia)#cite-1>
+<http://foo.com/blah_(wikipedia)_blah#cite-1>
+<http://foo.com/unicode_(✪)_in_parens>
+<http://foo.com/(something)?after=parens>
+<http://☺.damowmow.com/>
+<http://code.google.com/events/#&product=browser>
+<http://j.mp>
+<ftp://foo.bar/baz>
+<http://foo.bar/?q=Test%20URL-encoded%20stuff>
+<http://مثال.إختبار>
+<http://例子.测试>
+<http://उदाहरण.परीक्षा>
+<http://-.~_!$&'()*+,;=:%40:80%2f::::::@example.com>
+<http://1337.net>
+<http://a.b-c.de>
+<http://223.255.255.254>
+<https://foo_bar.example.com/>
+----------------------------------------------------
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.com/blah_blah<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.com/blah_blah/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.com/blah_blah_(wikipedia)<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.com/blah_blah_(wikipedia)_(again)<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://www.example.com/wpstyle/?p=364<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>https://www.example.com/foo/?bar=baz&amp;inga=42&amp;quux<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://✪df.ws/123<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://userid:password@example.com:8080<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://userid:password@example.com:8080/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://userid@example.com<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://userid@example.com/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://userid@example.com:8080<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://userid@example.com:8080/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://userid:password@example.com<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://userid:password@example.com/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://142.42.1.1/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://142.42.1.1:8080/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://➡.ws/䨹<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://⌘.ws<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://⌘.ws/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.com/blah_(wikipedia)#cite-1<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.com/blah_(wikipedia)_blah#cite-1<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.com/unicode_(✪)_in_parens<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.com/(something)?after=parens<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://☺.damowmow.com/<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://code.google.com/events/#&amp;product=browser<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://j.mp<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>ftp://foo.bar/baz<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://foo.bar/?q=Test%20URL-encoded%20stuff<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://مثال.إختبار<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://例子.测试<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://उदाहरण.परीक्षा<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://-.~_!$&amp;'()*+,;=:%40:80%2f::::::@example.com<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://1337.net<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://a.b-c.de<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>http://223.255.255.254<span class="token punctuation">></span></span>
+<span class="token url"><span class="token punctuation">&lt;</span>https://foo_bar.example.com/<span class="token punctuation">></span></span>
+
+----------------------------------------------------

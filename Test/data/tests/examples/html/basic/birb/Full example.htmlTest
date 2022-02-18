@@ -1,0 +1,23 @@
+class Birb {
+  final String name;
+  int age = 19;
+
+  void construct(String newName){
+	nest.name = newName;
+  }
+}
+Birb.construct('Yoko');
+screm(Birb.name);
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Birb</span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> <span class="token class-name">String</span> <span class="token variable">name</span><span class="token punctuation">;</span>
+  <span class="token class-name">int</span> <span class="token variable">age</span> <span class="token operator">=</span> <span class="token number">19</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">void</span> <span class="token function">construct</span><span class="token punctuation">(</span><span class="token class-name">String</span> <span class="token variable">newName</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">nest</span><span class="token punctuation">.</span><span class="token variable">name</span> <span class="token operator">=</span> <span class="token variable">newName</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token class-name">Birb</span><span class="token punctuation">.</span><span class="token function">construct</span><span class="token punctuation">(</span><span class="token string">'Yoko'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">screm</span><span class="token punctuation">(</span><span class="token class-name">Birb</span><span class="token punctuation">.</span><span class="token variable">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

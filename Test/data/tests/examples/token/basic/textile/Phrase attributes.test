@@ -1,0 +1,51 @@
+I seriously *{color:red}blushed*
+when I _(big)sprouted_ that
+corn stalk from my
+%[es]cabeza%.
+----------------------------------------------------
+[
+	["phrase", [
+		"I seriously ",
+		["inline", [
+			["punctuation", "*"],
+			["modifier", [
+				["css", [
+					["punctuation", "{"],
+					["property", "color"],
+					["punctuation", ":"],
+					"red",
+					["punctuation", "}"]
+				]]
+			]],
+			["bold", ["blushed"]],
+			["punctuation", "*"]
+		]],
+
+		"\nwhen I ",
+		["inline", [
+			["punctuation", "_"],
+			["modifier", [
+				["punctuation", "("],
+				["class-id", "big"],
+				["punctuation", ")"]
+			]],
+			["italic", ["sprouted"]],
+			["punctuation", "_"]
+		]],
+		" that\ncorn stalk from my\n",
+
+		["inline", [
+			["punctuation", "%"],
+			["modifier", [
+				["punctuation", "["],
+				["lang", "es"],
+				["punctuation", "]"]
+			]],
+			["span", ["cabeza"]],
+			["punctuation", "%"]
+		]],
+		"."
+	]]
+]
+
+----------------------------------------------------

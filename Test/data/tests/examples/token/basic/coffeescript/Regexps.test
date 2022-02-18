@@ -1,0 +1,22 @@
+/normal [r]egexp?/;
+/// ^(
+  mul\t[i-l]ine
+  regexp          # with embedded comment
+) ///
+----------------------------------------------------
+[
+	["regex", [
+		["regex-delimiter", "/"],
+		["regex-source", "normal [r]egexp?"],
+		["regex-delimiter", "/"]
+	]],
+	["punctuation", ";"],
+
+	["block-regex", [
+		"/// ^(\n  mul\\t[i-l]ine\n  regexp          ",
+		["comment", "# with embedded comment"],
+		"\n) ///"
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,37 @@
+protocol MyProto {
+  @namespace("org.apache.avro.someOtherNamespace")
+  record Foo {}
+
+  record Bar {}
+
+  enum Kind {
+    FOO,
+    BAR, // the bar enum value
+    BAZ
+  }
+
+  error TestError {
+    string message;
+  }
+
+}
+----------------------------------------------------
+<span class="token keyword">protocol</span> <span class="token class-name">MyProto</span> <span class="token punctuation">{</span>
+  <span class="token annotation function">@namespace</span><span class="token punctuation">(</span><span class="token string">"org.apache.avro.someOtherNamespace"</span><span class="token punctuation">)</span>
+  <span class="token keyword">record</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token keyword">record</span> <span class="token class-name">Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token keyword">enum</span> <span class="token class-name">Kind</span> <span class="token punctuation">{</span>
+    FOO<span class="token punctuation">,</span>
+    BAR<span class="token punctuation">,</span> <span class="token comment">// the bar enum value</span>
+    BAZ
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">error</span> <span class="token class-name">TestError</span> <span class="token punctuation">{</span>
+    <span class="token keyword">string</span> message<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

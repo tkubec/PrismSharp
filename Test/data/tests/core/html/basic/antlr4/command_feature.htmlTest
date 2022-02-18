@@ -1,0 +1,47 @@
+WS : [ \t]+ -> skip ;
+
+OPEN        : '<' -> pushMode(INSIDE) ;
+XMLDeclOpen : '<?xml' S -> pushMode(INSIDE) ;
+SPECIAL_OPEN: '<?' Name -> more, pushMode(PROC_INSTR) ;
+
+mode INSIDE;
+CLOSE        : '>' -> popMode ;
+SPECIAL_CLOSE: '?>' -> popMode ;
+SLASH_CLOSE  : '/>' -> popMode ;
+
+LQUOTE : '"' -> more, mode(STR) ;
+WS : [ \t]+ -> skip ;
+mode STR;
+STRING : '"' -> mode(DEFAULT_MODE) ;
+TEXT : . -> more ;
+
+DOUBLE : '"' .*? '"'   -> type(STRING) ;
+SINGLE : '\'' .*? '\'' -> type(STRING) ;
+WS     : [ \t]+    -> skip ;
+
+WS : [ \t]+ -> channel(HIDDEN) ;
+----------------------------------------------------
+<span class="token definition token constant">WS</span> <span class="token punctuation">:</span> <span class="token character-class regex"><span class="token punctuation">[</span> <span class="token escape">\t</span><span class="token punctuation">]</span></span><span class="token operator">+</span> <span class="token operator">-></span> <span class="token command"><span class="token function">skip</span></span> <span class="token punctuation">;</span>
+
+<span class="token definition token constant">OPEN</span>        <span class="token punctuation">:</span> <span class="token string">'&lt;'</span> <span class="token operator">-></span> <span class="token command"><span class="token function">pushMode</span><span class="token punctuation">(</span>INSIDE<span class="token punctuation">)</span></span> <span class="token punctuation">;</span>
+<span class="token definition token constant">XMLDeclOpen</span> <span class="token punctuation">:</span> <span class="token string">'&lt;?xml'</span> <span class="token constant">S</span> <span class="token operator">-></span> <span class="token command"><span class="token function">pushMode</span><span class="token punctuation">(</span>INSIDE<span class="token punctuation">)</span></span> <span class="token punctuation">;</span>
+<span class="token definition token constant">SPECIAL_OPEN</span><span class="token punctuation">:</span> <span class="token string">'&lt;?'</span> Name <span class="token operator">-></span> <span class="token command"><span class="token function">more</span><span class="token punctuation">,</span> <span class="token function">pushMode</span><span class="token punctuation">(</span>PROC_INSTR<span class="token punctuation">)</span></span> <span class="token punctuation">;</span>
+
+<span class="token keyword">mode</span> <span class="token constant">INSIDE</span><span class="token punctuation">;</span>
+<span class="token definition token constant">CLOSE</span>        <span class="token punctuation">:</span> <span class="token string">'>'</span> <span class="token operator">-></span> <span class="token command"><span class="token function">popMode</span></span> <span class="token punctuation">;</span>
+<span class="token definition token constant">SPECIAL_CLOSE</span><span class="token punctuation">:</span> <span class="token string">'?>'</span> <span class="token operator">-></span> <span class="token command"><span class="token function">popMode</span></span> <span class="token punctuation">;</span>
+<span class="token definition token constant">SLASH_CLOSE</span>  <span class="token punctuation">:</span> <span class="token string">'/>'</span> <span class="token operator">-></span> <span class="token command"><span class="token function">popMode</span></span> <span class="token punctuation">;</span>
+
+<span class="token definition token constant">LQUOTE</span> <span class="token punctuation">:</span> <span class="token string">'"'</span> <span class="token operator">-></span> <span class="token command"><span class="token function">more</span><span class="token punctuation">,</span> <span class="token function">mode</span><span class="token punctuation">(</span>STR<span class="token punctuation">)</span></span> <span class="token punctuation">;</span>
+<span class="token definition token constant">WS</span> <span class="token punctuation">:</span> <span class="token character-class regex"><span class="token punctuation">[</span> <span class="token escape">\t</span><span class="token punctuation">]</span></span><span class="token operator">+</span> <span class="token operator">-></span> <span class="token command"><span class="token function">skip</span></span> <span class="token punctuation">;</span>
+<span class="token keyword">mode</span> <span class="token constant">STR</span><span class="token punctuation">;</span>
+<span class="token definition token constant">STRING</span> <span class="token punctuation">:</span> <span class="token string">'"'</span> <span class="token operator">-></span> <span class="token command"><span class="token function">mode</span><span class="token punctuation">(</span>DEFAULT_MODE<span class="token punctuation">)</span></span> <span class="token punctuation">;</span>
+<span class="token definition token constant">TEXT</span> <span class="token punctuation">:</span> . <span class="token operator">-></span> <span class="token command"><span class="token function">more</span></span> <span class="token punctuation">;</span>
+
+<span class="token definition token constant">DOUBLE</span> <span class="token punctuation">:</span> <span class="token string">'"'</span> .<span class="token operator">*?</span> <span class="token string">'"'</span>   <span class="token operator">-></span> <span class="token command"><span class="token function">type</span><span class="token punctuation">(</span>STRING<span class="token punctuation">)</span></span> <span class="token punctuation">;</span>
+<span class="token definition token constant">SINGLE</span> <span class="token punctuation">:</span> <span class="token string">'\''</span> .<span class="token operator">*?</span> <span class="token string">'\''</span> <span class="token operator">-></span> <span class="token command"><span class="token function">type</span><span class="token punctuation">(</span>STRING<span class="token punctuation">)</span></span> <span class="token punctuation">;</span>
+<span class="token definition token constant">WS</span>     <span class="token punctuation">:</span> <span class="token character-class regex"><span class="token punctuation">[</span> <span class="token escape">\t</span><span class="token punctuation">]</span></span><span class="token operator">+</span>    <span class="token operator">-></span> <span class="token command"><span class="token function">skip</span></span> <span class="token punctuation">;</span>
+
+<span class="token definition token constant">WS</span> <span class="token punctuation">:</span> <span class="token character-class regex"><span class="token punctuation">[</span> <span class="token escape">\t</span><span class="token punctuation">]</span></span><span class="token operator">+</span> <span class="token operator">-></span> <span class="token command"><span class="token function">channel</span><span class="token punctuation">(</span>HIDDEN<span class="token punctuation">)</span></span> <span class="token punctuation">;</span>
+
+----------------------------------------------------

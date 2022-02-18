@@ -1,0 +1,377 @@
+AutoTrim
+BlockInput
+Break
+Click
+ClipWait
+Continue
+Control
+ControlClick
+ControlFocus
+ControlGet
+ControlGetFocus
+ControlGetPos
+ControlGetText
+ControlMove
+ControlSend
+ControlSendRaw
+ControlSetText
+CoordMode
+Critical
+DetectHiddenText
+DetectHiddenWindows
+Drive
+DriveGet
+DriveSpaceFree
+EnvAdd
+EnvDiv
+EnvGet
+EnvMult
+EnvSet
+EnvSub
+EnvUpdate
+Exit
+ExitApp
+FileAppend
+FileCopy
+FileCopyDir
+FileCreateDir
+FileCreateShortcut
+FileDelete
+FileEncoding
+FileGetAttrib
+FileGetShortcut
+FileGetSize
+FileGetTime
+FileGetVersion
+FileInstall
+FileMove
+FileMoveDir
+FileRead
+FileReadLine
+FileRecycle
+FileRecycleEmpty
+FileRemoveDir
+FileSelectFile
+FileSelectFolder
+FileSetAttrib
+FileSetTime
+FormatTime
+GetKeyState
+Gosub
+Goto
+GroupActivate
+GroupAdd
+GroupClose
+GroupDeactivate
+Gui
+GuiControl
+GuiControlGet
+Hotkey
+ImageSearch
+IniDelete
+IniRead
+IniWrite
+Input
+InputBox
+KeyWait
+ListHotkeys
+ListLines
+ListVars
+Loop
+Menu
+MouseClick
+MouseClickDrag
+MouseGetPos
+MouseMove
+MsgBox
+OnExit
+OutputDebug
+Pause
+PixelGetColor
+PixelSearch
+PostMessage
+Process
+Progress
+Random
+RegDelete
+RegRead
+RegWrite
+Reload
+Repeat
+Return
+Run
+RunAs
+RunWait
+Send
+SendEvent
+SendInput
+SendMessage
+SendMode
+SendPlay
+SendRaw
+SetBatchLines
+SetCapslockState
+SetControlDelay
+SetDefaultMouseSpeed
+SetEnv
+SetFormat
+SetKeyDelay
+SetMouseDelay
+SetNumlockState
+SetRegView
+SetScrollLockState
+SetStoreCapslockMode
+SetTimer
+SetTitleMatchMode
+SetWinDelay
+SetWorkingDir
+Shutdown
+Sleep
+Sort
+SoundBeep
+SoundGet
+SoundGetWaveVolume
+SoundPlay
+SoundSet
+SoundSetWaveVolume
+SplashImage
+SplashTextOff
+SplashTextOn
+SplitPath
+StatusBarGetText
+StatusBarWait
+StringCaseSense
+StringGetPos
+StringLeft
+StringLen
+StringLower
+StringMid
+StringReplace
+StringRight
+StringSplit
+StringTrimLeft
+StringTrimRight
+StringUpper
+Suspend
+SysGet
+Thread
+ToolTip
+Transform
+TrayTip
+URLDownloadToFile
+WinActivate
+WinActivateBottom
+WinClose
+WinGet
+WinGetActiveStats
+WinGetActiveTitle
+WinGetClass
+WinGetPos
+WinGetText
+WinGetTitle
+WinHide
+WinKill
+WinMaximize
+WinMenuSelectItem
+WinMinimize
+WinMinimizeAll
+WinMinimizeAllUndo
+WinMove
+WinRestore
+WinSet
+WinSetTitle
+WinShow
+WinWait
+WinWaitActive
+WinWaitClose
+WinWaitNotActive
+----------------------------------------------------
+<span class="token selector">AutoTrim</span>
+<span class="token selector">BlockInput</span>
+<span class="token selector">Break</span>
+<span class="token selector">Click</span>
+<span class="token selector">ClipWait</span>
+<span class="token selector">Continue</span>
+<span class="token selector">Control</span>
+<span class="token selector">ControlClick</span>
+<span class="token selector">ControlFocus</span>
+<span class="token selector">ControlGet</span>
+<span class="token selector">ControlGetFocus</span>
+<span class="token selector">ControlGetPos</span>
+<span class="token selector">ControlGetText</span>
+<span class="token selector">ControlMove</span>
+<span class="token selector">ControlSend</span>
+<span class="token selector">ControlSendRaw</span>
+<span class="token selector">ControlSetText</span>
+<span class="token selector">CoordMode</span>
+<span class="token selector">Critical</span>
+<span class="token selector">DetectHiddenText</span>
+<span class="token selector">DetectHiddenWindows</span>
+<span class="token selector">Drive</span>
+<span class="token selector">DriveGet</span>
+<span class="token selector">DriveSpaceFree</span>
+<span class="token selector">EnvAdd</span>
+<span class="token selector">EnvDiv</span>
+<span class="token selector">EnvGet</span>
+<span class="token selector">EnvMult</span>
+<span class="token selector">EnvSet</span>
+<span class="token selector">EnvSub</span>
+<span class="token selector">EnvUpdate</span>
+<span class="token selector">Exit</span>
+<span class="token selector">ExitApp</span>
+<span class="token selector">FileAppend</span>
+<span class="token selector">FileCopy</span>
+<span class="token selector">FileCopyDir</span>
+<span class="token selector">FileCreateDir</span>
+<span class="token selector">FileCreateShortcut</span>
+<span class="token selector">FileDelete</span>
+<span class="token selector">FileEncoding</span>
+<span class="token selector">FileGetAttrib</span>
+<span class="token selector">FileGetShortcut</span>
+<span class="token selector">FileGetSize</span>
+<span class="token selector">FileGetTime</span>
+<span class="token selector">FileGetVersion</span>
+<span class="token selector">FileInstall</span>
+<span class="token selector">FileMove</span>
+<span class="token selector">FileMoveDir</span>
+<span class="token selector">FileRead</span>
+<span class="token selector">FileReadLine</span>
+<span class="token selector">FileRecycle</span>
+<span class="token selector">FileRecycleEmpty</span>
+<span class="token selector">FileRemoveDir</span>
+<span class="token selector">FileSelectFile</span>
+<span class="token selector">FileSelectFolder</span>
+<span class="token selector">FileSetAttrib</span>
+<span class="token selector">FileSetTime</span>
+<span class="token selector">FormatTime</span>
+<span class="token selector">GetKeyState</span>
+<span class="token selector">Gosub</span>
+<span class="token selector">Goto</span>
+<span class="token selector">GroupActivate</span>
+<span class="token selector">GroupAdd</span>
+<span class="token selector">GroupClose</span>
+<span class="token selector">GroupDeactivate</span>
+<span class="token selector">Gui</span>
+<span class="token selector">GuiControl</span>
+<span class="token selector">GuiControlGet</span>
+<span class="token selector">Hotkey</span>
+<span class="token selector">ImageSearch</span>
+<span class="token selector">IniDelete</span>
+<span class="token selector">IniRead</span>
+<span class="token selector">IniWrite</span>
+<span class="token selector">Input</span>
+<span class="token selector">InputBox</span>
+<span class="token selector">KeyWait</span>
+<span class="token selector">ListHotkeys</span>
+<span class="token selector">ListLines</span>
+<span class="token selector">ListVars</span>
+<span class="token selector">Loop</span>
+<span class="token selector">Menu</span>
+<span class="token selector">MouseClick</span>
+<span class="token selector">MouseClickDrag</span>
+<span class="token selector">MouseGetPos</span>
+<span class="token selector">MouseMove</span>
+<span class="token selector">MsgBox</span>
+<span class="token selector">OnExit</span>
+<span class="token selector">OutputDebug</span>
+<span class="token selector">Pause</span>
+<span class="token selector">PixelGetColor</span>
+<span class="token selector">PixelSearch</span>
+<span class="token selector">PostMessage</span>
+<span class="token selector">Process</span>
+<span class="token selector">Progress</span>
+<span class="token selector">Random</span>
+<span class="token selector">RegDelete</span>
+<span class="token selector">RegRead</span>
+<span class="token selector">RegWrite</span>
+<span class="token selector">Reload</span>
+<span class="token selector">Repeat</span>
+<span class="token selector">Return</span>
+<span class="token selector">Run</span>
+<span class="token selector">RunAs</span>
+<span class="token selector">RunWait</span>
+<span class="token selector">Send</span>
+<span class="token selector">SendEvent</span>
+<span class="token selector">SendInput</span>
+<span class="token selector">SendMessage</span>
+<span class="token selector">SendMode</span>
+<span class="token selector">SendPlay</span>
+<span class="token selector">SendRaw</span>
+<span class="token selector">SetBatchLines</span>
+<span class="token selector">SetCapslockState</span>
+<span class="token selector">SetControlDelay</span>
+<span class="token selector">SetDefaultMouseSpeed</span>
+<span class="token selector">SetEnv</span>
+<span class="token selector">SetFormat</span>
+<span class="token selector">SetKeyDelay</span>
+<span class="token selector">SetMouseDelay</span>
+<span class="token selector">SetNumlockState</span>
+<span class="token selector">SetRegView</span>
+<span class="token selector">SetScrollLockState</span>
+<span class="token selector">SetStoreCapslockMode</span>
+<span class="token selector">SetTimer</span>
+<span class="token selector">SetTitleMatchMode</span>
+<span class="token selector">SetWinDelay</span>
+<span class="token selector">SetWorkingDir</span>
+<span class="token selector">Shutdown</span>
+<span class="token selector">Sleep</span>
+<span class="token selector">Sort</span>
+<span class="token selector">SoundBeep</span>
+<span class="token selector">SoundGet</span>
+<span class="token selector">SoundGetWaveVolume</span>
+<span class="token selector">SoundPlay</span>
+<span class="token selector">SoundSet</span>
+<span class="token selector">SoundSetWaveVolume</span>
+<span class="token selector">SplashImage</span>
+<span class="token selector">SplashTextOff</span>
+<span class="token selector">SplashTextOn</span>
+<span class="token selector">SplitPath</span>
+<span class="token selector">StatusBarGetText</span>
+<span class="token selector">StatusBarWait</span>
+<span class="token selector">StringCaseSense</span>
+<span class="token selector">StringGetPos</span>
+<span class="token selector">StringLeft</span>
+<span class="token selector">StringLen</span>
+<span class="token selector">StringLower</span>
+<span class="token selector">StringMid</span>
+<span class="token selector">StringReplace</span>
+<span class="token selector">StringRight</span>
+<span class="token selector">StringSplit</span>
+<span class="token selector">StringTrimLeft</span>
+<span class="token selector">StringTrimRight</span>
+<span class="token selector">StringUpper</span>
+<span class="token selector">Suspend</span>
+<span class="token selector">SysGet</span>
+<span class="token selector">Thread</span>
+<span class="token selector">ToolTip</span>
+<span class="token selector">Transform</span>
+<span class="token selector">TrayTip</span>
+<span class="token selector">URLDownloadToFile</span>
+<span class="token selector">WinActivate</span>
+<span class="token selector">WinActivateBottom</span>
+<span class="token selector">WinClose</span>
+<span class="token selector">WinGet</span>
+<span class="token selector">WinGetActiveStats</span>
+<span class="token selector">WinGetActiveTitle</span>
+<span class="token selector">WinGetClass</span>
+<span class="token selector">WinGetPos</span>
+<span class="token selector">WinGetText</span>
+<span class="token selector">WinGetTitle</span>
+<span class="token selector">WinHide</span>
+<span class="token selector">WinKill</span>
+<span class="token selector">WinMaximize</span>
+<span class="token selector">WinMenuSelectItem</span>
+<span class="token selector">WinMinimize</span>
+<span class="token selector">WinMinimizeAll</span>
+<span class="token selector">WinMinimizeAllUndo</span>
+<span class="token selector">WinMove</span>
+<span class="token selector">WinRestore</span>
+<span class="token selector">WinSet</span>
+<span class="token selector">WinSetTitle</span>
+<span class="token selector">WinShow</span>
+<span class="token selector">WinWait</span>
+<span class="token selector">WinWaitActive</span>
+<span class="token selector">WinWaitClose</span>
+<span class="token selector">WinWaitNotActive</span>
+
+----------------------------------------------------

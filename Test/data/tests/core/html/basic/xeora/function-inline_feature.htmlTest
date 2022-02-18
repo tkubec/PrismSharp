@@ -1,0 +1,7 @@
+$F:Library?ClassName.FuncName$
+$F:Library?ClassName.FuncName,=Param1|~Param2$
+----------------------------------------------------
+<span class="token function-inline function"><span class="token punctuation">$F:</span>Library<span class="token punctuation">?</span>ClassName<span class="token punctuation">.</span>FuncName<span class="token punctuation">$</span></span>
+<span class="token function-inline function"><span class="token punctuation">$F:</span>Library<span class="token punctuation">?</span>ClassName<span class="token punctuation">.</span>FuncName<span class="token variable"><span class="token punctuation">,</span><span class="token operator">=</span>Param1</span><span class="token variable"><span class="token punctuation">|</span><span class="token operator">~</span>Param2</span><span class="token punctuation">$</span></span>
+
+----------------------------------------------------

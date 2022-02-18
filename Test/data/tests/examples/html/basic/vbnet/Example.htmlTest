@@ -1,0 +1,23 @@
+Public Function findValue(ByVal arr() As Double,
+    ByVal searchValue As Double) As Double
+    Dim i As Integer = 0
+    While i <= UBound(arr) AndAlso arr(i) <> searchValue
+        ' If i is greater than UBound(arr), searchValue is not checked.
+        i += 1
+    End While
+    If i > UBound(arr) Then i = -1
+    Return i
+End Function
+----------------------------------------------------
+<span class="token keyword">Public</span> <span class="token keyword">Function</span> findValue<span class="token punctuation">(</span><span class="token keyword">ByVal</span> arr<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">As</span> <span class="token keyword">Double</span><span class="token punctuation">,</span>
+    <span class="token keyword">ByVal</span> searchValue <span class="token keyword">As</span> <span class="token keyword">Double</span><span class="token punctuation">)</span> <span class="token keyword">As</span> <span class="token keyword">Double</span>
+    <span class="token keyword">Dim</span> i <span class="token keyword">As</span> <span class="token keyword">Integer</span> <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">While</span> i <span class="token operator">&lt;=</span> <span class="token function">UBound</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token keyword">AndAlso</span> arr<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">&lt;></span> searchValue
+        <span class="token comment">' If i is greater than UBound(arr), searchValue is not checked.</span>
+        i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">End</span> <span class="token keyword">While</span>
+    <span class="token keyword">If</span> i <span class="token operator">></span> <span class="token function">UBound</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token keyword">Then</span> i <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">Return</span> i
+<span class="token keyword">End</span> <span class="token keyword">Function</span>
+
+----------------------------------------------------

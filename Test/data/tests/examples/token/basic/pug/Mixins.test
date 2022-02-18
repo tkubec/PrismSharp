@@ -1,0 +1,13 @@
+script
+  :coffee
+    console.log 'This is coffee script'
+----------------------------------------------------
+[
+	["tag", ["script"]],
+	["filter", [
+		["filter-name", ":coffee"],
+		["text", "console.log 'This is coffee script'"]
+	]]
+]
+
+----------------------------------------------------

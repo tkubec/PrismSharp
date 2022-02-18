@@ -1,0 +1,18 @@
+try { } catch (e) { } finally { }
+----------------------------------------------------
+[
+	["keyword", "try"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["keyword", "catch"],
+	["punctuation", "("],
+	"e",
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["keyword", "finally"],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

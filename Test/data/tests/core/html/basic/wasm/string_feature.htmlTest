@@ -1,0 +1,17 @@
+""
+"Foo\"\\bar"
+"\t\n\r\"\'\\\u{004e}\u{0_0_4_e}"
+"foo
+bar"
+";; foo"
+"(; foo bar ;)"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Foo\"\\bar"</span>
+<span class="token string">"\t\n\r\"\'\\\u{004e}\u{0_0_4_e}"</span>
+<span class="token string">"foo
+bar"</span>
+<span class="token string">";; foo"</span>
+<span class="token string">"(; foo bar ;)"</span>
+
+----------------------------------------------------

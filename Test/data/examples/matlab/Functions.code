@@ -1,0 +1,4 @@
+q = integral(sqr,0,1);
+y = parabola(x)
+mygrid = @(x,y) ndgrid((-x:x/c:x),(-y:y/c:y));
+[x,y] = mygrid(pi,2*pi);

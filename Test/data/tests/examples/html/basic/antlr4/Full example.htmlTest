@@ -1,0 +1,151 @@
+// Source: https://github.com/antlr/grammars-v4/blob/master/json/JSON.g4
+
+/** Taken from "The Definitive ANTLR 4 Reference" by Terence Parr */
+
+// Derived from http://json.org
+grammar JSON;
+
+json
+   : value
+   ;
+
+obj
+   : '{' pair (',' pair)* '}'
+   | '{' '}'
+   ;
+
+pair
+   : STRING ':' value
+   ;
+
+array
+   : '[' value (',' value)* ']'
+   | '[' ']'
+   ;
+
+value
+   : STRING
+   | NUMBER
+   | obj
+   | array
+   | 'true'
+   | 'false'
+   | 'null'
+   ;
+
+
+STRING
+   : '"' (ESC | SAFECODEPOINT)* '"'
+   ;
+
+
+fragment ESC
+   : '\\' (["\\/bfnrt] | UNICODE)
+   ;
+fragment UNICODE
+   : 'u' HEX HEX HEX HEX
+   ;
+fragment HEX
+   : [0-9a-fA-F]
+   ;
+fragment SAFECODEPOINT
+   : ~ ["\\\u0000-\u001F]
+   ;
+
+
+NUMBER
+   : '-'? INT ('.' [0-9] +)? EXP?
+   ;
+
+fragment INT
+   : '0' | [1-9] [0-9]*
+   ;
+
+// no leading zeros
+
+fragment EXP
+   : [Ee] [+\-]? INT
+   ;
+
+// \- since - means "range" inside [...]
+
+WS
+   : [ \t\n\r] + -> skip
+   ;
+----------------------------------------------------
+<span class="token comment">// Source: https://github.com/antlr/grammars-v4/blob/master/json/JSON.g4</span>
+
+<span class="token comment">/** Taken from "The Definitive ANTLR 4 Reference" by Terence Parr */</span>
+
+<span class="token comment">// Derived from http://json.org</span>
+<span class="token keyword">grammar</span> <span class="token constant">JSON</span><span class="token punctuation">;</span>
+
+<span class="token definition rule class-name">json</span>
+   <span class="token punctuation">:</span> value
+   <span class="token punctuation">;</span>
+
+<span class="token definition rule class-name">obj</span>
+   <span class="token punctuation">:</span> <span class="token string">'{'</span> pair <span class="token punctuation">(</span><span class="token string">','</span> pair<span class="token punctuation">)</span><span class="token operator">*</span> <span class="token string">'}'</span>
+   <span class="token operator">|</span> <span class="token string">'{'</span> <span class="token string">'}'</span>
+   <span class="token punctuation">;</span>
+
+<span class="token definition rule class-name">pair</span>
+   <span class="token punctuation">:</span> <span class="token constant">STRING</span> <span class="token string">':'</span> value
+   <span class="token punctuation">;</span>
+
+<span class="token definition rule class-name">array</span>
+   <span class="token punctuation">:</span> <span class="token string">'['</span> value <span class="token punctuation">(</span><span class="token string">','</span> value<span class="token punctuation">)</span><span class="token operator">*</span> <span class="token string">']'</span>
+   <span class="token operator">|</span> <span class="token string">'['</span> <span class="token string">']'</span>
+   <span class="token punctuation">;</span>
+
+<span class="token definition rule class-name">value</span>
+   <span class="token punctuation">:</span> <span class="token constant">STRING</span>
+   <span class="token operator">|</span> <span class="token constant">NUMBER</span>
+   <span class="token operator">|</span> obj
+   <span class="token operator">|</span> array
+   <span class="token operator">|</span> <span class="token string">'true'</span>
+   <span class="token operator">|</span> <span class="token string">'false'</span>
+   <span class="token operator">|</span> <span class="token string">'null'</span>
+   <span class="token punctuation">;</span>
+
+
+<span class="token definition token constant">STRING</span>
+   <span class="token punctuation">:</span> <span class="token string">'"'</span> <span class="token punctuation">(</span><span class="token constant">ESC</span> <span class="token operator">|</span> <span class="token constant">SAFECODEPOINT</span><span class="token punctuation">)</span><span class="token operator">*</span> <span class="token string">'"'</span>
+   <span class="token punctuation">;</span>
+
+
+<span class="token keyword">fragment</span> <span class="token definition token constant">ESC</span>
+   <span class="token punctuation">:</span> <span class="token string">'\\'</span> <span class="token punctuation">(</span><span class="token character-class regex"><span class="token punctuation">[</span>"<span class="token escape">\\</span>/bfnrt<span class="token punctuation">]</span></span> <span class="token operator">|</span> <span class="token constant">UNICODE</span><span class="token punctuation">)</span>
+   <span class="token punctuation">;</span>
+<span class="token keyword">fragment</span> <span class="token definition token constant">UNICODE</span>
+   <span class="token punctuation">:</span> <span class="token string">'u'</span> <span class="token constant">HEX</span> <span class="token constant">HEX</span> <span class="token constant">HEX</span> <span class="token constant">HEX</span>
+   <span class="token punctuation">;</span>
+<span class="token keyword">fragment</span> <span class="token definition token constant">HEX</span>
+   <span class="token punctuation">:</span> <span class="token character-class regex"><span class="token punctuation">[</span>0<span class="token range punctuation">-</span>9a<span class="token range punctuation">-</span>fA<span class="token range punctuation">-</span>F<span class="token punctuation">]</span></span>
+   <span class="token punctuation">;</span>
+<span class="token keyword">fragment</span> <span class="token definition token constant">SAFECODEPOINT</span>
+   <span class="token punctuation">:</span> <span class="token operator">~</span> <span class="token character-class regex"><span class="token punctuation">[</span>"<span class="token escape">\\</span><span class="token escape">\u0000</span><span class="token range punctuation">-</span><span class="token escape">\u001F</span><span class="token punctuation">]</span></span>
+   <span class="token punctuation">;</span>
+
+
+<span class="token definition token constant">NUMBER</span>
+   <span class="token punctuation">:</span> <span class="token string">'-'</span><span class="token operator">?</span> <span class="token constant">INT</span> <span class="token punctuation">(</span><span class="token string">'.'</span> <span class="token character-class regex"><span class="token punctuation">[</span>0<span class="token range punctuation">-</span>9<span class="token punctuation">]</span></span> <span class="token operator">+</span><span class="token punctuation">)</span><span class="token operator">?</span> <span class="token constant">EXP</span><span class="token operator">?</span>
+   <span class="token punctuation">;</span>
+
+<span class="token keyword">fragment</span> <span class="token definition token constant">INT</span>
+   <span class="token punctuation">:</span> <span class="token string">'0'</span> <span class="token operator">|</span> <span class="token character-class regex"><span class="token punctuation">[</span>1<span class="token range punctuation">-</span>9<span class="token punctuation">]</span></span> <span class="token character-class regex"><span class="token punctuation">[</span>0<span class="token range punctuation">-</span>9<span class="token punctuation">]</span></span><span class="token operator">*</span>
+   <span class="token punctuation">;</span>
+
+<span class="token comment">// no leading zeros</span>
+
+<span class="token keyword">fragment</span> <span class="token definition token constant">EXP</span>
+   <span class="token punctuation">:</span> <span class="token character-class regex"><span class="token punctuation">[</span>Ee<span class="token punctuation">]</span></span> <span class="token character-class regex"><span class="token punctuation">[</span>+<span class="token escape">\-</span><span class="token punctuation">]</span></span><span class="token operator">?</span> <span class="token constant">INT</span>
+   <span class="token punctuation">;</span>
+
+<span class="token comment">// \- since - means "range" inside [...]</span>
+
+<span class="token definition token constant">WS</span>
+   <span class="token punctuation">:</span> <span class="token character-class regex"><span class="token punctuation">[</span> <span class="token escape">\t</span><span class="token escape">\n</span><span class="token escape">\r</span><span class="token punctuation">]</span></span> <span class="token operator">+</span> <span class="token operator">-></span> <span class="token command"><span class="token function">skip</span></span>
+   <span class="token punctuation">;</span>
+
+----------------------------------------------------

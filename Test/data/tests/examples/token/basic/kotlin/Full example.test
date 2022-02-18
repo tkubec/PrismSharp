@@ -1,0 +1,833 @@
+package com.example.html
+
+interface Element {
+    fun render(builder: StringBuilder, indent: String)
+
+    override fun toString(): String {
+        val builder = StringBuilder()
+        render(builder, "")
+        return builder.toString()
+    }
+}
+
+class TextElement(val text: String): Element {
+    override fun render(builder: StringBuilder, indent: String) {
+        builder.append("$indent$text\n")
+    }
+}
+
+abstract class Tag(val name: String): Element {
+    val children = arrayListOf<Element>()
+    val attributes = hashMapOf<String, String>()
+
+    protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
+        tag.init()
+        children.add(tag)
+        return tag
+    }
+
+    override fun render(builder: StringBuilder, indent: String) {
+        builder.append("$indent<$name${renderAttributes()}>\n")
+        for (c in children) {
+            c.render(builder, indent + "  ")
+        }
+        builder.append("$indent</$name>\n")
+    }
+
+    private fun renderAttributes(): String? {
+        val builder = StringBuilder()
+        for (a in attributes.keySet()) {
+            builder.append(" $a=\"${attributes[a]}\"")
+        }
+        return builder.toString()
+    }
+}
+
+abstract class TagWithText(name: String): Tag(name) {
+    operator fun String.plus() {
+        children.add(TextElement(this))
+    }
+}
+
+class HTML(): TagWithText("html") {
+    fun head(init: Head.() -> Unit) = initTag(Head(), init)
+
+    fun body(init: Body.() -> Unit) = initTag(Body(), init)
+}
+
+class Head(): TagWithText("head") {
+    fun title(init: Title.() -> Unit) = initTag(Title(), init)
+}
+
+class Title(): TagWithText("title")
+
+abstract class BodyTag(name: String): TagWithText(name) {
+    fun b(init: B.() -> Unit) = initTag(B(), init)
+    fun p(init: P.() -> Unit) = initTag(P(), init)
+    fun h1(init: H1.() -> Unit) = initTag(H1(), init)
+    fun a(href: String, init: A.() -> Unit) {
+        val a = initTag(A(), init)
+        a.href = href
+    }
+}
+
+class Body(): BodyTag("body")
+
+class B(): BodyTag("b")
+class P(): BodyTag("p")
+class H1(): BodyTag("h1")
+class A(): BodyTag("a") {
+    public var href: String
+        get() = attributes["href"]!!
+        set(value) {
+            attributes["href"] = value
+        }
+}
+
+fun html(init: HTML.() -> Unit): HTML {
+    val html = HTML()
+    html.init()
+    return html
+}
+----------------------------------------------------
+[
+	["keyword", "package"],
+	" com",
+	["punctuation", "."],
+	"example",
+	["punctuation", "."],
+	"html\n\n",
+
+	["keyword", "interface"],
+	" Element ",
+	["punctuation", "{"],
+
+	["keyword", "fun"],
+	["function", "render"],
+	["punctuation", "("],
+	"builder",
+	["operator", ":"],
+	" StringBuilder",
+	["punctuation", ","],
+	" indent",
+	["operator", ":"],
+	" String",
+	["punctuation", ")"],
+
+	["keyword", "override"],
+	["keyword", "fun"],
+	["function", "toString"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	" String ",
+	["punctuation", "{"],
+
+	["keyword", "val"],
+	" builder ",
+	["operator", "="],
+	["function", "StringBuilder"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["function", "render"],
+	["punctuation", "("],
+	"builder",
+	["punctuation", ","],
+	["string-literal", [
+		["string", "\"\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	" builder",
+	["punctuation", "."],
+	["function", "toString"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	["function", "TextElement"],
+	["punctuation", "("],
+	["keyword", "val"],
+	" text",
+	["operator", ":"],
+	" String",
+	["punctuation", ")"],
+	["operator", ":"],
+	" Element ",
+	["punctuation", "{"],
+
+	["keyword", "override"],
+	["keyword", "fun"],
+	["function", "render"],
+	["punctuation", "("],
+	"builder",
+	["operator", ":"],
+	" StringBuilder",
+	["punctuation", ","],
+	" indent",
+	["operator", ":"],
+	" String",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n        builder",
+	["punctuation", "."],
+	["function", "append"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\""],
+		["interpolation", [
+			["interpolation-punctuation", "$"],
+			["expression", ["indent"]]
+		]],
+		["interpolation", [
+			["interpolation-punctuation", "$"],
+			["expression", ["text"]]
+		]],
+		["string", "\\n\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "abstract"],
+	["keyword", "class"],
+	["function", "Tag"],
+	["punctuation", "("],
+	["keyword", "val"],
+	" name",
+	["operator", ":"],
+	" String",
+	["punctuation", ")"],
+	["operator", ":"],
+	" Element ",
+	["punctuation", "{"],
+
+	["keyword", "val"],
+	" children ",
+	["operator", "="],
+	" arrayListOf",
+	["operator", "<"],
+	"Element",
+	["operator", ">"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "val"],
+	" attributes ",
+	["operator", "="],
+	" hashMapOf",
+	["operator", "<"],
+	"String",
+	["punctuation", ","],
+	" String",
+	["operator", ">"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "protected"],
+	["keyword", "fun"],
+	" initTag",
+	["operator", "<"],
+	"T",
+	["operator", ":"],
+	" Element",
+	["operator", ">"],
+	["punctuation", "("],
+	"tag",
+	["operator", ":"],
+	" T",
+	["punctuation", ","],
+	["keyword", "init"],
+	["operator", ":"],
+	" T",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["operator", ":"],
+	" T ",
+	["punctuation", "{"],
+
+	"\n        tag",
+	["punctuation", "."],
+	["function", "init"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	"\n        children",
+	["punctuation", "."],
+	["function", "add"],
+	["punctuation", "("],
+	"tag",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	" tag\n    ",
+
+	["punctuation", "}"],
+
+	["keyword", "override"],
+	["keyword", "fun"],
+	["function", "render"],
+	["punctuation", "("],
+	"builder",
+	["operator", ":"],
+	" StringBuilder",
+	["punctuation", ","],
+	" indent",
+	["operator", ":"],
+	" String",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n        builder",
+	["punctuation", "."],
+	["function", "append"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\""],
+		["interpolation", [
+			["interpolation-punctuation", "$"],
+			["expression", ["indent"]]
+		]],
+		["string", "<"],
+		["interpolation", [
+			["interpolation-punctuation", "$"],
+			["expression", ["name"]]
+		]],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["expression", [
+				["function", "renderAttributes"],
+				["punctuation", "("],
+				["punctuation", ")"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", ">\\n\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	"c ",
+	["keyword", "in"],
+	" children",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n            c",
+	["punctuation", "."],
+	["function", "render"],
+	["punctuation", "("],
+	"builder",
+	["punctuation", ","],
+	" indent ",
+	["operator", "+"],
+	["string-literal", [
+		["string", "\"  \""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	"\n        builder",
+	["punctuation", "."],
+	["function", "append"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\""],
+		["interpolation", [
+			["interpolation-punctuation", "$"],
+			["expression", ["indent"]]
+		]],
+		["string", "</"],
+		["interpolation", [
+			["interpolation-punctuation", "$"],
+			["expression", ["name"]]
+		]],
+		["string", ">\\n\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "private"],
+	["keyword", "fun"],
+	["function", "renderAttributes"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	" String",
+	["operator", "?"],
+	["punctuation", "{"],
+
+	["keyword", "val"],
+	" builder ",
+	["operator", "="],
+	["function", "StringBuilder"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	"a ",
+	["keyword", "in"],
+	" attributes",
+	["punctuation", "."],
+	["function", "keySet"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n            builder",
+	["punctuation", "."],
+	["function", "append"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\" "],
+		["interpolation", [
+			["interpolation-punctuation", "$"],
+			["expression", ["a"]]
+		]],
+		["string", "=\\\""],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["expression", [
+				"attributes",
+				["punctuation", "["],
+				"a",
+				["punctuation", "]"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", "\\\"\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"],
+	" builder",
+	["punctuation", "."],
+	["function", "toString"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "abstract"],
+	["keyword", "class"],
+	["function", "TagWithText"],
+	["punctuation", "("],
+	"name",
+	["operator", ":"],
+	" String",
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "Tag"],
+	["punctuation", "("],
+	"name",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "operator"],
+	["keyword", "fun"],
+	" String",
+	["punctuation", "."],
+	["function", "plus"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n        children",
+	["punctuation", "."],
+	["function", "add"],
+	["punctuation", "("],
+	["function", "TextElement"],
+	["punctuation", "("],
+	["keyword", "this"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	["function", "HTML"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "TagWithText"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"html\""]
+	]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "fun"],
+	["function", "head"],
+	["punctuation", "("],
+	["keyword", "init"],
+	["operator", ":"],
+	" Head",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["operator", "="],
+	["function", "initTag"],
+	["punctuation", "("],
+	["function", "Head"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["keyword", "init"],
+	["punctuation", ")"],
+
+	["keyword", "fun"],
+	["function", "body"],
+	["punctuation", "("],
+	["keyword", "init"],
+	["operator", ":"],
+	" Body",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["operator", "="],
+	["function", "initTag"],
+	["punctuation", "("],
+	["function", "Body"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["keyword", "init"],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	["function", "Head"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "TagWithText"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"head\""]
+	]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "fun"],
+	["function", "title"],
+	["punctuation", "("],
+	["keyword", "init"],
+	["operator", ":"],
+	" Title",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["operator", "="],
+	["function", "initTag"],
+	["punctuation", "("],
+	["function", "Title"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["keyword", "init"],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	["function", "Title"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "TagWithText"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"title\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "abstract"],
+	["keyword", "class"],
+	["function", "BodyTag"],
+	["punctuation", "("],
+	"name",
+	["operator", ":"],
+	" String",
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "TagWithText"],
+	["punctuation", "("],
+	"name",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "fun"],
+	["function", "b"],
+	["punctuation", "("],
+	["keyword", "init"],
+	["operator", ":"],
+	" B",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["operator", "="],
+	["function", "initTag"],
+	["punctuation", "("],
+	["function", "B"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["keyword", "init"],
+	["punctuation", ")"],
+
+	["keyword", "fun"],
+	["function", "p"],
+	["punctuation", "("],
+	["keyword", "init"],
+	["operator", ":"],
+	" P",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["operator", "="],
+	["function", "initTag"],
+	["punctuation", "("],
+	["function", "P"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["keyword", "init"],
+	["punctuation", ")"],
+
+	["keyword", "fun"],
+	["function", "h1"],
+	["punctuation", "("],
+	["keyword", "init"],
+	["operator", ":"],
+	" H1",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["operator", "="],
+	["function", "initTag"],
+	["punctuation", "("],
+	["function", "H1"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["keyword", "init"],
+	["punctuation", ")"],
+
+	["keyword", "fun"],
+	["function", "a"],
+	["punctuation", "("],
+	"href",
+	["operator", ":"],
+	" String",
+	["punctuation", ","],
+	["keyword", "init"],
+	["operator", ":"],
+	" A",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "val"],
+	" a ",
+	["operator", "="],
+	["function", "initTag"],
+	["punctuation", "("],
+	["function", "A"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ","],
+	["keyword", "init"],
+	["punctuation", ")"],
+
+	"\n        a",
+	["punctuation", "."],
+	"href ",
+	["operator", "="],
+	" href\n    ",
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	["function", "Body"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "BodyTag"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"body\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "class"],
+	["function", "B"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "BodyTag"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"b\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "class"],
+	["function", "P"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "BodyTag"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"p\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "class"],
+	["function", "H1"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "BodyTag"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"h1\""]
+	]],
+	["punctuation", ")"],
+
+	["keyword", "class"],
+	["function", "A"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	["function", "BodyTag"],
+	["punctuation", "("],
+	["string-literal", [
+		["string", "\"a\""]
+	]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "public"],
+	["keyword", "var"],
+	" href",
+	["operator", ":"],
+	" String\n        ",
+
+	["keyword", "get"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "="],
+	" attributes",
+	["punctuation", "["],
+	["string-literal", [
+		["string", "\"href\""]
+	]],
+	["punctuation", "]"],
+	["operator", "!!"],
+
+	["keyword", "set"],
+	["punctuation", "("],
+	"value",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n            attributes",
+	["punctuation", "["],
+	["string-literal", [
+		["string", "\"href\""]
+	]],
+	["punctuation", "]"],
+	["operator", "="],
+	" value\n        ",
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "fun"],
+	["function", "html"],
+	["punctuation", "("],
+	["keyword", "init"],
+	["operator", ":"],
+	" HTML",
+	["punctuation", "."],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "->"],
+	" Unit",
+	["punctuation", ")"],
+	["operator", ":"],
+	" HTML ",
+	["punctuation", "{"],
+
+	["keyword", "val"],
+	" html ",
+	["operator", "="],
+	["function", "HTML"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	"\n    html",
+	["punctuation", "."],
+	["function", "init"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	" html\n",
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

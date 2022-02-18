@@ -1,0 +1,11 @@
+{{ 1_u32 }}
+{% 2_u32 %}
+{{ { 3_u32 } }}
+{% % 4_u32 % %}
+----------------------------------------------------
+<span class="token expansion"><span class="token delimiter operator">{{</span><span class="token content"> <span class="token number">1_u32</span> </span><span class="token delimiter operator">}}</span></span>
+<span class="token expansion"><span class="token delimiter operator">{%</span><span class="token content"> <span class="token number">2_u32</span> </span><span class="token delimiter operator">%}</span></span>
+<span class="token expansion"><span class="token delimiter operator">{{</span><span class="token content"> <span class="token punctuation">{</span> <span class="token number">3_u32</span> <span class="token punctuation">}</span> </span><span class="token delimiter operator">}}</span></span>
+<span class="token expansion"><span class="token delimiter operator">{%</span><span class="token content"> <span class="token operator">%</span> <span class="token number">4_u32</span> <span class="token operator">%</span> </span><span class="token delimiter operator">%}</span></span>
+
+----------------------------------------------------

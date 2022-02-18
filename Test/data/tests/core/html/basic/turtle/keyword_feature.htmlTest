@@ -1,0 +1,21 @@
+@base <http://example.org/> .
+BASE <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+GRAPH <urn:newGraph> {
+	<urn:myClass> a rdfs:Class ;
+	= <urn:equivalentClass> .
+}
+----------------------------------------------------
+<span class="token keyword">@base</span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token keyword">BASE</span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token keyword">@prefix</span> <span class="token function"><span class="token prefix">rdf<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/1999/02/22-rdf-syntax-ns#<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">rdfs<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2000/01/rdf-schema#<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+
+<span class="token keyword">GRAPH</span> <span class="token url"><span class="token punctuation">&lt;</span>urn:newGraph<span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+	<span class="token url"><span class="token punctuation">&lt;</span>urn:myClass<span class="token punctuation">></span></span> <span class="token keyword">a</span> <span class="token function"><span class="token prefix">rdfs<span class="token punctuation">:</span></span><span class="token local-name">Class</span></span> <span class="token punctuation">;</span>
+	<span class="token keyword">=</span> <span class="token url"><span class="token punctuation">&lt;</span>urn:equivalentClass<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

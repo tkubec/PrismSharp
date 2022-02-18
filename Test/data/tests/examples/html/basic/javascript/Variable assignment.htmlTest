@@ -1,0 +1,5 @@
+var foo = "bar", baz = 5;
+----------------------------------------------------
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token string">"bar"</span><span class="token punctuation">,</span> baz <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,60 @@
+#(1 2 3)
+#('food' 'utilities' 'rent' 'household' 'transportation' 'taxes' 'recreation')
+#(('one' 1) ('not' 'negative') 0 -1)
+#(9 'nine' $9 (0 'zero' $0 ( ) 'e' $f 'g' $h 'i'))
+----------------------------------------------------
+[
+	["symbol", "#"],
+	["punctuation", "("],
+	["number", "1"],
+	["number", "2"],
+	["number", "3"],
+	["punctuation", ")"],
+
+	["symbol", "#"],
+	["punctuation", "("],
+	["string", "'food'"],
+	["string", "'utilities'"],
+	["string", "'rent'"],
+	["string", "'household'"],
+	["string", "'transportation'"],
+	["string", "'taxes'"],
+	["string", "'recreation'"],
+	["punctuation", ")"],
+
+	["symbol", "#"],
+	["punctuation", "("],
+	["punctuation", "("],
+	["string", "'one'"],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["string", "'not'"],
+	["string", "'negative'"],
+	["punctuation", ")"],
+	["number", "0"],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ")"],
+
+	["symbol", "#"],
+	["punctuation", "("],
+	["number", "9"],
+	["string", "'nine'"],
+	["char", "$9"],
+	["punctuation", "("],
+	["number", "0"],
+	["string", "'zero'"],
+	["char", "$0"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["string", "'e'"],
+	["char", "$f"],
+	["string", "'g'"],
+	["char", "$h"],
+	["string", "'i'"],
+	["punctuation", ")"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

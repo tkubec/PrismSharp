@@ -1,0 +1,7 @@
+"This is an #{:atom}"
+~s/#{40+2} is the answer/
+----------------------------------------------------
+<span class="token string">"This is an <span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token atom symbol">:atom</span><span class="token delimiter punctuation">}</span></span>"</span>
+<span class="token string">~s/<span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token number">40</span><span class="token operator">+</span><span class="token number">2</span><span class="token delimiter punctuation">}</span></span> is the answer/</span>
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+A=0
+FOR I=1 TO 100 : A=A+I : NEXT
+PRINT A
+----------------------------------------------------
+A<span class="token operator">=</span><span class="token number">0</span>
+<span class="token keyword">FOR</span> I<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">TO</span> <span class="token number">100</span> <span class="token punctuation">:</span> A<span class="token operator">=</span>A<span class="token operator">+</span>I <span class="token punctuation">:</span> <span class="token keyword">NEXT</span>
+<span class="token keyword">PRINT</span> A
+
+----------------------------------------------------

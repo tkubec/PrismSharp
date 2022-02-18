@@ -1,0 +1,158 @@
+# Role-based Access Control (RBAC)
+
+# By default, deny requests.
+default allow = false
+
+# Allow admins to do anything.
+allow {
+	user_is_admin
+}
+
+# Allow the action if the user is granted permission to perform the action.
+allow {
+	# Find grants for the user.
+	some grant
+	user_is_granted[grant]
+
+	# Check if the grant permits the action.
+	input.action == grant.action
+	input.type == grant.type
+}
+
+# user_is_admin is true if...
+user_is_admin {
+
+	# for some `i`...
+	some i
+
+	# "admin" is the `i`-th element in the user->role mappings for the identified user.
+	data.user_roles[input.user][i] == "admin"
+}
+
+# user_is_granted is a set of grants for the user identified in the request.
+# The `grant` will be contained if the set `user_is_granted` for every...
+user_is_granted[grant] {
+	some i, j
+
+	# `role` assigned an element of the user_roles for this user...
+	role := data.user_roles[input.user][i]
+
+	# `grant` assigned a single grant from the grants list for 'role'...
+	grant := data.role_grants[role][j]
+}
+----------------------------------------------------
+[
+	["comment", "# Role-based Access Control (RBAC)"],
+
+	["comment", "# By default, deny requests."],
+	["keyword", "default"], " allow ", ["operator", "="], ["boolean", "false"],
+
+	["comment", "# Allow admins to do anything."],
+	"\nallow ", ["punctuation", "{"],
+	"\n\tuser_is_admin\n",
+	["punctuation", "}"],
+
+	["comment", "# Allow the action if the user is granted permission to perform the action."],
+
+	"\nallow ",
+	["punctuation", "{"],
+
+	["comment", "# Find grants for the user."],
+
+	["keyword", "some"],
+	" grant\n\tuser_is_granted",
+	["punctuation", "["],
+	"grant",
+	["punctuation", "]"],
+
+	["comment", "# Check if the grant permits the action."],
+
+	"\n\tinput",
+	["punctuation", "."],
+	"action ",
+	["operator", "=="],
+	" grant",
+	["punctuation", "."],
+	"action\n\tinput",
+	["punctuation", "."],
+	"type ",
+	["operator", "=="],
+	" grant",
+	["punctuation", "."],
+	"type\n",
+
+	["punctuation", "}"],
+
+	["comment", "# user_is_admin is true if..."],
+	"\nuser_is_admin ", ["punctuation", "{"],
+
+	["comment", "# for some `i`..."],
+	["keyword", "some"], " i\n\n\t",
+
+	["comment", "# \"admin\" is the `i`-th element in the user->role mappings for the identified user."],
+
+	"\n\tdata",
+	["punctuation", "."],
+	"user_roles",
+	["punctuation", "["],
+	"input",
+	["punctuation", "."],
+	"user",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["operator", "=="],
+	["string", "\"admin\""],
+
+	["punctuation", "}"],
+
+	["comment", "# user_is_granted is a set of grants for the user identified in the request."],
+
+	["comment", "# The `grant` will be contained if the set `user_is_granted` for every..."],
+
+	"\nuser_is_granted",
+	["punctuation", "["],
+	"grant",
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["keyword", "some"],
+	" i",
+	["punctuation", ","],
+	" j\n\n\t",
+
+	["comment", "# `role` assigned an element of the user_roles for this user..."],
+
+	"\n\trole ",
+	["operator", ":="],
+	" data",
+	["punctuation", "."],
+	"user_roles",
+	["punctuation", "["],
+	"input",
+	["punctuation", "."],
+	"user",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+
+	["comment", "# `grant` assigned a single grant from the grants list for 'role'..."],
+
+	"\n\tgrant ",
+	["operator", ":="],
+	" data",
+	["punctuation", "."],
+	"role_grants",
+	["punctuation", "["],
+	"role",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"j",
+	["punctuation", "]"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

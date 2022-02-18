@@ -1,0 +1,15 @@
+<PRIVATE
+:>
+PRIVATE>
+$[ some code ]
+<< some code >>
+\ M\
+----------------------------------------------------
+<span class="token other-builtin-syntax operator">&lt;PRIVATE</span>
+<span class="token semicolon-or-setlocal function">:></span>
+<span class="token other-builtin-syntax operator">PRIVATE></span>
+<span class="token other-builtin-syntax operator">$[</span> <span class="token normal-word">some</span> <span class="token normal-word">code</span> <span class="token quotation-delimiter operator">]</span>
+<span class="token other-builtin-syntax operator">&lt;&lt;</span> <span class="token normal-word">some</span> <span class="token normal-word">code</span> <span class="token other-builtin-syntax operator">>></span>
+<span class="token other-builtin-syntax operator">\</span> <span class="token other-builtin-syntax operator">M\</span>
+
+----------------------------------------------------

@@ -1,0 +1,28 @@
+is mod not xor
+
+: \ =
+> < -
+? * @
+/ ; +
+^ | !
+$ .
+
+=@=
+----------------------------------------------------
+[
+	["operator", "is"],
+	["operator", "mod"],
+	["operator", "not"],
+	["operator", "xor"],
+
+	["operator", ":"], ["operator", "\\"], ["operator", "="],
+	["operator", ">"], ["operator", "<"], ["operator", "-"],
+	["operator", "?"], ["operator", "*"], ["operator", "@"],
+	["operator", "/"], ["operator", ";"], ["operator", "+"],
+	["operator", "^"], ["operator", "|"], ["operator", "!"],
+	["operator", "$"], ["operator", "."],
+
+	["operator", "=@="]
+]
+
+----------------------------------------------------

@@ -1,0 +1,41 @@
+""
+"foo"
+"\"foo\""
+
+"""
+foo
+"""
+
+var a = """
+\"""
+foo""";
+
+"""
+The quick brown fox""" + "  \n" + """
+jumps over the lazy dog
+"""
+
+String empty = """
+""";
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo"</span>
+<span class="token string">"\"foo\""</span>
+
+<span class="token triple-quoted-string string">"""
+foo
+"""</span>
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+\"""
+foo"""</span><span class="token punctuation">;</span>
+
+<span class="token triple-quoted-string string">"""
+The quick brown fox"""</span> <span class="token operator">+</span> <span class="token string">"  \n"</span> <span class="token operator">+</span> <span class="token triple-quoted-string string">"""
+jumps over the lazy dog
+"""</span>
+
+<span class="token class-name">String</span> empty <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+"""</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

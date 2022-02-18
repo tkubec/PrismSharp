@@ -1,0 +1,9 @@
+/.*foo.*/
+/regex"containing quotes"/
+$/.*"(.*)".*/(.*)/$
+----------------------------------------------------
+<span class="token string">/.*foo.*/</span>
+<span class="token string">/regex"containing quotes"/</span>
+<span class="token string">$/.*"(.*)".*/(.*)/$</span>
+
+----------------------------------------------------

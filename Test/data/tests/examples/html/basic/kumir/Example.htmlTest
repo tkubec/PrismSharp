@@ -1,0 +1,121 @@
+алг
+нач
+  | Решение квадратного уравнения.
+  вещ a, b, c
+  вещ таб корни[1:2]
+  цел индекс, число корней
+  вывод "Укажите первый коэффициент: "
+  ввод a
+  вывод нс, "Укажите второй коэффициент: "
+  ввод b
+  вывод нс, "Укажите свободный член: "
+  ввод c
+  решить квур(a, b, c, число корней, корни)
+  если число корней = -1
+    то
+      вывод нс, "Первый коэффициент не может быть равен нулю.", нс
+    иначе
+      если число корней = 0
+        то
+          вывод нс, "Уравнение не имеет корней.", нс
+        иначе
+          если число корней = 1
+            то
+              вывод нс, "Уравнение имеет один корень.", нс
+              вывод "x = ", корни[1], нс
+            иначе
+              вывод нс, "Уравнение имеет два корня.", нс
+              нц для индекс от 1 до число корней шаг 1
+                вывод "x", индекс, " = ", корни[индекс], нс
+              кц
+          все
+      все
+  все
+кон
+
+алг решить квур(арг вещ a, b, c, арг рез цел число корней, арг рез вещ таб корни[1:2])
+нач
+  вещ дискриминант
+  если a = 0
+    то
+      число корней := -1
+    иначе
+      дискриминант := b**2 - 4 * a * c
+      если дискриминант > 0
+        то
+          корни[1] := (-b - sqrt(дискриминант)) / (2 * a)
+          корни[2] := (-b + sqrt(дискриминант)) / (2 * a)
+          число корней := 2
+        иначе
+          если дискриминант = 0
+            то
+              корни[1] := -b / (2 * a)
+              число корней := 1
+            иначе
+              число корней := 0
+          все
+      все
+  все
+кон
+----------------------------------------------------
+<span class="token keyword">алг</span>
+<span class="token keyword">нач</span>
+  <span class="token comment">| Решение квадратного уравнения.</span>
+  <span class="token type builtin">вещ</span> <span class="token name">a</span><span class="token punctuation">,</span> <span class="token name">b</span><span class="token punctuation">,</span> <span class="token name">c</span>
+  <span class="token type builtin">вещ таб</span> <span class="token name">корни</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+  <span class="token type builtin">цел</span> <span class="token name">индекс</span><span class="token punctuation">,</span> <span class="token name">число корней</span>
+  <span class="token keyword">вывод</span> <span class="token string">"Укажите первый коэффициент: "</span>
+  <span class="token keyword">ввод</span> <span class="token name">a</span>
+  <span class="token keyword">вывод</span> <span class="token keyword">нс</span><span class="token punctuation">,</span> <span class="token string">"Укажите второй коэффициент: "</span>
+  <span class="token keyword">ввод</span> <span class="token name">b</span>
+  <span class="token keyword">вывод</span> <span class="token keyword">нс</span><span class="token punctuation">,</span> <span class="token string">"Укажите свободный член: "</span>
+  <span class="token keyword">ввод</span> <span class="token name">c</span>
+  <span class="token name">решить квур</span><span class="token punctuation">(</span><span class="token name">a</span><span class="token punctuation">,</span> <span class="token name">b</span><span class="token punctuation">,</span> <span class="token name">c</span><span class="token punctuation">,</span> <span class="token name">число корней</span><span class="token punctuation">,</span> <span class="token name">корни</span><span class="token punctuation">)</span>
+  <span class="token keyword">если</span> <span class="token name">число корней</span> <span class="token operator-char operator">=</span> <span class="token operator-char operator">-</span><span class="token number">1</span>
+    <span class="token keyword">то</span>
+      <span class="token keyword">вывод</span> <span class="token keyword">нс</span><span class="token punctuation">,</span> <span class="token string">"Первый коэффициент не может быть равен нулю."</span><span class="token punctuation">,</span> <span class="token keyword">нс</span>
+    <span class="token keyword">иначе</span>
+      <span class="token keyword">если</span> <span class="token name">число корней</span> <span class="token operator-char operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">то</span>
+          <span class="token keyword">вывод</span> <span class="token keyword">нс</span><span class="token punctuation">,</span> <span class="token string">"Уравнение не имеет корней."</span><span class="token punctuation">,</span> <span class="token keyword">нс</span>
+        <span class="token keyword">иначе</span>
+          <span class="token keyword">если</span> <span class="token name">число корней</span> <span class="token operator-char operator">=</span> <span class="token number">1</span>
+            <span class="token keyword">то</span>
+              <span class="token keyword">вывод</span> <span class="token keyword">нс</span><span class="token punctuation">,</span> <span class="token string">"Уравнение имеет один корень."</span><span class="token punctuation">,</span> <span class="token keyword">нс</span>
+              <span class="token keyword">вывод</span> <span class="token string">"x = "</span><span class="token punctuation">,</span> <span class="token name">корни</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">нс</span>
+            <span class="token keyword">иначе</span>
+              <span class="token keyword">вывод</span> <span class="token keyword">нс</span><span class="token punctuation">,</span> <span class="token string">"Уравнение имеет два корня."</span><span class="token punctuation">,</span> <span class="token keyword">нс</span>
+              <span class="token keyword">нц</span> <span class="token keyword">для</span> <span class="token name">индекс</span> <span class="token keyword">от</span> <span class="token number">1</span> <span class="token keyword">до</span> <span class="token name">число корней</span> <span class="token keyword">шаг</span> <span class="token number">1</span>
+                <span class="token keyword">вывод</span> <span class="token string">"x"</span><span class="token punctuation">,</span> <span class="token name">индекс</span><span class="token punctuation">,</span> <span class="token string">" = "</span><span class="token punctuation">,</span> <span class="token name">корни</span><span class="token punctuation">[</span><span class="token name">индекс</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">нс</span>
+              <span class="token keyword">кц</span>
+          <span class="token keyword">все</span>
+      <span class="token keyword">все</span>
+  <span class="token keyword">все</span>
+<span class="token keyword">кон</span>
+
+<span class="token keyword">алг</span> <span class="token name">решить квур</span><span class="token punctuation">(</span><span class="token keyword">арг</span> <span class="token type builtin">вещ</span> <span class="token name">a</span><span class="token punctuation">,</span> <span class="token name">b</span><span class="token punctuation">,</span> <span class="token name">c</span><span class="token punctuation">,</span> <span class="token keyword">арг рез</span> <span class="token type builtin">цел</span> <span class="token name">число корней</span><span class="token punctuation">,</span> <span class="token keyword">арг рез</span> <span class="token type builtin">вещ таб</span> <span class="token name">корни</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">нач</span>
+  <span class="token type builtin">вещ</span> <span class="token name">дискриминант</span>
+  <span class="token keyword">если</span> <span class="token name">a</span> <span class="token operator-char operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">то</span>
+      <span class="token name">число корней</span> <span class="token punctuation">:=</span> <span class="token operator-char operator">-</span><span class="token number">1</span>
+    <span class="token keyword">иначе</span>
+      <span class="token name">дискриминант</span> <span class="token punctuation">:=</span> <span class="token name">b</span><span class="token operator-char operator">**</span><span class="token number">2</span> <span class="token operator-char operator">-</span> <span class="token number">4</span> <span class="token operator-char operator">*</span> <span class="token name">a</span> <span class="token operator-char operator">*</span> <span class="token name">c</span>
+      <span class="token keyword">если</span> <span class="token name">дискриминант</span> <span class="token operator-char operator">></span> <span class="token number">0</span>
+        <span class="token keyword">то</span>
+          <span class="token name">корни</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">:=</span> <span class="token punctuation">(</span><span class="token operator-char operator">-</span><span class="token name">b</span> <span class="token operator-char operator">-</span> <span class="token name">sqrt</span><span class="token punctuation">(</span><span class="token name">дискриминант</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator-char operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator-char operator">*</span> <span class="token name">a</span><span class="token punctuation">)</span>
+          <span class="token name">корни</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">:=</span> <span class="token punctuation">(</span><span class="token operator-char operator">-</span><span class="token name">b</span> <span class="token operator-char operator">+</span> <span class="token name">sqrt</span><span class="token punctuation">(</span><span class="token name">дискриминант</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator-char operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator-char operator">*</span> <span class="token name">a</span><span class="token punctuation">)</span>
+          <span class="token name">число корней</span> <span class="token punctuation">:=</span> <span class="token number">2</span>
+        <span class="token keyword">иначе</span>
+          <span class="token keyword">если</span> <span class="token name">дискриминант</span> <span class="token operator-char operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">то</span>
+              <span class="token name">корни</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">:=</span> <span class="token operator-char operator">-</span><span class="token name">b</span> <span class="token operator-char operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator-char operator">*</span> <span class="token name">a</span><span class="token punctuation">)</span>
+              <span class="token name">число корней</span> <span class="token punctuation">:=</span> <span class="token number">1</span>
+            <span class="token keyword">иначе</span>
+              <span class="token name">число корней</span> <span class="token punctuation">:=</span> <span class="token number">0</span>
+          <span class="token keyword">все</span>
+      <span class="token keyword">все</span>
+  <span class="token keyword">все</span>
+<span class="token keyword">кон</span>
+
+----------------------------------------------------

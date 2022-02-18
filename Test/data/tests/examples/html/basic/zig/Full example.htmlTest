@@ -1,0 +1,93 @@
+const std = @import("std");
+
+pub fn main() !void {
+    // If this program is run without stdout attached, exit with an error.
+    const stdout_file = try std.io.getStdOut();
+    // If this program encounters pipe failure when printing to stdout, exit
+    // with an error.
+    try stdout_file.write("Hello, world!\n");
+}
+
+const warn = @import("std").debug.warn;
+
+pub fn main() void {
+    warn("Hello, world!\n");
+}
+
+const assert = @import("std").debug.assert;
+
+test "comments" {
+    // Comments in Zig start with "//" and end at the next LF byte (end of line).
+    // The below line is a comment, and won't be executed.
+
+    //assert(false);
+
+    const x = true;  // another comment
+    assert(x);
+}
+
+/// A structure for storing a timestamp, with nanosecond precision (this is a
+/// multiline doc comment).
+const Timestamp = struct {
+    /// The number of seconds since the epoch (this is also a doc comment).
+    seconds: i64,  // signed so we can represent pre-1970 (not a doc comment)
+    /// The number of nanoseconds past the second (doc comment again).
+    nanos: u32,
+
+    /// Returns a `Timestamp` struct representing the Unix epoch; that is, the
+    /// moment of 1970 Jan 1 00:00:00 UTC (this is a doc comment too).
+    pub fn unixEpoch() Timestamp {
+        return Timestamp{
+            .seconds = 0,
+            .nanos = 0,
+        };
+    }
+};
+----------------------------------------------------
+<span class="token keyword">const</span> std <span class="token operator">=</span> <span class="token builtin">@import</span><span class="token punctuation">(</span><span class="token string">"std"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">pub</span> <span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token class-name"><span class="token operator">!</span><span class="token builtin-type keyword">void</span></span> <span class="token punctuation">{</span>
+    <span class="token comment">// If this program is run without stdout attached, exit with an error.</span>
+    <span class="token keyword">const</span> stdout_file <span class="token operator">=</span> <span class="token keyword">try</span> std<span class="token punctuation">.</span>io<span class="token punctuation">.</span><span class="token function">getStdOut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// If this program encounters pipe failure when printing to stdout, exit</span>
+    <span class="token comment">// with an error.</span>
+    <span class="token keyword">try</span> stdout_file<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"Hello, world!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> warn <span class="token operator">=</span> <span class="token builtin">@import</span><span class="token punctuation">(</span><span class="token string">"std"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>debug<span class="token punctuation">.</span>warn<span class="token punctuation">;</span>
+
+<span class="token keyword">pub</span> <span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token class-name"><span class="token builtin-type keyword">void</span></span> <span class="token punctuation">{</span>
+    <span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"Hello, world!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> assert <span class="token operator">=</span> <span class="token builtin">@import</span><span class="token punctuation">(</span><span class="token string">"std"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>debug<span class="token punctuation">.</span>assert<span class="token punctuation">;</span>
+
+<span class="token keyword">test</span> <span class="token string">"comments"</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Comments in Zig start with "//" and end at the next LF byte (end of line).</span>
+    <span class="token comment">// The below line is a comment, and won't be executed.</span>
+
+    <span class="token comment">//assert(false);</span>
+
+    <span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  <span class="token comment">// another comment</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment doc-comment">/// A structure for storing a timestamp, with nanosecond precision (this is a</span>
+<span class="token comment doc-comment">/// multiline doc comment).</span>
+<span class="token keyword">const</span> <span class="token class-name">Timestamp</span> <span class="token operator">=</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token comment doc-comment">/// The number of seconds since the epoch (this is also a doc comment).</span>
+    seconds<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">i64</span></span><span class="token punctuation">,</span>  <span class="token comment">// signed so we can represent pre-1970 (not a doc comment)</span>
+    <span class="token comment doc-comment">/// The number of nanoseconds past the second (doc comment again).</span>
+    nanos<span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin-type keyword">u32</span></span><span class="token punctuation">,</span>
+
+    <span class="token comment doc-comment">/// Returns a `Timestamp` struct representing the Unix epoch; that is, the</span>
+    <span class="token comment doc-comment">/// moment of 1970 Jan 1 00:00:00 UTC (this is a doc comment too).</span>
+    <span class="token keyword">pub</span> <span class="token keyword">fn</span> <span class="token function">unixEpoch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token class-name">Timestamp</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Timestamp</span><span class="token punctuation">{</span>
+            <span class="token punctuation">.</span>seconds <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token punctuation">.</span>nanos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

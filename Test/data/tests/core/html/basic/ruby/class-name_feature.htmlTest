@@ -1,0 +1,39 @@
+class Customer
+   @@no_of_customers = 0
+end
+
+cust1 = Customer. new
+cust2 = Customer. new
+
+class Accounts
+   def reading_charge
+   end
+   def Accounts.return_date
+   end
+end
+
+class Salad
+  def self.buy_olive_oil
+  end
+end
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Customer</span>
+   <span class="token variable">@@no_of_customers</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">end</span>
+
+cust1 <span class="token operator">=</span> <span class="token class-name">Customer</span><span class="token punctuation">.</span> <span class="token keyword">new</span>
+cust2 <span class="token operator">=</span> <span class="token class-name">Customer</span><span class="token punctuation">.</span> <span class="token keyword">new</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Accounts</span>
+   <span class="token keyword">def</span> <span class="token method-definition"><span class="token function">reading_charge</span></span>
+   <span class="token keyword">end</span>
+   <span class="token keyword">def</span> <span class="token method-definition"><span class="token class-name">Accounts</span><span class="token punctuation">.</span><span class="token function">return_date</span></span>
+   <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Salad</span>
+  <span class="token keyword">def</span> <span class="token method-definition"><span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">buy_olive_oil</span></span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

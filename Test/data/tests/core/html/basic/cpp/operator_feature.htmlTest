@@ -1,0 +1,21 @@
++ - * / % -- ++
+>> <<
+~ & | ^
++= -= *= /= %= >>= <<= &= |= ^=
+! && ||
+->
+? :
+= == != < > <= >= <=>
+and and_eq bitand bitor not not_eq or or_eq xor xor_eq
+----------------------------------------------------
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">%</span> <span class="token operator">--</span> <span class="token operator">++</span>
+<span class="token operator">>></span> <span class="token operator">&lt;&lt;</span>
+<span class="token operator">~</span> <span class="token operator">&amp;</span> <span class="token operator">|</span> <span class="token operator">^</span>
+<span class="token operator">+=</span> <span class="token operator">-=</span> <span class="token operator">*=</span> <span class="token operator">/=</span> <span class="token operator">%=</span> <span class="token operator">>>=</span> <span class="token operator">&lt;&lt;=</span> <span class="token operator">&amp;=</span> <span class="token operator">|=</span> <span class="token operator">^=</span>
+<span class="token operator">!</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">||</span>
+<span class="token operator">-></span>
+<span class="token operator">?</span> <span class="token operator">:</span>
+<span class="token operator">=</span> <span class="token operator">==</span> <span class="token operator">!=</span> <span class="token operator">&lt;</span> <span class="token operator">></span> <span class="token operator">&lt;=</span> <span class="token operator">>=</span> <span class="token operator">&lt;=></span>
+<span class="token operator">and</span> <span class="token operator">and_eq</span> <span class="token operator">bitand</span> <span class="token operator">bitor</span> <span class="token operator">not</span> <span class="token operator">not_eq</span> <span class="token operator">or</span> <span class="token operator">or_eq</span> <span class="token operator">xor</span> <span class="token operator">xor_eq</span>
+
+----------------------------------------------------

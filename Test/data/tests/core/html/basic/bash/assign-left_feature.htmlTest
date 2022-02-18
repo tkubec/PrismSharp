@@ -1,0 +1,9 @@
+foo=12
+bar+='xyz'
+foo+=('xyz')
+----------------------------------------------------
+<span class="token assign-left variable">foo</span><span class="token operator">=</span><span class="token number">12</span>
+<span class="token assign-left variable">bar</span><span class="token operator">+=</span><span class="token string">'xyz'</span>
+<span class="token assign-left variable">foo</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token string">'xyz'</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

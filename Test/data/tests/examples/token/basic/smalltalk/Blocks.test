@@ -1,0 +1,87 @@
+sum := 0.
+#(2 3 5 7 11) do: [ :primel | sum := sum + (prime * prime)]
+
+sizeAdder := [ :array | total := total + array size].
+
+[ :x :y | (x * x) + (y * y)]
+[ :frame :clippingBox | frame intersect: clippingBox]
+----------------------------------------------------
+[
+	"sum ",
+	["operator", ":="],
+	["number", "0"],
+	["punctuation", "."],
+
+	["symbol", "#"],
+	["punctuation", "("],
+	["number", "2"],
+	["number", "3"],
+	["number", "5"],
+	["number", "7"],
+	["number", "11"],
+	["punctuation", ")"],
+	" do",
+	["punctuation", ":"],
+	["punctuation", "["],
+	["block-arguments", [
+		["variable", ":primel"],
+		["punctuation", "|"]
+	]],
+	" sum ",
+	["operator", ":="],
+	" sum ",
+	["operator", "+"],
+	["punctuation", "("],
+	"prime ",
+	["operator", "*"],
+	" prime",
+	["punctuation", ")"],
+	["punctuation", "]"],
+
+	"\n\nsizeAdder ",
+	["operator", ":="],
+	["punctuation", "["],
+	["block-arguments", [
+		["variable", ":array"],
+		["punctuation", "|"]
+	]],
+	" total ",
+	["operator", ":="],
+	" total ",
+	["operator", "+"],
+	" array size",
+	["punctuation", "]"],
+	["punctuation", "."],
+
+	["punctuation", "["],
+	["block-arguments", [
+		["variable", ":x"],
+		["variable", ":y"],
+		["punctuation", "|"]
+	]],
+	["punctuation", "("],
+	"x ",
+	["operator", "*"],
+	" x",
+	["punctuation", ")"],
+	["operator", "+"],
+	["punctuation", "("],
+	"y ",
+	["operator", "*"],
+	" y",
+	["punctuation", ")"],
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	["block-arguments", [
+		["variable", ":frame"],
+		["variable", ":clippingBox"],
+		["punctuation", "|"]
+	]],
+	" frame intersect",
+	["punctuation", ":"],
+	" clippingBox",
+	["punctuation", "]"]
+]
+
+----------------------------------------------------

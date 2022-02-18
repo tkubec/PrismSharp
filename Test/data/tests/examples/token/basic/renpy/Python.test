@@ -1,0 +1,54 @@
+class Dog:
+
+    tricks = []             # mistaken use of a class variable
+
+    def __init__(self, name):
+        self.name = name
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+----------------------------------------------------
+[
+	["keyword", "class"], " Dog", ["punctuation", ":"],
+
+	"\n\n    tricks ",
+	["operator", "="],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["comment", "# mistaken use of a class variable"],
+
+	["keyword", "def"],
+	["function", "__init__"],
+	["punctuation", "("],
+	["tag", "self"],
+	["punctuation", ","],
+	["property", "name"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+
+	["tag", "self"],
+	["punctuation", "."],
+	["property", "name"],
+	["operator", "="],
+	["property", "name"],
+
+	["keyword", "def"],
+	["function", "add_trick"],
+	["punctuation", "("],
+	["tag", "self"],
+	["punctuation", ","],
+	" trick",
+	["punctuation", ")"],
+	["punctuation", ":"],
+
+	["tag", "self"],
+	["punctuation", "."],
+	"tricks",
+	["punctuation", "."],
+	["function", "append"],
+	["punctuation", "("],
+	"trick",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

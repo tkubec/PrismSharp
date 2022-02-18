@@ -1,0 +1,37 @@
+""
+"MoonScript
+has multiline strings"
+
+"Hello, I am #{@name}!"
+
+''
+'foo
+bar'
+' #{no interpolation here} '
+
+[==[
+
+moon
+
+]==]
+[[(.-\)[^\]+$]]
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"MoonScript
+has multiline strings"</span>
+
+<span class="token string">"Hello, I am <span class="token interpolation"><span class="token interpolation-punctuation punctuation">#{</span><span class="token moonscript"><span class="token variable">@name</span></span><span class="token interpolation-punctuation punctuation">}</span></span>!"</span>
+
+<span class="token string">''</span>
+<span class="token string">'foo
+bar'</span>
+<span class="token string">' #{no interpolation here} '</span>
+
+<span class="token string">[==[
+
+moon
+
+]==]</span>
+<span class="token string">[[(.-\)[^\]+$]]</span>
+
+----------------------------------------------------

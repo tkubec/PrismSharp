@@ -1,0 +1,61 @@
+let x = a | b;
+let y = c || d;
+let add_one = |x: i32| -> i32 { 1i + x };
+let printer = || { println!("x is: {}", x); };
+----------------------------------------------------
+[
+	["keyword", "let"],
+	" x ",
+	["operator", "="],
+	" a ",
+	["operator", "|"],
+	" b",
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" y ",
+	["operator", "="],
+	" c ",
+	["operator", "||"],
+	" d",
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" add_one ",
+	["operator", "="],
+	["closure-params", [
+		["closure-punctuation", "|"],
+		"x",
+		["punctuation", ":"],
+		["keyword", "i32"],
+		["closure-punctuation", "|"]
+	]],
+	["punctuation", "->"],
+	["keyword", "i32"],
+	["punctuation", "{"],
+	["number", "1i"],
+	["operator", "+"],
+	" x ",
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" printer ",
+	["operator", "="],
+	["closure-params", [
+		["closure-punctuation", "|"],
+		["closure-punctuation", "|"]
+	]],
+	["punctuation", "{"],
+	["macro", "println!"],
+	["punctuation", "("],
+	["string", "\"x is: {}\""],
+	["punctuation", ","],
+	" x",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["punctuation", "}"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

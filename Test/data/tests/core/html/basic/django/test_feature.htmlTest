@@ -1,0 +1,5 @@
+{% if foo is defined and bar is not baz %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token tag keyword">if</span> <span class="token variable">foo</span> <span class="token keyword">is</span> <span class="token test function">defined</span> <span class="token keyword">and</span> <span class="token variable">bar</span> <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token test function">baz</span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

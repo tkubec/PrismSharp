@@ -1,0 +1,199 @@
+public static decimal CalculateToll(object vehicle) =>
+	vehicle switch
+	{
+		DeliveryTruck t when t.GrossWeightClass > 5000 => 10.00m + 5.00m,
+		DeliveryTruck t when t.GrossWeightClass < 3000 => 10.00m - 2.00m,
+		DeliveryTruck _ => 10.00m,
+		_ => throw new ArgumentException("Not a known vehicle type", nameof(vehicle))
+	};
+
+DeliveryTruck t when t.GrossWeightClass switch
+{
+	> 5000 => 10.00m + 5.00m,
+	< 3000 => 10.00m - 2.00m,
+	_ => 10.00m,
+},
+DeliveryTruck t when t.GrossWeightClass switch
+{
+	< 3000 => 10.00m - 2.00m,
+	>= 3000 and <= 5000 => 10.00m,
+	> 5000 => 10.00m + 5.00m,
+},
+
+switch (DateTime.Now.DayOfWeek)
+{
+	case DayOfWeek.Sunday:
+	case DayOfWeek.Saturday:
+		Console.WriteLine("The weekend");
+		break;
+	case DayOfWeek.Monday:
+		Console.WriteLine("The first day of the work week.");
+		break;
+	case DayOfWeek.Friday:
+		Console.WriteLine("The last day of the work week.");
+		break;
+	default:
+		Console.WriteLine("The middle of the work week.");
+		break;
+}
+
+switch (str)
+{
+	case "1":
+	case "small":
+		cost += 25;
+		break;
+	case "2":
+	case "medium":
+		cost += 25;
+		goto case "1";
+	case "3":
+	case "large":
+		cost += 50;
+		goto case "1";
+	default:
+		Console.WriteLine("Invalid selection. Please select 1, 2, or 3.");
+		break;
+}
+
+switch (sh)
+{
+	// Note that this code never evaluates to true.
+	case Shape shape when shape == null:
+		break;
+	case null:
+		break;
+	case Rectangle r when r.Length == r.Width && r.Area > 0:
+		break;
+	default:
+		break;
+}
+
+switch (coll)
+{
+	case Array arr:
+		break;
+	case IEnumerable<int> ieInt:
+		break;
+	case object o:
+		break;
+	default:
+		break;
+}
+
+bool IsValidPercentage(object x) => x is
+	>= 0 and <= 100 or    // integer tests
+	>= 0F and <= 100F or  // float tests
+	>= 0D and <= 100D;    // double tests
+
+bool isSmallByte(object o) => o is byte and < 100;
+
+case (0, int x):
+case (int x, 0):
+	Console.WriteLine(x);
+
+case < 2: break;
+case 0 or 1 or 2 or 3 or 4 or 5: break;
+
+int x = b switch { <100 => 0, 100 => 1, 101 => 2, >101 => 3 };
+----------------------------------------------------
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token return-type class-name"><span class="token keyword">decimal</span></span> <span class="token function">CalculateToll</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">object</span></span> vehicle<span class="token punctuation">)</span> <span class="token operator">=></span>
+	vehicle <span class="token keyword">switch</span>
+	<span class="token punctuation">{</span>
+		<span class="token class-name">DeliveryTruck</span> t <span class="token keyword">when</span> t<span class="token punctuation">.</span>GrossWeightClass <span class="token operator">></span> <span class="token number">5000</span> <span class="token operator">=></span> <span class="token number">10.00m</span> <span class="token operator">+</span> <span class="token number">5.00m</span><span class="token punctuation">,</span>
+		<span class="token class-name">DeliveryTruck</span> t <span class="token keyword">when</span> t<span class="token punctuation">.</span>GrossWeightClass <span class="token operator">&lt;</span> <span class="token number">3000</span> <span class="token operator">=></span> <span class="token number">10.00m</span> <span class="token operator">-</span> <span class="token number">2.00m</span><span class="token punctuation">,</span>
+		<span class="token return-type class-name">DeliveryTruck</span> _ <span class="token operator">=></span> <span class="token number">10.00m</span><span class="token punctuation">,</span>
+		_ <span class="token operator">=></span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">ArgumentException</span><span class="token punctuation">(</span><span class="token string">"Not a known vehicle type"</span><span class="token punctuation">,</span> <span class="token keyword">nameof</span><span class="token punctuation">(</span>vehicle<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token class-name">DeliveryTruck</span> t <span class="token keyword">when</span> t<span class="token punctuation">.</span>GrossWeightClass <span class="token keyword">switch</span>
+<span class="token punctuation">{</span>
+	<span class="token operator">></span> <span class="token number">5000</span> <span class="token operator">=></span> <span class="token number">10.00m</span> <span class="token operator">+</span> <span class="token number">5.00m</span><span class="token punctuation">,</span>
+	<span class="token operator">&lt;</span> <span class="token number">3000</span> <span class="token operator">=></span> <span class="token number">10.00m</span> <span class="token operator">-</span> <span class="token number">2.00m</span><span class="token punctuation">,</span>
+	_ <span class="token operator">=></span> <span class="token number">10.00m</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token class-name">DeliveryTruck</span> t <span class="token keyword">when</span> t<span class="token punctuation">.</span>GrossWeightClass <span class="token keyword">switch</span>
+<span class="token punctuation">{</span>
+	<span class="token operator">&lt;</span> <span class="token number">3000</span> <span class="token operator">=></span> <span class="token number">10.00m</span> <span class="token operator">-</span> <span class="token number">2.00m</span><span class="token punctuation">,</span>
+	<span class="token operator">>=</span> <span class="token number">3000</span> <span class="token keyword">and</span> <span class="token operator">&lt;=</span> <span class="token number">5000</span> <span class="token operator">=></span> <span class="token number">10.00m</span><span class="token punctuation">,</span>
+	<span class="token operator">></span> <span class="token number">5000</span> <span class="token operator">=></span> <span class="token number">10.00m</span> <span class="token operator">+</span> <span class="token number">5.00m</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">.</span>DayOfWeek<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">case</span> DayOfWeek<span class="token punctuation">.</span>Sunday<span class="token punctuation">:</span>
+	<span class="token keyword">case</span> DayOfWeek<span class="token punctuation">.</span>Saturday<span class="token punctuation">:</span>
+		Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"The weekend"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> DayOfWeek<span class="token punctuation">.</span>Monday<span class="token punctuation">:</span>
+		Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"The first day of the work week."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> DayOfWeek<span class="token punctuation">.</span>Friday<span class="token punctuation">:</span>
+		Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"The last day of the work week."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">default</span><span class="token punctuation">:</span>
+		Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"The middle of the work week."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">case</span> <span class="token string">"1"</span><span class="token punctuation">:</span>
+	<span class="token keyword">case</span> <span class="token string">"small"</span><span class="token punctuation">:</span>
+		cost <span class="token operator">+=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token string">"2"</span><span class="token punctuation">:</span>
+	<span class="token keyword">case</span> <span class="token string">"medium"</span><span class="token punctuation">:</span>
+		cost <span class="token operator">+=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+		<span class="token keyword">goto</span> <span class="token keyword">case</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token string">"3"</span><span class="token punctuation">:</span>
+	<span class="token keyword">case</span> <span class="token string">"large"</span><span class="token punctuation">:</span>
+		cost <span class="token operator">+=</span> <span class="token number">50</span><span class="token punctuation">;</span>
+		<span class="token keyword">goto</span> <span class="token keyword">case</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+	<span class="token keyword">default</span><span class="token punctuation">:</span>
+		Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Invalid selection. Please select 1, 2, or 3."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>sh<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Note that this code never evaluates to true.</span>
+	<span class="token keyword">case</span> <span class="token class-name">Shape</span> shape <span class="token keyword">when</span> shape <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token keyword">null</span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token class-name">Rectangle</span> r <span class="token keyword">when</span> r<span class="token punctuation">.</span>Length <span class="token operator">==</span> r<span class="token punctuation">.</span>Width <span class="token operator">&amp;&amp;</span> r<span class="token punctuation">.</span>Area <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">default</span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>coll<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">case</span> <span class="token class-name">Array</span> arr<span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token class-name">IEnumerable<span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span></span> ieInt<span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token class-name"><span class="token keyword">object</span></span> o<span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">default</span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token return-type class-name"><span class="token keyword">bool</span></span> <span class="token function">IsValidPercentage</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">object</span></span> x<span class="token punctuation">)</span> <span class="token operator">=></span> x <span class="token keyword">is</span>
+	<span class="token operator">>=</span> <span class="token number">0</span> <span class="token keyword">and</span> <span class="token operator">&lt;=</span> <span class="token number">100</span> <span class="token keyword">or</span>    <span class="token comment">// integer tests</span>
+	<span class="token operator">>=</span> <span class="token number">0F</span> <span class="token keyword">and</span> <span class="token operator">&lt;=</span> <span class="token number">100F</span> <span class="token keyword">or</span>  <span class="token comment">// float tests</span>
+	<span class="token operator">>=</span> <span class="token number">0D</span> <span class="token keyword">and</span> <span class="token operator">&lt;=</span> <span class="token number">100D</span><span class="token punctuation">;</span>    <span class="token comment">// double tests</span>
+
+<span class="token return-type class-name"><span class="token keyword">bool</span></span> <span class="token function">isSmallByte</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">object</span></span> o<span class="token punctuation">)</span> <span class="token operator">=></span> o <span class="token keyword">is</span> <span class="token class-name"><span class="token keyword">byte</span></span> <span class="token keyword">and</span> <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span>
+
+<span class="token keyword">case</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">int</span></span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">case</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">case</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">:</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token keyword">case</span> <span class="token number">0</span> <span class="token keyword">or</span> <span class="token number">1</span> <span class="token keyword">or</span> <span class="token number">2</span> <span class="token keyword">or</span> <span class="token number">3</span> <span class="token keyword">or</span> <span class="token number">4</span> <span class="token keyword">or</span> <span class="token number">5</span><span class="token punctuation">:</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">int</span></span> x <span class="token operator">=</span> b <span class="token keyword">switch</span> <span class="token punctuation">{</span> <span class="token operator">&lt;</span><span class="token number">100</span> <span class="token operator">=></span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span> <span class="token operator">=></span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">101</span> <span class="token operator">=></span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">></span><span class="token number">101</span> <span class="token operator">=></span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

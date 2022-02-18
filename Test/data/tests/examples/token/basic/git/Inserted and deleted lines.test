@@ -1,0 +1,9 @@
+- Some deleted line
++ Some added line
+----------------------------------------------------
+[
+	["deleted", "- Some deleted line"],
+	["inserted", "+ Some added line"]
+]
+
+----------------------------------------------------

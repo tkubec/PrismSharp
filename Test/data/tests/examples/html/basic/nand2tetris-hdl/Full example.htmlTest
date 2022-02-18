@@ -1,0 +1,25 @@
+/*
+ * Checks if two input bits are equal
+ */
+ 
+CHIP Eq {
+  IN a, b;
+  OUT out; // True iff a=b
+  PARTS:
+    Xor(a=a, b=b, out=uneq);
+    Not(in=uneq, out=out);
+}
+----------------------------------------------------
+<span class="token comment">/*
+ * Checks if two input bits are equal
+ */</span>
+ 
+<span class="token keyword">CHIP</span> Eq <span class="token punctuation">{</span>
+  <span class="token keyword">IN</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">OUT</span> out<span class="token punctuation">;</span> <span class="token comment">// True iff a=b</span>
+  <span class="token keyword">PARTS</span><span class="token punctuation">:</span>
+    <span class="token function">Xor</span><span class="token punctuation">(</span>a<span class="token operator">=</span>a<span class="token punctuation">,</span> b<span class="token operator">=</span>b<span class="token punctuation">,</span> out<span class="token operator">=</span>uneq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Not</span><span class="token punctuation">(</span>in<span class="token operator">=</span>uneq<span class="token punctuation">,</span> out<span class="token operator">=</span>out<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

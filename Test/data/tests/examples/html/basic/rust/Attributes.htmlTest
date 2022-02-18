@@ -1,0 +1,13 @@
+#![warn(unstable)]
+#[test]
+fn a_test() {
+	// ...
+}
+----------------------------------------------------
+<span class="token attribute attr-name">#![warn(unstable)]</span>
+<span class="token attribute attr-name">#[test]</span>
+<span class="token keyword">fn</span> <span class="token function-definition function">a_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

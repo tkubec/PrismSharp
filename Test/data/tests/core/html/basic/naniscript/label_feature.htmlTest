@@ -1,0 +1,21 @@
+#
+# Section1
+#Section2
+# Section4
+#			SectionWithMultipleTabsBefore
+## Section3
+# Section with multiple words
+	# Section with
+	# Section with tab
+----------------------------------------------------
+#
+<span class="token label regex"># Section1</span>
+<span class="token label regex">#Section2</span>
+<span class="token label regex"># Section4</span>
+<span class="token label regex">#			SectionWithMultipleTabsBefore</span>
+## Section3
+# Section with multiple words
+	# Section with
+	# Section with tab
+
+----------------------------------------------------

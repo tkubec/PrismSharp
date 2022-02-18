@@ -1,0 +1,53 @@
+class C {..}
+interface I {..}
+
+foo(c: C, i: I) {
+    c instanceof C; // ok
+    c instanceof I; // ok
+}
+----------------------------------------------------
+[
+	["keyword", "class"],
+	["class-name", ["C"]],
+	["punctuation", "{"],
+	["punctuation", "."],
+	["punctuation", "."],
+	["punctuation", "}"],
+
+	["keyword", "interface"],
+	["class-name", ["I"]],
+	["punctuation", "{"],
+	["punctuation", "."],
+	["punctuation", "."],
+	["punctuation", "}"],
+
+	["function", "foo"],
+	["punctuation", "("],
+	["parameter", [
+		["literal-property", "c"],
+		["operator", ":"],
+		["constant", "C"],
+		["punctuation", ","],
+		["literal-property", "i"],
+		["operator", ":"],
+		["constant", "I"]
+	]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n    c ",
+	["keyword", "instanceof"],
+	["class-name", ["C"]],
+	["punctuation", ";"],
+	["comment", "// ok"],
+
+	"\n    c ",
+	["keyword", "instanceof"],
+	["class-name", ["I"]],
+	["punctuation", ";"],
+	["comment", "// ok"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

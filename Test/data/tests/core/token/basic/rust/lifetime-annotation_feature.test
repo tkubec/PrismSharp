@@ -1,0 +1,15 @@
+'static
+'foo
+'a
+'_
+<'a>
+----------------------------------------------------
+[
+	["lifetime-annotation", "'static"],
+	["lifetime-annotation", "'foo"],
+	["lifetime-annotation", "'a"],
+	["lifetime-annotation", "'_"],
+	["operator", "<"], ["lifetime-annotation", "'a"], ["operator", ">"]
+]
+
+----------------------------------------------------

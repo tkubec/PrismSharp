@@ -1,0 +1,21 @@
+@mySelector: banner;
+.@{mySelector} {
+  font-weight: bold;
+}
+@property: color;
+.widget {
+  @{property}: #0ee;
+  background-@{property}: #999;
+}
+----------------------------------------------------
+<span class="token variable">@mySelector<span class="token punctuation">:</span></span> banner<span class="token punctuation">;</span>
+<span class="token selector">.@{mySelector}</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token variable">@property<span class="token punctuation">:</span></span> color<span class="token punctuation">;</span>
+<span class="token selector">.widget</span> <span class="token punctuation">{</span>
+  <span class="token property">@{property}</span><span class="token punctuation">:</span> #0ee<span class="token punctuation">;</span>
+  <span class="token property">background-@{property}</span><span class="token punctuation">:</span> #999<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

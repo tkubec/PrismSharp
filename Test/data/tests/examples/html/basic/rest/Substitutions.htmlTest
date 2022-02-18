@@ -1,0 +1,57 @@
+The |biohazard| symbol must be used on containers used to
+dispose of medical waste.
+
+.. |biohazard| image:: biohazard.png
+
+|Michael| and |Jon| are our widget-wranglers.
+
+.. |Michael| user:: mjones
+.. |Jon|     user:: jhl
+
+West led the |H| 3, covered by dummy's |H| Q, East's |H| K,
+and trumped in hand with the |S| 2.
+
+.. |H| image:: /images/heart.png
+   :height: 11
+   :width: 11
+.. |S| image:: /images/spade.png
+   :height: 11
+   :width: 11
+
+* |Red light| means stop.
+* |Green light| means go.
+* |Yellow light| means go really fast.
+
+.. |Red light|    image:: red_light.png
+.. |Green light|  image:: green_light.png
+.. |Yellow light| image:: yellow_light.png
+----------------------------------------------------
+The <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">biohazard</span><span class="token punctuation">|</span></span> symbol must be used on containers used to
+dispose of medical waste.
+
+<span class="token punctuation">..</span> <span class="token substitution-def"><span class="token substitution attr-value"><span class="token punctuation">|</span>biohazard<span class="token punctuation">|</span></span> <span class="token directive function">image<span class="token punctuation">::</span></span></span> biohazard.png
+
+<span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">Michael</span><span class="token punctuation">|</span></span> and <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">Jon</span><span class="token punctuation">|</span></span> are our widget-wranglers.
+
+<span class="token punctuation">..</span> <span class="token substitution-def"><span class="token substitution attr-value"><span class="token punctuation">|</span>Michael<span class="token punctuation">|</span></span> <span class="token directive function">user<span class="token punctuation">::</span></span></span> mjones
+<span class="token punctuation">..</span> <span class="token substitution-def"><span class="token substitution attr-value"><span class="token punctuation">|</span>Jon<span class="token punctuation">|</span></span>     <span class="token directive function">user<span class="token punctuation">::</span></span></span> jhl
+
+West led the <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">H</span><span class="token punctuation">|</span></span> 3, covered by dummy's <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">H</span><span class="token punctuation">|</span></span> Q, East's <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">H</span><span class="token punctuation">|</span></span> K,
+and trumped in hand with the <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">S</span><span class="token punctuation">|</span></span> 2.
+
+<span class="token punctuation">..</span> <span class="token substitution-def"><span class="token substitution attr-value"><span class="token punctuation">|</span>H<span class="token punctuation">|</span></span> <span class="token directive function">image<span class="token punctuation">::</span></span></span> /images/heart.png
+   <span class="token field attr-name">:height:</span> 11
+   <span class="token field attr-name">:width:</span> 11
+<span class="token punctuation">..</span> <span class="token substitution-def"><span class="token substitution attr-value"><span class="token punctuation">|</span>S<span class="token punctuation">|</span></span> <span class="token directive function">image<span class="token punctuation">::</span></span></span> /images/spade.png
+   <span class="token field attr-name">:height:</span> 11
+   <span class="token field attr-name">:width:</span> 11
+
+<span class="token list-bullet punctuation">*</span> <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">Red light</span><span class="token punctuation">|</span></span> means stop.
+<span class="token list-bullet punctuation">*</span> <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">Green light</span><span class="token punctuation">|</span></span> means go.
+<span class="token list-bullet punctuation">*</span> <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">Yellow light</span><span class="token punctuation">|</span></span> means go really fast.
+
+<span class="token punctuation">..</span> <span class="token substitution-def"><span class="token substitution attr-value"><span class="token punctuation">|</span>Red light<span class="token punctuation">|</span></span>    <span class="token directive function">image<span class="token punctuation">::</span></span></span> red_light.png
+<span class="token punctuation">..</span> <span class="token substitution-def"><span class="token substitution attr-value"><span class="token punctuation">|</span>Green light<span class="token punctuation">|</span></span>  <span class="token directive function">image<span class="token punctuation">::</span></span></span> green_light.png
+<span class="token punctuation">..</span> <span class="token substitution-def"><span class="token substitution attr-value"><span class="token punctuation">|</span>Yellow light<span class="token punctuation">|</span></span> <span class="token directive function">image<span class="token punctuation">::</span></span></span> yellow_light.png
+
+----------------------------------------------------

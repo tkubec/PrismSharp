@@ -1,0 +1,27 @@
+""
+"fo\"o"
+
+"""Multi line
+string"""
+
+@"foo $bar"
+@"foo $(bar)"
+
+'a'
+'\''
+'\\'
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"o"</span>
+
+<span class="token raw-string string">"""Multi line
+string"""</span>
+
+<span class="token template-string"><span class="token string">@"foo </span><span class="token interpolation"><span class="token delimiter punctuation">$</span>bar</span><span class="token string">"</span></span>
+<span class="token template-string"><span class="token string">@"foo </span><span class="token interpolation"><span class="token delimiter punctuation">$(</span>bar<span class="token delimiter punctuation">)</span></span><span class="token string">"</span></span>
+
+<span class="token string">'a'</span>
+<span class="token string">'\''</span>
+<span class="token string">'\\'</span>
+
+----------------------------------------------------

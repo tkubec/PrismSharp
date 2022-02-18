@@ -1,0 +1,45 @@
+$foo
+$#foo
+
+${^POSTMATCH}
+
+${...}
+
+$^V
+
+@1
+$42
+
+$$
+$_
+%!
+
+%'foo
+$foo'bar
+
+$::::'foo
+$foo::'bar
+----------------------------------------------------
+<span class="token variable">$foo</span>
+<span class="token variable">$#foo</span>
+
+<span class="token variable">${^POSTMATCH}</span>
+
+<span class="token variable">$</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+
+<span class="token variable">$^V</span>
+
+<span class="token variable">@1</span>
+<span class="token variable">$42</span>
+
+<span class="token variable">$$</span>
+<span class="token variable">$_</span>
+<span class="token variable">%!</span>
+
+<span class="token variable">%'foo</span>
+<span class="token variable">$foo'bar</span>
+
+<span class="token variable">$::::'foo</span>
+<span class="token variable">$foo::'bar</span>
+
+----------------------------------------------------

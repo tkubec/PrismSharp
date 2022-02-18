@@ -1,0 +1,25 @@
+foo (
+foobar(
+foo_bar_42(
+
+foo_generic::<T, Option<T>>()
+
+mem::transmute::<Box<dyn FnOnce() + 'a>, Box<dyn FnOnce() + 'static>>()
+
+fn apply<F>(f: F) where F: FnOnce() {
+	f();
+}
+----------------------------------------------------
+<span class="token function">foo</span> <span class="token punctuation">(</span>
+<span class="token function">foobar</span><span class="token punctuation">(</span>
+<span class="token function">foo_bar_42</span><span class="token punctuation">(</span>
+
+<span class="token function">foo_generic</span><span class="token punctuation">::</span><span class="token operator">&lt;</span><span class="token class-name">T</span><span class="token punctuation">,</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">T</span><span class="token operator">>></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token namespace">mem<span class="token punctuation">::</span></span><span class="token function">transmute</span><span class="token punctuation">::</span><span class="token operator">&lt;</span><span class="token class-name">Box</span><span class="token operator">&lt;</span><span class="token keyword">dyn</span> <span class="token class-name">FnOnce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token lifetime-annotation symbol">'a</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token class-name">Box</span><span class="token operator">&lt;</span><span class="token keyword">dyn</span> <span class="token class-name">FnOnce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token lifetime-annotation symbol">'static</span><span class="token operator">>></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">fn</span> <span class="token function-definition function">apply</span><span class="token operator">&lt;</span><span class="token class-name">F</span><span class="token operator">></span><span class="token punctuation">(</span>f<span class="token punctuation">:</span> <span class="token class-name">F</span><span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token class-name">F</span><span class="token punctuation">:</span> <span class="token class-name">FnOnce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

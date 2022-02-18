@@ -1,0 +1,891 @@
+<?
+	// Session starten und confog.php includen
+	session_start();
+	include ("config.php");
+
+	// CaptchaCodes abfragen
+	$CAPTCHA_RandomText = "";
+	if (isset($_POST['txtCode'])){
+	$CAPTCHA_EnteredText = str_replace("<","",str_replace(">","",str_replace("'","",str_replace("[","",str_replace("]","",$_POST['txtCode'])))));
+	}
+	if (isset($_SESSION['CAPTCHA_RndText'])) {
+	$CAPTCHA_RandomText = $_SESSION['CAPTCHA_RndText'];
+	}
+
+	// Eingabefelder abfragen
+	$_SESSION['company'] = $_POST['company'];
+	$_SESSION['name'] = $_POST['name'];
+	$_SESSION['address'] = $_POST['address'];
+	$_SESSION['zip_code'] = $_POST['zip_code'];
+	$_SESSION['city'] = $_POST['city'];
+	$_SESSION['county'] = $_POST['county'];
+	$_SESSION['country'] = $_POST['country'];
+	$_SESSION['phone'] = $_POST['phone'];
+	$_SESSION['fax'] = $_POST['fax'];
+	$_SESSION['email'] = $_POST['email'];
+	$_SESSION['nachricht'] = $_POST['nachricht'];
+
+	$email_i = $_SESSION['email'];
+
+	// Email Funktion
+	function pruefe_mail($email_i) {
+		  if(strstr($email_i, "@")) {
+			$email_i = explode ("@", $email_i);
+			if(strstr($email_i[1], ".")) $ok = TRUE;
+		  }
+		  return $ok;
+		}
+
+	// Eingaben prüfen
+	$fehler = "";
+	if(!pruefe_mail($email_i) && !empty($email_i)) {
+			$fehler .= "<li>email</li>";
+			}
+			if ($_SESSION['name'] == ""){
+			$fehler .= "<li>name</li>";
+			}
+			if ($_SESSION['city'] == ""){
+			$fehler .= "<li>city</li>";
+			}
+			if ($_SESSION['country'] == ""){
+			$fehler .= "<li>country</li>";
+			}
+			if ($_SESSION['phone'] == ""){
+			$fehler .= "<li>phone</li>";
+			}
+			if ($_SESSION['email'] == ""){
+			$fehler .= "<li>email</li>";
+			}
+			if ($_SESSION['message'] == ""){
+			$fehler .= "<li>message</li>";
+			}
+			if ($CAPTCHA_EnteredText == $CAPTCHA_RandomText and isset($_POST['txtCode']) == true and isset($_SESSION['CAPTCHA_RndText'])){
+			$captcha = true;
+			} else {
+			$fehler .= "<li>code</li>";
+			}
+	echo '<div>';
+	if ($fehler == ""){
+	// Email zumsammensetzen
+	$email = "From: " . $_SESSION['email'];
+
+
+	$nachrichtfertig =
+	"Company: " . $_SESSION['company'] "n\"
+	"Name: " $_SESSION['name'] "n\"
+	"Address: " $_SESSION['address'] "n\"
+	"ZIP Code: " $_SESSION['zip_code'] "n\"
+	"City: " $_SESSION['city'] "n\"
+	"County: " $_SESSION['county'] "n\"
+	"Country: " $_SESSION['country'] "n\"
+	"Phone: " $_SESSION['phone'] "n\"
+	"Fax: " $_SESSION['fax'] "n\"
+	"eMail: " $_SESSION['email'] "n\n\"
+	"Message: " $_SESSION['message'];
+
+
+	$versand = mail($empfaenger, $betreff, $nachrichtfertig, $email);
+			if ($versand) {
+			echo '<p class=titles>Thank you very much!</p>
+				  <p>The message were send successfully</p>';
+
+			// Sessionvariablen löschen
+			unset($_SESSION['company']);
+			unset($_SESSION['name']);
+			unset($_SESSION['address']);
+			unset($_SESSION['zip_code']);
+			unset($_SESSION['city']);
+			unset($_SESSION['county']);
+			unset($_SESSION['country']);
+			unset($_SESSION['phone']);
+			unset($_SESSION['fax']);
+			unset($_SESSION['email']);
+			unset($_SESSION['nachricht']);
+			}
+
+	} else {
+	echo '<p class=titles>Error</p>';
+	echo '<p>Please fill in all the $fehler field. <a href="contact.php">back</a></p>';
+	}
+	echo '</div>';
+
+	// Session unset
+	unset($_SESSION['CAPTCHA_RndText']);
+
+?>
+----------------------------------------------------
+[
+	["delimiter", "<?"],
+
+	["comment", "// Session starten und confog.php includen"],
+
+	["function", ["session_start"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "include"],
+	["punctuation", "("],
+	["string", ["\"config.php\""]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// CaptchaCodes abfragen"],
+
+	["variable", "$CAPTCHA_RandomText"],
+	["operator", "="],
+	["string", ["\"\""]],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["keyword", "isset"],
+	["punctuation", "("],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'txtCode'"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$CAPTCHA_EnteredText"],
+	["operator", "="],
+	["function", ["str_replace"]],
+	["punctuation", "("],
+	["string", ["\"<\""]],
+	["punctuation", ","],
+	["string", ["\"\""]],
+	["punctuation", ","],
+	["function", ["str_replace"]],
+	["punctuation", "("],
+	["string", ["\">\""]],
+	["punctuation", ","],
+	["string", ["\"\""]],
+	["punctuation", ","],
+	["function", ["str_replace"]],
+	["punctuation", "("],
+	["string", ["\"'\""]],
+	["punctuation", ","],
+	["string", ["\"\""]],
+	["punctuation", ","],
+	["function", ["str_replace"]],
+	["punctuation", "("],
+	["string", ["\"[\""]],
+	["punctuation", ","],
+	["string", ["\"\""]],
+	["punctuation", ","],
+	["function", ["str_replace"]],
+	["punctuation", "("],
+	["string", ["\"]\""]],
+	["punctuation", ","],
+	["string", ["\"\""]],
+	["punctuation", ","],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'txtCode'"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["keyword", "isset"],
+	["punctuation", "("],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'CAPTCHA_RndText'"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$CAPTCHA_RandomText"],
+	["operator", "="],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'CAPTCHA_RndText'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// Eingabefelder abfragen"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'company'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'company'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'name'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'name'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'address'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'address'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'zip_code'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'zip_code'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'city'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'city'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'county'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'county'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'country'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'country'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'phone'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'phone'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'fax'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'fax'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'email'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'email'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'nachricht'"],
+	["punctuation", "]"],
+	["operator", "="],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'nachricht'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$email_i"],
+	["operator", "="],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'email'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["comment", "// Email Funktion"],
+
+	["keyword", "function"],
+	["function-definition", "pruefe_mail"],
+	["punctuation", "("],
+	["variable", "$email_i"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["function", ["strstr"]],
+	["punctuation", "("],
+	["variable", "$email_i"],
+	["punctuation", ","],
+	["string", ["\"@\""]],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$email_i"],
+	["operator", "="],
+	["function", ["explode"]],
+	["punctuation", "("],
+	["string", ["\"@\""]],
+	["punctuation", ","],
+	["variable", "$email_i"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["function", ["strstr"]],
+	["punctuation", "("],
+	["variable", "$email_i"],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	["string", ["\".\""]],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["variable", "$ok"],
+	["operator", "="],
+	["constant", "TRUE"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"],
+	["variable", "$ok"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// Eingaben prüfen"],
+
+	["variable", "$fehler"],
+	["operator", "="],
+	["string", ["\"\""]],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	["function", ["pruefe_mail"]],
+	["punctuation", "("],
+	["variable", "$email_i"],
+	["punctuation", ")"],
+	["operator", "&&"],
+	["operator", "!"],
+	["keyword", "empty"],
+	["punctuation", "("],
+	["variable", "$email_i"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$fehler"],
+	["operator", ".="],
+	["string", ["\"<li>email</li>\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'name'"],
+	["punctuation", "]"],
+	["operator", "=="],
+	["string", ["\"\""]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$fehler"],
+	["operator", ".="],
+	["string", ["\"<li>name</li>\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'city'"],
+	["punctuation", "]"],
+	["operator", "=="],
+	["string", ["\"\""]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$fehler"],
+	["operator", ".="],
+	["string", ["\"<li>city</li>\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'country'"],
+	["punctuation", "]"],
+	["operator", "=="],
+	["string", ["\"\""]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$fehler"],
+	["operator", ".="],
+	["string", ["\"<li>country</li>\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'phone'"],
+	["punctuation", "]"],
+	["operator", "=="],
+	["string", ["\"\""]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$fehler"],
+	["operator", ".="],
+	["string", ["\"<li>phone</li>\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'email'"],
+	["punctuation", "]"],
+	["operator", "=="],
+	["string", ["\"\""]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$fehler"],
+	["operator", ".="],
+	["string", ["\"<li>email</li>\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'message'"],
+	["punctuation", "]"],
+	["operator", "=="],
+	["string", ["\"\""]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$fehler"],
+	["operator", ".="],
+	["string", ["\"<li>message</li>\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$CAPTCHA_EnteredText"],
+	["operator", "=="],
+	["variable", "$CAPTCHA_RandomText"],
+	["keyword", "and"],
+	["keyword", "isset"],
+	["punctuation", "("],
+	["variable", "$_POST"],
+	["punctuation", "["],
+	["string", "'txtCode'"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["operator", "=="],
+	["constant", "true"],
+	["keyword", "and"],
+	["keyword", "isset"],
+	["punctuation", "("],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'CAPTCHA_RndText'"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$captcha"],
+	["operator", "="],
+	["constant", "true"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["variable", "$fehler"],
+	["operator", ".="],
+	["string", ["\"<li>code</li>\""]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "echo"],
+	["string", "'<div>'"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["variable", "$fehler"],
+	["operator", "=="],
+	["string", ["\"\""]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// Email zumsammensetzen"],
+
+	["variable", "$email"],
+	["operator", "="],
+	["string", ["\"From: \""]],
+	["operator", "."],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'email'"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["variable", "$nachrichtfertig"],
+	["operator", "="],
+
+	["string", ["\"Company: \""]],
+	["operator", "."],
+	["variable", "$_SESSION"],
+	["punctuation", "["],
+	["string", "'company'"],
+	["punctuation", "]"],
+	["string", ["\"n\\\"\n\t\""]],
+	"Name",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'name'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\",
+	["string", ["\"\n\t\""]],
+	"Address",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'address'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\",
+	["string", ["\"\n\t\""]],
+	["constant", "ZIP"],
+	" Code",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'zip_code'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\",
+	["string", ["\"\n\t\""]],
+	"City",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'city'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\",
+	["string", ["\"\n\t\""]],
+	"County",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'county'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\",
+	["string", ["\"\n\t\""]],
+	"Country",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'country'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\",
+	["string", ["\"\n\t\""]],
+	"Phone",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'phone'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\",
+	["string", ["\"\n\t\""]],
+	"Fax",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'fax'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\",
+	["string", ["\"\n\t\""]],
+	"eMail",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'email'"],
+			["punctuation", "]"]
+		]],
+		" \""
+	]],
+	"n\\n\\",
+	["string", ["\"\n\t\""]],
+	"Message",
+	["punctuation", ":"],
+	["string", [
+		"\" ",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'message'"],
+			["punctuation", "]"]
+		]],
+		";\n\n\n\t",
+
+		["interpolation", [
+			["variable", "$versand"]
+		]],
+		" = mail(",
+		["interpolation", [
+			["variable", "$empfaenger"]
+		]],
+		", ",
+		["interpolation", [
+			["variable", "$betreff"]
+		]],
+		", ",
+		["interpolation", [
+			["variable", "$nachrichtfertig"]
+		]],
+		", ",
+		["interpolation", [
+			["variable", "$email"]
+		]],
+		");\n\t\t\tif (",
+		["interpolation", [
+			["variable", "$versand"]
+		]],
+		") {\n\t\t\techo '<p class=titles>Thank you very much!</p>\n\t\t\t\t  <p>The message were send successfully</p>';\n\n\t\t\t// Sessionvariablen löschen\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'company'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'name'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'address'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'zip_code'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'city'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'county'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'country'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'phone'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'fax'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'email'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\tunset(",
+		["interpolation", [
+			["variable", "$_SESSION"],
+			["punctuation", "["],
+			["string", "'nachricht'"],
+			["punctuation", "]"]
+		]],
+		");\n\t\t\t}\n\n\t} else {\n\techo '<p class=titles>Error</p>';\n\techo '<p>Please fill in all the ",
+		["interpolation", [
+			["variable", "$fehler"]
+		]],
+		" field. <a href=\""
+	]],
+	"contact",
+	["operator", "."],
+	"php\"",
+	["operator", ">"],
+	"back",
+	["operator", "<"],
+	["operator", "/"],
+	"a",
+	["operator", ">"],
+	["operator", "<"],
+	["operator", "/"],
+	"p",
+	["operator", ">"],
+	["string", "';\n\t}\n\techo '"],
+	["operator", "<"],
+	["operator", "/"],
+	"div",
+	["operator", ">"],
+	["string", "';\n\n\t// Session unset\n\tunset($_SESSION['"],
+	"CAPTCHA_RndText'",
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["delimiter", "?>"]
+]
+
+----------------------------------------------------

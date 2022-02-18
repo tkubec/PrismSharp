@@ -1,0 +1,11 @@
+foo: 4
+FooBar : 5
+alt=6
+alt2 = 7
+----------------------------------------------------
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token number">4</span>
+<span class="token key atrule">FooBar</span> <span class="token punctuation">:</span> <span class="token number">5</span>
+<span class="token key atrule">alt</span><span class="token punctuation">=</span><span class="token number">6</span>
+<span class="token key atrule">alt2</span> <span class="token punctuation">=</span> <span class="token number">7</span>
+
+----------------------------------------------------

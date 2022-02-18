@@ -1,0 +1,25 @@
+"yikes!"
+"don't know"
+"this is a \"quoted\" word"
+"this is a longer string."
+"the path separator on Windows is \\"
+
+'yikes!'
+'don\'t know'
+'this is a "quoted" word'
+'this is a longer string.'
+'the path separator on Windows is \\'
+----------------------------------------------------
+<span class="token string">"yikes!"</span>
+<span class="token string">"don't know"</span>
+<span class="token string">"this is a \"quoted\" word"</span>
+<span class="token string">"this is a longer string."</span>
+<span class="token string">"the path separator on Windows is \\"</span>
+
+<span class="token string">'yikes!'</span>
+<span class="token string">'don\'t know'</span>
+<span class="token string">'this is a "quoted" word'</span>
+<span class="token string">'this is a longer string.'</span>
+<span class="token string">'the path separator on Windows is \\'</span>
+
+----------------------------------------------------

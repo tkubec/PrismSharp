@@ -1,0 +1,19 @@
+#[test]
+#![warn(unstable)]
+#[doc(hidden)]
+#[unstable(
+	feature = "thread_local_internals",
+	reason = "recently added to create a key",
+	issue = "none"
+)]
+----------------------------------------------------
+<span class="token attribute attr-name">#[test]</span>
+<span class="token attribute attr-name">#![warn(unstable)]</span>
+<span class="token attribute attr-name">#[doc(hidden)]</span>
+<span class="token attribute attr-name">#[unstable(
+	feature = <span class="token string">"thread_local_internals"</span>,
+	reason = <span class="token string">"recently added to create a key"</span>,
+	issue = <span class="token string">"none"</span>
+)]</span>
+
+----------------------------------------------------

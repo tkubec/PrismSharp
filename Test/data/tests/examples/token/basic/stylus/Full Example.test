@@ -1,0 +1,388 @@
+/*!
+ * Adds the given numbers together.
+ */
+/*
+ * Adds the given numbers together.
+ */
+// I'm a comment!
+body {
+	font: 12px Helvetica, Arial, sans-serif;
+}
+a.button {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+body
+	font: 12px Helvetica, Arial, sans-serif;
+
+a.button:after
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+body
+	font: 12px Helvetica, Arial, sans-serif
+
+a.link > button#test, input[type=button], a:after
+	-webkit-border-radius: 5px
+	-moz-border-radius: 5px
+	border-radius: 5px
+
+font-size = 14px
+font = font-size "Lucida Grande", Arial
+
+body {
+	padding: 50px;
+	font: 14px/1.4 fonts;
+}
+
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	border-radius arguments
+
+body
+	font 12px Helvetica, Arial, sans-serif
+
+a.button
+	border-radius(5px)
+
+@media (max-width: 30em) {
+	body {
+		color: #fff;
+	}
+}
+
+@media (max-width: 500px)
+	.foo
+		color: #000
+
+	@media (min-width: 100px), (min-height: 200px)
+		.foo
+			color: #100
+
+sum(nums...)
+	sum = 0
+	sum += n for n in nums
+
+sum(1 2 3 4)
+// => 10
+----------------------------------------------------
+[
+	["selector", ["/*!"]],
+
+	"\n * Adds the given numbers together",
+	["punctuation", "."],
+
+	"\n */\n",
+
+	["selector", ["/*"]],
+
+	"\n * Adds the given numbers together",
+	["punctuation", "."],
+
+	"\n */\n",
+
+	["selector", [
+		["comment", "// I'm a comment!"],
+		"\nbody ", ["punctuation", "{"]
+	]],
+
+	["property-declaration", [
+		["property", ["font"]],
+		["punctuation", ":"],
+		["number", "12"],
+		["unit", "px"],
+		" Helvetica",
+		["punctuation", ","],
+		" Arial",
+		["punctuation", ","],
+		" sans-serif",
+		["punctuation", ";"]
+	]],
+
+	["punctuation", "}"],
+
+	["selector", [
+		"a.button ",
+		["punctuation", "{"]
+	]],
+
+	["property-declaration", [
+		["property", ["-webkit-border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"],
+		["punctuation", ";"]
+	]],
+
+	["property-declaration", [
+		["property", ["-moz-border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"],
+		["punctuation", ";"]
+	]],
+
+	["property-declaration", [
+		["property", ["border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"],
+		["punctuation", ";"]
+	]],
+
+	["punctuation", "}"],
+
+	["selector", ["body"]],
+	["property-declaration", [
+		["property", ["font"]],
+		["punctuation", ":"],
+		["number", "12"],
+		["unit", "px"],
+		" Helvetica",
+		["punctuation", ","],
+		" Arial",
+		["punctuation", ","],
+		" sans-serif",
+		["punctuation", ";"]
+	]],
+
+	["selector", ["a.button:after"]],
+	["property-declaration", [
+		["property", ["-webkit-border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"],
+		["punctuation", ";"]
+	]],
+	["property-declaration", [
+		["property", ["-moz-border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"],
+		["punctuation", ";"]
+	]],
+	["property-declaration", [
+		["property", ["border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"],
+		["punctuation", ";"]
+	]],
+
+	["selector", ["body"]],
+	["property-declaration", [
+		["property", ["font"]],
+		["punctuation", ":"],
+		["number", "12"],
+		["unit", "px"],
+		" Helvetica",
+		["punctuation", ","],
+		" Arial",
+		["punctuation", ","],
+		" sans-serif"
+	]],
+
+	["selector", [
+		"a.link > button#test",
+		["punctuation", ","],
+		" input[type=button]",
+		["punctuation", ","],
+		" a:after"
+	]],
+	["property-declaration", [
+		["property", ["-webkit-border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"]
+	]],
+	["property-declaration", [
+		["property", ["-moz-border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"]
+	]],
+	["property-declaration", [
+		["property", ["border-radius"]],
+		["punctuation", ":"],
+		["number", "5"],
+		["unit", "px"]
+	]],
+
+	["variable-declaration", [
+		["variable", "font-size"],
+		["operator", "="],
+		["number", "14"],
+		["unit", "px"]
+	]],
+	["variable-declaration", [
+		["variable", "font"],
+		["operator", "="],
+		" font-size ",
+		["string", "\"Lucida Grande\""],
+		["punctuation", ","],
+		" Arial"
+	]],
+
+	["selector", [
+		"body ",
+		["punctuation", "{"]
+	]],
+	["property-declaration", [
+		["property", ["padding"]],
+		["punctuation", ":"],
+		["number", "50"],
+		["unit", "px"],
+		["punctuation", ";"]
+	]],
+	["property-declaration", [
+		["property", ["font"]],
+		["punctuation", ":"],
+		["number", "14"],
+		["unit", "px"],
+		["operator", "/"],
+		["number", "1.4"],
+		" fonts",
+		["punctuation", ";"]
+	]],
+	["punctuation", "}"],
+
+	["func", [
+		["function", "border-radius"],
+		["punctuation", "("],
+		["punctuation", ")"]
+	]],
+	["property-declaration", [
+		["property", ["-webkit-border-radius"]],
+		" arguments"
+	]],
+	["property-declaration", [
+		["property", ["-moz-border-radius"]],
+		" arguments"
+	]],
+	["property-declaration", [
+		["property", ["border-radius"]],
+		" arguments"
+	]],
+
+	["selector", ["body"]],
+	["property-declaration", [
+		["property", ["font"]],
+		["number", "12"],
+		["unit", "px"],
+		" Helvetica",
+		["punctuation", ","],
+		" Arial",
+		["punctuation", ","],
+		" sans-serif"
+	]],
+
+	["selector", ["a.button"]],
+	["func", [
+		["function", "border-radius"],
+		["punctuation", "("],
+		["number", "5"],
+		["unit", "px"],
+		["punctuation", ")"]
+	]],
+
+	["atrule-declaration", [
+		["atrule", "@media"],
+		["punctuation", "("],
+		"max-width",
+		["punctuation", ":"],
+		["number", "30"],
+		["unit", "em"],
+		["punctuation", ")"],
+		["punctuation", "{"]
+	]],
+	["selector", [
+		"body ",
+		["punctuation", "{"]
+	]],
+	["property-declaration", [
+		["property", ["color"]],
+		["punctuation", ":"],
+		["hexcode", "#fff"],
+		["punctuation", ";"]
+	]],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["atrule-declaration", [
+		["atrule", "@media"],
+		["punctuation", "("],
+		"max-width",
+		["punctuation", ":"],
+		["number", "500"],
+		["unit", "px"],
+		["punctuation", ")"]
+	]],
+	["selector", [".foo"]],
+	["property-declaration", [
+		["property", ["color"]],
+		["punctuation", ":"],
+		["hexcode", "#000"]
+	]],
+
+	["atrule-declaration", [
+		["atrule", "@media"],
+		["punctuation", "("],
+		"min-width",
+		["punctuation", ":"],
+		["number", "100"],
+		["unit", "px"],
+		["punctuation", ")"],
+		["punctuation", ","],
+		["punctuation", "("],
+		"min-height",
+		["punctuation", ":"],
+		["number", "200"],
+		["unit", "px"],
+		["punctuation", ")"]
+	]],
+	["selector", [".foo"]],
+	["property-declaration", [
+		["property", ["color"]],
+		["punctuation", ":"],
+		["hexcode", "#100"]
+	]],
+
+	["func", [
+		["function", "sum"],
+		["punctuation", "("],
+		"nums",
+		["operator", "..."],
+		["punctuation", ")"]
+	]],
+	["variable-declaration", [
+		["variable", "sum"],
+		["operator", "="],
+		["number", "0"]
+	]],
+	["variable-declaration", [
+		["variable", "sum"],
+		["operator", "+="],
+		" n ",
+		["keyword", "for"],
+		" n ",
+		["operator", "in"],
+		" nums"
+	]],
+
+	["func", [
+		["function", "sum"],
+		["punctuation", "("],
+		["number", "1"],
+		["number", "2"],
+		["number", "3"],
+		["number", "4"],
+		["punctuation", ")"]
+	]],
+	["comment", "// => 10"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,28 @@
++ - * / %
+< > <= >= != ==
+! && ||
+
+in is
+----------------------------------------------------
+[
+	["operator", "+"],
+	["operator", "-"],
+	["operator", "*"],
+	["operator", "/"],
+	["operator", "%"],
+
+	["operator", "<"],
+	["operator", ">"],
+	["operator", "<="],
+	["operator", ">="],
+	["operator", "!="],
+	["operator", "=="],
+
+	["operator", "!"],
+	["operator", "&&"],
+	["operator", "||"],
+
+	["operator", "in"], ["operator", "is"]
+]
+
+----------------------------------------------------

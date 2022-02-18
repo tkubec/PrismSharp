@@ -1,0 +1,13 @@
+"foo\"\'"
+'bar\'\"'
+
+"\n\"\'\\abc\
+def"
+----------------------------------------------------
+<span class="token string">"foo\"\'"</span>
+<span class="token string">'bar\'\"'</span>
+
+<span class="token string">"\n\"\'\\abc\
+def"</span>
+
+----------------------------------------------------

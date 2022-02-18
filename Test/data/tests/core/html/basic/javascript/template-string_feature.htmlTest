@@ -1,0 +1,25 @@
+`foo bar`
+`foo
+bar`
+`40+2=${40+2}`
+`${foo()}`
+`\${foo}${bar}`
+"foo `a` `b` `c` `d` bar"
+"test // test" `template`
+
+console.log(`This is ${it.with({ type: false })}!`)
+`${ {foo:'bar'}.foo }`
+----------------------------------------------------
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">foo bar</span><span class="token template-punctuation string">`</span></span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">foo
+bar</span><span class="token template-punctuation string">`</span></span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">40+2=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token number">40</span><span class="token operator">+</span><span class="token number">2</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">\${foo}</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>bar<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+<span class="token string">"foo `a` `b` `c` `d` bar"</span>
+<span class="token string">"test // test"</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">template</span><span class="token template-punctuation string">`</span></span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">This is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>it<span class="token punctuation">.</span><span class="token function">with</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> <span class="token punctuation">{</span><span class="token literal-property property">foo</span><span class="token operator">:</span><span class="token string">'bar'</span><span class="token punctuation">}</span><span class="token punctuation">.</span>foo <span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+document-node(schema-element(catalog))
+strings:trim($arg as xs:string?)
+false()
+----------------------------------------------------
+[
+	["function", "document-node"],
+	["punctuation", "("],
+	["function", "schema-element"],
+	["punctuation", "("],
+	"catalog",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["function", "strings:trim"],
+	["punctuation", "("],
+	["variable", "$arg"],
+	["keyword", "as"],
+	["builtin", "xs:string"],
+	["operator", "?"],
+	["punctuation", ")"],
+
+	["function", "false"],
+	["punctuation", "("],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

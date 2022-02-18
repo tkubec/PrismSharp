@@ -1,0 +1,23 @@
+{%
+
+== != <> < <= > >=
+| : ? - =
+..
+
+and or
+contains foo
+
+%}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span>
+
+<span class="token operator">==</span> <span class="token operator">!=</span> <span class="token operator">&lt;></span> <span class="token operator">&lt;</span> <span class="token operator">&lt;=</span> <span class="token operator">></span> <span class="token operator">>=</span>
+<span class="token operator">|</span> <span class="token operator">:</span> <span class="token operator">?</span> <span class="token operator">-</span> <span class="token operator">=</span>
+<span class="token range operator">..</span>
+
+<span class="token operator">and</span> <span class="token operator">or</span>
+<span class="token operator">contains</span> foo
+
+<span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

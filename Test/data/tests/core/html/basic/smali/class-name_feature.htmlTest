@@ -1,0 +1,29 @@
+LMain;
+Ljava/lang/String;
+Lfoo/bar/Foo$Bar;
+LFoo$Bar;
+
+Ljava/lang/String;
+LI;
+LV;
+LI/I/I;
+L`single`;
+L`java`/lang/String;
+L`java`/`lang`/`String`;
+Lspace/test/`20 a0 1680 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 200a 202f 205f 3000　`;
+----------------------------------------------------
+<span class="token class-name"><span class="token builtin">L</span><span class="token class-name">Main</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token namespace">java<span class="token punctuation">/</span>lang<span class="token punctuation">/</span></span><span class="token class-name">String</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token namespace">foo<span class="token punctuation">/</span>bar<span class="token punctuation">/</span></span><span class="token class-name">Foo$Bar</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token class-name">Foo$Bar</span></span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token builtin">L</span><span class="token namespace">java<span class="token punctuation">/</span>lang<span class="token punctuation">/</span></span><span class="token class-name">String</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token class-name">I</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token class-name">V</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token namespace">I<span class="token punctuation">/</span>I<span class="token punctuation">/</span></span><span class="token class-name">I</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token class-name">`single`</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token namespace">`java`<span class="token punctuation">/</span>lang<span class="token punctuation">/</span></span><span class="token class-name">String</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token namespace">`java`<span class="token punctuation">/</span>`lang`<span class="token punctuation">/</span></span><span class="token class-name">`String`</span></span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token builtin">L</span><span class="token namespace">space<span class="token punctuation">/</span>test<span class="token punctuation">/</span></span><span class="token class-name">`20 a0 1680 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 200a 202f 205f 3000　`</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

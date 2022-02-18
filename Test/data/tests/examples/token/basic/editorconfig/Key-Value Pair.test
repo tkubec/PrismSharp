@@ -1,0 +1,18 @@
+key = value
+indent_style = space
+----------------------------------------------------
+[
+	["key", "key"],
+	["value", [
+		["punctuation", "="],
+		" value"
+	]],
+
+	["key", "indent_style"],
+	["value", [
+		["punctuation", "="],
+		" space"
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+/**
+ * @param n - A number.
+ * @param [n] - A number.
+ * @param [n=1+2] - A number.
+ * @param {number} n - A number.
+ * @param {{[x: string]: {start: number, end?: number}}} map
+ * @param {any} foo.bar
+ */
+----------------------------------------------------
+/**
+ * <span class="token keyword">@param</span> <span class="token parameter">n</span> - A number.
+ * <span class="token keyword">@param</span> <span class="token optional-parameter"><span class="token punctuation">[</span><span class="token parameter">n</span><span class="token punctuation">]</span></span> - A number.
+ * <span class="token keyword">@param</span> <span class="token optional-parameter"><span class="token punctuation">[</span><span class="token parameter">n</span><span class="token punctuation">=</span><span class="token code language-javascript"><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span></span><span class="token punctuation">]</span></span> - A number.
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>number<span class="token punctuation">}</span></span> <span class="token parameter">n</span> - A number.
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">[</span>x<span class="token operator">:</span> string<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">{</span>start<span class="token operator">:</span> number<span class="token punctuation">,</span> end<span class="token operator">?</span><span class="token operator">:</span> number<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span> <span class="token parameter">map</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>any<span class="token punctuation">}</span></span> <span class="token parameter">foo<span class="token punctuation">.</span>bar</span>
+ */
+
+----------------------------------------------------

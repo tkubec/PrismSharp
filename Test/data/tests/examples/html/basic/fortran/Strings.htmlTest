@@ -1,0 +1,17 @@
+"foo 'bar' baz"
+'foo ''bar'' baz'
+''
+ITALICS_'This is in italics'
+"test &
+	! Some "tricky comment" here
+	&test"
+----------------------------------------------------
+<span class="token string">"foo 'bar' baz"</span>
+<span class="token string">'foo ''bar'' baz'</span>
+<span class="token string">''</span>
+<span class="token string">ITALICS_'This is in italics'</span>
+<span class="token string">"test &amp;
+	<span class="token comment">! Some "tricky comment" here</span>
+	&amp;test"</span>
+
+----------------------------------------------------

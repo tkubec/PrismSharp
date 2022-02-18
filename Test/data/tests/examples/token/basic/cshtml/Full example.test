@@ -1,0 +1,420 @@
+@* Source: https://docs.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-5.0&tabs=visual-studio#the-home-page *@
+
+@page
+@model RazorPagesContacts.Pages.Customers.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h1>Contacts home page</h1>
+<form method="post">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var contact in Model.Customer)
+			{
+				<tr>
+					<td> @contact.Id  </td>
+					<td>@contact.Name</td>
+					<td>
+						<a asp-page="./Edit" asp-route-id="@contact.Id">Edit</a> |
+						<button type="submit" asp-page-handler="delete"
+								asp-route-id="@contact.Id">delete
+						</button>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<a asp-page="Create">Create New</a>
+</form>
+----------------------------------------------------
+[
+	["razor-comment", "@* Source: https://docs.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-5.0&tabs=visual-studio#the-home-page *@"],
+
+	["directive", [
+		["keyword", "@page"]
+	]],
+	["directive", [
+		["keyword", "@model"],
+		["csharp", [
+			"RazorPagesContacts",
+			["punctuation", "."],
+			"Pages",
+			["punctuation", "."],
+			"Customers",
+			["punctuation", "."],
+			"IndexModel"
+		]]
+	]],
+	["directive", [
+		["keyword", "@addTagHelper"],
+		["csharp", [
+			["operator", "*"],
+			["punctuation", ","],
+			" Microsoft",
+			["punctuation", "."],
+			"AspNetCore",
+			["punctuation", "."],
+			"Mvc",
+			["punctuation", "."],
+			"TagHelpers"
+		]]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"h1"
+		]],
+		["punctuation", ">"]
+	]],
+	"Contacts home page",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"h1"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"form"
+		]],
+		["attr-name", ["method"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"post",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"table"
+		]],
+		["attr-name", ["class"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"table",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"thead"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"tr"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"th"
+		]],
+		["punctuation", ">"]
+	]],
+	"ID",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"th"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"th"
+		]],
+		["punctuation", ">"]
+	]],
+	"Name",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"th"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"th"
+		]],
+		["punctuation", ">"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"th"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"tr"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"thead"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"tbody"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["block", [
+		["keyword", "@foreach"],
+		["csharp", [
+			["punctuation", "("],
+			["class-name", [
+				["keyword", "var"]
+			]],
+			" contact ",
+			["keyword", "in"],
+			" Model",
+			["punctuation", "."],
+			"Customer",
+			["punctuation", ")"],
+
+			["punctuation", "{"],
+
+			["html", [
+				["tag", [
+					["tag", [
+						["punctuation", "<"],
+						"tr"
+					]],
+					["punctuation", ">"]
+				]],
+
+				["tag", [
+					["tag", [
+						["punctuation", "<"],
+						"td"
+					]],
+					["punctuation", ">"]
+				]],
+				["value", [
+					["keyword", "@"],
+					["csharp", [
+						"contact",
+						["punctuation", "."],
+						"Id"
+					]]
+				]],
+				["tag", [
+					["tag", [
+						["punctuation", "</"],
+						"td"
+					]],
+					["punctuation", ">"]
+				]],
+
+				["tag", [
+					["tag", [
+						["punctuation", "<"],
+						"td"
+					]],
+					["punctuation", ">"]
+				]],
+				["value", [
+					["keyword", "@"],
+					["csharp", [
+						"contact",
+						["punctuation", "."],
+						"Name"
+					]]
+				]],
+				["tag", [
+					["tag", [
+						["punctuation", "</"],
+						"td"
+					]],
+					["punctuation", ">"]
+				]],
+
+				["tag", [
+					["tag", [
+						["punctuation", "<"],
+						"td"
+					]],
+					["punctuation", ">"]
+				]],
+
+				["tag", [
+					["tag", [
+						["punctuation", "<"],
+						"a"
+					]],
+					["attr-name", ["asp-page"]],
+					["attr-value", [
+						["punctuation", "="],
+						["punctuation", "\""],
+						"./Edit",
+						["punctuation", "\""]
+					]],
+					["attr-name", ["asp-route-id"]],
+					["attr-value", [
+						["punctuation", "="],
+						["punctuation", "\""],
+						"@contact.Id",
+						["punctuation", "\""]
+					]],
+					["punctuation", ">"]
+				]],
+				"Edit",
+				["tag", [
+					["tag", [
+						["punctuation", "</"],
+						"a"
+					]],
+					["punctuation", ">"]
+				]],
+				" |\n\t\t\t\t\t\t",
+
+				["tag", [
+					["tag", [
+						["punctuation", "<"],
+						"button"
+					]],
+					["attr-name", ["type"]],
+					["attr-value", [
+						["punctuation", "="],
+						["punctuation", "\""],
+						"submit",
+						["punctuation", "\""]
+					]],
+					["attr-name", ["asp-page-handler"]],
+					["attr-value", [
+						["punctuation", "="],
+						["punctuation", "\""],
+						"delete",
+						["punctuation", "\""]
+					]],
+
+					["attr-name", ["asp-route-id"]],
+					["attr-value", [
+						["punctuation", "="],
+						["punctuation", "\""],
+						"@contact.Id",
+						["punctuation", "\""]
+					]],
+					["punctuation", ">"]
+				]],
+				"delete\n\t\t\t\t\t\t",
+
+				["tag", [
+					["tag", [
+						["punctuation", "</"],
+						"button"
+					]],
+					["punctuation", ">"]
+				]],
+
+				["tag", [
+					["tag", [
+						["punctuation", "</"],
+						"td"
+					]],
+					["punctuation", ">"]
+				]],
+
+				["tag", [
+					["tag", [
+						["punctuation", "</"],
+						"tr"
+					]],
+					["punctuation", ">"]
+				]]
+			]],
+
+			["punctuation", "}"]
+		]]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"tbody"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"table"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"a"
+		]],
+		["attr-name", ["asp-page"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"Create",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+	"Create New",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"a"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"form"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

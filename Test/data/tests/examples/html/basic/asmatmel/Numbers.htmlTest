@@ -1,0 +1,9 @@
+ldi r24,#127
+ldi r24,$80f0
+ldi r24,#%01011000
+----------------------------------------------------
+<span class="token op-code keyword">ldi</span> <span class="token r-register variable">r24</span><span class="token punctuation">,</span><span class="token decimal-number number">#127</span>
+<span class="token op-code keyword">ldi</span> <span class="token r-register variable">r24</span><span class="token punctuation">,</span><span class="token hex-number number">$80f0</span>
+<span class="token op-code keyword">ldi</span> <span class="token r-register variable">r24</span><span class="token punctuation">,</span><span class="token binary-number number">#%01011000</span>
+
+----------------------------------------------------

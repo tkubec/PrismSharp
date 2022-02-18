@@ -1,0 +1,15 @@
+<@foo
+
+() [] {}
+, ; . :
+
+/>
+----------------------------------------------------
+<span class="token ftl-directive"><span class="token punctuation">&lt;</span><span class="token directive keyword">@foo</span><span class="token content ftl">
+
+<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">,</span> <span class="token punctuation">;</span> <span class="token punctuation">.</span> <span class="token punctuation">:</span>
+
+</span><span class="token punctuation">/></span></span>
+
+----------------------------------------------------

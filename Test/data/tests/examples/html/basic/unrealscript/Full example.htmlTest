@@ -1,0 +1,77 @@
+// Source: https://github.com/Jusas/XCOM2_ReconSoldierClass/blob/master/ReconOperatorSoldierClass/Src/ReconSoldierClass/Classes/ReconOperator_AcademyUnlocks.uc
+
+class ReconOperator_AcademyUnlocks extends X2StrategyElement;
+
+static function array<X2DataTemplate> CreateTemplates()
+{
+	local array<X2DataTemplate> Templates;
+
+	Templates.AddItem(AdrenalineUnlock());
+
+	return Templates;
+}
+
+static function X2SoldierAbilityUnlockTemplate AdrenalineUnlock()
+{
+	local X2SoldierAbilityUnlockTemplate Template;
+	local ArtifactCost Resources;
+
+	`CREATE_X2TEMPLATE(class'X2SoldierAbilityUnlockTemplate', Template, 'ReconAdrenalineUnlock');
+
+	Template.AllowedClasses.AddItem('ReconSoldierClass');
+	Template.AbilityName = 'ReconAdrenalineSpike';
+	Template.strImage = "img:///UILibrary_ReconOperator.GTS.GTS_adrenaline";
+
+	// Requirements
+	Template.Requirements.RequiredHighestSoldierRank = 5;
+	Template.Requirements.RequiredSoldierClass = 'ReconSoldierClass';
+	Template.Requirements.RequiredSoldierRankClassCombo = true;
+	Template.Requirements.bVisibleIfSoldierRankGatesNotMet = true;
+
+	// Cost
+	Resources.ItemTemplateName = 'Supplies';
+	Resources.Quantity = 75;
+	Template.Cost.ResourceCosts.AddItem(Resources);
+
+	return Template;
+}
+----------------------------------------------------
+<span class="token comment">// Source: https://github.com/Jusas/XCOM2_ReconSoldierClass/blob/master/ReconOperatorSoldierClass/Src/ReconSoldierClass/Classes/ReconOperator_AcademyUnlocks.uc</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ReconOperator_AcademyUnlocks</span> <span class="token keyword">extends</span> <span class="token class-name">X2StrategyElement</span><span class="token punctuation">;</span>
+
+<span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token keyword">array</span><span class="token operator">&lt;</span>X2DataTemplate<span class="token operator">></span> <span class="token function">CreateTemplates</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">local</span> <span class="token keyword">array</span><span class="token operator">&lt;</span>X2DataTemplate<span class="token operator">></span> Templates<span class="token punctuation">;</span>
+
+	Templates<span class="token punctuation">.</span><span class="token function">AddItem</span><span class="token punctuation">(</span><span class="token function">AdrenalineUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">return</span> Templates<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">static</span> <span class="token keyword">function</span> X2SoldierAbilityUnlockTemplate <span class="token function">AdrenalineUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">local</span> X2SoldierAbilityUnlockTemplate Template<span class="token punctuation">;</span>
+	<span class="token keyword">local</span> ArtifactCost Resources<span class="token punctuation">;</span>
+
+	<span class="token macro property">`CREATE_X2TEMPLATE</span><span class="token punctuation">(</span><span class="token keyword">class</span><span class="token string">'X2SoldierAbilityUnlockTemplate'</span><span class="token punctuation">,</span> Template<span class="token punctuation">,</span> <span class="token string">'ReconAdrenalineUnlock'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	Template<span class="token punctuation">.</span>AllowedClasses<span class="token punctuation">.</span><span class="token function">AddItem</span><span class="token punctuation">(</span><span class="token string">'ReconSoldierClass'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Template<span class="token punctuation">.</span>AbilityName <span class="token operator">=</span> <span class="token string">'ReconAdrenalineSpike'</span><span class="token punctuation">;</span>
+	Template<span class="token punctuation">.</span>strImage <span class="token operator">=</span> <span class="token string">"img:///UILibrary_ReconOperator.GTS.GTS_adrenaline"</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Requirements</span>
+	Template<span class="token punctuation">.</span>Requirements<span class="token punctuation">.</span>RequiredHighestSoldierRank <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+	Template<span class="token punctuation">.</span>Requirements<span class="token punctuation">.</span>RequiredSoldierClass <span class="token operator">=</span> <span class="token string">'ReconSoldierClass'</span><span class="token punctuation">;</span>
+	Template<span class="token punctuation">.</span>Requirements<span class="token punctuation">.</span>RequiredSoldierRankClassCombo <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	Template<span class="token punctuation">.</span>Requirements<span class="token punctuation">.</span>bVisibleIfSoldierRankGatesNotMet <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Cost</span>
+	Resources<span class="token punctuation">.</span>ItemTemplateName <span class="token operator">=</span> <span class="token string">'Supplies'</span><span class="token punctuation">;</span>
+	Resources<span class="token punctuation">.</span>Quantity <span class="token operator">=</span> <span class="token number">75</span><span class="token punctuation">;</span>
+	Template<span class="token punctuation">.</span>Cost<span class="token punctuation">.</span>ResourceCosts<span class="token punctuation">.</span><span class="token function">AddItem</span><span class="token punctuation">(</span>Resources<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">return</span> Template<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

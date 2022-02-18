@@ -1,0 +1,17 @@
+sum := 0.
+#(2 3 5 7 11) do: [ :primel | sum := sum + (prime * prime)]
+
+sizeAdder := [ :array | total := total + array size].
+
+[ :x :y | (x * x) + (y * y)]
+[ :frame :clippingBox | frame intersect: clippingBox]
+----------------------------------------------------
+sum <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">.</span>
+<span class="token symbol">#</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">3</span> <span class="token number">5</span> <span class="token number">7</span> <span class="token number">11</span><span class="token punctuation">)</span> do<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token block-arguments"><span class="token variable">:primel</span> <span class="token punctuation">|</span></span> sum <span class="token operator">:=</span> sum <span class="token operator">+</span> <span class="token punctuation">(</span>prime <span class="token operator">*</span> prime<span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+sizeAdder <span class="token operator">:=</span> <span class="token punctuation">[</span> <span class="token block-arguments"><span class="token variable">:array</span> <span class="token punctuation">|</span></span> total <span class="token operator">:=</span> total <span class="token operator">+</span> array size<span class="token punctuation">]</span><span class="token punctuation">.</span>
+
+<span class="token punctuation">[</span> <span class="token block-arguments"><span class="token variable">:x</span> <span class="token variable">:y</span> <span class="token punctuation">|</span></span> <span class="token punctuation">(</span>x <span class="token operator">*</span> x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>y <span class="token operator">*</span> y<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span> <span class="token block-arguments"><span class="token variable">:frame</span> <span class="token variable">:clippingBox</span> <span class="token punctuation">|</span></span> frame intersect<span class="token punctuation">:</span> clippingBox<span class="token punctuation">]</span>
+
+----------------------------------------------------

@@ -1,0 +1,35 @@
+[% IF title;
+      INCLUDE header;
+   ELSE;
+      INCLUDE other/header  title="Some Other Title";
+   END
+%]
+----------------------------------------------------
+[
+	["delimiter", "[%"],
+	["keyword", "IF"],
+	["variable", "title"],
+	";\n      ",
+
+	["keyword", "INCLUDE"],
+	["variable", "header"],
+	";\n   ",
+
+	["keyword", "ELSE"],
+	";\n      ",
+
+	["keyword", "INCLUDE"],
+	["variable", "other"],
+	"/",
+	["variable", "header"],
+	["variable", "title"],
+	["operator", "="],
+	["double-quoted-string", ["\"Some Other Title\""]],
+	";\n   ",
+
+	["keyword", "END"],
+
+	["delimiter", "%]"]
+]
+
+----------------------------------------------------

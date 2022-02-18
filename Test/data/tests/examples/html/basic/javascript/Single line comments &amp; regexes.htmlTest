@@ -1,0 +1,7 @@
+// http://lea.verou.me
+var comment = /\/\*[\w\W]*?\*\//g;
+----------------------------------------------------
+<span class="token comment">// http://lea.verou.me</span>
+<span class="token keyword">var</span> comment <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/\*[\w\W]*?\*\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+$Name = "Alice"
+Write-Host "Hello, my name is $Name."
+----------------------------------------------------
+<span class="token variable">$Name</span> = <span class="token string">"Alice"</span>
+<span class="token function">Write-Host</span> <span class="token string">"Hello, my name is <span class="token variable">$Name</span>."</span>
+
+----------------------------------------------------

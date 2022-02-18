@@ -1,0 +1,5 @@
+SET @variable = 1;
+SET @$_ = 2;
+SET @"quoted-variable" = 3;
+SET @'quoted-variable' = 3;
+SET @`quoted-variable` = 3;

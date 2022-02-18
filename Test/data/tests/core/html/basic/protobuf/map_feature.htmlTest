@@ -1,0 +1,5 @@
+map<string, .foo.Foo> bar;
+----------------------------------------------------
+<span class="token map class-name">map<span class="token punctuation">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token punctuation">.</span>foo<span class="token punctuation">.</span>Foo<span class="token punctuation">></span></span> bar<span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,68 @@
+---
+!!map {
+  ? !!str friends: !!seq [
+    !!map {
+      ? !!str "age"
+      : !!int 33,
+      ? !!str "name"
+      : !!str "John Smith",
+    }
+  ],
+  men:
+    [ !!str "John Smith", !!str "Bill Jones"]
+}
+----------------------------------------------------
+[
+	["punctuation", "---"],
+
+	["tag", "!!map"],
+	["punctuation", "{"],
+
+	["punctuation", "?"],
+	["tag", "!!str"],
+	["key", "friends"],
+	["punctuation", ":"],
+	["tag", "!!seq"],
+	["punctuation", "["],
+
+	["tag", "!!map"],
+	["punctuation", "{"],
+
+	["punctuation", "?"],
+	["tag", "!!str"],
+	["key", "\"age\""],
+
+	["punctuation", ":"],
+	["tag", "!!int"],
+	["number", "33"],
+	["punctuation", ","],
+
+	["punctuation", "?"],
+	["tag", "!!str"],
+	["key", "\"name\""],
+
+	["punctuation", ":"],
+	["tag", "!!str"],
+	["string", "\"John Smith\""],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["key", "men"],
+	["punctuation", ":"],
+
+	["punctuation", "["],
+	["tag", "!!str"],
+	["string", "\"John Smith\""],
+	["punctuation", ","],
+	["tag", "!!str"],
+	["string", "\"Bill Jones\""],
+	["punctuation", "]"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

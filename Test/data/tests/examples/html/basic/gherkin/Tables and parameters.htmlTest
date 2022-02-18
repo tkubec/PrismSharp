@@ -1,0 +1,21 @@
+Scenario Outline: Eating
+  Given there are <start> cucumbers
+  When I eat <eat> cucumbers
+  Then I should have <left> cucumbers
+
+  Examples:
+    | start | eat | left |
+    |  12   |  5  |  7   |
+    |  20   |  5  |  15  |
+----------------------------------------------------
+<span class="token scenario"><span class="token keyword">Scenario Outline:</span><span class="token important"> Eating</span></span>
+  <span class="token atrule">Given</span> there are <span class="token outline variable">&lt;start></span> cucumbers
+  <span class="token atrule">When</span> <span class="token atrule">I</span> eat <span class="token outline variable">&lt;eat></span> cucumbers
+  <span class="token atrule">Then</span> <span class="token atrule">I</span> should have <span class="token outline variable">&lt;left></span> cucumbers
+
+  <span class="token scenario"><span class="token keyword">Examples:</span><span class="token important"></span></span><span class="token table-head">
+    <span class="token punctuation">|</span><span class="token th variable"> start </span><span class="token punctuation">|</span><span class="token th variable"> eat </span><span class="token punctuation">|</span><span class="token th variable"> left </span><span class="token punctuation">|</span></span><span class="token table-body">
+    <span class="token punctuation">|</span><span class="token td string">  12   </span><span class="token punctuation">|</span><span class="token td string">  5  </span><span class="token punctuation">|</span><span class="token td string">  7   </span><span class="token punctuation">|</span>
+    <span class="token punctuation">|</span><span class="token td string">  20   </span><span class="token punctuation">|</span><span class="token td string">  5  </span><span class="token punctuation">|</span><span class="token td string">  15  </span><span class="token punctuation">|</span></span>
+
+----------------------------------------------------

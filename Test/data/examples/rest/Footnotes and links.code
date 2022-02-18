@@ -1,0 +1,44 @@
+.. [1] Body elements go here.
+
+If [#note]_ is the first footnote reference, it will show up as
+"[1]".  We can refer to it again as [#note]_ and again see
+"[1]".  We can also refer to it as note_ (an ordinary internal
+hyperlink reference).
+
+.. [#note] This is the footnote labeled "note".
+
+Here is a symbolic footnote reference: [*]_.
+
+.. [*] This is the footnote.
+
+[2]_ will be "2" (manually numbered),
+[#]_ will be "3" (anonymous auto-numbered), and
+[#label]_ will be "1" (labeled auto-numbered).
+
+.. [2] This footnote is labeled manually, so its number is fixed.
+
+.. [#label] This autonumber-labeled footnote will be labeled "1".
+   It is the first auto-numbered footnote and no other footnote
+   with label "1" exists.  The order of the footnotes is used to
+   determine numbering, not the order of the footnote references.
+
+.. [#] This footnote will be labeled "3".  It is the second
+   auto-numbered footnote, but footnote label "2" is already used.
+
+Here is a citation reference: [CIT2002]_.
+
+.. [CIT2002] This is the citation.  It's just like a footnote,
+   except the label is textual.
+
+.. _hyperlink-name: link-block
+
+.. __: anonymous-hyperlink-target-link-block
+
+__ anonymous-hyperlink-target-link-block
+
+Clicking on this internal hyperlink will take us to the target_
+below.
+
+.. _target:
+
+The hyperlink target above points to this paragraph.

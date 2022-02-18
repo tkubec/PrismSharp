@@ -1,0 +1,312 @@
+var employees:XML =
+    <employees>
+        <employee ssn="123-123-1234">
+            <name first="John" last="Doe"/>
+            <address>
+                <city>San Francisco</city>
+                <state>CA</state>
+                <zip>98765</zip>
+            </address>
+        </employee>
+        <employee ssn="789-789-7890">
+            <name first="Mary" last="Roe"/>
+            <address>
+                <city>Newton</city>
+                <state>MA</state>
+                <zip>01234</zip>
+            </address>
+        </employee>
+    </employees>;
+----------------------------------------------------
+[
+	["keyword", "var"],
+	" employees",
+	["punctuation", ":"],
+	["constant", "XML"],
+	["operator", "="],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"employees"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"employee"
+			]],
+			["attr-name", ["ssn"]],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				"123-123-1234",
+				["punctuation", "\""]
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"name"
+			]],
+			["attr-name", ["first"]],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				"John",
+				["punctuation", "\""]
+			]],
+			["attr-name", ["last"]],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				"Doe",
+				["punctuation", "\""]
+			]],
+			["punctuation", "/>"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"address"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"city"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	"San Francisco",
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"city"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"state"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	["constant", "CA"],
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"state"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"zip"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	["number", "98765"],
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"zip"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"address"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"employee"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"employee"
+			]],
+			["attr-name", ["ssn"]],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				"789-789-7890",
+				["punctuation", "\""]
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"name"
+			]],
+			["attr-name", ["first"]],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				"Mary",
+				["punctuation", "\""]
+			]],
+			["attr-name", ["last"]],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				"Roe",
+				["punctuation", "\""]
+			]],
+			["punctuation", "/>"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"address"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"city"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	"Newton",
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"city"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"state"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	["constant", "MA"],
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"state"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"zip"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	["number", "01234"],
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"zip"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"address"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"employee"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+
+	["xml", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"employees"
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

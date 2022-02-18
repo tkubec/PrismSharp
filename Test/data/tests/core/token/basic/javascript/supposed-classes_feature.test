@@ -1,0 +1,26 @@
+Foo.prototype.bar;
+Bar.constructor;
+fooBar.prototype.bar;
+----------------------------------------------------
+[
+	["class-name", "Foo"],
+	["punctuation", "."],
+	"prototype",
+	["punctuation", "."],
+	"bar",
+	["punctuation", ";"],
+
+	["class-name", "Bar"],
+	["punctuation", "."],
+	"constructor",
+	["punctuation", ";"],
+
+	"\nfooBar",
+	["punctuation", "."],
+	"prototype",
+	["punctuation", "."],
+	"bar",
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

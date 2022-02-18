@@ -1,0 +1,64 @@
++ +=
+- -=
+* *=
+/ /=
+% %=
+! !=
+^ ^=
+= == =>
+& && &= ;
+| || |=
+< << <= <<=
+> >> >= >>=
+@ ?
+----------------------------------------------------
+[
+	["operator", "+"],
+	["operator", "+="],
+
+	["operator", "-"],
+	["operator", "-="],
+
+	["operator", "*"],
+	["operator", "*="],
+
+	["operator", "/"],
+	["operator", "/="],
+
+	["operator", "%"],
+	["operator", "%="],
+
+	["operator", "!"],
+	["operator", "!="],
+
+	["operator", "^"],
+	["operator", "^="],
+
+	["operator", "="],
+	["operator", "=="],
+	["operator", "=>"],
+
+	["operator", "&"],
+	["operator", "&&"],
+	["operator", "&="],
+	["punctuation", ";"],
+
+	["operator", "|"],
+	["operator", "||"],
+	["operator", "|="],
+
+	["operator", "<"],
+	["operator", "<<"],
+	["operator", "<="],
+	["operator", "<<="],
+
+	["operator", ">"],
+	["operator", ">>"],
+	["operator", ">="],
+	["operator", ">>="],
+
+	["operator", "@"],
+	["operator", "?"]
+]
+
+----------------------------------------------------

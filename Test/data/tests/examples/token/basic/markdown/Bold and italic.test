@@ -1,0 +1,43 @@
+*Italic*
+**Bold on
+multiple lines**
+*Italic on
+multiple lines too*
+__It also works with underscores__
+_It also works with underscores_
+
+__An empty line
+
+is not allowed__
+----------------------------------------------------
+[
+	["italic", [
+		["punctuation", "*"],
+		["content", ["Italic"]],
+		["punctuation", "*"]
+	]],
+	["bold", [
+		["punctuation", "**"],
+		["content", ["Bold on\nmultiple lines"]],
+		["punctuation", "**"]
+	]],
+	["italic", [
+		["punctuation", "*"],
+		["content", ["Italic on\nmultiple lines too"]],
+		["punctuation", "*"]
+	]],
+	["bold", [
+		["punctuation", "__"],
+		["content", ["It also works with underscores"]],
+		["punctuation", "__"]
+	]],
+	["italic", [
+		["punctuation", "_"],
+		["content", ["It also works with underscores"]],
+		["punctuation", "_"]
+	]],
+
+	"\n\n__An empty line\n\nis not allowed__"
+]
+
+----------------------------------------------------

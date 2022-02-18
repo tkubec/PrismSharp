@@ -1,0 +1,14 @@
+ApacheServer {}
+lb--apache-mod-jk--puppet {}
+----------------------------------------------------
+[
+	["component", "ApacheServer"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["component", "lb--apache-mod-jk--puppet"],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

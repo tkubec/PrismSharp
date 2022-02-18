@@ -1,0 +1,27 @@
+BITS 16 BITS 32 BITS 64
+[BITS 16] [BITS 32] [BITS 64]
+
+section Foo.bar
+section foobar:
+
+extern _printf
+global _main
+
+CPU 8086
+FLOAT DAZ
+DEFAULT REL
+----------------------------------------------------
+<span class="token keyword">BITS 16</span> <span class="token keyword">BITS 32</span> <span class="token keyword">BITS 64</span>
+<span class="token keyword">[BITS 16]</span> <span class="token keyword">[BITS 32]</span> <span class="token keyword">[BITS 64]</span>
+
+<span class="token keyword">section Foo.bar</span>
+<span class="token keyword">section foobar:</span>
+
+<span class="token keyword">extern _printf</span>
+<span class="token keyword">global _main</span>
+
+<span class="token keyword">CPU 8086</span>
+<span class="token keyword">FLOAT DAZ</span>
+<span class="token keyword">DEFAULT REL</span>
+
+----------------------------------------------------

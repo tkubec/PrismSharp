@@ -1,0 +1,24 @@
+<Child options={{ track: true }}>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			["class-name", "Child"]
+		]],
+		["attr-name", ["options"]],
+		["script", [
+			["script-punctuation", "="],
+			["punctuation", "{"],
+			["punctuation", "{"],
+			["literal-property", "track"],
+			["operator", ":"],
+			["boolean", "true"],
+			["punctuation", "}"],
+			["punctuation", "}"]
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

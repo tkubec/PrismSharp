@@ -1,0 +1,17 @@
+* Line Comments
+" End of line comment used as line comment.
+value = 1. " End of line comment
+
+DATA:
+  "! ABAPDoc comment
+  value TYPE i.
+----------------------------------------------------
+<span class="token comment">* Line Comments</span>
+<span class="token eol-comment comment">" End of line comment used as line comment.</span>
+<span class="token keyword">value</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">.</span> <span class="token eol-comment comment">" End of line comment</span>
+
+<span class="token keyword">DATA</span><span class="token punctuation">:</span>
+  <span class="token eol-comment comment">"! ABAPDoc comment</span>
+  <span class="token keyword">value</span> <span class="token keyword">TYPE</span> <span class="token keyword">i</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

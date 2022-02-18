@@ -1,0 +1,13 @@
+{assign var=foo value='baa'}
+{include file='header.tpl'}
+{$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+{$title|truncate:40:'...'}
+{$myArray|@count}
+
+{math equation="height * width / division"
+   height=$row_height
+   width=$row_width
+   division=#col_div#}
+
+--------------------------------------------------
+

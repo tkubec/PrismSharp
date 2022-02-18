@@ -1,0 +1,35 @@
+0
+1
++1
+-1
+
++1.0
+2.7e3
+-1.0e+3
+
+double 0x432ff973cafa8000
+double 4.5e+15  ; equivalent forms as mentioned in the LangRef
+
+0xK0123456789ABCDEFabcd  ; x86_fp80
+0xM0123456789ABCDEF0123456789abcdef  ; ppc_fp128
+0xL0123456789ABCDEF0123456789abcdef  ; fp128
+0xHFACE  ; half
+----------------------------------------------------
+<span class="token number">0</span>
+<span class="token number">1</span>
+<span class="token number">+1</span>
+<span class="token number">-1</span>
+
+<span class="token number">+1.0</span>
+<span class="token number">2.7e3</span>
+<span class="token number">-1.0e+3</span>
+
+<span class="token type class-name">double</span> <span class="token number">0x432ff973cafa8000</span>
+<span class="token type class-name">double</span> <span class="token number">4.5e+15</span>  <span class="token comment">; equivalent forms as mentioned in the LangRef</span>
+
+<span class="token number">0xK0123456789ABCDEFabcd</span>  <span class="token comment">; x86_fp80</span>
+<span class="token number">0xM0123456789ABCDEF0123456789abcdef</span>  <span class="token comment">; ppc_fp128</span>
+<span class="token number">0xL0123456789ABCDEF0123456789abcdef</span>  <span class="token comment">; fp128</span>
+<span class="token number">0xHFACE</span>  <span class="token comment">; half</span>
+
+----------------------------------------------------

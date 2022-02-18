@@ -1,0 +1,25 @@
+/ Example from http://code.kx.com/wiki/Cookbook/CorporateActions
+getCAs:{[caTypes]
+    / handles multiplie corporate actions on one date
+    t:0!select factor:prd factor by date-1,sym from ca where caType in caTypes;
+    t,:update date:1901.01.01,factor:1.0 from ([]sym:distinct t`sym);
+    t:`date xasc t;
+    t:update factor:reverse prds reverse 1 rotate factor by sym from t;
+    :update `g#sym from 0!t;
+  };
+
+adjust:{[t;caTypes]
+    t:0!t;
+    factors:enlist 1.0^aj[`sym`date;([] date:t`date;sym:t`sym);getCAs caTypes]`factor;
+    mc:c where (lower c:cols t) like "*price"; / find columns to multiply
+    dc:c where lower[c] like "*size"; / find columns to divide
+    :![t;();0b;(mc,dc)!((*),/:mc,\:factors),((%),/:dc,\:factors)]; / multiply or divide out the columns
+  };
+
+/ get the adjustment factors considering all corporate actions
+getCAs exec distinct caType from ca
+
+adjust[t;`dividend] / adjust trades for dividends only
+
+--------------------------------------------------
+

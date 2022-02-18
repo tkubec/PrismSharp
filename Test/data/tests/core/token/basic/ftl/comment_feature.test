@@ -1,0 +1,18 @@
+<#-- comment -->
+
+<#assign x <#-- A comment --> = 123 <#-- A comment -->>
+<#function f(x <#-- A comment -->, y <#-- A comment -->)>
+	<#return <#-- A comment --> 1 <#-- A comment -->>
+</#function>
+<#assign someHash = {
+	"foo": 123, <#-- A comment -->
+	"bar": x <#-- A comment --> + 1,
+	<#-- A comment -->
+	"baaz": f(1 <#-- A comment -->, 2 <#-- A comment -->)
+} <#-- A comment -->>
+----------------------------------------------------
+[
+	["ftl-comment", "<#-- comment -->\r\n\r\n<#assign x <#-- A comment --> = 123 <#-- A comment -->>\r\n<#function f(x <#-- A comment -->, y <#-- A comment -->)>\r\n\t<#return <#-- A comment --> 1 <#-- A comment -->>\r\n</#function>\r\n<#assign someHash = {\r\n\t\"foo\": 123, <#-- A comment -->\r\n\t\"bar\": x <#-- A comment --> + 1,\r\n\t<#-- A comment -->\r\n\t\"baaz\": f(1 <#-- A comment -->, 2 <#-- A comment -->)\r\n} <#-- A comment -->>"]
+]
+
+----------------------------------------------------

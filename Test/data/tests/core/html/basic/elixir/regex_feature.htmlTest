@@ -1,0 +1,23 @@
+~r"""foobar"""im
+~R'''foobar'''ux
+~r/fo\/obar/smfr
+~R|fo\|obar|uismxfr
+~r"fo\"obar"x
+~R'fo\'obar's
+~r(fo\)obar)
+~R[fo\]obar]
+~r{fo\}obar}
+~R<fo\>obar>
+----------------------------------------------------
+<span class="token regex">~r"""foobar"""im</span>
+<span class="token regex">~R'''foobar'''ux</span>
+<span class="token regex">~r/fo\/obar/smfr</span>
+<span class="token regex">~R|fo\|obar|uismxfr</span>
+<span class="token regex">~r"fo\"obar"x</span>
+<span class="token regex">~R'fo\'obar's</span>
+<span class="token regex">~r(fo\)obar)</span>
+<span class="token regex">~R[fo\]obar]</span>
+<span class="token regex">~r{fo\}obar}</span>
+<span class="token regex">~R&lt;fo\>obar></span>
+
+----------------------------------------------------

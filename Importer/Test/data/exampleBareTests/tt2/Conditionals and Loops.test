@@ -1,0 +1,11 @@
+[% IF foo = bar %]
+this
+[% ELSE %]
+that
+[% END %]
+[% FOREACH post IN q.listPosts(lingua = "de") %]
+  &lt;a href="[% post.permalink %]"&gt;[% post.title | html %]&lt;/a&gt;
+[% END %]
+
+--------------------------------------------------
+

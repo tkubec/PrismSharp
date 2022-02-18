@@ -1,0 +1,39 @@
+tell application "Finder"
+text 1 thru 5 of "Bring me the mouse."
+set averageTemp to 63 as degrees Fahrenheit
+set circleArea to (pi * 7 * 7) as square yards
+----------------------------------------------------
+[
+	["keyword", "tell"],
+	["class-name", "application"],
+	["string", "\"Finder\""],
+
+	["class-name", "text"],
+	["number", "1"],
+	["keyword", "thru"],
+	["number", "5"],
+	["keyword", "of"],
+	["string", "\"Bring me the mouse.\""],
+
+	["keyword", "set"],
+	" averageTemp ",
+	["keyword", "to"],
+	["number", "63"],
+	["operator", "as"],
+	["class-name", "degrees Fahrenheit"],
+
+	["keyword", "set"],
+	" circleArea ",
+	["keyword", "to"],
+	["punctuation", "("],
+	"pi ",
+	["operator", "*"],
+	["number", "7"],
+	["operator", "*"],
+	["number", "7"],
+	["punctuation", ")"],
+	["operator", "as"],
+	["class-name", "square yards"]
+]
+
+----------------------------------------------------

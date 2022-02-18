@@ -1,0 +1,27 @@
+m/foo/ s/foo/bar/
+m zfooz s zfoozbarz
+qr(foo) m{foo} s(foo)(bar) s{foo}{bar}
+m[foo] m<foo> tr[foo][bar] s<foo><bar>
+/foo/i
+----------------------------------------------------
+[
+	["regex", "m/foo/"],
+	["regex", "s/foo/bar/"],
+
+	["regex", "m zfooz"],
+	["regex", "s zfoozbarz"],
+
+	["regex", "qr(foo)"],
+	["regex", "m{foo}"],
+	["regex", "s(foo)(bar)"],
+	["regex", "s{foo}{bar}"],
+
+	["regex", "m[foo]"],
+	["regex", "m<foo>"],
+	["regex", "tr[foo][bar]"],
+	["regex", "s<foo><bar>"],
+
+	["regex", "/foo/i"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,233 @@
+_emphasis_
+``double quotes''
+`single quotes'
+`monospace`
+'emphasis'
+*strong*
++monospace+
+#unquoted#
+
+_foo _ bar baz_
+`foo ' bar baz'
+`foo ` bar baz`
+'foo ' bar baz'
+*foo * bar baz*
++foo + bar baz+
+#foo # bar baz#
+
+_foo
+bar_
+``foo
+bar''
+`foo
+bar'
+`foo
+bar`
+'foo
+bar'
+*foo
+bar*
++foo
+bar+
+#foo
+bar#
+
+foo__emphasis__bar
+foo**strong**bar
+foo++monospace++bar
+foo+++passthrough+++bar
+foo##unquoted##bar
+foo$$passthrough$$bar
+foo~subscript~bar
+foo^superscript^bar
+foo{attribute-reference}bar
+foo[[anchor]]bar
+foo[[[bibliography anchor]]]bar
+foo<<xref>>bar
+foo(((indexes)))bar
+foo((indexes))bar
+
+====
+_emphasis_
+``double quotes''
+`single quotes'
+`monospace`
+'emphasis'
+*strong*
++monospace+
+#unquoted#
+__emphasis__
+**strong**
+++monospace++
++++passthrough+++
+##unquoted##
+$$passthrough$$
+~subscript~
+^superscript^
+{attribute-reference}
+[[anchor]]
+[[[bibliography anchor]]]
+<<xref>>
+(((indexes)))
+((indexes))
+====
+
+|====
+|
+_emphasis_
+``double quotes''
+`single quotes'
+`monospace`
+'emphasis'
+*strong*
++monospace+
+#unquoted#
+__emphasis__
+**strong**
+++monospace++
++++passthrough+++
+##unquoted##
+$$passthrough$$
+~subscript~
+^superscript^
+{attribute-reference}
+[[anchor]]
+[[[bibliography anchor]]]
+<<xref>>
+(((indexes)))
+((indexes))
+|====
+
+['foo *bar* baz']
+
+== foo *bar* baz ==
+
+{names=value}
+{names?value}
+{names!value}
+{names#value}
+{names%value}
+{names@regexp:value1:value2}
+{names$regexp:value1:value2}
+{names$regexp::value}
+{foo,bar=foobar}
+{foo+bar=foobar}
+{counter:attrname}
+----------------------------------------------------
+<span class="token inline"><span class="token italic"><span class="token punctuation">_</span>emphasis<span class="token punctuation">_</span></span></span>
+<span class="token inline"><span class="token punctuation">``</span>double quotes<span class="token punctuation">''</span></span>
+<span class="token inline"><span class="token punctuation">`</span>single quotes<span class="token punctuation">'</span></span>
+<span class="token inline"><span class="token punctuation">`</span>monospace<span class="token punctuation">`</span></span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">'</span>emphasis<span class="token punctuation">'</span></span></span>
+<span class="token inline"><span class="token bold"><span class="token punctuation">*</span>strong<span class="token punctuation">*</span></span></span>
+<span class="token inline"><span class="token punctuation">+</span>monospace<span class="token punctuation">+</span></span>
+<span class="token inline"><span class="token punctuation">#</span>unquoted<span class="token punctuation">#</span></span>
+
+<span class="token inline"><span class="token italic"><span class="token punctuation">_</span>foo _ bar baz<span class="token punctuation">_</span></span></span>
+<span class="token inline"><span class="token punctuation">`</span>foo ' bar baz<span class="token punctuation">'</span></span>
+<span class="token inline"><span class="token punctuation">`</span>foo ` bar baz<span class="token punctuation">`</span></span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">'</span>foo ' bar baz<span class="token punctuation">'</span></span></span>
+<span class="token inline"><span class="token bold"><span class="token punctuation">*</span>foo * bar baz<span class="token punctuation">*</span></span></span>
+<span class="token inline"><span class="token punctuation">+</span>foo + bar baz<span class="token punctuation">+</span></span>
+<span class="token inline"><span class="token punctuation">#</span>foo # bar baz<span class="token punctuation">#</span></span>
+
+<span class="token inline"><span class="token italic"><span class="token punctuation">_</span>foo
+bar<span class="token punctuation">_</span></span></span>
+<span class="token inline"><span class="token punctuation">``</span>foo
+bar<span class="token punctuation">''</span></span>
+<span class="token inline"><span class="token punctuation">`</span>foo
+bar<span class="token punctuation">'</span></span>
+<span class="token inline"><span class="token punctuation">`</span>foo
+bar<span class="token punctuation">`</span></span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">'</span>foo
+bar<span class="token punctuation">'</span></span></span>
+<span class="token inline"><span class="token bold"><span class="token punctuation">*</span>foo
+bar<span class="token punctuation">*</span></span></span>
+<span class="token inline"><span class="token punctuation">+</span>foo
+bar<span class="token punctuation">+</span></span>
+<span class="token inline"><span class="token punctuation">#</span>foo
+bar<span class="token punctuation">#</span></span>
+
+foo<span class="token inline"><span class="token italic"><span class="token punctuation">__</span>emphasis<span class="token punctuation">__</span></span></span>bar
+foo<span class="token inline"><span class="token bold"><span class="token punctuation">**</span>strong<span class="token punctuation">**</span></span></span>bar
+foo<span class="token inline"><span class="token punctuation">++</span>monospace<span class="token punctuation">++</span></span>bar
+foo<span class="token inline"><span class="token punctuation">+++</span>passthrough<span class="token punctuation">+++</span></span>bar
+foo<span class="token inline"><span class="token punctuation">##</span>unquoted<span class="token punctuation">##</span></span>bar
+foo<span class="token inline"><span class="token punctuation">$$</span>passthrough<span class="token punctuation">$$</span></span>bar
+foo<span class="token inline"><span class="token punctuation">~</span>subscript<span class="token punctuation">~</span></span>bar
+foo<span class="token inline"><span class="token punctuation">^</span>superscript<span class="token punctuation">^</span></span>bar
+foo<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">attribute-reference</span><span class="token punctuation">}</span></span></span>bar
+foo<span class="token inline"><span class="token url"><span class="token punctuation">[[</span>anchor<span class="token punctuation">]]</span></span></span>bar
+foo<span class="token inline"><span class="token url"><span class="token punctuation">[[[</span>bibliography anchor<span class="token punctuation">]]]</span></span></span>bar
+foo<span class="token inline"><span class="token url"><span class="token punctuation">&lt;&lt;</span>xref<span class="token punctuation">>></span></span></span>bar
+foo<span class="token inline"><span class="token punctuation">(((</span>indexes<span class="token punctuation">)))</span></span>bar
+foo<span class="token inline"><span class="token punctuation">((</span>indexes<span class="token punctuation">))</span></span>bar
+
+<span class="token other-block"><span class="token punctuation">====</span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">_</span>emphasis<span class="token punctuation">_</span></span></span>
+<span class="token inline"><span class="token punctuation">``</span>double quotes<span class="token punctuation">''</span></span>
+<span class="token inline"><span class="token punctuation">`</span>single quotes<span class="token punctuation">'</span></span>
+<span class="token inline"><span class="token punctuation">`</span>monospace<span class="token punctuation">`</span></span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">'</span>emphasis<span class="token punctuation">'</span></span></span>
+<span class="token inline"><span class="token bold"><span class="token punctuation">*</span>strong<span class="token punctuation">*</span></span></span>
+<span class="token inline"><span class="token punctuation">+</span>monospace<span class="token punctuation">+</span></span>
+<span class="token inline"><span class="token punctuation">#</span>unquoted<span class="token punctuation">#</span></span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">__</span>emphasis<span class="token punctuation">__</span></span></span>
+<span class="token inline"><span class="token bold"><span class="token punctuation">**</span>strong<span class="token punctuation">**</span></span></span>
+<span class="token inline"><span class="token punctuation">++</span>monospace<span class="token punctuation">++</span></span>
+<span class="token inline"><span class="token punctuation">+++</span>passthrough<span class="token punctuation">+++</span></span>
+<span class="token inline"><span class="token punctuation">##</span>unquoted<span class="token punctuation">##</span></span>
+<span class="token inline"><span class="token punctuation">$$</span>passthrough<span class="token punctuation">$$</span></span>
+<span class="token inline"><span class="token punctuation">~</span>subscript<span class="token punctuation">~</span></span>
+<span class="token inline"><span class="token punctuation">^</span>superscript<span class="token punctuation">^</span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">attribute-reference</span><span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token url"><span class="token punctuation">[[</span>anchor<span class="token punctuation">]]</span></span></span>
+<span class="token inline"><span class="token url"><span class="token punctuation">[[[</span>bibliography anchor<span class="token punctuation">]]]</span></span></span>
+<span class="token inline"><span class="token url"><span class="token punctuation">&lt;&lt;</span>xref<span class="token punctuation">>></span></span></span>
+<span class="token inline"><span class="token punctuation">(((</span>indexes<span class="token punctuation">)))</span></span>
+<span class="token inline"><span class="token punctuation">((</span>indexes<span class="token punctuation">))</span></span>
+<span class="token punctuation">====</span></span>
+
+<span class="token table"><span class="token punctuation">|====</span>
+<span class="token punctuation">|</span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">_</span>emphasis<span class="token punctuation">_</span></span></span>
+<span class="token inline"><span class="token punctuation">``</span>double quotes<span class="token punctuation">''</span></span>
+<span class="token inline"><span class="token punctuation">`</span>single quotes<span class="token punctuation">'</span></span>
+<span class="token inline"><span class="token punctuation">`</span>monospace<span class="token punctuation">`</span></span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">'</span>emphasis<span class="token punctuation">'</span></span></span>
+<span class="token inline"><span class="token bold"><span class="token punctuation">*</span>strong<span class="token punctuation">*</span></span></span>
+<span class="token inline"><span class="token punctuation">+</span>monospace<span class="token punctuation">+</span></span>
+<span class="token inline"><span class="token punctuation">#</span>unquoted<span class="token punctuation">#</span></span>
+<span class="token inline"><span class="token italic"><span class="token punctuation">__</span>emphasis<span class="token punctuation">__</span></span></span>
+<span class="token inline"><span class="token bold"><span class="token punctuation">**</span>strong<span class="token punctuation">**</span></span></span>
+<span class="token inline"><span class="token punctuation">++</span>monospace<span class="token punctuation">++</span></span>
+<span class="token inline"><span class="token punctuation">+++</span>passthrough<span class="token punctuation">+++</span></span>
+<span class="token inline"><span class="token punctuation">##</span>unquoted<span class="token punctuation">##</span></span>
+<span class="token inline"><span class="token punctuation">$$</span>passthrough<span class="token punctuation">$$</span></span>
+<span class="token inline"><span class="token punctuation">~</span>subscript<span class="token punctuation">~</span></span>
+<span class="token inline"><span class="token punctuation">^</span>superscript<span class="token punctuation">^</span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">attribute-reference</span><span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token url"><span class="token punctuation">[[</span>anchor<span class="token punctuation">]]</span></span></span>
+<span class="token inline"><span class="token url"><span class="token punctuation">[[[</span>bibliography anchor<span class="token punctuation">]]]</span></span></span>
+<span class="token inline"><span class="token url"><span class="token punctuation">&lt;&lt;</span>xref<span class="token punctuation">>></span></span></span>
+<span class="token inline"><span class="token punctuation">(((</span>indexes<span class="token punctuation">)))</span></span>
+<span class="token inline"><span class="token punctuation">((</span>indexes<span class="token punctuation">))</span></span>
+<span class="token punctuation">|====</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token interpreted"><span class="token punctuation">'</span>foo <span class="token inline"><span class="token bold"><span class="token punctuation">*</span>bar<span class="token punctuation">*</span></span></span> baz<span class="token punctuation">'</span></span><span class="token punctuation">]</span></span>
+
+<span class="token title important"><span class="token punctuation">==</span> foo <span class="token inline"><span class="token bold"><span class="token punctuation">*</span>bar<span class="token punctuation">*</span></span></span> baz <span class="token punctuation">==</span></span>
+
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">names</span><span class="token operator">=</span>value<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">names</span><span class="token operator">?</span>value<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">names</span><span class="token operator">!</span>value<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">names</span><span class="token operator">#</span>value<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">names</span><span class="token operator">%</span>value<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">names</span><span class="token operator">@</span>regexp<span class="token punctuation">:</span>value1<span class="token punctuation">:</span>value2<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">names</span><span class="token operator">$</span>regexp<span class="token punctuation">:</span>value1<span class="token punctuation">:</span>value2<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">names</span><span class="token operator">$</span>regexp<span class="token punctuation">::</span>value<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">foo,bar</span><span class="token operator">=</span>foobar<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">foo+bar</span><span class="token operator">=</span>foobar<span class="token punctuation">}</span></span></span>
+<span class="token inline"><span class="token attribute-ref"><span class="token punctuation">{</span><span class="token variable">counter</span><span class="token punctuation">:</span>attrname<span class="token punctuation">}</span></span></span>
+
+----------------------------------------------------

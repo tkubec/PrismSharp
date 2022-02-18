@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package foo.generated;
+option java_package = "org.foo.generated";
+option optimize_for = SPEED;
+
+// What's up with all the foo?
+message Foo {
+
+  message Bar {
+
+    optional string key   = 1;
+    optional Foo value = 2;
+    optional string value_raw = 3 [deprecated=true];
+  }
+
+  enum Level {
+    INFO  = 0;
+    WARN  = 1;
+    ERROR = 2;
+  }
+
+  repeated Property property = 1;
+}
+----------------------------------------------------
+[
+	["keyword", "syntax"],
+	["operator", "="],
+	["string", "\"proto3\""],
+	["punctuation", ";"],
+
+	["keyword", "package"],
+	" foo",
+	["punctuation", "."],
+	"generated",
+	["punctuation", ";"],
+
+	["keyword", "option"],
+	" java_package ",
+	["operator", "="],
+	["string", "\"org.foo.generated\""],
+	["punctuation", ";"],
+
+	["keyword", "option"],
+	" optimize_for ",
+	["operator", "="],
+	" SPEED",
+	["punctuation", ";"],
+
+	["comment", "// What's up with all the foo?"],
+	["keyword", "message"], ["class-name", "Foo"], ["punctuation", "{"],
+
+	["keyword", "message"], ["class-name", "Bar"], ["punctuation", "{"],
+
+	["keyword", "optional"],
+	["builtin", "string"],
+	" key   ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["keyword", "optional"],
+	["positional-class-name", ["Foo"]],
+	" value ",
+	["operator", "="],
+	["number", "2"],
+	["punctuation", ";"],
+
+	["keyword", "optional"],
+	["builtin", "string"],
+	" value_raw ",
+	["operator", "="],
+	["number", "3"],
+	["punctuation", "["],
+	["annotation", "deprecated"],
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "enum"], ["class-name", "Level"], ["punctuation", "{"],
+	"\n    INFO  ", ["operator", "="], ["number", "0"], ["punctuation", ";"],
+	"\n    WARN  ", ["operator", "="], ["number", "1"], ["punctuation", ";"],
+	"\n    ERROR ", ["operator", "="], ["number", "2"], ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "repeated"],
+	["positional-class-name", ["Property"]],
+	" property ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

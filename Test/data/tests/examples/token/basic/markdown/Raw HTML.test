@@ -1,0 +1,49 @@
+> This is a quotation
+> Containing <strong>raw HTML</strong>
+
+<p>*Italic text inside HTML tag*</p>
+----------------------------------------------------
+[
+	["blockquote", ">"],
+	" This is a quotation\n",
+
+	["blockquote", ">"],
+	" Containing ",
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"strong"
+		]],
+		["punctuation", ">"]
+	]],
+	"raw HTML",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"strong"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+	["italic", [
+		["punctuation", "*"],
+		["content", ["Italic text inside HTML tag"]],
+		["punctuation", "*"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

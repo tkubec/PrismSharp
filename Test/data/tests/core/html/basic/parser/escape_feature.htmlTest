@@ -1,0 +1,47 @@
+^$
+^^
+^;
+^@
+^(
+^)
+^[
+^]
+^{
+^}
+^"
+^'
+^:
+^#
+^#20
+^#af
+^#AF
+
+^^date::now
+^$foobar
+
+<div class="foo^^bar">
+----------------------------------------------------
+<span class="token escape builtin">^$</span>
+<span class="token escape builtin">^^</span>
+<span class="token escape builtin">^;</span>
+<span class="token escape builtin">^@</span>
+<span class="token escape builtin">^(</span>
+<span class="token escape builtin">^)</span>
+<span class="token escape builtin">^[</span>
+<span class="token escape builtin">^]</span>
+<span class="token escape builtin">^{</span>
+<span class="token escape builtin">^}</span>
+<span class="token escape builtin">^"</span>
+<span class="token escape builtin">^'</span>
+<span class="token escape builtin">^:</span>
+<span class="token escape builtin">^#</span>
+<span class="token escape builtin">^#20</span>
+<span class="token escape builtin">^#af</span>
+<span class="token escape builtin">^#AF</span>
+
+<span class="token escape builtin">^^</span>date::now
+<span class="token escape builtin">^$</span>foobar
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>foo<span class="token escape builtin">^^</span>bar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

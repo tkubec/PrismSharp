@@ -1,0 +1,19 @@
+' Foobar
+#Rem Foo
+Bar 'Baz
+#End
+' This "is" a comment
+#Rem
+This "is" a comment
+#End
+----------------------------------------------------
+<span class="token comment">' Foobar</span>
+<span class="token comment">#Rem Foo
+Bar 'Baz
+#End</span>
+<span class="token comment">' This "is" a comment</span>
+<span class="token comment">#Rem
+This "is" a comment
+#End</span>
+
+----------------------------------------------------

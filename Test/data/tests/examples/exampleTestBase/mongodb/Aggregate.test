@@ -1,0 +1,8 @@
+db.orders.aggregate([
+	{ $sort : { age : -1 } },
+	{ $project : { age : 1, status : 1, name : 1 } },
+	{ $limit: 5 }
+])
+
+--------------------------------------------------
+

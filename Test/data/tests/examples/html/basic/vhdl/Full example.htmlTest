@@ -1,0 +1,137 @@
+-- example code from: http://www.csee.umbc.edu/portal/help/VHDL/samples/samples.html
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity fadd is               -- full adder stage, interface
+  port(a    : in  std_logic;
+       b    : in  std_logic;
+       cin  : in  std_logic;
+       s    : out std_logic;
+       cout : out std_logic);
+end entity fadd;
+
+architecture circuits of fadd is  -- full adder stage, body
+begin  -- circuits of fadd
+  s <= a xor b xor cin after 1 ns;
+  cout <= (a and b) or (a and cin) or (b and cin) after 1 ns;
+end architecture circuits; -- of fadd
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+entity add32 is             -- simple 32 bit ripple carry adder
+  port(a    : in  std_logic_vector(31 downto 0);
+       b    : in  std_logic_vector(31 downto 0);
+       cin  : in  std_logic;
+       sum  : out std_logic_vector(31 downto 0);
+       cout : out std_logic);
+end entity add32;
+
+architecture circuits of add32 is
+  signal c : std_logic_vector(0 to 30); -- internal carry signals
+begin  -- circuits of add32
+  a0: entity WORK.fadd port map(a(0), b(0), cin, sum(0), c(0));
+  stage: for I in 1 to 30 generate
+             as: entity WORK.fadd port map(a(I), b(I), c(I-1) , sum(I), c(I));
+         end generate stage;
+  a31: entity WORK.fadd port map(a(31), b(31), c(30) , sum(31), cout);
+end architecture circuits;  -- of add32
+
+use STD.textio.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_textio.all;
+
+entity signal_trace is
+end signal_trace;
+
+architecture circuits of signal_trace is
+  signal a:    std_logic_vector(31 downto 0) := x"00000000";
+  signal b:    std_logic_vector(31 downto 0) := x"FFFFFFFF";
+  signal cin:  std_logic := '1';
+  signal cout: std_logic;
+  signal sum:  std_logic_vector(31 downto 0);
+begin  -- circuits of signal_trace
+  adder: entity WORK.add32 port map(a, b, cin, sum, cout); -- parallel circuit
+
+  prtsum: process (sum)
+            variable my_line : LINE;
+            alias swrite is write [line, string, side, width] ;
+          begin
+            swrite(my_line, "sum=");
+            write(my_line, sum);
+            swrite(my_line, ",  at=");
+            write(my_line, now);
+            writeline(output, my_line);
+          end process prtsum;
+
+end architecture circuits; -- of signal_trace
+----------------------------------------------------
+<span class="token comment">-- example code from: http://www.csee.umbc.edu/portal/help/VHDL/samples/samples.html</span>
+<span class="token constant">library</span> IEEE<span class="token punctuation">;</span>
+<span class="token constant">use</span> IEEE<span class="token punctuation">.</span>std_logic_1164<span class="token punctuation">.</span><span class="token keyword">all</span><span class="token punctuation">;</span>
+
+<span class="token keyword">entity</span> fadd <span class="token keyword">is</span>               <span class="token comment">-- full adder stage, interface</span>
+  <span class="token keyword">port</span><span class="token punctuation">(</span>a    <span class="token punctuation">:</span> <span class="token keyword">in</span>  std_logic<span class="token punctuation">;</span>
+       b    <span class="token punctuation">:</span> <span class="token keyword">in</span>  std_logic<span class="token punctuation">;</span>
+       cin  <span class="token punctuation">:</span> <span class="token keyword">in</span>  std_logic<span class="token punctuation">;</span>
+       s    <span class="token punctuation">:</span> <span class="token keyword">out</span> std_logic<span class="token punctuation">;</span>
+       cout <span class="token punctuation">:</span> <span class="token keyword">out</span> std_logic<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span> <span class="token keyword">entity</span> fadd<span class="token punctuation">;</span>
+
+<span class="token keyword">architecture</span> circuits <span class="token keyword">of</span> fadd <span class="token keyword">is</span>  <span class="token comment">-- full adder stage, body</span>
+<span class="token keyword">begin</span>  <span class="token comment">-- circuits of fadd</span>
+  s <span class="token operator">&lt;=</span> a <span class="token operator">xor</span> b <span class="token operator">xor</span> cin <span class="token keyword">after</span> <span class="token number">1</span> ns<span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;=</span> <span class="token punctuation">(</span>a <span class="token operator">and</span> b<span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token punctuation">(</span>a <span class="token operator">and</span> cin<span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token punctuation">(</span>b <span class="token operator">and</span> cin<span class="token punctuation">)</span> <span class="token keyword">after</span> <span class="token number">1</span> ns<span class="token punctuation">;</span>
+<span class="token keyword">end</span> <span class="token keyword">architecture</span> circuits<span class="token punctuation">;</span> <span class="token comment">-- of fadd</span>
+
+<span class="token constant">library</span> IEEE<span class="token punctuation">;</span>
+<span class="token constant">use</span> IEEE<span class="token punctuation">.</span>std_logic_1164<span class="token punctuation">.</span><span class="token keyword">all</span><span class="token punctuation">;</span>
+<span class="token keyword">entity</span> add32 <span class="token keyword">is</span>             <span class="token comment">-- simple 32 bit ripple carry adder</span>
+  <span class="token keyword">port</span><span class="token punctuation">(</span>a    <span class="token punctuation">:</span> <span class="token keyword">in</span>  <span class="token function">std_logic_vector</span><span class="token punctuation">(</span><span class="token number">31</span> <span class="token keyword">downto</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       b    <span class="token punctuation">:</span> <span class="token keyword">in</span>  <span class="token function">std_logic_vector</span><span class="token punctuation">(</span><span class="token number">31</span> <span class="token keyword">downto</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       cin  <span class="token punctuation">:</span> <span class="token keyword">in</span>  std_logic<span class="token punctuation">;</span>
+       sum  <span class="token punctuation">:</span> <span class="token keyword">out</span> <span class="token function">std_logic_vector</span><span class="token punctuation">(</span><span class="token number">31</span> <span class="token keyword">downto</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       cout <span class="token punctuation">:</span> <span class="token keyword">out</span> std_logic<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span> <span class="token keyword">entity</span> add32<span class="token punctuation">;</span>
+
+<span class="token keyword">architecture</span> circuits <span class="token keyword">of</span> add32 <span class="token keyword">is</span>
+  <span class="token keyword">signal</span> c <span class="token punctuation">:</span> <span class="token function">std_logic_vector</span><span class="token punctuation">(</span><span class="token number">0</span> <span class="token keyword">to</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- internal carry signals</span>
+<span class="token keyword">begin</span>  <span class="token comment">-- circuits of add32</span>
+  a0<span class="token punctuation">:</span> <span class="token keyword">entity</span> WORK<span class="token punctuation">.</span>fadd <span class="token keyword">port</span> <span class="token keyword">map</span><span class="token punctuation">(</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cin<span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  stage<span class="token punctuation">:</span> <span class="token keyword">for</span> I <span class="token keyword">in</span> <span class="token number">1</span> <span class="token keyword">to</span> <span class="token number">30</span> <span class="token keyword">generate</span>
+             as<span class="token punctuation">:</span> <span class="token keyword">entity</span> WORK<span class="token punctuation">.</span>fadd <span class="token keyword">port</span> <span class="token keyword">map</span><span class="token punctuation">(</span><span class="token function">a</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">b</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">c</span><span class="token punctuation">(</span>I<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">c</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">end</span> <span class="token keyword">generate</span> stage<span class="token punctuation">;</span>
+  a31<span class="token punctuation">:</span> <span class="token keyword">entity</span> WORK<span class="token punctuation">.</span>fadd <span class="token keyword">port</span> <span class="token keyword">map</span><span class="token punctuation">(</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span> <span class="token keyword">architecture</span> circuits<span class="token punctuation">;</span>  <span class="token comment">-- of add32</span>
+
+<span class="token constant">use</span> STD<span class="token punctuation">.</span>textio<span class="token punctuation">.</span><span class="token keyword">all</span><span class="token punctuation">;</span>
+<span class="token constant">library</span> IEEE<span class="token punctuation">;</span>
+<span class="token constant">use</span> IEEE<span class="token punctuation">.</span>std_logic_1164<span class="token punctuation">.</span><span class="token keyword">all</span><span class="token punctuation">;</span>
+<span class="token constant">use</span> IEEE<span class="token punctuation">.</span>std_logic_textio<span class="token punctuation">.</span><span class="token keyword">all</span><span class="token punctuation">;</span>
+
+<span class="token keyword">entity</span> signal_trace <span class="token keyword">is</span>
+<span class="token keyword">end</span> signal_trace<span class="token punctuation">;</span>
+
+<span class="token keyword">architecture</span> circuits <span class="token keyword">of</span> signal_trace <span class="token keyword">is</span>
+  <span class="token keyword">signal</span> a<span class="token punctuation">:</span>    <span class="token function">std_logic_vector</span><span class="token punctuation">(</span><span class="token number">31</span> <span class="token keyword">downto</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token vhdl-vectors number">x"00000000"</span><span class="token punctuation">;</span>
+  <span class="token keyword">signal</span> b<span class="token punctuation">:</span>    <span class="token function">std_logic_vector</span><span class="token punctuation">(</span><span class="token number">31</span> <span class="token keyword">downto</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token vhdl-vectors number">x"FFFFFFFF"</span><span class="token punctuation">;</span>
+  <span class="token keyword">signal</span> cin<span class="token punctuation">:</span>  std_logic <span class="token operator">:=</span> <span class="token number">'1'</span><span class="token punctuation">;</span>
+  <span class="token keyword">signal</span> cout<span class="token punctuation">:</span> std_logic<span class="token punctuation">;</span>
+  <span class="token keyword">signal</span> sum<span class="token punctuation">:</span>  <span class="token function">std_logic_vector</span><span class="token punctuation">(</span><span class="token number">31</span> <span class="token keyword">downto</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">begin</span>  <span class="token comment">-- circuits of signal_trace</span>
+  adder<span class="token punctuation">:</span> <span class="token keyword">entity</span> WORK<span class="token punctuation">.</span>add32 <span class="token keyword">port</span> <span class="token keyword">map</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> cin<span class="token punctuation">,</span> sum<span class="token punctuation">,</span> cout<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- parallel circuit</span>
+
+  prtsum<span class="token punctuation">:</span> <span class="token keyword">process</span> <span class="token punctuation">(</span>sum<span class="token punctuation">)</span>
+            <span class="token keyword">variable</span> my_line <span class="token punctuation">:</span> LINE<span class="token punctuation">;</span>
+            <span class="token keyword">alias</span> swrite <span class="token keyword">is</span> write <span class="token punctuation">[</span>line<span class="token punctuation">,</span> string<span class="token punctuation">,</span> side<span class="token punctuation">,</span> width<span class="token punctuation">]</span> <span class="token punctuation">;</span>
+          <span class="token keyword">begin</span>
+            <span class="token function">swrite</span><span class="token punctuation">(</span>my_line<span class="token punctuation">,</span> <span class="token string">"sum="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">write</span><span class="token punctuation">(</span>my_line<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">swrite</span><span class="token punctuation">(</span>my_line<span class="token punctuation">,</span> <span class="token string">",  at="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">write</span><span class="token punctuation">(</span>my_line<span class="token punctuation">,</span> now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">writeline</span><span class="token punctuation">(</span>output<span class="token punctuation">,</span> my_line<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">end</span> <span class="token keyword">process</span> prtsum<span class="token punctuation">;</span>
+
+<span class="token keyword">end</span> <span class="token keyword">architecture</span> circuits<span class="token punctuation">;</span> <span class="token comment">-- of signal_trace</span>
+
+----------------------------------------------------

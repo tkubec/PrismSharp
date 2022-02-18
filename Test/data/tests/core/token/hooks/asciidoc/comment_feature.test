@@ -1,0 +1,37 @@
+//
+// Foobar
+
+******
+//
+// Foobar
+******
+
+|======
+|
+//
+|
+// Foobar
+|======
+----------------------------------------------------
+[
+	["comment", "//"],
+	["comment", "// Foobar"],
+
+	["other-block", [
+		["punctuation", "******"],
+		["comment", "//"],
+		["comment", "// Foobar"],
+		["punctuation", "******"]
+	]],
+
+	["table", [
+		["punctuation", "|======"],
+		["punctuation", "|"],
+		["comment", "//"],
+		["punctuation", "|"],
+		["comment", "// Foobar"],
+		["punctuation", "|======"]
+	]]
+]
+
+----------------------------------------------------

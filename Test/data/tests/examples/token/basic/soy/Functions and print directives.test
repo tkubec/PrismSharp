@@ -1,0 +1,33 @@
+{if length($items) > 5}
+{$foo|changeNewlineToBr}
+{$bar|truncate: 4, false}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "if"],
+	["function", "length"],
+	["punctuation", "("],
+	["variable", ["$items"]],
+	["punctuation", ")"],
+	["operator", ">"],
+	["number", "5"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", ["$foo"]],
+	["punctuation", "|"],
+	["function", "changeNewlineToBr"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", ["$bar"]],
+	["punctuation", "|"],
+	["function", "truncate"],
+	["punctuation", ":"],
+	["number", "4"],
+	["punctuation", ","],
+	["boolean", "false"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,77 @@
+* This is
+* an unordered list
+
+1. This is an
+2. ordered list
+
+* *List item in italic*
+* **List item in bold**
+* [List item as a link](http://example.com "This is an example")
+
+> This is a quotation
+>> With another quotation inside
+> _italic here_, __bold there__
+> And a [link](http://example.com)
+----------------------------------------------------
+[
+	["list", "*"], " This is\n",
+	["list", "*"], " an unordered list\n\n",
+
+	["list", "1."], " This is an\n",
+	["list", "2."], " ordered list\n\n",
+
+	["list", "*"],
+	["italic", [
+		["punctuation", "*"],
+		["content", ["List item in italic"]],
+		["punctuation", "*"]
+	]],
+
+	["list", "*"],
+	["bold", [
+		["punctuation", "**"],
+		["content", ["List item in bold"]],
+		["punctuation", "**"]
+	]],
+
+	["list", "*"],
+	["url", [
+		"[",
+		["content", ["List item as a link"]],
+		"](",
+		["url", "http://example.com"],
+		["string", "\"This is an example\""],
+		")"
+	]],
+
+	["blockquote", ">"],
+	" This is a quotation\n",
+
+	["blockquote", ">>"],
+	" With another quotation inside\n",
+
+	["blockquote", ">"],
+	["italic", [
+		["punctuation", "_"],
+		["content", ["italic here"]],
+		["punctuation", "_"]
+	]],
+	", ",
+	["bold", [
+		["punctuation", "__"],
+		["content", ["bold there"]],
+		["punctuation", "__"]
+	]],
+
+	["blockquote", ">"],
+	" And a ",
+	["url", [
+		"[",
+		["content", ["link"]],
+		"](",
+		["url", "http://example.com"],
+		")"
+	]]
+]
+
+----------------------------------------------------

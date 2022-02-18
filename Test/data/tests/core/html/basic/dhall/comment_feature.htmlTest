@@ -1,0 +1,19 @@
+-- comment
+
+{-
+	comment
+	{-
+		nested comment
+	-}
+-}
+----------------------------------------------------
+<span class="token comment">-- comment</span>
+
+<span class="token comment">{-
+	comment
+	{-
+		nested comment
+	-}
+-}</span>
+
+----------------------------------------------------

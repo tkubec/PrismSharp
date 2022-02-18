@@ -1,0 +1,13 @@
+FOO=0;
+FOO[en]=1;
+FOO("param")=0;
+FOO("param1","param2")=0;
+FOO-BAR[en]("param1","param2")=1;
+----------------------------------------------------
+<span class="token keyword"><span class="token keyword">FOO</span></span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword"><span class="token keyword">FOO</span><span class="token language"><span class="token punctuation">[</span><span class="token property">en</span><span class="token punctuation">]</span></span></span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword"><span class="token keyword">FOO</span><span class="token sub-key"><span class="token punctuation">(</span><span class="token parameter property">"param"</span><span class="token punctuation">)</span></span></span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword"><span class="token keyword">FOO</span><span class="token sub-key"><span class="token punctuation">(</span><span class="token parameter property">"param1"</span><span class="token punctuation">,</span><span class="token parameter property">"param2"</span><span class="token punctuation">)</span></span></span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword"><span class="token keyword">FOO-BAR</span><span class="token language"><span class="token punctuation">[</span><span class="token property">en</span><span class="token punctuation">]</span></span><span class="token sub-key"><span class="token punctuation">(</span><span class="token parameter property">"param1"</span><span class="token punctuation">,</span><span class="token parameter property">"param2"</span><span class="token punctuation">)</span></span></span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

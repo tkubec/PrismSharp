@@ -1,0 +1,5 @@
+y = algebra_solver(system, y_guess, theta, x_r, x_i);
+----------------------------------------------------
+y <span class="token operator">=</span> <span class="token keyword">algebra_solver</span><span class="token punctuation">(</span><span class="token function-arg function">system</span><span class="token punctuation">,</span> y_guess<span class="token punctuation">,</span> theta<span class="token punctuation">,</span> x_r<span class="token punctuation">,</span> x_i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

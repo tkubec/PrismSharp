@@ -1,0 +1,45 @@
+// Source: https://www.warp10.io/content/04_Tutorials/01_WarpScript/05_Best_Practices
+
+//factorial macro. take a number on the stack, push its factorial
+<%
+	'input' STORE
+	1
+	1 $input <% * %> FOR
+%> 'factorial' STORE
+
+//build a map with key from 1 to 10 and value = key!
+{} 'result' STORE
+
+1 10
+<%
+	'key' STORE
+	$result $key @factorial $key PUT
+	DROP //remove the map let by PUT
+%> FOR
+
+//push the result on the stack
+$result
+----------------------------------------------------
+<span class="token comment">// Source: https://www.warp10.io/content/04_Tutorials/01_WarpScript/05_Best_Practices</span>
+
+<span class="token comment">//factorial macro. take a number on the stack, push its factorial</span>
+<span class="token punctuation">&lt;%</span>
+	<span class="token string">'input'</span> STORE
+	<span class="token number">1</span>
+	<span class="token number">1</span> <span class="token variable">$input</span> <span class="token punctuation">&lt;%</span> <span class="token operator">*</span> <span class="token punctuation">%></span> <span class="token keyword">FOR</span>
+<span class="token punctuation">%></span> <span class="token string">'factorial'</span> STORE
+
+<span class="token comment">//build a map with key from 1 to 10 and value = key!</span>
+<span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token string">'result'</span> STORE
+
+<span class="token number">1</span> <span class="token number">10</span>
+<span class="token punctuation">&lt;%</span>
+	<span class="token string">'key'</span> STORE
+	<span class="token variable">$result</span> <span class="token variable">$key</span> <span class="token macro property">@factorial</span> <span class="token variable">$key</span> PUT
+	DROP <span class="token comment">//remove the map let by PUT</span>
+<span class="token punctuation">%></span> <span class="token keyword">FOR</span>
+
+<span class="token comment">//push the result on the stack</span>
+<span class="token variable">$result</span>
+
+----------------------------------------------------

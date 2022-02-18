@@ -1,0 +1,39 @@
+type car = {maker: string, model: string};
+type carList =
+  | List car carList
+  | NoMore;
+
+let chevy = {maker: "Chevy", model: "Suburban"};
+let toyota = {maker: "Toyota", model: "Tacoma"};
+let myCarList = List chevy (List toyota NoMore);
+
+let hasExactlyTwoCars = fun lst =>
+  switch lst {
+    | NoMore => false                              /* 0 */
+    | List p NoMore => false                       /* 1 */
+    | List p (List p2 NoMore) => true              /* 2 */
+    | List p (List p2 (List p3 theRest)) => false  /* 3+ */
+  };
+
+let justTwo = hasExactlyTwoCars myCarList;  /* true! */
+----------------------------------------------------
+<span class="token keyword">type</span> car <span class="token operator">=</span> <span class="token punctuation">{</span>maker<span class="token punctuation">:</span> string<span class="token punctuation">,</span> model<span class="token punctuation">:</span> string<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">type</span> carList <span class="token operator">=</span>
+  <span class="token operator">|</span> <span class="token constructor">List</span> car carList
+  <span class="token operator">|</span> <span class="token constructor">NoMore</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> chevy <span class="token operator">=</span> <span class="token punctuation">{</span>maker<span class="token punctuation">:</span> <span class="token string">"Chevy"</span><span class="token punctuation">,</span> model<span class="token punctuation">:</span> <span class="token string">"Suburban"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> toyota <span class="token operator">=</span> <span class="token punctuation">{</span>maker<span class="token punctuation">:</span> <span class="token string">"Toyota"</span><span class="token punctuation">,</span> model<span class="token punctuation">:</span> <span class="token string">"Tacoma"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myCarList <span class="token operator">=</span> <span class="token constructor">List</span> chevy <span class="token punctuation">(</span><span class="token constructor">List</span> toyota <span class="token constructor">NoMore</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> hasExactlyTwoCars <span class="token operator">=</span> <span class="token keyword">fun</span> lst <span class="token operator">=></span>
+  <span class="token keyword">switch</span> lst <span class="token punctuation">{</span>
+    <span class="token operator">|</span> <span class="token constructor">NoMore</span> <span class="token operator">=></span> <span class="token boolean">false</span>                              <span class="token comment">/* 0 */</span>
+    <span class="token operator">|</span> <span class="token constructor">List</span> p <span class="token constructor">NoMore</span> <span class="token operator">=></span> <span class="token boolean">false</span>                       <span class="token comment">/* 1 */</span>
+    <span class="token operator">|</span> <span class="token constructor">List</span> p <span class="token punctuation">(</span><span class="token constructor">List</span> p2 <span class="token constructor">NoMore</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token boolean">true</span>              <span class="token comment">/* 2 */</span>
+    <span class="token operator">|</span> <span class="token constructor">List</span> p <span class="token punctuation">(</span><span class="token constructor">List</span> p2 <span class="token punctuation">(</span><span class="token constructor">List</span> p3 theRest<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token boolean">false</span>  <span class="token comment">/* 3+ */</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> justTwo <span class="token operator">=</span> hasExactlyTwoCars myCarList<span class="token punctuation">;</span>  <span class="token comment">/* true! */</span>
+
+----------------------------------------------------

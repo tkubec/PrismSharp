@@ -1,0 +1,17 @@
+# Comment
+# This is not a "string"
+# This is not a <<<HERE_DOC document HERE_DOC
+### Comment
+"string # with hash"#comment
+        # Indented comment
+				# Tab-indented comment
+----------------------------------------------------
+<span class="token comment"># Comment</span>
+<span class="token comment"># This is not a "string"</span>
+<span class="token comment"># This is not a &lt;&lt;&lt;HERE_DOC document HERE_DOC</span>
+<span class="token comment">### Comment</span>
+<span class="token string">"string # with hash"</span><span class="token comment">#comment</span>
+        <span class="token comment"># Indented comment</span>
+				<span class="token comment"># Tab-indented comment</span>
+
+----------------------------------------------------

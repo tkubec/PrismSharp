@@ -1,0 +1,43 @@
+/*
+David Cary 2010-09-14
+quick demo for wikibooks
+public domain
+*/
+#include &lt;iostream>
+#include &lt;vector>
+using namespace std;
+
+vector&lt;int> pick_vector_with_biggest_fifth_element(
+    vector&lt;int> left,
+    vector&lt;int> right
+){
+    if( (left[5]) &lt; (right[5]) ){
+        return( right );
+    };
+    // else
+    return( left );
+}
+
+int vector_demo(void){
+    cout &lt;&lt; "vector demo" &lt;&lt; endl;
+    vector&lt;int> left(7);
+    vector&lt;int> right(7);
+
+    left[5] = 7;
+    right[5] = 8;
+    cout &lt;&lt; left[5] &lt;&lt; endl;
+    cout &lt;&lt; right[5] &lt;&lt; endl;
+    vector&lt;int> biggest(
+        pick_vector_with_biggest_fifth_element( left, right )
+    );
+    cout &lt;&lt; biggest[5] &lt;&lt; endl;
+
+    return 0;
+}
+
+int main(void){
+    vector_demo();
+}
+
+--------------------------------------------------
+

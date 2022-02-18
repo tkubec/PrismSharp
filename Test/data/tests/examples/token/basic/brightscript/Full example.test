@@ -1,0 +1,80 @@
+Function Main()
+	MyFunA(4)
+	MyFunB(4)
+End Function
+
+Function MyFunA(p as Object) as Void
+	print "A",p,type(p)
+End Function
+
+Function MyFunB(p as Integer) as Void
+	print "B",p,type(p)
+End Function
+----------------------------------------------------
+[
+	["keyword", "Function"],
+	["function", "Main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["function", "MyFunA"],
+	["punctuation", "("],
+	["number", "4"],
+	["punctuation", ")"],
+
+	["function", "MyFunB"],
+	["punctuation", "("],
+	["number", "4"],
+	["punctuation", ")"],
+
+	["keyword", "End"],
+	["keyword", "Function"],
+
+	["keyword", "Function"],
+	["function", "MyFunA"],
+	["punctuation", "("],
+	"p ",
+	["keyword", "as"],
+	["class-name", "Object"],
+	["punctuation", ")"],
+	["keyword", "as"],
+	["class-name", "Void"],
+
+	["keyword", "print"],
+	["string", "\"A\""],
+	["punctuation", ","],
+	"p",
+	["punctuation", ","],
+	["function", "type"],
+	["punctuation", "("],
+	"p",
+	["punctuation", ")"],
+
+	["keyword", "End"],
+	["keyword", "Function"],
+
+	["keyword", "Function"],
+	["function", "MyFunB"],
+	["punctuation", "("],
+	"p ",
+	["keyword", "as"],
+	["class-name", "Integer"],
+	["punctuation", ")"],
+	["keyword", "as"],
+	["class-name", "Void"],
+
+	["keyword", "print"],
+	["string", "\"B\""],
+	["punctuation", ","],
+	"p",
+	["punctuation", ","],
+	["function", "type"],
+	["punctuation", "("],
+	"p",
+	["punctuation", ")"],
+
+	["keyword", "End"],
+	["keyword", "Function"]
+]
+
+----------------------------------------------------

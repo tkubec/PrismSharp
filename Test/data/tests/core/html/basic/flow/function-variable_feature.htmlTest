@@ -1,0 +1,7 @@
+foo = (a: number) : number => {}
+bar = () : string => {}
+----------------------------------------------------
+<span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token type tag">number</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token type tag">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function-variable function">bar</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token type tag">string</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

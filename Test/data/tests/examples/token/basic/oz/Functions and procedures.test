@@ -1,0 +1,23 @@
+proc {Max X Y Z}
+{Browse Z}
+f(M Y)
+----------------------------------------------------
+[
+	["keyword", "proc"],
+	["punctuation", "{"],
+	["function", "Max"],
+	" X Y Z",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["function", "Browse"],
+	" Z",
+	["punctuation", "}"],
+
+	["function", "f"],
+	["punctuation", "("],
+	"M Y",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,169 @@
+(def)
+(if)
+(do)
+(let)
+(var)
+(fn)
+(quote)
+(->>)
+(->)
+(loop)
+(recur)
+(throw)
+(try)
+(monitor-enter)
+(.)
+(new)
+(set!)
+(defn)
+(defn-)
+(defmacro)
+(defmulti)
+(defmethod)
+(defstruct)
+(defonce)
+(declare)
+(definline)
+(definterface)
+(defprotocol)
+(defrecord)
+(deftype)
+(defproject)
+(ns)
+(*)
+(+)
+(-)
+(/)
+(<)
+(<=)
+(>=)
+(=)
+(==)
+(..)
+(>)
+(accessor)
+(agent)
+(agent-errors)
+(aget)
+(alength)
+(all-ns)
+(alter)
+(and)
+(append-child)
+(apply)
+(array-map)
+(aset)
+(aset-boolean)
+(aset-byte)
+(aset-char)
+(aset-double)
+(aset-float)
+(aset-int)
+(aset-long)
+(aset-short)
+(assert)
+(assoc)
+(await)
+(await-for)
+(bean)
+(binding)
+(bit-and)
+(bit-not)
+(branch?)
+(contains?)
+(end?)
+(every?)
+(false?)
+(identical?)
+(instance?)
+(keyword?)
+(list*)
+(not-any?)
+(true?)
+(zero?)
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token keyword">def</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">if</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">do</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">let</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">var</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">fn</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">quote</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">->></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">-></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">loop</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">recur</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">throw</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">try</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">monitor-enter</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">new</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">set!</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defn-</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defmacro</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defmulti</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defmethod</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defstruct</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defonce</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">declare</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">definline</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">definterface</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defprotocol</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defrecord</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">deftype</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defproject</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">ns</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">*</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">+</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">-</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">/</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">&lt;</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">&lt;=</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">>=</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">=</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">==</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">..</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">accessor</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">agent</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">agent-errors</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aget</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">alength</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">all-ns</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">alter</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">and</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">append-child</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">apply</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">array-map</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset-boolean</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset-byte</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset-char</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset-double</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset-float</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset-int</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset-long</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">aset-short</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">assert</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">assoc</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">await</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">await-for</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">bean</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">binding</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">bit-and</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">bit-not</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">branch?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">contains?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">end?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">every?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">false?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">identical?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">instance?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">keyword?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">list*</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">not-any?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">true?</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">zero?</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

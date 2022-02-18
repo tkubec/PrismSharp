@@ -1,0 +1,73 @@
+(module
+  (import "js" "memory" (memory 1))
+  (import "js" "table" (table 1 anyfunc))
+  (elem (i32.const 0) $shared0func)
+  (func $shared0func (result i32)
+   i32.const 0
+   i32.load)
+)
+----------------------------------------------------
+[
+	["punctuation", "("],
+	["keyword", "module"],
+
+	["punctuation", "("],
+	["keyword", "import"],
+	["string", "\"js\""],
+	["string", "\"memory\""],
+	["punctuation", "("],
+	["keyword", "memory"],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "import"],
+	["string", "\"js\""],
+	["string", "\"table\""],
+	["punctuation", "("],
+	["keyword", "table"],
+	["number", "1"],
+	["keyword", "anyfunc"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "elem"],
+	["punctuation", "("],
+	["keyword", [
+		"i32",
+		["punctuation", "."],
+		"const"
+	]],
+	["number", "0"],
+	["punctuation", ")"],
+	["variable", "$shared0func"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "func"],
+	["variable", "$shared0func"],
+	["punctuation", "("],
+	["keyword", "result"],
+	["keyword", ["i32"]],
+	["punctuation", ")"],
+
+	["keyword", [
+		"i32",
+		["punctuation", "."],
+		"const"
+	]],
+	["number", "0"],
+
+	["keyword", [
+		"i32",
+		["punctuation", "."],
+		"load"
+	]],
+	["punctuation", ")"],
+
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

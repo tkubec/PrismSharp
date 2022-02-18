@@ -1,0 +1,9 @@
+.PHONY:
+.DELETE_ON_ERROR:
+.SECONDEXPANSION:
+----------------------------------------------------
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span>
+<span class="token builtin-target builtin">.DELETE_ON_ERROR</span><span class="token punctuation">:</span>
+<span class="token builtin-target builtin">.SECONDEXPANSION</span><span class="token punctuation">:</span>
+
+----------------------------------------------------

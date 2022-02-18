@@ -1,0 +1,28 @@
+{{~#if isActive~}}{{~/if~}}
+{{:slot-name}}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["punctuation", "~"],
+	["block", "#if"],
+	["variable", "isActive"],
+	["punctuation", "~"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", "~"],
+	["punctuation", "/"],
+	["variable", "if"],
+	["punctuation", "~"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["punctuation", ":"],
+	["variable", "slot-name"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

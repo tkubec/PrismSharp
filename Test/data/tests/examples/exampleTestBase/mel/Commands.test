@@ -1,0 +1,9 @@
+pickWalk -d down;
+string $mySelection[] = `ls -selection`;
+
+setAttr ($mySelection[0]+".particleRenderType") 5;
+
+addAttr -is true -ln "spriteTwist" -at "float" -min -180 -max 180 -dv 0.0 blue_nParticleShape;
+
+--------------------------------------------------
+

@@ -1,0 +1,31 @@
+---
+product: High Heeled "Ruby" Slippers
+description: "Putting on these \"slippers\" is easy."
+address:
+  city:   East Centerville
+  street: !!str |
+    123 Tornado Alley
+    Suite 16
+
+  specialDelivery:  >
+    Follow the Yellow Brick
+    Road to the Emerald City.
+    #Pay no attention to the
+    man behind the curtain.
+----------------------------------------------------
+<span class="token punctuation">---</span>
+<span class="token key atrule">product</span><span class="token punctuation">:</span> High Heeled "Ruby" Slippers
+<span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token string">"Putting on these \"slippers\" is easy."</span>
+<span class="token key atrule">address</span><span class="token punctuation">:</span>
+  <span class="token key atrule">city</span><span class="token punctuation">:</span>   East Centerville
+  <span class="token key atrule">street</span><span class="token punctuation">:</span> <span class="token tag">!!str</span> <span class="token punctuation">|</span><span class="token scalar string">
+    123 Tornado Alley
+    Suite 16</span>
+
+  <span class="token key atrule">specialDelivery</span><span class="token punctuation">:</span>  <span class="token punctuation">></span><span class="token scalar string">
+    Follow the Yellow Brick
+    Road to the Emerald City.
+    #Pay no attention to the
+    man behind the curtain.</span>
+
+----------------------------------------------------

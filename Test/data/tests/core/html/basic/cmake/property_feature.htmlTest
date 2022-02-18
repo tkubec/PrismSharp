@@ -1,0 +1,931 @@
+WHATEVER_OUTPUT_NAME
+WHATEVER_POSTFIX
+WHATEVER_CLANG_TIDY
+WHATEVER_COMPILER_LAUNCHER
+WHATEVER_CPPCHECK
+WHATEVER_CPPLINT
+WHATEVER_INCLUDE_WHAT_YOU_USE
+WHATEVER_VISIBILITY_PRESET
+ABSTRACT
+ADDITIONAL_MAKE_CLEAN_FILES
+ADVANCED
+ALIASED_TARGET
+ALLOW_DUPLICATE_CUSTOM_TARGETS
+ANDROID_ANT_ADDITIONAL_OPTIONS
+ANDROID_API
+ANDROID_API_MIN
+ANDROID_ARCH
+ANDROID_ASSETS_DIRECTORIES
+ANDROID_GUI
+ANDROID_JAR_DEPENDENCIES
+ANDROID_NATIVE_LIB_DEPENDENCIES
+ANDROID_NATIVE_LIB_DIRECTORIES
+ANDROID_PROCESS_MAX
+ANDROID_PROGUARD
+ANDROID_PROGUARD_CONFIG_PATH
+ANDROID_SECURE_PROPS_PATH
+ANDROID_SKIP_ANT_STEP
+ANDROID_STL_TYPE
+ARCHIVE_OUTPUT_DIRECTORY
+ARCHIVE_OUTPUT_DIRECTORY_WHATEVER
+ARCHIVE_OUTPUT_NAME
+ARCHIVE_OUTPUT_NAME_WHATEVER
+ATTACHED_FILES
+ATTACHED_FILES_ON_FAIL
+AUTOGEN_BUILD_DIR
+AUTOGEN_ORIGIN_DEPENDS
+AUTOGEN_PARALLEL
+AUTOGEN_SOURCE_GROUP
+AUTOGEN_TARGETS_FOLDER
+AUTOGEN_TARGET_DEPENDS
+AUTOMOC
+AUTOMOC_COMPILER_PREDEFINES
+AUTOMOC_DEPEND_FILTERS
+AUTOMOC_EXECUTABLE
+AUTOMOC_MACRO_NAMES
+AUTOMOC_MOC_OPTIONS
+AUTOMOC_SOURCE_GROUP
+AUTOMOC_TARGETS_FOLDER
+AUTORCC
+AUTORCC_EXECUTABLE
+AUTORCC_OPTIONS
+AUTORCC_OPTIONS
+AUTORCC_SOURCE_GROUP
+AUTOUIC
+AUTOUIC_EXECUTABLE
+AUTOUIC_OPTIONS
+AUTOUIC_OPTIONS
+AUTOUIC_SEARCH_PATHS
+BINARY_DIR
+BINARY_DIR
+BUILDSYSTEM_TARGETS
+BUILD_RPATH
+BUILD_RPATH_USE_ORIGIN
+BUILD_WITH_INSTALL_NAME_DIR
+BUILD_WITH_INSTALL_RPATH
+BUNDLE
+BUNDLE_EXTENSION
+CACHE_VARIABLES
+CLEAN_NO_CUSTOM
+COMMON_LANGUAGE_RUNTIME
+COMPATIBLE_INTERFACE_BOOL
+COMPATIBLE_INTERFACE_NUMBER_MAX
+COMPATIBLE_INTERFACE_NUMBER_MIN
+COMPATIBLE_INTERFACE_STRING
+COMPILE_DEFINITIONS
+COMPILE_DEFINITIONS
+COMPILE_DEFINITIONS
+COMPILE_DEFINITIONS_WHATEVER
+COMPILE_DEFINITIONS_WHATEVER
+COMPILE_DEFINITIONS_WHATEVER
+COMPILE_FEATURES
+COMPILE_FLAGS
+COMPILE_FLAGS
+COMPILE_OPTIONS
+COMPILE_OPTIONS
+COMPILE_OPTIONS
+COMPILE_PDB_NAME
+COMPILE_PDB_NAME_WHATEVER
+COMPILE_PDB_OUTPUT_DIRECTORY
+COMPILE_PDB_OUTPUT_DIRECTORY_WHATEVER
+COST
+CPACK_DESKTOP_SHORTCUTS
+CPACK_NEVER_OVERWRITE
+CPACK_PERMANENT
+CPACK_STARTUP_SHORTCUTS
+CPACK_START_MENU_SHORTCUTS
+CPACK_WIX_ACL
+CROSSCOMPILING_EMULATOR
+CUDA_EXTENSIONS
+CUDA_PTX_COMPILATION
+CUDA_RESOLVE_DEVICE_SYMBOLS
+CUDA_SEPARABLE_COMPILATION
+CUDA_STANDARD
+CUDA_STANDARD_REQUIRED
+CXX_EXTENSIONS
+CXX_STANDARD
+CXX_STANDARD_REQUIRED
+C_EXTENSIONS
+C_STANDARD
+C_STANDARD_REQUIRED
+DEBUG_CONFIGURATIONS
+DEBUG_POSTFIX
+DEFINE_SYMBOL
+DEFINITIONS
+DEPENDS
+DEPLOYMENT_ADDITIONAL_FILES
+DEPLOYMENT_REMOTE_DIRECTORY
+DISABLED
+DISABLED_FEATURES
+ECLIPSE_EXTRA_CPROJECT_CONTENTS
+ECLIPSE_EXTRA_NATURES
+ENABLED_FEATURES
+ENABLED_LANGUAGES
+ENABLE_EXPORTS
+ENVIRONMENT
+EXCLUDE_FROM_ALL
+EXCLUDE_FROM_ALL
+EXCLUDE_FROM_DEFAULT_BUILD
+EXCLUDE_FROM_DEFAULT_BUILD_WHATEVER
+EXPORT_NAME
+EXPORT_PROPERTIES
+EXTERNAL_OBJECT
+EchoString
+FAIL_REGULAR_EXPRESSION
+FIND_LIBRARY_USE_LIB32_PATHS
+FIND_LIBRARY_USE_LIB64_PATHS
+FIND_LIBRARY_USE_LIBX32_PATHS
+FIND_LIBRARY_USE_OPENBSD_VERSIONING
+FIXTURES_CLEANUP
+FIXTURES_REQUIRED
+FIXTURES_SETUP
+FOLDER
+FRAMEWORK
+Fortran_FORMAT
+Fortran_FORMAT
+Fortran_MODULE_DIRECTORY
+GENERATED
+GENERATOR_FILE_NAME
+GENERATOR_IS_MULTI_CONFIG
+GHS_INTEGRITY_APP
+GHS_NO_SOURCE_GROUP_FILE
+GLOBAL_DEPENDS_DEBUG_MODE
+GLOBAL_DEPENDS_NO_CYCLES
+GNUtoMS
+HAS_CXX
+HEADER_FILE_ONLY
+HELPSTRING
+IMPLICIT_DEPENDS_INCLUDE_TRANSFORM
+IMPLICIT_DEPENDS_INCLUDE_TRANSFORM
+IMPORTED
+IMPORTED_COMMON_LANGUAGE_RUNTIME
+IMPORTED_CONFIGURATIONS
+IMPORTED_GLOBAL
+IMPORTED_IMPLIB
+IMPORTED_IMPLIB_WHATEVER
+IMPORTED_LIBNAME
+IMPORTED_LIBNAME_WHATEVER
+IMPORTED_LINK_DEPENDENT_LIBRARIES
+IMPORTED_LINK_DEPENDENT_LIBRARIES_WHATEVER
+IMPORTED_LINK_INTERFACE_LANGUAGES
+IMPORTED_LINK_INTERFACE_LANGUAGES_WHATEVER
+IMPORTED_LINK_INTERFACE_LIBRARIES
+IMPORTED_LINK_INTERFACE_LIBRARIES_WHATEVER
+IMPORTED_LINK_INTERFACE_MULTIPLICITY
+IMPORTED_LINK_INTERFACE_MULTIPLICITY_WHATEVER
+IMPORTED_LOCATION
+IMPORTED_LOCATION_WHATEVER
+IMPORTED_NO_SONAME
+IMPORTED_NO_SONAME_WHATEVER
+IMPORTED_OBJECTS
+IMPORTED_OBJECTS_WHATEVER
+IMPORTED_SONAME
+IMPORTED_SONAME_WHATEVER
+IMPORT_PREFIX
+IMPORT_SUFFIX
+INCLUDE_DIRECTORIES
+INCLUDE_DIRECTORIES
+INCLUDE_DIRECTORIES
+INCLUDE_REGULAR_EXPRESSION
+INSTALL_NAME_DIR
+INSTALL_RPATH
+INSTALL_RPATH_USE_LINK_PATH
+INTERFACE_AUTOUIC_OPTIONS
+INTERFACE_COMPILE_DEFINITIONS
+INTERFACE_COMPILE_FEATURES
+INTERFACE_COMPILE_OPTIONS
+INTERFACE_INCLUDE_DIRECTORIES
+INTERFACE_LINK_DEPENDS
+INTERFACE_LINK_DIRECTORIES
+INTERFACE_LINK_LIBRARIES
+INTERFACE_LINK_OPTIONS
+INTERFACE_POSITION_INDEPENDENT_CODE
+INTERFACE_SOURCES
+INTERFACE_SYSTEM_INCLUDE_DIRECTORIES
+INTERPROCEDURAL_OPTIMIZATION
+INTERPROCEDURAL_OPTIMIZATION
+INTERPROCEDURAL_OPTIMIZATION_WHATEVER
+INTERPROCEDURAL_OPTIMIZATION_WHATEVER
+IN_TRY_COMPILE
+IOS_INSTALL_COMBINED
+JOB_POOLS
+JOB_POOL_COMPILE
+JOB_POOL_LINK
+KEEP_EXTENSION
+LABELS
+LABELS
+LABELS
+LABELS
+LANGUAGE
+LIBRARY_OUTPUT_DIRECTORY
+LIBRARY_OUTPUT_DIRECTORY_WHATEVER
+LIBRARY_OUTPUT_NAME
+LIBRARY_OUTPUT_NAME_WHATEVER
+LINKER_LANGUAGE
+LINK_DEPENDS
+LINK_DEPENDS_NO_SHARED
+LINK_DIRECTORIES
+LINK_DIRECTORIES
+LINK_FLAGS
+LINK_FLAGS_WHATEVER
+LINK_INTERFACE_LIBRARIES
+LINK_INTERFACE_LIBRARIES_WHATEVER
+LINK_INTERFACE_MULTIPLICITY
+LINK_INTERFACE_MULTIPLICITY_WHATEVER
+LINK_LIBRARIES
+LINK_OPTIONS
+LINK_OPTIONS
+LINK_SEARCH_END_STATIC
+LINK_SEARCH_START_STATIC
+LINK_WHAT_YOU_USE
+LISTFILE_STACK
+LOCATION
+LOCATION
+LOCATION_WHATEVER
+MACOSX_BUNDLE
+MACOSX_BUNDLE_INFO_PLIST
+MACOSX_FRAMEWORK_INFO_PLIST
+MACOSX_PACKAGE_LOCATION
+MACOSX_RPATH
+MACROS
+MANUALLY_ADDED_DEPENDENCIES
+MAP_IMPORTED_CONFIG_WHATEVER
+MEASUREMENT
+MODIFIED
+NAME
+NO_SONAME
+NO_SYSTEM_FROM_IMPORTED
+OBJECT_DEPENDS
+OBJECT_OUTPUTS
+OSX_ARCHITECTURES
+OSX_ARCHITECTURES_WHATEVER
+OUTPUT_NAME
+OUTPUT_NAME_WHATEVER
+PACKAGES_FOUND
+PACKAGES_NOT_FOUND
+PARENT_DIRECTORY
+PASS_REGULAR_EXPRESSION
+PDB_NAME
+PDB_NAME_WHATEVER
+PDB_OUTPUT_DIRECTORY
+PDB_OUTPUT_DIRECTORY_WHATEVER
+POSITION_INDEPENDENT_CODE
+POST_INSTALL_SCRIPT
+PREDEFINED_TARGETS_FOLDER
+PREFIX
+PRE_INSTALL_SCRIPT
+PRIVATE_HEADER
+PROCESSORS
+PROCESSOR_AFFINITY
+PROJECT_LABEL
+PUBLIC_HEADER
+REPORT_UNDEFINED_PROPERTIES
+REQUIRED_FILES
+RESOURCE
+RESOURCE_LOCK
+RULE_LAUNCH_COMPILE
+RULE_LAUNCH_COMPILE
+RULE_LAUNCH_COMPILE
+RULE_LAUNCH_CUSTOM
+RULE_LAUNCH_CUSTOM
+RULE_LAUNCH_CUSTOM
+RULE_LAUNCH_LINK
+RULE_LAUNCH_LINK
+RULE_LAUNCH_LINK
+RULE_MESSAGES
+RUNTIME_OUTPUT_DIRECTORY
+RUNTIME_OUTPUT_DIRECTORY_WHATEVER
+RUNTIME_OUTPUT_NAME
+RUNTIME_OUTPUT_NAME_WHATEVER
+RUN_SERIAL
+SKIP_AUTOGEN
+SKIP_AUTOMOC
+SKIP_AUTORCC
+SKIP_AUTOUIC
+SKIP_BUILD_RPATH
+SKIP_RETURN_CODE
+SOURCES
+SOURCE_DIR
+SOURCE_DIR
+SOVERSION
+STATIC_LIBRARY_FLAGS
+STATIC_LIBRARY_FLAGS_WHATEVER
+STATIC_LIBRARY_OPTIONS
+STRINGS
+SUBDIRECTORIES
+SUFFIX
+SYMBOLIC
+TARGET_ARCHIVES_MAY_BE_SHARED_LIBS
+TARGET_MESSAGES
+TARGET_SUPPORTS_SHARED_LIBS
+TESTS
+TEST_INCLUDE_FILE
+TEST_INCLUDE_FILES
+TIMEOUT
+TIMEOUT_AFTER_MATCH
+TYPE
+TYPE
+USE_FOLDERS
+VALUE
+VARIABLES
+VERSION
+VISIBILITY_INLINES_HIDDEN
+VS_CONFIGURATION_TYPE
+VS_COPY_TO_OUT_DIR
+VS_CSHARP_WHATEVER
+VS_DEBUGGER_COMMAND
+VS_DEBUGGER_COMMAND_ARGUMENTS
+VS_DEBUGGER_ENVIRONMENT
+VS_DEBUGGER_WORKING_DIRECTORY
+VS_DEPLOYMENT_CONTENT
+VS_DEPLOYMENT_LOCATION
+VS_DOTNET_REFERENCEPROP_WHATEVER
+VS_DOTNET_REFERENCES
+VS_DOTNET_REFERENCES_COPY_LOCAL
+VS_DOTNET_REFERENCE_WHATEVER
+VS_GLOBAL_WHATEVER
+VS_GLOBAL_KEYWORD
+VS_GLOBAL_PROJECT_TYPES
+VS_GLOBAL_ROOTNAMESPACE
+VS_GLOBAL_SECTION_POST_WHATEVER
+VS_GLOBAL_SECTION_PRE_WHATEVER
+VS_INCLUDE_IN_VSIX
+VS_IOT_STARTUP_TASK
+VS_KEYWORD
+VS_RESOURCE_GENERATOR
+VS_SCC_AUXPATH
+VS_SCC_LOCALPATH
+VS_SCC_PROJECTNAME
+VS_SCC_PROVIDER
+VS_SDK_REFERENCES
+VS_SHADER_DISABLE_OPTIMIZATIONS
+VS_SHADER_ENABLE_DEBUG
+VS_SHADER_ENTRYPOINT
+VS_SHADER_FLAGS
+VS_SHADER_MODEL
+VS_SHADER_OBJECT_FILE_NAME
+VS_SHADER_OUTPUT_HEADER_FILE
+VS_SHADER_TYPE
+VS_SHADER_VARIABLE_NAME
+VS_STARTUP_PROJECT
+VS_TOOL_OVERRIDE
+VS_USER_PROPS
+VS_WINRT_COMPONENT
+VS_WINRT_EXTENSIONS
+VS_WINRT_REFERENCES
+VS_XAML_TYPE
+WILL_FAIL
+WIN32_EXECUTABLE
+WINDOWS_EXPORT_ALL_SYMBOLS
+WORKING_DIRECTORY
+WRAP_EXCLUDE
+XCODE_ATTRIBUTE_WHATEVER
+XCODE_EMIT_EFFECTIVE_PLATFORM_NAME
+XCODE_EXPLICIT_FILE_TYPE
+XCODE_EXPLICIT_FILE_TYPE
+XCODE_FILE_ATTRIBUTES
+XCODE_LAST_KNOWN_FILE_TYPE
+XCODE_PRODUCT_TYPE
+XCODE_SCHEME_ADDRESS_SANITIZER
+XCODE_SCHEME_ADDRESS_SANITIZER_USE_AFTER_RETURN
+XCODE_SCHEME_ARGUMENTS
+XCODE_SCHEME_DISABLE_MAIN_THREAD_CHECKER
+XCODE_SCHEME_DYNAMIC_LIBRARY_LOADS
+XCODE_SCHEME_DYNAMIC_LINKER_API_USAGE
+XCODE_SCHEME_ENVIRONMENT
+XCODE_SCHEME_EXECUTABLE
+XCODE_SCHEME_GUARD_MALLOC
+XCODE_SCHEME_MAIN_THREAD_CHECKER_STOP
+XCODE_SCHEME_MALLOC_GUARD_EDGES
+XCODE_SCHEME_MALLOC_SCRIBBLE
+XCODE_SCHEME_MALLOC_STACK
+XCODE_SCHEME_THREAD_SANITIZER
+XCODE_SCHEME_THREAD_SANITIZER_STOP
+XCODE_SCHEME_UNDEFINED_BEHAVIOUR_SANITIZER
+XCODE_SCHEME_UNDEFINED_BEHAVIOUR_SANITIZER_STOP
+XCODE_SCHEME_ZOMBIE_OBJECTS
+XCTEST
+cxx_aggregate_default_initializers
+cxx_alias_templates
+cxx_alignas
+cxx_alignof
+cxx_attributes
+cxx_attribute_deprecated
+cxx_auto_type
+cxx_binary_literals
+cxx_constexpr
+cxx_contextual_conversions
+cxx_decltype_incomplete_return_types
+cxx_decltype
+cxx_decltype_auto
+cxx_default_function_template_args
+cxx_defaulted_functions
+cxx_defaulted_move_initializers
+cxx_delegating_constructors
+cxx_deleted_functions
+cxx_digit_separators
+cxx_enum_forward_declarations
+cxx_explicit_conversions
+cxx_extended_friend_declarations
+cxx_extern_templates
+cxx_final
+cxx_func_identifier
+cxx_generalized_initializers
+cxx_generic_lambdas
+cxx_inheriting_constructors
+cxx_inline_namespaces
+cxx_lambdas
+cxx_lambda_init_captures
+cxx_local_type_template_args
+cxx_long_long_type
+cxx_noexcept
+cxx_nonstatic_member_init
+cxx_nullptr
+cxx_override
+cxx_range_for
+cxx_raw_string_literals
+cxx_reference_qualified_functions
+cxx_relaxed_constexpr
+cxx_return_type_deduction
+cxx_right_angle_brackets
+cxx_rvalue_references
+cxx_sizeof_member
+cxx_static_assert
+cxx_strong_enums
+cxx_thread_local
+cxx_trailing_return_types
+cxx_unicode_literals
+cxx_uniform_initialization
+cxx_unrestricted_unions
+cxx_user_literals
+cxx_variable_templates
+cxx_variadic_macros
+cxx_variadic_templates
+cxx_template_template_parameters
+----------------------------------------------------
+<span class="token property">WHATEVER_OUTPUT_NAME</span>
+<span class="token property">WHATEVER_POSTFIX</span>
+<span class="token property">WHATEVER_CLANG_TIDY</span>
+<span class="token property">WHATEVER_COMPILER_LAUNCHER</span>
+<span class="token property">WHATEVER_CPPCHECK</span>
+<span class="token property">WHATEVER_CPPLINT</span>
+<span class="token property">WHATEVER_INCLUDE_WHAT_YOU_USE</span>
+<span class="token property">WHATEVER_VISIBILITY_PRESET</span>
+<span class="token property">ABSTRACT</span>
+<span class="token property">ADDITIONAL_MAKE_CLEAN_FILES</span>
+<span class="token property">ADVANCED</span>
+<span class="token property">ALIASED_TARGET</span>
+<span class="token property">ALLOW_DUPLICATE_CUSTOM_TARGETS</span>
+<span class="token property">ANDROID_ANT_ADDITIONAL_OPTIONS</span>
+<span class="token property">ANDROID_API</span>
+<span class="token property">ANDROID_API_MIN</span>
+<span class="token property">ANDROID_ARCH</span>
+<span class="token property">ANDROID_ASSETS_DIRECTORIES</span>
+<span class="token property">ANDROID_GUI</span>
+<span class="token property">ANDROID_JAR_DEPENDENCIES</span>
+<span class="token property">ANDROID_NATIVE_LIB_DEPENDENCIES</span>
+<span class="token property">ANDROID_NATIVE_LIB_DIRECTORIES</span>
+<span class="token property">ANDROID_PROCESS_MAX</span>
+<span class="token property">ANDROID_PROGUARD</span>
+<span class="token property">ANDROID_PROGUARD_CONFIG_PATH</span>
+<span class="token property">ANDROID_SECURE_PROPS_PATH</span>
+<span class="token property">ANDROID_SKIP_ANT_STEP</span>
+<span class="token property">ANDROID_STL_TYPE</span>
+<span class="token property">ARCHIVE_OUTPUT_DIRECTORY</span>
+<span class="token property">ARCHIVE_OUTPUT_DIRECTORY_WHATEVER</span>
+<span class="token property">ARCHIVE_OUTPUT_NAME</span>
+<span class="token property">ARCHIVE_OUTPUT_NAME_WHATEVER</span>
+<span class="token property">ATTACHED_FILES</span>
+<span class="token property">ATTACHED_FILES_ON_FAIL</span>
+<span class="token property">AUTOGEN_BUILD_DIR</span>
+<span class="token property">AUTOGEN_ORIGIN_DEPENDS</span>
+<span class="token property">AUTOGEN_PARALLEL</span>
+<span class="token property">AUTOGEN_SOURCE_GROUP</span>
+<span class="token property">AUTOGEN_TARGETS_FOLDER</span>
+<span class="token property">AUTOGEN_TARGET_DEPENDS</span>
+<span class="token property">AUTOMOC</span>
+<span class="token property">AUTOMOC_COMPILER_PREDEFINES</span>
+<span class="token property">AUTOMOC_DEPEND_FILTERS</span>
+<span class="token property">AUTOMOC_EXECUTABLE</span>
+<span class="token property">AUTOMOC_MACRO_NAMES</span>
+<span class="token property">AUTOMOC_MOC_OPTIONS</span>
+<span class="token property">AUTOMOC_SOURCE_GROUP</span>
+<span class="token property">AUTOMOC_TARGETS_FOLDER</span>
+<span class="token property">AUTORCC</span>
+<span class="token property">AUTORCC_EXECUTABLE</span>
+<span class="token property">AUTORCC_OPTIONS</span>
+<span class="token property">AUTORCC_OPTIONS</span>
+<span class="token property">AUTORCC_SOURCE_GROUP</span>
+<span class="token property">AUTOUIC</span>
+<span class="token property">AUTOUIC_EXECUTABLE</span>
+<span class="token property">AUTOUIC_OPTIONS</span>
+<span class="token property">AUTOUIC_OPTIONS</span>
+<span class="token property">AUTOUIC_SEARCH_PATHS</span>
+<span class="token property">BINARY_DIR</span>
+<span class="token property">BINARY_DIR</span>
+<span class="token property">BUILDSYSTEM_TARGETS</span>
+<span class="token property">BUILD_RPATH</span>
+<span class="token property">BUILD_RPATH_USE_ORIGIN</span>
+<span class="token property">BUILD_WITH_INSTALL_NAME_DIR</span>
+<span class="token property">BUILD_WITH_INSTALL_RPATH</span>
+<span class="token property">BUNDLE</span>
+<span class="token property">BUNDLE_EXTENSION</span>
+<span class="token property">CACHE_VARIABLES</span>
+<span class="token property">CLEAN_NO_CUSTOM</span>
+<span class="token property">COMMON_LANGUAGE_RUNTIME</span>
+<span class="token property">COMPATIBLE_INTERFACE_BOOL</span>
+<span class="token property">COMPATIBLE_INTERFACE_NUMBER_MAX</span>
+<span class="token property">COMPATIBLE_INTERFACE_NUMBER_MIN</span>
+<span class="token property">COMPATIBLE_INTERFACE_STRING</span>
+<span class="token property">COMPILE_DEFINITIONS</span>
+<span class="token property">COMPILE_DEFINITIONS</span>
+<span class="token property">COMPILE_DEFINITIONS</span>
+<span class="token property">COMPILE_DEFINITIONS_WHATEVER</span>
+<span class="token property">COMPILE_DEFINITIONS_WHATEVER</span>
+<span class="token property">COMPILE_DEFINITIONS_WHATEVER</span>
+<span class="token property">COMPILE_FEATURES</span>
+<span class="token property">COMPILE_FLAGS</span>
+<span class="token property">COMPILE_FLAGS</span>
+<span class="token property">COMPILE_OPTIONS</span>
+<span class="token property">COMPILE_OPTIONS</span>
+<span class="token property">COMPILE_OPTIONS</span>
+<span class="token property">COMPILE_PDB_NAME</span>
+<span class="token property">COMPILE_PDB_NAME_WHATEVER</span>
+<span class="token property">COMPILE_PDB_OUTPUT_DIRECTORY</span>
+<span class="token property">COMPILE_PDB_OUTPUT_DIRECTORY_WHATEVER</span>
+<span class="token property">COST</span>
+<span class="token property">CPACK_DESKTOP_SHORTCUTS</span>
+<span class="token property">CPACK_NEVER_OVERWRITE</span>
+<span class="token property">CPACK_PERMANENT</span>
+<span class="token property">CPACK_STARTUP_SHORTCUTS</span>
+<span class="token property">CPACK_START_MENU_SHORTCUTS</span>
+<span class="token property">CPACK_WIX_ACL</span>
+<span class="token property">CROSSCOMPILING_EMULATOR</span>
+<span class="token property">CUDA_EXTENSIONS</span>
+<span class="token property">CUDA_PTX_COMPILATION</span>
+<span class="token property">CUDA_RESOLVE_DEVICE_SYMBOLS</span>
+<span class="token property">CUDA_SEPARABLE_COMPILATION</span>
+<span class="token property">CUDA_STANDARD</span>
+<span class="token property">CUDA_STANDARD_REQUIRED</span>
+<span class="token property">CXX_EXTENSIONS</span>
+<span class="token property">CXX_STANDARD</span>
+<span class="token property">CXX_STANDARD_REQUIRED</span>
+<span class="token property">C_EXTENSIONS</span>
+<span class="token property">C_STANDARD</span>
+<span class="token property">C_STANDARD_REQUIRED</span>
+<span class="token property">DEBUG_CONFIGURATIONS</span>
+<span class="token property">DEBUG_POSTFIX</span>
+<span class="token property">DEFINE_SYMBOL</span>
+<span class="token property">DEFINITIONS</span>
+<span class="token property">DEPENDS</span>
+<span class="token property">DEPLOYMENT_ADDITIONAL_FILES</span>
+<span class="token property">DEPLOYMENT_REMOTE_DIRECTORY</span>
+<span class="token property">DISABLED</span>
+<span class="token property">DISABLED_FEATURES</span>
+<span class="token property">ECLIPSE_EXTRA_CPROJECT_CONTENTS</span>
+<span class="token property">ECLIPSE_EXTRA_NATURES</span>
+<span class="token property">ENABLED_FEATURES</span>
+<span class="token property">ENABLED_LANGUAGES</span>
+<span class="token property">ENABLE_EXPORTS</span>
+<span class="token property">ENVIRONMENT</span>
+<span class="token property">EXCLUDE_FROM_ALL</span>
+<span class="token property">EXCLUDE_FROM_ALL</span>
+<span class="token property">EXCLUDE_FROM_DEFAULT_BUILD</span>
+<span class="token property">EXCLUDE_FROM_DEFAULT_BUILD_WHATEVER</span>
+<span class="token property">EXPORT_NAME</span>
+<span class="token property">EXPORT_PROPERTIES</span>
+<span class="token property">EXTERNAL_OBJECT</span>
+<span class="token property">EchoString</span>
+<span class="token property">FAIL_REGULAR_EXPRESSION</span>
+<span class="token property">FIND_LIBRARY_USE_LIB32_PATHS</span>
+<span class="token property">FIND_LIBRARY_USE_LIB64_PATHS</span>
+<span class="token property">FIND_LIBRARY_USE_LIBX32_PATHS</span>
+<span class="token property">FIND_LIBRARY_USE_OPENBSD_VERSIONING</span>
+<span class="token property">FIXTURES_CLEANUP</span>
+<span class="token property">FIXTURES_REQUIRED</span>
+<span class="token property">FIXTURES_SETUP</span>
+<span class="token property">FOLDER</span>
+<span class="token property">FRAMEWORK</span>
+<span class="token property">Fortran_FORMAT</span>
+<span class="token property">Fortran_FORMAT</span>
+<span class="token property">Fortran_MODULE_DIRECTORY</span>
+<span class="token property">GENERATED</span>
+<span class="token property">GENERATOR_FILE_NAME</span>
+<span class="token property">GENERATOR_IS_MULTI_CONFIG</span>
+<span class="token property">GHS_INTEGRITY_APP</span>
+<span class="token property">GHS_NO_SOURCE_GROUP_FILE</span>
+<span class="token property">GLOBAL_DEPENDS_DEBUG_MODE</span>
+<span class="token property">GLOBAL_DEPENDS_NO_CYCLES</span>
+<span class="token property">GNUtoMS</span>
+<span class="token property">HAS_CXX</span>
+<span class="token property">HEADER_FILE_ONLY</span>
+<span class="token property">HELPSTRING</span>
+<span class="token property">IMPLICIT_DEPENDS_INCLUDE_TRANSFORM</span>
+<span class="token property">IMPLICIT_DEPENDS_INCLUDE_TRANSFORM</span>
+<span class="token property">IMPORTED</span>
+<span class="token property">IMPORTED_COMMON_LANGUAGE_RUNTIME</span>
+<span class="token property">IMPORTED_CONFIGURATIONS</span>
+<span class="token property">IMPORTED_GLOBAL</span>
+<span class="token property">IMPORTED_IMPLIB</span>
+<span class="token property">IMPORTED_IMPLIB_WHATEVER</span>
+<span class="token property">IMPORTED_LIBNAME</span>
+<span class="token property">IMPORTED_LIBNAME_WHATEVER</span>
+<span class="token property">IMPORTED_LINK_DEPENDENT_LIBRARIES</span>
+<span class="token property">IMPORTED_LINK_DEPENDENT_LIBRARIES_WHATEVER</span>
+<span class="token property">IMPORTED_LINK_INTERFACE_LANGUAGES</span>
+<span class="token property">IMPORTED_LINK_INTERFACE_LANGUAGES_WHATEVER</span>
+<span class="token property">IMPORTED_LINK_INTERFACE_LIBRARIES</span>
+<span class="token property">IMPORTED_LINK_INTERFACE_LIBRARIES_WHATEVER</span>
+<span class="token property">IMPORTED_LINK_INTERFACE_MULTIPLICITY</span>
+<span class="token property">IMPORTED_LINK_INTERFACE_MULTIPLICITY_WHATEVER</span>
+<span class="token property">IMPORTED_LOCATION</span>
+<span class="token property">IMPORTED_LOCATION_WHATEVER</span>
+<span class="token property">IMPORTED_NO_SONAME</span>
+<span class="token property">IMPORTED_NO_SONAME_WHATEVER</span>
+<span class="token property">IMPORTED_OBJECTS</span>
+<span class="token property">IMPORTED_OBJECTS_WHATEVER</span>
+<span class="token property">IMPORTED_SONAME</span>
+<span class="token property">IMPORTED_SONAME_WHATEVER</span>
+<span class="token property">IMPORT_PREFIX</span>
+<span class="token property">IMPORT_SUFFIX</span>
+<span class="token property">INCLUDE_DIRECTORIES</span>
+<span class="token property">INCLUDE_DIRECTORIES</span>
+<span class="token property">INCLUDE_DIRECTORIES</span>
+<span class="token property">INCLUDE_REGULAR_EXPRESSION</span>
+<span class="token property">INSTALL_NAME_DIR</span>
+<span class="token property">INSTALL_RPATH</span>
+<span class="token property">INSTALL_RPATH_USE_LINK_PATH</span>
+<span class="token property">INTERFACE_AUTOUIC_OPTIONS</span>
+<span class="token property">INTERFACE_COMPILE_DEFINITIONS</span>
+<span class="token property">INTERFACE_COMPILE_FEATURES</span>
+<span class="token property">INTERFACE_COMPILE_OPTIONS</span>
+<span class="token property">INTERFACE_INCLUDE_DIRECTORIES</span>
+<span class="token property">INTERFACE_LINK_DEPENDS</span>
+<span class="token property">INTERFACE_LINK_DIRECTORIES</span>
+<span class="token property">INTERFACE_LINK_LIBRARIES</span>
+<span class="token property">INTERFACE_LINK_OPTIONS</span>
+<span class="token property">INTERFACE_POSITION_INDEPENDENT_CODE</span>
+<span class="token property">INTERFACE_SOURCES</span>
+<span class="token property">INTERFACE_SYSTEM_INCLUDE_DIRECTORIES</span>
+<span class="token property">INTERPROCEDURAL_OPTIMIZATION</span>
+<span class="token property">INTERPROCEDURAL_OPTIMIZATION</span>
+<span class="token property">INTERPROCEDURAL_OPTIMIZATION_WHATEVER</span>
+<span class="token property">INTERPROCEDURAL_OPTIMIZATION_WHATEVER</span>
+<span class="token property">IN_TRY_COMPILE</span>
+<span class="token property">IOS_INSTALL_COMBINED</span>
+<span class="token property">JOB_POOLS</span>
+<span class="token property">JOB_POOL_COMPILE</span>
+<span class="token property">JOB_POOL_LINK</span>
+<span class="token property">KEEP_EXTENSION</span>
+<span class="token property">LABELS</span>
+<span class="token property">LABELS</span>
+<span class="token property">LABELS</span>
+<span class="token property">LABELS</span>
+<span class="token property">LANGUAGE</span>
+<span class="token property">LIBRARY_OUTPUT_DIRECTORY</span>
+<span class="token property">LIBRARY_OUTPUT_DIRECTORY_WHATEVER</span>
+<span class="token property">LIBRARY_OUTPUT_NAME</span>
+<span class="token property">LIBRARY_OUTPUT_NAME_WHATEVER</span>
+<span class="token property">LINKER_LANGUAGE</span>
+<span class="token property">LINK_DEPENDS</span>
+<span class="token property">LINK_DEPENDS_NO_SHARED</span>
+<span class="token property">LINK_DIRECTORIES</span>
+<span class="token property">LINK_DIRECTORIES</span>
+<span class="token property">LINK_FLAGS</span>
+<span class="token property">LINK_FLAGS_WHATEVER</span>
+<span class="token property">LINK_INTERFACE_LIBRARIES</span>
+<span class="token property">LINK_INTERFACE_LIBRARIES_WHATEVER</span>
+<span class="token property">LINK_INTERFACE_MULTIPLICITY</span>
+<span class="token property">LINK_INTERFACE_MULTIPLICITY_WHATEVER</span>
+<span class="token property">LINK_LIBRARIES</span>
+<span class="token property">LINK_OPTIONS</span>
+<span class="token property">LINK_OPTIONS</span>
+<span class="token property">LINK_SEARCH_END_STATIC</span>
+<span class="token property">LINK_SEARCH_START_STATIC</span>
+<span class="token property">LINK_WHAT_YOU_USE</span>
+<span class="token property">LISTFILE_STACK</span>
+<span class="token property">LOCATION</span>
+<span class="token property">LOCATION</span>
+<span class="token property">LOCATION_WHATEVER</span>
+<span class="token property">MACOSX_BUNDLE</span>
+<span class="token property">MACOSX_BUNDLE_INFO_PLIST</span>
+<span class="token property">MACOSX_FRAMEWORK_INFO_PLIST</span>
+<span class="token property">MACOSX_PACKAGE_LOCATION</span>
+<span class="token property">MACOSX_RPATH</span>
+<span class="token property">MACROS</span>
+<span class="token property">MANUALLY_ADDED_DEPENDENCIES</span>
+<span class="token property">MAP_IMPORTED_CONFIG_WHATEVER</span>
+<span class="token property">MEASUREMENT</span>
+<span class="token property">MODIFIED</span>
+<span class="token property">NAME</span>
+<span class="token property">NO_SONAME</span>
+<span class="token property">NO_SYSTEM_FROM_IMPORTED</span>
+<span class="token property">OBJECT_DEPENDS</span>
+<span class="token property">OBJECT_OUTPUTS</span>
+<span class="token property">OSX_ARCHITECTURES</span>
+<span class="token property">OSX_ARCHITECTURES_WHATEVER</span>
+<span class="token property">OUTPUT_NAME</span>
+<span class="token property">OUTPUT_NAME_WHATEVER</span>
+<span class="token property">PACKAGES_FOUND</span>
+<span class="token property">PACKAGES_NOT_FOUND</span>
+<span class="token property">PARENT_DIRECTORY</span>
+<span class="token property">PASS_REGULAR_EXPRESSION</span>
+<span class="token property">PDB_NAME</span>
+<span class="token property">PDB_NAME_WHATEVER</span>
+<span class="token property">PDB_OUTPUT_DIRECTORY</span>
+<span class="token property">PDB_OUTPUT_DIRECTORY_WHATEVER</span>
+<span class="token property">POSITION_INDEPENDENT_CODE</span>
+<span class="token property">POST_INSTALL_SCRIPT</span>
+<span class="token property">PREDEFINED_TARGETS_FOLDER</span>
+<span class="token property">PREFIX</span>
+<span class="token property">PRE_INSTALL_SCRIPT</span>
+<span class="token property">PRIVATE_HEADER</span>
+<span class="token property">PROCESSORS</span>
+<span class="token property">PROCESSOR_AFFINITY</span>
+<span class="token property">PROJECT_LABEL</span>
+<span class="token property">PUBLIC_HEADER</span>
+<span class="token property">REPORT_UNDEFINED_PROPERTIES</span>
+<span class="token property">REQUIRED_FILES</span>
+<span class="token property">RESOURCE</span>
+<span class="token property">RESOURCE_LOCK</span>
+<span class="token property">RULE_LAUNCH_COMPILE</span>
+<span class="token property">RULE_LAUNCH_COMPILE</span>
+<span class="token property">RULE_LAUNCH_COMPILE</span>
+<span class="token property">RULE_LAUNCH_CUSTOM</span>
+<span class="token property">RULE_LAUNCH_CUSTOM</span>
+<span class="token property">RULE_LAUNCH_CUSTOM</span>
+<span class="token property">RULE_LAUNCH_LINK</span>
+<span class="token property">RULE_LAUNCH_LINK</span>
+<span class="token property">RULE_LAUNCH_LINK</span>
+<span class="token property">RULE_MESSAGES</span>
+<span class="token property">RUNTIME_OUTPUT_DIRECTORY</span>
+<span class="token property">RUNTIME_OUTPUT_DIRECTORY_WHATEVER</span>
+<span class="token property">RUNTIME_OUTPUT_NAME</span>
+<span class="token property">RUNTIME_OUTPUT_NAME_WHATEVER</span>
+<span class="token property">RUN_SERIAL</span>
+<span class="token property">SKIP_AUTOGEN</span>
+<span class="token property">SKIP_AUTOMOC</span>
+<span class="token property">SKIP_AUTORCC</span>
+<span class="token property">SKIP_AUTOUIC</span>
+<span class="token property">SKIP_BUILD_RPATH</span>
+<span class="token property">SKIP_RETURN_CODE</span>
+<span class="token property">SOURCES</span>
+<span class="token property">SOURCE_DIR</span>
+<span class="token property">SOURCE_DIR</span>
+<span class="token property">SOVERSION</span>
+<span class="token property">STATIC_LIBRARY_FLAGS</span>
+<span class="token property">STATIC_LIBRARY_FLAGS_WHATEVER</span>
+<span class="token property">STATIC_LIBRARY_OPTIONS</span>
+<span class="token property">STRINGS</span>
+<span class="token property">SUBDIRECTORIES</span>
+<span class="token property">SUFFIX</span>
+<span class="token property">SYMBOLIC</span>
+<span class="token property">TARGET_ARCHIVES_MAY_BE_SHARED_LIBS</span>
+<span class="token property">TARGET_MESSAGES</span>
+<span class="token property">TARGET_SUPPORTS_SHARED_LIBS</span>
+<span class="token property">TESTS</span>
+<span class="token property">TEST_INCLUDE_FILE</span>
+<span class="token property">TEST_INCLUDE_FILES</span>
+<span class="token property">TIMEOUT</span>
+<span class="token property">TIMEOUT_AFTER_MATCH</span>
+<span class="token property">TYPE</span>
+<span class="token property">TYPE</span>
+<span class="token property">USE_FOLDERS</span>
+<span class="token property">VALUE</span>
+<span class="token property">VARIABLES</span>
+<span class="token property">VERSION</span>
+<span class="token property">VISIBILITY_INLINES_HIDDEN</span>
+<span class="token property">VS_CONFIGURATION_TYPE</span>
+<span class="token property">VS_COPY_TO_OUT_DIR</span>
+<span class="token property">VS_CSHARP_WHATEVER</span>
+<span class="token property">VS_DEBUGGER_COMMAND</span>
+<span class="token property">VS_DEBUGGER_COMMAND_ARGUMENTS</span>
+<span class="token property">VS_DEBUGGER_ENVIRONMENT</span>
+<span class="token property">VS_DEBUGGER_WORKING_DIRECTORY</span>
+<span class="token property">VS_DEPLOYMENT_CONTENT</span>
+<span class="token property">VS_DEPLOYMENT_LOCATION</span>
+<span class="token property">VS_DOTNET_REFERENCEPROP_WHATEVER</span>
+<span class="token property">VS_DOTNET_REFERENCES</span>
+<span class="token property">VS_DOTNET_REFERENCES_COPY_LOCAL</span>
+<span class="token property">VS_DOTNET_REFERENCE_WHATEVER</span>
+<span class="token property">VS_GLOBAL_WHATEVER</span>
+<span class="token property">VS_GLOBAL_KEYWORD</span>
+<span class="token property">VS_GLOBAL_PROJECT_TYPES</span>
+<span class="token property">VS_GLOBAL_ROOTNAMESPACE</span>
+<span class="token property">VS_GLOBAL_SECTION_POST_WHATEVER</span>
+<span class="token property">VS_GLOBAL_SECTION_PRE_WHATEVER</span>
+<span class="token property">VS_INCLUDE_IN_VSIX</span>
+<span class="token property">VS_IOT_STARTUP_TASK</span>
+<span class="token property">VS_KEYWORD</span>
+<span class="token property">VS_RESOURCE_GENERATOR</span>
+<span class="token property">VS_SCC_AUXPATH</span>
+<span class="token property">VS_SCC_LOCALPATH</span>
+<span class="token property">VS_SCC_PROJECTNAME</span>
+<span class="token property">VS_SCC_PROVIDER</span>
+<span class="token property">VS_SDK_REFERENCES</span>
+<span class="token property">VS_SHADER_DISABLE_OPTIMIZATIONS</span>
+<span class="token property">VS_SHADER_ENABLE_DEBUG</span>
+<span class="token property">VS_SHADER_ENTRYPOINT</span>
+<span class="token property">VS_SHADER_FLAGS</span>
+<span class="token property">VS_SHADER_MODEL</span>
+<span class="token property">VS_SHADER_OBJECT_FILE_NAME</span>
+<span class="token property">VS_SHADER_OUTPUT_HEADER_FILE</span>
+<span class="token property">VS_SHADER_TYPE</span>
+<span class="token property">VS_SHADER_VARIABLE_NAME</span>
+<span class="token property">VS_STARTUP_PROJECT</span>
+<span class="token property">VS_TOOL_OVERRIDE</span>
+<span class="token property">VS_USER_PROPS</span>
+<span class="token property">VS_WINRT_COMPONENT</span>
+<span class="token property">VS_WINRT_EXTENSIONS</span>
+<span class="token property">VS_WINRT_REFERENCES</span>
+<span class="token property">VS_XAML_TYPE</span>
+<span class="token property">WILL_FAIL</span>
+<span class="token property">WIN32_EXECUTABLE</span>
+<span class="token property">WINDOWS_EXPORT_ALL_SYMBOLS</span>
+<span class="token property">WORKING_DIRECTORY</span>
+<span class="token property">WRAP_EXCLUDE</span>
+<span class="token property">XCODE_ATTRIBUTE_WHATEVER</span>
+<span class="token property">XCODE_EMIT_EFFECTIVE_PLATFORM_NAME</span>
+<span class="token property">XCODE_EXPLICIT_FILE_TYPE</span>
+<span class="token property">XCODE_EXPLICIT_FILE_TYPE</span>
+<span class="token property">XCODE_FILE_ATTRIBUTES</span>
+<span class="token property">XCODE_LAST_KNOWN_FILE_TYPE</span>
+<span class="token property">XCODE_PRODUCT_TYPE</span>
+<span class="token property">XCODE_SCHEME_ADDRESS_SANITIZER</span>
+<span class="token property">XCODE_SCHEME_ADDRESS_SANITIZER_USE_AFTER_RETURN</span>
+<span class="token property">XCODE_SCHEME_ARGUMENTS</span>
+<span class="token property">XCODE_SCHEME_DISABLE_MAIN_THREAD_CHECKER</span>
+<span class="token property">XCODE_SCHEME_DYNAMIC_LIBRARY_LOADS</span>
+<span class="token property">XCODE_SCHEME_DYNAMIC_LINKER_API_USAGE</span>
+<span class="token property">XCODE_SCHEME_ENVIRONMENT</span>
+<span class="token property">XCODE_SCHEME_EXECUTABLE</span>
+<span class="token property">XCODE_SCHEME_GUARD_MALLOC</span>
+<span class="token property">XCODE_SCHEME_MAIN_THREAD_CHECKER_STOP</span>
+<span class="token property">XCODE_SCHEME_MALLOC_GUARD_EDGES</span>
+<span class="token property">XCODE_SCHEME_MALLOC_SCRIBBLE</span>
+<span class="token property">XCODE_SCHEME_MALLOC_STACK</span>
+<span class="token property">XCODE_SCHEME_THREAD_SANITIZER</span>
+<span class="token property">XCODE_SCHEME_THREAD_SANITIZER_STOP</span>
+<span class="token property">XCODE_SCHEME_UNDEFINED_BEHAVIOUR_SANITIZER</span>
+<span class="token property">XCODE_SCHEME_UNDEFINED_BEHAVIOUR_SANITIZER_STOP</span>
+<span class="token property">XCODE_SCHEME_ZOMBIE_OBJECTS</span>
+<span class="token property">XCTEST</span>
+<span class="token property">cxx_aggregate_default_initializers</span>
+<span class="token property">cxx_alias_templates</span>
+<span class="token property">cxx_alignas</span>
+<span class="token property">cxx_alignof</span>
+<span class="token property">cxx_attributes</span>
+<span class="token property">cxx_attribute_deprecated</span>
+<span class="token property">cxx_auto_type</span>
+<span class="token property">cxx_binary_literals</span>
+<span class="token property">cxx_constexpr</span>
+<span class="token property">cxx_contextual_conversions</span>
+<span class="token property">cxx_decltype_incomplete_return_types</span>
+<span class="token property">cxx_decltype</span>
+<span class="token property">cxx_decltype_auto</span>
+<span class="token property">cxx_default_function_template_args</span>
+<span class="token property">cxx_defaulted_functions</span>
+<span class="token property">cxx_defaulted_move_initializers</span>
+<span class="token property">cxx_delegating_constructors</span>
+<span class="token property">cxx_deleted_functions</span>
+<span class="token property">cxx_digit_separators</span>
+<span class="token property">cxx_enum_forward_declarations</span>
+<span class="token property">cxx_explicit_conversions</span>
+<span class="token property">cxx_extended_friend_declarations</span>
+<span class="token property">cxx_extern_templates</span>
+<span class="token property">cxx_final</span>
+<span class="token property">cxx_func_identifier</span>
+<span class="token property">cxx_generalized_initializers</span>
+<span class="token property">cxx_generic_lambdas</span>
+<span class="token property">cxx_inheriting_constructors</span>
+<span class="token property">cxx_inline_namespaces</span>
+<span class="token property">cxx_lambdas</span>
+<span class="token property">cxx_lambda_init_captures</span>
+<span class="token property">cxx_local_type_template_args</span>
+<span class="token property">cxx_long_long_type</span>
+<span class="token property">cxx_noexcept</span>
+<span class="token property">cxx_nonstatic_member_init</span>
+<span class="token property">cxx_nullptr</span>
+<span class="token property">cxx_override</span>
+<span class="token property">cxx_range_for</span>
+<span class="token property">cxx_raw_string_literals</span>
+<span class="token property">cxx_reference_qualified_functions</span>
+<span class="token property">cxx_relaxed_constexpr</span>
+<span class="token property">cxx_return_type_deduction</span>
+<span class="token property">cxx_right_angle_brackets</span>
+<span class="token property">cxx_rvalue_references</span>
+<span class="token property">cxx_sizeof_member</span>
+<span class="token property">cxx_static_assert</span>
+<span class="token property">cxx_strong_enums</span>
+<span class="token property">cxx_thread_local</span>
+<span class="token property">cxx_trailing_return_types</span>
+<span class="token property">cxx_unicode_literals</span>
+<span class="token property">cxx_uniform_initialization</span>
+<span class="token property">cxx_unrestricted_unions</span>
+<span class="token property">cxx_user_literals</span>
+<span class="token property">cxx_variable_templates</span>
+<span class="token property">cxx_variadic_macros</span>
+<span class="token property">cxx_variadic_templates</span>
+<span class="token property">cxx_template_template_parameters</span>
+
+----------------------------------------------------

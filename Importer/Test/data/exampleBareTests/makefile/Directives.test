@@ -1,0 +1,17 @@
+include foo *.mk $(bar)
+
+vpath %.c foo
+
+override define two-lines =
+foo
+$(bar)
+endef
+
+ifeq ($(CC),gcc)
+  libs=$(libs_for_gcc)
+else
+  libs=$(normal_libs)
+endif
+
+--------------------------------------------------
+

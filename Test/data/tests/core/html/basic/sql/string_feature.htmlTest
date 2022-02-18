@@ -1,0 +1,23 @@
+""
+"fo\"obar"
+"foo
+bar"
+''
+'fo\'obar'
+'foo
+bar'
+'foo''s bar'
+"foo's ""bar"""
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"obar"</span>
+<span class="token string">"foo
+bar"</span>
+<span class="token string">''</span>
+<span class="token string">'fo\'obar'</span>
+<span class="token string">'foo
+bar'</span>
+<span class="token string">'foo''s bar'</span>
+<span class="token string">"foo's ""bar"""</span>
+
+----------------------------------------------------

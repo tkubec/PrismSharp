@@ -1,0 +1,217 @@
+A
+ADD
+ALL
+AS
+ASC
+ASK
+BNODE
+BY
+CLEAR
+CONSTRUCT
+COPY
+CREATE
+DATA
+DEFAULT
+DELETE
+DESC
+DESCRIBE
+DISTINCT
+DROP
+EXISTS
+FILTER
+FROM
+GROUP
+HAVING
+INSERT
+INTO
+LIMIT
+LOAD
+MINUS
+MOVE
+NAMED
+NOT
+NOW
+OFFSET
+OPTIONAL
+ORDER
+RAND
+REDUCED
+SELECT
+SEPARATOR
+SERVICE
+SILENT
+STRUUID
+UNION
+USING
+UUID
+VALUES
+WHERE
+ABS(
+AVG(
+BIND(
+BOUND(
+CEIL(
+COALESCE(
+CONCAT(
+CONTAINS(
+COUNT(
+DATATYPE(
+DAY(
+ENCODE_FOR_URI(
+FLOOR(
+GROUP_CONCAT(
+HOURS(
+IF(
+IRI(
+isBLANK(
+isIRI(
+isLITERAL(
+isNUMERIC(
+isURI(
+LANG(
+LANGMATCHES(
+LCASE(
+MAX(
+MD5(
+MIN(
+MINUTES(
+MONTH(
+ROUND(
+REGEX(
+REPLACE(
+sameTerm(
+SAMPLE(
+SECONDS(
+SHA1(
+SHA256(
+SHA384(
+SHA512(
+STR(
+STRAFTER(
+STRBEFORE(
+STRDT(
+STRENDS(
+STRLANG(
+STRLEN(
+STRSTARTS(
+SUBSTR(
+SUM(
+TIMEZONE(
+TZ(
+UCASE(
+URI(
+YEAR(
+
+GRAPH
+BASE
+PREFIX
+----------------------------------------------------
+<span class="token keyword">A</span>
+<span class="token keyword">ADD</span>
+<span class="token keyword">ALL</span>
+<span class="token keyword">AS</span>
+<span class="token keyword">ASC</span>
+<span class="token keyword">ASK</span>
+<span class="token keyword">BNODE</span>
+<span class="token keyword">BY</span>
+<span class="token keyword">CLEAR</span>
+<span class="token keyword">CONSTRUCT</span>
+<span class="token keyword">COPY</span>
+<span class="token keyword">CREATE</span>
+<span class="token keyword">DATA</span>
+<span class="token keyword">DEFAULT</span>
+<span class="token keyword">DELETE</span>
+<span class="token keyword">DESC</span>
+<span class="token keyword">DESCRIBE</span>
+<span class="token keyword">DISTINCT</span>
+<span class="token keyword">DROP</span>
+<span class="token keyword">EXISTS</span>
+<span class="token keyword">FILTER</span>
+<span class="token keyword">FROM</span>
+<span class="token keyword">GROUP</span>
+<span class="token keyword">HAVING</span>
+<span class="token keyword">INSERT</span>
+<span class="token keyword">INTO</span>
+<span class="token keyword">LIMIT</span>
+<span class="token keyword">LOAD</span>
+<span class="token keyword">MINUS</span>
+<span class="token keyword">MOVE</span>
+<span class="token keyword">NAMED</span>
+<span class="token keyword">NOT</span>
+<span class="token keyword">NOW</span>
+<span class="token keyword">OFFSET</span>
+<span class="token keyword">OPTIONAL</span>
+<span class="token keyword">ORDER</span>
+<span class="token keyword">RAND</span>
+<span class="token keyword">REDUCED</span>
+<span class="token keyword">SELECT</span>
+<span class="token keyword">SEPARATOR</span>
+<span class="token keyword">SERVICE</span>
+<span class="token keyword">SILENT</span>
+<span class="token keyword">STRUUID</span>
+<span class="token keyword">UNION</span>
+<span class="token keyword">USING</span>
+<span class="token keyword">UUID</span>
+<span class="token keyword">VALUES</span>
+<span class="token keyword">WHERE</span>
+<span class="token keyword">ABS</span><span class="token punctuation">(</span>
+<span class="token keyword">AVG</span><span class="token punctuation">(</span>
+<span class="token keyword">BIND</span><span class="token punctuation">(</span>
+<span class="token keyword">BOUND</span><span class="token punctuation">(</span>
+<span class="token keyword">CEIL</span><span class="token punctuation">(</span>
+<span class="token keyword">COALESCE</span><span class="token punctuation">(</span>
+<span class="token keyword">CONCAT</span><span class="token punctuation">(</span>
+<span class="token keyword">CONTAINS</span><span class="token punctuation">(</span>
+<span class="token keyword">COUNT</span><span class="token punctuation">(</span>
+<span class="token keyword">DATATYPE</span><span class="token punctuation">(</span>
+<span class="token keyword">DAY</span><span class="token punctuation">(</span>
+<span class="token keyword">ENCODE_FOR_URI</span><span class="token punctuation">(</span>
+<span class="token keyword">FLOOR</span><span class="token punctuation">(</span>
+<span class="token keyword">GROUP_CONCAT</span><span class="token punctuation">(</span>
+<span class="token keyword">HOURS</span><span class="token punctuation">(</span>
+<span class="token keyword">IF</span><span class="token punctuation">(</span>
+<span class="token keyword">IRI</span><span class="token punctuation">(</span>
+<span class="token keyword">isBLANK</span><span class="token punctuation">(</span>
+<span class="token keyword">isIRI</span><span class="token punctuation">(</span>
+<span class="token keyword">isLITERAL</span><span class="token punctuation">(</span>
+<span class="token keyword">isNUMERIC</span><span class="token punctuation">(</span>
+<span class="token keyword">isURI</span><span class="token punctuation">(</span>
+<span class="token keyword">LANG</span><span class="token punctuation">(</span>
+<span class="token keyword">LANGMATCHES</span><span class="token punctuation">(</span>
+<span class="token keyword">LCASE</span><span class="token punctuation">(</span>
+<span class="token keyword">MAX</span><span class="token punctuation">(</span>
+<span class="token keyword">MD5</span><span class="token punctuation">(</span>
+<span class="token keyword">MIN</span><span class="token punctuation">(</span>
+<span class="token keyword">MINUTES</span><span class="token punctuation">(</span>
+<span class="token keyword">MONTH</span><span class="token punctuation">(</span>
+<span class="token keyword">ROUND</span><span class="token punctuation">(</span>
+<span class="token keyword">REGEX</span><span class="token punctuation">(</span>
+<span class="token keyword">REPLACE</span><span class="token punctuation">(</span>
+<span class="token keyword">sameTerm</span><span class="token punctuation">(</span>
+<span class="token keyword">SAMPLE</span><span class="token punctuation">(</span>
+<span class="token keyword">SECONDS</span><span class="token punctuation">(</span>
+<span class="token keyword">SHA1</span><span class="token punctuation">(</span>
+<span class="token keyword">SHA256</span><span class="token punctuation">(</span>
+<span class="token keyword">SHA384</span><span class="token punctuation">(</span>
+<span class="token keyword">SHA512</span><span class="token punctuation">(</span>
+<span class="token keyword">STR</span><span class="token punctuation">(</span>
+<span class="token keyword">STRAFTER</span><span class="token punctuation">(</span>
+<span class="token keyword">STRBEFORE</span><span class="token punctuation">(</span>
+<span class="token keyword">STRDT</span><span class="token punctuation">(</span>
+<span class="token keyword">STRENDS</span><span class="token punctuation">(</span>
+<span class="token keyword">STRLANG</span><span class="token punctuation">(</span>
+<span class="token keyword">STRLEN</span><span class="token punctuation">(</span>
+<span class="token keyword">STRSTARTS</span><span class="token punctuation">(</span>
+<span class="token keyword">SUBSTR</span><span class="token punctuation">(</span>
+<span class="token keyword">SUM</span><span class="token punctuation">(</span>
+<span class="token keyword">TIMEZONE</span><span class="token punctuation">(</span>
+<span class="token keyword">TZ</span><span class="token punctuation">(</span>
+<span class="token keyword">UCASE</span><span class="token punctuation">(</span>
+<span class="token keyword">URI</span><span class="token punctuation">(</span>
+<span class="token keyword">YEAR</span><span class="token punctuation">(</span>
+
+<span class="token keyword">GRAPH</span>
+<span class="token keyword">BASE</span>
+<span class="token keyword">PREFIX</span>
+
+----------------------------------------------------

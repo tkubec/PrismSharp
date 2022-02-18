@@ -1,0 +1,9 @@
+'''''foo'''''
+'''bar'''
+''baz''
+----------------------------------------------------
+<span class="token emphasis"><span class="token punctuation">'''''</span><span class="token bold-italic bold italic">foo</span><span class="token punctuation">'''''</span></span>
+<span class="token emphasis"><span class="token punctuation">'''</span><span class="token bold">bar</span><span class="token punctuation">'''</span></span>
+<span class="token emphasis"><span class="token punctuation">''</span><span class="token italic">baz</span><span class="token punctuation">''</span></span>
+
+----------------------------------------------------

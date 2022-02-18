@@ -1,0 +1,93 @@
+""
+''
+"foo"
+'foo'
+"foo
+bar"
+'foo
+bar'
+"'foo'"
+'"bar"'
+"$@"
+"${foo}"
+\\"foo"
+\'a # ' not a string
+
+<< STRING_END
+foo
+bar
+STRING_END
+
+<<- STRING_END
+foo
+bar
+STRING_END
+
+<<   EOF
+foo $@
+bar
+EOF
+
+<< 'EOF'
+'single quoted string'
+"double quoted string"
+EOF
+
+<< "EOF"
+foo
+$bar
+EOF
+
+<< STRING_END
+# comment
+STRING_END
+
+"  # comment  "
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">''</span>
+<span class="token string">"foo"</span>
+<span class="token string">'foo'</span>
+<span class="token string">"foo
+bar"</span>
+<span class="token string">'foo
+bar'</span>
+<span class="token string">"'foo'"</span>
+<span class="token string">'"bar"'</span>
+<span class="token string">"<span class="token variable">$@</span>"</span>
+<span class="token string">"<span class="token variable">${foo}</span>"</span>
+<span class="token punctuation">\</span><span class="token punctuation">\</span><span class="token string">"foo"</span>
+<span class="token punctuation">\</span>'a <span class="token comment"># ' not a string</span>
+
+<span class="token operator">&lt;&lt;</span> <span class="token string">STRING_END
+foo
+bar
+STRING_END</span>
+
+<span class="token operator">&lt;&lt;-</span> <span class="token string">STRING_END
+foo
+bar
+STRING_END</span>
+
+<span class="token operator">&lt;&lt;</span>   <span class="token string">EOF
+foo <span class="token variable">$@</span>
+bar
+EOF</span>
+
+<span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'
+'single quoted string'
+"double quoted string"
+EOF</span>
+
+<span class="token operator">&lt;&lt;</span> <span class="token string">"EOF"
+foo
+$bar
+EOF</span>
+
+<span class="token operator">&lt;&lt;</span> <span class="token string">STRING_END
+# comment
+STRING_END</span>
+
+<span class="token string">"  # comment  "</span>
+
+----------------------------------------------------

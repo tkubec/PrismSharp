@@ -1,0 +1,11 @@
+<http://www.w3.org/TR/rdf-syntax-grammar> <http://purl.org/dc/elements/1.1/title> "RDF/XML Syntax Specification (Revised)" .
+ <http://www.w3.org/TR/rdf-syntax-grammar> <http://example.org/stuff/1.0/editor> _:bnode .
+ _:bnode <http://example.org/stuff/1.0/fullname> "Dave Beckett" .
+ _:bnode <http://example.org/stuff/1.0/homePage> <http://purl.org/net/dajobe/> .
+----------------------------------------------------
+<span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/TR/rdf-syntax-grammar<span class="token punctuation">></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://purl.org/dc/elements/1.1/title<span class="token punctuation">></span></span> <span class="token string">"RDF/XML Syntax Specification (Revised)"</span> <span class="token punctuation">.</span>
+ <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/TR/rdf-syntax-grammar<span class="token punctuation">></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/stuff/1.0/editor<span class="token punctuation">></span></span> <span class="token function"><span class="token prefix">_<span class="token punctuation">:</span></span><span class="token local-name">bnode</span></span> <span class="token punctuation">.</span>
+ <span class="token function"><span class="token prefix">_<span class="token punctuation">:</span></span><span class="token local-name">bnode</span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/stuff/1.0/fullname<span class="token punctuation">></span></span> <span class="token string">"Dave Beckett"</span> <span class="token punctuation">.</span>
+ <span class="token function"><span class="token prefix">_<span class="token punctuation">:</span></span><span class="token local-name">bnode</span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/stuff/1.0/homePage<span class="token punctuation">></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://purl.org/net/dajobe/<span class="token punctuation">></span></span> <span class="token punctuation">.</span>
+
+----------------------------------------------------

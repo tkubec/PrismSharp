@@ -1,0 +1,19 @@
+set softab = 2
+map <leader>tn :tabnew
+----------------------------------------------------
+[
+	["keyword", "set"],
+	" softab ",
+	["operator", "="],
+	["number", "2"],
+
+	"\nmap ",
+	["operator", "<"],
+	"leader",
+	["operator", ">"],
+	["keyword", "tn"],
+	["punctuation", ":"],
+	["keyword", "tabnew"]
+]
+
+----------------------------------------------------

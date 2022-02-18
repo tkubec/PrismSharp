@@ -1,0 +1,48 @@
+'foo \'bar\' baz'
+"foo \"bar\" baz"
+"a string # containing an hash"
+$foo = <<<FOO
+    Heredoc strings are supported too!
+FOO;
+$bar = <<<'BAR'
+    And also Nowdoc strings
+BAR;
+----------------------------------------------------
+[
+	["string", "'foo \\'bar\\' baz'"],
+
+	["string", ["\"foo \\\"bar\\\" baz\""]],
+
+	["string", ["\"a string # containing an hash\""]],
+
+	["variable", "$foo"],
+	["operator", "="],
+	["string", [
+		["delimiter", [
+			["punctuation", "<<<"],
+			"FOO"
+		]],
+		"\n    Heredoc strings are supported too!\n",
+		["delimiter", [
+			"FOO",
+			["punctuation", ";"]
+		]]
+	]],
+
+	["variable", "$bar"],
+	["operator", "="],
+	["string", [
+		["delimiter", [
+			["punctuation", "<<<'"],
+			"BAR",
+			["punctuation", "'"]
+		]],
+		"\n    And also Nowdoc strings\n",
+		["delimiter", [
+			"BAR",
+			["punctuation", ";"]
+		]]
+	]]
+]
+
+----------------------------------------------------

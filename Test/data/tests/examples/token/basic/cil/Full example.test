@@ -1,0 +1,250 @@
+// Metadata version: v4.0.30319
+.assembly extern mscorlib
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 4:0:0:0
+}
+.assembly i1ohgbkl
+{
+  .hash algorithm 0x00008004
+  .ver 0:0:0:0
+}
+.module i1ohgbkl.dll
+// MVID: {AC981AA1-16FE-413D-BBED-D83AE719F45C}
+.imagebase 0x10000000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x017C0000
+​
+​
+// =============== CLASS MEMBERS DECLARATION ===================
+​
+.class public auto ansi beforefieldinit Program
+       extends [mscorlib]System.Object
+{
+  .method public hidebysig static void  Main() cil managed
+  {
+    //
+    .maxstack  8
+    IL_0000:  nop
+    IL_0001:  ldstr      "Hello World"
+    IL_0006:  call       void [mscorlib]System.Console::WriteLine(string)
+    IL_000b:  nop
+    IL_000c:  ret
+  } // end of method Program::Main
+​
+  .method public hidebysig specialname rtspecialname
+          instance void  .ctor() cil managed
+  {
+    //
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ret
+  } // end of method Program::.ctor
+​
+} // end of class Program
+----------------------------------------------------
+[
+	["comment", "// Metadata version: v4.0.30319"],
+
+	["directive", ".assembly"],
+	["keyword", "extern"],
+	" mscorlib\n",
+
+	["punctuation", "{"],
+
+	["directive", ".publickeytoken"],
+	["punctuation", "="],
+	["punctuation", "("],
+	"B7 7A 5C ",
+	["number", "56"],
+	["number", "19"],
+	["number", "34"],
+	" E0 ",
+	["number", "89"],
+	["punctuation", ")"],
+	["comment", "// .z\\V.4.."],
+
+	["directive", ".ver"],
+	["number", "4"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", ":"],
+	["number", "0"],
+
+	["punctuation", "}"],
+
+	["directive", ".assembly"],
+	" i1ohgbkl\n",
+
+	["punctuation", "{"],
+
+	["directive", ".hash"],
+	" algorithm ",
+	["number", "0x00008004"],
+
+	["directive", ".ver"],
+	["number", "0"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", ":"],
+	["number", "0"],
+
+	["punctuation", "}"],
+
+	["directive", ".module"],
+	" i1ohgbkl.dll\n",
+
+	["comment", "// MVID: {AC981AA1-16FE-413D-BBED-D83AE719F45C}"],
+
+	["directive", ".imagebase"],
+	["number", "0x10000000"],
+
+	["directive", ".file"],
+	["function", "alignment"],
+	["number", "0x00000200"],
+
+	["directive", ".stackreserve"],
+	["number", "0x00100000"],
+
+	["directive", ".subsystem"],
+	["number", "0x0003"],
+	["comment", "// WINDOWS_CUI"],
+
+	["directive", ".corflags"],
+	["number", "0x00000001"],
+	["comment", "//  ILONLY"],
+
+	["comment", "// Image base: 0x017C0000"],
+
+	"\n​\n​\n",
+
+	["comment", "// =============== CLASS MEMBERS DECLARATION ==================="],
+
+	"\n​\n",
+
+	["directive", ".class"],
+	["keyword", "public"],
+	["keyword", "auto"],
+	["keyword", "ansi"],
+	["keyword", "beforefieldinit"],
+	" Program\n       ",
+
+	["keyword", "extends"],
+	["variable", "[mscorlib]"],
+	"System.Object\n",
+
+	["punctuation", "{"],
+
+	["directive", ".method"],
+	["keyword", "public"],
+	["keyword", "hidebysig"],
+	["keyword", "static"],
+	["keyword", "void"],
+	"  Main",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["keyword", "cil"],
+	["keyword", "managed"],
+
+	["punctuation", "{"],
+
+	["comment", "//"],
+
+	["directive", ".maxstack"],
+	["number", "8"],
+
+	["punctuation", "IL_0000"],
+	["punctuation", ":"],
+	["function", "nop"],
+
+	["punctuation", "IL_0001"],
+	["punctuation", ":"],
+	["function", "ldstr"],
+	["string", "\"Hello World\""],
+
+	["punctuation", "IL_0006"],
+	["punctuation", ":"],
+	["function", "call"],
+	["keyword", "void"],
+	["variable", "[mscorlib]"],
+	"System.Console",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"WriteLine",
+	["punctuation", "("],
+	["keyword", "string"],
+	["punctuation", ")"],
+
+	["punctuation", "IL_000b"],
+	["punctuation", ":"],
+	["function", "nop"],
+
+	["punctuation", "IL_000c"],
+	["punctuation", ":"],
+	["function", "ret"],
+
+	["punctuation", "}"],
+	["comment", "// end of method Program::Main"],
+
+	"\n​\n  ",
+
+	["directive", ".method"],
+	["keyword", "public"],
+	["keyword", "hidebysig"],
+	["keyword", "specialname"],
+	["keyword", "rtspecialname"],
+
+	["keyword", "instance"],
+	["keyword", "void"],
+	"  .ctor",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["keyword", "cil"],
+	["keyword", "managed"],
+
+	["punctuation", "{"],
+
+	["comment", "//"],
+
+	["directive", ".maxstack"],
+	["number", "8"],
+
+	["punctuation", "IL_0000"],
+	["punctuation", ":"],
+	["function", "ldarg.0"],
+
+	["punctuation", "IL_0001"],
+	["punctuation", ":"],
+	["function", "call"],
+	["keyword", "instance"],
+	["keyword", "void"],
+	["variable", "[mscorlib]"],
+	"System.Object",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	".ctor",
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "IL_0006"],
+	["punctuation", ":"],
+	["function", "ret"],
+
+	["punctuation", "}"],
+	["comment", "// end of method Program::.ctor"],
+
+	"\n​\n",
+
+	["punctuation", "}"],
+	["comment", "// end of class Program"]
+]
+
+----------------------------------------------------

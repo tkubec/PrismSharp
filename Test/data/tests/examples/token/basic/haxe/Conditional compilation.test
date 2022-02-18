@@ -1,0 +1,37 @@
+#if !debug
+  trace("ok");
+#elseif (debug_level > 3)
+  trace(3);
+#else
+  trace("debug level too low");
+#end
+----------------------------------------------------
+[
+	["preprocessor", "#if !debug"],
+
+	["function", "trace"],
+	["punctuation", "("],
+	["string", "\"ok\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["preprocessor", "#elseif (debug_level > 3)"],
+
+	["function", "trace"],
+	["punctuation", "("],
+	["number", "3"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["preprocessor", "#else"],
+
+	["function", "trace"],
+	["punctuation", "("],
+	["string", "\"debug level too low\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["preprocessor", "#end"]
+]
+
+----------------------------------------------------

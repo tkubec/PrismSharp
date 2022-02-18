@@ -1,0 +1,335 @@
+-- 1.1 Naturals
+
+module plfa.part1.Naturals where
+
+-- The standard way to enter Unicode math symbols in Agda
+-- is to use the IME provided by agda-mode.
+-- for example ℕ can be entered by typing \bN.
+
+-- The inductive definition of natural numbers.
+-- In Agda, data declarations correspond to axioms.
+-- Also types correspond to sets.
+-- CHAR: \bN → ℕ
+data ℕ : Set where
+	-- This corresponds to the `zero` rule in Dedekin-Peano's axioms.
+	-- Note that the syntax resembles Haskell GADTs.
+	-- Also note that the `has-type` operator is `:` (as in Idris), not `::` (as in Haskell).
+	zero : ℕ
+	-- This corresponds to the `succesor` rule in Dedekin-Peano's axioms.
+	-- In such a constructive system in Agda, induction rules etc comes by nature.
+	-- The function arrow can be either `->` or `→`.
+	-- CHAR: \to or \-> or \r- → →
+	suc  : ℕ → ℕ
+
+-- EXERCISE `seven`
+seven : ℕ
+seven = suc (suc (suc (suc (suc (suc (suc zero))))))
+
+-- This line is a compiler pragma.
+-- It makes `ℕ` correspond to Haskell's type `Integer`
+-- and allows us to use number literals (0, 1, 2, ...) to express `ℕ`.
+{-# BUILTIN NATURAL ℕ #-}
+
+-- Agda has a module system corresponding to the project file structure.
+-- e.g. `My.Namespace` is in
+-- `project path/My/Namespace.agda`.
+
+-- The `import` statement does NOT expose the names to the top namespace.
+-- You'll have to use `My.Namespace.thing` instead of directly `thing`.
+import Relation.Binary.PropositionalEquality as Eq
+-- The `open` statement unpacks all the names in a imported namespace and exposes them to the top namespace.
+-- Alternatively the `open import` statement imports a namespace and opens it at the same time.
+-- The `using (a; ..)` clause can limit a range of names to expose, instead of all of them.
+-- Alternatively, the `hiding (a; ..)` clause can limit a range of names NOT to expose.
+-- Also the `renaming (a to b; ..)` clause can rename names.
+-- CHAR: \== → ≡
+--       \gt → ⟨
+--       \lt → ⟩
+--       \qed → ∎
+open Eq using (_≡_; refl)
+open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎)
+
+-- Addition of `ℕ`.
+-- Note that Agda functions are *like* Haskell functions.
+-- In Agda, operators can be mixfix (incl. infix, prefix, suffix, self-bracketing and many others).
+-- All the `holes` are represented by `_`s. Unlike Haskell, operator names don't need to be put in parentheses.
+-- Operators can also be called in the manner of normal functions.
+-- e.g. a + b = _+_ a b.
+-- Sections are also available, though somehow weird.
+-- e.g. a +_ = _+_ a.
+_+_ : ℕ → ℕ → ℕ
+-- Lhs can also be infix!
+-- This is the standard definition in both Peano and Agda stdlib.
+-- We do pattern match on the first parameter, it's both convention and for convenience.
+-- Agda does a termination check on recursive function.
+-- Here the first parameter decreases over evaluation thus it is *well-founded*.
+zero    + n = n
+(suc m) + n = suc (m + n)
+
+-- Here we take a glance at the *dependent type*.
+-- In dependent type, we can put values into type level, and vice versa.
+-- This is especially useful when we're expecting to make the types more precise.
+-- Here `_≡_` is a type that says that two values are *the same*, that is, samely constructed.
+_ : 2 + 3 ≡ 5
+-- We can do it by ≡-Reasoning, that is writing a (unreasonably long) chain of equations.
+_ =
+	begin
+		2 + 3
+	≡⟨⟩ -- This operator means the lhs and rhs can be reduced to the same form so that they are equal.
+		suc (1 + 3)
+	≡⟨⟩
+		suc (suc (0 + 3)) -- Just simulating the function evaluation
+	≡⟨⟩
+		suc (suc 3)
+	≡⟨⟩
+		5
+	∎ -- The *tombstone*, QED.
+
+-- Well actually we can also get this done by simply writing `refl`.
+-- `refl` is a proof that says "If two values evaluates to the same form, then they are equal".
+-- Since Agda can automatically evaluate the terms for us, this makes sense.
+_ : 2 + 3 ≡ 5
+_ = refl
+
+-- Multiplication of `ℕ`, defined with addition.
+_*_ : ℕ → ℕ → ℕ
+-- Here we can notice that in Agda we prefer to indent by *visual blocks* instead by a fixed number of spaces.
+zero    * n = zero
+-- Here the addition is at the front, to be consistent with addition.
+(suc m) * n = n + (m * n)
+
+-- EXERCISE `_^_`, Exponentation of `ℕ`.
+_^_ : ℕ → ℕ → ℕ
+-- We can only pattern match the 2nd argument.
+m ^ zero    = suc zero
+m ^ (suc n) = m * (m ^ n)
+
+-- *Monus* (a wordplay on minus), the non-negative subtraction of `ℕ`.
+-- if less than 0 then we get 0.
+-- CHAR: \.- → ∸
+_∸_ : ℕ → ℕ → ℕ
+m     ∸ zero  = m
+zero  ∸ suc n = zero
+suc m ∸ suc n = m ∸ n
+
+-- Now we define the precedence of the operators, as in Haskell.
+infixl 6 _+_ _∸_
+infixl 7 _*_
+
+-- These are some more pragmas. Should be self-explaining.
+{-# BUILTIN NATPLUS _+_ #-}
+{-# BUILTIN NATTIMES _*_ #-}
+{-# BUILTIN NATMINUS _∸_ #-}
+
+-- EXERCISE `Bin`. We define a binary representation of natural numbers.
+-- Leading `O`s are acceptable.
+data Bin : Set where
+	⟨⟩ : Bin
+	_O : Bin → Bin
+	_I : Bin → Bin
+
+-- Like `suc` for `Bin`.
+inc : Bin → Bin
+inc ⟨⟩ = ⟨⟩ I
+inc (b O) = b I
+inc (b I) = (inc b) O
+
+-- `ℕ` to `Bin`. This is a Θ(n) solution and awaits a better Θ(log n) reimpelementation.
+to : ℕ → Bin
+to zero    = ⟨⟩ O
+to (suc n) = inc (to n)
+
+-- `Bin` to `ℕ`.
+from : Bin → ℕ
+from ⟨⟩    = 0
+from (b O) = 2 * (from b)
+from (b I) = 1 + 2 * (from b)
+
+-- Simple tests from 0 to 4.
+_ : from (to 0) ≡ 0
+_ = refl
+
+_ : from (to 1) ≡ 1
+_ = refl
+
+_ : from (to 2) ≡ 2
+_ = refl
+
+_ : from (to 3) ≡ 3
+_ = refl
+
+_ : from (to 4) ≡ 4
+_ = refl
+
+-- EXERCISE END `Bin`
+
+-- STDLIB: import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)
+----------------------------------------------------
+<span class="token comment">-- 1.1 Naturals</span>
+
+<span class="token keyword">module</span> plfa<span class="token punctuation">.</span>part1<span class="token punctuation">.</span>Naturals <span class="token keyword">where</span>
+
+<span class="token comment">-- The standard way to enter Unicode math symbols in Agda</span>
+<span class="token comment">-- is to use the IME provided by agda-mode.</span>
+<span class="token comment">-- for example ℕ can be entered by typing \bN.</span>
+
+<span class="token comment">-- The inductive definition of natural numbers.</span>
+<span class="token comment">-- In Agda, data declarations correspond to axioms.</span>
+<span class="token comment">-- Also types correspond to sets.</span>
+<span class="token comment">-- CHAR: \bN → ℕ</span>
+<span class="token keyword">data</span> <span class="token class-name">ℕ</span> <span class="token operator">:</span> <span class="token keyword">Set</span> <span class="token keyword">where</span>
+	<span class="token comment">-- This corresponds to the `zero` rule in Dedekin-Peano's axioms.</span>
+	<span class="token comment">-- Note that the syntax resembles Haskell GADTs.</span>
+	<span class="token comment">-- Also note that the `has-type` operator is `:` (as in Idris), not `::` (as in Haskell).</span>
+	<span class="token function">zero </span><span class="token operator">:</span> ℕ
+	<span class="token comment">-- This corresponds to the `succesor` rule in Dedekin-Peano's axioms.</span>
+	<span class="token comment">-- In such a constructive system in Agda, induction rules etc comes by nature.</span>
+	<span class="token comment">-- The function arrow can be either `->` or `→`.</span>
+	<span class="token comment">-- CHAR: \to or \-> or \r- → →</span>
+	<span class="token function">suc  </span><span class="token operator">:</span> ℕ <span class="token operator">→</span> ℕ
+
+<span class="token comment">-- EXERCISE `seven`</span>
+<span class="token function">seven </span><span class="token operator">:</span> ℕ
+seven <span class="token operator">=</span> suc <span class="token punctuation">(</span>suc <span class="token punctuation">(</span>suc <span class="token punctuation">(</span>suc <span class="token punctuation">(</span>suc <span class="token punctuation">(</span>suc <span class="token punctuation">(</span>suc zero<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- This line is a compiler pragma.</span>
+<span class="token comment">-- It makes `ℕ` correspond to Haskell's type `Integer`</span>
+<span class="token comment">-- and allows us to use number literals (0, 1, 2, ...) to express `ℕ`.</span>
+<span class="token comment">{-# BUILTIN NATURAL ℕ #-}</span>
+
+<span class="token comment">-- Agda has a module system corresponding to the project file structure.</span>
+<span class="token comment">-- e.g. `My.Namespace` is in</span>
+<span class="token comment">-- `project path/My/Namespace.agda`.</span>
+
+<span class="token comment">-- The `import` statement does NOT expose the names to the top namespace.</span>
+<span class="token comment">-- You'll have to use `My.Namespace.thing` instead of directly `thing`.</span>
+<span class="token keyword">import</span> Relation<span class="token punctuation">.</span>Binary<span class="token punctuation">.</span>PropositionalEquality as Eq
+<span class="token comment">-- The `open` statement unpacks all the names in a imported namespace and exposes them to the top namespace.</span>
+<span class="token comment">-- Alternatively the `open import` statement imports a namespace and opens it at the same time.</span>
+<span class="token comment">-- The `using (a; ..)` clause can limit a range of names to expose, instead of all of them.</span>
+<span class="token comment">-- Alternatively, the `hiding (a; ..)` clause can limit a range of names NOT to expose.</span>
+<span class="token comment">-- Also the `renaming (a to b; ..)` clause can rename names.</span>
+<span class="token comment">-- CHAR: \== → ≡</span>
+<span class="token comment">--       \gt → ⟨</span>
+<span class="token comment">--       \lt → ⟩</span>
+<span class="token comment">--       \qed → ∎</span>
+<span class="token keyword">open</span> Eq <span class="token keyword">using</span> <span class="token punctuation">(</span>_≡_<span class="token punctuation">;</span> refl<span class="token punctuation">)</span>
+<span class="token keyword">open</span> Eq<span class="token punctuation">.</span>≡-Reasoning <span class="token keyword">using</span> <span class="token punctuation">(</span>begin_<span class="token punctuation">;</span> _≡⟨⟩_<span class="token punctuation">;</span> _∎<span class="token punctuation">)</span>
+
+<span class="token comment">-- Addition of `ℕ`.</span>
+<span class="token comment">-- Note that Agda functions are *like* Haskell functions.</span>
+<span class="token comment">-- In Agda, operators can be mixfix (incl. infix, prefix, suffix, self-bracketing and many others).</span>
+<span class="token comment">-- All the `holes` are represented by `_`s. Unlike Haskell, operator names don't need to be put in parentheses.</span>
+<span class="token comment">-- Operators can also be called in the manner of normal functions.</span>
+<span class="token comment">-- e.g. a + b = _+_ a b.</span>
+<span class="token comment">-- Sections are also available, though somehow weird.</span>
+<span class="token comment">-- e.g. a +_ = _+_ a.</span>
+<span class="token function">_+_ </span><span class="token operator">:</span> ℕ <span class="token operator">→</span> ℕ <span class="token operator">→</span> ℕ
+<span class="token comment">-- Lhs can also be infix!</span>
+<span class="token comment">-- This is the standard definition in both Peano and Agda stdlib.</span>
+<span class="token comment">-- We do pattern match on the first parameter, it's both convention and for convenience.</span>
+<span class="token comment">-- Agda does a termination check on recursive function.</span>
+<span class="token comment">-- Here the first parameter decreases over evaluation thus it is *well-founded*.</span>
+zero    + n <span class="token operator">=</span> n
+<span class="token punctuation">(</span>suc m<span class="token punctuation">)</span> + n <span class="token operator">=</span> suc <span class="token punctuation">(</span>m + n<span class="token punctuation">)</span>
+
+<span class="token comment">-- Here we take a glance at the *dependent type*.</span>
+<span class="token comment">-- In dependent type, we can put values into type level, and vice versa.</span>
+<span class="token comment">-- This is especially useful when we're expecting to make the types more precise.</span>
+<span class="token comment">-- Here `_≡_` is a type that says that two values are *the same*, that is, samely constructed.</span>
+<span class="token function">_ </span><span class="token operator">:</span> 2 + 3 ≡ 5
+<span class="token comment">-- We can do it by ≡-Reasoning, that is writing a (unreasonably long) chain of equations.</span>
+<span class="token operator">_</span> <span class="token operator">=</span>
+	begin
+		2 + 3
+	≡⟨⟩ <span class="token comment">-- This operator means the lhs and rhs can be reduced to the same form so that they are equal.</span>
+		suc <span class="token punctuation">(</span>1 + 3<span class="token punctuation">)</span>
+	≡⟨⟩
+		suc <span class="token punctuation">(</span>suc <span class="token punctuation">(</span>0 + 3<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- Just simulating the function evaluation</span>
+	≡⟨⟩
+		suc <span class="token punctuation">(</span>suc 3<span class="token punctuation">)</span>
+	≡⟨⟩
+		5
+	∎ <span class="token comment">-- The *tombstone*, QED.</span>
+
+<span class="token comment">-- Well actually we can also get this done by simply writing `refl`.</span>
+<span class="token comment">-- `refl` is a proof that says "If two values evaluates to the same form, then they are equal".</span>
+<span class="token comment">-- Since Agda can automatically evaluate the terms for us, this makes sense.</span>
+<span class="token function">_ </span><span class="token operator">:</span> 2 + 3 ≡ 5
+<span class="token operator">_</span> <span class="token operator">=</span> refl
+
+<span class="token comment">-- Multiplication of `ℕ`, defined with addition.</span>
+<span class="token function">_*_ </span><span class="token operator">:</span> ℕ <span class="token operator">→</span> ℕ <span class="token operator">→</span> ℕ
+<span class="token comment">-- Here we can notice that in Agda we prefer to indent by *visual blocks* instead by a fixed number of spaces.</span>
+zero    * n <span class="token operator">=</span> zero
+<span class="token comment">-- Here the addition is at the front, to be consistent with addition.</span>
+<span class="token punctuation">(</span>suc m<span class="token punctuation">)</span> * n <span class="token operator">=</span> n + <span class="token punctuation">(</span>m * n<span class="token punctuation">)</span>
+
+<span class="token comment">-- EXERCISE `_^_`, Exponentation of `ℕ`.</span>
+<span class="token function">_^_ </span><span class="token operator">:</span> ℕ <span class="token operator">→</span> ℕ <span class="token operator">→</span> ℕ
+<span class="token comment">-- We can only pattern match the 2nd argument.</span>
+m ^ zero    <span class="token operator">=</span> suc zero
+m ^ <span class="token punctuation">(</span>suc n<span class="token punctuation">)</span> <span class="token operator">=</span> m * <span class="token punctuation">(</span>m ^ n<span class="token punctuation">)</span>
+
+<span class="token comment">-- *Monus* (a wordplay on minus), the non-negative subtraction of `ℕ`.</span>
+<span class="token comment">-- if less than 0 then we get 0.</span>
+<span class="token comment">-- CHAR: \.- → ∸</span>
+<span class="token function">_∸_ </span><span class="token operator">:</span> ℕ <span class="token operator">→</span> ℕ <span class="token operator">→</span> ℕ
+m     ∸ zero  <span class="token operator">=</span> m
+zero  ∸ suc n <span class="token operator">=</span> zero
+suc m ∸ suc n <span class="token operator">=</span> m ∸ n
+
+<span class="token comment">-- Now we define the precedence of the operators, as in Haskell.</span>
+<span class="token keyword">infixl</span> 6 _+_ _∸_
+<span class="token keyword">infixl</span> 7 _*_
+
+<span class="token comment">-- These are some more pragmas. Should be self-explaining.</span>
+<span class="token comment">{-# BUILTIN NATPLUS _+_ #-}</span>
+<span class="token comment">{-# BUILTIN NATTIMES _*_ #-}</span>
+<span class="token comment">{-# BUILTIN NATMINUS _∸_ #-}</span>
+
+<span class="token comment">-- EXERCISE `Bin`. We define a binary representation of natural numbers.</span>
+<span class="token comment">-- Leading `O`s are acceptable.</span>
+<span class="token keyword">data</span> <span class="token class-name">Bin</span> <span class="token operator">:</span> <span class="token keyword">Set</span> <span class="token keyword">where</span>
+	<span class="token function">⟨⟩ </span><span class="token operator">:</span> Bin
+	<span class="token function">_O </span><span class="token operator">:</span> Bin <span class="token operator">→</span> Bin
+	<span class="token function">_I </span><span class="token operator">:</span> Bin <span class="token operator">→</span> Bin
+
+<span class="token comment">-- Like `suc` for `Bin`.</span>
+<span class="token function">inc </span><span class="token operator">:</span> Bin <span class="token operator">→</span> Bin
+inc ⟨⟩ <span class="token operator">=</span> ⟨⟩ I
+inc <span class="token punctuation">(</span>b O<span class="token punctuation">)</span> <span class="token operator">=</span> b I
+inc <span class="token punctuation">(</span>b I<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>inc b<span class="token punctuation">)</span> O
+
+<span class="token comment">-- `ℕ` to `Bin`. This is a Θ(n) solution and awaits a better Θ(log n) reimpelementation.</span>
+<span class="token function">to </span><span class="token operator">:</span> ℕ <span class="token operator">→</span> Bin
+to zero    <span class="token operator">=</span> ⟨⟩ O
+to <span class="token punctuation">(</span>suc n<span class="token punctuation">)</span> <span class="token operator">=</span> inc <span class="token punctuation">(</span>to n<span class="token punctuation">)</span>
+
+<span class="token comment">-- `Bin` to `ℕ`.</span>
+<span class="token function">from </span><span class="token operator">:</span> Bin <span class="token operator">→</span> ℕ
+from ⟨⟩    <span class="token operator">=</span> 0
+from <span class="token punctuation">(</span>b O<span class="token punctuation">)</span> <span class="token operator">=</span> 2 * <span class="token punctuation">(</span>from b<span class="token punctuation">)</span>
+from <span class="token punctuation">(</span>b I<span class="token punctuation">)</span> <span class="token operator">=</span> 1 + 2 * <span class="token punctuation">(</span>from b<span class="token punctuation">)</span>
+
+<span class="token comment">-- Simple tests from 0 to 4.</span>
+<span class="token function">_ </span><span class="token operator">:</span> from <span class="token punctuation">(</span>to 0<span class="token punctuation">)</span> ≡ 0
+<span class="token operator">_</span> <span class="token operator">=</span> refl
+
+<span class="token function">_ </span><span class="token operator">:</span> from <span class="token punctuation">(</span>to 1<span class="token punctuation">)</span> ≡ 1
+<span class="token operator">_</span> <span class="token operator">=</span> refl
+
+<span class="token function">_ </span><span class="token operator">:</span> from <span class="token punctuation">(</span>to 2<span class="token punctuation">)</span> ≡ 2
+<span class="token operator">_</span> <span class="token operator">=</span> refl
+
+<span class="token function">_ </span><span class="token operator">:</span> from <span class="token punctuation">(</span>to 3<span class="token punctuation">)</span> ≡ 3
+<span class="token operator">_</span> <span class="token operator">=</span> refl
+
+<span class="token function">_ </span><span class="token operator">:</span> from <span class="token punctuation">(</span>to 4<span class="token punctuation">)</span> ≡ 4
+<span class="token operator">_</span> <span class="token operator">=</span> refl
+
+<span class="token comment">-- EXERCISE END `Bin`</span>
+
+<span class="token comment">-- STDLIB: import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</span>
+
+----------------------------------------------------

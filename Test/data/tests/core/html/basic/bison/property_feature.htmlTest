@@ -1,0 +1,13 @@
+%%
+foo:
+bar_42:
+$@1:
+%%
+----------------------------------------------------
+<span class="token bison"><span class="token punctuation">%%</span>
+<span class="token property">foo</span><span class="token punctuation">:</span>
+<span class="token property">bar_42</span><span class="token punctuation">:</span>
+<span class="token property">$@1</span><span class="token punctuation">:</span>
+<span class="token punctuation">%%</span></span>
+
+----------------------------------------------------

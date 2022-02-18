@@ -1,0 +1,44 @@
+'C'; '\''; '\n'; '\u{7FFF}'; // Characters
+"foo \"bar\" baz"; // String
+r##"foo #"bar"# baz"##; // Raw string with # pairs
+b'C'; b'\''; b'\n'; // Bytes
+b"foo \"bar\" baz"; // Byte string
+br##"foo #"bar"# baz"##; // Raw byte string with # pairs
+----------------------------------------------------
+[
+	["char", "'C'"],
+	["punctuation", ";"],
+	["char", "'\\''"],
+	["punctuation", ";"],
+	["char", "'\\n'"],
+	["punctuation", ";"],
+	["char", "'\\u{7FFF}'"],
+	["punctuation", ";"],
+	["comment", "// Characters"],
+
+	["string", "\"foo \\\"bar\\\" baz\""],
+	["punctuation", ";"],
+	["comment", "// String"],
+
+	["string", "r##\"foo #\"bar\"# baz\"##"],
+	["punctuation", ";"],
+	["comment", "// Raw string with # pairs"],
+
+	["char", "b'C'"],
+	["punctuation", ";"],
+	["char", "b'\\''"],
+	["punctuation", ";"],
+	["char", "b'\\n'"],
+	["punctuation", ";"],
+	["comment", "// Bytes"],
+
+	["string", "b\"foo \\\"bar\\\" baz\""],
+	["punctuation", ";"],
+	["comment", "// Byte string"],
+
+	["string", "br##\"foo #\"bar\"# baz\"##"],
+	["punctuation", ";"],
+	["comment", "// Raw byte string with # pairs"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,29 @@
+class Foo extends foo.bar.Foo {
+
+	java.util.List<foo.bar.Foo.Bar> bar(foo.bar.Baz bat) throws java.lang.Exception {
+		var foo = new java.lang.UnsupportedOperationException("Not implemented");
+		Exception e = foo;
+		throw e;
+	}
+
+}
+
+ID id;
+
+String.valueOf(5);
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token keyword">extends</span> <span class="token class-name"><span class="token namespace">foo<span class="token punctuation">.</span>bar<span class="token punctuation">.</span></span>Foo</span> <span class="token punctuation">{</span>
+
+	<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span>List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name"><span class="token namespace">foo<span class="token punctuation">.</span>bar<span class="token punctuation">.</span></span>Foo<span class="token punctuation">.</span>Bar</span><span class="token punctuation">></span></span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">foo<span class="token punctuation">.</span>bar<span class="token punctuation">.</span></span>Baz</span> bat<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Exception</span> <span class="token punctuation">{</span>
+		<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>UnsupportedOperationException</span><span class="token punctuation">(</span><span class="token string">"Not implemented"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">Exception</span> e <span class="token operator">=</span> foo<span class="token punctuation">;</span>
+		<span class="token keyword">throw</span> e<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token class-name">ID</span> id<span class="token punctuation">;</span>
+
+<span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

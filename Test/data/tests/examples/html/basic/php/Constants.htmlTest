@@ -1,0 +1,9 @@
+define('MAXSIZE', 42);
+echo MAXSIZE;
+json_decode($json, false, 512, JSON_BIGINT_AS_STRING)
+----------------------------------------------------
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'MAXSIZE'</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token constant">MAXSIZE</span><span class="token punctuation">;</span>
+<span class="token function">json_decode</span><span class="token punctuation">(</span><span class="token variable">$json</span><span class="token punctuation">,</span> <span class="token constant boolean">false</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token constant">JSON_BIGINT_AS_STRING</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

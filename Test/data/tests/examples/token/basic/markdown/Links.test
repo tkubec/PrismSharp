@@ -1,0 +1,41 @@
+[Prism](http://www.prismjs.com)
+[Prism](http://www.prismjs.com "Prism")
+
+[prism link]: http://www.prismjs.com (Prism)
+[Prism] [prism link]
+----------------------------------------------------
+[
+	["url", [
+		"[",
+		["content", ["Prism"]],
+		"](",
+		["url", "http://www.prismjs.com"],
+		")"
+	]],
+	["url", [
+		"[",
+		["content", ["Prism"]],
+		"](",
+		["url", "http://www.prismjs.com"],
+		["string", "\"Prism\""],
+		")"
+	]],
+
+	["url-reference", [
+		["punctuation", "["],
+		["variable", "prism link"],
+		["punctuation", "]"],
+		["punctuation", ":"],
+		" http://www.prismjs.com ",
+		["string", "(Prism)"]
+	]],
+	["url", [
+		"[",
+		["content", ["Prism"]],
+		"] [",
+		["variable", "prism link"],
+		"]"
+	]]
+]
+
+----------------------------------------------------

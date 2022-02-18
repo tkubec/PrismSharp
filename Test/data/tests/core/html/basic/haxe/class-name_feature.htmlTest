@@ -1,0 +1,77 @@
+class Main {}
+
+typedef Player = { name: String, move: Move }
+
+enum Move { Rock; Paper; Scissors; }
+
+abstract MyAbstractInt(Int) from Int to Int {
+  @:op(A > B) static function gt(a:MyAbstractInt, b:MyAbstractInt):Bool;
+}
+
+new A();
+
+var b:B = a;
+
+class Game {
+  // Haxe applications have a static entry point called main
+  static function main() {
+    // Anonymous structures.
+    var playerA = { name: "Simon", move: Paper }
+    var playerB = { name: "Nicolas", move: Rock }
+
+    // Array pattern matching. A switch can return a value.
+    var result = switch [playerA.move, playerB.move] {
+      case [Rock, Scissors] |
+           [Paper, Rock] |
+           [Scissors, Paper]: Winner(playerA);
+
+      case [Rock, Paper] |
+           [Paper, Scissors] |
+           [Scissors, Rock]: Winner(playerB);
+
+      case _: Draw;
+    }
+    // Paper vs Rock, who wins?
+    trace('result: $result');
+  }
+}
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">typedef</span> <span class="token class-name">Player</span> <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span> move<span class="token operator">:</span> <span class="token class-name">Move</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">Move</span> <span class="token punctuation">{</span> <span class="token class-name">Rock</span><span class="token punctuation">;</span> <span class="token class-name">Paper</span><span class="token punctuation">;</span> <span class="token class-name">Scissors</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">abstract</span> <span class="token class-name">MyAbstractInt</span><span class="token punctuation">(</span><span class="token class-name">Int</span><span class="token punctuation">)</span> <span class="token keyword">from</span> <span class="token class-name">Int</span> <span class="token keyword">to</span> <span class="token class-name">Int</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@:op</span><span class="token punctuation">(</span><span class="token class-name">A</span> <span class="token operator">></span> <span class="token class-name">B</span><span class="token punctuation">)</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">gt</span><span class="token punctuation">(</span>a<span class="token operator">:</span><span class="token class-name">MyAbstractInt</span><span class="token punctuation">,</span> b<span class="token operator">:</span><span class="token class-name">MyAbstractInt</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token class-name">Bool</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> b<span class="token operator">:</span><span class="token class-name">B</span> <span class="token operator">=</span> a<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Game</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Haxe applications have a static entry point called main</span>
+  <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Anonymous structures.</span>
+    <span class="token keyword">var</span> playerA <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"Simon"</span><span class="token punctuation">,</span> move<span class="token operator">:</span> <span class="token class-name">Paper</span> <span class="token punctuation">}</span>
+    <span class="token keyword">var</span> playerB <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"Nicolas"</span><span class="token punctuation">,</span> move<span class="token operator">:</span> <span class="token class-name">Rock</span> <span class="token punctuation">}</span>
+
+    <span class="token comment">// Array pattern matching. A switch can return a value.</span>
+    <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">switch</span> <span class="token punctuation">[</span>playerA<span class="token punctuation">.</span>move<span class="token punctuation">,</span> playerB<span class="token punctuation">.</span>move<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token punctuation">[</span><span class="token class-name">Rock</span><span class="token punctuation">,</span> <span class="token class-name">Scissors</span><span class="token punctuation">]</span> <span class="token operator">|</span>
+           <span class="token punctuation">[</span><span class="token class-name">Paper</span><span class="token punctuation">,</span> <span class="token class-name">Rock</span><span class="token punctuation">]</span> <span class="token operator">|</span>
+           <span class="token punctuation">[</span><span class="token class-name">Scissors</span><span class="token punctuation">,</span> <span class="token class-name">Paper</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token class-name">Winner</span><span class="token punctuation">(</span>playerA<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">case</span> <span class="token punctuation">[</span><span class="token class-name">Rock</span><span class="token punctuation">,</span> <span class="token class-name">Paper</span><span class="token punctuation">]</span> <span class="token operator">|</span>
+           <span class="token punctuation">[</span><span class="token class-name">Paper</span><span class="token punctuation">,</span> <span class="token class-name">Scissors</span><span class="token punctuation">]</span> <span class="token operator">|</span>
+           <span class="token punctuation">[</span><span class="token class-name">Scissors</span><span class="token punctuation">,</span> <span class="token class-name">Rock</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token class-name">Winner</span><span class="token punctuation">(</span>playerB<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">case</span> _<span class="token operator">:</span> <span class="token class-name">Draw</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// Paper vs Rock, who wins?</span>
+    <span class="token function">trace</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">'result: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">result</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

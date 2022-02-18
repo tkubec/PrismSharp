@@ -1,0 +1,21 @@
+Foo {
+	bar: FooBar {}
+	Baz {}
+	RotationAnimation on rotation {
+		loops: Animation.Infinite
+		from: 0
+		to: 360
+	}
+}
+----------------------------------------------------
+<span class="token class-name">Foo</span> <span class="token punctuation">{</span>
+	<span class="token property">bar</span><span class="token punctuation">:</span> <span class="token class-name">FooBar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token class-name">Baz</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token class-name">RotationAnimation</span> <span class="token keyword">on</span> rotation <span class="token punctuation">{</span>
+		<span class="token property">loops</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript">Animation<span class="token punctuation">.</span>Infinite</span>
+		<span class="token property">from</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">0</span></span>
+		<span class="token property">to</span><span class="token punctuation">:</span> <span class="token javascript-expression language-javascript"><span class="token number">360</span></span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

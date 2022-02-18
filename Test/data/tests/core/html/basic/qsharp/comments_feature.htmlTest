@@ -1,0 +1,11 @@
+// The following using block creates a fresh qubit and initializes it
+// in the |0> state.
+
+use qubit = Qubit();
+----------------------------------------------------
+<span class="token comment">// The following using block creates a fresh qubit and initializes it</span>
+<span class="token comment">// in the |0> state.</span>
+
+<span class="token keyword">use</span> qubit <span class="token operator">=</span> <span class="token keyword">Qubit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

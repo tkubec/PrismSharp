@@ -1,0 +1,13 @@
+OUT PORTB,x
+ldi r17,(1<<PD07)
+OUT PORTD,r31
+OUT PORTB,A
+OUT PORTL,r10
+----------------------------------------------------
+<span class="token op-code keyword">OUT</span> <span class="token constant">PORTB</span><span class="token punctuation">,</span><span class="token register variable">x</span>
+<span class="token op-code keyword">ldi</span> <span class="token r-register variable">r17</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD07</span><span class="token punctuation">)</span>
+<span class="token op-code keyword">OUT</span> <span class="token constant">PORTD</span><span class="token punctuation">,</span><span class="token r-register variable">r31</span>
+<span class="token op-code keyword">OUT</span> <span class="token constant">PORTB</span><span class="token punctuation">,</span><span class="token register variable">A</span>
+<span class="token op-code keyword">OUT</span> <span class="token constant">PORTL</span><span class="token punctuation">,</span><span class="token r-register variable">r10</span>
+
+----------------------------------------------------

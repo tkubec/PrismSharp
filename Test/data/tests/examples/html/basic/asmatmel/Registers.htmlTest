@@ -1,0 +1,7 @@
+LD A  ; "A"
+LDA label1,x  ; "x"
+----------------------------------------------------
+<span class="token op-code keyword">LD</span> <span class="token register variable">A</span>  <span class="token comment">; "A"</span>
+<span class="token op-code keyword">LDA</span> label1<span class="token punctuation">,</span><span class="token register variable">x</span>  <span class="token comment">; "x"</span>
+
+----------------------------------------------------

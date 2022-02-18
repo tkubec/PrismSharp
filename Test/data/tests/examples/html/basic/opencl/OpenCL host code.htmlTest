@@ -1,0 +1,55 @@
+// OpenCL functions, constants, etc. are also highlighted in OpenCL host code in the c or cpp language
+cl::Event KernelFilterImages::runSingle(const cl::Image2D& imgSrc, SPImage2D& imgDst)
+{
+	const size_t rows = imgSrc.getImageInfo<CL_IMAGE_HEIGHT>();
+	const size_t cols = imgSrc.getImageInfo<CL_IMAGE_WIDTH>();
+
+	ASSERT(rows > 0 && cols > 0, "The image object seems to be invalid, no rows/cols set");
+	ASSERT(imgSrc.getImageInfo<CL_IMAGE_FORMAT>().image_channel_data_type == CL_FLOAT, "Only float type images are supported");
+	ASSERT(imgSrc.getInfo<CL_MEM_FLAGS>() == CL_MEM_READ_ONLY || imgSrc.getInfo<CL_MEM_FLAGS>() == CL_MEM_READ_WRITE, "Can't read the input image");
+
+	imgDst = std::make_shared<cl::Image2D>(*context, CL_MEM_READ_WRITE, cl::ImageFormat(CL_R, CL_FLOAT), cols, rows);
+
+	cl::Kernel kernel(*program, "filter_single");
+	kernel.setArg(0, imgSrc);
+	kernel.setArg(1, *imgDst);
+	kernel.setArg(2, bufferKernel1);
+	kernel.setArg(3, kernel1.rows);
+	kernel.setArg(4, kernel1.rows / 2);
+	kernel.setArg(5, kernel1.cols);
+	kernel.setArg(6, kernel1.cols / 2);
+	kernel.setArg(7, border);
+
+	cl::Event eventFilter;
+	const cl::NDRange global(cols, rows);
+	queue->enqueueNDRangeKernel(kernel, cl::NullRange, global, cl::NullRange, &events, &eventFilter);
+}
+----------------------------------------------------
+<span class="token comment">// OpenCL functions, constants, etc. are also highlighted in OpenCL host code in the c or cpp language</span>
+cl<span class="token operator">::</span>Event KernelFilterImages<span class="token operator">::</span><span class="token function">runSingle</span><span class="token punctuation">(</span><span class="token keyword">const</span> cl<span class="token operator">::</span>Image2D<span class="token operator">&amp;</span> imgSrc<span class="token punctuation">,</span> SPImage2D<span class="token operator">&amp;</span> imgDst<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">const</span> <span class="token builtin-type keyword">size_t</span> rows <span class="token operator">=</span> imgSrc<span class="token punctuation">.</span>getImageInfo<span class="token operator">&lt;</span>CL_IMAGE_HEIGHT<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token builtin-type keyword">size_t</span> cols <span class="token operator">=</span> imgSrc<span class="token punctuation">.</span>getImageInfo<span class="token operator">&lt;</span>CL_IMAGE_WIDTH<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token function">ASSERT</span><span class="token punctuation">(</span>rows <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> cols <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"The image object seems to be invalid, no rows/cols set"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">ASSERT</span><span class="token punctuation">(</span>imgSrc<span class="token punctuation">.</span>getImageInfo<span class="token operator">&lt;</span>CL_IMAGE_FORMAT<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>image_channel_data_type <span class="token operator">==</span> <span class="token constant-opencl-kernel constant">CL_FLOAT</span><span class="token punctuation">,</span> <span class="token string">"Only float type images are supported"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">ASSERT</span><span class="token punctuation">(</span>imgSrc<span class="token punctuation">.</span>getInfo<span class="token operator">&lt;</span>CL_MEM_FLAGS<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> CL_MEM_READ_ONLY <span class="token operator">||</span> imgSrc<span class="token punctuation">.</span>getInfo<span class="token operator">&lt;</span>CL_MEM_FLAGS<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> CL_MEM_READ_WRITE<span class="token punctuation">,</span> <span class="token string">"Can't read the input image"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	imgDst <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>cl<span class="token operator">::</span>Image2D<span class="token operator">></span><span class="token punctuation">(</span><span class="token operator">*</span>context<span class="token punctuation">,</span> CL_MEM_READ_WRITE<span class="token punctuation">,</span> cl<span class="token operator">::</span><span class="token function">ImageFormat</span><span class="token punctuation">(</span><span class="token constant-opencl-kernel constant">CL_R</span><span class="token punctuation">,</span> <span class="token constant-opencl-kernel constant">CL_FLOAT</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cols<span class="token punctuation">,</span> rows<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	cl<span class="token operator">::</span>Kernel <span class="token keyword">kernel</span><span class="token punctuation">(</span><span class="token operator">*</span>program<span class="token punctuation">,</span> <span class="token string">"filter_single"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">kernel</span><span class="token punctuation">.</span><span class="token function">setArg</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> imgSrc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">kernel</span><span class="token punctuation">.</span><span class="token function">setArg</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">*</span>imgDst<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">kernel</span><span class="token punctuation">.</span><span class="token function">setArg</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> bufferKernel1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">kernel</span><span class="token punctuation">.</span><span class="token function">setArg</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> kernel1<span class="token punctuation">.</span>rows<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">kernel</span><span class="token punctuation">.</span><span class="token function">setArg</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> kernel1<span class="token punctuation">.</span>rows <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">kernel</span><span class="token punctuation">.</span><span class="token function">setArg</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> kernel1<span class="token punctuation">.</span>cols<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">kernel</span><span class="token punctuation">.</span><span class="token function">setArg</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> kernel1<span class="token punctuation">.</span>cols <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">kernel</span><span class="token punctuation">.</span><span class="token function">setArg</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> border<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	cl<span class="token operator">::</span>Event eventFilter<span class="token punctuation">;</span>
+	<span class="token keyword">const</span> cl<span class="token operator">::</span>NDRange <span class="token keyword">global</span><span class="token punctuation">(</span>cols<span class="token punctuation">,</span> rows<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	queue<span class="token operator">-></span><span class="token function">enqueueNDRangeKernel</span><span class="token punctuation">(</span><span class="token keyword">kernel</span><span class="token punctuation">,</span> cl<span class="token operator">::</span>NullRange<span class="token punctuation">,</span> <span class="token keyword">global</span><span class="token punctuation">,</span> cl<span class="token operator">::</span>NullRange<span class="token punctuation">,</span> <span class="token operator">&amp;</span>events<span class="token punctuation">,</span> <span class="token operator">&amp;</span>eventFilter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

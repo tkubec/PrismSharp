@@ -1,0 +1,288 @@
+// Source: https://github.com/microsoft/AL/blob/master/samples/ControlAddIn/al/Page/CustomerCardAddIn.al
+
+pageextension 50300 CustomerCardAddIn extends "Customer Card"
+{
+	layout
+	{
+		addafter(Blocked)
+		{
+			usercontrol(ControlName; TestAddIn)
+			{
+				ApplicationArea = All;
+
+				trigger Callback(i : integer; s: text; d : decimal; c : char)
+				begin
+					Message('Got from js: %1, %2, %3, %4', i, s, d, c);
+				end;
+			}
+		}
+	}
+
+	actions
+	{
+		addafter(Approve)
+		{
+			action(CallJavaScript)
+			{
+				ApplicationArea = All;
+
+				trigger OnAction();
+				begin
+					CurrPage.ControlName.CallJavaScript(5, 'text', 6.3, 'c');
+				end;
+			}
+
+			action(CallViaCodeunit)
+			{
+				ApplicationArea = All;
+
+				trigger OnAction();
+				var c : Codeunit AddInHelpers;
+				begin
+					c.CallJavaScript(CurrPage.ControlName);
+				end;
+			}
+
+			action(CallStaleControlAddIn)
+			{
+				ApplicationArea = All;
+
+				trigger OnAction();
+				var c : Codeunit AddInHelpersSingleton;
+				begin
+					c.CallStaleAddInMethod();
+					Message('Probably nothing should happen...');
+				end;
+			}
+		}
+	}
+}
+----------------------------------------------------
+[
+	["comment", "// Source: https://github.com/microsoft/AL/blob/master/samples/ControlAddIn/al/Page/CustomerCardAddIn.al"],
+
+	["keyword", "pageextension"],
+	["number", "50300"],
+	" CustomerCardAddIn ",
+	["keyword", "extends"],
+	["string", "\"Customer Card\""],
+
+	["punctuation", "{"],
+
+	["keyword", "layout"],
+
+	["punctuation", "{"],
+
+	["keyword", "addafter"],
+	["punctuation", "("],
+	"Blocked",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "usercontrol"],
+	["punctuation", "("],
+	"ControlName",
+	["punctuation", ";"],
+	" TestAddIn",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\t\t\tApplicationArea ",
+	["operator", "="],
+	" All",
+	["punctuation", ";"],
+
+	["keyword", "trigger"],
+	["function", "Callback"],
+	["punctuation", "("],
+	"i ",
+	["punctuation", ":"],
+	["class-name", "integer"],
+	["punctuation", ";"],
+	" s",
+	["punctuation", ":"],
+	["class-name", "text"],
+	["punctuation", ";"],
+	" d ",
+	["punctuation", ":"],
+	["class-name", "decimal"],
+	["punctuation", ";"],
+	" c ",
+	["punctuation", ":"],
+	["class-name", "char"],
+	["punctuation", ")"],
+
+	["keyword", "begin"],
+
+	"\n\t\t\t\t\tMessage",
+	["punctuation", "("],
+	["string", "'Got from js: %1, %2, %3, %4'"],
+	["punctuation", ","],
+	" i",
+	["punctuation", ","],
+	" s",
+	["punctuation", ","],
+	" d",
+	["punctuation", ","],
+	" c",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "actions"],
+
+	["punctuation", "{"],
+
+	["keyword", "addafter"],
+	["punctuation", "("],
+	"Approve",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "action"],
+	["punctuation", "("],
+	"CallJavaScript",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\t\t\tApplicationArea ",
+	["operator", "="],
+	" All",
+	["punctuation", ";"],
+
+	["keyword", "trigger"],
+	["function", "OnAction"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "begin"],
+
+	["variable", "CurrPage"],
+	["punctuation", "."],
+	"ControlName",
+	["punctuation", "."],
+	["function", "CallJavaScript"],
+	["punctuation", "("],
+	["number", "5"],
+	["punctuation", ","],
+	["string", "'text'"],
+	["punctuation", ","],
+	["number", "6.3"],
+	["punctuation", ","],
+	["string", "'c'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "action"],
+	["punctuation", "("],
+	"CallViaCodeunit",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\t\t\tApplicationArea ",
+	["operator", "="],
+	" All",
+	["punctuation", ";"],
+
+	["keyword", "trigger"],
+	["function", "OnAction"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" c ",
+	["punctuation", ":"],
+	["keyword", "Codeunit"],
+	" AddInHelpers",
+	["punctuation", ";"],
+
+	["keyword", "begin"],
+
+	"\n\t\t\t\t\tc",
+	["punctuation", "."],
+	["function", "CallJavaScript"],
+	["punctuation", "("],
+	["variable", "CurrPage"],
+	["punctuation", "."],
+	"ControlName",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "action"],
+	["punctuation", "("],
+	"CallStaleControlAddIn",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\t\t\tApplicationArea ",
+	["operator", "="],
+	" All",
+	["punctuation", ";"],
+
+	["keyword", "trigger"],
+	["function", "OnAction"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" c ",
+	["punctuation", ":"],
+	["keyword", "Codeunit"],
+	" AddInHelpersSingleton",
+	["punctuation", ";"],
+
+	["keyword", "begin"],
+
+	"\n\t\t\t\t\tc",
+	["punctuation", "."],
+	["function", "CallStaleAddInMethod"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\t\tMessage",
+	["punctuation", "("],
+	["string", "'Probably nothing should happen...'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

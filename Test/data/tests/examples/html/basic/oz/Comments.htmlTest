@@ -1,0 +1,13 @@
+%
+% Foobar
+
+/* Foo
+bar */
+----------------------------------------------------
+<span class="token comment">%</span>
+<span class="token comment">% Foobar</span>
+
+<span class="token comment">/* Foo
+bar */</span>
+
+----------------------------------------------------

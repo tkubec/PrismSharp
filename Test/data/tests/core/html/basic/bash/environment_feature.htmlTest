@@ -1,0 +1,225 @@
+$foo
+$IFS
+IFS=a
+"$PS1"
+"${PS1}"
+$BASH
+$BASHOPTS
+$BASH_ALIASES
+$BASH_ARGC
+$BASH_ARGV
+$BASH_CMDS
+$BASH_COMPLETION_COMPAT_DIR
+$BASH_LINENO
+$BASH_REMATCH
+$BASH_SOURCE
+$BASH_VERSINFO
+$BASH_VERSION
+$COLORTERM
+$COLUMNS
+$COMP_WORDBREAKS
+$DBUS_SESSION_BUS_ADDRESS
+$DEFAULTS_PATH
+$DESKTOP_SESSION
+$DIRSTACK
+$DISPLAY
+$EUID
+$GDMSESSION
+$GDM_LANG
+$GNOME_KEYRING_CONTROL
+$GNOME_KEYRING_PID
+$GPG_AGENT_INFO
+$GROUPS
+$HISTCONTROL
+$HISTFILE
+$HISTFILESIZE
+$HISTSIZE
+$HOME
+$HOSTNAME
+$HOSTTYPE
+$IFS
+$INSTANCE
+$JOB
+$LANG
+$LANGUAGE
+$LC_ADDRESS
+$LC_ALL
+$LC_IDENTIFICATION
+$LC_MEASUREMENT
+$LC_MONETARY
+$LC_NAME
+$LC_NUMERIC
+$LC_PAPER
+$LC_TELEPHONE
+$LC_TIME
+$LESSCLOSE
+$LESSOPEN
+$LINES
+$LOGNAME
+$LS_COLORS
+$MACHTYPE
+$MAILCHECK
+$MANDATORY_PATH
+$NO_AT_BRIDGE
+$OLDPWD
+$OPTERR
+$OPTIND
+$ORBIT_SOCKETDIR
+$OSTYPE
+$PAPERSIZE
+$PATH
+$PIPESTATUS
+$PPID
+$PS1
+$PS2
+$PS3
+$PS4
+$PWD
+$RANDOM
+$REPLY
+$SECONDS
+$SELINUX_INIT
+$SESSION
+$SESSIONTYPE
+$SESSION_MANAGER
+$SHELL
+$SHELLOPTS
+$SHLVL
+$SSH_AUTH_SOCK
+$TERM
+$UID
+$UPSTART_EVENTS
+$UPSTART_INSTANCE
+$UPSTART_JOB
+$UPSTART_SESSION
+$USER
+$WINDOWID
+$XAUTHORITY
+$XDG_CONFIG_DIRS
+$XDG_CURRENT_DESKTOP
+$XDG_DATA_DIRS
+$XDG_GREETER_DATA_DIR
+$XDG_MENU_PREFIX
+$XDG_RUNTIME_DIR
+$XDG_SEAT
+$XDG_SEAT_PATH
+$XDG_SESSION_DESKTOP
+$XDG_SESSION_ID
+$XDG_SESSION_PATH
+$XDG_SESSION_TYPE
+$XDG_VTNR
+$XMODIFIERS
+----------------------------------------------------
+<span class="token variable">$foo</span>
+<span class="token environment constant">$IFS</span>
+<span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span>a
+<span class="token string">"<span class="token environment constant">$PS1</span>"</span>
+<span class="token string">"<span class="token variable">${<span class="token environment constant">PS1</span>}</span>"</span>
+<span class="token environment constant">$BASH</span>
+<span class="token environment constant">$BASHOPTS</span>
+<span class="token environment constant">$BASH_ALIASES</span>
+<span class="token environment constant">$BASH_ARGC</span>
+<span class="token environment constant">$BASH_ARGV</span>
+<span class="token environment constant">$BASH_CMDS</span>
+<span class="token environment constant">$BASH_COMPLETION_COMPAT_DIR</span>
+<span class="token environment constant">$BASH_LINENO</span>
+<span class="token environment constant">$BASH_REMATCH</span>
+<span class="token environment constant">$BASH_SOURCE</span>
+<span class="token environment constant">$BASH_VERSINFO</span>
+<span class="token environment constant">$BASH_VERSION</span>
+<span class="token environment constant">$COLORTERM</span>
+<span class="token environment constant">$COLUMNS</span>
+<span class="token environment constant">$COMP_WORDBREAKS</span>
+<span class="token environment constant">$DBUS_SESSION_BUS_ADDRESS</span>
+<span class="token environment constant">$DEFAULTS_PATH</span>
+<span class="token environment constant">$DESKTOP_SESSION</span>
+<span class="token environment constant">$DIRSTACK</span>
+<span class="token environment constant">$DISPLAY</span>
+<span class="token environment constant">$EUID</span>
+<span class="token environment constant">$GDMSESSION</span>
+<span class="token environment constant">$GDM_LANG</span>
+<span class="token environment constant">$GNOME_KEYRING_CONTROL</span>
+<span class="token environment constant">$GNOME_KEYRING_PID</span>
+<span class="token environment constant">$GPG_AGENT_INFO</span>
+<span class="token environment constant">$GROUPS</span>
+<span class="token environment constant">$HISTCONTROL</span>
+<span class="token environment constant">$HISTFILE</span>
+<span class="token environment constant">$HISTFILESIZE</span>
+<span class="token environment constant">$HISTSIZE</span>
+<span class="token environment constant">$HOME</span>
+<span class="token environment constant">$HOSTNAME</span>
+<span class="token environment constant">$HOSTTYPE</span>
+<span class="token environment constant">$IFS</span>
+<span class="token environment constant">$INSTANCE</span>
+<span class="token environment constant">$JOB</span>
+<span class="token environment constant">$LANG</span>
+<span class="token environment constant">$LANGUAGE</span>
+<span class="token environment constant">$LC_ADDRESS</span>
+<span class="token environment constant">$LC_ALL</span>
+<span class="token environment constant">$LC_IDENTIFICATION</span>
+<span class="token environment constant">$LC_MEASUREMENT</span>
+<span class="token environment constant">$LC_MONETARY</span>
+<span class="token environment constant">$LC_NAME</span>
+<span class="token environment constant">$LC_NUMERIC</span>
+<span class="token environment constant">$LC_PAPER</span>
+<span class="token environment constant">$LC_TELEPHONE</span>
+<span class="token environment constant">$LC_TIME</span>
+<span class="token environment constant">$LESSCLOSE</span>
+<span class="token environment constant">$LESSOPEN</span>
+<span class="token environment constant">$LINES</span>
+<span class="token environment constant">$LOGNAME</span>
+<span class="token environment constant">$LS_COLORS</span>
+<span class="token environment constant">$MACHTYPE</span>
+<span class="token environment constant">$MAILCHECK</span>
+<span class="token environment constant">$MANDATORY_PATH</span>
+<span class="token environment constant">$NO_AT_BRIDGE</span>
+<span class="token environment constant">$OLDPWD</span>
+<span class="token environment constant">$OPTERR</span>
+<span class="token environment constant">$OPTIND</span>
+<span class="token environment constant">$ORBIT_SOCKETDIR</span>
+<span class="token environment constant">$OSTYPE</span>
+<span class="token environment constant">$PAPERSIZE</span>
+<span class="token environment constant">$PATH</span>
+<span class="token environment constant">$PIPESTATUS</span>
+<span class="token environment constant">$PPID</span>
+<span class="token environment constant">$PS1</span>
+<span class="token environment constant">$PS2</span>
+<span class="token environment constant">$PS3</span>
+<span class="token environment constant">$PS4</span>
+<span class="token environment constant">$PWD</span>
+<span class="token environment constant">$RANDOM</span>
+<span class="token environment constant">$REPLY</span>
+<span class="token environment constant">$SECONDS</span>
+<span class="token environment constant">$SELINUX_INIT</span>
+<span class="token environment constant">$SESSION</span>
+<span class="token environment constant">$SESSIONTYPE</span>
+<span class="token environment constant">$SESSION_MANAGER</span>
+<span class="token environment constant">$SHELL</span>
+<span class="token environment constant">$SHELLOPTS</span>
+<span class="token environment constant">$SHLVL</span>
+<span class="token environment constant">$SSH_AUTH_SOCK</span>
+<span class="token environment constant">$TERM</span>
+<span class="token environment constant">$UID</span>
+<span class="token environment constant">$UPSTART_EVENTS</span>
+<span class="token environment constant">$UPSTART_INSTANCE</span>
+<span class="token environment constant">$UPSTART_JOB</span>
+<span class="token environment constant">$UPSTART_SESSION</span>
+<span class="token environment constant">$USER</span>
+<span class="token environment constant">$WINDOWID</span>
+<span class="token environment constant">$XAUTHORITY</span>
+<span class="token environment constant">$XDG_CONFIG_DIRS</span>
+<span class="token environment constant">$XDG_CURRENT_DESKTOP</span>
+<span class="token environment constant">$XDG_DATA_DIRS</span>
+<span class="token environment constant">$XDG_GREETER_DATA_DIR</span>
+<span class="token environment constant">$XDG_MENU_PREFIX</span>
+<span class="token environment constant">$XDG_RUNTIME_DIR</span>
+<span class="token environment constant">$XDG_SEAT</span>
+<span class="token environment constant">$XDG_SEAT_PATH</span>
+<span class="token environment constant">$XDG_SESSION_DESKTOP</span>
+<span class="token environment constant">$XDG_SESSION_ID</span>
+<span class="token environment constant">$XDG_SESSION_PATH</span>
+<span class="token environment constant">$XDG_SESSION_TYPE</span>
+<span class="token environment constant">$XDG_VTNR</span>
+<span class="token environment constant">$XMODIFIERS</span>
+
+----------------------------------------------------

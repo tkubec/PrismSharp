@@ -1,0 +1,31 @@
+|| &&
+? * / %
++ +=
+- -=
+. .=
+= == =~
+==# =~# ==? =~?
+! != !~
+!=# !~# !=? !~?
+< <=
+<# <=# <? <=?
+> >=
+># >=# >? >=?
+is isnot
+----------------------------------------------------
+<span class="token operator">||</span> <span class="token operator">&amp;&amp;</span>
+<span class="token operator">?</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">%</span>
+<span class="token operator">+</span> <span class="token operator">+=</span>
+<span class="token operator">-</span> <span class="token operator">-=</span>
+<span class="token operator">.</span> <span class="token operator">.=</span>
+<span class="token operator">=</span> <span class="token operator">==</span> <span class="token operator">=~</span>
+<span class="token operator">==#</span> <span class="token operator">=~#</span> <span class="token operator">==?</span> <span class="token operator">=~?</span>
+<span class="token operator">!</span> <span class="token operator">!=</span> <span class="token operator">!~</span>
+<span class="token operator">!=#</span> <span class="token operator">!~#</span> <span class="token operator">!=?</span> <span class="token operator">!~?</span>
+<span class="token operator">&lt;</span> <span class="token operator">&lt;=</span>
+<span class="token operator">&lt;#</span> <span class="token operator">&lt;=#</span> <span class="token operator">&lt;?</span> <span class="token operator">&lt;=?</span>
+<span class="token operator">></span> <span class="token operator">>=</span>
+<span class="token operator">>#</span> <span class="token operator">>=#</span> <span class="token operator">>?</span> <span class="token operator">>=?</span>
+<span class="token operator">is</span> <span class="token operator">isnot</span>
+
+----------------------------------------------------

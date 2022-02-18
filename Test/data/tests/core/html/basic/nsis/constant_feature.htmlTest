@@ -1,0 +1,21 @@
+$(myLicenseData)
+$(^Name)
+$(!Name)
+${LANG_ENGLISH}
+${AtLeastWin8.1}
+${nsArray_Copy}
+${xml::CreateNode}
+${^EXAMPLE}
+${!defineifexist}
+----------------------------------------------------
+<span class="token constant">$(myLicenseData)</span>
+<span class="token constant">$(^Name)</span>
+<span class="token constant">$(!Name)</span>
+<span class="token constant">${LANG_ENGLISH}</span>
+<span class="token constant">${AtLeastWin8.1}</span>
+<span class="token constant">${nsArray_Copy}</span>
+<span class="token constant">${xml::CreateNode}</span>
+<span class="token constant">${^EXAMPLE}</span>
+<span class="token constant">${!defineifexist}</span>
+
+----------------------------------------------------

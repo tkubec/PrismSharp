@@ -1,0 +1,7 @@
+$foo: "bar" !default;
+@extend .baz !optional;
+----------------------------------------------------
+<span class="token property"><span class="token variable">$foo</span></span><span class="token punctuation">:</span> <span class="token string">"bar"</span> <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+<span class="token keyword">@extend</span> .baz <span class="token statement keyword">!optional</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

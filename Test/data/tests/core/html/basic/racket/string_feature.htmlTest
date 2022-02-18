@@ -1,0 +1,15 @@
+""
+"fo\"obar"
+"
+multi
+line
+"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"obar"</span>
+<span class="token string">"
+multi
+line
+"</span>
+
+----------------------------------------------------

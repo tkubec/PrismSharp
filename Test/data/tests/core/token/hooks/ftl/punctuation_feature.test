@@ -1,0 +1,29 @@
+<@foo
+
+() [] {}
+, ; . :
+
+/>
+----------------------------------------------------
+[
+	["ftl-directive", [
+		["punctuation", "<"],
+		["directive", "@foo"],
+		["content", [
+			["punctuation", "("],
+			["punctuation", ")"],
+			["punctuation", "["],
+			["punctuation", "]"],
+			["punctuation", "{"],
+			["punctuation", "}"],
+
+			["punctuation", ","],
+			["punctuation", ";"],
+			["punctuation", "."],
+			["punctuation", ":"]
+		]],
+		["punctuation", "/>"]
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+Sales!B2
+'Winter sales'!B2
+[Sales.xlsx]Jan!B2:B5
+D:\Reports\[Sales.xlsx]Jan!B2:B5
+'[Sales.xlsx]Jan sales'!B2:B5
+'D:\Reports\[Sales.xlsx]Jan sales'!B2:B5
+
+SUM([Sales.xlsx]Jan!Jan_sales)
+----------------------------------------------------
+<span class="token reference string"><span class="token sheet function">Sales</span><span class="token operator">!</span></span><span class="token cell property">B2</span>
+<span class="token reference string"><span class="token punctuation">'</span><span class="token sheet function">Winter sales</span><span class="token punctuation">'</span><span class="token operator">!</span></span><span class="token cell property">B2</span>
+<span class="token reference string"><span class="token file"><span class="token punctuation">[</span>Sales.xlsx<span class="token punctuation">]</span></span><span class="token sheet function">Jan</span><span class="token operator">!</span></span><span class="token range property"><span class="token cell">B2</span><span class="token operator">:</span><span class="token cell">B5</span></span>
+<span class="token reference string"><span class="token path">D:\Reports\</span><span class="token file"><span class="token punctuation">[</span>Sales.xlsx<span class="token punctuation">]</span></span><span class="token sheet function">Jan</span><span class="token operator">!</span></span><span class="token range property"><span class="token cell">B2</span><span class="token operator">:</span><span class="token cell">B5</span></span>
+<span class="token reference string"><span class="token punctuation">'</span><span class="token file"><span class="token punctuation">[</span>Sales.xlsx<span class="token punctuation">]</span></span><span class="token sheet function">Jan sales</span><span class="token punctuation">'</span><span class="token operator">!</span></span><span class="token range property"><span class="token cell">B2</span><span class="token operator">:</span><span class="token cell">B5</span></span>
+<span class="token reference string"><span class="token punctuation">'</span><span class="token path">D:\Reports\</span><span class="token file"><span class="token punctuation">[</span>Sales.xlsx<span class="token punctuation">]</span></span><span class="token sheet function">Jan sales</span><span class="token punctuation">'</span><span class="token operator">!</span></span><span class="token range property"><span class="token cell">B2</span><span class="token operator">:</span><span class="token cell">B5</span></span>
+
+<span class="token function-name keyword">SUM</span><span class="token punctuation">(</span><span class="token reference string"><span class="token file"><span class="token punctuation">[</span>Sales.xlsx<span class="token punctuation">]</span></span><span class="token sheet function">Jan</span><span class="token operator">!</span></span>Jan_sales<span class="token punctuation">)</span>
+
+----------------------------------------------------

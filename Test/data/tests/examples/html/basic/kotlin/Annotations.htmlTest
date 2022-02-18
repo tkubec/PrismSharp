@@ -1,0 +1,25 @@
+public class MyTest {
+    lateinit var subject: TestSubject
+
+    @SetUp fun setup() {
+        subject = TestSubject()
+    }
+
+    @Test fun test() {
+        subject.method()  // dereference directly
+    }
+}
+----------------------------------------------------
+<span class="token keyword">public</span> <span class="token keyword">class</span> MyTest <span class="token punctuation">{</span>
+    <span class="token keyword">lateinit</span> <span class="token keyword">var</span> subject<span class="token operator">:</span> TestSubject
+
+    <span class="token annotation builtin">@SetUp</span> <span class="token keyword">fun</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        subject <span class="token operator">=</span> <span class="token function">TestSubject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation builtin">@Test</span> <span class="token keyword">fun</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        subject<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// dereference directly</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

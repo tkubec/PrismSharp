@@ -1,0 +1,21 @@
+STRING="Hello World"
+'Single and
+multi-line strings are supported.'
+"Single and
+multi-line strings are supported."
+cat << EOF
+Here-Documents
+are also supported
+EOF
+----------------------------------------------------
+<span class="token assign-left variable">STRING</span><span class="token operator">=</span><span class="token string">"Hello World"</span>
+<span class="token string">'Single and
+multi-line strings are supported.'</span>
+<span class="token string">"Single and
+multi-line strings are supported."</span>
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+Here-Documents
+are also supported
+EOF</span>
+
+----------------------------------------------------

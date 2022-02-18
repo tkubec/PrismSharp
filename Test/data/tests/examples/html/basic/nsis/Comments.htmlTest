@@ -1,0 +1,11 @@
+; Single line comment
+# Single line comment
+/* Multi-line
+comment */
+----------------------------------------------------
+<span class="token comment">; Single line comment</span>
+<span class="token comment"># Single line comment</span>
+<span class="token comment">/* Multi-line
+comment */</span>
+
+----------------------------------------------------

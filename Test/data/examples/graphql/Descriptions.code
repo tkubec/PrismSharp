@@ -1,0 +1,21 @@
+"""
+This is a multiline description
+# Heading
+[Prism](http://www.prismjs.com)
+
+It can contain **Markdown
+	on multiple lines**
+"""
+type Example {
+	id: ID!
+}
+
+type Sample {
+	"""
+	Simple multiline description
+	"""
+	name(
+		"This is a single line description"
+		first: Int
+	): String
+}

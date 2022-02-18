@@ -1,0 +1,91 @@
+{%
+
+as
+assign
+break
+capture
+case
+comment
+continue
+cycle
+decrement
+echo
+else
+elsif
+endcapture
+endcase
+endcomment
+endfor
+endform
+endif
+endpaginate
+endraw
+endtablerow
+endunless
+for
+form
+if
+in
+include
+increment
+limit
+liquid
+offset
+paginate
+range
+raw
+render
+reversed
+tablerow
+unless
+when
+with
+
+%}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span>
+
+<span class="token keyword">as</span>
+<span class="token keyword">assign</span>
+<span class="token keyword">break</span>
+<span class="token keyword">capture</span>
+<span class="token keyword">case</span>
+<span class="token keyword">comment</span>
+<span class="token keyword">continue</span>
+<span class="token keyword">cycle</span>
+<span class="token keyword">decrement</span>
+<span class="token keyword">echo</span>
+<span class="token keyword">else</span>
+<span class="token keyword">elsif</span>
+<span class="token keyword">endcapture</span>
+<span class="token keyword">endcase</span>
+<span class="token keyword">endcomment</span>
+<span class="token keyword">endfor</span>
+<span class="token keyword">endform</span>
+<span class="token keyword">endif</span>
+<span class="token keyword">endpaginate</span>
+<span class="token keyword">endraw</span>
+<span class="token keyword">endtablerow</span>
+<span class="token keyword">endunless</span>
+<span class="token keyword">for</span>
+<span class="token keyword">form</span>
+<span class="token keyword">if</span>
+<span class="token keyword">in</span>
+<span class="token keyword">include</span>
+<span class="token keyword">increment</span>
+<span class="token keyword">limit</span>
+<span class="token keyword">liquid</span>
+<span class="token keyword">offset</span>
+<span class="token keyword">paginate</span>
+<span class="token keyword">range</span>
+<span class="token keyword">raw</span>
+<span class="token keyword">render</span>
+<span class="token keyword">reversed</span>
+<span class="token keyword">tablerow</span>
+<span class="token keyword">unless</span>
+<span class="token keyword">when</span>
+<span class="token keyword">with</span>
+
+<span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

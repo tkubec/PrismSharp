@@ -1,0 +1,126 @@
+PREFIX aGeo: <http://example.org/geo#>
+
+	SELECT ?neighbor
+	WHERE { ?a aGeo:placeName "Grenoble" .
+					?a aGeo:location ?axLoc .
+					?a aGeo:location ?ayLoc .
+
+					?b aGeo:placeName ?neighbor .
+					?b aGeo:location ?bxLoc .
+					?b aGeo:location ?byLoc .
+
+					FILTER ( aGeo:distance(?axLoc, ?ayLoc, ?bxLoc, ?byLoc) < 10 ) .
+				}
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"aGeo",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/geo#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?neighbor"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?a"],
+	["function", [
+		["prefix", [
+			"aGeo",
+			["punctuation", ":"]
+		]],
+		["local-name", "placeName"]
+	]],
+	["string", "\"Grenoble\""],
+	["punctuation", "."],
+
+	["variable", "?a"],
+	["function", [
+		["prefix", [
+			"aGeo",
+			["punctuation", ":"]
+		]],
+		["local-name", "location"]
+	]],
+	["variable", "?axLoc"],
+	["punctuation", "."],
+
+	["variable", "?a"],
+	["function", [
+		["prefix", [
+			"aGeo",
+			["punctuation", ":"]
+		]],
+		["local-name", "location"]
+	]],
+	["variable", "?ayLoc"],
+	["punctuation", "."],
+
+	["variable", "?b"],
+	["function", [
+		["prefix", [
+			"aGeo",
+			["punctuation", ":"]
+		]],
+		["local-name", "placeName"]
+	]],
+	["variable", "?neighbor"],
+	["punctuation", "."],
+
+	["variable", "?b"],
+	["function", [
+		["prefix", [
+			"aGeo",
+			["punctuation", ":"]
+		]],
+		["local-name", "location"]
+	]],
+	["variable", "?bxLoc"],
+	["punctuation", "."],
+
+	["variable", "?b"],
+	["function", [
+		["prefix", [
+			"aGeo",
+			["punctuation", ":"]
+		]],
+		["local-name", "location"]
+	]],
+	["variable", "?byLoc"],
+	["punctuation", "."],
+
+	["keyword", "FILTER"],
+	["punctuation", "("],
+	["function", [
+		["prefix", [
+			"aGeo",
+			["punctuation", ":"]
+		]],
+		["local-name", "distance"]
+	]],
+	["punctuation", "("],
+	["variable", "?axLoc"],
+	["punctuation", ","],
+	["variable", "?ayLoc"],
+	["punctuation", ","],
+	["variable", "?bxLoc"],
+	["punctuation", ","],
+	["variable", "?byLoc"],
+	["punctuation", ")"],
+	" < ",
+	["number", "10"],
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

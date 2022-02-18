@@ -1,0 +1,5 @@
+m/foo/ s/foo/bar/
+m zfooz s zfoozbarz
+qr(foo) m{foo} s(foo)(bar) s{foo}{bar}
+m[foo] m<foo> tr[foo][bar] s<foo><bar>
+/foo/i

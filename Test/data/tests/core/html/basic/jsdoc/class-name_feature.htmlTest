@@ -1,0 +1,55 @@
+/**
+ * @param {number}
+ * @param {number | string}
+ * @param {Array.<number> | Object.<string, number>}
+ * @param {{[x: string]: {start: number, end?: number}}}
+ * @param {readonly { min?: number; max: number | null | undefined }[]}
+ * @param {null | 1 | 2}
+ * @param {true | string}
+ * @param {Type1 & Type2}
+ * @param {typeof import("./foo").Bar}
+ * @param {...any[]}
+ * @param {*}
+ * @param {() => void}
+ *
+ * @typedef Foo
+ * @typedef {Bar} Foo
+ * @template Foo
+ * @template {Bar} Foo
+ * @augments Foo
+ * @extends Foo
+ * @class Foo
+ * @interface Foo
+ * @memberof Foo
+ * @memberof! Foo
+ * @this Foo
+ */
+----------------------------------------------------
+/**
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>number<span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>number <span class="token operator">|</span> string<span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>Array<span class="token punctuation">.</span><span class="token punctuation">&lt;</span>number<span class="token punctuation">></span> <span class="token operator">|</span> Object<span class="token punctuation">.</span><span class="token punctuation">&lt;</span>string<span class="token punctuation">,</span> number<span class="token punctuation">></span><span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">[</span>x<span class="token operator">:</span> string<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">{</span>start<span class="token operator">:</span> number<span class="token punctuation">,</span> end<span class="token operator">?</span><span class="token operator">:</span> number<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token keyword">readonly</span> <span class="token punctuation">{</span> min<span class="token operator">?</span><span class="token operator">:</span> number<span class="token punctuation">;</span> max<span class="token operator">:</span> number <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token punctuation">}</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token keyword">null</span> <span class="token operator">|</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token number">2</span><span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token operator">|</span> string<span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>Type1 <span class="token operator">&amp;</span> Type2<span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token keyword">typeof</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"./foo"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Bar<span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token operator">...</span>any<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token operator">*</span><span class="token punctuation">}</span></span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">}</span></span>
+ *
+ * <span class="token keyword">@typedef</span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@typedef</span> <span class="token class-name"><span class="token punctuation">{</span>Bar<span class="token punctuation">}</span></span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@template</span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@template</span> <span class="token class-name"><span class="token punctuation">{</span>Bar<span class="token punctuation">}</span></span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@augments</span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@extends</span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@class</span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@interface</span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@memberof</span> <span class="token class-name">Foo</span>
+ * <span class="token keyword">@memberof</span>! <span class="token class-name">Foo</span>
+ * <span class="token keyword">@this</span> <span class="token class-name">Foo</span>
+ */
+
+----------------------------------------------------

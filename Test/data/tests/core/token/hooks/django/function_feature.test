@@ -1,0 +1,28 @@
+<img src="{{ static('path/to/company-logo.png') }}" alt="Company Logo">
+<a href="{{ url('admin:index') }}">Administration</a>
+----------------------------------------------------
+[
+	["operator", "<"],
+	["variable", "img"],
+	["variable", "src"],
+	["operator", "="],
+	["string", "\"{{ static('path/to/company-logo.png') }}\""],
+	["variable", "alt"],
+	["operator", "="],
+	["string", "\"Company Logo\""],
+	["operator", ">"],
+
+	["operator", "<"],
+	["variable", "a"],
+	["variable", "href"],
+	["operator", "="],
+	["string", "\"{{ url('admin:index') }}\""],
+	["operator", ">"],
+	["variable", "Administration"],
+	["operator", "<"],
+	["operator", "/"],
+	["variable", "a"],
+	["operator", ">"]
+]
+
+----------------------------------------------------

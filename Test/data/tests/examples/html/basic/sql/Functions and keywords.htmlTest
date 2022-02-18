@@ -1,0 +1,13 @@
+SELECT COUNT(*) AS cpt, MAX(t.pos) AS max_pos
+FROM `my_table`
+LEFT JOIN `other_table` AS t
+WHERE `somecol` IS NOT NULL
+ORDER BY t.other_col DESC
+----------------------------------------------------
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cpt<span class="token punctuation">,</span> <span class="token function">MAX</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>pos<span class="token punctuation">)</span> <span class="token keyword">AS</span> max_pos
+<span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>my_table<span class="token punctuation">`</span></span>
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token identifier"><span class="token punctuation">`</span>other_table<span class="token punctuation">`</span></span> <span class="token keyword">AS</span> t
+<span class="token keyword">WHERE</span> <span class="token identifier"><span class="token punctuation">`</span>somecol<span class="token punctuation">`</span></span> <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t<span class="token punctuation">.</span>other_col <span class="token keyword">DESC</span>
+
+----------------------------------------------------

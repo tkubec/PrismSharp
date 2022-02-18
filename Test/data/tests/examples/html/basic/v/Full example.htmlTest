@@ -1,0 +1,55 @@
+module mymodule
+
+import external_module
+
+fn sqr(n int) int {
+	return n * n
+}
+
+fn run(value int, op fn (int) int) int {
+	return op(value)
+}
+
+fn main() {
+	println(run(5, sqr)) // "25"
+	// Anonymous functions can be declared inside other functions:
+	double_fn := fn (n int) int {
+		return n + n
+	}
+	println(run(5, double_fn)) // "10"
+	// Functions can be passed around without assigning them to variables:
+	res := run(5, fn (n int) int {
+		return n + n
+	})
+
+	external_module.say_hi()
+}
+----------------------------------------------------
+<span class="token keyword">module</span> mymodule
+
+<span class="token keyword">import</span> external_module
+
+<span class="token keyword">fn</span> <span class="token function">sqr</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> n <span class="token operator">*</span> n
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">run</span><span class="token punctuation">(</span>value <span class="token builtin">int</span><span class="token punctuation">,</span> op <span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token function">op</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">println</span><span class="token punctuation">(</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> sqr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// "25"</span>
+	<span class="token comment">// Anonymous functions can be declared inside other functions:</span>
+	double_fn <span class="token operator">:=</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> n <span class="token operator">+</span> n
+	<span class="token punctuation">}</span>
+	<span class="token function">println</span><span class="token punctuation">(</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> double_fn<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// "10"</span>
+	<span class="token comment">// Functions can be passed around without assigning them to variables:</span>
+	res <span class="token operator">:=</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token keyword">fn</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> n <span class="token operator">+</span> n
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+	external_module<span class="token punctuation">.</span><span class="token function">say_hi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,771 @@
+; This code is copied from https://learnxinyminutes.com/docs/clojure/
+
+; Comments start with semicolons.
+
+; Clojure is written in "forms", which are just
+; lists of things inside parentheses, separated by whitespace.
+;
+; The clojure reader assumes that the first thing is a
+; function or macro to call, and the rest are arguments.
+
+; The first call in a file should be ns, to set the namespace
+(ns learnclojure)
+
+; More basic examples:
+
+; str will create a string out of all its arguments
+(str "Hello" " " "World") ; => "Hello World"
+
+; Math is straightforward
+(+ 1 1) ; => 2
+(- 2 1) ; => 1
+(* 1 2) ; => 2
+(/ 2 1) ; => 2
+
+; Equality is =
+(= 1 1) ; => true
+(= 2 1) ; => false
+
+; You need not for logic, too
+(not true) ; => false
+
+; Nesting forms works as you expect
+(+ 1 (- 3 2)) ; = 1 + (3 - 2) => 2
+
+; Types
+;;;;;;;;;;;;;
+
+; Clojure uses Java's object types for booleans, strings and numbers.
+; Use `class` to inspect them.
+(class 1) ; Integer literals are java.lang.Long by default
+(class 1.); Float literals are java.lang.Double
+(class ""); Strings always double-quoted, and are java.lang.String
+(class false) ; Booleans are java.lang.Boolean
+(class nil); The "null" value is called nil
+
+; If you want to create a literal list of data, use ' to stop it from
+; being evaluated
+'(+ 1 2) ; => (+ 1 2)
+; (shorthand for (quote (+ 1 2)))
+
+; You can eval a quoted list
+(eval '(+ 1 2)) ; => 3
+
+; Collections & Sequences
+;;;;;;;;;;;;;;;;;;;
+
+; Lists are linked-list data structures, while Vectors are array-backed.
+; Vectors and Lists are java classes too!
+(class [1 2 3]); => clojure.lang.PersistentVector
+(class '(1 2 3)); => clojure.lang.PersistentList
+
+; A list would be written as just (1 2 3), but we have to quote
+; it to stop the reader thinking it's a function.
+; Also, (list 1 2 3) is the same as '(1 2 3)
+
+; "Collections" are just groups of data
+; Both lists and vectors are collections:
+(coll? '(1 2 3)) ; => true
+(coll? [1 2 3]) ; => true
+
+; "Sequences" (seqs) are abstract descriptions of lists of data.
+; Only lists are seqs.
+(seq? '(1 2 3)) ; => true
+(seq? [1 2 3]) ; => false
+
+; A seq need only provide an entry when it is accessed.
+; So, seqs which can be lazy -- they can define infinite series:
+(range 4) ; => (0 1 2 3)
+(range) ; => (0 1 2 3 4 ...) (an infinite series)
+(take 4 (range)) ;  (0 1 2 3)
+
+; Use cons to add an item to the beginning of a list or vector
+(cons 4 [1 2 3]) ; => (4 1 2 3)
+(cons 4 '(1 2 3)) ; => (4 1 2 3)
+
+; Conj will add an item to a collection in the most efficient way.
+; For lists, they insert at the beginning. For vectors, they insert at the end.
+(conj [1 2 3] 4) ; => [1 2 3 4]
+(conj '(1 2 3) 4) ; => (4 1 2 3)
+
+; Use concat to add lists or vectors together
+(concat [1 2] '(3 4)) ; => (1 2 3 4)
+
+; Use filter, map to interact with collections
+(map inc [1 2 3]) ; => (2 3 4)
+(filter even? [1 2 3]) ; => (2)
+
+; Use reduce to reduce them
+(reduce + [1 2 3 4])
+; = (+ (+ (+ 1 2) 3) 4)
+; => 10
+
+; Reduce can take an initial-value argument too
+(reduce conj [] '(3 2 1))
+; = (conj (conj (conj [] 3) 2) 1)
+; => [3 2 1]
+
+; Functions
+;;;;;;;;;;;;;;;;;;;;;
+
+; Use fn to create new functions. A function always returns
+; its last statement.
+(fn [] "Hello World") ; => fn
+
+; (You need extra parens to call it)
+((fn [] "Hello World")) ; => "Hello World"
+
+; You can create a var using def
+(def x 1)
+x ; => 1
+
+; Assign a function to a var
+(def hello-world (fn [] "Hello World"))
+(hello-world) ; => "Hello World"
+
+; You can shorten this process by using defn
+(defn hello-world [] "Hello World")
+
+; The [] is the list of arguments for the function.
+(defn hello [name]
+  (str "Hello " name))
+(hello "Steve") ; => "Hello Steve"
+
+; You can also use this shorthand to create functions:
+(def hello2 #(str "Hello " %1))
+(hello2 "Fanny") ; => "Hello Fanny"
+
+; You can have multi-variadic functions, too
+(defn hello3
+  ([] "Hello World")
+  ([name] (str "Hello " name)))
+(hello3 "Jake") ; => "Hello Jake"
+(hello3) ; => "Hello World"
+
+; Functions can pack extra arguments up in a seq for you
+(defn count-args [& args]
+  (str "You passed " (count args) " args: " args))
+(count-args 1 2 3) ; => "You passed 3 args: (1 2 3)"
+
+; You can mix regular and packed arguments
+(defn hello-count [name & args]
+  (str "Hello " name ", you passed " (count args) " extra args"))
+(hello-count "Finn" 1 2 3)
+; => "Hello Finn, you passed 3 extra args"
+
+
+; Maps
+;;;;;;;;;;
+
+; Hash maps and array maps share an interface. Hash maps have faster lookups
+; but don't retain key order.
+(class {:a 1 :b 2 :c 3}) ; => clojure.lang.PersistentArrayMap
+(class (hash-map :a 1 :b 2 :c 3)) ; => clojure.lang.PersistentHashMap
+
+; Arraymaps will automatically become hashmaps through most operations
+; if they get big enough, so you don't need to worry.
+
+; Maps can use any hashable type as a key, but usually keywords are best
+; Keywords are like strings with some efficiency bonuses
+(class :a) ; => clojure.lang.Keyword
+
+(def stringmap {"a" 1, "b" 2, "c" 3})
+stringmap  ; => {"a" 1, "b" 2, "c" 3}
+
+(def keymap {:a 1, :b 2, :c 3})
+keymap ; => {:a 1, :c 3, :b 2}
+
+; By the way, commas are always treated as whitespace and do nothing.
+
+; Retrieve a value from a map by calling it as a function
+(stringmap "a") ; => 1
+(keymap :a) ; => 1
+
+; Keywords can be used to retrieve their value from a map, too!
+(:b keymap) ; => 2
+
+; Don't try this with strings.
+;("a" stringmap)
+; => Exception: java.lang.String cannot be cast to clojure.lang.IFn
+
+; Retrieving a non-present key returns nil
+(stringmap "d") ; => nil
+
+; Use assoc to add new keys to hash-maps
+(def newkeymap (assoc keymap :d 4))
+newkeymap ; => {:a 1, :b 2, :c 3, :d 4}
+
+; But remember, clojure types are immutable!
+keymap ; => {:a 1, :b 2, :c 3}
+
+; Use dissoc to remove keys
+(dissoc keymap :a :b) ; => {:c 3}
+
+; Sets
+;;;;;;
+
+(class #{1 2 3}) ; => clojure.lang.PersistentHashSet
+(set [1 2 3 1 2 3 3 2 1 3 2 1]) ; => #{1 2 3}
+
+; Add a member with conj
+(conj #{1 2 3} 4) ; => #{1 2 3 4}
+
+; Remove one with disj
+(disj #{1 2 3} 1) ; => #{2 3}
+
+; Test for existence by using the set as a function:
+(#{1 2 3} 1) ; => 1
+(#{1 2 3} 4) ; => nil
+
+; There are more functions in the clojure.sets namespace.
+
+; Useful forms
+;;;;;;;;;;;;;;;;;
+
+; Logic constructs in clojure are just macros, and look like
+; everything else
+(if false "a" "b") ; => "b"
+(if false "a") ; => nil
+
+; Use let to create temporary bindings
+(let [a 1 b 2]
+  (> a b)) ; => false
+
+; Group statements together with do
+(do
+  (print "Hello")
+  "World") ; => "World" (prints "Hello")
+
+; Functions have an implicit do
+(defn print-and-say-hello [name]
+  (print "Saying hello to " name)
+  (str "Hello " name))
+(print-and-say-hello "Jeff") ;=> "Hello Jeff" (prints "Saying hello to Jeff")
+
+; So does let
+(let [name "Urkel"]
+  (print "Saying hello to " name)
+  (str "Hello " name)) ; => "Hello Urkel" (prints "Saying hello to Urkel")
+
+
+; Use the threading macros (-> and ->>) to express transformations of
+; data more clearly.
+
+; The "Thread-first" macro (->) inserts into each form the result of
+; the previous, as the first argument (second item)
+(->
+   {:a 1 :b 2}
+   (assoc :c 3) ;=> (assoc {:a 1 :b 2} :c 3)
+   (dissoc :b)) ;=> (dissoc (assoc {:a 1 :b 2} :c 3) :b)
+
+; This expression could be written as:
+; (dissoc (assoc {:a 1 :b 2} :c 3) :b)
+; and evaluates to {:a 1 :c 3}
+
+; The double arrow does the same thing, but inserts the result of
+; each line at the *end* of the form. This is useful for collection
+; operations in particular:
+(->>
+   (range 10)
+   (map inc)     ;=> (map inc (range 10)
+   (filter odd?) ;=> (filter odd? (map inc (range 10))
+   (into []))    ;=> (into [] (filter odd? (map inc (range 10)))
+                 ; Result: [1 3 5 7 9]
+
+; When you are in a situation where you want more freedom as where to
+; put the result of previous data transformations in an
+; expression, you can use the as-> macro. With it, you can assign a
+; specific name to transformations' output and use it as a
+; placeholder in your chained expressions:
+
+(as-> [1 2 3] input
+  (map inc input);=> You can use last transform's output at the last position
+  (nth input 2) ;=>  and at the second position, in the same expression
+  (conj [4 5 6] input [8 9 10])) ;=> or in the middle !
+
+
+
+; Modules
+;;;;;;;;;;;;;;;
+
+; Use "use" to get all functions from the module
+(use 'clojure.set)
+
+; Now we can use set operations
+(intersection #{1 2 3} #{2 3 4}) ; => #{2 3}
+(difference #{1 2 3} #{2 3 4}) ; => #{1}
+
+; You can choose a subset of functions to import, too
+(use '[clojure.set :only [intersection]])
+
+; Use require to import a module
+(require 'clojure.string)
+
+; Use / to call functions from a module
+; Here, the module is clojure.string and the function is blank?
+(clojure.string/blank? "") ; => true
+
+; You can give a module a shorter name on import
+(require '[clojure.string :as str])
+(str/replace "This is a test." #"[a-o]" str/upper-case) ; => "THIs Is A tEst."
+; (#"" denotes a regular expression literal)
+
+; You can use require (and use, but don't) from a namespace using :require.
+; You don't need to quote your modules if you do it this way.
+(ns test
+  (:require
+    [clojure.string :as str]
+    [clojure.set :as set]))
+
+; Java
+;;;;;;;;;;;;;;;;;
+
+; Java has a huge and useful standard library, so
+; you'll want to learn how to get at it.
+
+; Use import to load a java module
+(import java.util.Date)
+
+; You can import from an ns too.
+(ns test
+  (:import java.util.Date
+           java.util.Calendar))
+
+; Use the class name with a "." at the end to make a new instance
+(Date.) ; <a date object>
+
+; Use . to call methods. Or, use the ".method" shortcut
+(. (Date.) getTime) ; <a timestamp>
+(.getTime (Date.)) ; exactly the same thing.
+
+; Use / to call static methods
+(System/currentTimeMillis) ; <a timestamp> (system is always present)
+
+; Use doto to make dealing with (mutable) classes more tolerable
+(import java.util.Calendar)
+(doto (Calendar/getInstance)
+  (.set 2000 1 1 0 0 0)
+  .getTime) ; => A Date. set to 2000-01-01 00:00:00
+
+; STM
+;;;;;;;;;;;;;;;;;
+
+; Software Transactional Memory is the mechanism clojure uses to handle
+; persistent state. There are a few constructs in clojure that use this.
+
+; An atom is the simplest. Pass it an initial value
+(def my-atom (atom {}))
+
+; Update an atom with swap!.
+; swap! takes a function and calls it with the current value of the atom
+; as the first argument, and any trailing arguments as the second
+(swap! my-atom assoc :a 1) ; Sets my-atom to the result of (assoc {} :a 1)
+(swap! my-atom assoc :b 2) ; Sets my-atom to the result of (assoc {:a 1} :b 2)
+
+; Use '@' to dereference the atom and get the value
+my-atom  ;=> Atom<#...> (Returns the Atom object)
+@my-atom ; => {:a 1 :b 2}
+
+; Here's a simple counter using an atom
+(def counter (atom 0))
+(defn inc-counter []
+  (swap! counter inc))
+
+(inc-counter)
+(inc-counter)
+(inc-counter)
+(inc-counter)
+(inc-counter)
+
+@counter ; => 5
+
+; Other STM constructs are refs and agents.
+; Refs: http://clojure.org/refs
+; Agents: http://clojure.org/agents
+----------------------------------------------------
+<span class="token comment">; This code is copied from https://learnxinyminutes.com/docs/clojure/</span>
+
+<span class="token comment">; Comments start with semicolons.</span>
+
+<span class="token comment">; Clojure is written in "forms", which are just</span>
+<span class="token comment">; lists of things inside parentheses, separated by whitespace.</span>
+<span class="token comment">;</span>
+<span class="token comment">; The clojure reader assumes that the first thing is a</span>
+<span class="token comment">; function or macro to call, and the rest are arguments.</span>
+
+<span class="token comment">; The first call in a file should be ns, to set the namespace</span>
+<span class="token punctuation">(</span><span class="token keyword">ns</span> learnclojure<span class="token punctuation">)</span>
+
+<span class="token comment">; More basic examples:</span>
+
+<span class="token comment">; str will create a string out of all its arguments</span>
+<span class="token punctuation">(</span><span class="token keyword">str</span> <span class="token string">"Hello"</span> <span class="token string">" "</span> <span class="token string">"World"</span><span class="token punctuation">)</span> <span class="token comment">; => "Hello World"</span>
+
+<span class="token comment">; Math is straightforward</span>
+<span class="token punctuation">(</span><span class="token keyword">+</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; => 2</span>
+<span class="token punctuation">(</span><span class="token keyword">-</span> <span class="token number">2</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; => 1</span>
+<span class="token punctuation">(</span><span class="token keyword">*</span> <span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">; => 2</span>
+<span class="token punctuation">(</span><span class="token keyword">/</span> <span class="token number">2</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; => 2</span>
+
+<span class="token comment">; Equality is =</span>
+<span class="token punctuation">(</span><span class="token keyword">=</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; => true</span>
+<span class="token punctuation">(</span><span class="token keyword">=</span> <span class="token number">2</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; => false</span>
+
+<span class="token comment">; You need not for logic, too</span>
+<span class="token punctuation">(</span><span class="token keyword">not</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment">; => false</span>
+
+<span class="token comment">; Nesting forms works as you expect</span>
+<span class="token punctuation">(</span><span class="token keyword">+</span> <span class="token number">1</span> <span class="token punctuation">(</span><span class="token keyword">-</span> <span class="token number">3</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; = 1 + (3 - 2) => 2</span>
+
+<span class="token comment">; Types</span>
+<span class="token comment">;;;;;;;;;;;;;</span>
+
+<span class="token comment">; Clojure uses Java's object types for booleans, strings and numbers.</span>
+<span class="token comment">; Use `class` to inspect them.</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; Integer literals are java.lang.Long by default</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token number">1</span>.<span class="token punctuation">)</span><span class="token comment">; Float literals are java.lang.Double</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token comment">; Strings always double-quoted, and are java.lang.String</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token comment">; Booleans are java.lang.Boolean</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token boolean">nil</span><span class="token punctuation">)</span><span class="token comment">; The "null" value is called nil</span>
+
+<span class="token comment">; If you want to create a literal list of data, use ' to stop it from</span>
+<span class="token comment">; being evaluated</span>
+'<span class="token punctuation">(</span><span class="token keyword">+</span> <span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">; => (+ 1 2)</span>
+<span class="token comment">; (shorthand for (quote (+ 1 2)))</span>
+
+<span class="token comment">; You can eval a quoted list</span>
+<span class="token punctuation">(</span><span class="token keyword">eval</span> '<span class="token punctuation">(</span><span class="token keyword">+</span> <span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => 3</span>
+
+<span class="token comment">; Collections &amp; Sequences</span>
+<span class="token comment">;;;;;;;;;;;;;;;;;;;</span>
+
+<span class="token comment">; Lists are linked-list data structures, while Vectors are array-backed.</span>
+<span class="token comment">; Vectors and Lists are java classes too!</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">; => clojure.lang.PersistentVector</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> '<span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">; => clojure.lang.PersistentList</span>
+
+<span class="token comment">; A list would be written as just (1 2 3), but we have to quote</span>
+<span class="token comment">; it to stop the reader thinking it's a function.</span>
+<span class="token comment">; Also, (list 1 2 3) is the same as '(1 2 3)</span>
+
+<span class="token comment">; "Collections" are just groups of data</span>
+<span class="token comment">; Both lists and vectors are collections:</span>
+<span class="token punctuation">(</span><span class="token function">coll?</span> '<span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => true</span>
+<span class="token punctuation">(</span><span class="token function">coll?</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">; => true</span>
+
+<span class="token comment">; "Sequences" (seqs) are abstract descriptions of lists of data.</span>
+<span class="token comment">; Only lists are seqs.</span>
+<span class="token punctuation">(</span><span class="token keyword">seq?</span> '<span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => true</span>
+<span class="token punctuation">(</span><span class="token keyword">seq?</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">; => false</span>
+
+<span class="token comment">; A seq need only provide an entry when it is accessed.</span>
+<span class="token comment">; So, seqs which can be lazy -- they can define infinite series:</span>
+<span class="token punctuation">(</span><span class="token keyword">range</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">; => (0 1 2 3)</span>
+<span class="token punctuation">(</span><span class="token keyword">range</span><span class="token punctuation">)</span> <span class="token comment">; => (0 1 2 3 4 ...) (an infinite series)</span>
+<span class="token punctuation">(</span><span class="token keyword">take</span> <span class="token number">4</span> <span class="token punctuation">(</span><span class="token keyword">range</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">;  (0 1 2 3)</span>
+
+<span class="token comment">; Use cons to add an item to the beginning of a list or vector</span>
+<span class="token punctuation">(</span><span class="token keyword">cons</span> <span class="token number">4</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">; => (4 1 2 3)</span>
+<span class="token punctuation">(</span><span class="token keyword">cons</span> <span class="token number">4</span> '<span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => (4 1 2 3)</span>
+
+<span class="token comment">; Conj will add an item to a collection in the most efficient way.</span>
+<span class="token comment">; For lists, they insert at the beginning. For vectors, they insert at the end.</span>
+<span class="token punctuation">(</span><span class="token keyword">conj</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">; => [1 2 3 4]</span>
+<span class="token punctuation">(</span><span class="token keyword">conj</span> '<span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">; => (4 1 2 3)</span>
+
+<span class="token comment">; Use concat to add lists or vectors together</span>
+<span class="token punctuation">(</span><span class="token keyword">concat</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">]</span> '<span class="token punctuation">(</span><span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => (1 2 3 4)</span>
+
+<span class="token comment">; Use filter, map to interact with collections</span>
+<span class="token punctuation">(</span><span class="token keyword">map</span> inc <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">; => (2 3 4)</span>
+<span class="token punctuation">(</span><span class="token keyword">filter</span> even? <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">; => (2)</span>
+
+<span class="token comment">; Use reduce to reduce them</span>
+<span class="token punctuation">(</span><span class="token keyword">reduce</span> + <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">; = (+ (+ (+ 1 2) 3) 4)</span>
+<span class="token comment">; => 10</span>
+
+<span class="token comment">; Reduce can take an initial-value argument too</span>
+<span class="token punctuation">(</span><span class="token keyword">reduce</span> conj <span class="token punctuation">[</span><span class="token punctuation">]</span> '<span class="token punctuation">(</span><span class="token number">3</span> <span class="token number">2</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">; = (conj (conj (conj [] 3) 2) 1)</span>
+<span class="token comment">; => [3 2 1]</span>
+
+<span class="token comment">; Functions</span>
+<span class="token comment">;;;;;;;;;;;;;;;;;;;;;</span>
+
+<span class="token comment">; Use fn to create new functions. A function always returns</span>
+<span class="token comment">; its last statement.</span>
+<span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token string">"Hello World"</span><span class="token punctuation">)</span> <span class="token comment">; => fn</span>
+
+<span class="token comment">; (You need extra parens to call it)</span>
+<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => "Hello World"</span>
+
+<span class="token comment">; You can create a var using def</span>
+<span class="token punctuation">(</span><span class="token keyword">def</span> x <span class="token number">1</span><span class="token punctuation">)</span>
+x <span class="token comment">; => 1</span>
+
+<span class="token comment">; Assign a function to a var</span>
+<span class="token punctuation">(</span><span class="token keyword">def</span> hello-world <span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">hello-world</span><span class="token punctuation">)</span> <span class="token comment">; => "Hello World"</span>
+
+<span class="token comment">; You can shorten this process by using defn</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span> hello-world <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token string">"Hello World"</span><span class="token punctuation">)</span>
+
+<span class="token comment">; The [] is the list of arguments for the function.</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span> hello <span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+  <span class="token punctuation">(</span><span class="token keyword">str</span> <span class="token string">"Hello "</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">hello</span> <span class="token string">"Steve"</span><span class="token punctuation">)</span> <span class="token comment">; => "Hello Steve"</span>
+
+<span class="token comment">; You can also use this shorthand to create functions:</span>
+<span class="token punctuation">(</span><span class="token keyword">def</span> hello2 <span class="token operator">#</span><span class="token punctuation">(</span><span class="token keyword">str</span> <span class="token string">"Hello "</span> %<span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">hello2</span> <span class="token string">"Fanny"</span><span class="token punctuation">)</span> <span class="token comment">; => "Hello Fanny"</span>
+
+<span class="token comment">; You can have multi-variadic functions, too</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span> hello3
+  <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token string">"Hello World"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token keyword">str</span> <span class="token string">"Hello "</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">hello3</span> <span class="token string">"Jake"</span><span class="token punctuation">)</span> <span class="token comment">; => "Hello Jake"</span>
+<span class="token punctuation">(</span><span class="token function">hello3</span><span class="token punctuation">)</span> <span class="token comment">; => "Hello World"</span>
+
+<span class="token comment">; Functions can pack extra arguments up in a seq for you</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span> count-args <span class="token punctuation">[</span>&amp; args<span class="token punctuation">]</span>
+  <span class="token punctuation">(</span><span class="token keyword">str</span> <span class="token string">"You passed "</span> <span class="token punctuation">(</span><span class="token keyword">count</span> args<span class="token punctuation">)</span> <span class="token string">" args: "</span> args<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">count-args</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">; => "You passed 3 args: (1 2 3)"</span>
+
+<span class="token comment">; You can mix regular and packed arguments</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span> hello-count <span class="token punctuation">[</span>name &amp; args<span class="token punctuation">]</span>
+  <span class="token punctuation">(</span><span class="token keyword">str</span> <span class="token string">"Hello "</span> name <span class="token string">", you passed "</span> <span class="token punctuation">(</span><span class="token keyword">count</span> args<span class="token punctuation">)</span> <span class="token string">" extra args"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">hello-count</span> <span class="token string">"Finn"</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token comment">; => "Hello Finn, you passed 3 extra args"</span>
+
+
+<span class="token comment">; Maps</span>
+<span class="token comment">;;;;;;;;;;</span>
+
+<span class="token comment">; Hash maps and array maps share an interface. Hash maps have faster lookups</span>
+<span class="token comment">; but don't retain key order.</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token punctuation">{</span><span class="token symbol">:a</span> <span class="token number">1</span> <span class="token symbol">:b</span> <span class="token number">2</span> <span class="token symbol">:c</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">; => clojure.lang.PersistentArrayMap</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token punctuation">(</span><span class="token keyword">hash-map</span> <span class="token symbol">:a</span> <span class="token number">1</span> <span class="token symbol">:b</span> <span class="token number">2</span> <span class="token symbol">:c</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => clojure.lang.PersistentHashMap</span>
+
+<span class="token comment">; Arraymaps will automatically become hashmaps through most operations</span>
+<span class="token comment">; if they get big enough, so you don't need to worry.</span>
+
+<span class="token comment">; Maps can use any hashable type as a key, but usually keywords are best</span>
+<span class="token comment">; Keywords are like strings with some efficiency bonuses</span>
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token symbol">:a</span><span class="token punctuation">)</span> <span class="token comment">; => clojure.lang.Keyword</span>
+
+<span class="token punctuation">(</span><span class="token keyword">def</span> stringmap <span class="token punctuation">{</span><span class="token string">"a"</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"b"</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+stringmap  <span class="token comment">; => {"a" 1, "b" 2, "c" 3}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">def</span> keymap <span class="token punctuation">{</span><span class="token symbol">:a</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token symbol">:b</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token symbol">:c</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+keymap <span class="token comment">; => {:a 1, :c 3, :b 2}</span>
+
+<span class="token comment">; By the way, commas are always treated as whitespace and do nothing.</span>
+
+<span class="token comment">; Retrieve a value from a map by calling it as a function</span>
+<span class="token punctuation">(</span><span class="token function">stringmap</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token comment">; => 1</span>
+<span class="token punctuation">(</span><span class="token function">keymap</span> <span class="token symbol">:a</span><span class="token punctuation">)</span> <span class="token comment">; => 1</span>
+
+<span class="token comment">; Keywords can be used to retrieve their value from a map, too!</span>
+<span class="token punctuation">(</span><span class="token symbol">:b</span> keymap<span class="token punctuation">)</span> <span class="token comment">; => 2</span>
+
+<span class="token comment">; Don't try this with strings.</span>
+<span class="token comment">;("a" stringmap)</span>
+<span class="token comment">; => Exception: java.lang.String cannot be cast to clojure.lang.IFn</span>
+
+<span class="token comment">; Retrieving a non-present key returns nil</span>
+<span class="token punctuation">(</span><span class="token function">stringmap</span> <span class="token string">"d"</span><span class="token punctuation">)</span> <span class="token comment">; => nil</span>
+
+<span class="token comment">; Use assoc to add new keys to hash-maps</span>
+<span class="token punctuation">(</span><span class="token keyword">def</span> newkeymap <span class="token punctuation">(</span><span class="token keyword">assoc</span> keymap <span class="token symbol">:d</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+newkeymap <span class="token comment">; => {:a 1, :b 2, :c 3, :d 4}</span>
+
+<span class="token comment">; But remember, clojure types are immutable!</span>
+keymap <span class="token comment">; => {:a 1, :b 2, :c 3}</span>
+
+<span class="token comment">; Use dissoc to remove keys</span>
+<span class="token punctuation">(</span><span class="token keyword">dissoc</span> keymap <span class="token symbol">:a</span> <span class="token symbol">:b</span><span class="token punctuation">)</span> <span class="token comment">; => {:c 3}</span>
+
+<span class="token comment">; Sets</span>
+<span class="token comment">;;;;;;</span>
+
+<span class="token punctuation">(</span><span class="token keyword">class</span> <span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">; => clojure.lang.PersistentHashSet</span>
+<span class="token punctuation">(</span><span class="token keyword">set</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">3</span> <span class="token number">2</span> <span class="token number">1</span> <span class="token number">3</span> <span class="token number">2</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">; => #{1 2 3}</span>
+
+<span class="token comment">; Add a member with conj</span>
+<span class="token punctuation">(</span><span class="token keyword">conj</span> <span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">; => #{1 2 3 4}</span>
+
+<span class="token comment">; Remove one with disj</span>
+<span class="token punctuation">(</span><span class="token keyword">disj</span> <span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; => #{2 3}</span>
+
+<span class="token comment">; Test for existence by using the set as a function:</span>
+<span class="token punctuation">(</span><span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; => 1</span>
+<span class="token punctuation">(</span><span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">; => nil</span>
+
+<span class="token comment">; There are more functions in the clojure.sets namespace.</span>
+
+<span class="token comment">; Useful forms</span>
+<span class="token comment">;;;;;;;;;;;;;;;;;</span>
+
+<span class="token comment">; Logic constructs in clojure are just macros, and look like</span>
+<span class="token comment">; everything else</span>
+<span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token boolean">false</span> <span class="token string">"a"</span> <span class="token string">"b"</span><span class="token punctuation">)</span> <span class="token comment">; => "b"</span>
+<span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token boolean">false</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token comment">; => nil</span>
+
+<span class="token comment">; Use let to create temporary bindings</span>
+<span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>a <span class="token number">1</span> b <span class="token number">2</span><span class="token punctuation">]</span>
+  <span class="token punctuation">(</span><span class="token keyword">></span> a b<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => false</span>
+
+<span class="token comment">; Group statements together with do</span>
+<span class="token punctuation">(</span><span class="token keyword">do</span>
+  <span class="token punctuation">(</span><span class="token keyword">print</span> <span class="token string">"Hello"</span><span class="token punctuation">)</span>
+  <span class="token string">"World"</span><span class="token punctuation">)</span> <span class="token comment">; => "World" (prints "Hello")</span>
+
+<span class="token comment">; Functions have an implicit do</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span> print-and-say-hello <span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+  <span class="token punctuation">(</span><span class="token keyword">print</span> <span class="token string">"Saying hello to "</span> name<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">str</span> <span class="token string">"Hello "</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">print-and-say-hello</span> <span class="token string">"Jeff"</span><span class="token punctuation">)</span> <span class="token comment">;=> "Hello Jeff" (prints "Saying hello to Jeff")</span>
+
+<span class="token comment">; So does let</span>
+<span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>name <span class="token string">"Urkel"</span><span class="token punctuation">]</span>
+  <span class="token punctuation">(</span><span class="token keyword">print</span> <span class="token string">"Saying hello to "</span> name<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">str</span> <span class="token string">"Hello "</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; => "Hello Urkel" (prints "Saying hello to Urkel")</span>
+
+
+<span class="token comment">; Use the threading macros (-> and ->>) to express transformations of</span>
+<span class="token comment">; data more clearly.</span>
+
+<span class="token comment">; The "Thread-first" macro (->) inserts into each form the result of</span>
+<span class="token comment">; the previous, as the first argument (second item)</span>
+<span class="token punctuation">(</span><span class="token keyword">-></span>
+   <span class="token punctuation">{</span><span class="token symbol">:a</span> <span class="token number">1</span> <span class="token symbol">:b</span> <span class="token number">2</span><span class="token punctuation">}</span>
+   <span class="token punctuation">(</span><span class="token keyword">assoc</span> <span class="token symbol">:c</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">;=> (assoc {:a 1 :b 2} :c 3)</span>
+   <span class="token punctuation">(</span><span class="token keyword">dissoc</span> <span class="token symbol">:b</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">;=> (dissoc (assoc {:a 1 :b 2} :c 3) :b)</span>
+
+<span class="token comment">; This expression could be written as:</span>
+<span class="token comment">; (dissoc (assoc {:a 1 :b 2} :c 3) :b)</span>
+<span class="token comment">; and evaluates to {:a 1 :c 3}</span>
+
+<span class="token comment">; The double arrow does the same thing, but inserts the result of</span>
+<span class="token comment">; each line at the *end* of the form. This is useful for collection</span>
+<span class="token comment">; operations in particular:</span>
+<span class="token punctuation">(</span><span class="token keyword">->></span>
+   <span class="token punctuation">(</span><span class="token keyword">range</span> <span class="token number">10</span><span class="token punctuation">)</span>
+   <span class="token punctuation">(</span><span class="token keyword">map</span> inc<span class="token punctuation">)</span>     <span class="token comment">;=> (map inc (range 10)</span>
+   <span class="token punctuation">(</span><span class="token keyword">filter</span> odd?<span class="token punctuation">)</span> <span class="token comment">;=> (filter odd? (map inc (range 10))</span>
+   <span class="token punctuation">(</span><span class="token keyword">into</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment">;=> (into [] (filter odd? (map inc (range 10)))</span>
+                 <span class="token comment">; Result: [1 3 5 7 9]</span>
+
+<span class="token comment">; When you are in a situation where you want more freedom as where to</span>
+<span class="token comment">; put the result of previous data transformations in an</span>
+<span class="token comment">; expression, you can use the as-> macro. With it, you can assign a</span>
+<span class="token comment">; specific name to transformations' output and use it as a</span>
+<span class="token comment">; placeholder in your chained expressions:</span>
+
+<span class="token punctuation">(</span><span class="token function">as-></span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span> input
+  <span class="token punctuation">(</span><span class="token keyword">map</span> inc input<span class="token punctuation">)</span><span class="token comment">;=> You can use last transform's output at the last position</span>
+  <span class="token punctuation">(</span><span class="token keyword">nth</span> input <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">;=>  and at the second position, in the same expression</span>
+  <span class="token punctuation">(</span><span class="token keyword">conj</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token number">5</span> <span class="token number">6</span><span class="token punctuation">]</span> input <span class="token punctuation">[</span><span class="token number">8</span> <span class="token number">9</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">;=> or in the middle !</span>
+
+
+
+<span class="token comment">; Modules</span>
+<span class="token comment">;;;;;;;;;;;;;;;</span>
+
+<span class="token comment">; Use "use" to get all functions from the module</span>
+<span class="token punctuation">(</span><span class="token function">use</span> 'clojure.set<span class="token punctuation">)</span>
+
+<span class="token comment">; Now we can use set operations</span>
+<span class="token punctuation">(</span><span class="token keyword">intersection</span> <span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">; => #{2 3}</span>
+<span class="token punctuation">(</span><span class="token keyword">difference</span> <span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token operator">#</span><span class="token punctuation">{</span><span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">; => #{1}</span>
+
+<span class="token comment">; You can choose a subset of functions to import, too</span>
+<span class="token punctuation">(</span><span class="token function">use</span> '<span class="token punctuation">[</span>clojure.set <span class="token symbol">:only</span> <span class="token punctuation">[</span>intersection<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">; Use require to import a module</span>
+<span class="token punctuation">(</span><span class="token function">require</span> 'clojure.string<span class="token punctuation">)</span>
+
+<span class="token comment">; Use / to call functions from a module</span>
+<span class="token comment">; Here, the module is clojure.string and the function is blank?</span>
+<span class="token punctuation">(</span><span class="token function">clojure.string/blank?</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token comment">; => true</span>
+
+<span class="token comment">; You can give a module a shorter name on import</span>
+<span class="token punctuation">(</span><span class="token function">require</span> '<span class="token punctuation">[</span>clojure.string <span class="token symbol">:as</span> str<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">str/replace</span> <span class="token string">"This is a test."</span> <span class="token operator">#</span><span class="token string">"[a-o]"</span> str/upper-case<span class="token punctuation">)</span> <span class="token comment">; => "THIs Is A tEst."</span>
+<span class="token comment">; (#"" denotes a regular expression literal)</span>
+
+<span class="token comment">; You can use require (and use, but don't) from a namespace using :require.</span>
+<span class="token comment">; You don't need to quote your modules if you do it this way.</span>
+<span class="token punctuation">(</span><span class="token keyword">ns</span> test
+  <span class="token punctuation">(</span><span class="token symbol">:require</span>
+    <span class="token punctuation">[</span>clojure.string <span class="token symbol">:as</span> str<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span>clojure.set <span class="token symbol">:as</span> set<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">; Java</span>
+<span class="token comment">;;;;;;;;;;;;;;;;;</span>
+
+<span class="token comment">; Java has a huge and useful standard library, so</span>
+<span class="token comment">; you'll want to learn how to get at it.</span>
+
+<span class="token comment">; Use import to load a java module</span>
+<span class="token punctuation">(</span><span class="token keyword">import</span> java.util.Date<span class="token punctuation">)</span>
+
+<span class="token comment">; You can import from an ns too.</span>
+<span class="token punctuation">(</span><span class="token keyword">ns</span> test
+  <span class="token punctuation">(</span><span class="token symbol">:import</span> java.util.Date
+           java.util.Calendar<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">; Use the class name with a "." at the end to make a new instance</span>
+<span class="token punctuation">(</span><span class="token function">Date.</span><span class="token punctuation">)</span> <span class="token comment">; &lt;a date object></span>
+
+<span class="token comment">; Use . to call methods. Or, use the ".method" shortcut</span>
+<span class="token punctuation">(</span><span class="token keyword">.</span> <span class="token punctuation">(</span><span class="token function">Date.</span><span class="token punctuation">)</span> getTime<span class="token punctuation">)</span> <span class="token comment">; &lt;a timestamp></span>
+<span class="token punctuation">(</span><span class="token function">.getTime</span> <span class="token punctuation">(</span><span class="token function">Date.</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">; exactly the same thing.</span>
+
+<span class="token comment">; Use / to call static methods</span>
+<span class="token punctuation">(</span><span class="token function">System/currentTimeMillis</span><span class="token punctuation">)</span> <span class="token comment">; &lt;a timestamp> (system is always present)</span>
+
+<span class="token comment">; Use doto to make dealing with (mutable) classes more tolerable</span>
+<span class="token punctuation">(</span><span class="token keyword">import</span> java.util.Calendar<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">doto</span> <span class="token punctuation">(</span><span class="token function">Calendar/getInstance</span><span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">.set</span> <span class="token number">2000</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">)</span>
+  .getTime<span class="token punctuation">)</span> <span class="token comment">; => A Date. set to 2000-01-01 00:00:00</span>
+
+<span class="token comment">; STM</span>
+<span class="token comment">;;;;;;;;;;;;;;;;;</span>
+
+<span class="token comment">; Software Transactional Memory is the mechanism clojure uses to handle</span>
+<span class="token comment">; persistent state. There are a few constructs in clojure that use this.</span>
+
+<span class="token comment">; An atom is the simplest. Pass it an initial value</span>
+<span class="token punctuation">(</span><span class="token keyword">def</span> my-atom <span class="token punctuation">(</span><span class="token function">atom</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">; Update an atom with swap!.</span>
+<span class="token comment">; swap! takes a function and calls it with the current value of the atom</span>
+<span class="token comment">; as the first argument, and any trailing arguments as the second</span>
+<span class="token punctuation">(</span><span class="token function">swap!</span> my-atom assoc <span class="token symbol">:a</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">; Sets my-atom to the result of (assoc {} :a 1)</span>
+<span class="token punctuation">(</span><span class="token function">swap!</span> my-atom assoc <span class="token symbol">:b</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">; Sets my-atom to the result of (assoc {:a 1} :b 2)</span>
+
+<span class="token comment">; Use '@' to dereference the atom and get the value</span>
+my-atom  <span class="token comment">;=> Atom&lt;#...> (Returns the Atom object)</span>
+<span class="token operator">@</span>my-atom <span class="token comment">; => {:a 1 :b 2}</span>
+
+<span class="token comment">; Here's a simple counter using an atom</span>
+<span class="token punctuation">(</span><span class="token keyword">def</span> counter <span class="token punctuation">(</span><span class="token function">atom</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span> inc-counter <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">(</span><span class="token function">swap!</span> counter inc<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token function">inc-counter</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">inc-counter</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">inc-counter</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">inc-counter</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">inc-counter</span><span class="token punctuation">)</span>
+
+<span class="token operator">@</span>counter <span class="token comment">; => 5</span>
+
+<span class="token comment">; Other STM constructs are refs and agents.</span>
+<span class="token comment">; Refs: http://clojure.org/refs</span>
+<span class="token comment">; Agents: http://clojure.org/agents</span>
+
+----------------------------------------------------

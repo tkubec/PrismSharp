@@ -1,0 +1,373 @@
+ADVISE
+ALL
+ALTER
+ANALYZE
+AS
+ASC
+AT
+BEGIN
+BINARY
+BOOLEAN
+BREAK
+BUCKET
+BUILD
+BY
+CALL
+CAST
+CLUSTER
+COLLATE
+COLLECTION
+COMMIT
+COMMITTED
+CONNECT
+CONTINUE
+CORRELATE
+CORRELATED
+COVER
+CREATE
+CURRENT
+DATABASE
+DATASET
+DATASTORE
+DECLARE
+DECREMENT
+DELETE
+DERIVED
+DESC
+DESCRIBE
+DISTINCT
+DO
+DROP
+EACH
+ELEMENT
+EXCEPT
+EXCLUDE
+EXECUTE
+EXPLAIN
+FETCH
+FILTER
+FLATTEN
+FLUSH
+FOLLOWING
+FOR
+FORCE
+FROM
+FTS
+FUNCTION
+GOLANG
+GRANT
+GROUP
+GROUPS
+GSI
+HASH
+HAVING
+IF
+IGNORE
+ILIKE
+INCLUDE
+INCREMENT
+INDEX
+INFER
+INLINE
+INNER
+INSERT
+INTERSECT
+INTO
+IS
+ISOLATION
+JAVASCRIPT
+JOIN
+KEY
+KEYS
+KEYSPACE
+KNOWN
+LANGUAGE
+LAST
+LEFT
+LET
+LETTING
+LEVEL
+LIMIT
+LSM
+MAP
+MAPPING
+MATCHED
+MATERIALIZED
+MERGE
+MINUS
+MISSING
+NAMESPACE
+NEST
+NL
+NO
+NTH_VALUE
+NULL
+NULLS
+NUMBER
+OBJECT
+OFFSET
+ON
+OPTION
+OPTIONS
+ORDER
+OTHERS
+OUTER
+OVER
+PARSE
+PARTITION
+PASSWORD
+PATH
+POOL
+PRECEDING
+PREPARE
+PRIMARY
+PRIVATE
+PRIVILEGE
+PROBE
+PROCEDURE
+PUBLIC
+RANGE
+RAW
+REALM
+REDUCE
+RENAME
+RESPECT
+RETURN
+RETURNING
+REVOKE
+RIGHT
+ROLE
+ROLLBACK
+ROW
+ROWS
+SATISFIES
+SAVEPOINT
+SCHEMA
+SCOPE
+SELECT
+SELF
+SEMI
+SET
+SHOW
+SOME
+START
+STATISTICS
+STRING
+SYSTEM
+TIES
+TO
+TRAN
+TRANSACTION
+TRIGGER
+TRUNCATE
+UNBOUNDED
+UNDER
+UNION
+UNIQUE
+UNKNOWN
+UNNEST
+UNSET
+UPDATE
+UPSERT
+USE
+USER
+USING
+VALIDATE
+VALUE
+VALUES
+VIA
+VIEW
+WHERE
+WHILE
+WINDOW
+WITH
+WORK
+XOR
+----------------------------------------------------
+<span class="token keyword">ADVISE</span>
+<span class="token keyword">ALL</span>
+<span class="token keyword">ALTER</span>
+<span class="token keyword">ANALYZE</span>
+<span class="token keyword">AS</span>
+<span class="token keyword">ASC</span>
+<span class="token keyword">AT</span>
+<span class="token keyword">BEGIN</span>
+<span class="token keyword">BINARY</span>
+<span class="token keyword">BOOLEAN</span>
+<span class="token keyword">BREAK</span>
+<span class="token keyword">BUCKET</span>
+<span class="token keyword">BUILD</span>
+<span class="token keyword">BY</span>
+<span class="token keyword">CALL</span>
+<span class="token keyword">CAST</span>
+<span class="token keyword">CLUSTER</span>
+<span class="token keyword">COLLATE</span>
+<span class="token keyword">COLLECTION</span>
+<span class="token keyword">COMMIT</span>
+<span class="token keyword">COMMITTED</span>
+<span class="token keyword">CONNECT</span>
+<span class="token keyword">CONTINUE</span>
+<span class="token keyword">CORRELATE</span>
+<span class="token keyword">CORRELATED</span>
+<span class="token keyword">COVER</span>
+<span class="token keyword">CREATE</span>
+<span class="token keyword">CURRENT</span>
+<span class="token keyword">DATABASE</span>
+<span class="token keyword">DATASET</span>
+<span class="token keyword">DATASTORE</span>
+<span class="token keyword">DECLARE</span>
+<span class="token keyword">DECREMENT</span>
+<span class="token keyword">DELETE</span>
+<span class="token keyword">DERIVED</span>
+<span class="token keyword">DESC</span>
+<span class="token keyword">DESCRIBE</span>
+<span class="token keyword">DISTINCT</span>
+<span class="token keyword">DO</span>
+<span class="token keyword">DROP</span>
+<span class="token keyword">EACH</span>
+<span class="token keyword">ELEMENT</span>
+<span class="token keyword">EXCEPT</span>
+<span class="token keyword">EXCLUDE</span>
+<span class="token keyword">EXECUTE</span>
+<span class="token keyword">EXPLAIN</span>
+<span class="token keyword">FETCH</span>
+<span class="token keyword">FILTER</span>
+<span class="token keyword">FLATTEN</span>
+<span class="token keyword">FLUSH</span>
+<span class="token keyword">FOLLOWING</span>
+<span class="token keyword">FOR</span>
+<span class="token keyword">FORCE</span>
+<span class="token keyword">FROM</span>
+<span class="token keyword">FTS</span>
+<span class="token keyword">FUNCTION</span>
+<span class="token keyword">GOLANG</span>
+<span class="token keyword">GRANT</span>
+<span class="token keyword">GROUP</span>
+<span class="token keyword">GROUPS</span>
+<span class="token keyword">GSI</span>
+<span class="token keyword">HASH</span>
+<span class="token keyword">HAVING</span>
+<span class="token keyword">IF</span>
+<span class="token keyword">IGNORE</span>
+<span class="token keyword">ILIKE</span>
+<span class="token keyword">INCLUDE</span>
+<span class="token keyword">INCREMENT</span>
+<span class="token keyword">INDEX</span>
+<span class="token keyword">INFER</span>
+<span class="token keyword">INLINE</span>
+<span class="token keyword">INNER</span>
+<span class="token keyword">INSERT</span>
+<span class="token keyword">INTERSECT</span>
+<span class="token keyword">INTO</span>
+<span class="token keyword">IS</span>
+<span class="token keyword">ISOLATION</span>
+<span class="token keyword">JAVASCRIPT</span>
+<span class="token keyword">JOIN</span>
+<span class="token keyword">KEY</span>
+<span class="token keyword">KEYS</span>
+<span class="token keyword">KEYSPACE</span>
+<span class="token keyword">KNOWN</span>
+<span class="token keyword">LANGUAGE</span>
+<span class="token keyword">LAST</span>
+<span class="token keyword">LEFT</span>
+<span class="token keyword">LET</span>
+<span class="token keyword">LETTING</span>
+<span class="token keyword">LEVEL</span>
+<span class="token keyword">LIMIT</span>
+<span class="token keyword">LSM</span>
+<span class="token keyword">MAP</span>
+<span class="token keyword">MAPPING</span>
+<span class="token keyword">MATCHED</span>
+<span class="token keyword">MATERIALIZED</span>
+<span class="token keyword">MERGE</span>
+<span class="token keyword">MINUS</span>
+<span class="token keyword">MISSING</span>
+<span class="token keyword">NAMESPACE</span>
+<span class="token keyword">NEST</span>
+<span class="token keyword">NL</span>
+<span class="token keyword">NO</span>
+<span class="token keyword">NTH_VALUE</span>
+<span class="token keyword">NULL</span>
+<span class="token keyword">NULLS</span>
+<span class="token keyword">NUMBER</span>
+<span class="token keyword">OBJECT</span>
+<span class="token keyword">OFFSET</span>
+<span class="token keyword">ON</span>
+<span class="token keyword">OPTION</span>
+<span class="token keyword">OPTIONS</span>
+<span class="token keyword">ORDER</span>
+<span class="token keyword">OTHERS</span>
+<span class="token keyword">OUTER</span>
+<span class="token keyword">OVER</span>
+<span class="token keyword">PARSE</span>
+<span class="token keyword">PARTITION</span>
+<span class="token keyword">PASSWORD</span>
+<span class="token keyword">PATH</span>
+<span class="token keyword">POOL</span>
+<span class="token keyword">PRECEDING</span>
+<span class="token keyword">PREPARE</span>
+<span class="token keyword">PRIMARY</span>
+<span class="token keyword">PRIVATE</span>
+<span class="token keyword">PRIVILEGE</span>
+<span class="token keyword">PROBE</span>
+<span class="token keyword">PROCEDURE</span>
+<span class="token keyword">PUBLIC</span>
+<span class="token keyword">RANGE</span>
+<span class="token keyword">RAW</span>
+<span class="token keyword">REALM</span>
+<span class="token keyword">REDUCE</span>
+<span class="token keyword">RENAME</span>
+<span class="token keyword">RESPECT</span>
+<span class="token keyword">RETURN</span>
+<span class="token keyword">RETURNING</span>
+<span class="token keyword">REVOKE</span>
+<span class="token keyword">RIGHT</span>
+<span class="token keyword">ROLE</span>
+<span class="token keyword">ROLLBACK</span>
+<span class="token keyword">ROW</span>
+<span class="token keyword">ROWS</span>
+<span class="token keyword">SATISFIES</span>
+<span class="token keyword">SAVEPOINT</span>
+<span class="token keyword">SCHEMA</span>
+<span class="token keyword">SCOPE</span>
+<span class="token keyword">SELECT</span>
+<span class="token keyword">SELF</span>
+<span class="token keyword">SEMI</span>
+<span class="token keyword">SET</span>
+<span class="token keyword">SHOW</span>
+<span class="token keyword">SOME</span>
+<span class="token keyword">START</span>
+<span class="token keyword">STATISTICS</span>
+<span class="token keyword">STRING</span>
+<span class="token keyword">SYSTEM</span>
+<span class="token keyword">TIES</span>
+<span class="token keyword">TO</span>
+<span class="token keyword">TRAN</span>
+<span class="token keyword">TRANSACTION</span>
+<span class="token keyword">TRIGGER</span>
+<span class="token keyword">TRUNCATE</span>
+<span class="token keyword">UNBOUNDED</span>
+<span class="token keyword">UNDER</span>
+<span class="token keyword">UNION</span>
+<span class="token keyword">UNIQUE</span>
+<span class="token keyword">UNKNOWN</span>
+<span class="token keyword">UNNEST</span>
+<span class="token keyword">UNSET</span>
+<span class="token keyword">UPDATE</span>
+<span class="token keyword">UPSERT</span>
+<span class="token keyword">USE</span>
+<span class="token keyword">USER</span>
+<span class="token keyword">USING</span>
+<span class="token keyword">VALIDATE</span>
+<span class="token keyword">VALUE</span>
+<span class="token keyword">VALUES</span>
+<span class="token keyword">VIA</span>
+<span class="token keyword">VIEW</span>
+<span class="token keyword">WHERE</span>
+<span class="token keyword">WHILE</span>
+<span class="token keyword">WINDOW</span>
+<span class="token keyword">WITH</span>
+<span class="token keyword">WORK</span>
+<span class="token keyword">XOR</span>
+
+----------------------------------------------------

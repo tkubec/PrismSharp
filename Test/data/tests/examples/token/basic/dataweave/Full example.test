@@ -1,0 +1,199 @@
+%dw 2.0
+input payalod application/json
+ns ns0 http://localhost.com
+var a = 123
+type T = String
+fun test(a: Number) = a + 123
+output application/json
+---
+{
+    // This is a comment
+    /**
+    This is a multiline comment
+    **/
+    name: payload.name,
+    string: "this",
+    'another string': true,
+    "regex": /123/,
+    fc: test(1),
+    "dates": |12-12-2020-T12:00:00|,
+    number: 123,
+    "null": null,
+
+    a: {} match {
+        case  is {} -> foo.name
+    },
+    b: {} update {
+    case name at .user.name ->  "123"
+    },
+    stringMultiLine: "This is a multiline
+        string
+    ",
+    a: if( !true > 2) a else 2,
+    b: do {
+            {}
+        }
+}
+----------------------------------------------------
+[
+	"%dw ",
+	["number", "2.0"],
+
+	["keyword", "input"],
+	" payalod ",
+	["mime-type", "application/json"],
+
+	["keyword", "ns"],
+	" ns0 ",
+	["url", "http://localhost.com"],
+
+	["keyword", "var"],
+	" a ",
+	["operator", "="],
+	["number", "123"],
+
+	["keyword", "type"],
+	" T ",
+	["operator", "="],
+	" String\n",
+
+	["keyword", "fun"],
+	["function", "test"],
+	["punctuation", "("],
+	["property", "a"],
+	["punctuation", ":"],
+	" Number",
+	["punctuation", ")"],
+	["operator", "="],
+	" a ",
+	["operator", "+"],
+	["number", "123"],
+
+	["keyword", "output"],
+	["mime-type", "application/json"],
+
+	["operator", "---"],
+
+	["punctuation", "{"],
+
+	["comment", "// This is a comment"],
+
+	["comment", "/**\n    This is a multiline comment\n    **/"],
+
+	["property", "name"],
+	["punctuation", ":"],
+	" payload",
+	["punctuation", "."],
+	"name",
+	["punctuation", ","],
+
+	["property", "string"],
+	["punctuation", ":"],
+	["string", "\"this\""],
+	["punctuation", ","],
+
+	["string", "'another string'"],
+	["punctuation", ":"],
+	["boolean", "true"],
+	["punctuation", ","],
+
+	["property", "\"regex\""],
+	["punctuation", ":"],
+	["regex", "/123/"],
+	["punctuation", ","],
+
+	["property", "fc"],
+	["punctuation", ":"],
+	["function", "test"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["property", "\"dates\""],
+	["punctuation", ":"],
+	["date", "|12-12-2020-T12:00:00|"],
+	["punctuation", ","],
+
+	["property", "number"],
+	["punctuation", ":"],
+	["number", "123"],
+	["punctuation", ","],
+
+	["property", "\"null\""],
+	["punctuation", ":"],
+	["keyword", "null"],
+	["punctuation", ","],
+
+	["property", "a"],
+	["punctuation", ":"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["keyword", "match"],
+	["punctuation", "{"],
+
+	["keyword", "case"],
+	["keyword", "is"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["operator", "->"],
+	" foo",
+	["punctuation", "."],
+	"name\n    ",
+
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["property", "b"],
+	["punctuation", ":"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["keyword", "update"],
+	["punctuation", "{"],
+
+	["keyword", "case"],
+	" name ",
+	["keyword", "at"],
+	["punctuation", "."],
+	"user",
+	["punctuation", "."],
+	"name ",
+	["operator", "->"],
+	["string", "\"123\""],
+
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["property", "stringMultiLine"],
+	["punctuation", ":"],
+	["string", "\"This is a multiline\n        string\n    \""],
+	["punctuation", ","],
+
+	["property", "a"],
+	["punctuation", ":"],
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	["boolean", "true"],
+	["operator", ">"],
+	["number", "2"],
+	["punctuation", ")"],
+	" a ",
+	["keyword", "else"],
+	["number", "2"],
+	["punctuation", ","],
+
+	["property", "b"],
+	["punctuation", ":"],
+	["keyword", "do"],
+	["punctuation", "{"],
+
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

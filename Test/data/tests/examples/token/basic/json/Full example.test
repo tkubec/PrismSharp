@@ -1,0 +1,80 @@
+{
+    "data": {
+        "labels": [
+            "foo",
+            "bar"
+        ],
+        "series": [
+            [ 0, 1, 2, 3 ],
+            [ 0, -4, -8, -12 ]
+        ]
+    },
+    // we even support comments
+    "error": null,
+    "status": "Ok"
+}
+----------------------------------------------------
+[
+	["punctuation", "{"],
+
+	["property", "\"data\""],
+	["operator", ":"],
+	["punctuation", "{"],
+
+	["property", "\"labels\""],
+	["operator", ":"],
+	["punctuation", "["],
+
+	["string", "\"foo\""],
+	["punctuation", ","],
+
+	["string", "\"bar\""],
+
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["property", "\"series\""],
+	["operator", ":"],
+	["punctuation", "["],
+
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", ","],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", ","],
+	["number", "-4"],
+	["punctuation", ","],
+	["number", "-8"],
+	["punctuation", ","],
+	["number", "-12"],
+	["punctuation", "]"],
+
+	["punctuation", "]"],
+
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["comment", "// we even support comments"],
+
+	["property", "\"error\""],
+	["operator", ":"],
+	["null", "null"],
+	["punctuation", ","],
+
+	["property", "\"status\""],
+	["operator", ":"],
+	["string", "\"Ok\""],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

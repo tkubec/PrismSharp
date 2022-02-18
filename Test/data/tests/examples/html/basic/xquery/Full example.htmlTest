@@ -1,0 +1,21 @@
+<report xmlns="http://datypic.com/report"
+xmlns:cat="http://datypic.com/cat"
+xmlns:prod="http://datypic.com/prod"> {
+for $product in doc("prod_ns.xml")/prod:product
+return <lineItem>
+{$product/prod:number}
+{$product/prod:name}
+</lineItem>
+} </report>
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>report</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">="</span>http://datypic.com/report<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">xmlns:</span>cat</span><span class="token attr-value"><span class="token punctuation">="</span>http://datypic.com/cat<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">xmlns:</span>prod</span><span class="token attr-value"><span class="token punctuation">="</span>http://datypic.com/prod<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+<span class="token keyword">for</span> <span class="token variable">$product</span> <span class="token keyword">in</span> <span class="token function">doc</span><span class="token punctuation">(</span><span class="token string">"prod_ns.xml"</span><span class="token punctuation">)</span><span class="token punctuation">/</span>prod<span class="token punctuation">:</span>product
+<span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>lineItem</span><span class="token punctuation">></span></span>
+<span class="token punctuation">{</span><span class="token variable">$product</span><span class="token punctuation">/</span>prod<span class="token punctuation">:</span>number<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$product</span><span class="token punctuation">/</span>prod<span class="token punctuation">:</span>name<span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>lineItem</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>report</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

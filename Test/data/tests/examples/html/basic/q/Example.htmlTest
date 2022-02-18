@@ -1,0 +1,47 @@
+/ Example from http://code.kx.com/wiki/Cookbook/CorporateActions
+getCAs:{[caTypes]
+    / handles multiplie corporate actions on one date
+    t:0!select factor:prd factor by date-1,sym from ca where caType in caTypes;
+    t,:update date:1901.01.01,factor:1.0 from ([]sym:distinct t`sym);
+    t:`date xasc t;
+    t:update factor:reverse prds reverse 1 rotate factor by sym from t;
+    :update `g#sym from 0!t;
+  };
+
+adjust:{[t;caTypes]
+    t:0!t;
+    factors:enlist 1.0^aj[`sym`date;([] date:t`date;sym:t`sym);getCAs caTypes]`factor;
+    mc:c where (lower c:cols t) like "*price"; / find columns to multiply
+    dc:c where lower[c] like "*size"; / find columns to divide
+    :![t;();0b;(mc,dc)!((*),/:mc,\:factors),((%),/:dc,\:factors)]; / multiply or divide out the columns
+  };
+
+/ get the adjustment factors considering all corporate actions
+getCAs exec distinct caType from ca
+
+adjust[t;`dividend] / adjust trades for dividends only
+----------------------------------------------------
+<span class="token comment">/ Example from http://code.kx.com/wiki/Cookbook/CorporateActions</span>
+getCAs<span class="token verb operator">:</span><span class="token punctuation">{</span><span class="token punctuation">[</span>caTypes<span class="token punctuation">]</span>
+    <span class="token comment">/ handles multiplie corporate actions on one date</span>
+    t<span class="token verb operator">:</span><span class="token number">0</span><span class="token verb operator">!</span><span class="token keyword">select</span> factor<span class="token verb operator">:</span><span class="token keyword">prd</span> factor <span class="token keyword">by</span> date<span class="token verb operator">-</span><span class="token number">1</span><span class="token verb operator">,</span>sym <span class="token keyword">from</span> ca <span class="token keyword">where</span> caType <span class="token keyword">in</span> caTypes<span class="token punctuation">;</span>
+    t<span class="token verb operator">,:</span><span class="token keyword">update</span> date<span class="token verb operator">:</span><span class="token datetime number">1901.01.01</span><span class="token verb operator">,</span>factor<span class="token verb operator">:</span><span class="token number">1.0</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>sym<span class="token verb operator">:</span><span class="token keyword">distinct</span> t<span class="token symbol">`sym</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    t<span class="token verb operator">:</span><span class="token symbol">`date</span> <span class="token keyword">xasc</span> t<span class="token punctuation">;</span>
+    t<span class="token verb operator">:</span><span class="token keyword">update</span> factor<span class="token verb operator">:</span><span class="token keyword">reverse</span> <span class="token keyword">prds</span> <span class="token keyword">reverse</span> <span class="token number">1</span> <span class="token keyword">rotate</span> factor <span class="token keyword">by</span> sym <span class="token keyword">from</span> t<span class="token punctuation">;</span>
+    <span class="token verb operator">:</span><span class="token keyword">update</span> <span class="token symbol">`g</span><span class="token verb operator">#</span>sym <span class="token keyword">from</span> <span class="token number">0</span><span class="token verb operator">!</span>t<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+adjust<span class="token verb operator">:</span><span class="token punctuation">{</span><span class="token punctuation">[</span>t<span class="token punctuation">;</span>caTypes<span class="token punctuation">]</span>
+    t<span class="token verb operator">:</span><span class="token number">0</span><span class="token verb operator">!</span>t<span class="token punctuation">;</span>
+    factors<span class="token verb operator">:</span><span class="token keyword">enlist</span> <span class="token number">1.0</span><span class="token verb operator">^</span><span class="token keyword">aj</span><span class="token punctuation">[</span><span class="token symbol">`sym</span><span class="token symbol">`date</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span> date<span class="token verb operator">:</span>t<span class="token symbol">`date</span><span class="token punctuation">;</span>sym<span class="token verb operator">:</span>t<span class="token symbol">`sym</span><span class="token punctuation">)</span><span class="token punctuation">;</span>getCAs caTypes<span class="token punctuation">]</span><span class="token symbol">`factor</span><span class="token punctuation">;</span>
+    mc<span class="token verb operator">:</span>c <span class="token keyword">where</span> <span class="token punctuation">(</span><span class="token keyword">lower</span> c<span class="token verb operator">:</span><span class="token keyword">cols</span> t<span class="token punctuation">)</span> <span class="token keyword">like</span> <span class="token string">"*price"</span><span class="token punctuation">;</span> <span class="token comment">/ find columns to multiply</span>
+    dc<span class="token verb operator">:</span>c <span class="token keyword">where</span> <span class="token keyword">lower</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token keyword">like</span> <span class="token string">"*size"</span><span class="token punctuation">;</span> <span class="token comment">/ find columns to divide</span>
+    <span class="token verb operator">:</span><span class="token verb operator">!</span><span class="token punctuation">[</span>t<span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token number">0b</span><span class="token punctuation">;</span><span class="token punctuation">(</span>mc<span class="token verb operator">,</span>dc<span class="token punctuation">)</span><span class="token verb operator">!</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token verb operator">*</span><span class="token punctuation">)</span><span class="token verb operator">,</span><span class="token adverb function">/:</span>mc<span class="token verb operator">,</span><span class="token adverb function">\:</span>factors<span class="token punctuation">)</span><span class="token verb operator">,</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token verb operator">%</span><span class="token punctuation">)</span><span class="token verb operator">,</span><span class="token adverb function">/:</span>dc<span class="token verb operator">,</span><span class="token adverb function">\:</span>factors<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">/ multiply or divide out the columns</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/ get the adjustment factors considering all corporate actions</span>
+getCAs <span class="token keyword">exec</span> <span class="token keyword">distinct</span> caType <span class="token keyword">from</span> ca
+
+adjust<span class="token punctuation">[</span>t<span class="token punctuation">;</span><span class="token symbol">`dividend</span><span class="token punctuation">]</span> <span class="token comment">/ adjust trades for dividends only</span>
+
+----------------------------------------------------

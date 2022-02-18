@@ -1,0 +1,13 @@
+"This is a string."
+"This is a string \
+on multiple lines."
+"A string with \"quotes\" in it."
+"Another string with ""quotes"" in it."
+----------------------------------------------------
+<span class="token string">"This is a string."</span>
+<span class="token string">"This is a string \
+on multiple lines."</span>
+<span class="token string">"A string with \"quotes\" in it."</span>
+<span class="token string">"Another string with ""quotes"" in it."</span>
+
+----------------------------------------------------

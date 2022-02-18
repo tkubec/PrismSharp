@@ -1,0 +1,589 @@
+ABS (
+ABS(
+ACOS(
+ACOSH(
+ACOT(
+ACOTH(
+ADDCOLUMNS(
+ADDMISSINGITEMS(
+ALL(
+ALLCROSSFILTERED(
+ALLEXCEPT(
+ALLNOBLANKROW(
+ALLSELECTED(
+AND(
+APPROXIMATEDISTINCTCOUNT(
+ASIN(
+ASINH(
+ATAN(
+ATANH(
+AVERAGE(
+AVERAGEA(
+AVERAGEX(
+BETA.DIST(
+BETA.INV(
+BLANK(
+CALCULATE(
+CALCULATETABLE(
+CALENDAR(
+CALENDARAUTO(
+CEILING(
+CHISQ.DIST(
+CHISQ.DIST.RT(
+CHISQ.INV(
+CHISQ.INV.RT(
+CLOSINGBALANCEMONTH(
+CLOSINGBALANCEQUARTER(
+CLOSINGBALANCEYEAR(
+COALESCE(
+COMBIN(
+COMBINA(
+COMBINEVALUES(
+CONCATENATE(
+CONCATENATEX(
+CONFIDENCE.NORM(
+CONFIDENCE.T(
+CONTAINS(
+CONTAINSROW(
+CONTAINSSTRING(
+CONTAINSSTRINGEXACT(
+CONVERT(
+COS(
+COSH(
+COT(
+COTH(
+COUNT(
+COUNTA(
+COUNTAX(
+COUNTBLANK(
+COUNTROWS(
+COUNTX(
+CROSSFILTER(
+CROSSJOIN(
+CURRENCY(
+CURRENTGROUP(
+CUSTOMDATA(
+DATATABLE(
+DATE(
+DATEADD(
+DATEDIFF(
+DATESBETWEEN(
+DATESINPERIOD(
+DATESMTD(
+DATESQTD(
+DATESYTD(
+DATEVALUE(
+DAY(
+DEGREES(
+DETAILROWS(
+DISTINCT(
+DISTINCTCOUNT(
+DISTINCTCOUNTNOBLANK(
+DIVIDE(
+EARLIER(
+EARLIEST(
+EDATE(
+ENDOFMONTH(
+ENDOFQUARTER(
+ENDOFYEAR(
+EOMONTH(
+ERROR(
+EVEN(
+EXACT(
+EXCEPT(
+EXP(
+EXPON.DIST(
+FACT(
+FALSE(
+FILTER(
+FILTERS(
+FIND(
+FIRSTDATE(
+FIRSTNONBLANK(
+FIRSTNONBLANKVALUE(
+FIXED(
+FLOOR(
+FORMAT(
+GCD(
+GENERATE(
+GENERATEALL(
+GENERATESERIES(
+GEOMEAN(
+GEOMEANX(
+GROUPBY(
+HASONEFILTER(
+HASONEVALUE(
+HOUR(
+IF(
+IF.EAGER(
+IFERROR(
+IGNORE(
+INT(
+INTERSECT(
+ISBLANK(
+ISCROSSFILTERED(
+ISEMPTY(
+ISERROR(
+ISEVEN(
+ISFILTERED(
+ISINSCOPE(
+ISLOGICAL(
+ISNONTEXT(
+ISNUMBER(
+ISO.CEILING(
+ISODD(
+ISONORAFTER(
+ISSELECTEDMEASURE(
+ISSUBTOTAL(
+ISTEXT(
+KEEPFILTERS(
+KEYWORDMATCH(
+LASTDATE(
+LASTNONBLANK(
+LASTNONBLANKVALUE(
+LCM(
+LEFT(
+LEN(
+LN(
+LOG(
+LOG10(
+LOOKUPVALUE(
+LOWER(
+MAX(
+MAXA(
+MAXX(
+MEDIAN(
+MEDIANX(
+MID(
+MIN(
+MINA(
+MINUTE(
+MINX(
+MOD(
+MONTH(
+MROUND(
+NATURALINNERJOIN(
+NATURALLEFTOUTERJOIN(
+NEXTDAY(
+NEXTMONTH(
+NEXTQUARTER(
+NEXTYEAR(
+NONVISUAL(
+NORM.DIST(
+NORM.INV(
+NORM.S.DIST(
+NORM.S.INV(
+NOT(
+NOW(
+ODD(
+OPENINGBALANCEMONTH(
+OPENINGBALANCEQUARTER(
+OPENINGBALANCEYEAR(
+OR(
+PARALLELPERIOD(
+PATH(
+PATHCONTAINS(
+PATHITEM(
+PATHITEMREVERSE(
+PATHLENGTH(
+PERCENTILE.EXC(
+PERCENTILE.INC(
+PERCENTILEX.EXC(
+PERCENTILEX.INC(
+PERMUT(
+PI(
+POISSON.DIST(
+POWER(
+PREVIOUSDAY(
+PREVIOUSMONTH(
+PREVIOUSQUARTER(
+PREVIOUSYEAR(
+PRODUCT(
+PRODUCTX(
+QUARTER(
+QUOTIENT(
+RADIANS(
+RAND(
+RANDBETWEEN(
+RANK.EQ(
+RANKX(
+RELATED(
+RELATEDTABLE(
+REMOVEFILTERS(
+REPLACE(
+REPT(
+RIGHT(
+ROLLUP(
+ROLLUPADDISSUBTOTAL(
+ROLLUPGROUP(
+ROLLUPISSUBTOTAL(
+ROUND(
+ROUNDDOWN(
+ROUNDUP(
+ROW(
+SAMEPERIODLASTYEAR(
+SAMPLE(
+SEARCH(
+SECOND(
+SELECTCOLUMNS(
+SELECTEDMEASURE(
+SELECTEDMEASUREFORMATSTRING(
+SELECTEDMEASURENAME(
+SELECTEDVALUE(
+SIGN(
+SIN(
+SINH(
+SQRT(
+SQRTPI(
+STARTOFMONTH(
+STARTOFQUARTER(
+STARTOFYEAR(
+STDEV.P(
+STDEV.S(
+STDEVX.P(
+STDEVX.S(
+SUBSTITUTE(
+SUBSTITUTEWITHINDEX(
+SUM(
+SUMMARIZE(
+SUMMARIZECOLUMNS(
+SUMX(
+SWITCH(
+T.DIST(
+T.DIST.2T(
+T.DIST.RT(
+T.INV(
+T.INV.2T(
+TAN(
+TANH(
+TIME(
+TIMEVALUE(
+TODAY(
+TOPN(
+TOPNPERLEVEL(
+TOPNSKIP(
+TOTALMTD(
+TOTALQTD(
+TOTALYTD(
+TREATAS(
+TRIM(
+TRUE(
+TRUNC(
+UNICHAR(
+UNICODE(
+UNION(
+UPPER(
+USERELATIONSHIP(
+USERNAME(
+USEROBJECTID(
+USERPRINCIPALNAME(
+UTCNOW(
+UTCTODAY(
+VALUE(
+VALUES(
+VAR.P(
+VAR.S(
+VARX.P(
+VARX.S(
+WEEKDAY(
+WEEKNUM(
+XIRR(
+XNPV(
+YEAR(
+YEARFRAC(
+----------------------------------------------------
+<span class="token function">ABS</span> <span class="token punctuation">(</span>
+<span class="token function">ABS</span><span class="token punctuation">(</span>
+<span class="token function">ACOS</span><span class="token punctuation">(</span>
+<span class="token function">ACOSH</span><span class="token punctuation">(</span>
+<span class="token function">ACOT</span><span class="token punctuation">(</span>
+<span class="token function">ACOTH</span><span class="token punctuation">(</span>
+<span class="token function">ADDCOLUMNS</span><span class="token punctuation">(</span>
+<span class="token function">ADDMISSINGITEMS</span><span class="token punctuation">(</span>
+<span class="token function">ALL</span><span class="token punctuation">(</span>
+<span class="token function">ALLCROSSFILTERED</span><span class="token punctuation">(</span>
+<span class="token function">ALLEXCEPT</span><span class="token punctuation">(</span>
+<span class="token function">ALLNOBLANKROW</span><span class="token punctuation">(</span>
+<span class="token function">ALLSELECTED</span><span class="token punctuation">(</span>
+<span class="token function">AND</span><span class="token punctuation">(</span>
+<span class="token function">APPROXIMATEDISTINCTCOUNT</span><span class="token punctuation">(</span>
+<span class="token function">ASIN</span><span class="token punctuation">(</span>
+<span class="token function">ASINH</span><span class="token punctuation">(</span>
+<span class="token function">ATAN</span><span class="token punctuation">(</span>
+<span class="token function">ATANH</span><span class="token punctuation">(</span>
+<span class="token function">AVERAGE</span><span class="token punctuation">(</span>
+<span class="token function">AVERAGEA</span><span class="token punctuation">(</span>
+<span class="token function">AVERAGEX</span><span class="token punctuation">(</span>
+<span class="token function">BETA.DIST</span><span class="token punctuation">(</span>
+<span class="token function">BETA.INV</span><span class="token punctuation">(</span>
+<span class="token function">BLANK</span><span class="token punctuation">(</span>
+<span class="token function">CALCULATE</span><span class="token punctuation">(</span>
+<span class="token function">CALCULATETABLE</span><span class="token punctuation">(</span>
+<span class="token function">CALENDAR</span><span class="token punctuation">(</span>
+<span class="token function">CALENDARAUTO</span><span class="token punctuation">(</span>
+<span class="token function">CEILING</span><span class="token punctuation">(</span>
+<span class="token function">CHISQ.DIST</span><span class="token punctuation">(</span>
+<span class="token function">CHISQ.DIST.RT</span><span class="token punctuation">(</span>
+<span class="token function">CHISQ.INV</span><span class="token punctuation">(</span>
+<span class="token function">CHISQ.INV.RT</span><span class="token punctuation">(</span>
+<span class="token function">CLOSINGBALANCEMONTH</span><span class="token punctuation">(</span>
+<span class="token function">CLOSINGBALANCEQUARTER</span><span class="token punctuation">(</span>
+<span class="token function">CLOSINGBALANCEYEAR</span><span class="token punctuation">(</span>
+<span class="token function">COALESCE</span><span class="token punctuation">(</span>
+<span class="token function">COMBIN</span><span class="token punctuation">(</span>
+<span class="token function">COMBINA</span><span class="token punctuation">(</span>
+<span class="token function">COMBINEVALUES</span><span class="token punctuation">(</span>
+<span class="token function">CONCATENATE</span><span class="token punctuation">(</span>
+<span class="token function">CONCATENATEX</span><span class="token punctuation">(</span>
+<span class="token function">CONFIDENCE.NORM</span><span class="token punctuation">(</span>
+<span class="token function">CONFIDENCE.T</span><span class="token punctuation">(</span>
+<span class="token function">CONTAINS</span><span class="token punctuation">(</span>
+<span class="token function">CONTAINSROW</span><span class="token punctuation">(</span>
+<span class="token function">CONTAINSSTRING</span><span class="token punctuation">(</span>
+<span class="token function">CONTAINSSTRINGEXACT</span><span class="token punctuation">(</span>
+<span class="token function">CONVERT</span><span class="token punctuation">(</span>
+<span class="token function">COS</span><span class="token punctuation">(</span>
+<span class="token function">COSH</span><span class="token punctuation">(</span>
+<span class="token function">COT</span><span class="token punctuation">(</span>
+<span class="token function">COTH</span><span class="token punctuation">(</span>
+<span class="token function">COUNT</span><span class="token punctuation">(</span>
+<span class="token function">COUNTA</span><span class="token punctuation">(</span>
+<span class="token function">COUNTAX</span><span class="token punctuation">(</span>
+<span class="token function">COUNTBLANK</span><span class="token punctuation">(</span>
+<span class="token function">COUNTROWS</span><span class="token punctuation">(</span>
+<span class="token function">COUNTX</span><span class="token punctuation">(</span>
+<span class="token function">CROSSFILTER</span><span class="token punctuation">(</span>
+<span class="token function">CROSSJOIN</span><span class="token punctuation">(</span>
+<span class="token function">CURRENCY</span><span class="token punctuation">(</span>
+<span class="token function">CURRENTGROUP</span><span class="token punctuation">(</span>
+<span class="token function">CUSTOMDATA</span><span class="token punctuation">(</span>
+<span class="token function">DATATABLE</span><span class="token punctuation">(</span>
+<span class="token function">DATE</span><span class="token punctuation">(</span>
+<span class="token function">DATEADD</span><span class="token punctuation">(</span>
+<span class="token function">DATEDIFF</span><span class="token punctuation">(</span>
+<span class="token function">DATESBETWEEN</span><span class="token punctuation">(</span>
+<span class="token function">DATESINPERIOD</span><span class="token punctuation">(</span>
+<span class="token function">DATESMTD</span><span class="token punctuation">(</span>
+<span class="token function">DATESQTD</span><span class="token punctuation">(</span>
+<span class="token function">DATESYTD</span><span class="token punctuation">(</span>
+<span class="token function">DATEVALUE</span><span class="token punctuation">(</span>
+<span class="token function">DAY</span><span class="token punctuation">(</span>
+<span class="token function">DEGREES</span><span class="token punctuation">(</span>
+<span class="token function">DETAILROWS</span><span class="token punctuation">(</span>
+<span class="token function">DISTINCT</span><span class="token punctuation">(</span>
+<span class="token function">DISTINCTCOUNT</span><span class="token punctuation">(</span>
+<span class="token function">DISTINCTCOUNTNOBLANK</span><span class="token punctuation">(</span>
+<span class="token function">DIVIDE</span><span class="token punctuation">(</span>
+<span class="token function">EARLIER</span><span class="token punctuation">(</span>
+<span class="token function">EARLIEST</span><span class="token punctuation">(</span>
+<span class="token function">EDATE</span><span class="token punctuation">(</span>
+<span class="token function">ENDOFMONTH</span><span class="token punctuation">(</span>
+<span class="token function">ENDOFQUARTER</span><span class="token punctuation">(</span>
+<span class="token function">ENDOFYEAR</span><span class="token punctuation">(</span>
+<span class="token function">EOMONTH</span><span class="token punctuation">(</span>
+<span class="token function">ERROR</span><span class="token punctuation">(</span>
+<span class="token function">EVEN</span><span class="token punctuation">(</span>
+<span class="token function">EXACT</span><span class="token punctuation">(</span>
+<span class="token function">EXCEPT</span><span class="token punctuation">(</span>
+<span class="token function">EXP</span><span class="token punctuation">(</span>
+<span class="token function">EXPON.DIST</span><span class="token punctuation">(</span>
+<span class="token function">FACT</span><span class="token punctuation">(</span>
+<span class="token function">FALSE</span><span class="token punctuation">(</span>
+<span class="token function">FILTER</span><span class="token punctuation">(</span>
+<span class="token function">FILTERS</span><span class="token punctuation">(</span>
+<span class="token function">FIND</span><span class="token punctuation">(</span>
+<span class="token function">FIRSTDATE</span><span class="token punctuation">(</span>
+<span class="token function">FIRSTNONBLANK</span><span class="token punctuation">(</span>
+<span class="token function">FIRSTNONBLANKVALUE</span><span class="token punctuation">(</span>
+<span class="token function">FIXED</span><span class="token punctuation">(</span>
+<span class="token function">FLOOR</span><span class="token punctuation">(</span>
+<span class="token function">FORMAT</span><span class="token punctuation">(</span>
+<span class="token function">GCD</span><span class="token punctuation">(</span>
+<span class="token function">GENERATE</span><span class="token punctuation">(</span>
+<span class="token function">GENERATEALL</span><span class="token punctuation">(</span>
+<span class="token function">GENERATESERIES</span><span class="token punctuation">(</span>
+<span class="token function">GEOMEAN</span><span class="token punctuation">(</span>
+<span class="token function">GEOMEANX</span><span class="token punctuation">(</span>
+<span class="token function">GROUPBY</span><span class="token punctuation">(</span>
+<span class="token function">HASONEFILTER</span><span class="token punctuation">(</span>
+<span class="token function">HASONEVALUE</span><span class="token punctuation">(</span>
+<span class="token function">HOUR</span><span class="token punctuation">(</span>
+<span class="token function">IF</span><span class="token punctuation">(</span>
+<span class="token function">IF.EAGER</span><span class="token punctuation">(</span>
+<span class="token function">IFERROR</span><span class="token punctuation">(</span>
+<span class="token function">IGNORE</span><span class="token punctuation">(</span>
+<span class="token function">INT</span><span class="token punctuation">(</span>
+<span class="token function">INTERSECT</span><span class="token punctuation">(</span>
+<span class="token function">ISBLANK</span><span class="token punctuation">(</span>
+<span class="token function">ISCROSSFILTERED</span><span class="token punctuation">(</span>
+<span class="token function">ISEMPTY</span><span class="token punctuation">(</span>
+<span class="token function">ISERROR</span><span class="token punctuation">(</span>
+<span class="token function">ISEVEN</span><span class="token punctuation">(</span>
+<span class="token function">ISFILTERED</span><span class="token punctuation">(</span>
+<span class="token function">ISINSCOPE</span><span class="token punctuation">(</span>
+<span class="token function">ISLOGICAL</span><span class="token punctuation">(</span>
+<span class="token function">ISNONTEXT</span><span class="token punctuation">(</span>
+<span class="token function">ISNUMBER</span><span class="token punctuation">(</span>
+<span class="token function">ISO.CEILING</span><span class="token punctuation">(</span>
+<span class="token function">ISODD</span><span class="token punctuation">(</span>
+<span class="token function">ISONORAFTER</span><span class="token punctuation">(</span>
+<span class="token function">ISSELECTEDMEASURE</span><span class="token punctuation">(</span>
+<span class="token function">ISSUBTOTAL</span><span class="token punctuation">(</span>
+<span class="token function">ISTEXT</span><span class="token punctuation">(</span>
+<span class="token function">KEEPFILTERS</span><span class="token punctuation">(</span>
+<span class="token function">KEYWORDMATCH</span><span class="token punctuation">(</span>
+<span class="token function">LASTDATE</span><span class="token punctuation">(</span>
+<span class="token function">LASTNONBLANK</span><span class="token punctuation">(</span>
+<span class="token function">LASTNONBLANKVALUE</span><span class="token punctuation">(</span>
+<span class="token function">LCM</span><span class="token punctuation">(</span>
+<span class="token function">LEFT</span><span class="token punctuation">(</span>
+<span class="token function">LEN</span><span class="token punctuation">(</span>
+<span class="token function">LN</span><span class="token punctuation">(</span>
+<span class="token function">LOG</span><span class="token punctuation">(</span>
+<span class="token function">LOG10</span><span class="token punctuation">(</span>
+<span class="token function">LOOKUPVALUE</span><span class="token punctuation">(</span>
+<span class="token function">LOWER</span><span class="token punctuation">(</span>
+<span class="token function">MAX</span><span class="token punctuation">(</span>
+<span class="token function">MAXA</span><span class="token punctuation">(</span>
+<span class="token function">MAXX</span><span class="token punctuation">(</span>
+<span class="token function">MEDIAN</span><span class="token punctuation">(</span>
+<span class="token function">MEDIANX</span><span class="token punctuation">(</span>
+<span class="token function">MID</span><span class="token punctuation">(</span>
+<span class="token function">MIN</span><span class="token punctuation">(</span>
+<span class="token function">MINA</span><span class="token punctuation">(</span>
+<span class="token function">MINUTE</span><span class="token punctuation">(</span>
+<span class="token function">MINX</span><span class="token punctuation">(</span>
+<span class="token function">MOD</span><span class="token punctuation">(</span>
+<span class="token function">MONTH</span><span class="token punctuation">(</span>
+<span class="token function">MROUND</span><span class="token punctuation">(</span>
+<span class="token function">NATURALINNERJOIN</span><span class="token punctuation">(</span>
+<span class="token function">NATURALLEFTOUTERJOIN</span><span class="token punctuation">(</span>
+<span class="token function">NEXTDAY</span><span class="token punctuation">(</span>
+<span class="token function">NEXTMONTH</span><span class="token punctuation">(</span>
+<span class="token function">NEXTQUARTER</span><span class="token punctuation">(</span>
+<span class="token function">NEXTYEAR</span><span class="token punctuation">(</span>
+<span class="token function">NONVISUAL</span><span class="token punctuation">(</span>
+<span class="token function">NORM.DIST</span><span class="token punctuation">(</span>
+<span class="token function">NORM.INV</span><span class="token punctuation">(</span>
+<span class="token function">NORM.S.DIST</span><span class="token punctuation">(</span>
+<span class="token function">NORM.S.INV</span><span class="token punctuation">(</span>
+<span class="token function">NOT</span><span class="token punctuation">(</span>
+<span class="token function">NOW</span><span class="token punctuation">(</span>
+<span class="token function">ODD</span><span class="token punctuation">(</span>
+<span class="token function">OPENINGBALANCEMONTH</span><span class="token punctuation">(</span>
+<span class="token function">OPENINGBALANCEQUARTER</span><span class="token punctuation">(</span>
+<span class="token function">OPENINGBALANCEYEAR</span><span class="token punctuation">(</span>
+<span class="token function">OR</span><span class="token punctuation">(</span>
+<span class="token function">PARALLELPERIOD</span><span class="token punctuation">(</span>
+<span class="token function">PATH</span><span class="token punctuation">(</span>
+<span class="token function">PATHCONTAINS</span><span class="token punctuation">(</span>
+<span class="token function">PATHITEM</span><span class="token punctuation">(</span>
+<span class="token function">PATHITEMREVERSE</span><span class="token punctuation">(</span>
+<span class="token function">PATHLENGTH</span><span class="token punctuation">(</span>
+<span class="token function">PERCENTILE.EXC</span><span class="token punctuation">(</span>
+<span class="token function">PERCENTILE.INC</span><span class="token punctuation">(</span>
+<span class="token function">PERCENTILEX.EXC</span><span class="token punctuation">(</span>
+<span class="token function">PERCENTILEX.INC</span><span class="token punctuation">(</span>
+<span class="token function">PERMUT</span><span class="token punctuation">(</span>
+<span class="token function">PI</span><span class="token punctuation">(</span>
+<span class="token function">POISSON.DIST</span><span class="token punctuation">(</span>
+<span class="token function">POWER</span><span class="token punctuation">(</span>
+<span class="token function">PREVIOUSDAY</span><span class="token punctuation">(</span>
+<span class="token function">PREVIOUSMONTH</span><span class="token punctuation">(</span>
+<span class="token function">PREVIOUSQUARTER</span><span class="token punctuation">(</span>
+<span class="token function">PREVIOUSYEAR</span><span class="token punctuation">(</span>
+<span class="token function">PRODUCT</span><span class="token punctuation">(</span>
+<span class="token function">PRODUCTX</span><span class="token punctuation">(</span>
+<span class="token function">QUARTER</span><span class="token punctuation">(</span>
+<span class="token function">QUOTIENT</span><span class="token punctuation">(</span>
+<span class="token function">RADIANS</span><span class="token punctuation">(</span>
+<span class="token function">RAND</span><span class="token punctuation">(</span>
+<span class="token function">RANDBETWEEN</span><span class="token punctuation">(</span>
+<span class="token function">RANK.EQ</span><span class="token punctuation">(</span>
+<span class="token function">RANKX</span><span class="token punctuation">(</span>
+<span class="token function">RELATED</span><span class="token punctuation">(</span>
+<span class="token function">RELATEDTABLE</span><span class="token punctuation">(</span>
+<span class="token function">REMOVEFILTERS</span><span class="token punctuation">(</span>
+<span class="token function">REPLACE</span><span class="token punctuation">(</span>
+<span class="token function">REPT</span><span class="token punctuation">(</span>
+<span class="token function">RIGHT</span><span class="token punctuation">(</span>
+<span class="token function">ROLLUP</span><span class="token punctuation">(</span>
+<span class="token function">ROLLUPADDISSUBTOTAL</span><span class="token punctuation">(</span>
+<span class="token function">ROLLUPGROUP</span><span class="token punctuation">(</span>
+<span class="token function">ROLLUPISSUBTOTAL</span><span class="token punctuation">(</span>
+<span class="token function">ROUND</span><span class="token punctuation">(</span>
+<span class="token function">ROUNDDOWN</span><span class="token punctuation">(</span>
+<span class="token function">ROUNDUP</span><span class="token punctuation">(</span>
+<span class="token function">ROW</span><span class="token punctuation">(</span>
+<span class="token function">SAMEPERIODLASTYEAR</span><span class="token punctuation">(</span>
+<span class="token function">SAMPLE</span><span class="token punctuation">(</span>
+<span class="token function">SEARCH</span><span class="token punctuation">(</span>
+<span class="token function">SECOND</span><span class="token punctuation">(</span>
+<span class="token function">SELECTCOLUMNS</span><span class="token punctuation">(</span>
+<span class="token function">SELECTEDMEASURE</span><span class="token punctuation">(</span>
+<span class="token function">SELECTEDMEASUREFORMATSTRING</span><span class="token punctuation">(</span>
+<span class="token function">SELECTEDMEASURENAME</span><span class="token punctuation">(</span>
+<span class="token function">SELECTEDVALUE</span><span class="token punctuation">(</span>
+<span class="token function">SIGN</span><span class="token punctuation">(</span>
+<span class="token function">SIN</span><span class="token punctuation">(</span>
+<span class="token function">SINH</span><span class="token punctuation">(</span>
+<span class="token function">SQRT</span><span class="token punctuation">(</span>
+<span class="token function">SQRTPI</span><span class="token punctuation">(</span>
+<span class="token function">STARTOFMONTH</span><span class="token punctuation">(</span>
+<span class="token function">STARTOFQUARTER</span><span class="token punctuation">(</span>
+<span class="token function">STARTOFYEAR</span><span class="token punctuation">(</span>
+<span class="token function">STDEV.P</span><span class="token punctuation">(</span>
+<span class="token function">STDEV.S</span><span class="token punctuation">(</span>
+<span class="token function">STDEVX.P</span><span class="token punctuation">(</span>
+<span class="token function">STDEVX.S</span><span class="token punctuation">(</span>
+<span class="token function">SUBSTITUTE</span><span class="token punctuation">(</span>
+<span class="token function">SUBSTITUTEWITHINDEX</span><span class="token punctuation">(</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span>
+<span class="token function">SUMMARIZE</span><span class="token punctuation">(</span>
+<span class="token function">SUMMARIZECOLUMNS</span><span class="token punctuation">(</span>
+<span class="token function">SUMX</span><span class="token punctuation">(</span>
+<span class="token function">SWITCH</span><span class="token punctuation">(</span>
+<span class="token function">T.DIST</span><span class="token punctuation">(</span>
+<span class="token function">T.DIST.2T</span><span class="token punctuation">(</span>
+<span class="token function">T.DIST.RT</span><span class="token punctuation">(</span>
+<span class="token function">T.INV</span><span class="token punctuation">(</span>
+<span class="token function">T.INV.2T</span><span class="token punctuation">(</span>
+<span class="token function">TAN</span><span class="token punctuation">(</span>
+<span class="token function">TANH</span><span class="token punctuation">(</span>
+<span class="token function">TIME</span><span class="token punctuation">(</span>
+<span class="token function">TIMEVALUE</span><span class="token punctuation">(</span>
+<span class="token function">TODAY</span><span class="token punctuation">(</span>
+<span class="token function">TOPN</span><span class="token punctuation">(</span>
+<span class="token function">TOPNPERLEVEL</span><span class="token punctuation">(</span>
+<span class="token function">TOPNSKIP</span><span class="token punctuation">(</span>
+<span class="token function">TOTALMTD</span><span class="token punctuation">(</span>
+<span class="token function">TOTALQTD</span><span class="token punctuation">(</span>
+<span class="token function">TOTALYTD</span><span class="token punctuation">(</span>
+<span class="token function">TREATAS</span><span class="token punctuation">(</span>
+<span class="token function">TRIM</span><span class="token punctuation">(</span>
+<span class="token function">TRUE</span><span class="token punctuation">(</span>
+<span class="token function">TRUNC</span><span class="token punctuation">(</span>
+<span class="token function">UNICHAR</span><span class="token punctuation">(</span>
+<span class="token function">UNICODE</span><span class="token punctuation">(</span>
+<span class="token function">UNION</span><span class="token punctuation">(</span>
+<span class="token function">UPPER</span><span class="token punctuation">(</span>
+<span class="token function">USERELATIONSHIP</span><span class="token punctuation">(</span>
+<span class="token function">USERNAME</span><span class="token punctuation">(</span>
+<span class="token function">USEROBJECTID</span><span class="token punctuation">(</span>
+<span class="token function">USERPRINCIPALNAME</span><span class="token punctuation">(</span>
+<span class="token function">UTCNOW</span><span class="token punctuation">(</span>
+<span class="token function">UTCTODAY</span><span class="token punctuation">(</span>
+<span class="token function">VALUE</span><span class="token punctuation">(</span>
+<span class="token function">VALUES</span><span class="token punctuation">(</span>
+<span class="token function">VAR.P</span><span class="token punctuation">(</span>
+<span class="token function">VAR.S</span><span class="token punctuation">(</span>
+<span class="token function">VARX.P</span><span class="token punctuation">(</span>
+<span class="token function">VARX.S</span><span class="token punctuation">(</span>
+<span class="token function">WEEKDAY</span><span class="token punctuation">(</span>
+<span class="token function">WEEKNUM</span><span class="token punctuation">(</span>
+<span class="token function">XIRR</span><span class="token punctuation">(</span>
+<span class="token function">XNPV</span><span class="token punctuation">(</span>
+<span class="token function">YEAR</span><span class="token punctuation">(</span>
+<span class="token function">YEARFRAC</span><span class="token punctuation">(</span>
+
+----------------------------------------------------

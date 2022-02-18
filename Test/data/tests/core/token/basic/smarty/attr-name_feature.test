@@ -1,0 +1,23 @@
+{assign var=foo value="bar"}
+{foo bar = 40}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "assign"],
+	["attr-name", "var"],
+	["operator", "="],
+	["variable", "foo"],
+	["attr-name", "value"],
+	["operator", "="],
+	["string", ["\"bar\""]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"foo ",
+	["attr-name", "bar"],
+	["operator", "="],
+	["number", "40"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

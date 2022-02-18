@@ -1,0 +1,89 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dc:   <http://purl.org/dc/elements/1.1/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+SELECT ?name
+ WHERE { ?x foaf:givenName  ?givenName .
+				 OPTIONAL { ?x dc:date ?date } .
+				 FILTER ( bound(?date) ) }
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://purl.org/dc/elements/1.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"xsd",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://www.w3.org/2001/XMLSchema#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?name"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "givenName"]
+	]],
+	["variable", "?givenName"],
+	["punctuation", "."],
+
+	["keyword", "OPTIONAL"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]],
+		["local-name", "date"]
+	]],
+	["variable", "?date"],
+	["punctuation", "}"],
+	["punctuation", "."],
+
+	["keyword", "FILTER"],
+	["punctuation", "("],
+	["keyword", "bound"],
+	["punctuation", "("],
+	["variable", "?date"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

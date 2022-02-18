@@ -1,0 +1,23 @@
+enum Foo implements Bar {}
+
+enum Suit {
+	case Hearts;
+	case Diamonds = 'D';
+}
+
+$val = Suit::Diamonds;
+
+Suit::Spades->name;
+----------------------------------------------------
+<span class="token keyword">enum</span> <span class="token class-name-definition class-name">Foo</span> <span class="token keyword">implements</span> <span class="token class-name">Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">enum</span> <span class="token class-name-definition class-name">Suit</span> <span class="token punctuation">{</span>
+	<span class="token keyword">case</span> <span class="token constant">Hearts</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token constant">Diamonds</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'D'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$val</span> <span class="token operator">=</span> <span class="token class-name static-context">Suit</span><span class="token operator">::</span><span class="token constant">Diamonds</span><span class="token punctuation">;</span>
+
+<span class="token class-name static-context">Suit</span><span class="token operator">::</span><span class="token constant">Spades</span><span class="token operator">-></span><span class="token property">name</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+kbd.o command.o files.o : command.h
+display.o insert.o search.o files.o : buffer.h
+
+.PHONY: clean
+clean:
+        rm *.o temp
+----------------------------------------------------
+<span class="token target symbol">kbd.o command.o files.o</span> <span class="token punctuation">:</span> command.h
+<span class="token target symbol">display.o insert.o search.o files.o</span> <span class="token punctuation">:</span> buffer.h
+
+<span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> clean
+<span class="token target symbol">clean</span><span class="token punctuation">:</span>
+        rm *.o temp
+
+----------------------------------------------------

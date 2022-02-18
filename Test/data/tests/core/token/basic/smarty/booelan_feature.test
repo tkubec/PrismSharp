@@ -1,0 +1,40 @@
+{if false}
+{if off}
+{if on}
+{if no}
+{if true}
+{if yes}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "if"],
+	["boolean", "false"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"if ",
+	["boolean", "off"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"if ",
+	["boolean", "on"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"if ",
+	["boolean", "no"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"if ",
+	["boolean", "true"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"if ",
+	["boolean", "yes"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

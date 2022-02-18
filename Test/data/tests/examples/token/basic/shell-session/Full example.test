@@ -1,0 +1,51 @@
+foo@bar:/$ cd ~
+foo@bar:~$ sudo -i
+[sudo] password for foo:
+root@bar:~# echo "hello!"
+hello!
+----------------------------------------------------
+[
+	["command", [
+		["info", [
+			["user", "foo@bar"],
+			["punctuation", ":"],
+			["path", "/"]
+		]],
+		["shell-symbol", "$"],
+		["bash", [
+			["builtin", "cd"],
+			" ~"
+		]]
+	]],
+
+	["command", [
+		["info", [
+			["user", "foo@bar"],
+			["punctuation", ":"],
+			["path", "~"]
+		]],
+		["shell-symbol", "$"],
+		["bash", [
+			["function", "sudo"],
+			" -i"
+		]]
+	]],
+
+	["output", "[sudo] password for foo:\n"],
+	["command", [
+		["info", [
+			["user", "root@bar"],
+			["punctuation", ":"],
+			["path", "~"]
+		]],
+		["shell-symbol", "#"],
+		["bash", [
+			["builtin", "echo"],
+			["string", ["\"hello!\""]]
+		]]
+	]],
+
+	["output", "hello!"]
+]
+
+----------------------------------------------------

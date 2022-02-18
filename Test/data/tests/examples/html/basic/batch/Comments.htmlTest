@@ -1,0 +1,13 @@
+::
+:: Foo bar
+REM This is a comment too
+REM Multi-line ^
+comment
+----------------------------------------------------
+<span class="token comment">::</span>
+<span class="token comment">:: Foo bar</span>
+<span class="token comment">REM This is a comment too</span>
+<span class="token comment">REM Multi-line ^
+comment</span>
+
+----------------------------------------------------

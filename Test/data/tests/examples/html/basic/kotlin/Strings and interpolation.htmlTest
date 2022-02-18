@@ -1,0 +1,21 @@
+'2'
+'\uFF00'
+'\''
+
+"foo $bar \"baz"
+"""
+foo ${40 + 2}
+baz${bar()}
+"""
+----------------------------------------------------
+<span class="token char">'2'</span>
+<span class="token char">'\uFF00'</span>
+<span class="token char">'\''</span>
+
+<span class="token string-literal singleline"><span class="token string">"foo </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">bar</span></span><span class="token string"> \"baz"</span></span>
+<span class="token string-literal multiline"><span class="token string">"""
+foo </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression"><span class="token number">40</span> <span class="token operator">+</span> <span class="token number">2</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+baz</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression"><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+"""</span></span>
+
+----------------------------------------------------

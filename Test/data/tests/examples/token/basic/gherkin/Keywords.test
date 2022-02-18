@@ -1,0 +1,47 @@
+Feature: Some terse yet descriptive text of what is desired
+    In order to realize a named business value
+    As an explicit system actor
+    I want to gain some beneficial outcome which furthers the goal
+
+    Additional text...
+
+    Scenario: Some determinable business situation
+    Given some precondition
+    And some other precondition
+    When some action by the actor
+    And some other action
+    And yet another action
+    Then some testable outcome is achieved
+    And something else we can check happens too
+
+    Scenario: A different situation
+    ...
+----------------------------------------------------
+[
+	["feature", [
+		["keyword", "Feature:"],
+		["important", " Some terse yet descriptive text of what is desired"],
+		"\n    In order to realize a named business value\n    As an explicit system actor\n    I want to gain some beneficial outcome which furthers the goal\n"
+	]],
+	"\n    Additional text...\n\n    ",
+
+	["scenario", [
+		["keyword", "Scenario:"],
+		["important", " Some determinable business situation"]
+	]],
+	["atrule", "Given"], " some precondition\n    ",
+	["atrule", "And"], " some other precondition\n    ",
+	["atrule", "When"], " some action by the actor\n    ",
+	["atrule", "And"], " some other action\n    ",
+	["atrule", "And"], " yet another action\n    ",
+	["atrule", "Then"], " some testable outcome is achieved\n    ",
+	["atrule", "And"], " something else we can check happens too\n\n    ",
+
+	["scenario", [
+		["keyword", "Scenario:"],
+		["important", " A different situation"]
+	]],
+	"\n    ..."
+]
+
+----------------------------------------------------

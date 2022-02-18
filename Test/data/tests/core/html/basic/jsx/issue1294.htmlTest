@@ -1,0 +1,21 @@
+export default () => (
+	<div>
+		<h1>Hi! I'm building a fake Gatsby site as part of a tutorial!</h1>
+		<p>
+			What do I like to do? Lots of course but definitely enjoy building
+			websites.
+		</p>
+	</div>
+);
+----------------------------------------------------
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Hi<span class="token operator">!</span> <span class="token constant">I</span>'m building a fake Gatsby site <span class="token keyword">as</span> part <span class="token keyword">of</span> a tutorial<span class="token operator">!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+			What <span class="token keyword">do</span> <span class="token constant">I</span> like to <span class="token keyword">do</span><span class="token operator">?</span> Lots <span class="token keyword">of</span> course but definitely enjoy building
+			websites<span class="token punctuation">.</span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

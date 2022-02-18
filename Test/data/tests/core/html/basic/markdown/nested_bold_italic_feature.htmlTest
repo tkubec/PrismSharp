@@ -1,0 +1,45 @@
+**a *b* c**
+
+*a **b** c*
+
+***abc***
+
+*b **c***
+
+**b *c***
+
+***b *c**
+
+***c **c*
+
+*a \* b*
+
+*a **b***
+
+**a *b***
+
+___foo___
+----------------------------------------------------
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">a <span class="token italic"><span class="token punctuation">*</span><span class="token content">b</span><span class="token punctuation">*</span></span> c</span><span class="token punctuation">**</span></span>
+
+<span class="token italic"><span class="token punctuation">*</span><span class="token content">a <span class="token bold"><span class="token punctuation">**</span><span class="token content">b</span><span class="token punctuation">**</span></span> c</span><span class="token punctuation">*</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content"><span class="token italic"><span class="token punctuation">*</span><span class="token content">abc</span><span class="token punctuation">*</span></span></span><span class="token punctuation">**</span></span>
+
+<span class="token italic"><span class="token punctuation">*</span><span class="token content">b <span class="token bold"><span class="token punctuation">**</span><span class="token content">c</span><span class="token punctuation">**</span></span></span><span class="token punctuation">*</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">b <span class="token italic"><span class="token punctuation">*</span><span class="token content">c</span><span class="token punctuation">*</span></span></span><span class="token punctuation">**</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content"><span class="token italic"><span class="token punctuation">*</span><span class="token content">b </span><span class="token punctuation">*</span></span>c</span><span class="token punctuation">**</span></span>
+
+<span class="token italic"><span class="token punctuation">*</span><span class="token content"><span class="token bold"><span class="token punctuation">**</span><span class="token content">c </span><span class="token punctuation">**</span></span>c</span><span class="token punctuation">*</span></span>
+
+<span class="token italic"><span class="token punctuation">*</span><span class="token content">a \* b</span><span class="token punctuation">*</span></span>
+
+<span class="token italic"><span class="token punctuation">*</span><span class="token content">a <span class="token bold"><span class="token punctuation">**</span><span class="token content">b</span><span class="token punctuation">**</span></span></span><span class="token punctuation">*</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">a <span class="token italic"><span class="token punctuation">*</span><span class="token content">b</span><span class="token punctuation">*</span></span></span><span class="token punctuation">**</span></span>
+
+<span class="token bold"><span class="token punctuation">__</span><span class="token content"><span class="token italic"><span class="token punctuation">_</span><span class="token content">foo</span><span class="token punctuation">_</span></span></span><span class="token punctuation">__</span></span>
+
+----------------------------------------------------

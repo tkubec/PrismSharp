@@ -1,0 +1,6 @@
+@pattern #Percentage = Num + ?Space + {'%', 'pct.', 'pct', 'percent'};
+@pattern #GUID = Word(8) + [3 '-' + Word(4)] + '-' + Word(12);
+@pattern #HashTag = '#' + {AlphaNum, Alpha, '_'} + [0+ {Word, '_'}];
+
+--------------------------------------------------
+

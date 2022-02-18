@@ -1,0 +1,9 @@
+-- foo
+{- foo
+bar -}
+----------------------------------------------------
+<span class="token comment">-- foo</span>
+<span class="token comment">{- foo
+bar -}</span>
+
+----------------------------------------------------

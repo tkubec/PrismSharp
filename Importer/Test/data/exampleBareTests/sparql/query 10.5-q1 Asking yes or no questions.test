@@ -1,0 +1,6 @@
+PREFIX foaf:    &lt;http://xmlns.com/foaf/0.1/&gt;
+ASK  { ?x foaf:name  "Alice" ;
+					foaf:mbox  &lt;mailto:alice@work.example&gt; }
+
+--------------------------------------------------
+

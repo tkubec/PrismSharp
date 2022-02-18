@@ -1,0 +1,13 @@
+R"raw(
+test
+)raw"
+R"(no delimiter)"
+R"(foo)"R"(bar)"
+----------------------------------------------------
+<span class="token raw-string string">R"raw(
+test
+)raw"</span>
+<span class="token raw-string string">R"(no delimiter)"</span>
+<span class="token raw-string string">R"(foo)"</span><span class="token raw-string string">R"(bar)"</span>
+
+----------------------------------------------------

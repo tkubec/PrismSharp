@@ -1,0 +1,9 @@
+/* Multiline comments in Verilog
+   look like C comments and // is OK in here. */
+// Single-line comment in Verilog.
+----------------------------------------------------
+<span class="token comment">/* Multiline comments in Verilog
+   look like C comments and // is OK in here. */</span>
+<span class="token comment">// Single-line comment in Verilog.</span>
+
+----------------------------------------------------

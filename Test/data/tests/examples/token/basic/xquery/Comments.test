@@ -1,0 +1,23 @@
+(::)
+(: Comment :)
+(: Multi-line
+comment :)
+(:~
+: The <b>functx:substring-after-last</b> function returns the part
+: of <b>$string</b> that appears after the last occurrence of
+: <b>$delim</b>. If <b>$string</b> does not contain
+: <b>$delim</b>, the entire string is returned.
+:
+: @param $string the string to substring
+: @param $delim the delimiter
+: @return the substring
+:)
+----------------------------------------------------
+[
+	["xquery-comment", "(::)"],
+	["xquery-comment", "(: Comment :)"],
+	["xquery-comment", "(: Multi-line\ncomment :)"],
+	["xquery-comment", "(:~\n: The <b>functx:substring-after-last</b> function returns the part\n: of <b>$string</b> that appears after the last occurrence of\n: <b>$delim</b>. If <b>$string</b> does not contain\n: <b>$delim</b>, the entire string is returned.\n:\n: @param $string the string to substring\n: @param $delim the delimiter\n: @return the substring\n:)"]
+]
+
+----------------------------------------------------

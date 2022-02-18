@@ -1,0 +1,15 @@
+[]
+[^]
+[foo]
+[\]\b]
+[.^$\1]
+[\d\D\p{L}]
+----------------------------------------------------
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-punctuation punctuation">]</span></span>
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-class-punctuation punctuation">]</span></span>
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span>foo<span class="token char-class-punctuation punctuation">]</span></span>
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token special-escape escape">\]</span><span class="token escape">\b</span><span class="token char-class-punctuation punctuation">]</span></span>
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span>.^$<span class="token escape">\1</span><span class="token char-class-punctuation punctuation">]</span></span>
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-set class-name">\d</span><span class="token char-set class-name">\D</span><span class="token char-set class-name">\p{L}</span><span class="token char-class-punctuation punctuation">]</span></span>
+
+----------------------------------------------------

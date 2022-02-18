@@ -1,0 +1,12 @@
+"foo \"bar\" baz"
+'foo \'bar\' baz'
+"Multi-line strings ending with a \
+are supported too."
+----------------------------------------------------
+[
+	["string", "\"foo \\\"bar\\\" baz\""],
+	["char", "'foo \\'bar\\' baz'"],
+	["string", "\"Multi-line strings ending with a \\\nare supported too.\""]
+]
+
+----------------------------------------------------

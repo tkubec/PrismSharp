@@ -1,0 +1,13 @@
+=label foo
+bar
+=cut
+#
+# foobar
+----------------------------------------------------
+<span class="token comment">=label foo
+bar
+=cut</span>
+<span class="token comment">#</span>
+<span class="token comment"># foobar</span>
+
+----------------------------------------------------

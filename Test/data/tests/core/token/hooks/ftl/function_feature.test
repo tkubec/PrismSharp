@@ -1,0 +1,18 @@
+${min(1,2)}
+----------------------------------------------------
+[
+	["ftl-interpolation", [
+		["punctuation", "${"],
+		["content", [
+			["function", "min"],
+			["punctuation", "("],
+			["number", "1"],
+			["punctuation", ","],
+			["number", "2"],
+			["punctuation", ")"]
+		]],
+		["punctuation", "}"]
+	]]
+]
+
+----------------------------------------------------

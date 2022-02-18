@@ -1,0 +1,24 @@
+PREFIX  data:  &lt;http://example.org/foaf/&gt;
+PREFIX  foaf:  &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX  rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?mbox ?nick ?ppd
+WHERE
+{
+	GRAPH data:aliceFoaf
+	{
+		?alice foaf:mbox &lt;mailto:alice@work.example&gt; ;
+					 foaf:knows ?whom .
+		?whom  foaf:mbox ?mbox ;
+					 rdfs:seeAlso ?ppd .
+		?ppd  a foaf:PersonalProfileDocument .
+	} .
+	GRAPH ?ppd
+	{
+			?w foaf:mbox ?mbox ;
+				 foaf:nick ?nick
+	}
+}
+
+--------------------------------------------------
+

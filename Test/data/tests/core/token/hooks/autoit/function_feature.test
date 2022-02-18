@@ -1,0 +1,11 @@
+foo()
+foo_bar()
+foo_bar_42()
+----------------------------------------------------
+[
+	["function", "foo"], ["punctuation", "("], ["punctuation", ")"],
+	["function", "foo_bar"], ["punctuation", "("], ["punctuation", ")"],
+	["function", "foo_bar_42"], ["punctuation", "("], ["punctuation", ")"]
+]
+
+----------------------------------------------------

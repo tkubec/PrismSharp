@@ -1,0 +1,23 @@
+@namespace Common
+{
+  @search @pattern Url(Domain, Path, Query, Anchor) =
+    Method + Domain:Url.Domain + ?Port + ?Path:Url.Path +
+    ?Query:Url.Query + ?Anchor:Url.Anchor
+  @where
+  {
+    Method = {'http', 'https' , 'ftp', 'mailto', 'file', 'data', 'irc'} + '://';
+    Domain = Word + [1+ '.' + Word + [0+ {Word, '_', '-'}]];
+    Port = ':' + Num;
+    Path = ?'/' + [0+ {Word, '/', '_', '+', '-', '%', '.'}];
+    Query = '?' + ?(Param + [0+ '&' + Param])
+    @where
+    {
+      Param = Identifier + '=' + Identifier
+      @where
+      {
+        Identifier = {Alpha, AlphaNum, '_'} + [0+ {Word, '_'}];
+      };
+    };
+    Anchor(Value) = '#' + Value:{Word};
+  };
+}

@@ -1,0 +1,17 @@
+merge {} of
+  { "snot": "badger" }
+end;
+
+patch {} of
+  insert snot = "badger"
+end;
+----------------------------------------------------
+<span class="token keyword">merge</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">of</span>
+  <span class="token punctuation">{</span> <span class="token interpolated-string"><span class="token string">"snot"</span></span><span class="token punctuation">:</span> <span class="token interpolated-string"><span class="token string">"badger"</span></span> <span class="token punctuation">}</span>
+<span class="token keyword">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword">patch</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">of</span>
+  <span class="token keyword">insert</span> s<span class="token operator">not</span> <span class="token operator">=</span> <span class="token interpolated-string"><span class="token string">"badger"</span></span>
+<span class="token keyword">end</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

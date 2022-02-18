@@ -1,0 +1,15 @@
+% foobar
+%{}%
+%{ foo
+bar }%
+% 'test'
+%{ 'test' }%
+----------------------------------------------------
+<span class="token comment">% foobar</span>
+<span class="token comment">%{}%</span>
+<span class="token comment">%{ foo
+bar }%</span>
+<span class="token comment">% 'test'</span>
+<span class="token comment">%{ 'test' }%</span>
+
+----------------------------------------------------

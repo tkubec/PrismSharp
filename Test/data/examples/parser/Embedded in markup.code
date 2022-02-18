@@ -1,0 +1,9 @@
+<nav>
+	<ul>
+	^sections.menu{
+		<li>
+			<a href="$sections.uri">$sections.name</a>
+		</li>
+	}
+	</ul>
+</nav>

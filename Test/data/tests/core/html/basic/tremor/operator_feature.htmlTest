@@ -1,0 +1,25 @@
++ - / * % ~ ^ & |
++= -= /= *= %= ~= ^= &= |=
+== != < > <= >=
+= =>
+
+! && ||
+
+<< >> >>>
+<<= >>= >>>=
+
+not and or xor present absent
+----------------------------------------------------
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">/</span> <span class="token operator">*</span> <span class="token operator">%</span> <span class="token operator">~</span> <span class="token operator">^</span> <span class="token operator">&amp;</span> <span class="token operator">|</span>
+<span class="token operator">+=</span> <span class="token operator">-=</span> <span class="token operator">/=</span> <span class="token operator">*=</span> <span class="token operator">%=</span> <span class="token operator">~=</span> <span class="token operator">^=</span> <span class="token operator">&amp;=</span> <span class="token operator">|=</span>
+<span class="token operator">==</span> <span class="token operator">!=</span> <span class="token operator">&lt;</span> <span class="token operator">></span> <span class="token operator">&lt;=</span> <span class="token operator">>=</span>
+<span class="token operator">=</span> <span class="token operator">=></span>
+
+<span class="token operator">!</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">||</span>
+
+<span class="token operator">&lt;&lt;</span> <span class="token operator">>></span> <span class="token operator">>>></span>
+<span class="token operator">&lt;&lt;=</span> <span class="token operator">>>=</span> <span class="token operator">>>>=</span>
+
+<span class="token operator">not</span> <span class="token operator">and</span> <span class="token operator">or</span> <span class="token operator">xor</span> <span class="token operator">present</span> <span class="token operator">absent</span>
+
+----------------------------------------------------

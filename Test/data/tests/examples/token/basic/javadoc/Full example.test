@@ -1,0 +1,231 @@
+/**
+ * Returns the value to which the specified key is mapped,
+ * or {@code null} if this map contains no mapping for the key.
+ *
+ * <p>More formally, if this map contains a mapping from a key
+ * {@code k} to a value {@code v} such that {@code (key==null ? k==null :
+ * key.equals(k))}, then this method returns {@code v}; otherwise
+ * it returns {@code null}.  (There can be at most one such mapping.)
+ *
+ * <p>If this map permits null values, then a return value of
+ * {@code null} does not <i>necessarily</i> indicate that the map
+ * contains no mapping for the key; it's also possible that the map
+ * explicitly maps the key to {@code null}.  The {@link #containsKey
+ * containsKey} operation may be used to distinguish these two cases.
+ *
+ * @param key the key whose associated value is to be returned
+ * @return the value to which the specified key is mapped, or
+ *         {@code null} if this map contains no mapping for the key
+ * @throws ClassCastException if the key is of an inappropriate type for
+ *         this map
+ * (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
+ * @throws NullPointerException if the specified key is null and this map
+ *         does not permit null keys
+ * (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
+ */
+V get(Object key);
+
+// Source: Java 1.8, Map#get(Object)
+----------------------------------------------------
+[
+	"/**\n * Returns the value to which the specified key is mapped,\n * or ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", [
+			["keyword", "null"]
+		]]
+	]],
+	["punctuation", "}"],
+	" if this map contains no mapping for the key.\n *\n * ",
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+	"More formally, if this map contains a mapping from a key\n * ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", ["k"]]
+	]],
+	["punctuation", "}"],
+	" to a value ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", ["v"]]
+	]],
+	["punctuation", "}"],
+	" such that ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", [
+			["punctuation", "("],
+			"key",
+			["operator", "=="],
+			["keyword", "null"],
+			["operator", "?"],
+			" k",
+			["operator", "=="],
+			["keyword", "null"],
+			["operator", ":"]
+		]],
+
+		"\n * ",
+		["code", [
+			"key",
+			["punctuation", "."],
+			["function", "equals"],
+			["punctuation", "("],
+			"k",
+			["punctuation", ")"],
+			["punctuation", ")"]
+		]]
+	]],
+	["punctuation", "}"],
+	", then this method returns ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", ["v"]]
+	]],
+	["punctuation", "}"],
+	"; otherwise\n * it returns ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", [
+			["keyword", "null"]
+		]]
+	]],
+	["punctuation", "}"],
+	".  (There can be at most one such mapping.)\n *\n * ",
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+	"If this map permits null values, then a return value of\n * ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", [
+			["keyword", "null"]
+		]]
+	]],
+	["punctuation", "}"],
+	" does not ",
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"i"
+		]],
+		["punctuation", ">"]
+	]],
+	"necessarily",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"i"
+		]],
+		["punctuation", ">"]
+	]],
+	" indicate that the map\n * contains no mapping for the key; it's also possible that the map\n * explicitly maps the key to ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", [
+			["keyword", "null"]
+		]]
+	]],
+	["punctuation", "}"],
+	".  The ",
+	["punctuation", "{"],
+	["keyword", "@link"],
+	["reference", [
+		["punctuation", "#"],
+		["field", "containsKey"]
+	]],
+
+	"\n * containsKey",
+	["punctuation", "}"],
+	" operation may be used to distinguish these two cases.\n *\n * ",
+	["keyword", "@param"],
+	["parameter", "key"],
+	" the key whose associated value is to be returned\n * ",
+	["keyword", "@return"],
+	" the value to which the specified key is mapped, or\n *         ",
+	["punctuation", "{"],
+	["keyword", "@code"],
+	["code-section", [
+		["code", [
+			["keyword", "null"]
+		]]
+	]],
+	["punctuation", "}"],
+	" if this map contains no mapping for the key\n * ",
+	["keyword", "@throws"],
+	["reference", [
+		["class-name", "ClassCastException"]
+	]],
+	" if the key is of an inappropriate type for\n *         this map\n * (",
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"a"
+		]],
+		["attr-name", ["href"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"{@docRoot}/java/util/Collection.html#optional-restrictions",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+	"optional",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"a"
+		]],
+		["punctuation", ">"]
+	]],
+	")\n * ",
+	["keyword", "@throws"],
+	["reference", [
+		["class-name", "NullPointerException"]
+	]],
+	" if the specified key is null and this map\n *         does not permit null keys\n * (",
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"a"
+		]],
+		["attr-name", ["href"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"{@docRoot}/java/util/Collection.html#optional-restrictions",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+	"optional",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"a"
+		]],
+		["punctuation", ">"]
+	]],
+	")\n */\nV get(Object key);\n\n// Source: Java 1.8, Map#get(Object)"
+]
+
+----------------------------------------------------

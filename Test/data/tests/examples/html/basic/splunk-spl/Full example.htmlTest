@@ -1,0 +1,15 @@
+source=monthly_data.csv
+| rename remote_ip AS ip
+| eval isLocal=if(cidrmatch("123.132.32.0/25",ip), "local", "not local")
+| eval error=case(status == 200, "OK", status == 404, "Not found", true(), "Other")
+  `comment("TODO: Add support for more status codes")`
+| sort amount
+----------------------------------------------------
+<span class="token property">source</span><span class="token operator">=</span>monthly_data.csv
+<span class="token operator">|</span> <span class="token keyword">rename</span> remote_ip <span class="token operator-word operator">AS</span> ip
+<span class="token operator">|</span> <span class="token keyword">eval</span> <span class="token property">isLocal</span><span class="token operator">=</span><span class="token function">if</span><span class="token punctuation">(</span><span class="token function">cidrmatch</span><span class="token punctuation">(</span><span class="token string">"123.132.32.0/25"</span><span class="token punctuation">,</span>ip<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"local"</span><span class="token punctuation">,</span> <span class="token string">"not local"</span><span class="token punctuation">)</span>
+<span class="token operator">|</span> <span class="token keyword">eval</span> <span class="token property">error</span><span class="token operator">=</span><span class="token function">case</span><span class="token punctuation">(</span>status <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token string">"OK"</span><span class="token punctuation">,</span> status <span class="token operator">==</span> <span class="token number">404</span><span class="token punctuation">,</span> <span class="token string">"Not found"</span><span class="token punctuation">,</span> <span class="token function">true</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Other"</span><span class="token punctuation">)</span>
+  <span class="token comment">`comment("TODO: Add support for more status codes")`</span>
+<span class="token operator">|</span> <span class="token keyword">sort</span> amount
+
+----------------------------------------------------

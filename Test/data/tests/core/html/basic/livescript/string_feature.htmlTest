@@ -1,0 +1,29 @@
+''''''
+'''Foo\'''bar'''
+'''Foo
+bar'''
+
+''
+'Foo\'bar'
+'Foo
+bar'
+
+<[ foo bar baz ]>
+
+\foo \bar \"({[-!@^+baz
+----------------------------------------------------
+<span class="token string">''''''</span>
+<span class="token string">'''Foo\'''bar'''</span>
+<span class="token string">'''Foo
+bar'''</span>
+
+<span class="token string">''</span>
+<span class="token string">'Foo\'bar'</span>
+<span class="token string">'Foo
+bar'</span>
+
+<span class="token string">&lt;[ foo bar baz ]></span>
+
+<span class="token string">\foo</span> <span class="token string">\bar</span> <span class="token string">\"({[-!@^+baz</span>
+
+----------------------------------------------------

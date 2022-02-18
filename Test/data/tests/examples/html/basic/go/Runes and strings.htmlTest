@@ -1,0 +1,25 @@
+'\t'
+'\000'
+'\x07'
+'\u12e4'
+'\U00101234'
+`abc`
+`multi-line
+string`
+"Hello, world!"
+"multi-line
+string"
+----------------------------------------------------
+<span class="token char">'\t'</span>
+<span class="token char">'\000'</span>
+<span class="token char">'\x07'</span>
+<span class="token char">'\u12e4'</span>
+<span class="token char">'\U00101234'</span>
+<span class="token string">`abc`</span>
+<span class="token string">`multi-line
+string`</span>
+<span class="token string">"Hello, world!"</span>
+"multi<span class="token operator">-</span>line
+<span class="token builtin">string</span>"
+
+----------------------------------------------------

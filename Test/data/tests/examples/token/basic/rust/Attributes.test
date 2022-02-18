@@ -1,0 +1,19 @@
+#![warn(unstable)]
+#[test]
+fn a_test() {
+	// ...
+}
+----------------------------------------------------
+[
+	["attribute", ["#![warn(unstable)]"]],
+	["attribute", ["#[test]"]],
+	["keyword", "fn"],
+	["function-definition", "a_test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["comment", "// ..."],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

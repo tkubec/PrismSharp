@@ -1,0 +1,11 @@
+"foo ""bar"" baz"
+"Multi-line strings are appended with a " &
+"ampersand symbole."
+----------------------------------------------------
+[
+	["string", "\"foo \"\"bar\"\" baz\""],
+	["string", "\"Multi-line strings are appended with a \""], ["operator", "&"],
+	["string", "\"ampersand symbole.\""]
+]
+
+----------------------------------------------------

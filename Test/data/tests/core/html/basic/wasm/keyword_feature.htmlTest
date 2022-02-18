@@ -1,0 +1,401 @@
+align=
+offset=
+
+f32
+f64
+i32
+i64
+i32.load
+i64.load
+f32.load
+f64.load
+i32.load8_s
+i32.load8_u
+i32.load16_s
+i32.load16_u
+i64.load8_s
+i64.load8_u
+i64.load16_s
+i64.load16_u
+i64.load32_s
+i64.load32_u
+i32.store
+i64.store
+f32.store
+f64.store
+i32.store8
+i32.store16
+i64.store8
+i64.store16
+i64.store32
+i32.const
+i64.const
+f32.const
+f64.const
+i32.clz
+i32.ctz
+i32.popcnt
+i32.add
+i32.sub
+i32.mul
+i32.div_s
+i32.div_u
+i32.rem_s
+i32.rem_u
+i32.and
+i32.or
+i32.xor
+i32.shl
+i32.shr_s
+i32.shr_u
+i32.rotl
+i32.rotr
+i64.clz
+i64.ctz
+i64.popcnt
+i64.add
+i64.sub
+i64.mul
+i64.div_s
+i64.div_u
+i64.rem_s
+i64.rem_u
+i64.and
+i64.or
+i64.xor
+i64.shl
+i64.shr_s
+i64.shr_u
+i64.rotl
+i64.rotr
+f32.abs
+f32.neg
+f32.ceil
+f32.floor
+f32.trunc
+f32.nearest
+f32.sqrt
+f32.add
+f32.sub
+f32.mul
+f32.div
+f32.min
+f32.max
+f32.copysign
+f64.abs
+f64.neg
+f64.ceil
+f64.floor
+f64.trunc
+f64.nearest
+f64.sqrt
+f64.add
+f64.sub
+f64.mul
+f64.div
+f64.min
+f64.max
+f64.copysign
+i32.eqz
+i32.eq
+i32.ne
+i32.lt_s
+i32.lt_u
+i32.gt_s
+i32.gt_u
+i32.le_s
+i32.le_u
+i32.ge_s
+i32.ge_u
+i64.eqz
+i64.eq
+i64.ne
+i64.lt_s
+i64.lt_u
+i64.gt_s
+i64.gt_u
+i64.le_s
+i64.le_u
+i64.ge_s
+i64.ge_u
+f32.eq
+f32.ne
+f32.lt
+f32.gt
+f32.le
+f32.ge
+f64.eq
+f64.ne
+f64.lt
+f64.gt
+f64.le
+f64.ge
+i32.wrap/i64
+i32.trunc_s/f32
+i32.trunc_u/f32
+i32.trunc_s/f64
+i32.trunc_u/f64
+i64.extend_s/i32
+i64.extend_u/i32
+i64.trunc_s/f32
+i64.trunc_u/f32
+i64.trunc_s/f64
+i64.trunc_u/f64
+f32.convert_s/i32
+f32.convert_u/i32
+f32.convert_s/i64
+f32.convert_u/i64
+f32.demote/f64
+f64.convert_s/i32
+f64.convert_u/i32
+f64.convert_s/i64
+f64.convert_u/i64
+f64.promote/f32
+i32.reinterpret/f32
+i64.reinterpret/f64
+f32.reinterpret/i32
+f64.reinterpret/i64
+
+memory.size
+memory.grow
+
+anyfunc
+block
+br
+br_if
+br_table
+call
+call_indirect
+data
+drop
+elem
+else
+end
+export
+func
+get_global
+get_local
+global
+if
+import
+local
+loop
+memory
+module
+mut
+nop
+offset
+param
+result
+return
+select
+set_global
+set_local
+start
+table
+tee_local
+then
+type
+unreachable
+----------------------------------------------------
+<span class="token keyword">align<span class="token operator">=</span></span>
+<span class="token keyword">offset<span class="token operator">=</span></span>
+
+<span class="token keyword">f32</span>
+<span class="token keyword">f64</span>
+<span class="token keyword">i32</span>
+<span class="token keyword">i64</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>load</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>load</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>load</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>load</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>load8_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>load8_u</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>load16_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>load16_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>load8_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>load8_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>load16_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>load16_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>load32_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>load32_u</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>store</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>store</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>store</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>store</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>store8</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>store16</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>store8</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>store16</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>store32</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>const</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>const</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>const</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>const</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>clz</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>ctz</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>popcnt</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>add</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>sub</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>mul</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>div_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>div_u</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>rem_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>rem_u</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>and</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>or</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>xor</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>shl</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>shr_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>shr_u</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>rotl</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>rotr</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>clz</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>ctz</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>popcnt</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>add</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>sub</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>mul</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>div_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>div_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>rem_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>rem_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>and</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>or</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>xor</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>shl</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>shr_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>shr_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>rotl</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>rotr</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>abs</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>neg</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>ceil</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>floor</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>trunc</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>nearest</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>sqrt</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>add</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>sub</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>mul</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>div</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>min</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>max</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>copysign</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>abs</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>neg</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>ceil</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>floor</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>trunc</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>nearest</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>sqrt</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>add</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>sub</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>mul</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>div</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>min</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>max</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>copysign</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>eqz</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>eq</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>ne</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>lt_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>lt_u</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>gt_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>gt_u</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>le_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>le_u</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>ge_s</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>ge_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>eqz</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>eq</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>ne</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>lt_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>lt_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>gt_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>gt_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>le_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>le_u</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>ge_s</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>ge_u</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>eq</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>ne</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>lt</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>gt</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>le</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>ge</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>eq</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>ne</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>lt</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>gt</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>le</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>ge</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>wrap/i64</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>trunc_s/f32</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>trunc_u/f32</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>trunc_s/f64</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>trunc_u/f64</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>extend_s/i32</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>extend_u/i32</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>trunc_s/f32</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>trunc_u/f32</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>trunc_s/f64</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>trunc_u/f64</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>convert_s/i32</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>convert_u/i32</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>convert_s/i64</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>convert_u/i64</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>demote/f64</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>convert_s/i32</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>convert_u/i32</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>convert_s/i64</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>convert_u/i64</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>promote/f32</span>
+<span class="token keyword">i32<span class="token punctuation">.</span>reinterpret/f32</span>
+<span class="token keyword">i64<span class="token punctuation">.</span>reinterpret/f64</span>
+<span class="token keyword">f32<span class="token punctuation">.</span>reinterpret/i32</span>
+<span class="token keyword">f64<span class="token punctuation">.</span>reinterpret/i64</span>
+
+<span class="token keyword">memory<span class="token punctuation">.</span>size</span>
+<span class="token keyword">memory<span class="token punctuation">.</span>grow</span>
+
+<span class="token keyword">anyfunc</span>
+<span class="token keyword">block</span>
+<span class="token keyword">br</span>
+<span class="token keyword">br_if</span>
+<span class="token keyword">br_table</span>
+<span class="token keyword">call</span>
+<span class="token keyword">call_indirect</span>
+<span class="token keyword">data</span>
+<span class="token keyword">drop</span>
+<span class="token keyword">elem</span>
+<span class="token keyword">else</span>
+<span class="token keyword">end</span>
+<span class="token keyword">export</span>
+<span class="token keyword">func</span>
+<span class="token keyword">get_global</span>
+<span class="token keyword">get_local</span>
+<span class="token keyword">global</span>
+<span class="token keyword">if</span>
+<span class="token keyword">import</span>
+<span class="token keyword">local</span>
+<span class="token keyword">loop</span>
+<span class="token keyword">memory</span>
+<span class="token keyword">module</span>
+<span class="token keyword">mut</span>
+<span class="token keyword">nop</span>
+<span class="token keyword">offset</span>
+<span class="token keyword">param</span>
+<span class="token keyword">result</span>
+<span class="token keyword">return</span>
+<span class="token keyword">select</span>
+<span class="token keyword">set_global</span>
+<span class="token keyword">set_local</span>
+<span class="token keyword">start</span>
+<span class="token keyword">table</span>
+<span class="token keyword">tee_local</span>
+<span class="token keyword">then</span>
+<span class="token keyword">type</span>
+<span class="token keyword">unreachable</span>
+
+----------------------------------------------------

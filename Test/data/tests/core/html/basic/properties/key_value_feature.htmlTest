@@ -1,0 +1,21 @@
+foo bar
+foo\:\=\ bar bar\:\= \
+baz
+foo = bar
+foo\:\=\ bar = bar\:\= \
+baz
+foo : bar
+foo\:\=\ bar : bar\:\= \
+baz
+----------------------------------------------------
+<span class="token attr-name">foo</span> <span class="token attr-value">bar</span>
+<span class="token attr-name">foo\:\=\ bar</span> <span class="token attr-value">bar\:\= \
+baz</span>
+<span class="token attr-name">foo</span> <span class="token punctuation">=</span> <span class="token attr-value">bar</span>
+<span class="token attr-name">foo\:\=\ bar</span> <span class="token punctuation">=</span> <span class="token attr-value">bar\:\= \
+baz</span>
+<span class="token attr-name">foo</span> <span class="token punctuation">:</span> <span class="token attr-value">bar</span>
+<span class="token attr-name">foo\:\=\ bar</span> <span class="token punctuation">:</span> <span class="token attr-value">bar\:\= \
+baz</span>
+
+----------------------------------------------------

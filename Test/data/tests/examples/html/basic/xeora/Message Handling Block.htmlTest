@@ -1,0 +1,13 @@
+$MB:{ <!-- Message Output Content --> }:MB$
+$MB:{
+	$#Message$
+	$#MessageType$
+}:MB$
+----------------------------------------------------
+<span class="token directive-block-open function"><span class="token punctuation">$</span>MB<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Message Output Content --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>MB<span class="token punctuation">$</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$</span>MB<span class="token punctuation">:</span><span class="token punctuation">{</span></span>
+	<span class="token variable"><span class="token punctuation">$</span><span class="token operator">#</span>Message<span class="token punctuation">$</span></span>
+	<span class="token variable"><span class="token punctuation">$</span><span class="token operator">#</span>MessageType<span class="token punctuation">$</span></span>
+<span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>MB<span class="token punctuation">$</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+contract Foo {}
+contract Foo is Bar {}
+enum Foo { X, Y, Z }
+interface Foo {}
+library Foo {}
+new Foo();
+struct Foo {}
+using Foo for bar;
+----------------------------------------------------
+<span class="token keyword">contract</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">contract</span> <span class="token class-name">Foo</span> <span class="token keyword">is</span> Bar <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">enum</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span> X<span class="token punctuation">,</span> Y<span class="token punctuation">,</span> Z <span class="token punctuation">}</span>
+<span class="token keyword">interface</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">library</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">using</span> <span class="token class-name">Foo</span> <span class="token keyword">for</span> bar<span class="token punctuation">;</span>
+
+----------------------------------------------------

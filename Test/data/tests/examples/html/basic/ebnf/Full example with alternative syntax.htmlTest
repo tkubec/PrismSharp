@@ -1,0 +1,63 @@
+SYNTAX = SYNTAX RULE, (: SYNTAX RULE :).
+SYNTAX RULE
+  = META IDENTIFIER, '=', DEFINITIONS LIST, '.'. (* '.' instead of ';' *)
+DEFINITIONS LIST
+  = SINGLE DEFINITION,
+    (: '/', SINGLE DEFINITION :).
+SINGLE DEFINITION = TERM, (: ',', TERM :).
+TERM = FACTOR, (/ '-', EXCEPTION /).
+EXCEPTION = FACTOR.
+FACTOR = (/ INTEGER, '*' /), PRIMARY.
+PRIMARY
+  = OPTIONAL SEQUENCE / REPEATED SEQUENCE (* / is the same as | *)
+  / SPECIAL SEQUENCE / GROUPED SEQUENCE
+  / META IDENTIFIER / TERMINAL / EMPTY.
+EMPTY = .
+OPTIONAL SEQUENCE = '(/', DEFINITIONS LIST, '/)'.
+REPEATED SEQUENCE = '(:', DEFINITIONS LIST, ':)'.
+GROUPED SEQUENCE = '(', DEFINITIONS LIST, ')'.
+TERMINAL
+  = "'", CHARACTER - "'",
+    (: CHARACTER - "'" :), "'"
+  / '"', CHARACTER - '"',
+    (: CHARACTER - '"' :), '"'.
+META IDENTIFIER = LETTER, (: LETTER / DIGIT :).
+INTEGER = DIGIT, (: DIGIT :).
+SPECIAL SEQUENCE = '?', (: CHARACTER - '?' :), '?'.
+COMMENT = '(*', (: COMMENT SYMBOL :), '*)'.
+COMMENT SYMBOL
+  = COMMENT / TERMINAL / SPECIAL SEQUENCE
+    / CHARACTER.
+----------------------------------------------------
+<span class="token definition rule keyword">SYNTAX</span> <span class="token operator">=</span> <span class="token rule">SYNTAX RULE</span><span class="token punctuation">,</span> <span class="token punctuation">(:</span> <span class="token rule">SYNTAX RULE</span> <span class="token punctuation">:)</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">SYNTAX RULE</span>
+  <span class="token operator">=</span> <span class="token rule">META IDENTIFIER</span><span class="token punctuation">,</span> <span class="token string">'='</span><span class="token punctuation">,</span> <span class="token rule">DEFINITIONS LIST</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token punctuation">.</span> <span class="token comment">(* '.' instead of ';' *)</span>
+<span class="token definition rule keyword">DEFINITIONS LIST</span>
+  <span class="token operator">=</span> <span class="token rule">SINGLE DEFINITION</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(:</span> <span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token rule">SINGLE DEFINITION</span> <span class="token punctuation">:)</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">SINGLE DEFINITION</span> <span class="token operator">=</span> <span class="token rule">TERM</span><span class="token punctuation">,</span> <span class="token punctuation">(:</span> <span class="token string">','</span><span class="token punctuation">,</span> <span class="token rule">TERM</span> <span class="token punctuation">:)</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">TERM</span> <span class="token operator">=</span> <span class="token rule">FACTOR</span><span class="token punctuation">,</span> <span class="token punctuation">(/</span> <span class="token string">'-'</span><span class="token punctuation">,</span> <span class="token rule">EXCEPTION</span> <span class="token punctuation">/)</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">EXCEPTION</span> <span class="token operator">=</span> <span class="token rule">FACTOR</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">FACTOR</span> <span class="token operator">=</span> <span class="token punctuation">(/</span> <span class="token rule">INTEGER</span><span class="token punctuation">,</span> <span class="token string">'*'</span> <span class="token punctuation">/)</span><span class="token punctuation">,</span> <span class="token rule">PRIMARY</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">PRIMARY</span>
+  <span class="token operator">=</span> <span class="token rule">OPTIONAL SEQUENCE</span> <span class="token operator">/</span> <span class="token rule">REPEATED SEQUENCE</span> <span class="token comment">(* / is the same as | *)</span>
+  <span class="token operator">/</span> <span class="token rule">SPECIAL SEQUENCE</span> <span class="token operator">/</span> <span class="token rule">GROUPED SEQUENCE</span>
+  <span class="token operator">/</span> <span class="token rule">META IDENTIFIER</span> <span class="token operator">/</span> <span class="token rule">TERMINAL</span> <span class="token operator">/</span> <span class="token rule">EMPTY</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">EMPTY</span> <span class="token operator">=</span> <span class="token punctuation">.</span>
+<span class="token definition rule keyword">OPTIONAL SEQUENCE</span> <span class="token operator">=</span> <span class="token string">'(/'</span><span class="token punctuation">,</span> <span class="token rule">DEFINITIONS LIST</span><span class="token punctuation">,</span> <span class="token string">'/)'</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">REPEATED SEQUENCE</span> <span class="token operator">=</span> <span class="token string">'(:'</span><span class="token punctuation">,</span> <span class="token rule">DEFINITIONS LIST</span><span class="token punctuation">,</span> <span class="token string">':)'</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">GROUPED SEQUENCE</span> <span class="token operator">=</span> <span class="token string">'('</span><span class="token punctuation">,</span> <span class="token rule">DEFINITIONS LIST</span><span class="token punctuation">,</span> <span class="token string">')'</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">TERMINAL</span>
+  <span class="token operator">=</span> <span class="token string">"'"</span><span class="token punctuation">,</span> <span class="token rule">CHARACTER</span> <span class="token operator">-</span> <span class="token string">"'"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(:</span> <span class="token rule">CHARACTER</span> <span class="token operator">-</span> <span class="token string">"'"</span> <span class="token punctuation">:)</span><span class="token punctuation">,</span> <span class="token string">"'"</span>
+  <span class="token operator">/</span> <span class="token string">'"'</span><span class="token punctuation">,</span> <span class="token rule">CHARACTER</span> <span class="token operator">-</span> <span class="token string">'"'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(:</span> <span class="token rule">CHARACTER</span> <span class="token operator">-</span> <span class="token string">'"'</span> <span class="token punctuation">:)</span><span class="token punctuation">,</span> <span class="token string">'"'</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">META IDENTIFIER</span> <span class="token operator">=</span> <span class="token rule">LETTER</span><span class="token punctuation">,</span> <span class="token punctuation">(:</span> <span class="token rule">LETTER</span> <span class="token operator">/</span> <span class="token rule">DIGIT</span> <span class="token punctuation">:)</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">INTEGER</span> <span class="token operator">=</span> <span class="token rule">DIGIT</span><span class="token punctuation">,</span> <span class="token punctuation">(:</span> <span class="token rule">DIGIT</span> <span class="token punctuation">:)</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">SPECIAL SEQUENCE</span> <span class="token operator">=</span> <span class="token string">'?'</span><span class="token punctuation">,</span> <span class="token punctuation">(:</span> <span class="token rule">CHARACTER</span> <span class="token operator">-</span> <span class="token string">'?'</span> <span class="token punctuation">:)</span><span class="token punctuation">,</span> <span class="token string">'?'</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">COMMENT</span> <span class="token operator">=</span> <span class="token string">'(*'</span><span class="token punctuation">,</span> <span class="token punctuation">(:</span> <span class="token rule">COMMENT SYMBOL</span> <span class="token punctuation">:)</span><span class="token punctuation">,</span> <span class="token string">'*)'</span><span class="token punctuation">.</span>
+<span class="token definition rule keyword">COMMENT SYMBOL</span>
+  <span class="token operator">=</span> <span class="token rule">COMMENT</span> <span class="token operator">/</span> <span class="token rule">TERMINAL</span> <span class="token operator">/</span> <span class="token rule">SPECIAL SEQUENCE</span>
+    <span class="token operator">/</span> <span class="token rule">CHARACTER</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

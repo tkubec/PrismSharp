@@ -1,0 +1,7 @@
+background: url('foo.png')
+background: url("foo/bar.jpg")
+----------------------------------------------------
+<span class="token property-declaration"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url('foo.png')</span></span>
+<span class="token property-declaration"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url("foo/bar.jpg")</span></span>
+
+----------------------------------------------------

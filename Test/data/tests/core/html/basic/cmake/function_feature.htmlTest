@@ -1,0 +1,11 @@
+foobar()
+baz()
+Foobar()
+FOOBAR()
+----------------------------------------------------
+<span class="token function">foobar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">Foobar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">FOOBAR</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

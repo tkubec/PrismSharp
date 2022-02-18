@@ -1,0 +1,11 @@
+Some text
+	at foo.bar
+	at DenoError (deno/js/errors.ts:22:5)
+	at new <anonymous> (_http_common.js:159:16)
+----------------------------------------------------
+<span class="token error-message string">Some text</span>
+	<span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">foo<span class="token punctuation">.</span>bar</span></span>
+	<span class="token stack-frame"><span class="token keyword">at</span> <span class="token function">DenoError</span> <span class="token punctuation">(</span><span class="token filename url">deno/js/errors.ts</span><span class="token line-number number"><span class="token punctuation">:</span>22<span class="token punctuation">:</span>5</span><span class="token punctuation">)</span></span>
+	<span class="token stack-frame"><span class="token keyword">at</span> <span class="token keyword">new</span> <span class="token function">&lt;anonymous></span> <span class="token punctuation">(</span><span class="token filename url">_http_common.js</span><span class="token line-number number"><span class="token punctuation">:</span>159<span class="token punctuation">:</span>16</span><span class="token punctuation">)</span></span>
+
+----------------------------------------------------

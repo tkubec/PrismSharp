@@ -1,0 +1,11 @@
+String s1 = 'Strings allow single quotes';
+String s2 = "as well as double quotes";
+var s2 = 'Birb strings are
+	multiline by default';
+----------------------------------------------------
+<span class="token class-name">String</span> <span class="token variable">s1</span> <span class="token operator">=</span> <span class="token string">'Strings allow single quotes'</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> <span class="token variable">s2</span> <span class="token operator">=</span> <span class="token string">"as well as double quotes"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token variable">s2</span> <span class="token operator">=</span> <span class="token string">'Birb strings are
+	multiline by default'</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

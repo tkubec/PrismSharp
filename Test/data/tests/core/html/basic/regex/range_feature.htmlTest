@@ -1,0 +1,9 @@
+[a-zA-Z0-9]
+[\xa1-Z\u00FF-\u{256}]
+[^-aaa-]
+----------------------------------------------------
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token range">a<span class="token range-punctuation operator">-</span>z</span><span class="token range">A<span class="token range-punctuation operator">-</span>Z</span><span class="token range">0<span class="token range-punctuation operator">-</span>9</span><span class="token char-class-punctuation punctuation">]</span></span>
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token range"><span class="token escape">\xa1</span><span class="token range-punctuation operator">-</span>Z</span><span class="token range"><span class="token escape">\u00FF</span><span class="token range-punctuation operator">-</span><span class="token escape">\u{256}</span></span><span class="token char-class-punctuation punctuation">]</span></span>
+<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>-aaa-<span class="token char-class-punctuation punctuation">]</span></span>
+
+----------------------------------------------------

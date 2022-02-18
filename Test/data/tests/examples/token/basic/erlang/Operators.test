@@ -1,0 +1,100 @@
+1==1.0.
+1=:=1.0.
+1 > a.
++1.
+-1.
+1+1.
+4/2.
+5 div 2.
+5 rem 2.
+2#10 band 2#01.
+2#10 bor 2#01.
+a + 10.
+1 bsl (1 bsl 64).
+not true.
+true and false.
+true xor false.
+true or garbage.
+----------------------------------------------------
+[
+	["number", "1"],
+	["operator", "=="],
+	["number", "1.0"],
+	["punctuation", "."],
+
+	["number", "1"],
+	["operator", "=:="],
+	["number", "1.0"],
+	["punctuation", "."],
+
+	["number", "1"],
+	["operator", ">"],
+	["atom", "a"],
+	["punctuation", "."],
+
+	["operator", "+"],
+	["number", "1."],
+
+	["operator", "-"],
+	["number", "1."],
+
+	["number", "1"],
+	["operator", "+"],
+	["number", "1."],
+
+	["number", "4"],
+	["operator", "/"],
+	["number", "2."],
+
+	["number", "5"],
+	["operator", "div"],
+	["number", "2."],
+
+	["number", "5"],
+	["operator", "rem"],
+	["number", "2."],
+
+	["number", "2#10"],
+	["operator", "band"],
+	["number", "2#01"],
+	["punctuation", "."],
+
+	["number", "2#10"],
+	["operator", "bor"],
+	["number", "2#01"],
+	["punctuation", "."],
+
+	["atom", "a"],
+	["operator", "+"],
+	["number", "10."],
+
+	["number", "1"],
+	["operator", "bsl"],
+	["punctuation", "("],
+	["number", "1"],
+	["operator", "bsl"],
+	["number", "64"],
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	["operator", "not"],
+	["boolean", "true"],
+	["punctuation", "."],
+
+	["boolean", "true"],
+	["operator", "and"],
+	["boolean", "false"],
+	["punctuation", "."],
+
+	["boolean", "true"],
+	["operator", "xor"],
+	["boolean", "false"],
+	["punctuation", "."],
+
+	["boolean", "true"],
+	["operator", "or"],
+	["atom", "garbage"],
+	["punctuation", "."]
+]
+
+----------------------------------------------------

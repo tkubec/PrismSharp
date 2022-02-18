@@ -1,0 +1,15 @@
+value = 001 + 2 - 3 * 4 / 5 ** 6.
+
+IF value &lt; 1 OR
+   value = 2 OR
+   value &gt; 3 OR
+   value &lt;&gt; 4 OR
+   value &lt;= 5 OR
+   value &gt;= 6.
+ENDIF.
+
+" Dynamic object assignment (with type cast check)
+lo_interface ?= lo_class.
+
+--------------------------------------------------
+

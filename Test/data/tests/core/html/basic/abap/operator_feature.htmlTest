@@ -1,0 +1,31 @@
+.
++ -
+/ * **
+< > <= >=
+= ?= <>
+
+& &&
+
+a-b
+a~b
+a->b
+a=>b
+a|b
+a{b}c
+----------------------------------------------------
+<span class="token punctuation">.</span>
+<span class="token operator">+</span> <span class="token operator">-</span>
+<span class="token operator">/</span> <span class="token operator">*</span> <span class="token operator">**</span>
+<span class="token operator">&lt;</span> <span class="token operator">></span> <span class="token operator">&lt;=</span> <span class="token operator">>=</span>
+<span class="token operator">=</span> <span class="token operator">?=</span> <span class="token operator">&lt;></span>
+
+<span class="token string-operator keyword">&amp;</span> <span class="token string-operator keyword">&amp;&amp;</span>
+
+a<span class="token token-operator punctuation">-</span>b
+a<span class="token token-operator punctuation">~</span>b
+a<span class="token token-operator punctuation">-></span>b
+a<span class="token token-operator punctuation">=></span>b
+a<span class="token token-operator punctuation">|</span>b
+a<span class="token token-operator punctuation">{</span>b<span class="token token-operator punctuation">}</span>c
+
+----------------------------------------------------

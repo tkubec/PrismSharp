@@ -1,0 +1,65 @@
+/*
+ * Checks if two input bits are equal
+ */
+ 
+CHIP Eq {
+  IN a, b;
+  OUT out; // True iff a=b
+  PARTS:
+    Xor(a=a, b=b, out=uneq);
+    Not(in=uneq, out=out);
+}
+----------------------------------------------------
+[
+	["comment", "/*\n * Checks if two input bits are equal\n */"],
+
+	["keyword", "CHIP"],
+	" Eq ",
+	["punctuation", "{"],
+
+	["keyword", "IN"],
+	" a",
+	["punctuation", ","],
+	" b",
+	["punctuation", ";"],
+
+	["keyword", "OUT"],
+	" out",
+	["punctuation", ";"],
+	["comment", "// True iff a=b"],
+
+	["keyword", "PARTS"],
+	["punctuation", ":"],
+
+	["function", "Xor"],
+	["punctuation", "("],
+	"a",
+	["operator", "="],
+	"a",
+	["punctuation", ","],
+	" b",
+	["operator", "="],
+	"b",
+	["punctuation", ","],
+	" out",
+	["operator", "="],
+	"uneq",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "Not"],
+	["punctuation", "("],
+	"in",
+	["operator", "="],
+	"uneq",
+	["punctuation", ","],
+	" out",
+	["operator", "="],
+	"out",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

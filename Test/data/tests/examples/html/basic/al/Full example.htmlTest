@@ -1,0 +1,121 @@
+// Source: https://github.com/microsoft/AL/blob/master/samples/ControlAddIn/al/Page/CustomerCardAddIn.al
+
+pageextension 50300 CustomerCardAddIn extends "Customer Card"
+{
+	layout
+	{
+		addafter(Blocked)
+		{
+			usercontrol(ControlName; TestAddIn)
+			{
+				ApplicationArea = All;
+
+				trigger Callback(i : integer; s: text; d : decimal; c : char)
+				begin
+					Message('Got from js: %1, %2, %3, %4', i, s, d, c);
+				end;
+			}
+		}
+	}
+
+	actions
+	{
+		addafter(Approve)
+		{
+			action(CallJavaScript)
+			{
+				ApplicationArea = All;
+
+				trigger OnAction();
+				begin
+					CurrPage.ControlName.CallJavaScript(5, 'text', 6.3, 'c');
+				end;
+			}
+
+			action(CallViaCodeunit)
+			{
+				ApplicationArea = All;
+
+				trigger OnAction();
+				var c : Codeunit AddInHelpers;
+				begin
+					c.CallJavaScript(CurrPage.ControlName);
+				end;
+			}
+
+			action(CallStaleControlAddIn)
+			{
+				ApplicationArea = All;
+
+				trigger OnAction();
+				var c : Codeunit AddInHelpersSingleton;
+				begin
+					c.CallStaleAddInMethod();
+					Message('Probably nothing should happen...');
+				end;
+			}
+		}
+	}
+}
+----------------------------------------------------
+<span class="token comment">// Source: https://github.com/microsoft/AL/blob/master/samples/ControlAddIn/al/Page/CustomerCardAddIn.al</span>
+
+<span class="token keyword">pageextension</span> <span class="token number">50300</span> CustomerCardAddIn <span class="token keyword">extends</span> <span class="token string">"Customer Card"</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">layout</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">addafter</span><span class="token punctuation">(</span>Blocked<span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">usercontrol</span><span class="token punctuation">(</span>ControlName<span class="token punctuation">;</span> TestAddIn<span class="token punctuation">)</span>
+			<span class="token punctuation">{</span>
+				ApplicationArea <span class="token operator">=</span> All<span class="token punctuation">;</span>
+
+				<span class="token keyword">trigger</span> <span class="token function">Callback</span><span class="token punctuation">(</span>i <span class="token punctuation">:</span> <span class="token class-name">integer</span><span class="token punctuation">;</span> s<span class="token punctuation">:</span> <span class="token class-name">text</span><span class="token punctuation">;</span> d <span class="token punctuation">:</span> <span class="token class-name">decimal</span><span class="token punctuation">;</span> c <span class="token punctuation">:</span> <span class="token class-name">char</span><span class="token punctuation">)</span>
+				<span class="token keyword">begin</span>
+					Message<span class="token punctuation">(</span><span class="token string">'Got from js: %1, %2, %3, %4'</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> s<span class="token punctuation">,</span> d<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">end</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">actions</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">addafter</span><span class="token punctuation">(</span>Approve<span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">action</span><span class="token punctuation">(</span>CallJavaScript<span class="token punctuation">)</span>
+			<span class="token punctuation">{</span>
+				ApplicationArea <span class="token operator">=</span> All<span class="token punctuation">;</span>
+
+				<span class="token keyword">trigger</span> <span class="token function">OnAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">begin</span>
+					<span class="token variable">CurrPage</span><span class="token punctuation">.</span>ControlName<span class="token punctuation">.</span><span class="token function">CallJavaScript</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">'text'</span><span class="token punctuation">,</span> <span class="token number">6.3</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">end</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+
+			<span class="token keyword">action</span><span class="token punctuation">(</span>CallViaCodeunit<span class="token punctuation">)</span>
+			<span class="token punctuation">{</span>
+				ApplicationArea <span class="token operator">=</span> All<span class="token punctuation">;</span>
+
+				<span class="token keyword">trigger</span> <span class="token function">OnAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">var</span> c <span class="token punctuation">:</span> <span class="token keyword">Codeunit</span> AddInHelpers<span class="token punctuation">;</span>
+				<span class="token keyword">begin</span>
+					c<span class="token punctuation">.</span><span class="token function">CallJavaScript</span><span class="token punctuation">(</span><span class="token variable">CurrPage</span><span class="token punctuation">.</span>ControlName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">end</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+
+			<span class="token keyword">action</span><span class="token punctuation">(</span>CallStaleControlAddIn<span class="token punctuation">)</span>
+			<span class="token punctuation">{</span>
+				ApplicationArea <span class="token operator">=</span> All<span class="token punctuation">;</span>
+
+				<span class="token keyword">trigger</span> <span class="token function">OnAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">var</span> c <span class="token punctuation">:</span> <span class="token keyword">Codeunit</span> AddInHelpersSingleton<span class="token punctuation">;</span>
+				<span class="token keyword">begin</span>
+					c<span class="token punctuation">.</span><span class="token function">CallStaleAddInMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					Message<span class="token punctuation">(</span><span class="token string">'Probably nothing should happen...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">end</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

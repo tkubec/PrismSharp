@@ -1,0 +1,7 @@
+{{~#if isActive~}}{{~/if~}}
+{{:slot-name}}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span><span class="token punctuation">~</span><span class="token block keyword">#if</span> <span class="token variable">isActive</span><span class="token punctuation">~</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">~</span><span class="token punctuation">/</span><span class="token variable">if</span><span class="token punctuation">~</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">:</span><span class="token variable">slot-name</span><span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

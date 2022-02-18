@@ -1,0 +1,89 @@
+Prism.languages.markup = {
+	'comment': /<!--[\s\S]*?-->/,
+	'prolog': /<\?[\s\S]+?\?>/,
+	'doctype': {
+		pattern: /<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,
+		greedy: true
+	},
+	'cdata': /<!\[CDATA\[[\s\S]*?]]>/i,
+	'tag': {
+		pattern: /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/i,
+		greedy: true,
+		inside: {
+			'tag': {
+				pattern: /^<\/?[^\s>\/]+/i,
+				inside: {
+					'punctuation': /^<\/?/,
+					'namespace': /^[^\s>\/:]+:/
+				}
+			},
+			'attr-value': {
+				pattern: /=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,
+				inside: {
+					'punctuation': [
+						/^=/,
+						{
+							pattern: /^(\s*)["']|["']$/,
+							lookbehind: true
+						}
+					]
+				}
+			},
+			'punctuation': /\/?>/,
+			'attr-name': {
+				pattern: /[^\s>\/]+/,
+				inside: {
+					'namespace': /^[^\s>\/:]+:/
+				}
+			}
+
+		}
+	},
+	'entity': /&#?[\da-z]{1,8};/i
+};
+----------------------------------------------------
+Prism<span class="token char-set class-name">.</span>languages<span class="token char-set class-name">.</span>markup = {
+	'comment': /&lt;!--<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-set class-name">\s</span><span class="token char-set class-name">\S</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*?</span>-->/,
+	'prolog': /&lt;<span class="token special-escape escape">\?</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-set class-name">\s</span><span class="token char-set class-name">\S</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+?</span><span class="token special-escape escape">\?</span>>/,
+	'doctype': {
+		pattern: /&lt;!DOCTYPE<span class="token group punctuation">(?:</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>>"'[<span class="token special-escape escape">\]</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token alternation keyword">|</span>"<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>"<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>"<span class="token alternation keyword">|</span>'<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>'<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>'<span class="token group punctuation">)</span><span class="token quantifier number">+</span><span class="token group punctuation">(?:</span><span class="token special-escape escape">\[</span><span class="token group punctuation">(?:</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>&lt;"'<span class="token special-escape escape">\]</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token alternation keyword">|</span>"<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>"<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>"<span class="token alternation keyword">|</span>'<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>'<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>'<span class="token alternation keyword">|</span>&lt;<span class="token group punctuation">(?!</span>!--<span class="token group punctuation">)</span><span class="token alternation keyword">|</span>&lt;!--<span class="token group punctuation">(?:</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>-<span class="token char-class-punctuation punctuation">]</span></span><span class="token alternation keyword">|</span>-<span class="token group punctuation">(?!</span>-><span class="token group punctuation">)</span><span class="token group punctuation">)</span><span class="token quantifier number">*</span>--><span class="token group punctuation">)</span><span class="token quantifier number">*</span><span class="token special-escape escape">\]</span><span class="token char-set class-name">\s</span><span class="token quantifier number">*</span><span class="token group punctuation">)</span><span class="token quantifier number">?</span>>/i,
+		greedy: true
+	},
+	'cdata': /&lt;!<span class="token special-escape escape">\[</span>CDATA<span class="token special-escape escape">\[</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-set class-name">\s</span><span class="token char-set class-name">\S</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*?</span>]]>/i,
+	'tag': {
+		pattern: /&lt;<span class="token escape">\/</span><span class="token quantifier number">?</span><span class="token group punctuation">(?!</span><span class="token char-set class-name">\d</span><span class="token group punctuation">)</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-set class-name">\s</span>><span class="token escape">\/</span>=$&lt;%<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+</span><span class="token group punctuation">(?:</span><span class="token char-set class-name">\s</span><span class="token group punctuation">(?:</span><span class="token char-set class-name">\s</span><span class="token quantifier number">*</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-set class-name">\s</span>><span class="token escape">\/</span>=<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+</span><span class="token group punctuation">(?:</span><span class="token char-set class-name">\s</span><span class="token quantifier number">*</span>=<span class="token char-set class-name">\s</span><span class="token quantifier number">*</span><span class="token group punctuation">(?:</span>"<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>"<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>"<span class="token alternation keyword">|</span>'<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>'<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>'<span class="token alternation keyword">|</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-set class-name">\s</span>'">=<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+</span><span class="token group punctuation">(?=</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-set class-name">\s</span>><span class="token char-class-punctuation punctuation">]</span></span><span class="token group punctuation">)</span><span class="token group punctuation">)</span><span class="token alternation keyword">|</span><span class="token group punctuation">(?=</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-set class-name">\s</span>/><span class="token char-class-punctuation punctuation">]</span></span><span class="token group punctuation">)</span><span class="token group punctuation">)</span><span class="token group punctuation">)</span><span class="token quantifier number">+</span><span class="token group punctuation">)</span><span class="token quantifier number">?</span><span class="token char-set class-name">\s</span><span class="token quantifier number">*</span><span class="token escape">\/</span><span class="token quantifier number">?</span>>/i,
+		greedy: true,
+		inside: {
+			'tag': {
+				pattern: /<span class="token anchor function">^</span>&lt;<span class="token escape">\/</span><span class="token quantifier number">?</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-set class-name">\s</span>><span class="token escape">\/</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+</span>/i,
+				inside: {
+					'punctuation': /<span class="token anchor function">^</span>&lt;<span class="token escape">\/</span><span class="token quantifier number">?</span>/,
+					'namespace': /<span class="token anchor function">^</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-set class-name">\s</span>><span class="token escape">\/</span>:<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+</span>:/
+				}
+			},
+			'attr-value': {
+				pattern: /=<span class="token char-set class-name">\s</span><span class="token quantifier number">*</span><span class="token group punctuation">(?:</span>"<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>"<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>"<span class="token alternation keyword">|</span>'<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>'<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>'<span class="token alternation keyword">|</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-set class-name">\s</span>'">=<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+</span><span class="token group punctuation">)</span>/i,
+				inside: {
+					'punctuation': <span class="token char-class"><span class="token char-class-punctuation punctuation">[</span>
+						/^=/,
+						{
+							pattern: /^(<span class="token char-set class-name">\s</span>*)["'<span class="token char-class-punctuation punctuation">]</span></span><span class="token alternation keyword">|</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span>"'<span class="token char-class-punctuation punctuation">]</span></span><span class="token anchor function">$</span>/,
+							lookbehind: true
+						}
+					]
+				}
+			},
+			'punctuation': /<span class="token escape">\/</span><span class="token quantifier number">?</span>>/,
+			'attr-name': {
+				pattern: /<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-set class-name">\s</span>><span class="token escape">\/</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+</span>/,
+				inside: {
+					'namespace': /<span class="token anchor function">^</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span><span class="token char-set class-name">\s</span>><span class="token escape">\/</span>:<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">+</span>:/
+				}
+			}
+
+		}
+	},
+	'entity': /&amp;#<span class="token quantifier number">?</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-set class-name">\d</span><span class="token range">a<span class="token range-punctuation operator">-</span>z</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">{1,8}</span>;/i
+};
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+1..48
+ok 1 Description # Directive
+# Diagnostic
+....
+ok 47 Description
+ok 48 Description
+----------------------------------------------------
+<span class="token plan">1..48</span>
+<span class="token pass">ok 1 Description </span><span class="token directive"># Directive</span>
+<span class="token directive"># Diagnostic</span>
+....
+<span class="token pass">ok 47 Description</span>
+<span class="token pass">ok 48 Description</span>
+
+----------------------------------------------------

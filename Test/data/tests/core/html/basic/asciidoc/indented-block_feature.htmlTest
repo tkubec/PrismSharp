@@ -1,0 +1,29 @@
+.
+
+	(TM) __foobar__
+	:bar: baz
+
+ Foo *bar* baz
+ // Foobar
+ == Foobar ==
+
+    Title
+    ~~~~~
+    .....
+    .....
+----------------------------------------------------
+.
+
+<span class="token indented-block">	(TM) __foobar__
+	:bar: baz</span>
+
+<span class="token indented-block"> Foo *bar* baz
+ // Foobar
+ == Foobar ==</span>
+
+<span class="token indented-block">    Title
+    ~~~~~
+    .....
+    .....</span>
+
+----------------------------------------------------

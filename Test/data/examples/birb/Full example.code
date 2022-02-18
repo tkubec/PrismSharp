@@ -1,0 +1,10 @@
+class Birb {
+  final String name;
+  int age = 19;
+
+  void construct(String newName){
+	nest.name = newName;
+  }
+}
+Birb.construct('Yoko');
+screm(Birb.name);

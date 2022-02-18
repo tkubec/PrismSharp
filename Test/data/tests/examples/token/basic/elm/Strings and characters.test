@@ -1,0 +1,18 @@
+'a'
+'\n'
+'\x03'
+"foo \" bar"
+"""
+"multiline strings" are also
+supported!
+"""
+----------------------------------------------------
+[
+	["char", "'a'"],
+	["char", "'\\n'"],
+	["char", "'\\x03'"],
+	["string", "\"foo \\\" bar\""],
+	["string", "\"\"\"\n\"multiline strings\" are also\nsupported!\n\"\"\""]
+]
+
+----------------------------------------------------

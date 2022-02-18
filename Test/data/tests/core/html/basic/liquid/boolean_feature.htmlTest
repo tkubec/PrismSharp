@@ -1,0 +1,9 @@
+{% if true and false and false or true %}
+
+{% nil %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token keyword">if</span> <span class="token boolean">true</span> <span class="token operator">and</span> <span class="token boolean">false</span> <span class="token operator">and</span> <span class="token boolean">false</span> <span class="token operator">or</span> <span class="token boolean">true</span> %}
+
+{% <span class="token boolean">nil</span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

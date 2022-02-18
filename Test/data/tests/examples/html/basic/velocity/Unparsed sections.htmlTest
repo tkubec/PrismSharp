@@ -1,0 +1,11 @@
+## Section below is not parsed
+#[[
+	## This is not a comment
+]]#
+----------------------------------------------------
+<span class="token velocity-comment comment">## Section below is not parsed</span>
+<span class="token unparsed"><span class="token punctuation">#[[</span>
+	## This is not a comment
+<span class="token punctuation">]]#</span></span>
+
+----------------------------------------------------

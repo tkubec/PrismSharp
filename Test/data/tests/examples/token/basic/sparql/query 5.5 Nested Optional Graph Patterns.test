@@ -1,0 +1,116 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>
+SELECT ?foafName ?mbox ?gname ?fname
+WHERE
+	{  ?x foaf:name ?foafName .
+		 OPTIONAL { ?x foaf:mbox ?mbox } .
+		 OPTIONAL {  ?x vcard:N ?vc .
+								 ?vc vcard:Given ?gname .
+								 OPTIONAL { ?vc vcard:Family ?fname }
+							}
+	}
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"vcard",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://www.w3.org/2001/vcard-rdf/3.0#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?foafName"],
+	["variable", "?mbox"],
+	["variable", "?gname"],
+	["variable", "?fname"],
+
+	["keyword", "WHERE"],
+
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "name"]
+	]],
+	["variable", "?foafName"],
+	["punctuation", "."],
+
+	["keyword", "OPTIONAL"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "mbox"]
+	]],
+	["variable", "?mbox"],
+	["punctuation", "}"],
+	["punctuation", "."],
+
+	["keyword", "OPTIONAL"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"vcard",
+			["punctuation", ":"]
+		]],
+		["local-name", "N"]
+	]],
+	["variable", "?vc"],
+	["punctuation", "."],
+
+	["variable", "?vc"],
+	["function", [
+		["prefix", [
+			"vcard",
+			["punctuation", ":"]
+		]],
+		["local-name", "Given"]
+	]],
+	["variable", "?gname"],
+	["punctuation", "."],
+
+	["keyword", "OPTIONAL"],
+	["punctuation", "{"],
+	["variable", "?vc"],
+	["function", [
+		["prefix", [
+			"vcard",
+			["punctuation", ":"]
+		]],
+		["local-name", "Family"]
+	]],
+	["variable", "?fname"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

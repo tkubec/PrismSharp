@@ -1,0 +1,23 @@
+DATA:
+  BEGIN OF my_structure,
+    scomponent TYPE i,
+  END OF my_structure.
+
+CLASS lcl_my_class DEFINITION.
+  PUBLIC SECTION.
+    METHODS my_method
+      RETURNING
+        VALUE(ret_value) TYPE i.
+ENDCLASS.
+
+CLASS lcl_my_class IMPLEMENTATION.
+  METHOD my_method.
+    ret_value = 1.
+  ENDMETHOD
+ENDCLASS.
+
+DATA lo_instace TYPE REF TO lcl_my_class.
+
+CREATE OBJECT lo_instace.
+
+my_structure-component = lo_instace->my_method( ).

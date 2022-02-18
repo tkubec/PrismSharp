@@ -1,0 +1,311 @@
+module Codewars.Kata.SumFracts (sumFracts) where
+
+import Prelude
+
+import Data.Foldable (foldl)
+import Data.BigInt (BigInt, fromInt, toString)
+import Data.List (List, length)
+import Data.Tuple (Tuple(..))
+import Data.Maybe (Maybe(..))
+import Data.Ord (abs, signum)
+
+reduce :: Tuple BigInt BigInt -> Tuple BigInt BigInt
+reduce (Tuple num den) =
+  let gcd' = gcd num den
+      den' = den / gcd'
+   in Tuple (num / gcd' * (signum den')) (abs den')
+   
+sumFracts :: List (Tuple Int Int) -> Maybe String
+sumFracts fracts =
+  let fracts' = fracts <#> (\(Tuple n d) -> Tuple (fromInt n) (fromInt d)) >>> reduce
+      
+      den = foldl (\acc (Tuple _ d) -> lcm acc d) one fracts'
+      num = foldl (\acc (Tuple n d) -> acc + n * (den / d)) zero fracts'
+      
+      Tuple n d = reduce $ Tuple num den
+      
+   in if length fracts == 0
+        then Nothing
+        else if d == one
+                then Just $ toString n
+                else Just $ (toString n) >< " " >< (toString d)
+----------------------------------------------------
+[
+	["keyword", "module"],
+	["constant", [
+		"Codewars",
+		["punctuation", "."],
+		"Kata",
+		["punctuation", "."],
+		"SumFracts"
+	]],
+	["punctuation", "("],
+	["hvariable", ["sumFracts"]],
+	["punctuation", ")"],
+	["keyword", "where"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Prelude"
+	]],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Data",
+		["punctuation", "."],
+		"Foldable"
+	]],
+	["punctuation", "("],
+	["hvariable", ["foldl"]],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Data",
+		["punctuation", "."],
+		"BigInt"
+	]],
+	["punctuation", "("],
+	["constant", ["BigInt"]],
+	["punctuation", ","],
+	["hvariable", ["fromInt"]],
+	["punctuation", ","],
+	["hvariable", ["toString"]],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Data",
+		["punctuation", "."],
+		"List"
+	]],
+	["punctuation", "("],
+	["constant", ["List"]],
+	["punctuation", ","],
+	["hvariable", ["length"]],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Data",
+		["punctuation", "."],
+		"Tuple"
+	]],
+	["punctuation", "("],
+	["constant", ["Tuple"]],
+	["punctuation", "("],
+	["operator", ".."],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Data",
+		["punctuation", "."],
+		"Maybe"
+	]],
+	["punctuation", "("],
+	["constant", ["Maybe"]],
+	["punctuation", "("],
+	["operator", ".."],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Data",
+		["punctuation", "."],
+		"Ord"
+	]],
+	["punctuation", "("],
+	["hvariable", ["abs"]],
+	["punctuation", ","],
+	["hvariable", ["signum"]],
+	["punctuation", ")"],
+
+	["hvariable", ["reduce"]],
+	["operator", "::"],
+	["constant", ["Tuple"]],
+	["constant", ["BigInt"]],
+	["constant", ["BigInt"]],
+	["operator", "->"],
+	["constant", ["Tuple"]],
+	["constant", ["BigInt"]],
+	["constant", ["BigInt"]],
+
+	["hvariable", ["reduce"]],
+	["punctuation", "("],
+	["constant", ["Tuple"]],
+	["hvariable", ["num"]],
+	["hvariable", ["den"]],
+	["punctuation", ")"],
+	["operator", "="],
+
+	["keyword", "let"],
+	["builtin", "gcd"],
+	"' ",
+	["operator", "="],
+	["builtin", "gcd"],
+	["hvariable", ["num"]],
+	["hvariable", ["den"]],
+
+	["hvariable", ["den'"]],
+	["operator", "="],
+	["hvariable", ["den"]],
+	["operator", "/"],
+	["builtin", "gcd"],
+	"'\n   ",
+
+	["keyword", "in"],
+	["constant", ["Tuple"]],
+	["punctuation", "("],
+	["hvariable", ["num"]],
+	["operator", "/"],
+	["builtin", "gcd"],
+	"' ",
+	["operator", "*"],
+	["punctuation", "("],
+	["hvariable", ["signum"]],
+	["hvariable", ["den'"]],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["hvariable", ["abs"]],
+	["hvariable", ["den'"]],
+	["punctuation", ")"],
+
+	["hvariable", ["sumFracts"]],
+	["operator", "::"],
+	["constant", ["List"]],
+	["punctuation", "("],
+	["constant", ["Tuple"]],
+	["constant", ["Int"]],
+	["constant", ["Int"]],
+	["punctuation", ")"],
+	["operator", "->"],
+	["constant", ["Maybe"]],
+	["constant", ["String"]],
+
+	["hvariable", ["sumFracts"]],
+	["hvariable", ["fracts"]],
+	["operator", "="],
+
+	["keyword", "let"],
+	["hvariable", ["fracts'"]],
+	["operator", "="],
+	["hvariable", ["fracts"]],
+	["operator", "<#>"],
+	["punctuation", "("],
+	["operator", "\\"],
+	["punctuation", "("],
+	["constant", ["Tuple"]],
+	["hvariable", ["n"]],
+	["hvariable", ["d"]],
+	["punctuation", ")"],
+	["operator", "->"],
+	["constant", ["Tuple"]],
+	["punctuation", "("],
+	["hvariable", ["fromInt"]],
+	["hvariable", ["n"]],
+	["punctuation", ")"],
+	["punctuation", "("],
+	["hvariable", ["fromInt"]],
+	["hvariable", ["d"]],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator", ">>>"],
+	["hvariable", ["reduce"]],
+
+	["hvariable", ["den"]],
+	["operator", "="],
+	["hvariable", ["foldl"]],
+	["punctuation", "("],
+	["operator", "\\"],
+	["hvariable", ["acc"]],
+	["punctuation", "("],
+	["constant", ["Tuple"]],
+	["hvariable", ["_"]],
+	["hvariable", ["d"]],
+	["punctuation", ")"],
+	["operator", "->"],
+	["builtin", "lcm"],
+	["hvariable", ["acc"]],
+	["hvariable", ["d"]],
+	["punctuation", ")"],
+	["builtin", "one"],
+	["hvariable", ["fracts'"]],
+
+	["hvariable", ["num"]],
+	["operator", "="],
+	["hvariable", ["foldl"]],
+	["punctuation", "("],
+	["operator", "\\"],
+	["hvariable", ["acc"]],
+	["punctuation", "("],
+	["constant", ["Tuple"]],
+	["hvariable", ["n"]],
+	["hvariable", ["d"]],
+	["punctuation", ")"],
+	["operator", "->"],
+	["hvariable", ["acc"]],
+	["operator", "+"],
+	["hvariable", ["n"]],
+	["operator", "*"],
+	["punctuation", "("],
+	["hvariable", ["den"]],
+	["operator", "/"],
+	["hvariable", ["d"]],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["builtin", "zero"],
+	["hvariable", ["fracts'"]],
+
+	["constant", ["Tuple"]],
+	["hvariable", ["n"]],
+	["hvariable", ["d"]],
+	["operator", "="],
+	["hvariable", ["reduce"]],
+	["operator", "$"],
+	["constant", ["Tuple"]],
+	["hvariable", ["num"]],
+	["hvariable", ["den"]],
+
+	["keyword", "in"],
+	["keyword", "if"],
+	["hvariable", ["length"]],
+	["hvariable", ["fracts"]],
+	["operator", "=="],
+	["number", "0"],
+
+	["keyword", "then"],
+	["constant", ["Nothing"]],
+
+	["keyword", "else"],
+	["keyword", "if"],
+	["hvariable", ["d"]],
+	["operator", "=="],
+	["builtin", "one"],
+
+	["keyword", "then"],
+	["constant", ["Just"]],
+	["operator", "$"],
+	["hvariable", ["toString"]],
+	["hvariable", ["n"]],
+
+	["keyword", "else"],
+	["constant", ["Just"]],
+	["operator", "$"],
+	["punctuation", "("],
+	["hvariable", ["toString"]],
+	["hvariable", ["n"]],
+	["punctuation", ")"],
+	["operator", "><"],
+	["string", "\" \""],
+	["operator", "><"],
+	["punctuation", "("],
+	["hvariable", ["toString"]],
+	["hvariable", ["d"]],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,39 @@
+// Source: https://go.dev/doc/modules/gomod-ref#example
+
+module example.com/mymodule
+
+go 1.14
+
+require (
+    example.com/othermodule v1.2.3
+    example.com/thismodule v1.2.3
+    example.com/thatmodule v1.2.3
+)
+
+replace example.com/thatmodule => ../thatmodule
+exclude example.com/thismodule v1.3.0
+----------------------------------------------------
+[
+	["comment", "// Source: https://go.dev/doc/modules/gomod-ref#example"],
+
+	["keyword", "module"], " example.com/mymodule\n\n",
+
+	["keyword", "go"], ["go-version", "1.14"],
+
+	["keyword", "require"], ["punctuation", "("],
+	"\n    example.com/othermodule ", ["version", "v1.2.3"],
+	"\n    example.com/thismodule ", ["version", "v1.2.3"],
+	"\n    example.com/thatmodule ", ["version", "v1.2.3"],
+	["punctuation", ")"],
+
+	["keyword", "replace"],
+	" example.com/thatmodule ",
+	["operator", "=>"],
+	" ../thatmodule\n",
+
+	["keyword", "exclude"],
+	" example.com/thismodule ",
+	["version", "v1.3.0"]
+]
+
+----------------------------------------------------

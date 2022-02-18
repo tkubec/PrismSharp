@@ -1,0 +1,394 @@
+proc {DisMember X Ys}
+   dis Ys = X|_ [] Yr in Ys = _|Yr {DisMember X Yr} end
+end
+
+class DataBase from BaseObject
+   attr d
+   meth init
+      d := {NewDictionary}
+   end
+   meth dic($) @d end
+   meth tell(I)
+      case {IsFree I.1} then
+         raise database(nonground(I)) end
+      else
+         Is = {Dictionary.condGet @d I.1 nil} in
+         {Dictionary.put @d I.1 {Append Is [I]}}
+      end
+   end
+   meth ask(I)
+      case {IsFree I} orelse {IsFree I.1} then
+         {DisMember I {Flatten {Dictionary.items @d}}}
+      else
+         {DisMember I {Dictionary.condGet @d I.1 nil}}
+      end
+   end
+   meth entries($)
+      {Dictionary.entries @d}
+   end
+end
+
+declare
+proc {Dynamic ?Pred}
+   Pred = {New DataBase init}
+end
+proc {Assert P I}
+   {P tell(I)}
+end
+proc {Query P I}
+   {P ask(I)}
+end
+
+EdgeP = {Dynamic}
+{ForAll
+[edge(1 2)
+ edge(2 1)   % Cycle
+ edge(2 3)
+ edge(3 4)
+ edge(2 5)
+ edge(5 6)
+ edge(4 6)
+ edge(6 7)
+ edge(6 8)
+ edge(1 5)
+ edge(5 1)  % Cycle
+]
+proc {$ I} {Assert EdgeP I} end
+}
+----------------------------------------------------
+[
+	["keyword", "proc"],
+	["punctuation", "{"],
+	["function", "DisMember"],
+	" X Ys",
+	["punctuation", "}"],
+
+	["keyword", "dis"],
+	" Ys ",
+	["operator", "="],
+	" X",
+	["operator", "|"],
+	["keyword", "_"],
+	["keyword", "[]"],
+	" Yr ",
+	["keyword", "in"],
+	" Ys ",
+	["operator", "="],
+	["keyword", "_"],
+	["operator", "|"],
+	"Yr ",
+	["punctuation", "{"],
+	["function", "DisMember"],
+	" X Yr",
+	["punctuation", "}"],
+	["keyword", "end"],
+
+	["keyword", "end"],
+
+	["keyword", "class"],
+	" DataBase ",
+	["keyword", "from"],
+	" BaseObject\n   ",
+
+	["keyword", "attr"],
+	" d\n   ",
+
+	["keyword", "meth"],
+	" init\n      d ",
+	["operator", ":="],
+	["punctuation", "{"],
+	["function", "NewDictionary"],
+	["punctuation", "}"],
+
+	["keyword", "end"],
+
+	["keyword", "meth"],
+	["function", "dic"],
+	["punctuation", "("],
+	["keyword", "$"],
+	["punctuation", ")"],
+	["operator", "@"],
+	"d ",
+	["keyword", "end"],
+
+	["keyword", "meth"],
+	["function", "tell"],
+	["punctuation", "("],
+	"I",
+	["punctuation", ")"],
+
+	["keyword", "case"],
+	["punctuation", "{"],
+	["function", "IsFree"],
+	" I",
+	["punctuation", "."],
+	["number", "1"],
+	["punctuation", "}"],
+	["keyword", "then"],
+
+	["keyword", "raise"],
+	["function", "database"],
+	["punctuation", "("],
+	["function", "nonground"],
+	["punctuation", "("],
+	"I",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["keyword", "end"],
+
+	["keyword", "else"],
+
+	"\n         Is ",
+	["operator", "="],
+	["punctuation", "{"],
+	["function", "Dictionary"],
+	["punctuation", "."],
+	"condGet ",
+	["operator", "@"],
+	"d I",
+	["punctuation", "."],
+	["number", "1"],
+	["keyword", "nil"],
+	["punctuation", "}"],
+	["keyword", "in"],
+
+	["punctuation", "{"],
+	["function", "Dictionary"],
+	["punctuation", "."],
+	"put ",
+	["operator", "@"],
+	"d I",
+	["punctuation", "."],
+	["number", "1"],
+	["punctuation", "{"],
+	["function", "Append"],
+	" Is ",
+	["punctuation", "["],
+	"I",
+	["punctuation", "]"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["keyword", "end"],
+
+	["keyword", "end"],
+
+	["keyword", "meth"],
+	["function", "ask"],
+	["punctuation", "("],
+	"I",
+	["punctuation", ")"],
+
+	["keyword", "case"],
+	["punctuation", "{"],
+	["function", "IsFree"],
+	" I",
+	["punctuation", "}"],
+	["operator", "orelse"],
+	["punctuation", "{"],
+	["function", "IsFree"],
+	" I",
+	["punctuation", "."],
+	["number", "1"],
+	["punctuation", "}"],
+	["keyword", "then"],
+
+	["punctuation", "{"],
+	["function", "DisMember"],
+	" I ",
+	["punctuation", "{"],
+	["function", "Flatten"],
+	["punctuation", "{"],
+	["function", "Dictionary"],
+	["punctuation", "."],
+	"items ",
+	["operator", "@"],
+	"d",
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["keyword", "else"],
+
+	["punctuation", "{"],
+	["function", "DisMember"],
+	" I ",
+	["punctuation", "{"],
+	["function", "Dictionary"],
+	["punctuation", "."],
+	"condGet ",
+	["operator", "@"],
+	"d I",
+	["punctuation", "."],
+	["number", "1"],
+	["keyword", "nil"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["keyword", "end"],
+
+	["keyword", "end"],
+
+	["keyword", "meth"],
+	["function", "entries"],
+	["punctuation", "("],
+	["keyword", "$"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+	["function", "Dictionary"],
+	["punctuation", "."],
+	"entries ",
+	["operator", "@"],
+	"d",
+	["punctuation", "}"],
+
+	["keyword", "end"],
+
+	["keyword", "end"],
+
+	["keyword", "declare"],
+
+	["keyword", "proc"],
+	["punctuation", "{"],
+	["function", "Dynamic"],
+	["punctuation", "?"],
+	"Pred",
+	["punctuation", "}"],
+
+	"\n   Pred ",
+	["operator", "="],
+	["punctuation", "{"],
+	["function", "New"],
+	" DataBase init",
+	["punctuation", "}"],
+
+	["keyword", "end"],
+
+	["keyword", "proc"],
+	["punctuation", "{"],
+	["function", "Assert"],
+	" P I",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["function", "P"],
+	["function", "tell"],
+	["punctuation", "("],
+	"I",
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["keyword", "end"],
+
+	["keyword", "proc"],
+	["punctuation", "{"],
+	["function", "Query"],
+	" P I",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["function", "P"],
+	["function", "ask"],
+	["punctuation", "("],
+	"I",
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["keyword", "end"],
+
+	"\n\nEdgeP ",
+	["operator", "="],
+	["punctuation", "{"],
+	["function", "Dynamic"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["function", "ForAll"],
+
+	["punctuation", "["],
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "1"],
+	["number", "2"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "2"],
+	["number", "1"],
+	["punctuation", ")"],
+	["comment", "% Cycle"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "2"],
+	["number", "3"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "3"],
+	["number", "4"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "2"],
+	["number", "5"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "5"],
+	["number", "6"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "4"],
+	["number", "6"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "6"],
+	["number", "7"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "6"],
+	["number", "8"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "1"],
+	["number", "5"],
+	["punctuation", ")"],
+
+	["function", "edge"],
+	["punctuation", "("],
+	["number", "5"],
+	["number", "1"],
+	["punctuation", ")"],
+	["comment", "% Cycle"],
+
+	["punctuation", "]"],
+
+	["keyword", "proc"],
+	["punctuation", "{"],
+	["keyword", "$"],
+	" I",
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["function", "Assert"],
+	" EdgeP I",
+	["punctuation", "}"],
+	["keyword", "end"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

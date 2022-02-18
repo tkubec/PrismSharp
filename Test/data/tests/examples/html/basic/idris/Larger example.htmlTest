@@ -1,0 +1,65 @@
+module Main
+
+import Data.Vect
+
+-- this is comment
+record Person where
+  constructor MkPerson2
+  age : Integer
+  name : String
+
+||| identity function
+id : a -> a
+id x = x
+
+{-
+Bool type can be defined in
+userland
+-}
+data Bool = True | False
+
+implementation Show Bool where
+  show True = "True"
+  show False = "False"
+
+not : Bool -> Bool
+not b = case b of
+          True  => False
+          False => True
+
+vect3 : Vect 3 Int
+vect3 = with Vect (1 :: 2 :: 3 :: Nil)
+----------------------------------------------------
+<span class="token keyword">module</span> <span class="token constant">Main</span>
+
+<span class="token keyword">import</span> <span class="token import-statement">Data<span class="token punctuation">.</span>Vect</span>
+
+<span class="token comment">-- this is comment</span>
+<span class="token keyword">record</span> <span class="token constant">Person</span> <span class="token keyword">where</span>
+  <span class="token keyword">constructor</span> <span class="token constant">MkPerson2</span>
+  <span class="token hvariable">age</span> <span class="token operator">:</span> <span class="token constant">Integer</span>
+  <span class="token hvariable">name</span> <span class="token operator">:</span> <span class="token constant">String</span>
+
+<span class="token comment">||| identity function</span>
+<span class="token hvariable">id</span> <span class="token operator">:</span> <span class="token hvariable">a</span> <span class="token operator">-></span> <span class="token hvariable">a</span>
+<span class="token hvariable">id</span> <span class="token hvariable">x</span> <span class="token operator">=</span> <span class="token hvariable">x</span>
+
+<span class="token comment">{-
+Bool type can be defined in
+userland
+-}</span>
+<span class="token keyword">data</span> <span class="token constant">Bool</span> <span class="token operator">=</span> <span class="token constant">True</span> <span class="token operator">|</span> <span class="token constant">False</span>
+
+<span class="token keyword">implementation</span> <span class="token constant">Show</span> <span class="token constant">Bool</span> <span class="token keyword">where</span>
+  <span class="token hvariable">show</span> <span class="token constant">True</span> <span class="token operator">=</span> <span class="token string">"True"</span>
+  <span class="token hvariable">show</span> <span class="token constant">False</span> <span class="token operator">=</span> <span class="token string">"False"</span>
+
+<span class="token hvariable">not</span> <span class="token operator">:</span> <span class="token constant">Bool</span> <span class="token operator">-></span> <span class="token constant">Bool</span>
+<span class="token hvariable">not</span> <span class="token hvariable">b</span> <span class="token operator">=</span> <span class="token keyword">case</span> <span class="token hvariable">b</span> <span class="token keyword">of</span>
+          <span class="token constant">True</span>  <span class="token operator">=></span> <span class="token constant">False</span>
+          <span class="token constant">False</span> <span class="token operator">=></span> <span class="token constant">True</span>
+
+<span class="token hvariable">vect3</span> <span class="token operator">:</span> <span class="token constant">Vect</span> <span class="token number">3</span> <span class="token constant">Int</span>
+<span class="token hvariable">vect3</span> <span class="token operator">=</span> <span class="token keyword">with</span> <span class="token constant">Vect</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">::</span> <span class="token number">2</span> <span class="token operator">::</span> <span class="token number">3</span> <span class="token operator">::</span> <span class="token constant">Nil</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

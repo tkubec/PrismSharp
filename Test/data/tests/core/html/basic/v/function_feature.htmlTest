@@ -1,0 +1,19 @@
+fn init() { }
+fn add(x int, y int) int { }
+fn sum(a ...int) int { }
+fn (mut t MyTime) century() int { }
+fn (d Dog) speak() string { }
+fn (r Repo) find_user_by_id(id int) ?User { }
+fn new_repo<T>(db DB) Repo<T> { }
+fn (r Repo<T>) find_by_id(id int) ?T { }
+----------------------------------------------------
+<span class="token keyword">fn</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token function">add</span><span class="token punctuation">(</span>x <span class="token builtin">int</span><span class="token punctuation">,</span> y <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token function">sum</span><span class="token punctuation">(</span>a <span class="token operator">...</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> t MyTime<span class="token punctuation">)</span> <span class="token function">century</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token punctuation">(</span>d Dog<span class="token punctuation">)</span> <span class="token function">speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token punctuation">(</span>r Repo<span class="token punctuation">)</span> <span class="token function">find_user_by_id</span><span class="token punctuation">(</span>id <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">?</span>User <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token generic-function"><span class="token function">new_repo</span><span class="token generic"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span>db DB<span class="token punctuation">)</span> Repo<span class="token generic"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token punctuation">(</span>r Repo<span class="token generic"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token function">find_by_id</span><span class="token punctuation">(</span>id <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">?</span>T <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

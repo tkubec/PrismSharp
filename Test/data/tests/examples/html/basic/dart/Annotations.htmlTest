@@ -1,0 +1,7 @@
+@todo('seth', 'make this do something')
+@deprecated // Metadata; makes Dart Editor warn about using activate().
+----------------------------------------------------
+<span class="token metadata function">@todo</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'seth'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'make this do something'</span></span><span class="token punctuation">)</span>
+<span class="token metadata function">@deprecated</span> <span class="token comment">// Metadata; makes Dart Editor warn about using activate().</span>
+
+----------------------------------------------------

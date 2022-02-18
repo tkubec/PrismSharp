@@ -1,0 +1,13 @@
+""
+"Fo\"obar"
+"multi-line
+string"
+\NewLine
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Fo\"obar"</span>
+<span class="token string">"multi-line
+string"</span>
+<span class="token char">\NewLine</span>
+
+----------------------------------------------------

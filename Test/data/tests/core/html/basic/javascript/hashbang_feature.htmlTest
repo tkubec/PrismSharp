@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+// in the Script Goal
+'use strict';
+console.log(1);
+----------------------------------------------------
+<span class="token hashbang comment">#!/usr/bin/env node</span>
+<span class="token comment">// in the Script Goal</span>
+<span class="token string">'use strict'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

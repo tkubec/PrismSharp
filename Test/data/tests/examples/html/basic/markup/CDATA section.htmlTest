@@ -1,0 +1,9 @@
+<ns1:description><![CDATA[
+  CDATA is <not> magical.
+]]></ns1:description>
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">ns1:</span>description</span><span class="token punctuation">></span></span><span class="token cdata">&lt;![CDATA[
+  CDATA is &lt;not> magical.
+]]></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">ns1:</span>description</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

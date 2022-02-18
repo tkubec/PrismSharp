@@ -1,0 +1,47 @@
+div
+span[foo=bar]
+  color red
+
+div input,
+input:nth-child(2n)
+  color red
+
+#foo
+  .bar::before
+    color red
+
+#foo
+  .bar {
+color red
+}
+
+{foo} {bar}:hover
+  color red
+
+div    // comment
+	display inline-block // comment
+----------------------------------------------------
+<span class="token selector">div
+span[foo=bar]</span>
+  <span class="token property-declaration"><span class="token property">color</span> <span class="token color">red</span></span>
+
+<span class="token selector">div input<span class="token punctuation">,</span>
+input:nth-child(2n)</span>
+  <span class="token property-declaration"><span class="token property">color</span> <span class="token color">red</span></span>
+
+<span class="token selector">#foo</span>
+  <span class="token selector">.bar::before</span>
+    <span class="token property-declaration"><span class="token property">color</span> <span class="token color">red</span></span>
+
+<span class="token selector">#foo</span>
+  <span class="token selector">.bar <span class="token punctuation">{</span></span>
+<span class="token property-declaration"><span class="token property">color</span> <span class="token color">red</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token interpolation variable"><span class="token delimiter punctuation">{</span>foo<span class="token delimiter punctuation">}</span></span> <span class="token interpolation variable"><span class="token delimiter punctuation">{</span>bar<span class="token delimiter punctuation">}</span></span>:hover</span>
+  <span class="token property-declaration"><span class="token property">color</span> <span class="token color">red</span></span>
+
+<span class="token selector">div    <span class="token comment">// comment</span></span>
+	<span class="token property-declaration"><span class="token property">display</span> inline-block <span class="token comment">// comment</span></span>
+
+----------------------------------------------------

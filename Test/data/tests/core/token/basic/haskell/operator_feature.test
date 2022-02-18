@@ -1,0 +1,70 @@
+..
+reverse . sort
+`foo`
+`Foo.bar`
++ - * /
+^ ^^ **
+&& ||
+< <= == /=
+>= > \ |
+++ : !!
+\\ <- ->
+= :: =>
+>> >>= >@>
+~ ! @
+----------------------------------------------------
+[
+	["operator", ".."],
+
+	["builtin", "reverse"],
+	["operator", "."],
+	["builtin", "sort"],
+
+	["operator", "`foo`"],
+
+	["operator", "`Foo.bar`"],
+
+	["operator", "+"],
+	["operator", "-"],
+	["operator", "*"],
+	["operator", "/"],
+
+	["operator", "^"],
+	["operator", "^^"],
+	["operator", "**"],
+
+	["operator", "&&"],
+	["operator", "||"],
+
+	["operator", "<"],
+	["operator", "<="],
+	["operator", "=="],
+	["operator", "/="],
+
+	["operator", ">="],
+	["operator", ">"],
+	["operator", "\\"],
+	["operator", "|"],
+
+	["operator", "++"],
+	["operator", ":"],
+	["operator", "!!"],
+
+	["operator", "\\\\"],
+	["operator", "<-"],
+	["operator", "->"],
+
+	["operator", "="],
+	["operator", "::"],
+	["operator", "=>"],
+
+	["operator", ">>"],
+	["operator", ">>="],
+	["operator", ">@>"],
+
+	["operator", "~"],
+	["operator", "!"],
+	["operator", "@"]
+]
+
+----------------------------------------------------

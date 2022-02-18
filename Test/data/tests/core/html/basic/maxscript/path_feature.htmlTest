@@ -1,0 +1,53 @@
+$box01 -- object named 'box01'
+$torso/left_up_arm/left_low_arm -- hierarchy path name
+$*box* -- all objects with 'box' in
+-- the name
+$torso/* -- all the direct children of
+-- $torso
+$helpers/d* -- all helper objects whose name starts with 'd'
+
+$dummy/head/neck
+$dummy/*
+$neck*
+$box0?
+$dummy/*/*
+$dummy/.../box*
+$dummy...*
+$*box*.position += [10, 10, 0]
+
+$.pos = [0,0,0]
+hide $
+rotate $ 35 z_axis
+
+$'a silly name!!'
+$'what the \*'
+bodyPart=$'Bip01 L UpperArm'
+bodyPart=$Bip01_L_UpperArm
+----------------------------------------------------
+<span class="token path string">$box01</span> <span class="token comment">-- object named 'box01'</span>
+<span class="token path string">$torso/left_up_arm/left_low_arm</span> <span class="token comment">-- hierarchy path name</span>
+<span class="token path string">$*box*</span> <span class="token comment">-- all objects with 'box' in</span>
+<span class="token comment">-- the name</span>
+<span class="token path string">$torso/*</span> <span class="token comment">-- all the direct children of</span>
+<span class="token comment">-- $torso</span>
+<span class="token path string">$helpers/d*</span> <span class="token comment">-- all helper objects whose name starts with 'd'</span>
+
+<span class="token path string">$dummy/head/neck</span>
+<span class="token path string">$dummy/*</span>
+<span class="token path string">$neck*</span>
+<span class="token path string">$box0?</span>
+<span class="token path string">$dummy/*/*</span>
+<span class="token path string">$dummy/.../box*</span>
+<span class="token path string">$dummy...*</span>
+<span class="token path string">$*box*.position</span> <span class="token operator">+=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token path string">$.pos</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token function-call function">hide</span> <span class="token path string">$</span>
+<span class="token function-call function">rotate</span> <span class="token path string">$</span> <span class="token number">35</span> z_axis
+
+<span class="token path string">$'a silly name!!'</span>
+<span class="token path string">$'what the \*'</span>
+bodyPart<span class="token operator">=</span><span class="token path string">$'Bip01 L UpperArm'</span>
+bodyPart<span class="token operator">=</span><span class="token path string">$Bip01_L_UpperArm</span>
+
+----------------------------------------------------

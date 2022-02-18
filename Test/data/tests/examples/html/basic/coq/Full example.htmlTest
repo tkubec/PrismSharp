@@ -1,0 +1,89 @@
+(* Source: https://coq.inria.fr/a-short-introduction-to-coq *)
+
+Inductive seq : nat -> Set :=
+| niln : seq 0
+| consn : forall n : nat, nat -> seq n -> seq (S n).
+
+Fixpoint length (n : nat) (s : seq n) {struct s} : nat :=
+  match s with
+  | niln => 0
+  | consn i _ s' => S (length i s')
+  end.
+
+Theorem length_corr : forall (n : nat) (s : seq n), length n s = n.
+Proof.
+  intros n s.
+
+  (* reasoning by induction over s. Then, we have two new goals
+     corresponding on the case analysis about s (either it is
+     niln or some consn *)
+  induction s.
+
+    (* We are in the case where s is void. We can reduce the
+       term: length 0 niln *)
+    simpl.
+
+    (* We obtain the goal 0 = 0. *)
+    trivial.
+
+    (* now, we treat the case s = consn n e s with induction
+       hypothesis IHs *)
+    simpl.
+
+    (* The induction hypothesis has type length n s = n.
+       So we can use it to perform some rewriting in the goal: *)
+    rewrite IHs.
+
+    (* Now the goal is the trivial equality: S n = S n *)
+    trivial.
+
+  (* Now all sub cases are closed, we perform the ultimate
+     step: typing the term built using tactics and save it as
+     a witness of the theorem. *)
+Qed.
+----------------------------------------------------
+<span class="token comment">(* Source: https://coq.inria.fr/a-short-introduction-to-coq *)</span>
+
+<span class="token keyword">Inductive</span> seq <span class="token punctuation">:</span> nat <span class="token operator">-></span> <span class="token keyword">Set</span> <span class="token operator">:=</span>
+<span class="token operator">|</span> niln <span class="token punctuation">:</span> seq <span class="token number">0</span>
+<span class="token operator">|</span> consn <span class="token punctuation">:</span> <span class="token keyword">forall</span> n <span class="token punctuation">:</span> nat<span class="token punctuation">,</span> nat <span class="token operator">-></span> seq n <span class="token operator">-></span> seq <span class="token punctuation">(</span>S n<span class="token punctuation">)</span><span class="token punctuation">.</span>
+
+<span class="token keyword">Fixpoint</span> length <span class="token punctuation">(</span>n <span class="token punctuation">:</span> nat<span class="token punctuation">)</span> <span class="token punctuation">(</span>s <span class="token punctuation">:</span> seq n<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">struct</span> s<span class="token punctuation">}</span> <span class="token punctuation">:</span> nat <span class="token operator">:=</span>
+  <span class="token keyword">match</span> s <span class="token keyword">with</span>
+  <span class="token operator">|</span> niln <span class="token operator">=></span> <span class="token number">0</span>
+  <span class="token operator">|</span> consn i <span class="token keyword">_</span> s<span class="token operator">'</span> <span class="token operator">=></span> S <span class="token punctuation">(</span>length i s<span class="token operator">'</span><span class="token punctuation">)</span>
+  <span class="token keyword">end</span><span class="token punctuation">.</span>
+
+<span class="token keyword">Theorem</span> length_corr <span class="token punctuation">:</span> <span class="token keyword">forall</span> <span class="token punctuation">(</span>n <span class="token punctuation">:</span> nat<span class="token punctuation">)</span> <span class="token punctuation">(</span>s <span class="token punctuation">:</span> seq n<span class="token punctuation">)</span><span class="token punctuation">,</span> length n s <span class="token operator">=</span> n<span class="token punctuation">.</span>
+<span class="token keyword">Proof</span><span class="token punctuation">.</span>
+  intros n s<span class="token punctuation">.</span>
+
+  <span class="token comment">(* reasoning by induction over s. Then, we have two new goals
+     corresponding on the case analysis about s (either it is
+     niln or some consn *)</span>
+  induction s<span class="token punctuation">.</span>
+
+    <span class="token comment">(* We are in the case where s is void. We can reduce the
+       term: length 0 niln *)</span>
+    simpl<span class="token punctuation">.</span>
+
+    <span class="token comment">(* We obtain the goal 0 = 0. *)</span>
+    trivial<span class="token punctuation">.</span>
+
+    <span class="token comment">(* now, we treat the case s = consn n e s with induction
+       hypothesis IHs *)</span>
+    simpl<span class="token punctuation">.</span>
+
+    <span class="token comment">(* The induction hypothesis has type length n s = n.
+       So we can use it to perform some rewriting in the goal: *)</span>
+    rewrite IHs<span class="token punctuation">.</span>
+
+    <span class="token comment">(* Now the goal is the trivial equality: S n = S n *)</span>
+    trivial<span class="token punctuation">.</span>
+
+  <span class="token comment">(* Now all sub cases are closed, we perform the ultimate
+     step: typing the term built using tactics and save it as
+     a witness of the theorem. *)</span>
+<span class="token keyword">Qed</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

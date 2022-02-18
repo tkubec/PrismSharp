@@ -1,0 +1,57 @@
+pickWalk -d down;
+string $mySelection[] = `ls -selection`;
+
+setAttr ($mySelection[0]+".particleRenderType") 5;
+
+addAttr -is true -ln "spriteTwist" -at "float" -min -180 -max 180 -dv 0.0 blue_nParticleShape;
+----------------------------------------------------
+[
+	["function", "pickWalk"],
+	["flag", "-d"],
+	" down",
+	["punctuation", ";"],
+
+	["keyword", "string"],
+	["variable", "$mySelection"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["operator", "="],
+	["code", [
+		["delimiter", "`"],
+		["function", "ls"],
+		["flag", "-selection"],
+		["delimiter", "`"]
+	]],
+	["punctuation", ";"],
+
+	["function", "setAttr"],
+	["punctuation", "("],
+	["variable", "$mySelection"],
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+	["operator", "+"],
+	["string", "\".particleRenderType\""],
+	["punctuation", ")"],
+	["number", "5"],
+	["punctuation", ";"],
+
+	["function", "addAttr"],
+	["flag", "-is"],
+	" true ",
+	["flag", "-ln"],
+	["string", "\"spriteTwist\""],
+	["flag", "-at"],
+	["string", "\"float\""],
+	["flag", "-min"],
+	["operator", "-"],
+	["number", "180"],
+	["flag", "-max"],
+	["number", "180"],
+	["flag", "-dv"],
+	["number", "0.0"],
+	" blue_nParticleShape",
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

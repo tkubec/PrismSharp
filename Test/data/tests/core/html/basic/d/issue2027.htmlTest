@@ -1,0 +1,19 @@
+string foo = "It's";
+foo = "It's";
+foo = "It's";
+
+string bar = `It's`;
+bar = `It's`;
+bar = `It's`;
+bar = `It's`;
+----------------------------------------------------
+<span class="token keyword">string</span> foo <span class="token operator">=</span> <span class="token string">"It's"</span><span class="token punctuation">;</span>
+foo <span class="token operator">=</span> <span class="token string">"It's"</span><span class="token punctuation">;</span>
+foo <span class="token operator">=</span> <span class="token string">"It's"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">string</span> bar <span class="token operator">=</span> <span class="token string">`It's`</span><span class="token punctuation">;</span>
+bar <span class="token operator">=</span> <span class="token string">`It's`</span><span class="token punctuation">;</span>
+bar <span class="token operator">=</span> <span class="token string">`It's`</span><span class="token punctuation">;</span>
+bar <span class="token operator">=</span> <span class="token string">`It's`</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

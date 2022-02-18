@@ -1,0 +1,15 @@
+https://john.doe@www.example.com:123/forum/questions
+ftp://ftp.is.co.za/rfc/rfc1808.txt
+ldap://[2001:db8::7]/
+https://[v1.foo]/
+//192.0.2.16:80/
+//example.com/path/resource.txt
+----------------------------------------------------
+<span class="token scheme">https<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token user-info-segment"><span class="token user-info">john.doe</span><span class="token user-info-delimiter">@</span></span><span class="token host">www.example.com</span><span class="token port-segment"><span class="token port-delimiter">:</span><span class="token port">123</span></span></span><span class="token path"><span class="token path-separator">/</span>forum<span class="token path-separator">/</span>questions</span>
+<span class="token scheme">ftp<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">ftp.is.co.za</span></span><span class="token path"><span class="token path-separator">/</span>rfc<span class="token path-separator">/</span>rfc1808.txt</span>
+<span class="token scheme">ldap<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host"><span class="token ip-literal"><span class="token ip-literal-delimiter">[</span><span class="token ipv6-address">2001:db8::7</span><span class="token ip-literal-delimiter">]</span></span></span></span><span class="token path"><span class="token path-separator">/</span></span>
+<span class="token scheme">https<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host"><span class="token ip-literal"><span class="token ip-literal-delimiter">[</span><span class="token ipv-future">v1.foo</span><span class="token ip-literal-delimiter">]</span></span></span></span><span class="token path"><span class="token path-separator">/</span></span>
+<span class="token authority"><span class="token authority-delimiter">//</span><span class="token host"><span class="token ipv4-address">192.0.2.16</span></span><span class="token port-segment"><span class="token port-delimiter">:</span><span class="token port">80</span></span></span><span class="token path"><span class="token path-separator">/</span></span>
+<span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">example.com</span></span><span class="token path"><span class="token path-separator">/</span>path<span class="token path-separator">/</span>resource.txt</span>
+
+----------------------------------------------------

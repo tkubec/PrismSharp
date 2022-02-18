@@ -1,0 +1,11 @@
+#foo
+# bar
+# Redirect 301 /2006/oldfile.html http://subdomain.domain.tld/newfile.html
+----------------------------------------------------
+[
+	["comment", "#foo"],
+	["comment", "# bar"],
+	["comment", "# Redirect 301 /2006/oldfile.html http://subdomain.domain.tld/newfile.html"]
+]
+
+----------------------------------------------------

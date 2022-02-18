@@ -1,0 +1,517 @@
+/* Some examples adapted from the documentation
+   http://support.sas.com/documentation/cdl/en/basess/64003/PDF/default/basess.pdf */
+
+data city; * another inline comment;
+
+	input Year 4. @7 ServicesPolice comma6.
+		@15 ServicesFire comma6. @22 ServicesWater_Sewer comma6.
+		@30 AdminLabor comma6. @39 AdminSupplies comma6.
+		@45 AdminUtilities comma6.;
+	ServicesTotal=ServicesPolice+ServicesFire+ServicesWater_Sewer;
+	AdminTotal=AdminLabor+AdminSupplies+AdminUtilities;
+	Total=ServicesTotal+AdminTotal;
+
+	Test='A string '' whith a quote';
+	Test2 = "A string "" whith a quote";
+
+	label   Total='Total Outlays'
+			ServicesTotal='Services: Total'
+			ServicesPolice='Services: Police'
+			ServicesFire='Services: Fire'
+			ServicesWater_Sewer='Services: Water & Sewer'
+			AdminTotal='Administration: Total'
+			AdminLabor='Administration: Labor'
+			AdminSupplies='Administration: Supplies'
+			AdminUtilities='Administration: Utilities';
+	datalines;
+1993 2,819 1,120 422 391 63 98
+1994 2,477 1,160 500 172 47 70
+1995 2,028 1,061 510 269 29 79
+1996 2,754 893 540 227 21 67
+1997 2,195 963 541 214 21 59
+1998 1,877 926 535 198 16 80
+1999 1,727 1,111 535 213 27 70
+2000 1,532 1,220 519 195 11 69
+2001 1,448 1,156 577 225 12 58
+2002 1,500 1,076 606 235 19 62
+2003 1,934 969 646 266 11 63
+2004 2,195 1,002 643 256 24 55
+2005 2,204 964 692 256 28 70
+2006 2,175 1,144 735 241 19 83
+2007 2,556 1,341 813 238 25 97
+2008 2,026 1,380 868 226 24 97
+2009 2,526 1,454 946 317 13 89
+2010 2,027 1,486 1,043 226 . 82
+2011 2,037 1,667 1,152 244 20 88
+2012 2,852 1,834 1,318 270 23 74
+2013 2,787 1,701 1,317 307 26 66
+;
+proc datasets library=work nolist
+;
+contents data=city
+;
+run;
+
+
+data city3;
+	set city(firstobs=10 obs=15);
+run;
+
+data services (keep=ServicesTotal ServicesPolice ServicesFire
+				ServicesWater_Sewer)
+	admin (keep=AdminTotal AdminLabor AdminSupplies
+			AdminUtilities);
+	set city(drop=Total);
+run;
+proc print data=services;
+	title 'City Expenditures: Services';
+run;
+
+data newlength;
+	set mylib.internationaltours;
+	length Remarks $ 30;
+	if Vendor = 'Hispania' then Remarks = 'Bonus for 10+ people';
+	else if Vendor = 'Mundial' then Remarks = 'Bonus points';
+	else if Vendor = 'Major' then Remarks = 'Discount for 30+ people';
+run;
+proc print data=newlength;
+	var Country Vendor Remarks;
+	title 'Information About Vendors';
+run;
+
+libname mylib 'permanent-data-library';
+data mylib.departures;
+	input Country $ 1-9 CitiesInTour 11-12 USGate $ 14-26
+	ArrivalDepartureGates $ 28-48;
+	datalines;
+Japan 5 San Francisco Tokyo, Osaka
+Italy 8 New York Rome, Naples
+Australia 12 Honolulu Sydney, Brisbane
+Venezuela 4 Miami Caracas, Maracaibo
+Brazil 4 Rio de Janeiro, Belem
+;
+proc print data=mylib.departures;
+	title 'Data Set AIR.DEPARTURES';
+run;
+
+data missingval;
+	length Country $ 10 TourGuide $ 10;
+	input Country TourGuide;
+	* lines is an alias for datalines;
+	lines;
+Japan Yamada
+Italy Militello
+Australia Edney
+Venezuela .
+Brazil Cardoso
+;
+
+data inventory_tool;
+	input PartNumber $ Description $ InStock @17
+		ReceivedDate date9. @27 Price;
+	format ReceivedDate date9.;
+	* cards is an alias for datalines;
+	cards;
+K89R seal 34 27jul2010 245.00
+M4J7 sander 98 20jun2011 45.88
+LK43 filter 121 19may2011 10.99
+MN21 brace 43 10aug2012 27.87
+BC85 clamp 80 16aug2012 9.55
+NCF3 valve 198 20mar2012 24.50
+KJ66 cutter 6 18jun2010 19.77
+UYN7 rod 211 09sep2010 11.55
+JD03 switch 383 09jan2013 13.99
+BV1E timer 26 03aug2013 34.50
+;
+run;
+----------------------------------------------------
+[
+	["comment", "/* Some examples adapted from the documentation\n   http://support.sas.com/documentation/cdl/en/basess/64003/PDF/default/basess.pdf */"],
+
+	["step", "data"],
+	" city",
+	["punctuation", ";"],
+	["comment", "* another inline comment;"],
+
+	"\n\n\tinput Year ",
+	["number", "4"],
+	["punctuation", "."],
+	["punctuation", "@"],
+	["number", "7"],
+	" ServicesPolice comma6",
+	["punctuation", "."],
+
+	["punctuation", "@"],
+	["number", "15"],
+	" ServicesFire comma6",
+	["punctuation", "."],
+	["punctuation", "@"],
+	["number", "22"],
+	" ServicesWater_Sewer comma6",
+	["punctuation", "."],
+
+	["punctuation", "@"],
+	["number", "30"],
+	" AdminLabor comma6",
+	["punctuation", "."],
+	["punctuation", "@"],
+	["number", "39"],
+	" AdminSupplies comma6",
+	["punctuation", "."],
+
+	["punctuation", "@"],
+	["number", "45"],
+	" AdminUtilities comma6",
+	["punctuation", "."],
+	["punctuation", ";"],
+
+	"\n\tServicesTotal",
+	["operator", "="],
+	"ServicesPolice",
+	["operator", "+"],
+	"ServicesFire",
+	["operator", "+"],
+	"ServicesWater_Sewer",
+	["punctuation", ";"],
+
+	"\n\tAdminTotal",
+	["operator", "="],
+	"AdminLabor",
+	["operator", "+"],
+	"AdminSupplies",
+	["operator", "+"],
+	"AdminUtilities",
+	["punctuation", ";"],
+
+	"\n\tTotal",
+	["operator", "="],
+	"ServicesTotal",
+	["operator", "+"],
+	"AdminTotal",
+	["punctuation", ";"],
+
+	"\n\n\tTest",
+	["operator", "="],
+	["string", "'A string '' whith a quote'"],
+	["punctuation", ";"],
+
+	"\n\tTest2 ",
+	["operator", "="],
+	["string", "\"A string \"\" whith a quote\""],
+	["punctuation", ";"],
+
+	["keyword", "label"],
+	"   Total",
+	["operator", "="],
+	["string", "'Total Outlays'"],
+
+	"\n\t\t\tServicesTotal",
+	["operator", "="],
+	["string", "'Services: Total'"],
+
+	"\n\t\t\tServicesPolice",
+	["operator", "="],
+	["string", "'Services: Police'"],
+
+	"\n\t\t\tServicesFire",
+	["operator", "="],
+	["string", "'Services: Fire'"],
+
+	"\n\t\t\tServicesWater_Sewer",
+	["operator", "="],
+	["string", "'Services: Water & Sewer'"],
+
+	"\n\t\t\tAdminTotal",
+	["operator", "="],
+	["string", "'Administration: Total'"],
+
+	"\n\t\t\tAdminLabor",
+	["operator", "="],
+	["string", "'Administration: Labor'"],
+
+	"\n\t\t\tAdminSupplies",
+	["operator", "="],
+	["string", "'Administration: Supplies'"],
+
+	"\n\t\t\tAdminUtilities",
+	["operator", "="],
+	["string", "'Administration: Utilities'"],
+	["punctuation", ";"],
+
+	["datalines", [
+		["keyword", "datalines"], ["punctuation", ";"],
+		"\n1993 2,819 1,120 422 391 63 98\n1994 2,477 1,160 500 172 47 70\n1995 2,028 1,061 510 269 29 79\n1996 2,754 893 540 227 21 67\n1997 2,195 963 541 214 21 59\n1998 1,877 926 535 198 16 80\n1999 1,727 1,111 535 213 27 70\n2000 1,532 1,220 519 195 11 69\n2001 1,448 1,156 577 225 12 58\n2002 1,500 1,076 606 235 19 62\n2003 1,934 969 646 266 11 63\n2004 2,195 1,002 643 256 24 55\n2005 2,204 964 692 256 28 70\n2006 2,175 1,144 735 241 19 83\n2007 2,556 1,341 813 238 25 97\n2008 2,026 1,380 868 226 24 97\n2009 2,526 1,454 946 317 13 89\n2010 2,027 1,486 1,043 226 . 82\n2011 2,037 1,667 1,152 244 20 88\n2012 2,852 1,834 1,318 270 23 74\n2013 2,787 1,701 1,317 307 26 66\n",
+		["punctuation", ";"]
+	]],
+
+	["step", "proc datasets"],
+	["proc-args", [
+		["arg", "library"],
+		["operator", "="],
+		["arg-value", "work"],
+		["arg", "nolist"],
+
+		["punctuation", ";"]
+	]],
+
+	"\ncontents ",
+	["keyword", "data"],
+	["operator", "="],
+	"city\n",
+
+	["punctuation", ";"],
+
+	["step", "run"],
+	["punctuation", ";"],
+
+	["step", "data"],
+	" city3",
+	["punctuation", ";"],
+
+	["keyword", "set"],
+	["function", "city"],
+	["punctuation", "("],
+	"firstobs",
+	["operator", "="],
+	["number", "10"],
+	" obs",
+	["operator", "="],
+	["number", "15"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["step", "run"],
+	["punctuation", ";"],
+
+	["step", "data"],
+	" services ",
+	["punctuation", "("],
+	"keep",
+	["operator", "="],
+	"ServicesTotal ServicesPolice ServicesFire\n\t\t\t\tServicesWater_Sewer",
+	["punctuation", ")"],
+
+	"\n\tadmin ",
+	["punctuation", "("],
+	"keep",
+	["operator", "="],
+	"AdminTotal AdminLabor AdminSupplies\n\t\t\tAdminUtilities",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "set"],
+	["function", "city"],
+	["punctuation", "("],
+	"drop",
+	["operator", "="],
+	"Total",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["step", "run"],
+	["punctuation", ";"],
+
+	["step", "proc print"],
+	["proc-args", [
+		["arg", "data"],
+		["operator", "="],
+		["arg-value", "services"],
+		["punctuation", ";"]
+	]],
+
+	["keyword", "title"],
+	["string", "'City Expenditures: Services'"],
+	["punctuation", ";"],
+
+	["step", "run"],
+	["punctuation", ";"],
+
+	["step", "data"],
+	" newlength",
+	["punctuation", ";"],
+
+	["keyword", "set"],
+	" mylib",
+	["punctuation", "."],
+	"internationaltours",
+	["punctuation", ";"],
+
+	["keyword", "length"],
+	" Remarks ",
+	["punctuation", "$"],
+	["number", "30"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	" Vendor ",
+	["operator", "="],
+	["string", "'Hispania'"],
+	["keyword", "then"],
+	" Remarks ",
+	["operator", "="],
+	["string", "'Bonus for 10+ people'"],
+	["punctuation", ";"],
+
+	["keyword", "else"],
+	["keyword", "if"],
+	" Vendor ",
+	["operator", "="],
+	["string", "'Mundial'"],
+	["keyword", "then"],
+	" Remarks ",
+	["operator", "="],
+	["string", "'Bonus points'"],
+	["punctuation", ";"],
+
+	["keyword", "else"],
+	["keyword", "if"],
+	" Vendor ",
+	["operator", "="],
+	["string", "'Major'"],
+	["keyword", "then"],
+	" Remarks ",
+	["operator", "="],
+	["string", "'Discount for 30+ people'"],
+	["punctuation", ";"],
+
+	["step", "run"],
+	["punctuation", ";"],
+
+	["step", "proc print"],
+	["proc-args", [
+		["arg", "data"],
+		["operator", "="],
+		["arg-value", "newlength"],
+		["punctuation", ";"]
+	]],
+
+	["keyword", "var"],
+	" Country Vendor Remarks",
+	["punctuation", ";"],
+
+	["keyword", "title"],
+	["string", "'Information About Vendors'"],
+	["punctuation", ";"],
+
+	["step", "run"],
+	["punctuation", ";"],
+
+	["keyword", "libname"],
+	" mylib ",
+	["string", "'permanent-data-library'"],
+	["punctuation", ";"],
+
+	["step", "data"],
+	" mylib",
+	["punctuation", "."],
+	"departures",
+	["punctuation", ";"],
+
+	["input", [
+		["input", "input"],
+		" Country $ ",
+		["number", "1"],
+		"-",
+		["number", "9"],
+		" CitiesInTour ",
+		["number", "11"],
+		"-",
+		["number", "12"],
+		" USGate $ ",
+		["number", "14"],
+		"-",
+		["number", "26"],
+
+		"\n\tArrivalDepartureGates $ ",
+		["number", "28"],
+		"-",
+		["number", "48"],
+		";"
+	]],
+
+	["datalines", [
+		["keyword", "datalines"], ["punctuation", ";"],
+		"\nJapan 5 San Francisco Tokyo, Osaka\nItaly 8 New York Rome, Naples\nAustralia 12 Honolulu Sydney, Brisbane\nVenezuela 4 Miami Caracas, Maracaibo\nBrazil 4 Rio de Janeiro, Belem\n",
+		["punctuation", ";"]
+	]],
+
+	["step", "proc print"],
+	["proc-args", [
+		["arg", "data"],
+		["operator", "="],
+		["arg-value", "mylib.departures"],
+		["punctuation", ";"]
+	]],
+
+	["keyword", "title"],
+	["string", "'Data Set AIR.DEPARTURES'"],
+	["punctuation", ";"],
+
+	["step", "run"],
+	["punctuation", ";"],
+
+	["step", "data"],
+	" missingval",
+	["punctuation", ";"],
+
+	["keyword", "length"],
+	" Country ",
+	["punctuation", "$"],
+	["number", "10"],
+	" TourGuide ",
+	["punctuation", "$"],
+	["number", "10"],
+	["punctuation", ";"],
+
+	["input", [
+		["input", "input"],
+		" Country TourGuide;"
+	]],
+
+	["comment", "* lines is an alias for datalines;"],
+
+	["datalines", [
+		["keyword", "lines"], ["punctuation", ";"],
+		"\nJapan Yamada\nItaly Militello\nAustralia Edney\nVenezuela .\nBrazil Cardoso\n",
+		["punctuation", ";"]
+	]],
+
+	["step", "data"],
+	" inventory_tool",
+	["punctuation", ";"],
+
+	"\n\tinput PartNumber ",
+	["punctuation", "$"],
+	" Description ",
+	["punctuation", "$"],
+	" InStock ",
+	["punctuation", "@"],
+	["number", "17"],
+
+	"\n\t\tReceivedDate date9",
+	["punctuation", "."],
+	["punctuation", "@"],
+	["number", "27"],
+	" Price",
+	["punctuation", ";"],
+
+	["altformat", [
+		["keyword", "format"],
+		" ReceivedDate ",
+		["format", "date9."]
+	]],
+	["punctuation", ";"],
+
+	["comment", "* cards is an alias for datalines;"],
+
+	["datalines", [
+		["keyword", "cards"], ["punctuation", ";"],
+		"\nK89R seal 34 27jul2010 245.00\nM4J7 sander 98 20jun2011 45.88\nLK43 filter 121 19may2011 10.99\nMN21 brace 43 10aug2012 27.87\nBC85 clamp 80 16aug2012 9.55\nNCF3 valve 198 20mar2012 24.50\nKJ66 cutter 6 18jun2010 19.77\nUYN7 rod 211 09sep2010 11.55\nJD03 switch 383 09jan2013 13.99\nBV1E timer 26 03aug2013 34.50\n",
+		["punctuation", ";"]
+	]],
+
+	["step", "run"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

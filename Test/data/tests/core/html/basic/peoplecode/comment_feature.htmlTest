@@ -1,0 +1,45 @@
+/*
+comment
+*/
+
+REM comment;
+REM comment
+statement;
+
+<*
+comment
+*>
+
+<*
+<*
+comment
+*>
+*>
+
+/+
+comment
++/
+----------------------------------------------------
+<span class="token comment">/*
+comment
+*/</span>
+
+<span class="token comment">REM comment;</span>
+<span class="token comment">REM comment
+statement;</span>
+
+<span class="token comment">&lt;*
+comment
+*></span>
+
+<span class="token comment">&lt;*
+&lt;*
+comment
+*>
+*></span>
+
+<span class="token comment">/+
+comment
++/</span>
+
+----------------------------------------------------

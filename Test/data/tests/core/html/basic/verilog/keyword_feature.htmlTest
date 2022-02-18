@@ -1,0 +1,437 @@
+alias
+and
+assert
+assign
+assume
+automatic
+before
+begin
+bind
+bins
+binsof
+bit
+break
+buf
+bufif0
+bufif1
+byte
+class
+case
+casex
+casez
+cell
+chandle
+clocking
+cmos
+config
+const
+constraint
+context
+continue
+cover
+covergroup
+coverpoint
+cross
+deassign
+default
+defparam
+design
+disable
+dist
+do
+edge
+else
+end
+endcase
+endclass
+endclocking
+endconfig
+endfunction
+endgenerate
+endgroup
+endinterface
+endmodule
+endpackage
+endprimitive
+endprogram
+endproperty
+endspecify
+endsequence
+endtable
+endtask
+enum
+event
+expect
+export
+extends
+extern
+final
+first_match
+for
+force
+foreach
+forever
+fork
+forkjoin
+function
+generate
+genvar
+highz0
+highz1
+if
+iff
+ifnone
+ignore_bins
+illegal_bins
+import
+incdir
+include
+initial
+inout
+input
+inside
+instance
+int
+integer
+interface
+intersect
+join
+join_any
+join_none
+large
+liblist
+library
+local
+localparam
+logic
+longint
+macromodule
+matches
+medium
+modport
+module
+nand
+negedge
+new
+nmos
+nor
+noshowcancelled
+not
+notif0
+notif1
+null
+or
+output
+package
+packed
+parameter
+pmos
+posedge
+primitive
+priority
+program
+property
+protected
+pull0
+pull1
+pulldown
+pullup
+pulsestyle_onevent
+pulsestyle_ondetect
+pure
+rand
+randc
+randcase
+randsequence
+rcmos
+real
+realtime
+ref
+reg
+release
+repeat
+return
+rnmos
+rpmos
+rtran
+rtranif0
+rtranif1
+scalared
+sequence
+shortint
+shortreal
+showcancelled
+signed
+small
+solve
+specify
+specparam
+static
+string
+strong0
+strong1
+struct
+super
+supply0
+supply1
+table
+tagged
+task
+this
+throughout
+time
+timeprecision
+timeunit
+tran
+tranif0
+tranif1
+tri
+tri0
+tri1
+triand
+trior
+trireg
+type
+typedef
+union
+unique
+unsigned
+use
+uwire
+var
+vectored
+virtual
+void
+wait
+wait_order
+wand
+weak0
+weak1
+while
+wildcard
+wire
+with
+within
+wor
+xnor
+xor
+----------------------------------------------------
+<span class="token keyword">alias</span>
+<span class="token keyword">and</span>
+<span class="token keyword">assert</span>
+<span class="token keyword">assign</span>
+<span class="token keyword">assume</span>
+<span class="token keyword">automatic</span>
+<span class="token keyword">before</span>
+<span class="token keyword">begin</span>
+<span class="token keyword">bind</span>
+<span class="token keyword">bins</span>
+<span class="token keyword">binsof</span>
+<span class="token keyword">bit</span>
+<span class="token keyword">break</span>
+<span class="token keyword">buf</span>
+<span class="token keyword">bufif0</span>
+<span class="token keyword">bufif1</span>
+<span class="token keyword">byte</span>
+<span class="token keyword">class</span>
+<span class="token keyword">case</span>
+<span class="token keyword">casex</span>
+<span class="token keyword">casez</span>
+<span class="token keyword">cell</span>
+<span class="token keyword">chandle</span>
+<span class="token keyword">clocking</span>
+<span class="token keyword">cmos</span>
+<span class="token keyword">config</span>
+<span class="token keyword">const</span>
+<span class="token keyword">constraint</span>
+<span class="token keyword">context</span>
+<span class="token keyword">continue</span>
+<span class="token keyword">cover</span>
+<span class="token keyword">covergroup</span>
+<span class="token keyword">coverpoint</span>
+<span class="token keyword">cross</span>
+<span class="token keyword">deassign</span>
+<span class="token keyword">default</span>
+<span class="token keyword">defparam</span>
+<span class="token keyword">design</span>
+<span class="token keyword">disable</span>
+<span class="token keyword">dist</span>
+<span class="token keyword">do</span>
+<span class="token keyword">edge</span>
+<span class="token keyword">else</span>
+<span class="token keyword">end</span>
+<span class="token keyword">endcase</span>
+<span class="token keyword">endclass</span>
+<span class="token keyword">endclocking</span>
+<span class="token keyword">endconfig</span>
+<span class="token keyword">endfunction</span>
+<span class="token keyword">endgenerate</span>
+<span class="token keyword">endgroup</span>
+<span class="token keyword">endinterface</span>
+<span class="token keyword">endmodule</span>
+<span class="token keyword">endpackage</span>
+<span class="token keyword">endprimitive</span>
+<span class="token keyword">endprogram</span>
+<span class="token keyword">endproperty</span>
+<span class="token keyword">endspecify</span>
+<span class="token keyword">endsequence</span>
+<span class="token keyword">endtable</span>
+<span class="token keyword">endtask</span>
+<span class="token keyword">enum</span>
+<span class="token keyword">event</span>
+<span class="token keyword">expect</span>
+<span class="token keyword">export</span>
+<span class="token keyword">extends</span>
+<span class="token keyword">extern</span>
+<span class="token keyword">final</span>
+<span class="token keyword">first_match</span>
+<span class="token keyword">for</span>
+<span class="token keyword">force</span>
+<span class="token keyword">foreach</span>
+<span class="token keyword">forever</span>
+<span class="token keyword">fork</span>
+<span class="token keyword">forkjoin</span>
+<span class="token keyword">function</span>
+<span class="token keyword">generate</span>
+<span class="token keyword">genvar</span>
+<span class="token keyword">highz0</span>
+<span class="token keyword">highz1</span>
+<span class="token keyword">if</span>
+<span class="token keyword">iff</span>
+<span class="token keyword">ifnone</span>
+<span class="token keyword">ignore_bins</span>
+<span class="token keyword">illegal_bins</span>
+<span class="token keyword">import</span>
+<span class="token keyword">incdir</span>
+<span class="token keyword">include</span>
+<span class="token keyword">initial</span>
+<span class="token keyword">inout</span>
+<span class="token keyword">input</span>
+<span class="token keyword">inside</span>
+<span class="token keyword">instance</span>
+<span class="token keyword">int</span>
+<span class="token keyword">integer</span>
+<span class="token keyword">interface</span>
+<span class="token keyword">intersect</span>
+<span class="token keyword">join</span>
+<span class="token keyword">join_any</span>
+<span class="token keyword">join_none</span>
+<span class="token keyword">large</span>
+<span class="token keyword">liblist</span>
+<span class="token keyword">library</span>
+<span class="token keyword">local</span>
+<span class="token keyword">localparam</span>
+<span class="token keyword">logic</span>
+<span class="token keyword">longint</span>
+<span class="token keyword">macromodule</span>
+<span class="token keyword">matches</span>
+<span class="token keyword">medium</span>
+<span class="token keyword">modport</span>
+<span class="token keyword">module</span>
+<span class="token keyword">nand</span>
+<span class="token keyword">negedge</span>
+<span class="token keyword">new</span>
+<span class="token keyword">nmos</span>
+<span class="token keyword">nor</span>
+<span class="token keyword">noshowcancelled</span>
+<span class="token keyword">not</span>
+<span class="token keyword">notif0</span>
+<span class="token keyword">notif1</span>
+<span class="token keyword">null</span>
+<span class="token keyword">or</span>
+<span class="token keyword">output</span>
+<span class="token keyword">package</span>
+<span class="token keyword">packed</span>
+<span class="token keyword">parameter</span>
+<span class="token keyword">pmos</span>
+<span class="token keyword">posedge</span>
+<span class="token keyword">primitive</span>
+<span class="token keyword">priority</span>
+<span class="token keyword">program</span>
+<span class="token keyword">property</span>
+<span class="token keyword">protected</span>
+<span class="token keyword">pull0</span>
+<span class="token keyword">pull1</span>
+<span class="token keyword">pulldown</span>
+<span class="token keyword">pullup</span>
+<span class="token keyword">pulsestyle_onevent</span>
+<span class="token keyword">pulsestyle_ondetect</span>
+<span class="token keyword">pure</span>
+<span class="token keyword">rand</span>
+<span class="token keyword">randc</span>
+<span class="token keyword">randcase</span>
+<span class="token keyword">randsequence</span>
+<span class="token keyword">rcmos</span>
+<span class="token keyword">real</span>
+<span class="token keyword">realtime</span>
+<span class="token keyword">ref</span>
+<span class="token keyword">reg</span>
+<span class="token keyword">release</span>
+<span class="token keyword">repeat</span>
+<span class="token keyword">return</span>
+<span class="token keyword">rnmos</span>
+<span class="token keyword">rpmos</span>
+<span class="token keyword">rtran</span>
+<span class="token keyword">rtranif0</span>
+<span class="token keyword">rtranif1</span>
+<span class="token keyword">scalared</span>
+<span class="token keyword">sequence</span>
+<span class="token keyword">shortint</span>
+<span class="token keyword">shortreal</span>
+<span class="token keyword">showcancelled</span>
+<span class="token keyword">signed</span>
+<span class="token keyword">small</span>
+<span class="token keyword">solve</span>
+<span class="token keyword">specify</span>
+<span class="token keyword">specparam</span>
+<span class="token keyword">static</span>
+<span class="token keyword">string</span>
+<span class="token keyword">strong0</span>
+<span class="token keyword">strong1</span>
+<span class="token keyword">struct</span>
+<span class="token keyword">super</span>
+<span class="token keyword">supply0</span>
+<span class="token keyword">supply1</span>
+<span class="token keyword">table</span>
+<span class="token keyword">tagged</span>
+<span class="token keyword">task</span>
+<span class="token keyword">this</span>
+<span class="token keyword">throughout</span>
+<span class="token keyword">time</span>
+<span class="token keyword">timeprecision</span>
+<span class="token keyword">timeunit</span>
+<span class="token keyword">tran</span>
+<span class="token keyword">tranif0</span>
+<span class="token keyword">tranif1</span>
+<span class="token keyword">tri</span>
+<span class="token keyword">tri0</span>
+<span class="token keyword">tri1</span>
+<span class="token keyword">triand</span>
+<span class="token keyword">trior</span>
+<span class="token keyword">trireg</span>
+<span class="token keyword">type</span>
+<span class="token keyword">typedef</span>
+<span class="token keyword">union</span>
+<span class="token keyword">unique</span>
+<span class="token keyword">unsigned</span>
+<span class="token keyword">use</span>
+<span class="token keyword">uwire</span>
+<span class="token keyword">var</span>
+<span class="token keyword">vectored</span>
+<span class="token keyword">virtual</span>
+<span class="token keyword">void</span>
+<span class="token keyword">wait</span>
+<span class="token keyword">wait_order</span>
+<span class="token keyword">wand</span>
+<span class="token keyword">weak0</span>
+<span class="token keyword">weak1</span>
+<span class="token keyword">while</span>
+<span class="token keyword">wildcard</span>
+<span class="token keyword">wire</span>
+<span class="token keyword">with</span>
+<span class="token keyword">within</span>
+<span class="token keyword">wor</span>
+<span class="token keyword">xnor</span>
+<span class="token keyword">xor</span>
+
+----------------------------------------------------

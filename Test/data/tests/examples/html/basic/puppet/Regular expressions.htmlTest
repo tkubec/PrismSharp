@@ -1,0 +1,11 @@
+if $host =~ /^www(\d+)\./ {}
+$foo = /foo
+	bar # Extended regexes can include comments
+baz/x
+----------------------------------------------------
+<span class="token keyword">if</span> <span class="token variable">$host</span> <span class="token operator">=~</span> <span class="token regex">/^www(\d+)\./</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token regex"><span class="token extended-regex">/foo
+	bar <span class="token comment"># Extended regexes can include comments</span>
+baz/x</span></span>
+
+----------------------------------------------------

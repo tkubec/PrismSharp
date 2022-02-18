@@ -1,0 +1,13 @@
+buff = buffer_create(16384, buffer_grow, 2);
+ini_open("Save.ini");
+var str = ini_read_string("Save", "Slot1", "");
+buffer_base64_decode_ext(buff, str, 0);
+ini_close();
+----------------------------------------------------
+buff <span class="token operator">=</span> <span class="token function">buffer_create</span><span class="token punctuation">(</span><span class="token number">16384</span><span class="token punctuation">,</span> <span class="token constant">buffer_grow</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">ini_open</span><span class="token punctuation">(</span><span class="token string">"Save.ini"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token function">ini_read_string</span><span class="token punctuation">(</span><span class="token string">"Save"</span><span class="token punctuation">,</span> <span class="token string">"Slot1"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">buffer_base64_decode_ext</span><span class="token punctuation">(</span>buff<span class="token punctuation">,</span> str<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">ini_close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+<div>
+{% if foo %}
+	<p>Foo!</p>
+{% else %}
+	<p>Not foo...</p>
+{% endif %}
+----------------------------------------------------
+<span class="token operator">&lt;</span>div<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> foo <span class="token operator">%</span><span class="token punctuation">}</span>
+	<span class="token operator">&lt;</span>p<span class="token operator">></span>Foo!<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">%</span> else <span class="token operator">%</span><span class="token punctuation">}</span>
+	<span class="token operator">&lt;</span>p<span class="token operator">></span>Not foo<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">%</span> endif <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

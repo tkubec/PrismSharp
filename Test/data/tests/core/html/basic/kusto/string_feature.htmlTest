@@ -1,0 +1,57 @@
+""
+''
+@""
+@''
+"foo\""
+'bar\''
+@"\"
+@'\'
+
+```
+multiline
+```
+
+// Obfuscated string literals
+h'hello'
+h@'world'
+h"hello"
+
+// string concatenation
+
+print strlen("Hello"', '@"world!"); // Nothing between them
+
+print strlen("Hello" ', ' @"world!"); // Separated by whitespace only
+
+print strlen("Hello"
+  // Comment
+  ', '@"world!"); // Separated by whitespace and a comment
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">''</span>
+<span class="token string">@""</span>
+<span class="token string">@''</span>
+<span class="token string">"foo\""</span>
+<span class="token string">'bar\''</span>
+<span class="token string">@"\"</span>
+<span class="token string">@'\'</span>
+
+<span class="token string">```
+multiline
+```</span>
+
+<span class="token comment">// Obfuscated string literals</span>
+<span class="token string">h'hello'</span>
+<span class="token string">h@'world'</span>
+<span class="token string">h"hello"</span>
+
+<span class="token comment">// string concatenation</span>
+
+<span class="token keyword">print</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token string">', '</span><span class="token string">@"world!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Nothing between them</span>
+
+<span class="token keyword">print</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token string">"Hello"</span> <span class="token string">', '</span> <span class="token string">@"world!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Separated by whitespace only</span>
+
+<span class="token keyword">print</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token string">"Hello"</span>
+  <span class="token comment">// Comment</span>
+  <span class="token string">', '</span><span class="token string">@"world!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Separated by whitespace and a comment</span>
+
+----------------------------------------------------

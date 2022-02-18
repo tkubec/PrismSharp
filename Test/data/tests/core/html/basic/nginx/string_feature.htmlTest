@@ -1,0 +1,35 @@
+foo "";
+foo '';
+foo "foo
+bar";
+foo 'foo
+bar';
+
+foo " \" \' \\ \r \n \t";
+foo ' \" \' \\ \r \n \t';
+
+foo "$foo";
+foo "${foo}bar";
+foo "$arg_;";
+
+# not escaped
+foo "\$foo";
+----------------------------------------------------
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">""</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">''</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">"foo
+bar"</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">'foo
+bar'</span></span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">" <span class="token escape entity">\"</span> <span class="token escape entity">\'</span> <span class="token escape entity">\\</span> <span class="token escape entity">\r</span> <span class="token escape entity">\n</span> <span class="token escape entity">\t</span>"</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">' <span class="token escape entity">\"</span> <span class="token escape entity">\'</span> <span class="token escape entity">\\</span> <span class="token escape entity">\r</span> <span class="token escape entity">\n</span> <span class="token escape entity">\t</span>'</span></span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">"<span class="token variable">$foo</span>"</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">"<span class="token variable">${foo}</span>bar"</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">"<span class="token variable">$arg_;</span>"</span></span><span class="token punctuation">;</span>
+
+<span class="token comment"># not escaped</span>
+<span class="token directive"><span class="token keyword">foo</span> <span class="token string">"\<span class="token variable">$foo</span>"</span></span><span class="token punctuation">;</span>
+
+----------------------------------------------------

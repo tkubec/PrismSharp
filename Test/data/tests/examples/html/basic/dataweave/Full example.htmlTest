@@ -1,0 +1,75 @@
+%dw 2.0
+input payalod application/json
+ns ns0 http://localhost.com
+var a = 123
+type T = String
+fun test(a: Number) = a + 123
+output application/json
+---
+{
+    // This is a comment
+    /**
+    This is a multiline comment
+    **/
+    name: payload.name,
+    string: "this",
+    'another string': true,
+    "regex": /123/,
+    fc: test(1),
+    "dates": |12-12-2020-T12:00:00|,
+    number: 123,
+    "null": null,
+
+    a: {} match {
+        case  is {} -> foo.name
+    },
+    b: {} update {
+    case name at .user.name ->  "123"
+    },
+    stringMultiLine: "This is a multiline
+        string
+    ",
+    a: if( !true > 2) a else 2,
+    b: do {
+            {}
+        }
+}
+----------------------------------------------------
+%dw <span class="token number">2.0</span>
+<span class="token keyword">input</span> payalod <span class="token mime-type">application/json</span>
+<span class="token keyword">ns</span> ns0 <span class="token url">http://localhost.com</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">123</span>
+<span class="token keyword">type</span> T <span class="token operator">=</span> String
+<span class="token keyword">fun</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token property">a</span><span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token operator">=</span> a <span class="token operator">+</span> <span class="token number">123</span>
+<span class="token keyword">output</span> <span class="token mime-type">application/json</span>
+<span class="token operator">---</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// This is a comment</span>
+    <span class="token comment">/**
+    This is a multiline comment
+    **/</span>
+    <span class="token property">name</span><span class="token punctuation">:</span> payload<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+    <span class="token property">string</span><span class="token punctuation">:</span> <span class="token string">"this"</span><span class="token punctuation">,</span>
+    <span class="token string">'another string'</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"regex"</span><span class="token punctuation">:</span> <span class="token regex">/123/</span><span class="token punctuation">,</span>
+    <span class="token property">fc</span><span class="token punctuation">:</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token property">"dates"</span><span class="token punctuation">:</span> <span class="token date">|12-12-2020-T12:00:00|</span><span class="token punctuation">,</span>
+    <span class="token property">number</span><span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">,</span>
+    <span class="token property">"null"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+
+    <span class="token property">a</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">match</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span>  <span class="token keyword">is</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">-></span> foo<span class="token punctuation">.</span>name
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">b</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">update</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> name <span class="token keyword">at</span> <span class="token punctuation">.</span>user<span class="token punctuation">.</span>name <span class="token operator">-></span>  <span class="token string">"123"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">stringMultiLine</span><span class="token punctuation">:</span> <span class="token string">"This is a multiline
+        string
+    "</span><span class="token punctuation">,</span>
+    <span class="token property">a</span><span class="token punctuation">:</span> <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token boolean">true</span> <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span> a <span class="token keyword">else</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token property">b</span><span class="token punctuation">:</span> <span class="token keyword">do</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,33 @@
+# my web application config
+
+php:
+	date.timezone: Europe/Prague
+	zlib.output_compression: true  # use gzip
+
+database:
+	driver: mysql
+	username: root
+	password: beruska92
+
+users:
+	- Dave
+	- Kryten
+	- Rimmer
+----------------------------------------------------
+<span class="token comment"># my web application config</span>
+
+<span class="token key atrule">php</span><span class="token punctuation">:</span>
+	<span class="token key atrule">date.timezone</span><span class="token punctuation">:</span> <span class="token literal string">Europe/Prague</span>
+	<span class="token key atrule">zlib.output_compression</span><span class="token punctuation">:</span> <span class="token boolean">true</span>  <span class="token comment"># use gzip</span>
+
+<span class="token key atrule">database</span><span class="token punctuation">:</span>
+	<span class="token key atrule">driver</span><span class="token punctuation">:</span> <span class="token literal string">mysql</span>
+	<span class="token key atrule">username</span><span class="token punctuation">:</span> <span class="token literal string">root</span>
+	<span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token literal string">beruska92</span>
+
+<span class="token key atrule">users</span><span class="token punctuation">:</span>
+	<span class="token punctuation">-</span> <span class="token literal string">Dave</span>
+	<span class="token punctuation">-</span> <span class="token literal string">Kryten</span>
+	<span class="token punctuation">-</span> <span class="token literal string">Rimmer</span>
+
+----------------------------------------------------

@@ -1,0 +1,105 @@
+.. image:: mylogo.jpeg
+
+.. figure:: larch.png
+
+   The larch.
+
+.. note:: This is a paragraph
+
+   - Here is a bullet list.
+
+.. figure:: picture.png
+   :scale: 50 %
+   :alt: map to buried treasure
+
+   This is the caption of the figure (a simple paragraph).
+
+   The legend consists of all elements after the caption.  In this
+   case, the legend consists of this paragraph and the following
+   table:
+
+   +-----------------------+-----------------------+
+   | Symbol                | Meaning               |
+   +=======================+=======================+
+   | .. image:: tent.png   | Campground            |
+   +-----------------------+-----------------------+
+   | .. image:: waves.png  | Lake                  |
+   +-----------------------+-----------------------+
+   | .. image:: peak.png   | Mountain              |
+   +-----------------------+-----------------------+
+----------------------------------------------------
+[
+	["punctuation", ".."],
+	["directive", [
+		"image",
+		["punctuation", "::"]
+	]],
+	" mylogo.jpeg\n\n",
+
+	["punctuation", ".."],
+	["directive", [
+		"figure",
+		["punctuation", "::"]
+	]],
+	" larch.png\n\n   The larch.\n\n",
+
+	["punctuation", ".."],
+	["directive", [
+		"note",
+		["punctuation", "::"]
+	]],
+	" This is a paragraph\n\n   ",
+
+	["list-bullet", "-"], " Here is a bullet list.\n\n",
+
+	["punctuation", ".."],
+	["directive", [
+		"figure",
+		["punctuation", "::"]
+	]],
+	" picture.png\n   ",
+
+	["field", ":scale:"],
+	" 50 %\n   ",
+
+	["field", ":alt:"],
+	" map to buried treasure\n\n   This is the caption of the figure (a simple paragraph).\n\n   The legend consists of all elements after the caption.  In this\n   case, the legend consists of this paragraph and the following\n   table:\n\n   ",
+
+	["table", [
+		["punctuation", "+-----------------------+-----------------------+"],
+
+		["punctuation", "|"],
+		" Symbol                ",
+		["punctuation", "|"],
+		" Meaning               ",
+		["punctuation", "|"],
+
+		["punctuation", "+=======================+=======================+"],
+
+		["punctuation", "|"],
+		" .. image:: tent.png   ",
+		["punctuation", "|"],
+		" Campground            ",
+		["punctuation", "|"],
+
+		["punctuation", "+-----------------------+-----------------------+"],
+
+		["punctuation", "|"],
+		" .. image:: waves.png  ",
+		["punctuation", "|"],
+		" Lake                  ",
+		["punctuation", "|"],
+
+		["punctuation", "+-----------------------+-----------------------+"],
+
+		["punctuation", "|"],
+		" .. image:: peak.png   ",
+		["punctuation", "|"],
+		" Mountain              ",
+		["punctuation", "|"],
+
+		["punctuation", "+-----------------------+-----------------------+"]
+	]]
+]
+
+----------------------------------------------------

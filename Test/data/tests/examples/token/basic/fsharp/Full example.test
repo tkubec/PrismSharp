@@ -1,0 +1,161 @@
+// The declaration creates a constructor that takes two values, name and age.
+type Person(name:string, age:int) =
+    // A Person object's age can be changed. The mutable keyword in the
+    // declaration makes that possible.
+    let mutable internalAge = age
+
+    // Declare a second constructor that takes only one argument, a name.
+    // This constructor calls the constructor that requires two arguments,
+    // sending 0 as the value for age.
+    new(name:string) = Person(name, 0)
+
+    // A read-only property.
+    member this.Name = name
+    // A read/write property.
+    member this.Age
+        with get() = internalAge
+        and set(value) = internalAge <- value
+
+    // Instance methods.
+    // Increment the person's age.
+    member this.HasABirthday () = internalAge <- internalAge + 1
+
+    // Check current age against some threshold.
+    member this.IsOfAge targetAge = internalAge >= targetAge
+
+    // Display the person's name and age.
+    override this.ToString () =
+        "Name:  " + name + "\n" + "Age:   " + (string)internalAge
+----------------------------------------------------
+[
+	["comment", "// The declaration creates a constructor that takes two values, name and age."],
+
+	["keyword", "type"],
+	["class-name", ["Person"]],
+	["punctuation", "("],
+	"name",
+	["punctuation", ":"],
+	["class-name", ["string"]],
+	["punctuation", ","],
+	" age",
+	["punctuation", ":"],
+	["class-name", ["int"]],
+	["punctuation", ")"],
+	["operator", "="],
+
+	["comment", "// A Person object's age can be changed. The mutable keyword in the"],
+
+	["comment", "// declaration makes that possible."],
+
+	["keyword", "let"],
+	["keyword", "mutable"],
+	" internalAge ",
+	["operator", "="],
+	" age\n\n    ",
+
+	["comment", "// Declare a second constructor that takes only one argument, a name."],
+
+	["comment", "// This constructor calls the constructor that requires two arguments,"],
+
+	["comment", "// sending 0 as the value for age."],
+
+	["keyword", "new"],
+	["punctuation", "("],
+	"name",
+	["punctuation", ":"],
+	["class-name", ["string"]],
+	["punctuation", ")"],
+	["operator", "="],
+	["function", "Person"],
+	["punctuation", "("],
+	"name",
+	["punctuation", ","],
+	["number", "0"],
+	["punctuation", ")"],
+
+	["comment", "// A read-only property."],
+
+	["keyword", "member"],
+	" this",
+	["punctuation", "."],
+	"Name ",
+	["operator", "="],
+	" name\n    ",
+
+	["comment", "// A read/write property."],
+
+	["keyword", "member"],
+	" this",
+	["punctuation", "."],
+	"Age\n        ",
+
+	["keyword", "with"],
+	["function", "get"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "="],
+	" internalAge\n        ",
+
+	["keyword", "and"],
+	["function", "set"],
+	["punctuation", "("],
+	"value",
+	["punctuation", ")"],
+	["operator", "="],
+	" internalAge ",
+	["operator", "<-"],
+	" value\n\n    ",
+
+	["comment", "// Instance methods."],
+
+	["comment", "// Increment the person's age."],
+
+	["keyword", "member"],
+	" this",
+	["punctuation", "."],
+	"HasABirthday ",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "="],
+	" internalAge ",
+	["operator", "<-"],
+	" internalAge ",
+	["operator", "+"],
+	["number", "1"],
+
+	["comment", "// Check current age against some threshold."],
+
+	["keyword", "member"],
+	" this",
+	["punctuation", "."],
+	"IsOfAge targetAge ",
+	["operator", "="],
+	" internalAge ",
+	["operator", ">="],
+	" targetAge\n\n    ",
+
+	["comment", "// Display the person's name and age."],
+
+	["keyword", "override"],
+	" this",
+	["punctuation", "."],
+	"ToString ",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "="],
+
+	["string", "\"Name:  \""],
+	["operator", "+"],
+	" name ",
+	["operator", "+"],
+	["string", "\"\\n\""],
+	["operator", "+"],
+	["string", "\"Age:   \""],
+	["operator", "+"],
+	["punctuation", "("],
+	"string",
+	["punctuation", ")"],
+	"internalAge"
+]
+
+----------------------------------------------------

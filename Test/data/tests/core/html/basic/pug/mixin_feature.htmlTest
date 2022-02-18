@@ -1,0 +1,13 @@
+mixin foo
+mixin pet(name)
+
++foo
++pet('cat')
+----------------------------------------------------
+<span class="token mixin"><span class="token keyword">mixin</span> <span class="token function">foo</span></span>
+<span class="token mixin"><span class="token keyword">mixin</span> <span class="token function">pet</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span></span>
+
+<span class="token mixin"><span class="token name function">+foo</span></span>
+<span class="token mixin"><span class="token name function">+pet</span><span class="token punctuation">(</span><span class="token string">'cat'</span><span class="token punctuation">)</span></span>
+
+----------------------------------------------------

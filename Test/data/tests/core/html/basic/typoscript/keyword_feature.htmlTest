@@ -1,0 +1,17 @@
+TEXT LLL EXT _GIFBUILDER CARRAY CASE CLEARGIF COA COA_INT CONSTANTS CONTENT
+EDITPANEL EFFECT FILE FORM FRAME FRAMESET FLUIDTEMPLATE GIFBUILDER
+global globalString globalVar GMENU GMENU_FOLDOUT GMENU_LAYERS GP
+HMENU HRULER HTML IENV IMAGE IMG_RESOURCE IMGMENU IMGMENUITEM IMGTEXT
+JSMENU JSMENUITEM LOAD_REGISTER PAGE RECORDS RESTORE_REGISTER TEMPLATE
+TMENU TMENU_LAYERS TMENUITEM USER USER_INT INCLUDE_TYPOSCRIPT NO ACT
+IFSUB ACTIFSUB CUR
+----------------------------------------------------
+<span class="token keyword">TEXT</span> <span class="token keyword">LLL</span> <span class="token keyword">EXT</span> <span class="token keyword">_GIFBUILDER</span> <span class="token keyword">CARRAY</span> <span class="token keyword">CASE</span> <span class="token keyword">CLEARGIF</span> <span class="token keyword">COA</span> <span class="token keyword">COA_INT</span> <span class="token keyword">CONSTANTS</span> <span class="token keyword">CONTENT</span>
+<span class="token keyword">EDITPANEL</span> <span class="token keyword">EFFECT</span> <span class="token keyword">FILE</span> <span class="token keyword">FORM</span> <span class="token keyword">FRAME</span> <span class="token keyword">FRAMESET</span> <span class="token keyword">FLUIDTEMPLATE</span> <span class="token keyword">GIFBUILDER</span>
+<span class="token keyword">global</span> <span class="token keyword">globalString</span> <span class="token keyword">globalVar</span> <span class="token keyword">GMENU</span> <span class="token keyword">GMENU_FOLDOUT</span> <span class="token keyword">GMENU_LAYERS</span> <span class="token keyword">GP</span>
+<span class="token keyword">HMENU</span> <span class="token keyword">HRULER</span> <span class="token keyword">HTML</span> <span class="token keyword">IENV</span> <span class="token keyword">IMAGE</span> <span class="token keyword">IMG_RESOURCE</span> <span class="token keyword">IMGMENU</span> <span class="token keyword">IMGMENUITEM</span> <span class="token keyword">IMGTEXT</span>
+<span class="token keyword">JSMENU</span> <span class="token keyword">JSMENUITEM</span> <span class="token keyword">LOAD_REGISTER</span> <span class="token keyword">PAGE</span> <span class="token keyword">RECORDS</span> <span class="token keyword">RESTORE_REGISTER</span> <span class="token keyword">TEMPLATE</span>
+<span class="token keyword">TMENU</span> <span class="token keyword">TMENU_LAYERS</span> <span class="token keyword">TMENUITEM</span> <span class="token keyword">USER</span> <span class="token keyword">USER_INT</span> <span class="token keyword">INCLUDE_TYPOSCRIPT</span> <span class="token keyword">NO</span> <span class="token keyword">ACT</span>
+<span class="token keyword">IFSUB</span> <span class="token keyword">ACTIFSUB</span> <span class="token keyword">CUR</span>
+
+----------------------------------------------------

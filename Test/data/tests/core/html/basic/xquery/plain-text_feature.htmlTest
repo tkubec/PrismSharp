@@ -1,0 +1,17 @@
+return <ul>
+<!-- {concat(" List of ", $count, " products ")} -->
+plaintext
+{comment{concat(" List of ", $count, " products ")}}
+</ul>
+
+<h1>data($prod/name){data($prod/name)}{{data($prod/name)}}</h1>
+----------------------------------------------------
+<span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- {concat(" List of ", $count, " products ")} --></span>
+plaintext
+<span class="token punctuation">{</span><span class="token builtin">comment</span><span class="token punctuation">{</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">" List of "</span><span class="token punctuation">,</span> <span class="token variable">$count</span><span class="token punctuation">,</span> <span class="token string">" products "</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token function">data</span><span class="token punctuation">(</span><span class="token variable">$prod</span><span class="token punctuation">/</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token variable">$prod</span><span class="token punctuation">/</span>name<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token variable">$prod</span><span class="token punctuation">/</span>name<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+%div
+	%span
+%span(class="widget_#{@widget.number}")
+%div{:id => [@item.type, @item.number], :class => [@item.type, @item.urgency]}
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+%html{html_attrs('fr-fr')}
+%div[@user, :greeting]
+%img
+%pre><
+  foo
+  bar
+%img
+----------------------------------------------------
+<span class="token tag">%div</span>
+	<span class="token tag">%span</span>
+<span class="token tag">%span<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">class</span><span class="token punctuation">=</span><span class="token attr-value">"widget_#{@widget.number}"</span><span class="token punctuation">)</span></span></span>
+<span class="token tag">%div<span class="token attributes"><span class="token punctuation">{</span><span class="token symbol">:id</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token variable">@item</span><span class="token punctuation">.</span>type<span class="token punctuation">,</span> <span class="token variable">@item</span><span class="token punctuation">.</span>number<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token symbol">:class</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token variable">@item</span><span class="token punctuation">.</span>type<span class="token punctuation">,</span> <span class="token variable">@item</span><span class="token punctuation">.</span>urgency<span class="token punctuation">]</span><span class="token punctuation">}</span></span></span>
+<span class="token tag">%html<span class="token attributes"><span class="token punctuation">{</span><span class="token symbol">:xmlns</span> <span class="token operator">=></span> <span class="token string-literal"><span class="token string">"http://www.w3.org/1999/xhtml"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"xml:lang"</span></span> <span class="token operator">=></span> <span class="token string-literal"><span class="token string">"en"</span></span><span class="token punctuation">,</span> <span class="token symbol">:lang</span> <span class="token operator">=></span> <span class="token string-literal"><span class="token string">"en"</span></span><span class="token punctuation">}</span></span></span>
+<span class="token tag">%html<span class="token attributes"><span class="token punctuation">{</span>html_attrs<span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'fr-fr'</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span></span></span>
+<span class="token tag">%div<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">@user</span><span class="token punctuation">,</span> <span class="token symbol">:greeting</span><span class="token punctuation">]</span></span></span>
+<span class="token tag">%img</span>
+<span class="token tag">%pre<span class="token punctuation">></span><span class="token punctuation">&lt;</span></span>
+  foo
+  bar
+<span class="token tag">%img</span>
+
+----------------------------------------------------

@@ -1,0 +1,25 @@
+::  Arvo formal interface
+    ::
+    ::    this lifecycle wrapper makes the arvo door (multi-armed core)
+    ::    look like a gate (function or single-armed core), to fit
+    ::    urbit's formal lifecycle function. a practical interpreter
+    ::    can ignore it.
+    ::
+    |=  [now=@da ovo=*]
+    ^-  *
+    ~>  %slog.[0 leaf+"arvo-event"]
+    .(+> +:(poke now ovo))
+----------------------------------------------------
+<span class="token comment">::  Arvo formal interface</span>
+    <span class="token comment">::</span>
+    <span class="token comment">::    this lifecycle wrapper makes the arvo door (multi-armed core)</span>
+    <span class="token comment">::    look like a gate (function or single-armed core), to fit</span>
+    <span class="token comment">::    urbit's formal lifecycle function. a practical interpreter</span>
+    <span class="token comment">::    can ignore it.</span>
+    <span class="token comment">::</span>
+    <span class="token keyword">|=</span>  [<span class="token function">now</span>=<span class="token class-name">@da</span> <span class="token function">ovo</span>=<span class="token class-name">*</span>]
+    <span class="token keyword">^-</span>  <span class="token class-name">*</span>
+    <span class="token keyword">~></span>  <span class="token constant">%slog</span>.[0 <span class="token function">leaf</span>+<span class="token string">"arvo-event"</span>]
+    .(+> +:(<span class="token function">poke</span> <span class="token function">now</span> <span class="token function">ovo</span>))
+
+----------------------------------------------------

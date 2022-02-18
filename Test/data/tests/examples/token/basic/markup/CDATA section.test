@@ -1,0 +1,25 @@
+<ns1:description><![CDATA[
+  CDATA is <not> magical.
+]]></ns1:description>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			["namespace", "ns1:"],
+			"description"
+		]],
+		["punctuation", ">"]
+	]],
+	["cdata", "<![CDATA[\n  CDATA is <not> magical.\n]]>"],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			["namespace", "ns1:"],
+			"description"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

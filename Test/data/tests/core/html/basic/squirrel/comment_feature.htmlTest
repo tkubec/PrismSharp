@@ -1,0 +1,17 @@
+/*
+this is
+a multiline comment.
+this lines will be ignored by the compiler
+*/
+//this is a single line comment. this line will be ignored by the compiler
+# this is also a single line comment.
+----------------------------------------------------
+<span class="token comment">/*
+this is
+a multiline comment.
+this lines will be ignored by the compiler
+*/</span>
+<span class="token comment">//this is a single line comment. this line will be ignored by the compiler</span>
+<span class="token comment"># this is also a single line comment.</span>
+
+----------------------------------------------------

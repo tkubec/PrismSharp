@@ -1,0 +1,271 @@
+; Pin Constant Values (Tested on Arduino UNO)
+; PD0 - 0
+; PD1 - 1
+; PD2 - 2
+; PD3 - 3
+; PD4 - 4
+; PD5 - 5
+; PD6 - 6
+; PD7 - 7
+
+; PB0 - 8
+; PB1 - 9
+; PB2 - 10
+; PB3 - 11
+; PB4 - 12
+; PB5 - 13 - System LED
+
+start:
+
+	; Set pins 0-7 to high
+	ldi		r17, (1<<PD7)|(1<<PD6)|(1<<PD5)|(1<<PD4)|(1<<PD3)|(1<<PD2)|(1<<PD1)|(1<<PD0)
+	out		PORTD, r17
+
+	; Set pins 8-13 to high
+	ldi		r16, (1<<PB5)|(1<<PB4)|(1<<PB3)|(1<<PB2)|(1<<PB1)|(1<<PB0)
+	out		PORTB, r16
+
+	; Set pins 0-7 to output mode
+	ldi		r18, (1<<DDD7)|(1<<DDD6)|(1<<DDD5)|(1<<DDD4)|(1<<DDD3)|(1<<DDD2)|(1<<DDD1)|(1<<DDD0)
+	out		DDRD, r18
+
+	; Set pins 8-13 to output mode
+	ldi		r19, (1<<DDB5)|(1<<DDB4)|(1<<DDB3)|(1<<DDB2)|(1<<DDB1)|(1<<DDB0)
+	out		DDRB, r19
+
+loop:
+	rjmp loop ; loop forever
+----------------------------------------------------
+[
+	["comment", "; Pin Constant Values (Tested on Arduino UNO)"],
+	["comment", "; PD0 - 0"],
+	["comment", "; PD1 - 1"],
+	["comment", "; PD2 - 2"],
+	["comment", "; PD3 - 3"],
+	["comment", "; PD4 - 4"],
+	["comment", "; PD5 - 5"],
+	["comment", "; PD6 - 6"],
+	["comment", "; PD7 - 7"],
+
+	["comment", "; PB0 - 8"],
+	["comment", "; PB1 - 9"],
+	["comment", "; PB2 - 10"],
+	["comment", "; PB3 - 11"],
+	["comment", "; PB4 - 12"],
+	["comment", "; PB5 - 13 - System LED"],
+
+	"\n\nstart", ["punctuation", ":"],
+
+	["comment", "; Set pins 0-7 to high"],
+
+	["op-code", "ldi"],
+	["r-register", "r17"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PD7"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PD6"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PD5"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PD4"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PD3"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PD2"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PD1"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PD0"],
+	["punctuation", ")"],
+
+	["op-code", "out"],
+	["constant", "PORTD"],
+	["punctuation", ","],
+	["r-register", "r17"],
+
+	["comment", "; Set pins 8-13 to high"],
+
+	["op-code", "ldi"],
+	["r-register", "r16"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PB5"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PB4"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PB3"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PB2"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PB1"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "PB0"],
+	["punctuation", ")"],
+
+	["op-code", "out"],
+	["constant", "PORTB"],
+	["punctuation", ","],
+	["r-register", "r16"],
+
+	["comment", "; Set pins 0-7 to output mode"],
+
+	["op-code", "ldi"],
+	["r-register", "r18"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDD7"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDD6"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDD5"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDD4"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDD3"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDD2"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDD1"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDD0"],
+	["punctuation", ")"],
+
+	["op-code", "out"],
+	["constant", "DDRD"],
+	["punctuation", ","],
+	["r-register", "r18"],
+
+	["comment", "; Set pins 8-13 to output mode"],
+
+	["op-code", "ldi"],
+	["r-register", "r19"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDB5"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDB4"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDB3"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDB2"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDB1"],
+	["punctuation", ")"],
+	["operator", "|"],
+	["punctuation", "("],
+	["decimal-number", "1"],
+	["operator", "<<"],
+	["constant", "DDB0"],
+	["punctuation", ")"],
+
+	["op-code", "out"],
+	["constant", "DDRB"],
+	["punctuation", ","],
+	["r-register", "r19"],
+
+	"\n\nloop", ["punctuation", ":"],
+	["op-code", "rjmp"], " loop ", ["comment", "; loop forever"]
+]
+
+----------------------------------------------------

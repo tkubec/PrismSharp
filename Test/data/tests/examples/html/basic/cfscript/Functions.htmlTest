@@ -1,0 +1,9 @@
+public boolean function myFunc(required any arg) {
+  return true;
+}
+----------------------------------------------------
+<span class="token keyword">public</span> <span class="token type builtin">boolean</span> <span class="token keyword">function</span> <span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token keyword">required</span> <span class="token type builtin">any</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

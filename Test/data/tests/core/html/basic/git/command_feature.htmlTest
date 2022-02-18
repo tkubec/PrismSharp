@@ -1,0 +1,9 @@
+$ git add file.txt
+foo@foobar ~ $ git diff --cached
+$ git log -p -i
+----------------------------------------------------
+<span class="token command">$ git add file.txt</span>
+<span class="token command">foo@foobar ~ $ git diff<span class="token parameter"> --cached</span></span>
+<span class="token command">$ git log<span class="token parameter"> -p</span><span class="token parameter"> -i</span></span>
+
+----------------------------------------------------

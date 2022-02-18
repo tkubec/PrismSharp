@@ -1,0 +1,236 @@
+OBTW Convert a number to hexadecimal. This
+     is returned as a string.
+TLDR
+HOW IZ I decimal_to_hex YR num
+    I HAS A i ITZ 0
+    I HAS A rem
+    I HAS A hex_num ITZ A BUKKIT
+    I HAS A decimal_num ITZ num
+    IM IN YR num_loop
+        rem R MOD OF decimal_num AN 16
+        I HAS A hex_digit
+        rem, WTF?
+            OMG 10, hex_digit R "A", GTFO
+            OMG 11, hex_digit R "B", GTFO
+            OMG 12, hex_digit R "C", GTFO
+            OMG 13, hex_digit R "D", GTFO
+            OMG 14, hex_digit R "E", GTFO
+            OMG 15, hex_digit R "F", GTFO
+            OMGWTF, hex_digit R rem
+        OIC
+        hex_num HAS A SRS i ITZ hex_digit
+        decimal_num R QUOSHUNT OF decimal_num AN 16
+        BOTH SAEM decimal_num AN 0, O RLY?
+            YA RLY, GTFO
+            NO WAI, i R SUM OF i AN 1
+        OIC
+    IM OUTTA YR num_loop
+    I HAS A hex_string ITZ A YARN
+    IM IN YR string_reverse
+        DIFFRINT i AN BIGGR OF i AN 0, O RLY?
+            YA RLY, GTFO
+        OIC
+        hex_string R SMOOSH hex_string AN hex_num'Z SRS i MKAY
+        i R DIFF OF i AN 1
+    IM OUTTA YR string_reverse
+    FOUND YR hex_string
+IF U SAY SO
+----------------------------------------------------
+[
+	["comment", "OBTW Convert a number to hexadecimal. This\n     is returned as a string.\nTLDR"],
+
+	["keyword", "HOW IZ I"],
+	["function", "decimal_to_hex"],
+	["keyword", "YR"],
+	" num\n    ",
+
+	["keyword", "I HAS A"],
+	" i ",
+	["keyword", "ITZ"],
+	["number", "0"],
+
+	["keyword", "I HAS A"],
+	" rem\n    ",
+
+	["keyword", "I HAS A"],
+	" hex_num ",
+	["keyword", "ITZ"],
+	["symbol", [
+		["keyword", "A"],
+		" BUKKIT"
+	]],
+
+	["keyword", "I HAS A"],
+	" decimal_num ",
+	["keyword", "ITZ"],
+	" num\n    ",
+
+	["keyword", "IM IN YR"],
+	["label", "num_loop"],
+
+	"\n        rem ",
+	["keyword", "R"],
+	["operator", "MOD OF"],
+	" decimal_num ",
+	["keyword", "AN"],
+	["number", "16"],
+
+	["keyword", "I HAS A"],
+	" hex_digit\n        rem",
+	["punctuation", ","],
+	["keyword", "WTF?"],
+
+	["keyword", "OMG"],
+	["number", "10"],
+	["punctuation", ","],
+	" hex_digit ",
+	["keyword", "R"],
+	["string", ["\"A\""]],
+	["punctuation", ","],
+	["keyword", "GTFO"],
+
+	["keyword", "OMG"],
+	["number", "11"],
+	["punctuation", ","],
+	" hex_digit ",
+	["keyword", "R"],
+	["string", ["\"B\""]],
+	["punctuation", ","],
+	["keyword", "GTFO"],
+
+	["keyword", "OMG"],
+	["number", "12"],
+	["punctuation", ","],
+	" hex_digit ",
+	["keyword", "R"],
+	["string", ["\"C\""]],
+	["punctuation", ","],
+	["keyword", "GTFO"],
+
+	["keyword", "OMG"],
+	["number", "13"],
+	["punctuation", ","],
+	" hex_digit ",
+	["keyword", "R"],
+	["string", ["\"D\""]],
+	["punctuation", ","],
+	["keyword", "GTFO"],
+
+	["keyword", "OMG"],
+	["number", "14"],
+	["punctuation", ","],
+	" hex_digit ",
+	["keyword", "R"],
+	["string", ["\"E\""]],
+	["punctuation", ","],
+	["keyword", "GTFO"],
+
+	["keyword", "OMG"],
+	["number", "15"],
+	["punctuation", ","],
+	" hex_digit ",
+	["keyword", "R"],
+	["string", ["\"F\""]],
+	["punctuation", ","],
+	["keyword", "GTFO"],
+
+	["keyword", "OMGWTF"],
+	["punctuation", ","],
+	" hex_digit ",
+	["keyword", "R"],
+	" rem\n        ",
+
+	["keyword", "OIC"],
+
+	"\n        hex_num ",
+	["keyword", "HAS A"],
+	["keyword", "SRS"],
+	" i ",
+	["keyword", "ITZ"],
+	" hex_digit\n        decimal_num ",
+	["keyword", "R"],
+	["operator", "QUOSHUNT OF"],
+	" decimal_num ",
+	["keyword", "AN"],
+	["number", "16"],
+
+	["operator", "BOTH SAEM"],
+	" decimal_num ",
+	["keyword", "AN"],
+	["number", "0"],
+	["punctuation", ","],
+	["keyword", "O RLY?"],
+
+	["keyword", "YA RLY"],
+	["punctuation", ","],
+	["keyword", "GTFO"],
+
+	["keyword", "NO WAI"],
+	["punctuation", ","],
+	" i ",
+	["keyword", "R"],
+	["operator", "SUM OF"],
+	" i ",
+	["keyword", "AN"],
+	["number", "1"],
+
+	["keyword", "OIC"],
+
+	["keyword", "IM OUTTA YR"],
+	["label", "num_loop"],
+
+	["keyword", "I HAS A"],
+	" hex_string ",
+	["keyword", "ITZ"],
+	["symbol", [
+		["keyword", "A"],
+		" YARN"
+	]],
+
+	["keyword", "IM IN YR"],
+	["label", "string_reverse"],
+
+	["operator", "DIFFRINT"],
+	" i ",
+	["keyword", "AN"],
+	["operator", "BIGGR OF"],
+	" i ",
+	["keyword", "AN"],
+	["number", "0"],
+	["punctuation", ","],
+	["keyword", "O RLY?"],
+
+	["keyword", "YA RLY"],
+	["punctuation", ","],
+	["keyword", "GTFO"],
+
+	["keyword", "OIC"],
+
+	"\n        hex_string ",
+	["keyword", "R"],
+	["keyword", "SMOOSH"],
+	" hex_string ",
+	["keyword", "AN"],
+	" hex_num",
+	["keyword", "'Z"],
+	["keyword", "SRS"],
+	" i ",
+	["keyword", "MKAY"],
+
+	"\n        i ",
+	["keyword", "R"],
+	["operator", "DIFF OF"],
+	" i ",
+	["keyword", "AN"],
+	["number", "1"],
+
+	["keyword", "IM OUTTA YR"],
+	["label", "string_reverse"],
+
+	["keyword", "FOUND YR"],
+	" hex_string\n",
+
+	["keyword", "IF U SAY SO"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+@if @else if @else
+@for @each @while
+@import @extend @use @forward
+@debug @warn @mixin
+@include @function
+@return @content
+
+@for $i from 1 through 3
+----------------------------------------------------
+<span class="token keyword">@if</span> <span class="token keyword">@else if</span> <span class="token keyword">@else</span>
+<span class="token keyword">@for</span> <span class="token keyword">@each</span> <span class="token keyword">@while</span>
+<span class="token keyword">@import</span> <span class="token keyword">@extend</span> <span class="token keyword">@use</span> <span class="token keyword">@forward</span>
+<span class="token keyword">@debug</span> <span class="token keyword">@warn</span> <span class="token keyword">@mixin</span>
+<span class="token keyword">@include</span> <span class="token keyword">@function</span>
+<span class="token keyword">@return</span> <span class="token keyword">@content</span>
+
+<span class="token keyword">@for</span> <span class="token variable">$i</span> <span class="token keyword">from</span> 1 <span class="token keyword">through</span> 3
+
+----------------------------------------------------

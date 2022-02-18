@@ -1,0 +1,15 @@
+//
+// Foobar
+/**/
+/* Foo
+bar */
+#! --nochecks
+----------------------------------------------------
+<span class="token comment">//</span>
+<span class="token comment">// Foobar</span>
+<span class="token comment">/**/</span>
+<span class="token comment">/* Foo
+bar */</span>
+<span class="token comment">#! --nochecks</span>
+
+----------------------------------------------------

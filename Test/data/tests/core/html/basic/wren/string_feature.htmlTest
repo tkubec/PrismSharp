@@ -1,0 +1,41 @@
+""
+"\"\\"
+"foo
+bar"
+
+""""""
+"""
+foo
+bar
+"""
+"""
+  {
+    "hello": "wren",
+    "from" : "json"
+  }
+"""
+
+"foo %(bar)"
+"foo * %(1 + 2) ~= bar"
+----------------------------------------------------
+<span class="token string-literal"><span class="token string">""</span></span>
+<span class="token string-literal"><span class="token string">"\"\\"</span></span>
+<span class="token string-literal"><span class="token string">"foo
+bar"</span></span>
+
+<span class="token triple-quoted-string string">""""""</span>
+<span class="token triple-quoted-string string">"""
+foo
+bar
+"""</span>
+<span class="token triple-quoted-string string">"""
+  {
+    "hello": "wren",
+    "from" : "json"
+  }
+"""</span>
+
+<span class="token string-literal"><span class="token string">"foo </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">%(</span><span class="token expression">bar</span><span class="token interpolation-punctuation punctuation">)</span></span><span class="token string">"</span></span>
+<span class="token string-literal"><span class="token string">"foo * </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">%(</span><span class="token expression"><span class="token number">1</span> <span class="token operator">+</span> <span class="token number">2</span></span><span class="token interpolation-punctuation punctuation">)</span></span><span class="token string"> ~= bar"</span></span>
+
+----------------------------------------------------

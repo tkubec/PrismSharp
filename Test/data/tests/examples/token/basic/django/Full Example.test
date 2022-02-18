@@ -1,0 +1,149 @@
+{# This a Django template example #}
+{% extends "base_generic.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ section.title }}</h1>
+
+{% for story in story_list %}
+<h2>
+  <a href="{{ story.get_absolute_url }}">
+    {{ story.headline|upper }}
+  </a>
+</h2>
+<p>{{ story.tease|truncatewords:"100" }}</p>
+{% endfor %}
+{% endblock %}
+----------------------------------------------------
+[
+	["punctuation", "{"],
+	"# ",
+	["variable", "This"],
+	["variable", "a"],
+	["variable", "Django"],
+	["variable", "template"],
+	["variable", "example"],
+	" #",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "extends"],
+	["string", "\"base_generic.html\""],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "block"],
+	["variable", "title"],
+	["operator", "%"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "section"],
+	["punctuation", "."],
+	["variable", "title"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "endblock"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "block"],
+	["variable", "content"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	["variable", "h1"],
+	["operator", ">"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "section"],
+	["punctuation", "."],
+	["variable", "title"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	["variable", "h1"],
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "for"],
+	["variable", "story"],
+	["keyword", "in"],
+	["variable", "story_list"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	["variable", "h2"],
+	["operator", ">"],
+
+	["operator", "<"],
+	["variable", "a"],
+	["variable", "href"],
+	["operator", "="],
+	["string", "\"{{ story.get_absolute_url }}\""],
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "story"],
+	["punctuation", "."],
+	["variable", "headline"],
+	["operator", "|"],
+	["filter", "upper"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	["operator", "/"],
+	["variable", "a"],
+	["operator", ">"],
+
+	["operator", "<"],
+	["operator", "/"],
+	["variable", "h2"],
+	["operator", ">"],
+
+	["operator", "<"],
+	["variable", "p"],
+	["operator", ">"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "story"],
+	["punctuation", "."],
+	["variable", "tease"],
+	["operator", "|"],
+	["filter", "truncatewords"],
+	["punctuation", ":"],
+	["string", "\"100\""],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	["variable", "p"],
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "endfor"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "endblock"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

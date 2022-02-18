@@ -1,0 +1,23 @@
+.. [1] Foo
+.. [2] Bar
+.. [#] Baz
+.. [#foobar] Foobar
+.. [CIT2002] Foobar
+
+.. _foobar: Foobar
+.. _foo\:bar: Foobar
+.. _`foo:bar`: Foobar
+.. __: Anonymous
+----------------------------------------------------
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>1<span class="token punctuation">]</span></span> Foo
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>2<span class="token punctuation">]</span></span> Bar
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>#<span class="token punctuation">]</span></span> Baz
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>#foobar<span class="token punctuation">]</span></span> Foobar
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>CIT2002<span class="token punctuation">]</span></span> Foobar
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">_</span>foobar<span class="token punctuation">:</span></span> Foobar
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">_</span>foo\:bar<span class="token punctuation">:</span></span> Foobar
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">_</span>`foo:bar`<span class="token punctuation">:</span></span> Foobar
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">_</span><span class="token punctuation">_</span><span class="token punctuation">:</span></span> Anonymous
+
+----------------------------------------------------

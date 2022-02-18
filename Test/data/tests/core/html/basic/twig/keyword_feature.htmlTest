@@ -1,0 +1,11 @@
+{% for foo in bar if baz %}{% endfor %}
+{%- if foo() -%}{%- endif -%}
+{% macro foobar() %}{% endmacro %}
+{{ foo is even or bar is odd }}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token tag-name keyword">for</span> foo <span class="token operator">in</span> bar <span class="token keyword">if</span> baz <span class="token operator">%</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token keyword">if</span> foo<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">%</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">-</span><span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> macro foobar<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">%</span> endmacro <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> foo <span class="token operator">is</span> <span class="token keyword">even</span> <span class="token operator">or</span> bar <span class="token operator">is</span> <span class="token keyword">odd</span> <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

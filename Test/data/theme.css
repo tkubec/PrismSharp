@@ -1,0 +1,18 @@
+pre {
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	margin:  1em;
+	padding:  1em;
+	border: 1px solid lightgray;
+	border-radius: .5em;
+	max-width: 80em;
+	font-size: 1.2em;
+}

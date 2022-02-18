@@ -1,0 +1,29 @@
+[%# this entire directive is ignored no
+    matter how many lines it wraps onto
+%]
+[% # this is a comment
+   theta = 20      # so is this
+   rho   = 30      # <aol>me too!</aol>
+%]
+----------------------------------------------------
+[
+	["comment", "[%# this entire directive is ignored no\r\n    matter how many lines it wraps onto\r\n%]"],
+
+	["punctuation", "["],
+	"% ",
+	["comment", "# this is a comment"],
+
+	["variable", "theta"],
+	["operator", "="],
+	["number", "20"],
+	["comment", "# so is this"],
+
+	["variable", "rho"],
+	["operator", "="],
+	["number", "30"],
+	["comment", "# <aol>me too!</aol>"],
+
+	["delimiter", "%]"]
+]
+
+----------------------------------------------------

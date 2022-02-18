@@ -1,0 +1,13 @@
+q/foo bar baz/;
+q awhy not ?a;
+qw(foo bar baz) q{foo bar baz}
+q[foo bar baz] qq<foo bar baz>
+"foo bar baz" 'foo bar baz' `foo bar baz`
+----------------------------------------------------
+<span class="token string">q/foo bar baz/</span><span class="token punctuation">;</span>
+<span class="token string">q awhy not ?a</span><span class="token punctuation">;</span>
+<span class="token string">qw(foo bar baz)</span> <span class="token string">q{foo bar baz}</span>
+<span class="token string">q[foo bar baz]</span> <span class="token string">qq&lt;foo bar baz></span>
+<span class="token string">"foo bar baz"</span> <span class="token string">'foo bar baz'</span> <span class="token string">`foo bar baz`</span>
+
+----------------------------------------------------

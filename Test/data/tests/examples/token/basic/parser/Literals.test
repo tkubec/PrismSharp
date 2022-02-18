@@ -1,0 +1,49 @@
+$foo(3+$bar)
+^switch[$sMode]{
+	^case[def]{$result(true)}
+}
+^if(in "/news/"){}
+----------------------------------------------------
+[
+	["variable", ["$foo"]],
+	["expression", [
+		["punctuation", "("],
+		["number", "3"],
+		["operator", "+"],
+		["variable", ["$bar"]],
+		["punctuation", ")"]
+	]],
+
+	["keyword", "^switch"],
+	["punctuation", "["],
+	["variable", ["$sMode"]],
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"def",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["variable", ["$result"]],
+	["expression", [
+		["punctuation", "("],
+		["boolean", "true"],
+		["punctuation", ")"]
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "^if"],
+	["expression", [
+		["punctuation", "("],
+		["operator", "in"],
+		["string", "\"/news/\""],
+		["punctuation", ")"]
+	]],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,48 @@
+{msg meaning="noun" desc="The word 'Archive' used as a noun, i.e. an information store."}
+{param content kind="html"}
+{let $message kind="text"}
+{template .googleUri autoescape="strict" kind="uri"}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "msg"],
+	["property", "meaning"],
+	["operator", "="],
+	["string", "\"noun\""],
+	["property", "desc"],
+	["operator", "="],
+	["string", "\"The word 'Archive' used as a noun, i.e. an information store.\""],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "content"],
+	["property", "kind"],
+	["operator", "="],
+	["string", "\"html\""],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "let"],
+	["variable", ["$message"]],
+	["property", "kind"],
+	["operator", "="],
+	["string", "\"text\""],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "template"],
+	["command-arg", [
+		["punctuation", "."],
+		"googleUri"
+	]],
+	["property", "autoescape"],
+	["operator", "="],
+	["string", "\"strict\""],
+	["property", "kind"],
+	["operator", "="],
+	["string", "\"uri\""],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

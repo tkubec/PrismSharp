@@ -1,0 +1,19 @@
+( -- )
+( a b -- c )
+( a: integer b: string -- c: word )
+( x y quot: ( ..a -- ..a ) -- ..a )
+call( -- )
+call( x -- y )
+execute( x -- y )
+eval( x -- y )
+----------------------------------------------------
+<span class="token stack-effect-delimiter operator">(</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token stack-effect-delimiter operator">)</span>
+<span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">a</span> <span class="token normal-word">b</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">c</span> <span class="token stack-effect-delimiter operator">)</span>
+<span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">a:</span> <span class="token math-builtin variable">integer</span> <span class="token normal-word">b:</span> <span class="token normal-word">string</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">c:</span> <span class="token normal-word">word</span> <span class="token stack-effect-delimiter operator">)</span>
+<span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">x</span> <span class="token normal-word">y</span> <span class="token normal-word">quot:</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token normal-word">..a</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">..a</span> <span class="token stack-effect-delimiter operator">)</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">..a</span> <span class="token stack-effect-delimiter operator">)</span>
+<span class="token stack-effect-delimiter operator">call(</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token stack-effect-delimiter operator">)</span>
+<span class="token stack-effect-delimiter operator">call(</span> <span class="token normal-word">x</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">y</span> <span class="token stack-effect-delimiter operator">)</span>
+<span class="token stack-effect-delimiter operator">execute(</span> <span class="token normal-word">x</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">y</span> <span class="token stack-effect-delimiter operator">)</span>
+<span class="token stack-effect-delimiter operator">eval(</span> <span class="token normal-word">x</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token normal-word">y</span> <span class="token stack-effect-delimiter operator">)</span>
+
+----------------------------------------------------

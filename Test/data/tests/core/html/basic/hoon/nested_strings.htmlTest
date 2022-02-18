@@ -1,0 +1,33 @@
+|=  [a=@ b=tape]
+^-  tape
+?:  (gth a 25)
+  $(a (sub a 26))
+%+  turn  b
+|=  c=@tD
+?:  &((gte c 'A') (lte c 'Z'))
+  =.  c  (add c a)
+  ?.  (gth c 'Z')  c
+  (sub c 26)
+?:  &((gte c 'a') (lte c 'z'))
+  =.  c  (add c a)
+  ?.  (gth c 'z')  c
+  (sub c 26)
+c
+----------------------------------------------------
+<span class="token keyword">|=</span>  [<span class="token function">a</span>=<span class="token class-name">@</span> <span class="token function">b</span>=<span class="token function">tape</span>]
+<span class="token keyword">^-</span>  <span class="token function">tape</span>
+<span class="token keyword">?:</span>  (<span class="token function">gth</span> <span class="token function">a</span> 25)
+  $(<span class="token function">a</span> (<span class="token function">sub</span> <span class="token function">a</span> 26))
+<span class="token keyword">%+</span>  <span class="token function">turn</span>  <span class="token function">b</span>
+<span class="token keyword">|=</span>  <span class="token function">c</span>=<span class="token class-name">@tD</span>
+<span class="token keyword">?:</span>  &amp;((<span class="token function">gte</span> <span class="token function">c</span> <span class="token string">'A'</span>) (<span class="token function">lte</span> <span class="token function">c</span> <span class="token string">'Z'</span>))
+  <span class="token keyword">=.</span>  <span class="token function">c</span>  (<span class="token function">add</span> <span class="token function">c</span> <span class="token function">a</span>)
+  <span class="token keyword">?.</span>  (<span class="token function">gth</span> <span class="token function">c</span> <span class="token string">'Z'</span>)  <span class="token function">c</span>
+  (<span class="token function">sub</span> <span class="token function">c</span> 26)
+<span class="token keyword">?:</span>  &amp;((<span class="token function">gte</span> <span class="token function">c</span> <span class="token string">'a'</span>) (<span class="token function">lte</span> <span class="token function">c</span> <span class="token string">'z'</span>))
+  <span class="token keyword">=.</span>  <span class="token function">c</span>  (<span class="token function">add</span> <span class="token function">c</span> <span class="token function">a</span>)
+  <span class="token keyword">?.</span>  (<span class="token function">gth</span> <span class="token function">c</span> <span class="token string">'z'</span>)  <span class="token function">c</span>
+  (<span class="token function">sub</span> <span class="token function">c</span> 26)
+<span class="token function">c</span>
+
+----------------------------------------------------

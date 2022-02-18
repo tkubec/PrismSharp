@@ -1,0 +1,70 @@
+<#import "/libs/commons.ftl" as com>
+
+<#if a < b>
+	a is less than b
+<#elseif (a > b)>
+	a is greater than b
+<#else>
+	a is equal to by
+</#if>
+
+<@foo></@foo>
+<@foo/>
+----------------------------------------------------
+[
+	["ftl-directive", [
+		["punctuation", "<"],
+		["directive", "#import"],
+		["content", [
+			["string", ["\"/libs/commons.ftl\""]],
+			["keyword", "as"],
+			" com",
+			["operator", ">"],
+
+			["operator", "<"],
+			"#if a ",
+			["operator", "<"],
+			" b",
+			["operator", ">"],
+
+			"\r\n\ta is less than b\r\n",
+
+			["operator", "<"],
+			"#",
+			["function", "elseif"],
+			["punctuation", "("],
+			"a ",
+			["operator", ">"],
+			" b",
+			["punctuation", ")"],
+			["operator", ">"],
+
+			"\r\n\ta is greater than b\r\n",
+
+			["operator", "<"],
+			"#else",
+			["operator", ">"],
+
+			"\r\n\ta is equal to by\r\n",
+
+			["operator", "<"],
+			["operator", "/"],
+			"#if",
+			["operator", ">"],
+
+			["operator", "<"],
+			"@foo",
+			["operator", ">"],
+			["operator", "<"],
+			["operator", "/"],
+			"@foo",
+			["operator", ">"],
+
+			["operator", "<"],
+			"@foo"
+		]],
+		["punctuation", "/>"]
+	]]
+]
+
+----------------------------------------------------

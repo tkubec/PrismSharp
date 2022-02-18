@@ -1,0 +1,380 @@
+// Contributed by John Williams
+package examples
+
+object lazyLib {
+
+  /** Delay the evaluation of an expression until it is needed. */
+  def delay[A](value: => A): Susp[A] = new SuspImpl[A](value)
+
+  /** Get the value of a delayed expression. */
+  implicit def force[A](s: Susp[A]): A = s()
+
+  /**
+   * Data type of suspended computations. (The name froms from ML.)
+   */
+  abstract class Susp[+A] extends Function0[A]
+
+  /**
+   * Implementation of suspended computations, separated from the
+   * abstract class so that the type parameter can be invariant.
+   */
+  class SuspImpl[A](lazyValue: => A) extends Susp[A] {
+    private var maybeValue: Option[A] = None
+
+    override def apply() = maybeValue match {
+      case None =>
+        val value = lazyValue
+        maybeValue = Some(value)
+        value
+	  case Some(value) =>
+        value
+    }
+
+    override def toString() = maybeValue match {
+      case None => "Susp(?)"
+      case Some(value) => "Susp(" + value + ")"
+    }
+  }
+}
+
+object lazyEvaluation {
+  import lazyLib._
+
+  def main(args: Array[String]) = {
+    val s: Susp[Int] = delay { println("evaluating..."); 3 }
+
+    println("s     = " + s)       // show that s is unevaluated
+    println("s()   = " + s())     // evaluate s
+    println("s     = " + s)       // show that the value is saved
+    println("2 + s = " + (2 + s)) // implicit call to force()
+
+    val sl = delay { Some(3) }
+    val sl1: Susp[Some[Int]] = sl
+    val sl2: Susp[Option[Int]] = sl1   // the type is covariant
+
+    println("sl2   = " + sl2)
+    println("sl2() = " + sl2())
+    println("sl2   = " + sl2)
+  }
+}
+----------------------------------------------------
+[
+	["comment", "// Contributed by John Williams"],
+	["keyword", "package"], ["namespace", ["examples"]],
+
+	["keyword", "object"], " lazyLib ", ["punctuation", "{"],
+
+	["comment", "/** Delay the evaluation of an expression until it is needed. */"],
+
+	["keyword", "def"],
+	" delay",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+	["punctuation", "("],
+	"value",
+	["operator", ":"],
+	["keyword", "=>"],
+	" A",
+	["punctuation", ")"],
+	["operator", ":"],
+	" Susp",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+	["operator", "="],
+	["keyword", "new"],
+	" SuspImpl",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+	["punctuation", "("],
+	"value",
+	["punctuation", ")"],
+
+	["comment", "/** Get the value of a delayed expression. */"],
+
+	["keyword", "implicit"],
+	["keyword", "def"],
+	" force",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+	["punctuation", "("],
+	"s",
+	["operator", ":"],
+	" Susp",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["operator", ":"],
+	" A ",
+	["operator", "="],
+	" s",
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["comment", "/**\n   * Data type of suspended computations. (The name froms from ML.)\n   */"],
+
+	["keyword", "abstract"],
+	["keyword", "class"],
+	" Susp",
+	["punctuation", "["],
+	["operator", "+"],
+	"A",
+	["punctuation", "]"],
+	["keyword", "extends"],
+	" Function0",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+
+	["comment", "/**\n   * Implementation of suspended computations, separated from the\n   * abstract class so that the type parameter can be invariant.\n   */"],
+
+	["keyword", "class"],
+	" SuspImpl",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+	["punctuation", "("],
+	"lazyValue",
+	["operator", ":"],
+	["keyword", "=>"],
+	" A",
+	["punctuation", ")"],
+	["keyword", "extends"],
+	" Susp",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["keyword", "private"],
+	["keyword", "var"],
+	" maybeValue",
+	["operator", ":"],
+	" Option",
+	["punctuation", "["],
+	"A",
+	["punctuation", "]"],
+	["operator", "="],
+	" None\n\n    ",
+
+	["keyword", "override"],
+	["keyword", "def"],
+	" apply",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "="],
+	" maybeValue ",
+	["keyword", "match"],
+	["punctuation", "{"],
+
+	["keyword", "case"],
+	" None ",
+	["keyword", "=>"],
+
+	["keyword", "val"],
+	" value ",
+	["operator", "="],
+	" lazyValue\n        maybeValue ",
+	["operator", "="],
+	" Some",
+	["punctuation", "("],
+	"value",
+	["punctuation", ")"],
+
+	"\n        value\n\t  ",
+
+	["keyword", "case"],
+	" Some",
+	["punctuation", "("],
+	"value",
+	["punctuation", ")"],
+	["keyword", "=>"],
+
+	"\n        value\n    ",
+
+	["punctuation", "}"],
+
+	["keyword", "override"],
+	["keyword", "def"],
+	" toString",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "="],
+	" maybeValue ",
+	["keyword", "match"],
+	["punctuation", "{"],
+
+	["keyword", "case"],
+	" None ",
+	["keyword", "=>"],
+	["string", "\"Susp(?)\""],
+
+	["keyword", "case"],
+	" Some",
+	["punctuation", "("],
+	"value",
+	["punctuation", ")"],
+	["keyword", "=>"],
+	["string", "\"Susp(\""],
+	["operator", "+"],
+	" value ",
+	["operator", "+"],
+	["string", "\")\""],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "object"],
+	" lazyEvaluation ",
+	["punctuation", "{"],
+
+	["keyword", "import"],
+	["namespace", [
+		"lazyLib",
+		["punctuation", "."]
+	]],
+	"_\n\n  ",
+
+	["keyword", "def"],
+	" main",
+	["punctuation", "("],
+	"args",
+	["operator", ":"],
+	" Array",
+	["punctuation", "["],
+	["builtin", "String"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["keyword", "val"],
+	" s",
+	["operator", ":"],
+	" Susp",
+	["punctuation", "["],
+	["builtin", "Int"],
+	["punctuation", "]"],
+	["operator", "="],
+	" delay ",
+	["punctuation", "{"],
+	" println",
+	["punctuation", "("],
+	["string", "\"evaluating...\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["number", "3"],
+	["punctuation", "}"],
+
+	"\n\n    println",
+	["punctuation", "("],
+	["string", "\"s     = \""],
+	["operator", "+"],
+	" s",
+	["punctuation", ")"],
+	["comment", "// show that s is unevaluated"],
+
+	"\n    println",
+	["punctuation", "("],
+	["string", "\"s()   = \""],
+	["operator", "+"],
+	" s",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["comment", "// evaluate s"],
+
+	"\n    println",
+	["punctuation", "("],
+	["string", "\"s     = \""],
+	["operator", "+"],
+	" s",
+	["punctuation", ")"],
+	["comment", "// show that the value is saved"],
+
+	"\n    println",
+	["punctuation", "("],
+	["string", "\"2 + s = \""],
+	["operator", "+"],
+	["punctuation", "("],
+	["number", "2"],
+	["operator", "+"],
+	" s",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["comment", "// implicit call to force()"],
+
+	["keyword", "val"],
+	" sl ",
+	["operator", "="],
+	" delay ",
+	["punctuation", "{"],
+	" Some",
+	["punctuation", "("],
+	["number", "3"],
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["keyword", "val"],
+	" sl1",
+	["operator", ":"],
+	" Susp",
+	["punctuation", "["],
+	"Some",
+	["punctuation", "["],
+	["builtin", "Int"],
+	["punctuation", "]"],
+	["punctuation", "]"],
+	["operator", "="],
+	" sl\n    ",
+
+	["keyword", "val"],
+	" sl2",
+	["operator", ":"],
+	" Susp",
+	["punctuation", "["],
+	"Option",
+	["punctuation", "["],
+	["builtin", "Int"],
+	["punctuation", "]"],
+	["punctuation", "]"],
+	["operator", "="],
+	" sl1   ",
+	["comment", "// the type is covariant"],
+
+	"\n\n    println",
+	["punctuation", "("],
+	["string", "\"sl2   = \""],
+	["operator", "+"],
+	" sl2",
+	["punctuation", ")"],
+
+	"\n    println",
+	["punctuation", "("],
+	["string", "\"sl2() = \""],
+	["operator", "+"],
+	" sl2",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	"\n    println",
+	["punctuation", "("],
+	["string", "\"sl2   = \""],
+	["operator", "+"],
+	" sl2",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

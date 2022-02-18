@@ -1,0 +1,27 @@
+@secure()
+param demoPassword string
+@allowed([
+  'one'
+  'two'
+])
+param demoEnum string
+
+@minLength(3)
+@maxLength(24)
+@description('Name of the storage account')
+param storageAccountName string = concat(uniqueString(resourceGroup().id), 'sa')
+----------------------------------------------------
+<span class="token decorator">@secure</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">param</span> demoPassword <span class="token datatype class-name">string</span>
+<span class="token decorator">@allowed</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token string">'one'</span>
+  <span class="token string">'two'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">param</span> demoEnum <span class="token datatype class-name">string</span>
+
+<span class="token decorator">@minLength</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token decorator">@maxLength</span><span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">)</span>
+<span class="token decorator">@description</span><span class="token punctuation">(</span><span class="token string">'Name of the storage account'</span><span class="token punctuation">)</span>
+<span class="token keyword">param</span> storageAccountName <span class="token datatype class-name">string</span> <span class="token operator">=</span> <span class="token function">concat</span><span class="token punctuation">(</span><span class="token function">uniqueString</span><span class="token punctuation">(</span><span class="token function">resourceGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'sa'</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

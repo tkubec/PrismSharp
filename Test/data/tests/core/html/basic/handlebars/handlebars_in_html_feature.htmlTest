@@ -1,0 +1,13 @@
+{{aUserModel.name}}
+<div>{{listOfUsers.firstObject.name}}</div>
+{{if name "I have a name" "I have no name"}}
+<span data-has-name={{if name true}}></span>
+<div {{on "click" this.hello}} />
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span><span class="token variable">aUserModel</span><span class="token punctuation">.</span><span class="token variable">name</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">&lt;</span><span class="token variable">div</span><span class="token punctuation">></span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">listOfUsers</span><span class="token punctuation">.</span><span class="token variable">firstObject</span><span class="token punctuation">.</span><span class="token variable">name</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">&lt;</span><span class="token punctuation">/</span><span class="token variable">div</span><span class="token punctuation">></span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">if</span> <span class="token variable">name</span> <span class="token string">"I have a name"</span> <span class="token string">"I have no name"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">&lt;</span><span class="token variable">span</span> <span class="token variable">data-has-name</span><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">if</span> <span class="token variable">name</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">></span><span class="token punctuation">&lt;</span><span class="token punctuation">/</span><span class="token variable">span</span><span class="token punctuation">></span>
+<span class="token punctuation">&lt;</span><span class="token variable">div</span> <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">on</span> <span class="token string">"click"</span> <span class="token variable">this</span><span class="token punctuation">.</span><span class="token variable">hello</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token punctuation">/</span><span class="token punctuation">></span>
+
+----------------------------------------------------

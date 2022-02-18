@@ -1,0 +1,33 @@
+real<lower=a> b;
+
+real<lower=a, upper=b> theta;
+
+int<lower=1> T;
+
+matrix<multiplier=5>[3, 4] B;
+
+row_vector<lower=-1,upper=1>[10] u;
+
+row_vector<offset=-42,multiplier=3>[3] u;
+
+real<lower=min(y), upper=max(y)> phi;
+
+real<offset=mu,multiplier=sigma> x;
+----------------------------------------------------
+<span class="token keyword">real</span><span class="token constraint"><span class="token punctuation">&lt;</span><span class="token property">lower</span><span class="token operator">=</span><span class="token expression">a</span><span class="token punctuation">></span></span> b<span class="token punctuation">;</span>
+
+<span class="token keyword">real</span><span class="token constraint"><span class="token punctuation">&lt;</span><span class="token property">lower</span><span class="token operator">=</span><span class="token expression">a</span><span class="token punctuation">,</span> <span class="token property">upper</span><span class="token operator">=</span><span class="token expression">b</span><span class="token punctuation">></span></span> theta<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span><span class="token constraint"><span class="token punctuation">&lt;</span><span class="token property">lower</span><span class="token operator">=</span><span class="token expression"><span class="token number">1</span></span><span class="token punctuation">></span></span> T<span class="token punctuation">;</span>
+
+<span class="token keyword">matrix</span><span class="token constraint"><span class="token punctuation">&lt;</span><span class="token property">multiplier</span><span class="token operator">=</span><span class="token expression"><span class="token number">5</span></span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span> B<span class="token punctuation">;</span>
+
+<span class="token keyword">row_vector</span><span class="token constraint"><span class="token punctuation">&lt;</span><span class="token property">lower</span><span class="token operator">=</span><span class="token expression"><span class="token operator">-</span><span class="token number">1</span></span><span class="token punctuation">,</span><span class="token property">upper</span><span class="token operator">=</span><span class="token expression"><span class="token number">1</span></span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> u<span class="token punctuation">;</span>
+
+<span class="token keyword">row_vector</span><span class="token constraint"><span class="token punctuation">&lt;</span><span class="token property">offset</span><span class="token operator">=</span><span class="token expression"><span class="token operator">-</span><span class="token number">42</span></span><span class="token punctuation">,</span><span class="token property">multiplier</span><span class="token operator">=</span><span class="token expression"><span class="token number">3</span></span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> u<span class="token punctuation">;</span>
+
+<span class="token keyword">real</span><span class="token constraint"><span class="token punctuation">&lt;</span><span class="token property">lower</span><span class="token operator">=</span><span class="token expression"><span class="token function">min</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span></span><span class="token punctuation">,</span> <span class="token property">upper</span><span class="token operator">=</span><span class="token expression"><span class="token function">max</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span></span><span class="token punctuation">></span></span> phi<span class="token punctuation">;</span>
+
+<span class="token keyword">real</span><span class="token constraint"><span class="token punctuation">&lt;</span><span class="token property">offset</span><span class="token operator">=</span><span class="token expression">mu</span><span class="token punctuation">,</span><span class="token property">multiplier</span><span class="token operator">=</span><span class="token expression">sigma</span><span class="token punctuation">></span></span> x<span class="token punctuation">;</span>
+
+----------------------------------------------------

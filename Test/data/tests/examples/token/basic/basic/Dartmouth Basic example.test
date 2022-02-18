@@ -1,0 +1,76 @@
+5 LET S = 0
+10 MAT INPUT V
+20 LET N = NUM
+30 IF N = 0 THEN 99
+40 FOR I = 1 TO N
+45 LET S = S + V(I)
+50 NEXT I
+60 PRINT S/N
+70 GO TO 5
+99 END
+----------------------------------------------------
+[
+	["number", "5"],
+	["function", "LET"],
+	" S ",
+	["operator", "="],
+	["number", "0"],
+
+	["number", "10"],
+	["function", "MAT"],
+	["keyword", "INPUT"],
+	" V\n",
+
+	["number", "20"],
+	["function", "LET"],
+	" N ",
+	["operator", "="],
+	" NUM\n",
+
+	["number", "30"],
+	["keyword", "IF"],
+	" N ",
+	["operator", "="],
+	["number", "0"],
+	["keyword", "THEN"],
+	["number", "99"],
+
+	["number", "40"],
+	["keyword", "FOR"],
+	" I ",
+	["operator", "="],
+	["number", "1"],
+	["keyword", "TO"],
+	" N\n",
+
+	["number", "45"],
+	["function", "LET"],
+	" S ",
+	["operator", "="],
+	" S ",
+	["operator", "+"],
+	" V",
+	["punctuation", "("],
+	"I",
+	["punctuation", ")"],
+
+	["number", "50"],
+	["keyword", "NEXT"],
+	" I\n",
+
+	["number", "60"],
+	["function", "PRINT"],
+	" S",
+	["operator", "/"],
+	"N\n",
+
+	["number", "70"],
+	["function", "GO"],
+	["keyword", "TO"],
+	["number", "5"],
+
+	["number", "99"],
+	["keyword", "END"]
+]
+
+----------------------------------------------------

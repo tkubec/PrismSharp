@@ -1,0 +1,21 @@
+: a ( -- ) ;
+:: ; ! ; is not a word name
+:: ;a ! ;a is a word name
+USING: a b c ;
+USE: a
+IN: a.b
+CHAR: a
+#: a
+GENERIC#: a
+----------------------------------------------------
+<span class="token colon-syntax function">: a</span> <span class="token stack-effect-delimiter operator">(</span> <span class="token stack-effect-delimiter operator">--</span> <span class="token stack-effect-delimiter operator">)</span> <span class="token semicolon-or-setlocal function">;</span>
+<span class="token normal-word">::</span> <span class="token semicolon-or-setlocal function">;</span> <span class="token comment">! ; is not a word name</span>
+<span class="token colon-syntax function">:: ;a</span> <span class="token comment">! ;a is a word name</span>
+<span class="token special-using function">USING: <span class="token string">a</span> <span class="token string">b</span> <span class="token string">c</span></span> <span class="token semicolon-or-setlocal function">;</span>
+<span class="token colon-syntax function">USE: a</span>
+<span class="token colon-syntax function">IN: a.b</span>
+<span class="token colon-syntax function">CHAR: a</span>
+<span class="token normal-word">#:</span> <span class="token normal-word">a</span>
+<span class="token colon-syntax function">GENERIC#: a</span>
+
+----------------------------------------------------

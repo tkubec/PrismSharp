@@ -1,0 +1,9 @@
+STRING="Hello World"
+'Single and
+multi-line strings are supported.'
+"Single and
+multi-line strings are supported."
+cat << EOF
+Here-Documents
+are also supported
+EOF

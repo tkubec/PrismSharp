@@ -1,0 +1,225 @@
+let
+    Source = Sales,
+    LookupTable = #table(
+    type table
+        [
+            #"FROM"=text,
+            #"TO"=text
+        ], 
+        {
+            {"CEE","Central & Eastern Europe"},
+            {"WE","Western Europe"}  
+        }
+    ),
+
+    JT = Table.NestedJoin(
+        Source, 
+        {"Area"}, 
+        LookupTable, 
+        {"FROM"}, 
+        "Map", 
+        JoinKind.LeftOuter
+    ),
+
+    #"Expanded Map" = Table.ExpandTableColumn(
+        JT, 
+        "Map", 
+        {"TO"}, 
+        {"TO"}
+    ),
+
+    #"Replace non-matches with original value" = Table.AddColumn(
+        #"Expanded Map", 
+        "Replaced", 
+        each 
+            if [TO] = null then [Area] 
+            else [TO]
+    ),
+
+    #"Remove original column" = Table.RemoveColumns(
+        #"Replace non-matches with original value",
+        {"Area", "TO"}
+    ),
+
+    #"Renamed replace column to original name" = Table.RenameColumns(
+        #"Remove original column",
+        {{"Replaced", "Area"}}
+    )
+
+in
+    #"Renamed replace column to original name"
+----------------------------------------------------
+[
+	["keyword", "let"],
+
+	"\n    Source ",
+	["operator", "="],
+	" Sales",
+	["punctuation", ","],
+
+	"\n    LookupTable ",
+	["operator", "="],
+	["keyword", "#table"],
+	["punctuation", "("],
+
+	["keyword", "type"],
+	["data-type", "table"],
+
+	["punctuation", "["],
+
+	["quoted-identifier", "#\"FROM\""],
+	["operator", "="],
+	["data-type", "text"],
+	["punctuation", ","],
+
+	["quoted-identifier", "#\"TO\""],
+	["operator", "="],
+	["data-type", "text"],
+
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+
+	["punctuation", "{"],
+	["string", "\"CEE\""],
+	["punctuation", ","],
+	["string", "\"Central & Eastern Europe\""],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["string", "\"WE\""],
+	["punctuation", ","],
+	["string", "\"Western Europe\""],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\n    JT ",
+	["operator", "="],
+	["function", "Table.NestedJoin"],
+	["punctuation", "("],
+
+	"\n        Source",
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["string", "\"Area\""],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	" \n        LookupTable",
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["string", "\"FROM\""],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["string", "\"Map\""],
+	["punctuation", ","],
+
+	["constant", "JoinKind.LeftOuter"],
+
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["quoted-identifier", "#\"Expanded Map\""],
+	["operator", "="],
+	["function", "Table.ExpandTableColumn"],
+	["punctuation", "("],
+
+	"\n        JT",
+	["punctuation", ","],
+
+	["string", "\"Map\""],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["string", "\"TO\""],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["string", "\"TO\""],
+	["punctuation", "}"],
+
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["quoted-identifier", "#\"Replace non-matches with original value\""],
+	["operator", "="],
+	["function", "Table.AddColumn"],
+	["punctuation", "("],
+
+	["quoted-identifier", "#\"Expanded Map\""],
+	["punctuation", ","],
+
+	["string", "\"Replaced\""],
+	["punctuation", ","],
+
+	["keyword", "each"],
+
+	["keyword", "if"],
+	["punctuation", "["],
+	"TO",
+	["punctuation", "]"],
+	["operator", "="],
+	["constant", "null"],
+	["keyword", "then"],
+	["punctuation", "["],
+	"Area",
+	["punctuation", "]"],
+
+	["keyword", "else"],
+	["punctuation", "["],
+	"TO",
+	["punctuation", "]"],
+
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["quoted-identifier", "#\"Remove original column\""],
+	["operator", "="],
+	["function", "Table.RemoveColumns"],
+	["punctuation", "("],
+
+	["quoted-identifier", "#\"Replace non-matches with original value\""],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["string", "\"Area\""],
+	["punctuation", ","],
+	["string", "\"TO\""],
+	["punctuation", "}"],
+
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["quoted-identifier", "#\"Renamed replace column to original name\""],
+	["operator", "="],
+	["function", "Table.RenameColumns"],
+	["punctuation", "("],
+
+	["quoted-identifier", "#\"Remove original column\""],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["string", "\"Replaced\""],
+	["punctuation", ","],
+	["string", "\"Area\""],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", ")"],
+
+	["keyword", "in"],
+	["quoted-identifier", "#\"Renamed replace column to original name\""]
+]
+
+----------------------------------------------------

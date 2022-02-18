@@ -1,0 +1,29 @@
+struct Foo {
+	a int   // private immutable (default)
+mut:
+	b int   // private mutable
+	c int   // (you can list multiple fields with the same access modifier)
+pub:
+	d int   // public immutable (readonly)
+pub mut:
+	e int   // public, but mutable only in parent module
+__global:
+	f int   // public and mutable both inside and outside parent module
+}           // (not recommended to use, that's why the 'global' keyword
+			// starts with __)
+----------------------------------------------------
+<span class="token keyword">struct</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span>
+	a <span class="token builtin">int</span>   <span class="token comment">// private immutable (default)</span>
+<span class="token keyword">mut</span><span class="token punctuation">:</span>
+	b <span class="token builtin">int</span>   <span class="token comment">// private mutable</span>
+	c <span class="token builtin">int</span>   <span class="token comment">// (you can list multiple fields with the same access modifier)</span>
+<span class="token keyword">pub</span><span class="token punctuation">:</span>
+	d <span class="token builtin">int</span>   <span class="token comment">// public immutable (readonly)</span>
+<span class="token keyword">pub</span> <span class="token keyword">mut</span><span class="token punctuation">:</span>
+	e <span class="token builtin">int</span>   <span class="token comment">// public, but mutable only in parent module</span>
+<span class="token keyword">__global</span><span class="token punctuation">:</span>
+	f <span class="token builtin">int</span>   <span class="token comment">// public and mutable both inside and outside parent module</span>
+<span class="token punctuation">}</span>           <span class="token comment">// (not recommended to use, that's why the 'global' keyword</span>
+			<span class="token comment">// starts with __)</span>
+
+----------------------------------------------------

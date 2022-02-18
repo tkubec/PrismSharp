@@ -1,0 +1,39 @@
+ONBUILD ADD . /app/src
+FROM ubuntu
+FROM ubuntu AS build
+MAINTAINER SvenDowideit@home.org.au
+RUN cd /tmp
+EXPOSE 5900
+ENV myName John Doe
+COPY hom* /mydir/
+VOLUME /myvol
+USER daemon
+WORKDIR /a
+HEALTHCHECK CMD echo "foo"
+HEALTHCHECK NONE
+LABEL version="1.0"
+ENTRYPOINT ["top", "-b"]
+ARG user1
+SHELL ["powershell", "-command"]
+STOPSIGNAL signal
+----------------------------------------------------
+<span class="token instruction"><span class="token keyword">ONBUILD</span> <span class="token keyword">ADD</span> . /app/src</span>
+<span class="token instruction"><span class="token keyword">FROM</span> ubuntu</span>
+<span class="token instruction"><span class="token keyword">FROM</span> ubuntu <span class="token keyword">AS</span> build</span>
+<span class="token instruction"><span class="token keyword">MAINTAINER</span> SvenDowideit@home.org.au</span>
+<span class="token instruction"><span class="token keyword">RUN</span> cd /tmp</span>
+<span class="token instruction"><span class="token keyword">EXPOSE</span> 5900</span>
+<span class="token instruction"><span class="token keyword">ENV</span> myName John Doe</span>
+<span class="token instruction"><span class="token keyword">COPY</span> hom* /mydir/</span>
+<span class="token instruction"><span class="token keyword">VOLUME</span> /myvol</span>
+<span class="token instruction"><span class="token keyword">USER</span> daemon</span>
+<span class="token instruction"><span class="token keyword">WORKDIR</span> /a</span>
+<span class="token instruction"><span class="token keyword">HEALTHCHECK</span> <span class="token keyword">CMD</span> echo <span class="token string">"foo"</span></span>
+<span class="token instruction"><span class="token keyword">HEALTHCHECK</span> <span class="token keyword">NONE</span></span>
+<span class="token instruction"><span class="token keyword">LABEL</span> version=<span class="token string">"1.0"</span></span>
+<span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [<span class="token string">"top"</span>, <span class="token string">"-b"</span>]</span>
+<span class="token instruction"><span class="token keyword">ARG</span> user1</span>
+<span class="token instruction"><span class="token keyword">SHELL</span> [<span class="token string">"powershell"</span>, <span class="token string">"-command"</span>]</span>
+<span class="token instruction"><span class="token keyword">STOPSIGNAL</span> signal</span>
+
+----------------------------------------------------

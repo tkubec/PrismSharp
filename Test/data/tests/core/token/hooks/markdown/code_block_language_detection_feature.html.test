@@ -1,0 +1,43 @@
+```js
+let a = 0;
+```
+
+``` c++
+int a = 0;
+```
+
+``` c#
+var a = 0;
+```
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+----------------------------------------------------
+[
+	["code", [
+		["punctuation", "```"], ["code-language", "js"],
+		["code-block", "let a = 0;"],
+		["punctuation", "```"]
+	]],
+
+	["code", [
+		["punctuation", "```"], ["code-language", " c++"],
+		["code-block", "int a = 0;"],
+		["punctuation", "```"]
+	]],
+
+	["code", [
+		["punctuation", "```"], ["code-language", " c#"],
+		["code-block", "var a = 0;"],
+		["punctuation", "```"]
+	]],
+
+	["code", [
+		["punctuation", "```"], ["code-language", "{r pressure, echo=FALSE}"],
+		["code-block", "plot(pressure)"],
+		["punctuation", "```"]
+	]]
+]
+
+----------------------------------------------------

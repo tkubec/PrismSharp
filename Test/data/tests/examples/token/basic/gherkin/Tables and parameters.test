@@ -1,0 +1,66 @@
+Scenario Outline: Eating
+  Given there are <start> cucumbers
+  When I eat <eat> cucumbers
+  Then I should have <left> cucumbers
+
+  Examples:
+    | start | eat | left |
+    |  12   |  5  |  7   |
+    |  20   |  5  |  15  |
+----------------------------------------------------
+[
+	["scenario", [
+		["keyword", "Scenario Outline:"],
+		["important", " Eating"]
+	]],
+
+	["atrule", "Given"],
+	" there are ",
+	["outline", "<start>"],
+	" cucumbers\n  ",
+
+	["atrule", "When"],
+	["atrule", "I"],
+	" eat ",
+	["outline", "<eat>"],
+	" cucumbers\n  ",
+
+	["atrule", "Then"],
+	["atrule", "I"],
+	" should have ",
+	["outline", "<left>"],
+	" cucumbers\n\n  ",
+
+	["scenario", [
+		["keyword", "Examples:"],
+		["important", ""]
+	]],
+	["table-head", [
+		["punctuation", "|"],
+		["th", " start "],
+		["punctuation", "|"],
+		["th", " eat "],
+		["punctuation", "|"],
+		["th", " left "],
+		["punctuation", "|"]
+	]],
+	["table-body", [
+		["punctuation", "|"],
+		["td", "  12   "],
+		["punctuation", "|"],
+		["td", "  5  "],
+		["punctuation", "|"],
+		["td", "  7   "],
+		["punctuation", "|"],
+
+		["punctuation", "|"],
+		["td", "  20   "],
+		["punctuation", "|"],
+		["td", "  5  "],
+		["punctuation", "|"],
+		["td", "  15  "],
+		["punctuation", "|"]
+	]]
+]
+
+----------------------------------------------------

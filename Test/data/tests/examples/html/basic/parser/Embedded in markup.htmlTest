@@ -1,0 +1,21 @@
+<nav>
+	<ul>
+	^sections.menu{
+		<li>
+			<a href="$sections.uri">$sections.name</a>
+		</li>
+	}
+	</ul>
+</nav>
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+	<span class="token function">^sections<span class="token punctuation">.</span>menu</span><span class="token punctuation">{</span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token variable">$sections<span class="token punctuation">.</span>uri</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token variable">$sections<span class="token punctuation">.</span>name</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+	<span class="token punctuation">}</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

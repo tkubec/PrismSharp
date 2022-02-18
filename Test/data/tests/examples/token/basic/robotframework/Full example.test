@@ -1,0 +1,100 @@
+*** Settings ***
+Documentation    Example using the space separated plain text format.
+Library          OperatingSystem
+
+*** Variables ***
+${MESSAGE}       Hello, world!
+
+*** Test Cases ***
+My Test
+    [Documentation]    Example test
+    Log    ${MESSAGE}
+    My Keyword    /tmp
+
+Another Test
+    Should Be Equal    ${MESSAGE}    Hello, world!
+
+*** Keywords ***
+My Keyword
+    [Arguments]    ${path}
+    Directory Should Exist    ${path}
+----------------------------------------------------
+[
+	["settings", [
+		["section-header", "*** Settings ***"],
+		["property", "Documentation"],
+		["documentation", "Example using the space separated plain text format."],
+		["property", "Library"],
+		"          OperatingSystem\n"
+	]],
+
+	["variables", [
+		["section-header", "*** Variables ***"],
+
+		["variable", [
+			["punctuation", "${"],
+			"MESSAGE",
+			["punctuation", "}"]
+		]],
+		"       Hello, world!\n"
+	]],
+
+	["test-cases", [
+		["section-header", "*** Test Cases ***"],
+
+		["test-name", ["My Test"]],
+
+		["tag", [
+			["punctuation", "["],
+			"Documentation",
+			["punctuation", "]"]
+		]],
+		["documentation", "Example test"],
+
+		["property", ["Log"]],
+		["variable", [
+			["punctuation", "${"],
+			"MESSAGE",
+			["punctuation", "}"]
+		]],
+
+		["property", ["My Keyword"]],
+		"    /tmp\n\n",
+
+		["test-name", ["Another Test"]],
+
+		["property", ["Should Be Equal"]],
+		["variable", [
+			["punctuation", "${"],
+			"MESSAGE",
+			["punctuation", "}"]
+		]],
+		"    Hello, world!\n"
+	]],
+
+	["keywords", [
+		["section-header", "*** Keywords ***"],
+
+		["keyword-name", ["My Keyword"]],
+
+		["tag", [
+			["punctuation", "["],
+			"Arguments",
+			["punctuation", "]"]
+		]],
+		["variable", [
+			["punctuation", "${"],
+			"path",
+			["punctuation", "}"]
+		]],
+
+		["property", ["Directory Should Exist"]],
+		["variable", [
+			["punctuation", "${"],
+			"path",
+			["punctuation", "}"]
+		]]
+	]]
+]
+
+----------------------------------------------------

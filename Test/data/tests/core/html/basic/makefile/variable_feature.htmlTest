@@ -1,0 +1,13 @@
+$@
+$$<
+$(@D)
+$(foobar)
+$(2)
+----------------------------------------------------
+<span class="token variable">$@</span>
+<span class="token variable">$$&lt;</span>
+<span class="token variable">$(@D)</span>
+<span class="token variable">$</span><span class="token punctuation">(</span>foobar<span class="token punctuation">)</span>
+<span class="token variable">$</span><span class="token punctuation">(</span>2<span class="token punctuation">)</span>
+
+----------------------------------------------------

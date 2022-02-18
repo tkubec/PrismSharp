@@ -1,0 +1,8 @@
+ul
+  li Item A
+  li Item B
+  li Item C
+foo(bar='baz')/
+input(type='checkbox', checked=true.toString())
+#content
+div#foo(data-bar="foo")&attributes({'data-foo': 'bar'})

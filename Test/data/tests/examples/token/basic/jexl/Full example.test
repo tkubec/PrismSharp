@@ -1,0 +1,39 @@
+[
+  fun(1,2),
+  { obj: "1" }.obj,
+  ctx|transform
+]|join(", ")
+----------------------------------------------------
+[
+	["punctuation", "["],
+
+	["function", "fun"],
+	["punctuation", "("],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["punctuation", "{"],
+	" obj",
+	["operator", ":"],
+	["string", "\"1\""],
+	["punctuation", "}"],
+	["punctuation", "."],
+	"obj",
+	["punctuation", ","],
+
+	"\n  ctx",
+	["operator", "|"],
+	["transform", "transform"],
+
+	["punctuation", "]"],
+	["operator", "|"],
+	["transform", "join"],
+	["punctuation", "("],
+	["string", "\", \""],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

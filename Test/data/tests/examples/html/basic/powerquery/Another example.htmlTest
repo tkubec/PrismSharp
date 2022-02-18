@@ -1,0 +1,17 @@
+let Orders = Table.FromRecords({  
+    [OrderID = 1, CustomerID = 1, Item = "fishing rod", Price = 100.0],  
+    [OrderID = 2, CustomerID = 1, Item = "1 lb. worms", Price = 5.0],  
+    [OrderID = 3, CustomerID = 2, Item = "fishing net", Price = 25.0]}),  
+    #"Capitalized Each Word" = Table.TransformColumns(Orders, {"Item", Text.Proper})  
+in  
+    #"Capitalized Each Word"
+----------------------------------------------------
+<span class="token keyword">let</span> Orders <span class="token operator">=</span> <span class="token function">Table.FromRecords</span><span class="token punctuation">(</span><span class="token punctuation">{</span>  
+    <span class="token punctuation">[</span>OrderID <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> CustomerID <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> Item <span class="token operator">=</span> <span class="token string">"fishing rod"</span><span class="token punctuation">,</span> Price <span class="token operator">=</span> <span class="token number">100.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  
+    <span class="token punctuation">[</span>OrderID <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> CustomerID <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> Item <span class="token operator">=</span> <span class="token string">"1 lb. worms"</span><span class="token punctuation">,</span> Price <span class="token operator">=</span> <span class="token number">5.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  
+    <span class="token punctuation">[</span>OrderID <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> CustomerID <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> Item <span class="token operator">=</span> <span class="token string">"fishing net"</span><span class="token punctuation">,</span> Price <span class="token operator">=</span> <span class="token number">25.0</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  
+    <span class="token quoted-identifier">#"Capitalized Each Word"</span> <span class="token operator">=</span> <span class="token function">Table.TransformColumns</span><span class="token punctuation">(</span>Orders<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"Item"</span><span class="token punctuation">,</span> Text.Proper<span class="token punctuation">}</span><span class="token punctuation">)</span>  
+<span class="token keyword">in</span>  
+    <span class="token quoted-identifier">#"Capitalized Each Word"</span>
+
+----------------------------------------------------

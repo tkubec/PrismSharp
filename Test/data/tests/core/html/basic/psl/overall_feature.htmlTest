@@ -1,0 +1,15 @@
+function test(limit) {
+	for (i = 0 ; i < limit ; i++) {
+		s = s + i; # s has not been initialized!
+	}
+	print(s."\n");
+}
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span>limit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> limit <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		s <span class="token operator">=</span> s <span class="token operator">+</span> i<span class="token punctuation">;</span> <span class="token comment"># s has not been initialized!</span>
+	<span class="token punctuation">}</span>
+	<span class="token builtin builtin-function">print</span><span class="token punctuation">(</span>s<span class="token operator">.</span><span class="token string">"<span class="token symbol">\n</span>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

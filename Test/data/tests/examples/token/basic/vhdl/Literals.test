@@ -1,0 +1,166 @@
+constant FREEZE : integer := 32;
+constant TEMP : real := 32.0;
+A_INT <= 16#FF#;
+B_INT <= 2#1010_1010#;
+MONEY := 1_000_000.0;
+FACTOR := 2.2E-6;
+constant DEL1 :time := 10 ns;
+constant DEL2 :time := 2.27 us;
+type MY_LOGIC is ('X','0','1','Z');
+type T_STATE is (IDLE, READ, END_CYC);
+signal CLK : MY_LOGIC := '0';
+signal STATE : T_STATE := IDLE;
+constant FLAG :bit_vector(0 to 7) := "11111111";
+constant MSG : string := "Hello";
+BIT_8_BUS <= B"1111_1111";
+BIT_9_BUS <= O"353";
+BIT_16_BUS <= X"AA55";
+constant TWO_LINE_MSG : string := "Hello" & CR & "World";
+----------------------------------------------------
+[
+	["keyword", "constant"],
+	" FREEZE ",
+	["punctuation", ":"],
+	" integer ",
+	["operator", ":="],
+	["number", "32"],
+	["punctuation", ";"],
+
+	["keyword", "constant"],
+	" TEMP ",
+	["punctuation", ":"],
+	" real ",
+	["operator", ":="],
+	["number", "32.0"],
+	["punctuation", ";"],
+
+	"\nA_INT ",
+	["operator", "<="],
+	["number", "16#FF#"],
+	["punctuation", ";"],
+
+	"\nB_INT ",
+	["operator", "<="],
+	["number", "2#1010_1010#"],
+	["punctuation", ";"],
+
+	"\nMONEY ",
+	["operator", ":="],
+	["number", "1_000_000.0"],
+	["punctuation", ";"],
+
+	"\nFACTOR ",
+	["operator", ":="],
+	["number", "2.2E-6"],
+	["punctuation", ";"],
+
+	["keyword", "constant"],
+	" DEL1 ",
+	["punctuation", ":"],
+	"time ",
+	["operator", ":="],
+	["number", "10"],
+	" ns",
+	["punctuation", ";"],
+
+	["keyword", "constant"],
+	" DEL2 ",
+	["punctuation", ":"],
+	"time ",
+	["operator", ":="],
+	["number", "2.27"],
+	" us",
+	["punctuation", ";"],
+
+	["keyword", "type"],
+	" MY_LOGIC ",
+	["keyword", "is"],
+	["punctuation", "("],
+	["number", "'X'"],
+	["punctuation", ","],
+	["number", "'0'"],
+	["punctuation", ","],
+	["number", "'1'"],
+	["punctuation", ","],
+	["number", "'Z'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "type"],
+	" T_STATE ",
+	["keyword", "is"],
+	["punctuation", "("],
+	"IDLE",
+	["punctuation", ","],
+	" READ",
+	["punctuation", ","],
+	" END_CYC",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "signal"],
+	" CLK ",
+	["punctuation", ":"],
+	" MY_LOGIC ",
+	["operator", ":="],
+	["number", "'0'"],
+	["punctuation", ";"],
+
+	["keyword", "signal"],
+	" STATE ",
+	["punctuation", ":"],
+	" T_STATE ",
+	["operator", ":="],
+	" IDLE",
+	["punctuation", ";"],
+
+	["keyword", "constant"],
+	" FLAG ",
+	["punctuation", ":"],
+	["function", "bit_vector"],
+	["punctuation", "("],
+	["number", "0"],
+	["keyword", "to"],
+	["number", "7"],
+	["punctuation", ")"],
+	["operator", ":="],
+	["vhdl-vectors", "\"11111111\""],
+	["punctuation", ";"],
+
+	["keyword", "constant"],
+	" MSG ",
+	["punctuation", ":"],
+	" string ",
+	["operator", ":="],
+	["string", "\"Hello\""],
+	["punctuation", ";"],
+
+	"\nBIT_8_BUS ",
+	["operator", "<="],
+	["vhdl-vectors", "B\"1111_1111\""],
+	["punctuation", ";"],
+
+	"\nBIT_9_BUS ",
+	["operator", "<="],
+	["vhdl-vectors", "O\"353\""],
+	["punctuation", ";"],
+
+	"\nBIT_16_BUS ",
+	["operator", "<="],
+	["vhdl-vectors", "X\"AA55\""],
+	["punctuation", ";"],
+
+	["keyword", "constant"],
+	" TWO_LINE_MSG ",
+	["punctuation", ":"],
+	" string ",
+	["operator", ":="],
+	["string", "\"Hello\""],
+	["operator", "&"],
+	" CR ",
+	["operator", "&"],
+	["string", "\"World\""],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

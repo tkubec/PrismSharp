@@ -1,0 +1,15 @@
+{param visible: true /}
+{param content kind="html"}
+    <b>{$message}</b>
+{/param}
+{@param name: string}
+{@param? height: int}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">visible</span><span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token operator">/</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">param</span> <span class="token parameter variable">content</span> <span class="token property">kind</span><span class="token operator">=</span><span class="token string">"html"</span><span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span>b<span class="token operator">></span><span class="token punctuation">{</span><span class="token variable">$message</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">param</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">name</span><span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param?</span> <span class="token parameter variable">height</span><span class="token punctuation">:</span> <span class="token keyword">int</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

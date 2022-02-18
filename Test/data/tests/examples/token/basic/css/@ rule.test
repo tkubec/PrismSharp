@@ -1,0 +1,18 @@
+@media screen and (min-width: 100px) {}
+----------------------------------------------------
+[
+	["atrule", [
+		["rule", "@media"],
+		" screen ",
+		["keyword", "and"],
+		["punctuation", "("],
+		["property", "min-width"],
+		["punctuation", ":"],
+		" 100px",
+		["punctuation", ")"]
+	]],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

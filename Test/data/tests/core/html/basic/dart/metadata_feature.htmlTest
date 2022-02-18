@@ -1,0 +1,65 @@
+@deprecated
+@override
+@ToDo('seth', 'make this do something')
+
+@DataTable("sale_orders")
+class SaleOrder {
+  @DataColumn("sale_order_date")
+  DateTime date;
+}
+
+@table
+class Product {
+  @column
+  String name;
+}
+
+const DataColumn column = const DataColumn();
+
+const DataTable table = const DataTable();
+
+class DataTable {
+  final String name;
+
+  const DataTable([this.name]);
+}
+
+class DataColumn {
+  final String name;
+
+  const DataColumn([this.name]);
+}
+----------------------------------------------------
+<span class="token metadata function">@deprecated</span>
+<span class="token metadata function">@override</span>
+<span class="token metadata function">@ToDo</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'seth'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'make this do something'</span></span><span class="token punctuation">)</span>
+
+<span class="token metadata function">@DataTable</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"sale_orders"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">SaleOrder</span> <span class="token punctuation">{</span>
+  <span class="token metadata function">@DataColumn</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"sale_order_date"</span></span><span class="token punctuation">)</span>
+  <span class="token class-name">DateTime</span> date<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token metadata function">@table</span>
+<span class="token keyword">class</span> <span class="token class-name">Product</span> <span class="token punctuation">{</span>
+  <span class="token metadata function">@column</span>
+  <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token class-name">DataColumn</span> column <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token class-name">DataColumn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token class-name">DataTable</span> table <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token class-name">DataTable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DataTable</span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token class-name">DataTable</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DataColumn</span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token class-name">DataColumn</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+for var in a b c
+do :; done
+select var in a b c
+do :; done
+----------------------------------------------------
+<span class="token keyword">for</span> <span class="token for-or-select variable">var</span> <span class="token keyword">in</span> a b c
+<span class="token keyword">do</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+<span class="token keyword">select</span> <span class="token for-or-select variable">var</span> <span class="token keyword">in</span> a b c
+<span class="token keyword">do</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+
+----------------------------------------------------

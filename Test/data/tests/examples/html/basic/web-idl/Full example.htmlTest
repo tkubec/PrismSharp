@@ -1,0 +1,57 @@
+[Exposed=Window]
+interface Paint { };
+
+[Exposed=Window]
+interface SolidColor : Paint {
+	attribute double red;
+	attribute double green;
+	attribute double blue;
+};
+
+[Exposed=Window]
+interface Pattern : Paint {
+	attribute DOMString imageURL;
+};
+
+[Exposed=Window]
+interface GraphicalWindow {
+	constructor();
+	readonly attribute unsigned long width;
+	readonly attribute unsigned long height;
+
+	attribute Paint currentPaint;
+
+	undefined drawRectangle(double x, double y, double width, double height);
+
+	undefined drawText(double x, double y, DOMString text);
+};
+----------------------------------------------------
+<span class="token punctuation">[</span>Exposed<span class="token operator">=</span>Window<span class="token punctuation">]</span>
+<span class="token keyword">interface</span> <span class="token class-name">Paint</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span>Exposed<span class="token operator">=</span>Window<span class="token punctuation">]</span>
+<span class="token keyword">interface</span> <span class="token class-name">SolidColor</span> <span class="token operator">:</span> <span class="token class-name">Paint</span> <span class="token punctuation">{</span>
+	<span class="token keyword">attribute</span> <span class="token class-name"><span class="token keyword">double</span></span> red<span class="token punctuation">;</span>
+	<span class="token keyword">attribute</span> <span class="token class-name"><span class="token keyword">double</span></span> green<span class="token punctuation">;</span>
+	<span class="token keyword">attribute</span> <span class="token class-name"><span class="token keyword">double</span></span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span>Exposed<span class="token operator">=</span>Window<span class="token punctuation">]</span>
+<span class="token keyword">interface</span> <span class="token class-name">Pattern</span> <span class="token operator">:</span> <span class="token class-name">Paint</span> <span class="token punctuation">{</span>
+	<span class="token keyword">attribute</span> <span class="token class-name"><span class="token builtin">DOMString</span></span> imageURL<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span>Exposed<span class="token operator">=</span>Window<span class="token punctuation">]</span>
+<span class="token keyword">interface</span> <span class="token class-name">GraphicalWindow</span> <span class="token punctuation">{</span>
+	<span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">readonly</span> <span class="token keyword">attribute</span> <span class="token class-name"><span class="token keyword">unsigned</span> <span class="token keyword">long</span></span> width<span class="token punctuation">;</span>
+	<span class="token keyword">readonly</span> <span class="token keyword">attribute</span> <span class="token class-name"><span class="token keyword">unsigned</span> <span class="token keyword">long</span></span> height<span class="token punctuation">;</span>
+
+	<span class="token keyword">attribute</span> <span class="token class-name">Paint</span> currentPaint<span class="token punctuation">;</span>
+
+	<span class="token class-name"><span class="token keyword">undefined</span></span> drawRectangle<span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">double</span></span> x<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">double</span></span> y<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">double</span></span> width<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">double</span></span> height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token class-name"><span class="token keyword">undefined</span></span> drawText<span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">double</span></span> x<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">double</span></span> y<span class="token punctuation">,</span> <span class="token class-name"><span class="token builtin">DOMString</span></span> text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,17 @@
+""
+"foo"
+".$output_extension"
+"$0xFF"
+"$var_one/$var_two"
+"${var_one}"
+"$root_out_dir/lib${_output_name}${_shlib_extension}"
+----------------------------------------------------
+<span class="token string-literal"><span class="token string">""</span></span>
+<span class="token string-literal"><span class="token string">"foo"</span></span>
+<span class="token string-literal"><span class="token string">".</span><span class="token interpolation"><span class="token variable">$output_extension</span></span><span class="token string">"</span></span>
+<span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token number">$0xFF</span></span><span class="token string">"</span></span>
+<span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token variable">$var_one</span></span><span class="token string">/</span><span class="token interpolation"><span class="token variable">$var_two</span></span><span class="token string">"</span></span>
+<span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">var_one</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span></span>
+<span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token variable">$root_out_dir</span></span><span class="token string">/lib</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">_output_name</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">_shlib_extension</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span></span>
+
+----------------------------------------------------

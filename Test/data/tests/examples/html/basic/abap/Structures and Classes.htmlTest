@@ -1,0 +1,49 @@
+DATA:
+  BEGIN OF my_structure,
+    scomponent TYPE i,
+  END OF my_structure.
+
+CLASS lcl_my_class DEFINITION.
+  PUBLIC SECTION.
+    METHODS my_method
+      RETURNING
+        VALUE(ret_value) TYPE i.
+ENDCLASS.
+
+CLASS lcl_my_class IMPLEMENTATION.
+  METHOD my_method.
+    ret_value = 1.
+  ENDMETHOD
+ENDCLASS.
+
+DATA lo_instace TYPE REF TO lcl_my_class.
+
+CREATE OBJECT lo_instace.
+
+my_structure-component = lo_instace->my_method( ).
+----------------------------------------------------
+<span class="token keyword">DATA</span><span class="token punctuation">:</span>
+  <span class="token keyword">BEGIN</span> <span class="token keyword">OF</span> my_structure<span class="token punctuation">,</span>
+    scomponent <span class="token keyword">TYPE</span> <span class="token keyword">i</span><span class="token punctuation">,</span>
+  <span class="token keyword">END</span> <span class="token keyword">OF</span> my_structure<span class="token punctuation">.</span>
+
+<span class="token keyword">CLASS</span> lcl_my_class <span class="token keyword">DEFINITION</span><span class="token punctuation">.</span>
+  <span class="token keyword">PUBLIC</span> <span class="token keyword">SECTION</span><span class="token punctuation">.</span>
+    <span class="token keyword">METHODS</span> my_method
+      <span class="token keyword">RETURNING</span>
+        <span class="token keyword">VALUE</span><span class="token punctuation">(</span>ret_value<span class="token punctuation">)</span> <span class="token keyword">TYPE</span> <span class="token keyword">i</span><span class="token punctuation">.</span>
+<span class="token keyword">ENDCLASS</span><span class="token punctuation">.</span>
+
+<span class="token keyword">CLASS</span> lcl_my_class <span class="token keyword">IMPLEMENTATION</span><span class="token punctuation">.</span>
+  <span class="token keyword">METHOD</span> my_method<span class="token punctuation">.</span>
+    ret_value <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">.</span>
+  <span class="token keyword">ENDMETHOD</span>
+<span class="token keyword">ENDCLASS</span><span class="token punctuation">.</span>
+
+<span class="token keyword">DATA</span> lo_instace <span class="token keyword">TYPE</span> <span class="token keyword">REF</span> <span class="token keyword">TO</span> lcl_my_class<span class="token punctuation">.</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">OBJECT</span> lo_instace<span class="token punctuation">.</span>
+
+my_structure<span class="token token-operator punctuation">-</span>component <span class="token operator">=</span> lo_instace<span class="token token-operator punctuation">-></span>my_method<span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

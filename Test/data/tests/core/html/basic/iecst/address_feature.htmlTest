@@ -1,0 +1,9 @@
+VAR
+    varname AT %QX1.0.0: BOOL := TRUE;
+END_VAR
+----------------------------------------------------
+<span class="token keyword">VAR</span>
+    varname <span class="token keyword">AT</span> <span class="token address symbol">%QX1.0.0</span><span class="token operator">:</span> <span class="token class-name">BOOL</span> <span class="token operator">:=</span> <span class="token boolean">TRUE</span><span class="token punctuation">;</span>
+<span class="token keyword">END_VAR</span>
+
+----------------------------------------------------

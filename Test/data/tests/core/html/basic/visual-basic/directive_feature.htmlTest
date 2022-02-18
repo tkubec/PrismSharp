@@ -1,0 +1,19 @@
+#Const DebugCode = True
+#If DebugCode Then
+#End If
+#ExternalSource("c:\wwwroot\inetpub\test.aspx", 30)
+#End ExternalSource
+#ExternalChecksum("c:\wwwroot\inetpub\test.aspx", _
+    "{12345678-1234-1234-1234-123456789abc}", _
+    "1a2b3c4e5f617239a49b9a9c0391849d34950f923fab9484")
+----------------------------------------------------
+<span class="token directive property">#Const DebugCode = True</span>
+<span class="token directive property">#If DebugCode Then</span>
+<span class="token directive property">#End If</span>
+<span class="token directive property">#ExternalSource("c:\wwwroot\inetpub\test.aspx", 30)</span>
+<span class="token directive property">#End ExternalSource</span>
+<span class="token directive property">#ExternalChecksum("c:\wwwroot\inetpub\test.aspx", _
+    "{12345678-1234-1234-1234-123456789abc}", _
+    "1a2b3c4e5f617239a49b9a9c0391849d34950f923fab9484")</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+$ADDRESS_BASE=10.2.${ADDRESS_BASE_SUB}
+$ADDRESS_BASE_SUB=0
+${ADDRESS_BASE}.100/32
+$ADDRESS_BASE_SUB=10
+----------------------------------------------------
+<span class="token variable">$ADDRESS_BASE</span><span class="token operator">=</span><span class="token number">10.2</span>.<span class="token variable">${ADDRESS_BASE_SUB}</span>
+<span class="token variable">$ADDRESS_BASE_SUB</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token variable">${ADDRESS_BASE}</span>.100/<span class="token number">32</span>
+<span class="token variable">$ADDRESS_BASE_SUB</span><span class="token operator">=</span><span class="token number">10</span>
+
+----------------------------------------------------

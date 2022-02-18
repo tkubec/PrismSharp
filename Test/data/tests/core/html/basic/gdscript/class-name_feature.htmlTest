@@ -1,0 +1,31 @@
+class_name Foo
+extends Bar
+
+class InnerClass:
+
+export(int) var baz
+export(int, 0) var i
+
+return foo as Node
+
+const FOO: int = 9
+var bar: bool = true
+
+func add(reference: Item, amount: int) -> Item:
+----------------------------------------------------
+<span class="token keyword">class_name</span> <span class="token class-name">Foo</span>
+<span class="token keyword">extends</span> <span class="token class-name">Bar</span>
+
+<span class="token keyword">class</span> <span class="token class-name">InnerClass</span><span class="token punctuation">:</span>
+
+<span class="token keyword">export</span><span class="token punctuation">(</span><span class="token class-name">int</span><span class="token punctuation">)</span> <span class="token keyword">var</span> baz
+<span class="token keyword">export</span><span class="token punctuation">(</span><span class="token class-name">int</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">var</span> i
+
+<span class="token keyword">return</span> foo <span class="token keyword">as</span> <span class="token class-name">Node</span>
+
+<span class="token keyword">const</span> <span class="token constant">FOO</span><span class="token punctuation">:</span> <span class="token class-name">int</span> <span class="token operator">=</span> <span class="token number">9</span>
+<span class="token keyword">var</span> bar<span class="token punctuation">:</span> <span class="token class-name">bool</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+
+<span class="token keyword">func</span> <span class="token function">add</span><span class="token punctuation">(</span>reference<span class="token punctuation">:</span> <span class="token class-name">Item</span><span class="token punctuation">,</span> amount<span class="token punctuation">:</span> <span class="token class-name">int</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">Item</span><span class="token punctuation">:</span>
+
+----------------------------------------------------

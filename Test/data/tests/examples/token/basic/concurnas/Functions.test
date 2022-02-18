@@ -1,0 +1,19 @@
+def add(a int, b int) => a + b
+----------------------------------------------------
+[
+	["keyword", "def"],
+	["function", "add"],
+	["punctuation", "("],
+	"a ",
+	["keyword", "int"],
+	["punctuation", ","],
+	" b ",
+	["keyword", "int"],
+	["punctuation", ")"],
+	["operator", "=>"],
+	" a ",
+	["operator", "+"],
+	" b"
+]
+
+----------------------------------------------------

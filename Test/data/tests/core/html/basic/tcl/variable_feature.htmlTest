@@ -1,0 +1,25 @@
+$foo
+$Foobar_42
+$::foo
+$foo::bar42
+
+${foobar}
+
+set foo bar
+set Foobar_42 baz
+set ::foo bar
+set foo::bar42 baz
+----------------------------------------------------
+$<span class="token variable">foo</span>
+$<span class="token variable">Foobar_42</span>
+$<span class="token variable">::foo</span>
+$<span class="token variable">foo::bar42</span>
+
+$<span class="token variable">{foobar}</span>
+
+<span class="token keyword">set</span> <span class="token variable">foo</span> bar
+<span class="token keyword">set</span> <span class="token variable">Foobar_42</span> baz
+<span class="token keyword">set</span> <span class="token variable">::foo</span> bar
+<span class="token keyword">set</span> <span class="token variable">foo::bar42</span> baz
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+#[[]]#
+#[[This is not parsed]]#
+#[[#if("some quotes" 'some quotes')
+## #* *#
+$dollar
+]]#
+----------------------------------------------------
+<span class="token unparsed"><span class="token punctuation">#[[</span><span class="token punctuation">]]#</span></span>
+<span class="token unparsed"><span class="token punctuation">#[[</span>This is not parsed<span class="token punctuation">]]#</span></span>
+<span class="token unparsed"><span class="token punctuation">#[[</span>#if("some quotes" 'some quotes')
+## #* *#
+$dollar
+<span class="token punctuation">]]#</span></span>
+
+----------------------------------------------------

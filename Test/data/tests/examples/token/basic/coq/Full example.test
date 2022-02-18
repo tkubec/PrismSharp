@@ -1,0 +1,172 @@
+(* Source: https://coq.inria.fr/a-short-introduction-to-coq *)
+
+Inductive seq : nat -> Set :=
+| niln : seq 0
+| consn : forall n : nat, nat -> seq n -> seq (S n).
+
+Fixpoint length (n : nat) (s : seq n) {struct s} : nat :=
+  match s with
+  | niln => 0
+  | consn i _ s' => S (length i s')
+  end.
+
+Theorem length_corr : forall (n : nat) (s : seq n), length n s = n.
+Proof.
+  intros n s.
+
+  (* reasoning by induction over s. Then, we have two new goals
+     corresponding on the case analysis about s (either it is
+     niln or some consn *)
+  induction s.
+
+    (* We are in the case where s is void. We can reduce the
+       term: length 0 niln *)
+    simpl.
+
+    (* We obtain the goal 0 = 0. *)
+    trivial.
+
+    (* now, we treat the case s = consn n e s with induction
+       hypothesis IHs *)
+    simpl.
+
+    (* The induction hypothesis has type length n s = n.
+       So we can use it to perform some rewriting in the goal: *)
+    rewrite IHs.
+
+    (* Now the goal is the trivial equality: S n = S n *)
+    trivial.
+
+  (* Now all sub cases are closed, we perform the ultimate
+     step: typing the term built using tactics and save it as
+     a witness of the theorem. *)
+Qed.
+----------------------------------------------------
+[
+	["comment", "(* Source: https://coq.inria.fr/a-short-introduction-to-coq *)"],
+
+	["keyword", "Inductive"],
+	" seq ",
+	["punctuation", ":"],
+	" nat ",
+	["operator", "->"],
+	["keyword", "Set"],
+	["operator", ":="],
+
+	["operator", "|"],
+	" niln ",
+	["punctuation", ":"],
+	" seq ",
+	["number", "0"],
+
+	["operator", "|"],
+	" consn ",
+	["punctuation", ":"],
+	["keyword", "forall"],
+	" n ",
+	["punctuation", ":"],
+	" nat",
+	["punctuation", ","],
+	" nat ",
+	["operator", "->"],
+	" seq n ",
+	["operator", "->"],
+	" seq ",
+	["punctuation", "("],
+	"S n",
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	["keyword", "Fixpoint"],
+	" length ",
+	["punctuation", "("],
+	"n ",
+	["punctuation", ":"],
+	" nat",
+	["punctuation", ")"],
+	["punctuation", "("],
+	"s ",
+	["punctuation", ":"],
+	" seq n",
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["keyword", "struct"],
+	" s",
+	["punctuation", "}"],
+	["punctuation", ":"],
+	" nat ",
+	["operator", ":="],
+
+	["keyword", "match"],
+	" s ",
+	["keyword", "with"],
+
+	["operator", "|"],
+	" niln ",
+	["operator", "=>"],
+	["number", "0"],
+
+	["operator", "|"],
+	" consn i ",
+	["keyword", "_"],
+	" s",
+	["operator", "'"],
+	["operator", "=>"],
+	" S ",
+	["punctuation", "("],
+	"length i s",
+	["operator", "'"],
+	["punctuation", ")"],
+
+	["keyword", "end"],
+	["punctuation", "."],
+
+	["keyword", "Theorem"],
+	" length_corr ",
+	["punctuation", ":"],
+	["keyword", "forall"],
+	["punctuation", "("],
+	"n ",
+	["punctuation", ":"],
+	" nat",
+	["punctuation", ")"],
+	["punctuation", "("],
+	"s ",
+	["punctuation", ":"],
+	" seq n",
+	["punctuation", ")"],
+	["punctuation", ","],
+	" length n s ",
+	["operator", "="],
+	" n",
+	["punctuation", "."],
+
+	["keyword", "Proof"],
+	["punctuation", "."],
+
+	"\n  intros n s",
+	["punctuation", "."],
+
+	["comment", "(* reasoning by induction over s. Then, we have two new goals\n     corresponding on the case analysis about s (either it is\n     niln or some consn *)"],
+	"\n  induction s", ["punctuation", "."],
+
+	["comment", "(* We are in the case where s is void. We can reduce the\n       term: length 0 niln *)"],
+	"\n    simpl", ["punctuation", "."],
+
+	["comment", "(* We obtain the goal 0 = 0. *)"],
+	"\n    trivial", ["punctuation", "."],
+
+	["comment", "(* now, we treat the case s = consn n e s with induction\n       hypothesis IHs *)"],
+	"\n    simpl", ["punctuation", "."],
+
+	["comment", "(* The induction hypothesis has type length n s = n.\n       So we can use it to perform some rewriting in the goal: *)"],
+	"\n    rewrite IHs", ["punctuation", "."],
+
+	["comment", "(* Now the goal is the trivial equality: S n = S n *)"],
+	"\n    trivial", ["punctuation", "."],
+
+	["comment", "(* Now all sub cases are closed, we perform the ultimate\n     step: typing the term built using tactics and save it as\n     a witness of the theorem. *)"],
+	["keyword", "Qed"], ["punctuation", "."]
+]
+
+----------------------------------------------------

@@ -1,0 +1,5 @@
+type UnionAlias = 1 | 2 | 3;
+opaque type ID = string;
+declare opaque type PositiveNumber: number;
+type Country = $Keys<typeof countries>;
+type RequiredProps = $Diff<Props, DefaultProps>;

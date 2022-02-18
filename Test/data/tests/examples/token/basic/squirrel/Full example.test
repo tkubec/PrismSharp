@@ -1,0 +1,272 @@
+// source: http://www.squirrel-lang.org/#look
+
+local table = {
+	a = "10"
+	subtable = {
+		array = [1,2,3]
+	},
+	[10 + 123] = "expression index"
+}
+
+local array=[ 1, 2, 3, { a = 10, b = "string" } ];
+
+foreach (i,val in array)
+{
+	::print("the type of val is"+typeof val);
+}
+
+/////////////////////////////////////////////
+
+class Entity
+{
+	constructor(etype,entityname)
+	{
+		name = entityname;
+		type = etype;
+	}
+
+	x = 0;
+	y = 0;
+	z = 0;
+	name = null;
+	type = null;
+}
+
+function Entity::MoveTo(newx,newy,newz)
+{
+	x = newx;
+	y = newy;
+	z = newz;
+}
+
+class Player extends Entity {
+	constructor(entityname)
+	{
+		base.constructor("Player",entityname)
+	}
+	function DoDomething()
+	{
+		::print("something");
+	}
+
+}
+
+local newplayer = Player("da playar");
+
+newplayer.MoveTo(100,200,300);
+----------------------------------------------------
+[
+	["comment", "// source: http://www.squirrel-lang.org/#look"],
+
+	["keyword", "local"],
+	" table ",
+	["operator", "="],
+	["punctuation", "{"],
+
+	"\n\ta ",
+	["operator", "="],
+	["string", "\"10\""],
+
+	"\n\tsubtable ",
+	["operator", "="],
+	["punctuation", "{"],
+
+	"\n\t\tarray ",
+	["operator", "="],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", "]"],
+
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["punctuation", "["],
+	["number", "10"],
+	["operator", "+"],
+	["number", "123"],
+	["punctuation", "]"],
+	["operator", "="],
+	["string", "\"expression index\""],
+
+	["punctuation", "}"],
+
+	["keyword", "local"],
+	" array",
+	["operator", "="],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", ","],
+	["punctuation", "{"],
+	" a ",
+	["operator", "="],
+	["number", "10"],
+	["punctuation", ","],
+	" b ",
+	["operator", "="],
+	["string", "\"string\""],
+	["punctuation", "}"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "foreach"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ","],
+	"val ",
+	["keyword", "in"],
+	" array",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["operator", "::"],
+	["function", "print"],
+	["punctuation", "("],
+	["string", "\"the type of val is\""],
+	["operator", "+"],
+	["keyword", "typeof"],
+	" val",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "/////////////////////////////////////////////"],
+
+	["keyword", "class"],
+	["class-name", ["Entity"]],
+
+	["punctuation", "{"],
+
+	["keyword", "constructor"],
+	["punctuation", "("],
+	"etype",
+	["punctuation", ","],
+	"entityname",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\tname ",
+	["operator", "="],
+	" entityname",
+	["punctuation", ";"],
+
+	"\n\t\ttype ",
+	["operator", "="],
+	" etype",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	"\n\n\tx ", ["operator", "="], ["number", "0"], ["punctuation", ";"],
+	"\n\ty ", ["operator", "="], ["number", "0"], ["punctuation", ";"],
+	"\n\tz ", ["operator", "="], ["number", "0"], ["punctuation", ";"],
+	"\n\tname ", ["operator", "="], ["keyword", "null"], ["punctuation", ";"],
+	"\n\ttype ", ["operator", "="], ["keyword", "null"], ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	" Entity",
+	["operator", "::"],
+	["function", "MoveTo"],
+	["punctuation", "("],
+	"newx",
+	["punctuation", ","],
+	"newy",
+	["punctuation", ","],
+	"newz",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tx ",
+	["operator", "="],
+	" newx",
+	["punctuation", ";"],
+
+	"\n\ty ",
+	["operator", "="],
+	" newy",
+	["punctuation", ";"],
+
+	"\n\tz ",
+	["operator", "="],
+	" newz",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	["class-name", ["Player"]],
+	["keyword", "extends"],
+	["class-name", ["Entity"]],
+	["punctuation", "{"],
+
+	["keyword", "constructor"],
+	["punctuation", "("],
+	"entityname",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "base"],
+	["punctuation", "."],
+	["keyword", "constructor"],
+	["punctuation", "("],
+	["string", "\"Player\""],
+	["punctuation", ","],
+	"entityname",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "DoDomething"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["operator", "::"],
+	["function", "print"],
+	["punctuation", "("],
+	["string", "\"something\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "local"],
+	" newplayer ",
+	["operator", "="],
+	["function", "Player"],
+	["punctuation", "("],
+	["string", "\"da playar\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\nnewplayer",
+	["punctuation", "."],
+	["function", "MoveTo"],
+	["punctuation", "("],
+	["number", "100"],
+	["punctuation", ","],
+	["number", "200"],
+	["punctuation", ","],
+	["number", "300"],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

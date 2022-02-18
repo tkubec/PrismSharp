@@ -1,0 +1,34 @@
+""
+"fo\"obar"
+
+"""fo"o
+bar"""
+"""fo"o
+// comment
+bar"""
+"""{"name":"James"}"""
+"foo /* comment */ bar"
+
+s"Hello, $name"
+s"1 + 1 = ${1 + 1}"
+s"New offers starting at $$14.99"
+f"$name%s is $height%2.2f meters tall"
+json"{ name: $name, id: $id }"
+----------------------------------------------------
+[
+	["string", "\"\""],
+	["string", "\"fo\\\"obar\""],
+
+	["triple-quoted-string", "\"\"\"fo\"o\r\nbar\"\"\""],
+	["triple-quoted-string", "\"\"\"fo\"o\r\n// comment\r\nbar\"\"\""],
+	["triple-quoted-string", "\"\"\"{\"name\":\"James\"}\"\"\""],
+	["string", "\"foo /* comment */ bar\""],
+
+	"\r\n\r\ns", ["string", "\"Hello, $name\""],
+	"\r\ns", ["string", "\"1 + 1 = ${1 + 1}\""],
+	"\r\ns", ["string", "\"New offers starting at $$14.99\""],
+	"\r\nf", ["string", "\"$name%s is $height%2.2f meters tall\""],
+	"\r\njson", ["string", "\"{ name: $name, id: $id }\""]
+]
+
+----------------------------------------------------

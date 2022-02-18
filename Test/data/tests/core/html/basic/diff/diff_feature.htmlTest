@@ -1,0 +1,21 @@
+!     qt: core
+
+  unchanged
+
+-    qt: core
++    qt: core gui
+
+< qt: core
+> qt: core quick
+----------------------------------------------------
+<span class="token diff bold"><span class="token prefix diff">!</span><span class="token line">     qt: core
+</span></span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> unchanged
+</span></span>
+<span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">    qt: core
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">    qt: core gui
+</span></span>
+<span class="token deleted-arrow deleted"><span class="token prefix deleted">&lt;</span><span class="token line"> qt: core
+</span></span><span class="token inserted-arrow inserted"><span class="token prefix inserted">></span><span class="token line"> qt: core quick</span></span>
+
+----------------------------------------------------

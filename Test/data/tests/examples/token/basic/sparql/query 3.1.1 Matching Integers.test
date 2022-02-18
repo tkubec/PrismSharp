@@ -1,0 +1,14 @@
+SELECT ?v WHERE { ?v ?p 42 }
+----------------------------------------------------
+[
+	["keyword", "SELECT"],
+	["variable", "?v"],
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?v"],
+	["variable", "?p"],
+	["number", "42"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

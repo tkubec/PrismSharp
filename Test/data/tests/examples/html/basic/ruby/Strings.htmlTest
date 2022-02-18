@@ -1,0 +1,13 @@
+"foo \"bar\" baz"
+'foo \'bar\' baz'
+<<STRING
+  here's some #{string} contents
+STRING
+----------------------------------------------------
+<span class="token string-literal"><span class="token string">"foo \"bar\" baz"</span></span>
+<span class="token string-literal"><span class="token string">'foo \'bar\' baz'</span></span>
+<span class="token string-literal heredoc-string"><span class="token delimiter"><span class="token punctuation">&lt;&lt;</span><span class="token symbol">STRING</span></span><span class="token string">
+  here's some </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">string</span><span class="token delimiter punctuation">}</span></span><span class="token string"> contents
+</span><span class="token delimiter"><span class="token symbol">STRING</span></span></span>
+
+----------------------------------------------------

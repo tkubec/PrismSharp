@@ -1,0 +1,128 @@
+module Main
+
+import Data.Vect
+
+-- this is comment
+record Person where
+  constructor MkPerson2
+  age : Integer
+  name : String
+
+||| identity function
+id : a -> a
+id x = x
+
+{-
+Bool type can be defined in
+userland
+-}
+data Bool = True | False
+
+implementation Show Bool where
+  show True = "True"
+  show False = "False"
+
+not : Bool -> Bool
+not b = case b of
+          True  => False
+          False => True
+
+vect3 : Vect 3 Int
+vect3 = with Vect (1 :: 2 :: 3 :: Nil)
+----------------------------------------------------
+[
+	["keyword", "module"], ["constant", ["Main"]],
+
+	["keyword", "import"],
+	["import-statement", [
+		"Data",
+		["punctuation", "."],
+		"Vect"
+	]],
+
+	["comment", "-- this is comment"],
+	["keyword", "record"], ["constant", ["Person"]], ["keyword", "where"],
+	["keyword", "constructor"], ["constant", ["MkPerson2"]],
+	["hvariable", ["age"]], ["operator", ":"], ["constant", ["Integer"]],
+	["hvariable", ["name"]], ["operator", ":"], ["constant", ["String"]],
+
+	["comment", "||| identity function"],
+
+	["hvariable", ["id"]],
+	["operator", ":"],
+	["hvariable", ["a"]],
+	["operator", "->"],
+	["hvariable", ["a"]],
+
+	["hvariable", ["id"]],
+	["hvariable", ["x"]],
+	["operator", "="],
+	["hvariable", ["x"]],
+
+	["comment", "{-\nBool type can be defined in\nuserland\n-}"],
+
+	["keyword", "data"],
+	["constant", ["Bool"]],
+	["operator", "="],
+	["constant", ["True"]],
+	["operator", "|"],
+	["constant", ["False"]],
+
+	["keyword", "implementation"],
+	["constant", ["Show"]],
+	["constant", ["Bool"]],
+	["keyword", "where"],
+
+	["hvariable", ["show"]],
+	["constant", ["True"]],
+	["operator", "="],
+	["string", "\"True\""],
+
+	["hvariable", ["show"]],
+	["constant", ["False"]],
+	["operator", "="],
+	["string", "\"False\""],
+
+	["hvariable", ["not"]],
+	["operator", ":"],
+	["constant", ["Bool"]],
+	["operator", "->"],
+	["constant", ["Bool"]],
+
+	["hvariable", ["not"]],
+	["hvariable", ["b"]],
+	["operator", "="],
+	["keyword", "case"],
+	["hvariable", ["b"]],
+	["keyword", "of"],
+
+	["constant", ["True"]],
+	["operator", "=>"],
+	["constant", ["False"]],
+
+	["constant", ["False"]],
+	["operator", "=>"],
+	["constant", ["True"]],
+
+	["hvariable", ["vect3"]],
+	["operator", ":"],
+	["constant", ["Vect"]],
+	["number", "3"],
+	["constant", ["Int"]],
+
+	["hvariable", ["vect3"]],
+	["operator", "="],
+	["keyword", "with"],
+	["constant", ["Vect"]],
+	["punctuation", "("],
+	["number", "1"],
+	["operator", "::"],
+	["number", "2"],
+	["operator", "::"],
+	["number", "3"],
+	["operator", "::"],
+	["constant", ["Nil"]],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

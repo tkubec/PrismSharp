@@ -1,0 +1,9 @@
+/home/user$ echo "Hello World"
+Hello World
+/home/user$ exit
+----------------------------------------------------
+<span class="token command"><span class="token info punctuation"><span class="token path">/home/user</span></span><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"Hello World"</span></span></span>
+<span class="token output">Hello World
+</span><span class="token command"><span class="token info punctuation"><span class="token path">/home/user</span></span><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">exit</span></span></span>
+
+----------------------------------------------------

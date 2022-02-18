@@ -1,0 +1,121 @@
+#user
+  if user.description
+    p.description= user.description
+  else if authorised
+    p.description.
+      User has no description,
+      why not add one...
+  else
+    p.description User has no description
+ul
+  each val in [1, 2, 3, 4, 5]
+    li= val
+case friends
+  when 0
+    p you have no friends
+  when 1
+    p you have a friend
+  default
+    p you have #{friends} friends
+----------------------------------------------------
+[
+	["tag", [
+		["attr-id", "#user"]
+	]],
+
+	["flow-control", [
+		["branch", "if"],
+		" user",
+		["punctuation", "."],
+		"description"
+	]],
+
+	["tag", [
+		"p",
+		["attr-class", ".description"]
+	]],
+	["punctuation", "="],
+	["code", [
+		" user",
+		["punctuation", "."],
+		"description"
+	]],
+
+	["flow-control", [
+		["branch", "else"],
+		["keyword", "if"],
+		" authorised"
+	]],
+
+	["tag", [
+		"p",
+		["attr-class", ".description"]
+	]],
+	["punctuation", "."],
+	["multiline-plain-text", "\n      User has no description,\n      why not add one..."],
+
+	["flow-control", [
+		["branch", "else"]
+	]],
+
+	["tag", [
+		"p",
+		["attr-class", ".description"]
+	]],
+	["plain-text", "User has no description"],
+
+	["tag", ["ul"]],
+
+	["flow-control", [
+		["each", [
+			["keyword", "each"],
+			" val ",
+			["keyword", "in"]
+		]],
+		["punctuation", "["],
+		["number", "1"],
+		["punctuation", ","],
+		["number", "2"],
+		["punctuation", ","],
+		["number", "3"],
+		["punctuation", ","],
+		["number", "4"],
+		["punctuation", ","],
+		["number", "5"],
+		["punctuation", "]"]
+	]],
+
+	["tag", ["li"]],
+	["punctuation", "="],
+	["code", [" val"]],
+
+	["flow-control", [
+		["branch", "case"],
+		" friends"
+	]],
+
+	["flow-control", [
+		["branch", "when"],
+		["number", "0"]
+	]],
+
+	["tag", ["p"]],
+	["plain-text", "you have no friends"],
+
+	["flow-control", [
+		["branch", "when"],
+		["number", "1"]
+	]],
+
+	["tag", ["p"]],
+	["plain-text", "you have a friend"],
+
+	["flow-control", [
+		["branch", "default"]
+	]],
+
+	["tag", ["p"]],
+	["plain-text", "you have #{friends} friends"]
+]
+
+----------------------------------------------------

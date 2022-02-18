@@ -1,0 +1,35 @@
+<html>
+  <body>
+    Hello $customer.Name!
+    <table>
+    #foreach( $mud in $mudsOnSpecial )
+      #if ( $customer.hasPurchased($mud) )
+        <tr>
+          <td>
+            $flogger.getPromo( $mud )
+          </td>
+        </tr>
+      #end
+    #end
+    </table>
+  </body>
+</html>
+----------------------------------------------------
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    Hello <span class="token variable">$customer<span class="token punctuation">.</span>Name</span>!
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+    <span class="token directive"><span class="token keyword">#foreach</span><span class="token punctuation">(</span> <span class="token variable">$mud</span> <span class="token keyword">in</span> <span class="token variable">$mudsOnSpecial</span> <span class="token punctuation">)</span></span>
+      <span class="token directive"><span class="token keyword">#if</span> <span class="token punctuation">(</span> <span class="token variable">$customer<span class="token punctuation">.</span><span class="token function">hasPurchased</span><span class="token punctuation">(</span>$mud<span class="token punctuation">)</span></span> <span class="token punctuation">)</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>
+            <span class="token variable">$flogger<span class="token punctuation">.</span><span class="token function">getPromo</span><span class="token punctuation">(</span> $mud <span class="token punctuation">)</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+      <span class="token directive"><span class="token keyword">#end</span></span>
+    <span class="token directive"><span class="token keyword">#end</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

@@ -1,0 +1,357 @@
+# example from Str.ls
+
+split = (sep, str) -->
+  str.split sep
+
+join = (sep, xs) -->
+  xs.join sep
+
+lines = (str) ->
+  return [] unless str.length
+  str.split '\n'
+
+unlines = (.join '\n')
+
+words = (str) ->
+  return [] unless str.length
+  str.split /[ ]+/
+
+unwords = (.join ' ')
+
+chars = (.split '')
+
+unchars = (.join '')
+
+reverse = (str) ->
+  str.split '' .reverse!.join ''
+
+repeat = (n, str) -->
+  result = ''
+  for til n
+    result += str
+  result
+
+capitalize = (str) ->
+  (str.char-at 0).to-upper-case! + str.slice 1
+
+camelize = (.replace /[-_]+(.)?/g, (, c) -> (c ? '').to-upper-case!)
+
+# convert camelCase to camel-case, and setJSON to set-JSON
+dasherize = (str) ->
+    str
+      .replace /([^-A-Z])([A-Z]+)/g, (, lower, upper) ->
+         "#{lower}-#{if upper.length > 1 then upper else upper.to-lower-case!}"
+      .replace /^([A-Z]+)/, (, upper) ->
+         if upper.length > 1 then "#upper-" else upper.to-lower-case!
+
+module.exports = {
+  split, join, lines, unlines, words, unwords, chars, unchars, reverse,
+  repeat, capitalize, camelize, dasherize,
+}
+----------------------------------------------------
+[
+	["comment", "# example from Str.ls"],
+
+	["identifier", "split"],
+	["operator", "="],
+	["punctuation", "("],
+	["identifier", "sep"],
+	["punctuation", ","],
+	["identifier", "str"],
+	["punctuation", ")"],
+	["operator", "-->"],
+
+	["identifier", "str"],
+	["punctuation", "."],
+	["identifier", "split"],
+	["identifier", "sep"],
+
+	["identifier", "join"],
+	["operator", "="],
+	["punctuation", "("],
+	["identifier", "sep"],
+	["punctuation", ","],
+	["identifier", "xs"],
+	["punctuation", ")"],
+	["operator", "-->"],
+
+	["identifier", "xs"],
+	["punctuation", "."],
+	["identifier", "join"],
+	["identifier", "sep"],
+
+	["identifier", "lines"],
+	["operator", "="],
+	["punctuation", "("],
+	["identifier", "str"],
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["keyword", "return"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["keyword", "unless"],
+	["identifier", "str"],
+	["punctuation", "."],
+	["identifier", "length"],
+
+	["identifier", "str"],
+	["punctuation", "."],
+	["identifier", "split"],
+	["string", "'\\n'"],
+
+	["identifier", "unlines"],
+	["operator", "="],
+	["punctuation", "("],
+	["punctuation", "."],
+	["identifier", "join"],
+	["string", "'\\n'"],
+	["punctuation", ")"],
+
+	["identifier", "words"],
+	["operator", "="],
+	["punctuation", "("],
+	["identifier", "str"],
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["keyword", "return"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["keyword", "unless"],
+	["identifier", "str"],
+	["punctuation", "."],
+	["identifier", "length"],
+
+	["identifier", "str"],
+	["punctuation", "."],
+	["identifier", "split"],
+	["regex", "/[ ]+/"],
+
+	["identifier", "unwords"],
+	["operator", "="],
+	["punctuation", "("],
+	["punctuation", "."],
+	["identifier", "join"],
+	["string", "' '"],
+	["punctuation", ")"],
+
+	["identifier", "chars"],
+	["operator", "="],
+	["punctuation", "("],
+	["punctuation", "."],
+	["identifier", "split"],
+	["string", "''"],
+	["punctuation", ")"],
+
+	["identifier", "unchars"],
+	["operator", "="],
+	["punctuation", "("],
+	["punctuation", "."],
+	["identifier", "join"],
+	["string", "''"],
+	["punctuation", ")"],
+
+	["identifier", "reverse"],
+	["operator", "="],
+	["punctuation", "("],
+	["identifier", "str"],
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["identifier", "str"],
+	["punctuation", "."],
+	["identifier", "split"],
+	["string", "''"],
+	["punctuation", "."],
+	["identifier", "reverse"],
+	["operator", "!"],
+	["punctuation", "."],
+	["identifier", "join"],
+	["string", "''"],
+
+	["identifier", "repeat"],
+	["operator", "="],
+	["punctuation", "("],
+	["identifier", "n"],
+	["punctuation", ","],
+	["identifier", "str"],
+	["punctuation", ")"],
+	["operator", "-->"],
+
+	["identifier", "result"],
+	["operator", "="],
+	["string", "''"],
+
+	["keyword", "for"],
+	["keyword-operator", "til"],
+	["identifier", "n"],
+
+	["identifier", "result"],
+	["operator", "+"],
+	["operator", "="],
+	["identifier", "str"],
+
+	["identifier", "result"],
+
+	["identifier", "capitalize"],
+	["operator", "="],
+	["punctuation", "("],
+	["identifier", "str"],
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["punctuation", "("],
+	["identifier", "str"],
+	["punctuation", "."],
+	["identifier", "char-at"],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", "."],
+	["identifier", "to-upper-case"],
+	["operator", "!"],
+	["operator", "+"],
+	["identifier", "str"],
+	["punctuation", "."],
+	["identifier", "slice"],
+	["number", "1"],
+
+	["identifier", "camelize"],
+	["operator", "="],
+	["punctuation", "("],
+	["punctuation", "."],
+	["identifier", "replace"],
+	["regex", "/[-_]+(.)?/g"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["punctuation", ","],
+	["identifier", "c"],
+	["punctuation", ")"],
+	["operator", "->"],
+	["punctuation", "("],
+	["identifier", "c"],
+	["operator", "?"],
+	["string", "''"],
+	["punctuation", ")"],
+	["punctuation", "."],
+	["identifier", "to-upper-case"],
+	["operator", "!"],
+	["punctuation", ")"],
+
+	["comment", "# convert camelCase to camel-case, and setJSON to set-JSON"],
+
+	["identifier", "dasherize"],
+	["operator", "="],
+	["punctuation", "("],
+	["identifier", "str"],
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["identifier", "str"],
+
+	["punctuation", "."],
+	["identifier", "replace"],
+	["regex", "/([^-A-Z])([A-Z]+)/g"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["punctuation", ","],
+	["identifier", "lower"],
+	["punctuation", ","],
+	["identifier", "upper"],
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["interpolated-string", [
+		["string", "\""],
+		["interpolation", [
+			["interpolation-punctuation", "#{"],
+			["identifier", "lower"],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", "-"],
+		["interpolation", [
+			["interpolation-punctuation", "#{"],
+			["keyword", "if"],
+			["identifier", "upper"],
+			["punctuation", "."],
+			["identifier", "length"],
+			["operator", ">"],
+			["number", "1"],
+			["keyword", "then"],
+			["identifier", "upper"],
+			["keyword", "else"],
+			["identifier", "upper"],
+			["punctuation", "."],
+			["identifier", "to-lower-case"],
+			["operator", "!"],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", "\""]
+	]],
+
+	["punctuation", "."],
+	["identifier", "replace"],
+	["regex", "/^([A-Z]+)/"],
+	["punctuation", ","],
+	["punctuation", "("],
+	["punctuation", ","],
+	["identifier", "upper"],
+	["punctuation", ")"],
+	["operator", "->"],
+
+	["keyword", "if"],
+	["identifier", "upper"],
+	["punctuation", "."],
+	["identifier", "length"],
+	["operator", ">"],
+	["number", "1"],
+	["keyword", "then"],
+	["interpolated-string", [
+		["string", "\""],
+		["variable", "#upper"],
+		["string", "-\""]
+	]],
+	["keyword", "else"],
+	["identifier", "upper"],
+	["punctuation", "."],
+	["identifier", "to-lower-case"],
+	["operator", "!"],
+
+	["identifier", "module"],
+	["punctuation", "."],
+	["identifier", "exports"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["identifier", "split"],
+	["punctuation", ","],
+	["identifier", "join"],
+	["punctuation", ","],
+	["identifier", "lines"],
+	["punctuation", ","],
+	["identifier", "unlines"],
+	["punctuation", ","],
+	["identifier", "words"],
+	["punctuation", ","],
+	["identifier", "unwords"],
+	["punctuation", ","],
+	["identifier", "chars"],
+	["punctuation", ","],
+	["identifier", "unchars"],
+	["punctuation", ","],
+	["identifier", "reverse"],
+	["punctuation", ","],
+
+	["identifier", "repeat"],
+	["punctuation", ","],
+	["identifier", "capitalize"],
+	["punctuation", ","],
+	["identifier", "camelize"],
+	["punctuation", ","],
+	["identifier", "dasherize"],
+	["punctuation", ","],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

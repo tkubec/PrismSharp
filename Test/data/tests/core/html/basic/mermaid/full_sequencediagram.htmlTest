@@ -1,0 +1,221 @@
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+
+sequenceDiagram
+    participant John
+    participant Alice
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+
+sequenceDiagram
+    participant A as Alice
+    participant J as John
+    A->>J: Hello John, how are you?
+    J->>A: Great!
+
+[Actor][Arrow][Actor]:Message text
+
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    activate John
+    John-->>Alice: Great!
+    deactivate John
+
+sequenceDiagram
+    Alice->>+John: Hello John, how are you?
+    John-->>-Alice: Great!
+
+sequenceDiagram
+    Alice->>+John: Hello John, how are you?
+    Alice->>+John: John, can you hear me?
+    John-->>-Alice: Hi Alice, I can hear you!
+    John-->>-Alice: I feel great!
+
+sequenceDiagram
+    participant John
+    Note right of John: Text in note
+
+sequenceDiagram
+    Alice->John: Hello John, how are you?
+    Note over Alice,John: A typical interaction
+
+loop Loop text
+... statements ...
+end
+
+sequenceDiagram
+    Alice->John: Hello John, how are you?
+    loop Every minute
+        John-->Alice: Great!
+    end
+
+alt Describing text
+... statements ...
+else
+... statements ...
+end
+
+opt Describing text
+... statements ...
+end
+
+sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you?
+    alt is sick
+        Bob->>Alice: Not so good :(
+    else is well
+        Bob->>Alice: Feeling fresh like a daisy
+    end
+    opt Extra response
+        Bob->>Alice: Thanks for asking
+    end
+
+par [Action 1]
+... statements ...
+and [Action 2]
+... statements ...
+and [Action N]
+... statements ...
+end
+
+rect rgb(0, 255, 0)
+... content ...
+end
+
+rect rgba(0, 0, 255, .1)
+... content ...
+end
+
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    %% this is a comment
+    John-->>Alice: Great!
+
+sequenceDiagram
+    A->>B: I #9829; you!
+    B->>A: I #9829; you #infin; times more!
+
+sequenceDiagram
+    autonumber
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+----------------------------------------------------
+<span class="token keyword">sequenceDiagram</span>
+    Alice<span class="token arrow operator">->></span>John<span class="token operator">:</span> Hello John, how are you?
+    John<span class="token arrow operator">-->></span>Alice<span class="token operator">:</span> Great!
+    Alice<span class="token arrow operator">-)</span>John<span class="token operator">:</span> See you later!
+
+<span class="token keyword">sequenceDiagram</span>
+    <span class="token keyword">participant</span> John
+    <span class="token keyword">participant</span> Alice
+    Alice<span class="token arrow operator">->></span>John<span class="token operator">:</span> Hello John, how are you?
+    John<span class="token arrow operator">-->></span>Alice<span class="token operator">:</span> Great!
+
+<span class="token keyword">sequenceDiagram</span>
+    <span class="token keyword">participant</span> A as Alice
+    <span class="token keyword">participant</span> J as John
+    A<span class="token arrow operator">->></span>J<span class="token operator">:</span> Hello John, how are you?
+    J<span class="token arrow operator">->></span>A<span class="token operator">:</span> Great!
+
+<span class="token text string">[Actor]</span><span class="token text string">[Arrow]</span><span class="token text string">[Actor]</span><span class="token operator">:</span>Message text
+
+<span class="token keyword">sequenceDiagram</span>
+    Alice<span class="token arrow operator">->></span>John<span class="token operator">:</span> Hello John, how are you?
+    <span class="token keyword">activate</span> John
+    John<span class="token arrow operator">-->></span>Alice<span class="token operator">:</span> Great!
+    <span class="token keyword">deactivate</span> John
+
+<span class="token keyword">sequenceDiagram</span>
+    Alice<span class="token arrow operator">->></span>+John<span class="token operator">:</span> Hello John, how are you?
+    John<span class="token arrow operator">-->></span>-Alice<span class="token operator">:</span> Great!
+
+<span class="token keyword">sequenceDiagram</span>
+    Alice<span class="token arrow operator">->></span>+John<span class="token operator">:</span> Hello John, how are you?
+    Alice<span class="token arrow operator">->></span>+John<span class="token operator">:</span> John, can you hear me?
+    John<span class="token arrow operator">-->></span>-Alice<span class="token operator">:</span> Hi Alice, I can hear you!
+    John<span class="token arrow operator">-->></span>-Alice<span class="token operator">:</span> I feel great!
+
+<span class="token keyword">sequenceDiagram</span>
+    <span class="token keyword">participant</span> John
+    <span class="token keyword">Note right of</span> John<span class="token operator">:</span> Text in note
+
+<span class="token keyword">sequenceDiagram</span>
+    Alice<span class="token arrow operator">-></span>John<span class="token operator">:</span> Hello John, how are you?
+    <span class="token keyword">Note over</span> Alice,John<span class="token operator">:</span> A typical interaction
+
+<span class="token keyword">loop</span> Loop text
+... statements ...
+<span class="token keyword">end</span>
+
+<span class="token keyword">sequenceDiagram</span>
+    Alice<span class="token arrow operator">-></span>John<span class="token operator">:</span> Hello John, how are you?
+    <span class="token keyword">loop</span> Every minute
+        John<span class="token arrow operator">--></span>Alice<span class="token operator">:</span> Great!
+    <span class="token keyword">end</span>
+
+<span class="token keyword">alt</span> Describing text
+... statements ...
+<span class="token keyword">else</span>
+... statements ...
+<span class="token keyword">end</span>
+
+<span class="token keyword">opt</span> Describing text
+... statements ...
+<span class="token keyword">end</span>
+
+<span class="token keyword">sequenceDiagram</span>
+    Alice<span class="token arrow operator">->></span>Bob<span class="token operator">:</span> Hello Bob, how are you?
+    <span class="token keyword">alt</span> is sick
+        Bob<span class="token arrow operator">->></span>Alice<span class="token operator">:</span> Not so good <span class="token operator">:</span><span class="token punctuation">(</span>
+    <span class="token keyword">else</span> is well
+        Bob<span class="token arrow operator">->></span>Alice<span class="token operator">:</span> Feeling fresh like a daisy
+    <span class="token keyword">end</span>
+    <span class="token keyword">opt</span> Extra response
+        Bob<span class="token arrow operator">->></span>Alice<span class="token operator">:</span> Thanks for asking
+    <span class="token keyword">end</span>
+
+<span class="token keyword">par</span> <span class="token text string">[Action 1]</span>
+... statements ...
+<span class="token keyword">and</span> <span class="token text string">[Action 2]</span>
+... statements ...
+<span class="token keyword">and</span> <span class="token text string">[Action N]</span>
+... statements ...
+<span class="token keyword">end</span>
+
+<span class="token keyword">rect</span> rgb<span class="token text string">(0, 255, 0)</span>
+... content ...
+<span class="token keyword">end</span>
+
+<span class="token keyword">rect</span> rgba<span class="token text string">(0, 0, 255, .1)</span>
+... content ...
+<span class="token keyword">end</span>
+
+<span class="token keyword">sequenceDiagram</span>
+    Alice<span class="token arrow operator">->></span>John<span class="token operator">:</span> Hello John, how are you?
+    <span class="token comment">%% this is a comment</span>
+    John<span class="token arrow operator">-->></span>Alice<span class="token operator">:</span> Great!
+
+<span class="token keyword">sequenceDiagram</span>
+    A<span class="token arrow operator">->></span>B<span class="token operator">:</span> I <span class="token entity">#9829;</span> you!
+    B<span class="token arrow operator">->></span>A<span class="token operator">:</span> I <span class="token entity">#9829;</span> you <span class="token entity">#infin;</span> times more!
+
+<span class="token keyword">sequenceDiagram</span>
+    <span class="token keyword">autonumber</span>
+    Alice<span class="token arrow operator">->></span>John<span class="token operator">:</span> Hello John, how are you?
+    <span class="token keyword">loop</span> Healthcheck
+        John<span class="token arrow operator">->></span>John<span class="token operator">:</span> Fight against hypochondria
+    <span class="token keyword">end</span>
+    <span class="token keyword">Note right of</span> John<span class="token operator">:</span> Rational thoughts!
+    John<span class="token arrow operator">-->></span>Alice<span class="token operator">:</span> Great!
+    John<span class="token arrow operator">->></span>Bob<span class="token operator">:</span> How about you?
+    Bob<span class="token arrow operator">-->></span>John<span class="token operator">:</span> Jolly good!
+
+----------------------------------------------------

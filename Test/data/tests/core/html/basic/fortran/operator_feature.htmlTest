@@ -1,0 +1,19 @@
+** // =>
+== /= ::
+< <= > >=
++ - * / = %
+.EQ. .NE. .LT. .LE.
+.GT. .GE. .NOT. .AND.
+.OR. .EQV. .NEQV.
+.foobar.
+----------------------------------------------------
+<span class="token operator">**</span> <span class="token operator">//</span> <span class="token operator">=></span>
+<span class="token operator">==</span> <span class="token operator">/=</span> <span class="token operator">::</span>
+<span class="token operator">&lt;</span> <span class="token operator">&lt;=</span> <span class="token operator">></span> <span class="token operator">>=</span>
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">=</span> <span class="token operator">%</span>
+<span class="token operator">.EQ.</span> <span class="token operator">.NE.</span> <span class="token operator">.LT.</span> <span class="token operator">.LE.</span>
+<span class="token operator">.GT.</span> <span class="token operator">.GE.</span> <span class="token operator">.NOT.</span> <span class="token operator">.AND.</span>
+<span class="token operator">.OR.</span> <span class="token operator">.EQV.</span> <span class="token operator">.NEQV.</span>
+<span class="token operator">.foobar.</span>
+
+----------------------------------------------------

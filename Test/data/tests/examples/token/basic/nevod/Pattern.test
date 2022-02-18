@@ -1,0 +1,97 @@
+@pattern #Percentage = Num + ?Space + {'%', 'pct.', 'pct', 'percent'};
+@pattern #GUID = Word(8) + [3 '-' + Word(4)] + '-' + Word(12);
+@pattern #HashTag = '#' + {AlphaNum, Alpha, '_'} + [0+ {Word, '_'}];
+----------------------------------------------------
+[
+	["keyword", "@pattern"],
+	["pattern", [
+		["pattern-name", "#Percentage"]
+	]],
+	["operator", "="],
+	["standard-pattern", [
+		["standard-pattern-name", "Num"]
+	]],
+	["operator", "+"],
+	["operator", "?"],
+	["standard-pattern", [
+		["standard-pattern-name", "Space"]
+	]],
+	["operator", "+"],
+	["operator", "{"],
+	["string", ["'%'"]],
+	["punctuation", ","],
+	["string", ["'pct.'"]],
+	["punctuation", ","],
+	["string", ["'pct'"]],
+	["punctuation", ","],
+	["string", ["'percent'"]],
+	["operator", "}"],
+	["punctuation", ";"],
+
+	["keyword", "@pattern"],
+	["pattern", [
+		["pattern-name", "#GUID"]
+	]],
+	["operator", "="],
+	["standard-pattern", [
+		["standard-pattern-name", "Word"],
+		["punctuation", "("],
+		["quantifier", "8"],
+		["punctuation", ")"]
+	]],
+	["operator", "+"],
+	["operator", "["],
+	["quantifier", "3"],
+	["string", ["'-'"]],
+	["operator", "+"],
+	["standard-pattern", [
+		["standard-pattern-name", "Word"],
+		["punctuation", "("],
+		["quantifier", "4"],
+		["punctuation", ")"]
+	]],
+	["operator", "]"],
+	["operator", "+"],
+	["string", ["'-'"]],
+	["operator", "+"],
+	["standard-pattern", [
+		["standard-pattern-name", "Word"],
+		["punctuation", "("],
+		["quantifier", "12"],
+		["punctuation", ")"]
+	]],
+	["punctuation", ";"],
+
+	["keyword", "@pattern"],
+	["pattern", [
+		["pattern-name", "#HashTag"]
+	]],
+	["operator", "="],
+	["string", ["'#'"]],
+	["operator", "+"],
+	["operator", "{"],
+	["standard-pattern", [
+		["standard-pattern-name", "AlphaNum"]
+	]],
+	["punctuation", ","],
+	["standard-pattern", [
+		["standard-pattern-name", "Alpha"]
+	]],
+	["punctuation", ","],
+	["string", ["'_'"]],
+	["operator", "}"],
+	["operator", "+"],
+	["operator", "["],
+	["quantifier", "0+"],
+	["operator", "{"],
+	["standard-pattern", [
+		["standard-pattern-name", "Word"]
+	]],
+	["punctuation", ","],
+	["string", ["'_'"]],
+	["operator", "}"],
+	["operator", "]"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

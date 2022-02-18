@@ -1,0 +1,15 @@
+// Single line comment
+/* Multi-line
+	comment */
+/+ Mutli-line
+	/+ nestable +/
+	comment +/
+----------------------------------------------------
+<span class="token comment">// Single line comment</span>
+<span class="token comment">/* Multi-line
+	comment */</span>
+<span class="token comment">/+ Mutli-line
+	/+ nestable +/
+	comment +/</span>
+
+----------------------------------------------------

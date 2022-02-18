@@ -1,0 +1,49 @@
+foo $host;
+foo $geoip_city_country_code3
+set $0 foo;
+set $_ foo;
+set $arg_? foo;
+
+# real example
+
+log_format main      '$remote_addr - $remote_user [$time_local]  '
+  '"$request" $status $bytes_sent '
+  '"$http_referer" "$http_user_agent" '
+  '"$gzip_ratio"';
+
+location / {
+    ssi on;
+    set $inc $request_uri;
+    if (!-f $request_filename) {
+        rewrite ^ /index.html last;
+    }
+    if (!-f $document_root$inc.html) {
+        return 404;
+    }
+}
+----------------------------------------------------
+<span class="token directive"><span class="token keyword">foo</span> <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">foo</span> <span class="token variable">$geoip_city_country_code3</span>
+set <span class="token variable">$0</span> foo</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">set</span> <span class="token variable">$_</span> foo</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">set</span> <span class="token variable">$arg_?</span> foo</span><span class="token punctuation">;</span>
+
+<span class="token comment"># real example</span>
+
+<span class="token directive"><span class="token keyword">log_format</span> main      <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local]</span>  '</span>
+  <span class="token string">'"<span class="token variable">$request</span>" <span class="token variable">$status</span> <span class="token variable">$bytes_sent</span> '</span>
+  <span class="token string">'"<span class="token variable">$http_referer</span>" "<span class="token variable">$http_user_agent</span>" '</span>
+  <span class="token string">'"<span class="token variable">$gzip_ratio</span>"'</span></span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">ssi</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">set</span> <span class="token variable">$inc</span> <span class="token variable">$request_uri</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">if</span> (!-f <span class="token variable">$request_filename</span>)</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">rewrite</span> ^ /index.html last</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token directive"><span class="token keyword">if</span> (!-f <span class="token variable">$document_root</span><span class="token variable">$inc</span>.html)</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">return</span> <span class="token number">404</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

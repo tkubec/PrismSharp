@@ -1,0 +1,33 @@
+'a'
+'\n'
+'\13'
+'🍌'
+'ab'
+
+u'a'
+u'¢'
+u'猫'
+U'猫'
+L'猫'
+
+'\1\2\3\4'
+'\xFF'
+u'\U0001f34c'
+----------------------------------------------------
+<span class="token char">'a'</span>
+<span class="token char">'\n'</span>
+<span class="token char">'\13'</span>
+<span class="token char">'🍌'</span>
+<span class="token char">'ab'</span>
+
+u<span class="token char">'a'</span>
+u<span class="token char">'¢'</span>
+u<span class="token char">'猫'</span>
+U<span class="token char">'猫'</span>
+L<span class="token char">'猫'</span>
+
+<span class="token char">'\1\2\3\4'</span>
+<span class="token char">'\xFF'</span>
+u<span class="token char">'\U0001f34c'</span>
+
+----------------------------------------------------

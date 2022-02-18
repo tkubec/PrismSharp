@@ -1,0 +1,11 @@
+tell application "Finder"
+text 1 thru 5 of "Bring me the mouse."
+set averageTemp to 63 as degrees Fahrenheit
+set circleArea to (pi * 7 * 7) as square yards
+----------------------------------------------------
+<span class="token keyword">tell</span> <span class="token class-name">application</span> <span class="token string">"Finder"</span>
+<span class="token class-name">text</span> <span class="token number">1</span> <span class="token keyword">thru</span> <span class="token number">5</span> <span class="token keyword">of</span> <span class="token string">"Bring me the mouse."</span>
+<span class="token keyword">set</span> averageTemp <span class="token keyword">to</span> <span class="token number">63</span> <span class="token operator">as</span> <span class="token class-name">degrees Fahrenheit</span>
+<span class="token keyword">set</span> circleArea <span class="token keyword">to</span> <span class="token punctuation">(</span>pi <span class="token operator">*</span> <span class="token number">7</span> <span class="token operator">*</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token operator">as</span> <span class="token class-name">square yards</span>
+
+----------------------------------------------------

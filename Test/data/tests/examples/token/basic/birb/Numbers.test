@@ -1,0 +1,18 @@
+int x = 1;
+double y = 1.1;
+----------------------------------------------------
+[
+	["class-name", "int"],
+	["variable", "x"],
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["class-name", "double"],
+	["variable", "y"],
+	["operator", "="],
+	["number", "1.1"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+'Single quoted string';
+"Double quoted string";
+'String ''quoted'' string "containing" quote';
+"Double ""quoted"" string 'containing' quote";
+----------------------------------------------------
+<span class="token string">'Single quoted string'</span><span class="token punctuation">;</span>
+<span class="token string">"Double quoted string"</span><span class="token punctuation">;</span>
+<span class="token string">'String ''quoted'' string "containing" quote'</span><span class="token punctuation">;</span>
+<span class="token string">"Double ""quoted"" string 'containing' quote"</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

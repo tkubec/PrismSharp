@@ -1,0 +1,113 @@
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    CUSTOMER {
+        string name
+        string custNumber
+        string sector
+    }
+    ORDER ||--|{ LINE-ITEM : contains
+    ORDER {
+        int orderNumber
+        string deliveryAddress
+    }
+    LINE-ITEM {
+        string productCode
+        int quantity
+        float pricePerUnit
+    }
+
+PROPERTY ||--|{ ROOM : contains
+
+CAR ||--o{ NAMED-DRIVER : allows
+    PERSON ||--o{ NAMED-DRIVER : is
+
+erDiagram
+    CAR ||--o{ NAMED-DRIVER : allows
+    CAR {
+        string registrationNumber
+        string make
+        string model
+    }
+    PERSON ||--o{ NAMED-DRIVER : is
+    PERSON {
+        string firstName
+        string lastName
+        int age
+    }
+
+erDiagram
+    CAR ||--o{ NAMED-DRIVER : allows
+    CAR {
+        string registrationNumber
+        string make
+        string model
+    }
+    PERSON ||--o{ NAMED-DRIVER : is
+    PERSON {
+        string firstName
+        string lastName
+        int age
+    }
+----------------------------------------------------
+<span class="token keyword">erDiagram</span>
+    CUSTOMER <span class="token arrow operator">||--o{</span> ORDER <span class="token operator">:</span> places
+    ORDER <span class="token arrow operator">||--|{</span> LINE-ITEM <span class="token operator">:</span> contains
+    CUSTOMER <span class="token arrow operator">}|..|{</span> DELIVERY-ADDRESS <span class="token operator">:</span> uses
+
+<span class="token keyword">erDiagram</span>
+    CUSTOMER <span class="token arrow operator">||--o{</span> ORDER <span class="token operator">:</span> places
+    CUSTOMER <span class="token punctuation">{</span>
+        string name
+        string custNumber
+        string sector
+    <span class="token punctuation">}</span>
+    ORDER <span class="token arrow operator">||--|{</span> LINE-ITEM <span class="token operator">:</span> contains
+    ORDER <span class="token punctuation">{</span>
+        int orderNumber
+        string deliveryAddress
+    <span class="token punctuation">}</span>
+    LINE-ITEM <span class="token punctuation">{</span>
+        string productCode
+        int quantity
+        float pricePerUnit
+    <span class="token punctuation">}</span>
+
+PROPERTY <span class="token arrow operator">||--|{</span> ROOM <span class="token operator">:</span> contains
+
+CAR <span class="token arrow operator">||--o{</span> NAMED-DRIVER <span class="token operator">:</span> allows
+    PERSON <span class="token arrow operator">||--o{</span> NAMED-DRIVER <span class="token operator">:</span> is
+
+<span class="token keyword">erDiagram</span>
+    CAR <span class="token arrow operator">||--o{</span> NAMED-DRIVER <span class="token operator">:</span> allows
+    CAR <span class="token punctuation">{</span>
+        string registrationNumber
+        string make
+        string model
+    <span class="token punctuation">}</span>
+    PERSON <span class="token arrow operator">||--o{</span> NAMED-DRIVER <span class="token operator">:</span> is
+    PERSON <span class="token punctuation">{</span>
+        string firstName
+        string lastName
+        int age
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">erDiagram</span>
+    CAR <span class="token arrow operator">||--o{</span> NAMED-DRIVER <span class="token operator">:</span> allows
+    CAR <span class="token punctuation">{</span>
+        string registrationNumber
+        string make
+        string model
+    <span class="token punctuation">}</span>
+    PERSON <span class="token arrow operator">||--o{</span> NAMED-DRIVER <span class="token operator">:</span> is
+    PERSON <span class="token punctuation">{</span>
+        string firstName
+        string lastName
+        int age
+    <span class="token punctuation">}</span>
+
+----------------------------------------------------

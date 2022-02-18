@@ -1,0 +1,15 @@
+! FIXME: a comment
+
+USE: multiline
+
+![[ comment ]]
+/* comment */
+----------------------------------------------------
+<span class="token comment">! <span class="token function">FIXME</span>: a comment</span>
+
+<span class="token colon-syntax function">USE: multiline</span>
+
+<span class="token comment">![[ comment ]]</span>
+<span class="token comment">/* comment */</span>
+
+----------------------------------------------------

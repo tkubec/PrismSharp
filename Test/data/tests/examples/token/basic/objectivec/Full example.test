@@ -1,0 +1,249 @@
+#import <UIKit/UIKit.h>
+#import "Dependency.h"
+
+@protocol WorldDataSource
+@optional
+- (NSString*)worldName;
+@required
+- (BOOL)allowsToLive;
+@end
+
+@interface Test : NSObject <HelloDelegate, WorldDataSource> {
+  NSString *_greeting;
+}
+
+@property (nonatomic, readonly) NSString *greeting;
+- (IBAction) show;
+@end
+
+@implementation Test
+
+@synthesize test=_test;
+
++ (id) test {
+  return [self testWithGreeting:@"Hello, world!\nFoo bar!"];
+}
+
++ (id) testWithGreeting:(NSString*)greeting {
+  return [[[self alloc] initWithGreeting:greeting] autorelease];
+}
+
+- (id) initWithGreeting:(NSString*)greeting {
+  if ( (self = [super init]) ) {
+    _greeting = [greeting retain];
+  }
+  return self;
+}
+
+- (void) dealloc {
+  [_greeting release];
+  [super dealloc];
+}
+
+@end
+----------------------------------------------------
+[
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "import"],
+		["expression", [
+			["operator", "<"],
+			"UIKit",
+			["operator", "/"],
+			"UIKit",
+			["punctuation", "."],
+			"h",
+			["operator", ">"]
+		]]
+	]],
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "import"],
+		["string", "\"Dependency.h\""]
+	]],
+
+	["keyword", "@protocol"],
+	" WorldDataSource\n",
+
+	["operator", "@"],
+	"optional\n",
+
+	["operator", "-"],
+	["punctuation", "("],
+	"NSString",
+	["operator", "*"],
+	["punctuation", ")"],
+	"worldName",
+	["punctuation", ";"],
+
+	["operator", "@"],
+	"required\n",
+
+	["operator", "-"],
+	["punctuation", "("],
+	"BOOL",
+	["punctuation", ")"],
+	"allowsToLive",
+	["punctuation", ";"],
+
+	["keyword", "@end"],
+
+	["keyword", "@interface"],
+	" Test ",
+	["punctuation", ":"],
+	" NSObject ",
+	["operator", "<"],
+	"HelloDelegate",
+	["punctuation", ","],
+	" WorldDataSource",
+	["operator", ">"],
+	["punctuation", "{"],
+
+	"\n  NSString ",
+	["operator", "*"],
+	"_greeting",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "@property"],
+	["punctuation", "("],
+	"nonatomic",
+	["punctuation", ","],
+	" readonly",
+	["punctuation", ")"],
+	" NSString ",
+	["operator", "*"],
+	"greeting",
+	["punctuation", ";"],
+
+	["operator", "-"],
+	["punctuation", "("],
+	"IBAction",
+	["punctuation", ")"],
+	" show",
+	["punctuation", ";"],
+
+	["keyword", "@end"],
+
+	["keyword", "@implementation"], " Test\n\n",
+
+	["keyword", "@synthesize"],
+	" test",
+	["operator", "="],
+	"_test",
+	["punctuation", ";"],
+
+	["operator", "+"],
+	["punctuation", "("],
+	"id",
+	["punctuation", ")"],
+	" test ",
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["punctuation", "["],
+	["keyword", "self"],
+	" testWithGreeting",
+	["punctuation", ":"],
+	["string", "@\"Hello, world!\\nFoo bar!\""],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["operator", "+"],
+	["punctuation", "("],
+	"id",
+	["punctuation", ")"],
+	" testWithGreeting",
+	["punctuation", ":"],
+	["punctuation", "("],
+	"NSString",
+	["operator", "*"],
+	["punctuation", ")"],
+	"greeting ",
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["punctuation", "["],
+	["punctuation", "["],
+	["punctuation", "["],
+	["keyword", "self"],
+	" alloc",
+	["punctuation", "]"],
+	" initWithGreeting",
+	["punctuation", ":"],
+	"greeting",
+	["punctuation", "]"],
+	" autorelease",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["operator", "-"],
+	["punctuation", "("],
+	"id",
+	["punctuation", ")"],
+	" initWithGreeting",
+	["punctuation", ":"],
+	["punctuation", "("],
+	"NSString",
+	["operator", "*"],
+	["punctuation", ")"],
+	"greeting ",
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["punctuation", "("],
+	["keyword", "self"],
+	["operator", "="],
+	["punctuation", "["],
+	["keyword", "super"],
+	" init",
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n    _greeting ",
+	["operator", "="],
+	["punctuation", "["],
+	"greeting retain",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"],
+	["keyword", "self"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["operator", "-"],
+	["punctuation", "("],
+	["keyword", "void"],
+	["punctuation", ")"],
+	" dealloc ",
+	["punctuation", "{"],
+
+	["punctuation", "["],
+	"_greeting release",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "["],
+	["keyword", "super"],
+	" dealloc",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "@end"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,23 @@
+global_defs {
+	notification_email {
+		example@163.com
+	}
+	notification_email_from example@example.com
+}
+
+vrrp_instance VI_1 {
+    notify_fault "/etc/keepalived/to_fault.sh"
+}
+----------------------------------------------------
+<span class="token property">global_defs</span> <span class="token punctuation">{</span>
+	<span class="token property">notification_email</span> <span class="token punctuation">{</span>
+		<span class="token email string">example@163.com</span>
+	<span class="token punctuation">}</span>
+	<span class="token property">notification_email_from</span> <span class="token email string">example@example.com</span>
+<span class="token punctuation">}</span>
+
+<span class="token property">vrrp_instance</span> VI_1 <span class="token punctuation">{</span>
+    <span class="token property">notify_fault</span> <span class="token string">"/etc/keepalived/to_fault.sh"</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

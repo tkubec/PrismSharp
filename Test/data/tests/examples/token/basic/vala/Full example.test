@@ -1,0 +1,91 @@
+using Gtk;
+
+int main (string[] args) {
+	Gtk.init(ref args);
+
+	var window = new Window();
+
+	var button = new Button.with_label("Click me!");
+
+	window.add(button);
+	window.show_all();
+
+	Gtk.main();
+	return 0;
+}
+----------------------------------------------------
+[
+	["keyword", "using"], " Gtk", ["punctuation", ";"],
+
+	["keyword", "int"],
+	["function", "main"],
+	["punctuation", "("],
+	["keyword", "string"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	" args",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n\tGtk",
+	["punctuation", "."],
+	["function", "init"],
+	["punctuation", "("],
+	["keyword", "ref"],
+	" args",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" window ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Window"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" button ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", [
+		"Button",
+		["punctuation", "."],
+		"with_label"
+	]],
+	["punctuation", "("],
+	["string", "\"Click me!\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n\twindow",
+	["punctuation", "."],
+	["function", "add"],
+	["punctuation", "("],
+	"button",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\twindow",
+	["punctuation", "."],
+	["function", "show_all"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n\tGtk",
+	["punctuation", "."],
+	["function", "main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

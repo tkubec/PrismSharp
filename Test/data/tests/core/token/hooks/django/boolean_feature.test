@@ -1,0 +1,14 @@
+{% true false none True False None %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["tag", "true"],
+	["boolean", "false"],
+	["boolean", "none"],
+	["boolean", "True"],
+	["boolean", "False"],
+	["boolean", "None"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

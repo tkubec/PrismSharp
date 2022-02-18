@@ -1,0 +1,77 @@
+<a n:href="Post:show $post->id">link</a>
+<a n:href = "Post:show $post->id">link</a>
+<div n:if=$items>
+<div n:tag-if='$a > $b'>
+<script n:nonce>
+----------------------------------------------------
+[
+	["php", [
+		["operator", "<"],
+		"a n",
+		["punctuation", ":"],
+		"href",
+		["operator", "="],
+		["string", [
+			"\"Post:show ",
+			["interpolation", [
+				["variable", "$post"],
+				["operator", "->"],
+				["property", "id"]
+			]],
+			"\""
+		]],
+		["operator", ">"],
+		"link",
+		["operator", "<"],
+		["operator", "/"],
+		"a",
+		["operator", ">"],
+
+		["operator", "<"],
+		"a n",
+		["punctuation", ":"],
+		"href ",
+		["operator", "="],
+		["string", [
+			"\"Post:show ",
+			["interpolation", [
+				["variable", "$post"],
+				["operator", "->"],
+				["property", "id"]
+			]],
+			"\""
+		]],
+		["operator", ">"],
+		"link",
+		["operator", "<"],
+		["operator", "/"],
+		"a",
+		["operator", ">"],
+
+		["operator", "<"],
+		"div n",
+		["punctuation", ":"],
+		["keyword", "if"],
+		["operator", "="],
+		["variable", "$items"],
+		["operator", ">"],
+
+		["operator", "<"],
+		"div n",
+		["punctuation", ":"],
+		"tag",
+		["operator", "-"],
+		["keyword", "if"],
+		["operator", "="],
+		["string", "'$a > $b'"],
+		["operator", ">"],
+
+		["operator", "<"],
+		"script n",
+		["punctuation", ":"],
+		"nonce",
+		["operator", ">"]
+	]]
+]
+
+----------------------------------------------------

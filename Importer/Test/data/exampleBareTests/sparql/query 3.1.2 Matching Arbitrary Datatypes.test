@@ -1,0 +1,4 @@
+SELECT ?v WHERE { ?v ?p "abc"^^&lt;http://example.org/datatype#specialDatatype&gt; }
+
+--------------------------------------------------
+

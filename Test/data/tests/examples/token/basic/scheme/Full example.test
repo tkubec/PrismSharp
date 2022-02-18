@@ -1,0 +1,165 @@
+;; Calculation of Hofstadter's male and female sequences as a list of pairs
+
+(define (hofstadter-male-female n)
+  (letrec ((female (lambda (n)
+		     (if (= n 0)
+			 1
+			 (- n (male (female (- n 1)))))))
+	   (male (lambda (n)
+		   (if (= n 0)
+		       0
+		       (- n (female (male (- n 1))))))))
+    (let loop ((i 0))
+      (if (> i n)
+	  '()
+	  (cons (cons (female i)
+		      (male i))
+		(loop (+ i 1)))))))
+
+(hofstadter-male-female 8)
+----------------------------------------------------
+[
+	["comment", ";; Calculation of Hofstadter's male and female sequences as a list of pairs"],
+
+	["punctuation", "("],
+	["keyword", "define"],
+	["punctuation", "("],
+	["function", "hofstadter-male-female"],
+	" n",
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "letrec"],
+	["punctuation", "("],
+	["punctuation", "("],
+	["function", "female"],
+	["punctuation", "("],
+	["keyword", "lambda"],
+	["punctuation", "("],
+	["lambda-parameter", "n"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "="],
+	" n ",
+	["number", "0"],
+	["punctuation", ")"],
+
+	["number", "1"],
+
+	["punctuation", "("],
+	["operator", "-"],
+	" n ",
+	["punctuation", "("],
+	["function", "male"],
+	["punctuation", "("],
+	["function", "female"],
+	["punctuation", "("],
+	["operator", "-"],
+	" n ",
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["function", "male"],
+	["punctuation", "("],
+	["keyword", "lambda"],
+	["punctuation", "("],
+	["lambda-parameter", "n"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "="],
+	" n ",
+	["number", "0"],
+	["punctuation", ")"],
+
+	["number", "0"],
+
+	["punctuation", "("],
+	["operator", "-"],
+	" n ",
+	["punctuation", "("],
+	["function", "female"],
+	["punctuation", "("],
+	["function", "male"],
+	["punctuation", "("],
+	["operator", "-"],
+	" n ",
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "let"],
+	" loop ",
+	["punctuation", "("],
+	["punctuation", "("],
+	["function", "i"],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", ">"],
+	" i n",
+	["punctuation", ")"],
+
+	["punctuation", "'"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["builtin", "cons"],
+	["punctuation", "("],
+	["builtin", "cons"],
+	["punctuation", "("],
+	["function", "female"],
+	" i",
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["function", "male"],
+	" i",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["function", "loop"],
+	["punctuation", "("],
+	["operator", "+"],
+	" i ",
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["function", "hofstadter-male-female"],
+	["number", "8"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

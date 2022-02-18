@@ -1,0 +1,13 @@
+data carsurvey;
+proc format;
+proc sort data=allacty;
+run;
+quit;
+----------------------------------------------------
+<span class="token step keyword">data</span> carsurvey<span class="token punctuation">;</span>
+<span class="token step keyword">proc format</span><span class="token punctuation">;</span>
+<span class="token step keyword">proc sort</span> <span class="token proc-args"><span class="token arg keyword">data</span><span class="token operator">=</span><span class="token arg-value">allacty</span><span class="token punctuation">;</span></span>
+<span class="token step keyword">run</span><span class="token punctuation">;</span>
+<span class="token step keyword">quit</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

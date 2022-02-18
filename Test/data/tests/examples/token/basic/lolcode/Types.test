@@ -1,0 +1,20 @@
+MAEK some_expr A YARN
+some_var IS NOW A NUMBR
+----------------------------------------------------
+[
+	["keyword", "MAEK"],
+	" some_expr ",
+	["symbol", [
+		["keyword", "A"],
+		" YARN"
+	]],
+
+	"\nsome_var ",
+	["keyword", "IS NOW"],
+	["symbol", [
+		["keyword", "A"],
+		" NUMBR"
+	]]
+]
+
+----------------------------------------------------

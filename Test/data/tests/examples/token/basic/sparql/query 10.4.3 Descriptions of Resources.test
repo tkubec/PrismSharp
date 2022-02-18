@@ -1,0 +1,34 @@
+PREFIX ent:  <http://org.example.com/employees#>
+DESCRIBE ?x WHERE { ?x ent:employeeId "1234" }
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"ent",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://org.example.com/employees#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "DESCRIBE"],
+	["variable", "?x"],
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"ent",
+			["punctuation", ":"]
+		]],
+		["local-name", "employeeId"]
+	]],
+	["string", "\"1234\""],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

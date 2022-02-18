@@ -1,0 +1,71 @@
+mov eax,'abcd'
+
+db    'hello'               ; string constant
+db    'h','e','l','l','o'   ; equivalent character constants
+dd    'ninechars'           ; doubleword string constant
+dd    'nine','char','s'     ; becomes three doublewords
+db    'ninechars',0,0,0     ; and really looks like this
+
+db `\u263a`            ; UTF-8 smiley face
+db `\xe2\x98\xba`      ; UTF-8 smiley face
+db 0E2h, 098h, 0BAh    ; UTF-8 smiley face
+----------------------------------------------------
+[
+	"mov ", ["register", "eax"], ",", ["string", "'abcd'"],
+
+	"\n\ndb    ",
+	["string", "'hello'"],
+	["comment", "; string constant"],
+
+	"\ndb    ",
+	["string", "'h'"],
+	",",
+	["string", "'e'"],
+	",",
+	["string", "'l'"],
+	",",
+	["string", "'l'"],
+	",",
+	["string", "'o'"],
+	["comment", "; equivalent character constants"],
+
+	"\ndd    ",
+	["string", "'ninechars'"],
+	["comment", "; doubleword string constant"],
+
+	"\ndd    ",
+	["string", "'nine'"],
+	",",
+	["string", "'char'"],
+	",",
+	["string", "'s'"],
+	["comment", "; becomes three doublewords"],
+
+	"\ndb    ",
+	["string", "'ninechars'"],
+	",",
+	["number", "0"],
+	",",
+	["number", "0"],
+	",",
+	["number", "0"],
+	["comment", "; and really looks like this"],
+
+	"\n\ndb ",
+	["string", "`\\u263a`"],
+	["comment", "; UTF-8 smiley face"],
+
+	"\ndb ",
+	["string", "`\\xe2\\x98\\xba`"],
+	["comment", "; UTF-8 smiley face"],
+
+	"\ndb ",
+	["number", "0E2h"],
+	", ",
+	["number", "098h"],
+	", ",
+	["number", "0BAh"],
+	["comment", "; UTF-8 smiley face"]
+]
+
+----------------------------------------------------

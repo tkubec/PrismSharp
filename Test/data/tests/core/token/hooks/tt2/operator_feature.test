@@ -1,0 +1,137 @@
+[% fat => comma %]
+[% foo == bar %]
+[% foo != bar %]
+[% foo <  bar %]
+[% foo <= bar %]
+[% foo >  bar %]
+[% foo >= bar %]
+[% foo =  bar %]
+[% foo && bar %]
+[% foo || bar %]
+[% foo | bar %]
+[% foo ! bar %]
+[% penthouse and pavement %]
+[% sooner or later %]
+[% love not war %]
+----------------------------------------------------
+[
+	["delimiter", "[%"],
+	["variable", "fat"],
+	["operator", "=>"],
+	["variable", "comma"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "=="],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "!="],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "<"],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "<="],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", ">"],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", ">="],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "="],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "&&"],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "||"],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "|"],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "foo"],
+	["operator", "!"],
+	["variable", "bar"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "penthouse"],
+	["operator", "and"],
+	["variable", "pavement"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "sooner"],
+	["operator", "or"],
+	["variable", "later"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "love"],
+	["operator", "not"],
+	["variable", "war"],
+	["delimiter", "%]"]
+]
+
+----------------------------------------------------

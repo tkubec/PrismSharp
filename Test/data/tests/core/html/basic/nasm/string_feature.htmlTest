@@ -1,0 +1,15 @@
+""
+"fo\"o"
+''
+'fo\'o'
+``
+`fo\`o`
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"o"</span>
+<span class="token string">''</span>
+<span class="token string">'fo\'o'</span>
+<span class="token string">``</span>
+<span class="token string">`fo\`o`</span>
+
+----------------------------------------------------

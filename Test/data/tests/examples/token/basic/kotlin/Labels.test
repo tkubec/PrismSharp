@@ -1,0 +1,44 @@
+loop@ for (i in 1..100) {
+  for (j in 1..100) {
+    if (...)
+      break@loop
+  }
+}
+----------------------------------------------------
+[
+	["label", "loop@"],
+	["keyword", "for"],
+	["punctuation", "("],
+	"i ",
+	["keyword", "in"],
+	["number", "1"],
+	["operator", ".."],
+	["number", "100"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	"j ",
+	["keyword", "in"],
+	["number", "1"],
+	["operator", ".."],
+	["number", "100"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", ".."],
+	["punctuation", "."],
+	["punctuation", ")"],
+
+	["keyword", "break"],
+	["label", "@loop"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,37 @@
+st0 st1
+xmm1 xmm2
+ymm1 ymm2
+zmm1 zmm2
+cr1 dr1 tr1
+r1 r42
+r1b r1w r1d
+ax bx cx dx
+eax ebx ecx edx
+rax rbx rcx rdx
+ah bh ch dh
+al bl cl dl
+bp sp si di
+ebp esp esi edi
+rbp rsp rsi rdi
+cs ds es
+fs gs ss
+----------------------------------------------------
+<span class="token register variable">st0</span> <span class="token register variable">st1</span>
+<span class="token register variable">xmm1</span> <span class="token register variable">xmm2</span>
+<span class="token register variable">ymm1</span> <span class="token register variable">ymm2</span>
+<span class="token register variable">zmm1</span> <span class="token register variable">zmm2</span>
+<span class="token register variable">cr1</span> <span class="token register variable">dr1</span> <span class="token register variable">tr1</span>
+<span class="token register variable">r1</span> <span class="token register variable">r42</span>
+<span class="token register variable">r1b</span> <span class="token register variable">r1w</span> <span class="token register variable">r1d</span>
+<span class="token register variable">ax</span> <span class="token register variable">bx</span> <span class="token register variable">cx</span> <span class="token register variable">dx</span>
+<span class="token register variable">eax</span> <span class="token register variable">ebx</span> <span class="token register variable">ecx</span> <span class="token register variable">edx</span>
+<span class="token register variable">rax</span> <span class="token register variable">rbx</span> <span class="token register variable">rcx</span> <span class="token register variable">rdx</span>
+<span class="token register variable">ah</span> <span class="token register variable">bh</span> <span class="token register variable">ch</span> <span class="token register variable">dh</span>
+<span class="token register variable">al</span> <span class="token register variable">bl</span> <span class="token register variable">cl</span> <span class="token register variable">dl</span>
+<span class="token register variable">bp</span> <span class="token register variable">sp</span> <span class="token register variable">si</span> <span class="token register variable">di</span>
+<span class="token register variable">ebp</span> <span class="token register variable">esp</span> <span class="token register variable">esi</span> <span class="token register variable">edi</span>
+<span class="token register variable">rbp</span> <span class="token register variable">rsp</span> <span class="token register variable">rsi</span> <span class="token register variable">rdi</span>
+<span class="token register variable">cs</span> <span class="token register variable">ds</span> <span class="token register variable">es</span>
+<span class="token register variable">fs</span> <span class="token register variable">gs</span> <span class="token register variable">ss</span>
+
+----------------------------------------------------

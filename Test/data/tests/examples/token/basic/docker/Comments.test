@@ -1,0 +1,15 @@
+# These are the comments for a dockerfile.
+# I want to make sure $(variables) don't break out,
+# and we shouldn't see keywords like ADD or ENTRYPOINT
+
+# I also want to make sure that this "string" and this 'string' don't break out.
+----------------------------------------------------
+[
+	["comment", "# These are the comments for a dockerfile."],
+	["comment", "# I want to make sure $(variables) don't break out,"],
+	["comment", "# and we shouldn't see keywords like ADD or ENTRYPOINT"],
+
+	["comment", "# I also want to make sure that this \"string\" and this 'string' don't break out."]
+]
+
+----------------------------------------------------

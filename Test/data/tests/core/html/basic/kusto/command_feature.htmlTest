@@ -1,0 +1,11 @@
+.show tables
+| count
+
+.set foo=234
+----------------------------------------------------
+<span class="token command keyword">.show</span> <span class="token keyword">tables</span>
+<span class="token operator">|</span> <span class="token verb keyword">count</span>
+
+<span class="token command keyword">.set</span> foo<span class="token operator">=</span><span class="token number">234</span>
+
+----------------------------------------------------

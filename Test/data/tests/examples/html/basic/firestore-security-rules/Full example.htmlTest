@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+
+  match /databases/{database}/documents {
+
+    // Returns `true` if the requested post is 'published'
+    // or the user authored the post
+    function authorOrPublished() {
+      return resource.data.published == true || request.auth.uid == resource.data.author;
+    }
+
+    match /{path=**}/posts/{post} {
+
+      // Anyone can query published posts
+      // Authors can query their unpublished posts
+      allow list: if authorOrPublished();
+
+      // Anyone can retrieve a published post
+      // Authors can retrieve an unpublished post
+      allow get: if authorOrPublished();
+    }
+
+    match /forums/{forumid}/posts/{postid} {
+      // Only a post's author can write to a post
+      allow write: if request.auth.uid == resource.data.author;
+    }
+  }
+
+  match /databases/{database}/reviews {
+    // Assign roles to all users and refine access based on user roles
+    match /some_collection/{document} {
+      allow read: if get(/databases/$(database)/reviews/users/$(request.auth.uid)).data.role == "Reader"
+      allow write: if get(/databases/$(database)/reviews/users/$(request.auth.uid)).data.role == "Writer"
+    }
+  }
+}
+----------------------------------------------------
+<span class="token keyword">rules_version</span> <span class="token operator">=</span> <span class="token string">'2'</span><span class="token punctuation">;</span>
+<span class="token keyword">service</span> cloud<span class="token punctuation">.</span>firestore <span class="token punctuation">{</span>
+
+  <span class="token keyword">match</span> <span class="token path"><span class="token punctuation">/</span>databases<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>database<span class="token punctuation">}</span></span><span class="token punctuation">/</span>documents</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// Returns `true` if the requested post is 'published'</span>
+    <span class="token comment">// or the user authored the post</span>
+    <span class="token keyword">function</span> <span class="token function">authorOrPublished</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> resource<span class="token punctuation">.</span>data<span class="token punctuation">.</span>published <span class="token operator">==</span> <span class="token boolean">true</span> <span class="token operator">||</span> request<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>uid <span class="token operator">==</span> resource<span class="token punctuation">.</span>data<span class="token punctuation">.</span>author<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">match</span> <span class="token path"><span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>path<span class="token operator">=</span><span class="token keyword">**</span><span class="token punctuation">}</span></span><span class="token punctuation">/</span>posts<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>post<span class="token punctuation">}</span></span></span> <span class="token punctuation">{</span>
+
+      <span class="token comment">// Anyone can query published posts</span>
+      <span class="token comment">// Authors can query their unpublished posts</span>
+      <span class="token keyword">allow</span> <span class="token method builtin">list</span><span class="token punctuation">:</span> <span class="token keyword">if</span> <span class="token function">authorOrPublished</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// Anyone can retrieve a published post</span>
+      <span class="token comment">// Authors can retrieve an unpublished post</span>
+      <span class="token keyword">allow</span> <span class="token method builtin">get</span><span class="token punctuation">:</span> <span class="token keyword">if</span> <span class="token function">authorOrPublished</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">match</span> <span class="token path"><span class="token punctuation">/</span>forums<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>forumid<span class="token punctuation">}</span></span><span class="token punctuation">/</span>posts<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>postid<span class="token punctuation">}</span></span></span> <span class="token punctuation">{</span>
+      <span class="token comment">// Only a post's author can write to a post</span>
+      <span class="token keyword">allow</span> <span class="token method builtin">write</span><span class="token punctuation">:</span> <span class="token keyword">if</span> request<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>uid <span class="token operator">==</span> resource<span class="token punctuation">.</span>data<span class="token punctuation">.</span>author<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">match</span> <span class="token path"><span class="token punctuation">/</span>databases<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>database<span class="token punctuation">}</span></span><span class="token punctuation">/</span>reviews</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Assign roles to all users and refine access based on user roles</span>
+    <span class="token keyword">match</span> <span class="token path"><span class="token punctuation">/</span>some_collection<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">{</span>document<span class="token punctuation">}</span></span></span> <span class="token punctuation">{</span>
+      <span class="token keyword">allow</span> <span class="token method builtin">read</span><span class="token punctuation">:</span> <span class="token keyword">if</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token path"><span class="token punctuation">/</span>databases<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">$</span><span class="token punctuation">(</span>database<span class="token punctuation">)</span></span><span class="token punctuation">/</span>reviews<span class="token punctuation">/</span>users<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">$</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>uid<span class="token punctuation">)</span></span></span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>role <span class="token operator">==</span> <span class="token string">"Reader"</span>
+      <span class="token keyword">allow</span> <span class="token method builtin">write</span><span class="token punctuation">:</span> <span class="token keyword">if</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token path"><span class="token punctuation">/</span>databases<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">$</span><span class="token punctuation">(</span>database<span class="token punctuation">)</span></span><span class="token punctuation">/</span>reviews<span class="token punctuation">/</span>users<span class="token punctuation">/</span><span class="token variable"><span class="token punctuation">$</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>uid<span class="token punctuation">)</span></span></span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>role <span class="token operator">==</span> <span class="token string">"Writer"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

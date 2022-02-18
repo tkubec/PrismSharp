@@ -1,0 +1,53 @@
+for index in 1...5 {
+	println("\(index) times 5 is \(index * 5)")
+}
+for _ in 1...power {
+	answer *= base
+}
+while square < finalSquare {
+	// roll the dice
+	if ++diceRoll == 7 { diceRoll = 1 }
+	// move by the rolled amount
+	square += diceRoll
+	if square < board.count {
+		// if we're still on the board, move up or down for a snake or a ladder
+		square += board[square]
+	}
+}
+switch someCharacter {
+	case "a", "e", "i", "o", "u":
+		println("\(someCharacter) is a vowel")
+	case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
+		"n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+		println("\(someCharacter) is a consonant")
+	default:
+		println("\(someCharacter) is not a vowel or a consonant")
+}
+----------------------------------------------------
+<span class="token keyword">for</span> index <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">...</span><span class="token number">5</span> <span class="token punctuation">{</span>
+	<span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation-punctuation punctuation">\(</span><span class="token interpolation">index</span><span class="token interpolation-punctuation punctuation">)</span><span class="token string"> times 5 is </span><span class="token interpolation-punctuation punctuation">\(</span><span class="token interpolation">index <span class="token operator">*</span> <span class="token number">5</span></span><span class="token interpolation-punctuation punctuation">)</span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">for</span> <span class="token omit keyword">_</span> <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">...</span>power <span class="token punctuation">{</span>
+	answer <span class="token operator">*=</span> base
+<span class="token punctuation">}</span>
+<span class="token keyword">while</span> square <span class="token operator">&lt;</span> finalSquare <span class="token punctuation">{</span>
+	<span class="token comment">// roll the dice</span>
+	<span class="token keyword">if</span> <span class="token operator">++</span>diceRoll <span class="token operator">==</span> <span class="token number">7</span> <span class="token punctuation">{</span> diceRoll <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">}</span>
+	<span class="token comment">// move by the rolled amount</span>
+	square <span class="token operator">+=</span> diceRoll
+	<span class="token keyword">if</span> square <span class="token operator">&lt;</span> board<span class="token punctuation">.</span>count <span class="token punctuation">{</span>
+		<span class="token comment">// if we're still on the board, move up or down for a snake or a ladder</span>
+		square <span class="token operator">+=</span> board<span class="token punctuation">[</span>square<span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">switch</span> someCharacter <span class="token punctuation">{</span>
+	<span class="token keyword">case</span> <span class="token string-literal"><span class="token string">"a"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"e"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"i"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"o"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"u"</span></span><span class="token punctuation">:</span>
+		<span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation-punctuation punctuation">\(</span><span class="token interpolation">someCharacter</span><span class="token interpolation-punctuation punctuation">)</span><span class="token string"> is a vowel"</span></span><span class="token punctuation">)</span>
+	<span class="token keyword">case</span> <span class="token string-literal"><span class="token string">"b"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"c"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"d"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"f"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"g"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"h"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"j"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"k"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"l"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"m"</span></span><span class="token punctuation">,</span>
+		<span class="token string-literal"><span class="token string">"n"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"p"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"q"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"r"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"s"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"t"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"v"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"w"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"x"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"y"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"z"</span></span><span class="token punctuation">:</span>
+		<span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation-punctuation punctuation">\(</span><span class="token interpolation">someCharacter</span><span class="token interpolation-punctuation punctuation">)</span><span class="token string"> is a consonant"</span></span><span class="token punctuation">)</span>
+	<span class="token keyword">default</span><span class="token punctuation">:</span>
+		<span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation-punctuation punctuation">\(</span><span class="token interpolation">someCharacter</span><span class="token interpolation-punctuation punctuation">)</span><span class="token string"> is not a vowel or a consonant"</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+SELECT COUNT(*) AS total, MAX(foo) AS max_foo
+FROM `my_bucket`
+WHERE `foo` IS NOT NULL;
+CREATE INDEX productName_index1 ON bucket_name(productName, ProductID)
+WHERE type="product" USING GSI
+WITH {"nodes":["node1:8091", "node2:8091", "node3:8091"]};
+----------------------------------------------------
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> total<span class="token punctuation">,</span> <span class="token function">MAX</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token keyword">AS</span> max_foo
+<span class="token keyword">FROM</span> <span class="token identifier">`my_bucket`</span>
+<span class="token keyword">WHERE</span> <span class="token identifier">`foo`</span> <span class="token keyword">IS</span> <span class="token operator">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> productName_index1 <span class="token keyword">ON</span> <span class="token function">bucket_name</span><span class="token punctuation">(</span>productName<span class="token punctuation">,</span> ProductID<span class="token punctuation">)</span>
+<span class="token keyword">WHERE</span> type<span class="token operator">=</span><span class="token string">"product"</span> <span class="token keyword">USING</span> <span class="token keyword">GSI</span>
+<span class="token keyword">WITH</span> <span class="token punctuation">{</span><span class="token string">"nodes"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"node1:8091"</span><span class="token punctuation">,</span> <span class="token string">"node2:8091"</span><span class="token punctuation">,</span> <span class="token string">"node3:8091"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

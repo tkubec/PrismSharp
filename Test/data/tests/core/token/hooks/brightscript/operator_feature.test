@@ -1,0 +1,47 @@
++ - * / \ ^ ++ --
++= -= *= /= \=
+
+>> >>= << <<=
+
+< > <= >= <> =
+
+: ?
+
+Mod
+And Or Not
+----------------------------------------------------
+[
+	["operator", "+"],
+	["operator", "-"],
+	["operator", "*"],
+	["operator", "/"],
+	["operator", "\\"],
+	["operator", "^"],
+	["operator", "++"],
+	["operator", "--"],
+
+	["operator", "+="],
+	["operator", "-="],
+	["operator", "*="],
+	["operator", "/="],
+	["operator", "\\="],
+
+	["operator", ">>"],
+	["operator", ">>="],
+	["operator", "<<"],
+	["operator", "<<="],
+
+	["operator", "<"],
+	["operator", ">"],
+	["operator", "<="],
+	["operator", ">="],
+	["operator", "<>"],
+	["operator", "="],
+
+	["operator", ":"], ["operator", "?"],
+
+	["operator", "Mod"],
+	["operator", "And"], ["operator", "Or"], ["operator", "Not"]
+]
+
+----------------------------------------------------

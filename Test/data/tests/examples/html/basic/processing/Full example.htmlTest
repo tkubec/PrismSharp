@@ -1,0 +1,347 @@
+// Processing implementation of Game of Life by Joan Soler-Adillon
+// from https://processing.org/examples/gameoflife.html
+
+// Size of cells
+int cellSize = 5;
+
+// How likely for a cell to be alive at start (in percentage)
+float probabilityOfAliveAtStart = 15;
+
+// Variables for timer
+int interval = 100;
+int lastRecordedTime = 0;
+
+// Colors for active/inactive cells
+color alive = color(0, 200, 0);
+color dead = color(0);
+
+// Array of cells
+int[][] cells; 
+// Buffer to record the state of the cells and use this while changing the others in the interations
+int[][] cellsBuffer; 
+
+// Pause
+boolean pause = false;
+
+void setup() {
+  size (640, 360);
+
+  // Instantiate arrays 
+  cells = new int[width/cellSize][height/cellSize];
+  cellsBuffer = new int[width/cellSize][height/cellSize];
+
+  // This stroke will draw the background grid
+  stroke(48);
+
+  noSmooth();
+
+  // Initialization of cells
+  for (int x=0; x<width/cellSize; x++) {
+    for (int y=0; y<height/cellSize; y++) {
+      float state = random (100);
+      if (state > probabilityOfAliveAtStart) { 
+        state = 0;
+      }
+      else {
+        state = 1;
+      }
+      cells[x][y] = int(state); // Save state of each cell
+    }
+  }
+  background(0); // Fill in black in case cells don't cover all the windows
+}
+
+
+void draw() {
+
+  //Draw grid
+  for (int x=0; x<width/cellSize; x++) {
+    for (int y=0; y<height/cellSize; y++) {
+      if (cells[x][y]==1) {
+        fill(alive); // If alive
+      }
+      else {
+        fill(dead); // If dead
+      }
+      rect (x*cellSize, y*cellSize, cellSize, cellSize);
+    }
+  }
+  // Iterate if timer ticks
+  if (millis()-lastRecordedTime>interval) {
+    if (!pause) {
+      iteration();
+      lastRecordedTime = millis();
+    }
+  }
+
+  // Create  new cells manually on pause
+  if (pause && mousePressed) {
+    // Map and avoid out of bound errors
+    int xCellOver = int(map(mouseX, 0, width, 0, width/cellSize));
+    xCellOver = constrain(xCellOver, 0, width/cellSize-1);
+    int yCellOver = int(map(mouseY, 0, height, 0, height/cellSize));
+    yCellOver = constrain(yCellOver, 0, height/cellSize-1);
+
+    // Check against cells in buffer
+    if (cellsBuffer[xCellOver][yCellOver]==1) { // Cell is alive
+      cells[xCellOver][yCellOver]=0; // Kill
+      fill(dead); // Fill with kill color
+    }
+    else { // Cell is dead
+      cells[xCellOver][yCellOver]=1; // Make alive
+      fill(alive); // Fill alive color
+    }
+  } 
+  else if (pause && !mousePressed) { // And then save to buffer once mouse goes up
+    // Save cells to buffer (so we opeate with one array keeping the other intact)
+    for (int x=0; x<width/cellSize; x++) {
+      for (int y=0; y<height/cellSize; y++) {
+        cellsBuffer[x][y] = cells[x][y];
+      }
+    }
+  }
+}
+
+
+
+void iteration() { // When the clock ticks
+  // Save cells to buffer (so we opeate with one array keeping the other intact)
+  for (int x=0; x<width/cellSize; x++) {
+    for (int y=0; y<height/cellSize; y++) {
+      cellsBuffer[x][y] = cells[x][y];
+    }
+  }
+
+  // Visit each cell:
+  for (int x=0; x<width/cellSize; x++) {
+    for (int y=0; y<height/cellSize; y++) {
+      // And visit all the neighbours of each cell
+      int neighbours = 0; // We'll count the neighbours
+      for (int xx=x-1; xx<=x+1;xx++) {
+        for (int yy=y-1; yy<=y+1;yy++) {  
+          if (((xx>=0)&&(xx<width/cellSize))&&((yy>=0)&&(yy<height/cellSize))) { // Make sure you are not out of bounds
+            if (!((xx==x)&&(yy==y))) { // Make sure to to check against self
+              if (cellsBuffer[xx][yy]==1){
+                neighbours ++; // Check alive neighbours and count them
+              }
+            } // End of if
+          } // End of if
+        } // End of yy loop
+      } //End of xx loop
+      // We've checked the neigbours: apply rules!
+      if (cellsBuffer[x][y]==1) { // The cell is alive: kill it if necessary
+        if (neighbours < 2 || neighbours > 3) {
+          cells[x][y] = 0; // Die unless it has 2 or 3 neighbours
+        }
+      } 
+      else { // The cell is dead: make it live if necessary      
+        if (neighbours == 3 ) {
+          cells[x][y] = 1; // Only if it has 3 neighbours
+        }
+      } // End of if
+    } // End of y loop
+  } // End of x loop
+} // End of function
+
+void keyPressed() {
+  if (key=='r' || key == 'R') {
+    // Restart: reinitialization of cells
+    for (int x=0; x<width/cellSize; x++) {
+      for (int y=0; y<height/cellSize; y++) {
+        float state = random (100);
+        if (state > probabilityOfAliveAtStart) {
+          state = 0;
+        }
+        else {
+          state = 1;
+        }
+        cells[x][y] = int(state); // Save state of each cell
+      }
+    }
+  }
+  if (key==' ') { // On/off of pause
+    pause = !pause;
+  }
+  if (key=='c' || key == 'C') { // Clear all
+    for (int x=0; x<width/cellSize; x++) {
+      for (int y=0; y<height/cellSize; y++) {
+        cells[x][y] = 0; // Save all to zero
+      }
+    }
+  }
+}
+----------------------------------------------------
+<span class="token comment">// Processing implementation of Game of Life by Joan Soler-Adillon</span>
+<span class="token comment">// from https://processing.org/examples/gameoflife.html</span>
+
+<span class="token comment">// Size of cells</span>
+<span class="token type class-name">int</span> cellSize <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token comment">// How likely for a cell to be alive at start (in percentage)</span>
+<span class="token type class-name">float</span> probabilityOfAliveAtStart <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Variables for timer</span>
+<span class="token type class-name">int</span> interval <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token type class-name">int</span> lastRecordedTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Colors for active/inactive cells</span>
+<span class="token type class-name">color</span> alive <span class="token operator">=</span> <span class="token function">color</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token type class-name">color</span> dead <span class="token operator">=</span> <span class="token function">color</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Array of cells</span>
+<span class="token type class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cells<span class="token punctuation">;</span> 
+<span class="token comment">// Buffer to record the state of the cells and use this while changing the others in the interations</span>
+<span class="token type class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cellsBuffer<span class="token punctuation">;</span> 
+
+<span class="token comment">// Pause</span>
+<span class="token type class-name">boolean</span> pause <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">size</span> <span class="token punctuation">(</span><span class="token number">640</span><span class="token punctuation">,</span> <span class="token number">360</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Instantiate arrays </span>
+  cells <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">]</span><span class="token punctuation">[</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  cellsBuffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">]</span><span class="token punctuation">[</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// This stroke will draw the background grid</span>
+  <span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">noSmooth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Initialization of cells</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> x<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> y<span class="token operator">&lt;</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> y<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token type class-name">float</span> state <span class="token operator">=</span> <span class="token function">random</span> <span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">></span> probabilityOfAliveAtStart<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        state <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      cells<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">int</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Save state of each cell</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Fill in black in case cells don't cover all the windows</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">//Draw grid</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> x<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> y<span class="token operator">&lt;</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> y<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>cells<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">fill</span><span class="token punctuation">(</span>alive<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// If alive</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">fill</span><span class="token punctuation">(</span>dead<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// If dead</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">rect</span> <span class="token punctuation">(</span>x<span class="token operator">*</span>cellSize<span class="token punctuation">,</span> y<span class="token operator">*</span>cellSize<span class="token punctuation">,</span> cellSize<span class="token punctuation">,</span> cellSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// Iterate if timer ticks</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">millis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>lastRecordedTime<span class="token operator">></span>interval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>pause<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">iteration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      lastRecordedTime <span class="token operator">=</span> <span class="token function">millis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Create  new cells manually on pause</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>pause <span class="token operator">&amp;&amp;</span> mousePressed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Map and avoid out of bound errors</span>
+    <span class="token type class-name">int</span> xCellOver <span class="token operator">=</span> <span class="token function">int</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span>mouseX<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token operator">/</span>cellSize<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    xCellOver <span class="token operator">=</span> <span class="token function">constrain</span><span class="token punctuation">(</span>xCellOver<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token operator">/</span>cellSize<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token type class-name">int</span> yCellOver <span class="token operator">=</span> <span class="token function">int</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span>mouseY<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> height<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> height<span class="token operator">/</span>cellSize<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    yCellOver <span class="token operator">=</span> <span class="token function">constrain</span><span class="token punctuation">(</span>yCellOver<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> height<span class="token operator">/</span>cellSize<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Check against cells in buffer</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>cellsBuffer<span class="token punctuation">[</span>xCellOver<span class="token punctuation">]</span><span class="token punctuation">[</span>yCellOver<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Cell is alive</span>
+      cells<span class="token punctuation">[</span>xCellOver<span class="token punctuation">]</span><span class="token punctuation">[</span>yCellOver<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// Kill</span>
+      <span class="token function">fill</span><span class="token punctuation">(</span>dead<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Fill with kill color</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// Cell is dead</span>
+      cells<span class="token punctuation">[</span>xCellOver<span class="token punctuation">]</span><span class="token punctuation">[</span>yCellOver<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// Make alive</span>
+      <span class="token function">fill</span><span class="token punctuation">(</span>alive<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Fill alive color</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> 
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>pause <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>mousePressed<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// And then save to buffer once mouse goes up</span>
+    <span class="token comment">// Save cells to buffer (so we opeate with one array keeping the other intact)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> x<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> y<span class="token operator">&lt;</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> y<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cellsBuffer<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> cells<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+
+<span class="token keyword">void</span> <span class="token function">iteration</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// When the clock ticks</span>
+  <span class="token comment">// Save cells to buffer (so we opeate with one array keeping the other intact)</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> x<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> y<span class="token operator">&lt;</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> y<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      cellsBuffer<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> cells<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Visit each cell:</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> x<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> y<span class="token operator">&lt;</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> y<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// And visit all the neighbours of each cell</span>
+      <span class="token type class-name">int</span> neighbours <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// We'll count the neighbours</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> xx<span class="token operator">=</span>x<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> xx<span class="token operator">&lt;=</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>xx<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> yy<span class="token operator">=</span>y<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> yy<span class="token operator">&lt;=</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>yy<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>xx<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>xx<span class="token operator">&lt;</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span><span class="token punctuation">(</span>yy<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>yy<span class="token operator">&lt;</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Make sure you are not out of bounds</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token punctuation">(</span>xx<span class="token operator">==</span>x<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>yy<span class="token operator">==</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Make sure to to check against self</span>
+              <span class="token keyword">if</span> <span class="token punctuation">(</span>cellsBuffer<span class="token punctuation">[</span>xx<span class="token punctuation">]</span><span class="token punctuation">[</span>yy<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                neighbours <span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">;</span> <span class="token comment">// Check alive neighbours and count them</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token comment">// End of if</span>
+          <span class="token punctuation">}</span> <span class="token comment">// End of if</span>
+        <span class="token punctuation">}</span> <span class="token comment">// End of yy loop</span>
+      <span class="token punctuation">}</span> <span class="token comment">//End of xx loop</span>
+      <span class="token comment">// We've checked the neigbours: apply rules!</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>cellsBuffer<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// The cell is alive: kill it if necessary</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>neighbours <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token operator">||</span> neighbours <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          cells<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// Die unless it has 2 or 3 neighbours</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> 
+      <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// The cell is dead: make it live if necessary      </span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>neighbours <span class="token operator">==</span> <span class="token number">3</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          cells<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// Only if it has 3 neighbours</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token comment">// End of if</span>
+    <span class="token punctuation">}</span> <span class="token comment">// End of y loop</span>
+  <span class="token punctuation">}</span> <span class="token comment">// End of x loop</span>
+<span class="token punctuation">}</span> <span class="token comment">// End of function</span>
+
+<span class="token keyword">void</span> <span class="token function">keyPressed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>key<span class="token operator">==</span><span class="token string">'r'</span> <span class="token operator">||</span> key <span class="token operator">==</span> <span class="token string">'R'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Restart: reinitialization of cells</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> x<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> y<span class="token operator">&lt;</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> y<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token type class-name">float</span> state <span class="token operator">=</span> <span class="token function">random</span> <span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">></span> probabilityOfAliveAtStart<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          state <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cells<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">int</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Save state of each cell</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>key<span class="token operator">==</span><span class="token string">' '</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// On/off of pause</span>
+    pause <span class="token operator">=</span> <span class="token operator">!</span>pause<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>key<span class="token operator">==</span><span class="token string">'c'</span> <span class="token operator">||</span> key <span class="token operator">==</span> <span class="token string">'C'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Clear all</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>width<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> x<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token type class-name">int</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> y<span class="token operator">&lt;</span>height<span class="token operator">/</span>cellSize<span class="token punctuation">;</span> y<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cells<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// Save all to zero</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

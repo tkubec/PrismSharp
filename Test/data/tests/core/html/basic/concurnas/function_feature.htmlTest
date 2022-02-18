@@ -1,0 +1,7 @@
+def myfunc() => 12
+myfunc()
+----------------------------------------------------
+<span class="token keyword">def</span> <span class="token function">myfunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token number">12</span>
+myfunc<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

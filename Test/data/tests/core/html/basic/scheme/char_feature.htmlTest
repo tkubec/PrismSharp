@@ -1,0 +1,37 @@
+#\a                     ; lowercase letter
+#\A                     ; uppercase letter
+#\(                     ; left parenthesis
+#\space                 ; the space character
+#\newline               ; the newline character
+
+#\c-a                   ; Control-a
+#\meta-b                ; Meta-b
+#\c-s-m-h-a             ; Control-Meta-Super-Hyper-A
+
+#\; #\' #\"
+
+#\u0041
+#\x10FFFF
+#\λ
+#\)
+#\💩
+----------------------------------------------------
+<span class="token char">#\a</span>                     <span class="token comment">; lowercase letter</span>
+<span class="token char">#\A</span>                     <span class="token comment">; uppercase letter</span>
+<span class="token char">#\(</span>                     <span class="token comment">; left parenthesis</span>
+<span class="token char">#\space</span>                 <span class="token comment">; the space character</span>
+<span class="token char">#\newline</span>               <span class="token comment">; the newline character</span>
+
+<span class="token char">#\c-a</span>                   <span class="token comment">; Control-a</span>
+<span class="token char">#\meta-b</span>                <span class="token comment">; Meta-b</span>
+<span class="token char">#\c-s-m-h-a</span>             <span class="token comment">; Control-Meta-Super-Hyper-A</span>
+
+<span class="token char">#\;</span> <span class="token char">#\'</span> <span class="token char">#\"</span>
+
+<span class="token char">#\u0041</span>
+<span class="token char">#\x10FFFF</span>
+<span class="token char">#\λ</span>
+<span class="token char">#\)</span>
+<span class="token char">#\💩</span>
+
+----------------------------------------------------

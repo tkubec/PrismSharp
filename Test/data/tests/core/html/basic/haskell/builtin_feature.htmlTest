@@ -1,0 +1,131 @@
+abs acos acosh all and
+any appendFile approxRational
+asTypeOf asin asinh atan
+atan2 atanh basicIORun break
+catch ceiling chr compare
+concat concatMap const
+cos cosh curry cycle
+decodeFloat denominator
+digitToInt div divMod
+drop dropWhile either
+elem encodeFloat enumFrom
+enumFromThen enumFromThenTo
+enumFromTo error even exp
+exponent fail filter flip
+floatDigits floatRadix
+floatRange floor fmap
+foldl foldl1 foldr foldr1
+fromDouble fromEnum fromInt
+fromInteger fromIntegral
+fromRational fst gcd
+getChar getContents getLine
+group head id inRange index
+init intToDigit interact
+ioError isAlpha isAlphaNum
+isAscii isControl isDenormalized
+isDigit isHexDigit isIEEE
+isInfinite isLower isNaN
+isNegativeZero isOctDigit
+isPrint isSpace isUpper iterate
+last lcm length lex
+lexDigits lexLitChar lines
+log logBase lookup map
+mapM mapM_ max maxBound
+maximum maybe min minBound
+minimum mod negate not
+notElem null numerator odd
+or ord otherwise pack pi
+pred primExitWith print
+product properFraction
+putChar putStr putStrLn quot
+quotRem range rangeSize read
+readDec readFile readFloat readHex
+readIO readInt readList
+readLitChar readLn readOct
+readParen readSigned reads
+readsPrec realToFrac recip
+rem repeat replicate return
+reverse round scaleFloat
+scanl scanl1 scanr scanr1
+seq sequence sequence_ show
+showChar showInt showList
+showLitChar showParen showSigned
+showString shows showsPrec
+significand signum sin sinh
+snd sort span splitAt sqrt
+subtract succ sum tail take
+takeWhile tan tanh threadToIOResult
+toEnum toInt toInteger
+toLower toRational toUpper
+truncate uncurry undefined
+unlines until unwords
+unzip unzip3 userError words
+writeFile zip zip3 zipWith
+zipWith3
+----------------------------------------------------
+<span class="token builtin">abs</span> <span class="token builtin">acos</span> <span class="token builtin">acosh</span> <span class="token builtin">all</span> <span class="token builtin">and</span>
+<span class="token builtin">any</span> <span class="token builtin">appendFile</span> <span class="token builtin">approxRational</span>
+<span class="token builtin">asTypeOf</span> <span class="token builtin">asin</span> <span class="token builtin">asinh</span> <span class="token builtin">atan</span>
+<span class="token builtin">atan2</span> <span class="token builtin">atanh</span> <span class="token builtin">basicIORun</span> <span class="token builtin">break</span>
+<span class="token builtin">catch</span> <span class="token builtin">ceiling</span> <span class="token builtin">chr</span> <span class="token builtin">compare</span>
+<span class="token builtin">concat</span> <span class="token builtin">concatMap</span> <span class="token builtin">const</span>
+<span class="token builtin">cos</span> <span class="token builtin">cosh</span> <span class="token builtin">curry</span> <span class="token builtin">cycle</span>
+<span class="token builtin">decodeFloat</span> <span class="token builtin">denominator</span>
+<span class="token builtin">digitToInt</span> <span class="token builtin">div</span> <span class="token builtin">divMod</span>
+<span class="token builtin">drop</span> <span class="token builtin">dropWhile</span> <span class="token builtin">either</span>
+<span class="token builtin">elem</span> <span class="token builtin">encodeFloat</span> <span class="token builtin">enumFrom</span>
+<span class="token builtin">enumFromThen</span> <span class="token builtin">enumFromThenTo</span>
+<span class="token builtin">enumFromTo</span> <span class="token builtin">error</span> <span class="token builtin">even</span> <span class="token builtin">exp</span>
+<span class="token builtin">exponent</span> <span class="token builtin">fail</span> <span class="token builtin">filter</span> <span class="token builtin">flip</span>
+<span class="token builtin">floatDigits</span> <span class="token builtin">floatRadix</span>
+<span class="token builtin">floatRange</span> <span class="token builtin">floor</span> <span class="token builtin">fmap</span>
+<span class="token builtin">foldl</span> <span class="token builtin">foldl1</span> <span class="token builtin">foldr</span> <span class="token builtin">foldr1</span>
+<span class="token builtin">fromDouble</span> <span class="token builtin">fromEnum</span> <span class="token builtin">fromInt</span>
+<span class="token builtin">fromInteger</span> <span class="token builtin">fromIntegral</span>
+<span class="token builtin">fromRational</span> <span class="token builtin">fst</span> <span class="token builtin">gcd</span>
+<span class="token builtin">getChar</span> <span class="token builtin">getContents</span> <span class="token builtin">getLine</span>
+<span class="token builtin">group</span> <span class="token builtin">head</span> <span class="token builtin">id</span> <span class="token builtin">inRange</span> <span class="token builtin">index</span>
+<span class="token builtin">init</span> <span class="token builtin">intToDigit</span> <span class="token builtin">interact</span>
+<span class="token builtin">ioError</span> <span class="token builtin">isAlpha</span> <span class="token builtin">isAlphaNum</span>
+<span class="token builtin">isAscii</span> <span class="token builtin">isControl</span> <span class="token builtin">isDenormalized</span>
+<span class="token builtin">isDigit</span> <span class="token builtin">isHexDigit</span> <span class="token builtin">isIEEE</span>
+<span class="token builtin">isInfinite</span> <span class="token builtin">isLower</span> <span class="token builtin">isNaN</span>
+<span class="token builtin">isNegativeZero</span> <span class="token builtin">isOctDigit</span>
+<span class="token builtin">isPrint</span> <span class="token builtin">isSpace</span> <span class="token builtin">isUpper</span> <span class="token builtin">iterate</span>
+<span class="token builtin">last</span> <span class="token builtin">lcm</span> <span class="token builtin">length</span> <span class="token builtin">lex</span>
+<span class="token builtin">lexDigits</span> <span class="token builtin">lexLitChar</span> <span class="token builtin">lines</span>
+<span class="token builtin">log</span> <span class="token builtin">logBase</span> <span class="token builtin">lookup</span> <span class="token builtin">map</span>
+<span class="token builtin">mapM</span> <span class="token builtin">mapM_</span> <span class="token builtin">max</span> <span class="token builtin">maxBound</span>
+<span class="token builtin">maximum</span> <span class="token builtin">maybe</span> <span class="token builtin">min</span> <span class="token builtin">minBound</span>
+<span class="token builtin">minimum</span> <span class="token builtin">mod</span> <span class="token builtin">negate</span> <span class="token builtin">not</span>
+<span class="token builtin">notElem</span> <span class="token builtin">null</span> <span class="token builtin">numerator</span> <span class="token builtin">odd</span>
+<span class="token builtin">or</span> <span class="token builtin">ord</span> <span class="token builtin">otherwise</span> <span class="token builtin">pack</span> <span class="token builtin">pi</span>
+<span class="token builtin">pred</span> <span class="token builtin">primExitWith</span> <span class="token builtin">print</span>
+<span class="token builtin">product</span> <span class="token builtin">properFraction</span>
+<span class="token builtin">putChar</span> <span class="token builtin">putStr</span> <span class="token builtin">putStrLn</span> <span class="token builtin">quot</span>
+<span class="token builtin">quotRem</span> <span class="token builtin">range</span> <span class="token builtin">rangeSize</span> <span class="token builtin">read</span>
+<span class="token builtin">readDec</span> <span class="token builtin">readFile</span> <span class="token builtin">readFloat</span> <span class="token builtin">readHex</span>
+<span class="token builtin">readIO</span> <span class="token builtin">readInt</span> <span class="token builtin">readList</span>
+<span class="token builtin">readLitChar</span> <span class="token builtin">readLn</span> <span class="token builtin">readOct</span>
+<span class="token builtin">readParen</span> <span class="token builtin">readSigned</span> <span class="token builtin">reads</span>
+<span class="token builtin">readsPrec</span> <span class="token builtin">realToFrac</span> <span class="token builtin">recip</span>
+<span class="token builtin">rem</span> <span class="token builtin">repeat</span> <span class="token builtin">replicate</span> <span class="token builtin">return</span>
+<span class="token builtin">reverse</span> <span class="token builtin">round</span> <span class="token builtin">scaleFloat</span>
+<span class="token builtin">scanl</span> <span class="token builtin">scanl1</span> <span class="token builtin">scanr</span> <span class="token builtin">scanr1</span>
+<span class="token builtin">seq</span> <span class="token builtin">sequence</span> <span class="token builtin">sequence_</span> <span class="token builtin">show</span>
+<span class="token builtin">showChar</span> <span class="token builtin">showInt</span> <span class="token builtin">showList</span>
+<span class="token builtin">showLitChar</span> <span class="token builtin">showParen</span> <span class="token builtin">showSigned</span>
+<span class="token builtin">showString</span> <span class="token builtin">shows</span> <span class="token builtin">showsPrec</span>
+<span class="token builtin">significand</span> <span class="token builtin">signum</span> <span class="token builtin">sin</span> <span class="token builtin">sinh</span>
+<span class="token builtin">snd</span> <span class="token builtin">sort</span> <span class="token builtin">span</span> <span class="token builtin">splitAt</span> <span class="token builtin">sqrt</span>
+<span class="token builtin">subtract</span> <span class="token builtin">succ</span> <span class="token builtin">sum</span> <span class="token builtin">tail</span> <span class="token builtin">take</span>
+<span class="token builtin">takeWhile</span> <span class="token builtin">tan</span> <span class="token builtin">tanh</span> <span class="token builtin">threadToIOResult</span>
+<span class="token builtin">toEnum</span> <span class="token builtin">toInt</span> <span class="token builtin">toInteger</span>
+<span class="token builtin">toLower</span> <span class="token builtin">toRational</span> <span class="token builtin">toUpper</span>
+<span class="token builtin">truncate</span> <span class="token builtin">uncurry</span> <span class="token builtin">undefined</span>
+<span class="token builtin">unlines</span> <span class="token builtin">until</span> <span class="token builtin">unwords</span>
+<span class="token builtin">unzip</span> <span class="token builtin">unzip3</span> <span class="token builtin">userError</span> <span class="token builtin">words</span>
+<span class="token builtin">writeFile</span> <span class="token builtin">zip</span> <span class="token builtin">zip3</span> <span class="token builtin">zipWith</span>
+<span class="token builtin">zipWith3</span>
+
+----------------------------------------------------

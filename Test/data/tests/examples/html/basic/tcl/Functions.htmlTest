@@ -1,0 +1,21 @@
+proc foobar {baz} {
+	puts $baz
+}
+
+proc RESTORE/post/:post_id/comment/:comment_id {post_id comment_id} {
+    #| Restore a comment handler
+    comment_restore $comment_id
+    qc::actions redirect [url "/post/$post_id" show_deleted_comment_ids $comment_id]
+}
+----------------------------------------------------
+<span class="token builtin">proc</span> <span class="token function">foobar</span> <span class="token punctuation">{</span>baz<span class="token punctuation">}</span> <span class="token punctuation">{</span>
+	<span class="token keyword">puts</span> $<span class="token variable">baz</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin">proc</span> <span class="token function">RESTORE/post/:post_id/comment/:comment_id</span> <span class="token punctuation">{</span>post_id comment_id<span class="token punctuation">}</span> <span class="token punctuation">{</span>
+    <span class="token comment">#| Restore a comment handler</span>
+    comment_restore $<span class="token variable">comment_id</span>
+    qc::actions redirect <span class="token punctuation">[</span>url <span class="token string">"/post/$post_id"</span> show_deleted_comment_ids $<span class="token variable">comment_id</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

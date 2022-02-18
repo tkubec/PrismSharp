@@ -1,0 +1,47 @@
+@("FOO")
+	bar
+	$baz
+FOO
+
+@(FOO BAR/)
+	bar
+	$baz
+	| FOO BAR
+
+@(foo!)
+bar
+|-foo!
+
+@("some text..."/nrts$uL)
+some text
+some text..
+some text...
+
+$foo = @(FOOBAR) == $bar
+	Foobar
+	-FOOBAR
+----------------------------------------------------
+<span class="token heredoc string">@(<span class="token punctuation">"FOO"</span>)</span>
+<span class="token heredoc string">	bar
+	<span class="token interpolation variable">$baz</span>
+<span class="token punctuation">FOO</span></span>
+
+<span class="token heredoc string">@(<span class="token punctuation">FOO BAR/</span>)</span>
+<span class="token heredoc string">	bar
+	$baz
+	<span class="token punctuation">| FOO BAR</span></span>
+
+<span class="token heredoc string">@(<span class="token punctuation">foo!</span>)</span>
+<span class="token heredoc string">bar
+<span class="token punctuation">|-foo!</span></span>
+
+<span class="token heredoc string">@(<span class="token punctuation">"some text..."/nrts$uL</span>)</span>
+<span class="token heredoc string">some text
+some text..
+<span class="token punctuation">some text...</span></span>
+
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token heredoc string">@(<span class="token punctuation">FOOBAR</span>)</span> <span class="token operator">==</span> <span class="token variable">$bar</span>
+<span class="token heredoc string">	Foobar
+	<span class="token punctuation">-FOOBAR</span></span>
+
+----------------------------------------------------

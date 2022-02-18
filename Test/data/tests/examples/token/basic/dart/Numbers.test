@@ -1,0 +1,39 @@
+var x = 1;
+var hex = 0xDEADBEEF;
+var bigInt = 346534658346524376592384765923749587398457294759347029438709349347;
+var y = 1.1;
+var exponents = 1.42e5;
+----------------------------------------------------
+[
+	["keyword", "var"],
+	" x ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" hex ",
+	["operator", "="],
+	["number", "0xDEADBEEF"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" bigInt ",
+	["operator", "="],
+	["number", "346534658346524376592384765923749587398457294759347029438709349347"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" y ",
+	["operator", "="],
+	["number", "1.1"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" exponents ",
+	["operator", "="],
+	["number", "1.42e5"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

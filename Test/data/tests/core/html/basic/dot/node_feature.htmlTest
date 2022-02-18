@@ -1,0 +1,11 @@
+struct1:f1 -> struct2:f0;
+struct1:f2 -> struct3:here;
+
+A:ne -> B:sw
+----------------------------------------------------
+<span class="token node">struct1</span><span class="token operator">:</span><span class="token node">f1</span> <span class="token operator">-></span> <span class="token node">struct2</span><span class="token operator">:</span><span class="token node">f0</span><span class="token punctuation">;</span>
+<span class="token node">struct1</span><span class="token operator">:</span><span class="token node">f2</span> <span class="token operator">-></span> <span class="token node">struct3</span><span class="token operator">:</span><span class="token node">here</span><span class="token punctuation">;</span>
+
+<span class="token node">A</span><span class="token operator">:</span><span class="token compass-point builtin">ne</span> <span class="token operator">-></span> <span class="token node">B</span><span class="token operator">:</span><span class="token compass-point builtin">sw</span>
+
+----------------------------------------------------

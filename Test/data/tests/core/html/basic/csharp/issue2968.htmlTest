@@ -1,0 +1,9 @@
+func(from: "America", to: "Asia"); // Prism incorrectly highlights "from" as a keyword
+
+from element in list; // no issues here
+----------------------------------------------------
+<span class="token function">func</span><span class="token punctuation">(</span><span class="token named-parameter punctuation">from</span><span class="token punctuation">:</span> <span class="token string">"America"</span><span class="token punctuation">,</span> <span class="token named-parameter punctuation">to</span><span class="token punctuation">:</span> <span class="token string">"Asia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Prism incorrectly highlights "from" as a keyword</span>
+
+<span class="token keyword">from</span> element <span class="token keyword">in</span> list<span class="token punctuation">;</span> <span class="token comment">// no issues here</span>
+
+----------------------------------------------------

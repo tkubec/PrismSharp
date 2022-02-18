@@ -1,0 +1,9 @@
+---
+foo: true
+bar: false
+----------------------------------------------------
+<span class="token punctuation">---</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+----------------------------------------------------

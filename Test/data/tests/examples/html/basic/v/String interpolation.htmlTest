@@ -1,0 +1,15 @@
+'Hello, $name!'
+"age = $user.age"
+'can register = ${user.age > 13}'
+'x = ${x:4.2f}'
+'[${x:10}]'
+'[${int(x):-10}]'
+----------------------------------------------------
+<span class="token string quoted-string">'Hello, <span class="token interpolation"><span class="token interpolation-variable variable">$name</span></span>!'</span>
+<span class="token string quoted-string">"age = <span class="token interpolation"><span class="token interpolation-variable variable">$user.age</span></span>"</span>
+<span class="token string quoted-string">'can register = <span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token interpolation-expression">user<span class="token punctuation">.</span>age <span class="token operator">></span> <span class="token number">13</span></span><span class="token interpolation-punctuation punctuation">}</span></span>'</span>
+<span class="token string quoted-string">'x = <span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token interpolation-expression">x<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">.</span>2f</span><span class="token interpolation-punctuation punctuation">}</span></span>'</span>
+<span class="token string quoted-string">'[<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token interpolation-expression">x<span class="token punctuation">:</span><span class="token number">10</span></span><span class="token interpolation-punctuation punctuation">}</span></span>]'</span>
+<span class="token string quoted-string">'[<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token interpolation-expression"><span class="token function">int</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">10</span></span><span class="token interpolation-punctuation punctuation">}</span></span>]'</span>
+
+----------------------------------------------------

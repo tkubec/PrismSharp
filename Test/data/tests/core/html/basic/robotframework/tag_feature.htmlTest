@@ -1,0 +1,35 @@
+*** Keywords ***
+Wrapper With Customizable Timeout
+	[Arguments]    ${timeout}    @{args}
+	[Documentation]    Same as the above but timeout given as an argument.
+	[Timeout]    NONE
+
+With Teardown
+	Do Something
+	[Teardown]    Log    keyword teardown
+
+Return Three Values
+	[Return]    foo    bar    zap
+
+Settings tags using separate setting
+	[Tags]    my    fine    tags
+	No Operation
+----------------------------------------------------
+<span class="token keywords section"><span class="token section-header keyword">*** Keywords ***</span>
+<span class="token keyword-name function">Wrapper With Customizable Timeout</span>
+	<span class="token tag"><span class="token punctuation">[</span>Arguments<span class="token punctuation">]</span></span>    <span class="token variable"><span class="token punctuation">${</span>timeout<span class="token punctuation">}</span></span>    <span class="token variable"><span class="token punctuation">@{</span>args<span class="token punctuation">}</span></span>
+	<span class="token tag"><span class="token punctuation">[</span>Documentation<span class="token punctuation">]</span></span>    <span class="token documentation string">Same as the above but timeout given as an argument.</span>
+	<span class="token tag"><span class="token punctuation">[</span>Timeout<span class="token punctuation">]</span></span>    NONE
+
+<span class="token keyword-name function">With Teardown</span>
+	<span class="token property">Do Something</span>
+	<span class="token tag"><span class="token punctuation">[</span>Teardown<span class="token punctuation">]</span></span>    Log    keyword teardown
+
+<span class="token keyword-name function">Return Three Values</span>
+	<span class="token tag"><span class="token punctuation">[</span>Return<span class="token punctuation">]</span></span>    foo    bar    zap
+
+<span class="token keyword-name function">Settings tags using separate setting</span>
+	<span class="token tag"><span class="token punctuation">[</span>Tags<span class="token punctuation">]</span></span>    my    fine    tags
+	<span class="token property">No Operation</span></span>
+
+----------------------------------------------------

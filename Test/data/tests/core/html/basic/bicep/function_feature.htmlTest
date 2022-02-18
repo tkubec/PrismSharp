@@ -1,0 +1,13 @@
+param location string = resourceGroup().location
+var hostingPlanName = 'hostingplan${uniqueString(resourceGroup().id)}'
+
+array(parameters('stringToConvert'))
+createArray(1, 2, 3)
+----------------------------------------------------
+<span class="token keyword">param</span> location <span class="token datatype class-name">string</span> <span class="token operator">=</span> <span class="token function">resourceGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>location
+<span class="token keyword">var</span> hostingPlanName <span class="token operator">=</span> <span class="token interpolated-string"><span class="token string">'hostingplan</span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression"><span class="token function">uniqueString</span><span class="token punctuation">(</span><span class="token function">resourceGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>id<span class="token punctuation">)</span></span><span class="token punctuation">}</span></span><span class="token string">'</span></span>
+
+<span class="token function">array</span><span class="token punctuation">(</span><span class="token function">parameters</span><span class="token punctuation">(</span><span class="token string">'stringToConvert'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">createArray</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

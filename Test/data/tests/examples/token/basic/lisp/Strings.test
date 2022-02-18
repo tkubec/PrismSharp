@@ -1,0 +1,16 @@
+(foo "A string with an ARGUMENT ")
+----------------------------------------------------
+[
+	["punctuation", "("],
+	["car", "foo"],
+	["string", [
+		"\"",
+		["argument", "A"],
+		" string with an ",
+		["argument", "ARGUMENT"],
+		" \""
+	]],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

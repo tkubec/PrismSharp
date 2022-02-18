@@ -1,0 +1,27 @@
+#!/usr/bin/env rdmd
+
+/++/
+/+ foo
+bar +/
+/+ foo
+	/+
+	bar +/
+baz +/
+// This q{is} a comment
+// This /* is a */ comment
+/*
+comment
+*/
+----------------------------------------------------
+[
+	["comment", "#!/usr/bin/env rdmd"],
+
+	["comment", "/++/"],
+	["comment", "/+ foo\nbar +/"],
+	["comment", "/+ foo\n\t/+\n\tbar +/\nbaz +/"],
+	["comment", "// This q{is} a comment"],
+	["comment", "// This /* is a */ comment"],
+	["comment", "/*\ncomment\n*/"]
+]
+
+----------------------------------------------------

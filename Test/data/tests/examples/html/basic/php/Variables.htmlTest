@@ -1,0 +1,11 @@
+$some_var = 5;
+$otherVar = "Some text";
+$null = null;
+$false = false;
+----------------------------------------------------
+<span class="token variable">$some_var</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token variable">$otherVar</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"Some text"</span><span class="token punctuation">;</span>
+<span class="token variable">$null</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">;</span>
+<span class="token variable">$false</span> <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

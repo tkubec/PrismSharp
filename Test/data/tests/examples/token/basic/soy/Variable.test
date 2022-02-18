@@ -1,0 +1,38 @@
+{$name}
+{$folders[0]['name']}
+{$aaa?.bbb.ccc?[0]}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["variable", ["$name"]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", [
+		"$folders",
+		["punctuation", "["],
+		["number", "0"],
+		["punctuation", "]"],
+		["punctuation", "["],
+		["string", "'name'"],
+		["punctuation", "]"]
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", [
+		"$aaa",
+		["punctuation", "?"],
+		["punctuation", "."],
+		"bbb",
+		["punctuation", "."],
+		"ccc",
+		["punctuation", "?"],
+		["punctuation", "["],
+		["number", "0"],
+		["punctuation", "]"]
+	]],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

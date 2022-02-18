@@ -1,0 +1,60 @@
+SELECT COUNT(*) AS cpt, MAX(t.pos) AS max_pos
+FROM `my_table`
+LEFT JOIN `other_table` AS t
+WHERE `somecol` IS NOT NULL
+ORDER BY t.other_col DESC
+----------------------------------------------------
+[
+	["keyword", "SELECT"],
+	["function", "COUNT"],
+	["punctuation", "("],
+	["operator", "*"],
+	["punctuation", ")"],
+	["keyword", "AS"],
+	" cpt",
+	["punctuation", ","],
+	["function", "MAX"],
+	["punctuation", "("],
+	"t",
+	["punctuation", "."],
+	"pos",
+	["punctuation", ")"],
+	["keyword", "AS"],
+	" max_pos\n",
+
+	["keyword", "FROM"],
+	["identifier", [
+		["punctuation", "`"],
+		"my_table",
+		["punctuation", "`"]
+	]],
+
+	["keyword", "LEFT"],
+	["keyword", "JOIN"],
+	["identifier", [
+		["punctuation", "`"],
+		"other_table",
+		["punctuation", "`"]
+	]],
+	["keyword", "AS"],
+	" t\n",
+
+	["keyword", "WHERE"],
+	["identifier", [
+		["punctuation", "`"],
+		"somecol",
+		["punctuation", "`"]
+	]],
+	["operator", "IS"],
+	["operator", "NOT"],
+	["boolean", "NULL"],
+
+	["keyword", "ORDER"],
+	["keyword", "BY"],
+	" t",
+	["punctuation", "."],
+	"other_col ",
+	["keyword", "DESC"]
+]
+
+----------------------------------------------------

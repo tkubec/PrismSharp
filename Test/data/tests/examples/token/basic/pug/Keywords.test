@@ -1,0 +1,13 @@
+include ./includes/head.pug
+extends ./layout.pug
+block content
+append head
+----------------------------------------------------
+[
+	["keyword", "include ./includes/head.pug"],
+	["keyword", "extends ./layout.pug"],
+	["keyword", "block content"],
+	["keyword", "append head"]
+]
+
+----------------------------------------------------

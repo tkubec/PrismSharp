@@ -1,0 +1,81 @@
+Object>>method: num
+    "comment 123"
+    | var1 var2 |
+    (1 to: num) do: [:i | |var| ^i].
+    Klass with: var1.
+    Klass new.
+    arr := #('123' 123.345 #hello Transcript var $@).
+    arr := #().
+    var2 = arr at: 3.
+    ^ self abc
+
+heapExample
+    "HeapTest new heapExample"
+    "Multiline
+    decription"
+    | n rnd array time sorted |
+    n := 5000.
+    "# of elements to sort"
+    rnd := Random new.
+    array := (1 to: n)
+                collect: [:i | rnd next].
+    "First, the heap version"
+    time := Time
+                millisecondsToRun: [sorted := Heap withAll: array.
+    1
+        to: n
+        do: [:i |
+            sorted removeFirst.
+            sorted add: rnd next]].
+    Transcript cr; show: 'Time for Heap: ' , time printString , ' msecs'.
+    "The quicksort version"
+    time := Time
+                millisecondsToRun: [sorted := SortedCollection withAll: array.
+    1
+        to: n
+        do: [:i |
+            sorted removeFirst.
+            sorted add: rnd next]].
+    Transcript cr; show: 'Time for SortedCollection: ' , time printString , ' msecs'
+----------------------------------------------------
+Object<span class="token operator">>></span>method<span class="token punctuation">:</span> num
+    <span class="token comment">"comment 123"</span>
+    <span class="token temporary-variables"><span class="token punctuation">|</span> <span class="token variable">var1</span> <span class="token variable">var2</span> <span class="token punctuation">|</span></span>
+    <span class="token punctuation">(</span><span class="token number">1</span> to<span class="token punctuation">:</span> num<span class="token punctuation">)</span> do<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token block-arguments"><span class="token variable">:i</span> <span class="token punctuation">|</span></span> <span class="token temporary-variables"><span class="token punctuation">|</span><span class="token variable">var</span><span class="token punctuation">|</span></span> <span class="token operator">^</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>
+    Klass with<span class="token punctuation">:</span> var1<span class="token punctuation">.</span>
+    Klass <span class="token keyword">new</span><span class="token punctuation">.</span>
+    arr <span class="token operator">:=</span> <span class="token symbol">#</span><span class="token punctuation">(</span><span class="token string">'123'</span> <span class="token number">123.345</span> <span class="token symbol">#hello</span> Transcript var <span class="token char">$@</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    arr <span class="token operator">:=</span> <span class="token symbol">#</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    var2 <span class="token operator">=</span> arr at<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">.</span>
+    <span class="token operator">^</span> <span class="token keyword">self</span> abc
+
+heapExample
+    <span class="token comment">"HeapTest new heapExample"</span>
+    <span class="token comment">"Multiline
+    decription"</span>
+    <span class="token temporary-variables"><span class="token punctuation">|</span> <span class="token variable">n</span> <span class="token variable">rnd</span> <span class="token variable">array</span> <span class="token variable">time</span> <span class="token variable">sorted</span> <span class="token punctuation">|</span></span>
+    n <span class="token operator">:=</span> <span class="token number">5000</span><span class="token punctuation">.</span>
+    <span class="token comment">"# of elements to sort"</span>
+    rnd <span class="token operator">:=</span> Random <span class="token keyword">new</span><span class="token punctuation">.</span>
+    array <span class="token operator">:=</span> <span class="token punctuation">(</span><span class="token number">1</span> to<span class="token punctuation">:</span> n<span class="token punctuation">)</span>
+                collect<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token block-arguments"><span class="token variable">:i</span> <span class="token punctuation">|</span></span> rnd next<span class="token punctuation">]</span><span class="token punctuation">.</span>
+    <span class="token comment">"First, the heap version"</span>
+    time <span class="token operator">:=</span> Time
+                millisecondsToRun<span class="token punctuation">:</span> <span class="token punctuation">[</span>sorted <span class="token operator">:=</span> Heap withAll<span class="token punctuation">:</span> array<span class="token punctuation">.</span>
+    <span class="token number">1</span>
+        to<span class="token punctuation">:</span> n
+        do<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token block-arguments"><span class="token variable">:i</span> <span class="token punctuation">|</span></span>
+            sorted removeFirst<span class="token punctuation">.</span>
+            sorted add<span class="token punctuation">:</span> rnd next<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>
+    Transcript cr<span class="token punctuation">;</span> show<span class="token punctuation">:</span> <span class="token string">'Time for Heap: '</span> <span class="token operator">,</span> time printString <span class="token operator">,</span> <span class="token string">' msecs'</span><span class="token punctuation">.</span>
+    <span class="token comment">"The quicksort version"</span>
+    time <span class="token operator">:=</span> Time
+                millisecondsToRun<span class="token punctuation">:</span> <span class="token punctuation">[</span>sorted <span class="token operator">:=</span> SortedCollection withAll<span class="token punctuation">:</span> array<span class="token punctuation">.</span>
+    <span class="token number">1</span>
+        to<span class="token punctuation">:</span> n
+        do<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token block-arguments"><span class="token variable">:i</span> <span class="token punctuation">|</span></span>
+            sorted removeFirst<span class="token punctuation">.</span>
+            sorted add<span class="token punctuation">:</span> rnd next<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>
+    Transcript cr<span class="token punctuation">;</span> show<span class="token punctuation">:</span> <span class="token string">'Time for SortedCollection: '</span> <span class="token operator">,</span> time printString <span class="token operator">,</span> <span class="token string">' msecs'</span>
+
+----------------------------------------------------

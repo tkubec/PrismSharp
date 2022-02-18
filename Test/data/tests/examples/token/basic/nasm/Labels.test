@@ -1,0 +1,15 @@
+label1:     ; a non-local label
+.local:     ; this is really label1.local
+..@foo:     ; this is a special symbol
+label2:     ; another non-local label
+.local:     ; this is really label2.local
+----------------------------------------------------
+[
+	["label", "label1:"], ["comment", "; a non-local label"],
+	["label", ".local:"], ["comment", "; this is really label1.local"],
+	["label", "..@foo:"], ["comment", "; this is a special symbol"],
+	["label", "label2:"], ["comment", "; another non-local label"],
+	["label", ".local:"], ["comment", "; this is really label2.local"]
+]
+
+----------------------------------------------------

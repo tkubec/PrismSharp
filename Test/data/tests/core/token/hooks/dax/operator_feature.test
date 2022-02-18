@@ -1,0 +1,33 @@
++ - * / ^
+= > >= < <= <> 
+& && ||
+:=
+
+IN
+NOT
+----------------------------------------------------
+[
+	["operator", "+"],
+	["operator", "-"],
+	["operator", "*"],
+	["operator", "/"],
+	["operator", "^"],
+
+	["operator", "="],
+	["operator", ">"],
+	["operator", ">="],
+	["operator", "<"],
+	["operator", "<="],
+	["operator", "<>"],
+
+	["operator", "&"],
+	["operator", "&&"],
+	["operator", "||"],
+
+	["operator", ":="],
+
+	["operator", "IN"],
+	["operator", "NOT"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+"This is an #{:atom}"
+~s/#{40+2} is the answer/
+----------------------------------------------------
+[
+	["string", [
+		"\"This is an ",
+		["interpolation", [
+			["delimiter", "#{"],
+			["atom", ":atom"],
+			["delimiter", "}"]
+		]],
+		"\""
+	]],
+	["string", [
+		"~s/",
+		["interpolation", [
+			["delimiter", "#{"],
+			["number", "40"],
+			["operator", "+"],
+			["number", "2"],
+			["delimiter", "}"]
+		]],
+		" is the answer/"
+	]]
+]
+
+----------------------------------------------------

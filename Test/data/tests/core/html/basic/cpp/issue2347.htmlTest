@@ -1,0 +1,25 @@
+class MainWindow : public QMainWindow
+{
+  Q_OBJECT
+
+ private slots:
+  void changeWindowTitle();
+};
+void MainWindow::changeWindowTitle()
+{
+  setWindowTitle(plainTextEdit->currentFile.split("/").last() + " - Notepanda");
+}
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">MainWindow</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">QMainWindow</span></span>
+<span class="token punctuation">{</span>
+  Q_OBJECT
+
+ <span class="token keyword">private</span> slots<span class="token operator">:</span>
+  <span class="token keyword">void</span> <span class="token function">changeWindowTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token class-name">MainWindow</span><span class="token double-colon punctuation">::</span><span class="token function">changeWindowTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token function">setWindowTitle</span><span class="token punctuation">(</span>plainTextEdit<span class="token operator">-></span>currentFile<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">last</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" - Notepanda"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

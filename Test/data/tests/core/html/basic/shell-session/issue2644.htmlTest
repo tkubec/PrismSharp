@@ -1,0 +1,37 @@
+$ export BORG_PASSCOMMAND="security find-generic-password -a $USER -s borg-passphrase -w"
+$ export BORG_RSH="ssh -i ~/.ssh/borg"
+$ borg init --encryption=keyfile-blake2 "borg@1.2.3.4:backup"
+
+By default repositories initialized with this version will produce security
+errors if written to with an older version (up to and including Borg 1.0.8).
+
+If you want to use these older versions, you can disable the check by running:
+borg upgrade --disable-tam ssh://borg@1.2.3.4/./backup
+
+See https://borgbackup.readthedocs.io/en/stable/changes.html#pre-1-0-9-manifest-spoofing-vulnerability for details about the security implications.
+
+IMPORTANT: you will need both KEY AND PASSPHRASE to access this repo!
+Use "borg key export" to export the key, optionally in printable format.
+Write down the passphrase. Store both at safe place(s).
+
+---
+----------------------------------------------------
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">BORG_PASSCOMMAND</span><span class="token operator">=</span><span class="token string">"security find-generic-password -a <span class="token environment constant">$USER</span> -s borg-passphrase -w"</span></span></span>
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">BORG_RSH</span><span class="token operator">=</span><span class="token string">"ssh -i ~/.ssh/borg"</span></span></span>
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">borg init --encryption<span class="token operator">=</span>keyfile-blake2 <span class="token string">"borg@1.2.3.4:backup"</span></span></span>
+
+<span class="token output">By default repositories initialized with this version will produce security
+errors if written to with an older version (up to and including Borg 1.0.8).
+
+If you want to use these older versions, you can disable the check by running:
+borg upgrade --disable-tam ssh://borg@1.2.3.4/./backup
+
+See https://borgbackup.readthedocs.io/en/stable/changes.html#pre-1-0-9-manifest-spoofing-vulnerability for details about the security implications.
+
+IMPORTANT: you will need both KEY AND PASSPHRASE to access this repo!
+Use "borg key export" to export the key, optionally in printable format.
+Write down the passphrase. Store both at safe place(s).
+
+---</span>
+
+----------------------------------------------------

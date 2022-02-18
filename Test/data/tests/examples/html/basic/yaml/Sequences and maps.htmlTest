@@ -1,0 +1,33 @@
+---
+- Casablanca
+- North by Northwest
+- {
+    name: John Smith, age: 33}
+- name: Mary Smith
+  age: 27
+---
+"name": John Smith
+age: 33
+men: [ John Smith,
+    "Bill Jones" ]
+women:
+ - Mary Smith
+ - "Susan Williams"
+----------------------------------------------------
+<span class="token punctuation">---</span>
+<span class="token punctuation">-</span> Casablanca
+<span class="token punctuation">-</span> North by Northwest
+<span class="token punctuation">-</span> <span class="token punctuation">{</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> John Smith<span class="token punctuation">,</span> <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">33</span><span class="token punctuation">}</span>
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Mary Smith
+  <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">27</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">"name"</span><span class="token punctuation">:</span> John Smith
+<span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">33</span>
+<span class="token key atrule">men</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> John Smith<span class="token punctuation">,</span>
+    <span class="token string">"Bill Jones"</span> <span class="token punctuation">]</span>
+<span class="token key atrule">women</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> Mary Smith
+ <span class="token punctuation">-</span> <span class="token string">"Susan Williams"</span>
+
+----------------------------------------------------

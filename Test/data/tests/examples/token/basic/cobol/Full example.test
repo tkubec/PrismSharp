@@ -1,0 +1,180 @@
+*> https://en.wikipedia.org/w/index.php?title=COBOL&oldid=1011483106
+       RD  sales-report
+           PAGE LIMITS 60 LINES
+           FIRST DETAIL 3
+           CONTROLS seller-name.
+
+       01  TYPE PAGE HEADING.
+           03  COL 1                    VALUE "Sales Report".
+           03  COL 74                   VALUE "Page".
+           03  COL 79                   PIC Z9 SOURCE PAGE-COUNTER.
+
+       01  sales-on-day TYPE DETAIL, LINE + 1.
+           03  COL 3                    VALUE "Sales on".
+           03  COL 12                   PIC 99/99/9999 SOURCE sales-date.
+           03  COL 21                   VALUE "were".
+           03  COL 26                   PIC $$$$9.99 SOURCE sales-amount.
+
+       01  invalid-sales TYPE DETAIL, LINE + 1.
+           03  COL 3                    VALUE "INVALID RECORD:".
+           03  COL 19                   PIC X(34) SOURCE sales-record.
+
+       01  TYPE CONTROL HEADING seller-name, LINE + 2.
+           03  COL 1                    VALUE "Seller:".
+           03  COL 9                    PIC X(30) SOURCE seller-name.
+----------------------------------------------------
+[
+	["comment", "*> https://en.wikipedia.org/w/index.php?title=COBOL&oldid=1011483106"],
+
+	["keyword", "RD"],
+	"  sales-report\n           ",
+
+	["keyword", "PAGE"],
+	["keyword", "LIMITS"],
+	["number", "60"],
+	["keyword", "LINES"],
+
+	["keyword", "FIRST"],
+	["keyword", "DETAIL"],
+	["number", "3"],
+
+	["keyword", "CONTROLS"],
+	" seller-name",
+	["punctuation", "."],
+
+	["level", "01"],
+	["keyword", "TYPE"],
+	["keyword", "PAGE"],
+	["keyword", "HEADING"],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "1"],
+	["keyword", "VALUE"],
+	["string", "\"Sales Report\""],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "74"],
+	["keyword", "VALUE"],
+	["string", "\"Page\""],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "79"],
+	["keyword", "PIC"],
+	["class-name", ["Z9"]],
+	["keyword", "SOURCE"],
+	["keyword", "PAGE-COUNTER"],
+	["punctuation", "."],
+
+	["level", "01"],
+	"  sales-on-day ",
+	["keyword", "TYPE"],
+	["keyword", "DETAIL"],
+	["punctuation", ","],
+	["keyword", "LINE"],
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "3"],
+	["keyword", "VALUE"],
+	["string", "\"Sales on\""],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "12"],
+	["keyword", "PIC"],
+	["class-name", ["99/99/9999"]],
+	["keyword", "SOURCE"],
+	" sales-date",
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "21"],
+	["keyword", "VALUE"],
+	["string", "\"were\""],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "26"],
+	["keyword", "PIC"],
+	["class-name", ["$$$$9.99"]],
+	["keyword", "SOURCE"],
+	" sales-amount",
+	["punctuation", "."],
+
+	["level", "01"],
+	"  invalid-sales ",
+	["keyword", "TYPE"],
+	["keyword", "DETAIL"],
+	["punctuation", ","],
+	["keyword", "LINE"],
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "3"],
+	["keyword", "VALUE"],
+	["string", "\"INVALID RECORD:\""],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "19"],
+	["keyword", "PIC"],
+	["class-name", [
+		"X",
+		["punctuation", "("],
+		["number", "34"],
+		["punctuation", ")"]
+	]],
+	["keyword", "SOURCE"],
+	" sales-record",
+	["punctuation", "."],
+
+	["level", "01"],
+	["keyword", "TYPE"],
+	["keyword", "CONTROL"],
+	["keyword", "HEADING"],
+	" seller-name",
+	["punctuation", ","],
+	["keyword", "LINE"],
+	["operator", "+"],
+	["number", "2"],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "1"],
+	["keyword", "VALUE"],
+	["string", "\"Seller:\""],
+	["punctuation", "."],
+
+	["level", "03"],
+	["keyword", "COL"],
+	["number", "9"],
+	["keyword", "PIC"],
+	["class-name", [
+		"X",
+		["punctuation", "("],
+		["number", "30"],
+		["punctuation", ")"]
+	]],
+	["keyword", "SOURCE"],
+	" seller-name",
+	["punctuation", "."]
+]
+
+----------------------------------------------------

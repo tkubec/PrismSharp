@@ -1,0 +1,11 @@
+$width: 5em;
+#main {
+    width: $width;
+}
+----------------------------------------------------
+<span class="token property"><span class="token variable">$width</span></span><span class="token punctuation">:</span> 5em<span class="token punctuation">;</span>
+<span class="token selector">#main </span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$width</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

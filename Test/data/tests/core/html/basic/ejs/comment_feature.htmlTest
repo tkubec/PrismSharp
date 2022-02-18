@@ -1,0 +1,7 @@
+<%#foo
+bar%>
+----------------------------------------------------
+<span class="token delimiter punctuation">&lt;%</span><span class="token comment">#foo
+bar</span><span class="token delimiter punctuation">%></span>
+
+----------------------------------------------------

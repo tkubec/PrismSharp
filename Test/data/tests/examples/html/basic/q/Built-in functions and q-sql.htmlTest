@@ -1,0 +1,15 @@
+string 42
+L1 cross L2
+type c
+select from t where price=(max;price) fby ([]sym;ex)
+ungroup `p xgroup sp
+`instrument insert (`g; `$"Google"; `$"Internet")
+----------------------------------------------------
+<span class="token keyword">string</span> <span class="token number">42</span>
+L1 <span class="token keyword">cross</span> L2
+<span class="token keyword">type</span> c
+<span class="token keyword">select</span> <span class="token keyword">from</span> t <span class="token keyword">where</span> price<span class="token verb operator">=</span><span class="token punctuation">(</span><span class="token keyword">max</span><span class="token punctuation">;</span>price<span class="token punctuation">)</span> <span class="token keyword">fby</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>sym<span class="token punctuation">;</span>ex<span class="token punctuation">)</span>
+<span class="token keyword">ungroup</span> <span class="token symbol">`p</span> <span class="token keyword">xgroup</span> sp
+<span class="token symbol">`instrument</span> <span class="token keyword">insert</span> <span class="token punctuation">(</span><span class="token symbol">`g</span><span class="token punctuation">;</span> <span class="token symbol">`</span><span class="token verb operator">$</span><span class="token string">"Google"</span><span class="token punctuation">;</span> <span class="token symbol">`</span><span class="token verb operator">$</span><span class="token string">"Internet"</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

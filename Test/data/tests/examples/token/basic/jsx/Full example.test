@@ -1,0 +1,175 @@
+var ExampleApplication = React.createClass({
+    render: function() {
+      var elapsed = Math.round(this.props.elapsed  / 100);
+      var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0' );
+      var message =
+        'React has been successfully running for ' + seconds + ' seconds.';
+
+      return <p>{message}</p>;
+    }
+  });
+  var start = new Date().getTime();
+  setInterval(function() {
+    React.render(
+      <ExampleApplication elapsed={new Date().getTime() - start} />,
+      document.getElementById('container')
+    );
+  }, 50);
+----------------------------------------------------
+[
+	["keyword", "var"],
+	" ExampleApplication ",
+	["operator", "="],
+	" React",
+	["punctuation", "."],
+	["function", "createClass"],
+	["punctuation", "("],
+	["punctuation", "{"],
+
+	["function-variable", "render"],
+	["operator", ":"],
+	["keyword", "function"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "var"],
+	" elapsed ",
+	["operator", "="],
+	" Math",
+	["punctuation", "."],
+	["function", "round"],
+	["punctuation", "("],
+	["keyword", "this"],
+	["punctuation", "."],
+	"props",
+	["punctuation", "."],
+	"elapsed  ",
+	["operator", "/"],
+	["number", "100"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" seconds ",
+	["operator", "="],
+	" elapsed ",
+	["operator", "/"],
+	["number", "10"],
+	["operator", "+"],
+	["punctuation", "("],
+	"elapsed ",
+	["operator", "%"],
+	["number", "10"],
+	["operator", "?"],
+	["string", "''"],
+	["operator", ":"],
+	["string", "'.0'"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" message ",
+	["operator", "="],
+
+	["string", "'React has been successfully running for '"],
+	["operator", "+"],
+	" seconds ",
+	["operator", "+"],
+	["string", "' seconds.'"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+	["punctuation", "{"],
+	"message",
+	["punctuation", "}"],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" start ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Date"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "."],
+	["function", "getTime"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "setInterval"],
+	["punctuation", "("],
+	["keyword", "function"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n    React",
+	["punctuation", "."],
+	["function", "render"],
+	["punctuation", "("],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			["class-name", "ExampleApplication"]
+		]],
+		["attr-name", ["elapsed"]],
+		["script", [
+			["script-punctuation", "="],
+			["punctuation", "{"],
+			["keyword", "new"],
+			["class-name", ["Date"]],
+			["punctuation", "("],
+			["punctuation", ")"],
+			["punctuation", "."],
+			["function", "getTime"],
+			["punctuation", "("],
+			["punctuation", ")"],
+			["operator", "-"],
+			" start",
+			["punctuation", "}"]
+		]],
+		["punctuation", "/>"]
+	]],
+	["punctuation", ","],
+
+	"\n      document",
+	["punctuation", "."],
+	["function", "getElementById"],
+	["punctuation", "("],
+	["string", "'container'"],
+	["punctuation", ")"],
+
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["punctuation", ","],
+	["number", "50"],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

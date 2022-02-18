@@ -1,0 +1,25 @@
+enum Color {
+	RED
+	GREEN
+	BLUE
+}
+
+{
+	foo(bar: RED) {
+		baz
+	}
+}
+----------------------------------------------------
+<span class="token keyword">enum</span> <span class="token class-name">Color</span> <span class="token punctuation">{</span>
+	<span class="token constant">RED</span>
+	<span class="token constant">GREEN</span>
+	<span class="token constant">BLUE</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>
+	<span class="token property-query">foo</span><span class="token punctuation">(</span><span class="token attr-name">bar</span><span class="token punctuation">:</span> <span class="token constant">RED</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token property">baz</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

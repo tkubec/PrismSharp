@@ -1,0 +1,13 @@
+var x = 1;
+var hex = 0xDEADBEEF;
+var bigInt = 346534658346524376592384765923749587398457294759347029438709349347;
+var y = 1.1;
+var exponents = 1.42e5;
+----------------------------------------------------
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> hex <span class="token operator">=</span> <span class="token number">0xDEADBEEF</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> bigInt <span class="token operator">=</span> <span class="token number">346534658346524376592384765923749587398457294759347029438709349347</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> exponents <span class="token operator">=</span> <span class="token number">1.42e5</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

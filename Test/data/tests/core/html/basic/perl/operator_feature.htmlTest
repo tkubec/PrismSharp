@@ -1,0 +1,63 @@
+-r -w -x -o -R
+-W -X -O -e -z
+-s -f -d -l -p
+-S -b -c -t -u
+-g -k -T -B -M
+-A -C
+
++ ++ +=
+- -- -= ->
+* ** *= **=
+1 / 2
+1 // 2
+$a /= 2
+$a //= 2
+= == =~ =>
+~ ~~ ~=
+| || |= ||=
+& && &= &&=
+< <= << <<= <=>
+> >= >> >>=
+! !~ !=
+% %=
+^ ^=
+. .= .. ...
+\ ?
+
+lt gt le ge
+eq ne cmp not
+and or xor
+x x=
+----------------------------------------------------
+<span class="token operator">-r</span> <span class="token operator">-w</span> <span class="token operator">-x</span> <span class="token operator">-o</span> <span class="token operator">-R</span>
+<span class="token operator">-W</span> <span class="token operator">-X</span> <span class="token operator">-O</span> <span class="token operator">-e</span> <span class="token operator">-z</span>
+<span class="token operator">-s</span> <span class="token operator">-f</span> <span class="token operator">-d</span> <span class="token operator">-l</span> <span class="token operator">-p</span>
+<span class="token operator">-S</span> <span class="token operator">-b</span> <span class="token operator">-c</span> <span class="token operator">-t</span> <span class="token operator">-u</span>
+<span class="token operator">-g</span> <span class="token operator">-k</span> <span class="token operator">-T</span> <span class="token operator">-B</span> <span class="token operator">-M</span>
+<span class="token operator">-A</span> <span class="token operator">-C</span>
+
+<span class="token operator">+</span> <span class="token operator">++</span> <span class="token operator">+=</span>
+<span class="token operator">-</span> <span class="token operator">--</span> <span class="token operator">-=</span> <span class="token operator">-></span>
+<span class="token operator">*</span> <span class="token operator">**</span> <span class="token operator">*=</span> <span class="token operator">**=</span>
+<span class="token number">1</span> <span class="token operator">/</span> <span class="token number">2</span>
+<span class="token number">1</span> <span class="token operator">//</span> <span class="token number">2</span>
+<span class="token variable">$a</span> <span class="token operator">/=</span> <span class="token number">2</span>
+<span class="token variable">$a</span> <span class="token operator">//=</span> <span class="token number">2</span>
+<span class="token operator">=</span> <span class="token operator">==</span> <span class="token operator">=~</span> <span class="token operator">=></span>
+<span class="token operator">~</span> <span class="token operator">~~</span> <span class="token operator">~=</span>
+<span class="token operator">|</span> <span class="token operator">||</span> <span class="token operator">|=</span> <span class="token operator">||=</span>
+<span class="token operator">&amp;</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">&amp;=</span> <span class="token operator">&amp;&amp;=</span>
+<span class="token operator">&lt;</span> <span class="token operator">&lt;=</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">&lt;&lt;=</span> <span class="token operator">&lt;=></span>
+<span class="token operator">></span> <span class="token operator">>=</span> <span class="token operator">>></span> <span class="token operator">>>=</span>
+<span class="token operator">!</span> <span class="token operator">!~</span> <span class="token operator">!=</span>
+<span class="token operator">%</span> <span class="token operator">%=</span>
+<span class="token operator">^</span> <span class="token operator">^=</span>
+<span class="token operator">.</span> <span class="token operator">.=</span> <span class="token operator">..</span> <span class="token operator">...</span>
+<span class="token operator">\</span> <span class="token operator">?</span>
+
+<span class="token operator">lt</span> <span class="token operator">gt</span> <span class="token operator">le</span> <span class="token operator">ge</span>
+<span class="token operator">eq</span> <span class="token operator">ne</span> <span class="token operator">cmp</span> <span class="token operator">not</span>
+<span class="token operator">and</span> <span class="token operator">or</span> <span class="token operator">xor</span>
+<span class="token operator">x</span> <span class="token operator">x=</span>
+
+----------------------------------------------------

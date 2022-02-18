@@ -1,0 +1,19 @@
+""
+"Fo\"obar"
+"Foo_
+bar_
+baz"
+
+''
+'a\'zerty'
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Fo\"obar"</span>
+<span class="token string">"Foo_
+bar_
+baz"</span>
+
+<span class="token string">''</span>
+<span class="token string">'a\'zerty'</span>
+
+----------------------------------------------------

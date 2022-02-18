@@ -1,0 +1,15 @@
+""
+"foobar"
+"foo<bar>baz"
+''
+'foobar'
+'foo<bar>baz'
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foobar"</span>
+<span class="token string">"foo<span class="token outline variable">&lt;bar></span>baz"</span>
+<span class="token string">''</span>
+<span class="token string">'foobar'</span>
+<span class="token string">'foo<span class="token outline variable">&lt;bar></span>baz'</span>
+
+----------------------------------------------------

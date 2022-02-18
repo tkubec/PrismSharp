@@ -1,0 +1,17 @@
+foo: bar
+	color: $color !important
+-moz-border-radius: 10px
+transition-timing-function: ease-in-out
+
+	:color #{$color}
+:font-size 0.5em + 3em
+----------------------------------------------------
+<span class="token property-line"><span class="token property">foo</span><span class="token punctuation">:</span> bar</span>
+<span class="token property-line">	<span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$color</span> <span class="token important">!important</span></span>
+<span class="token property-line"><span class="token property">-moz-border-radius</span><span class="token punctuation">:</span> 10px</span>
+<span class="token property-line"><span class="token property">transition-timing-function</span><span class="token punctuation">:</span> ease-in-out</span>
+
+<span class="token property-line">	<span class="token punctuation">:</span><span class="token property">color</span> <span class="token variable">#{$color}</span></span>
+<span class="token property-line"><span class="token punctuation">:</span><span class="token property">font-size</span> 0.5em <span class="token operator">+</span> 3em</span>
+
+----------------------------------------------------

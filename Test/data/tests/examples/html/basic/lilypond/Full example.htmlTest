@@ -1,0 +1,121 @@
+\version "2.16.0"
+\include "example-header.ily"
+
+#(ly:set-option 'point-and-click #f)
+#(set-global-staff-size 24)
+
+global = {
+    \time 4/4
+    \numericTimeSignature
+    \key c \major
+}
+
+cf = \relative c {
+  \clef bass
+  \global
+  c4 c' b a |
+  g a f d |
+  e f g g, |
+  c1
+}
+
+upper = \relative c'' {
+  \global
+  r4 s4 s2 |
+  s1*2 |
+  s2 s4 s
+  \bar "||"
+}
+
+bassFigures = \figuremode {
+  s1*2 | s4 <6> <6 4> <7> | s1
+}
+
+\markup { "Exercise 3: Write 8th notes against the given bass line." }
+
+\score {
+  \new PianoStaff <<
+    \new Staff {
+      \context Voice = "added voice" \with {
+        \consists "Balloon_engraver"
+      }
+      \upper
+    }
+
+    \new Staff = lower {
+      <<
+%      \context Voice = "cantus firmus" \with {
+%        \consists "Balloon_engraver"
+%      }
+        \context Staff = lower \cf
+        \new FiguredBass \bassFigures
+      >>
+    }
+  >>
+  \layout {}
+  %{\midi {
+    \tempo 4 = 120
+  }%}
+}
+----------------------------------------------------
+<span class="token keyword"><span class="token punctuation">\</span>version</span> <span class="token string">"2.16.0"</span>
+<span class="token keyword"><span class="token punctuation">\</span>include</span> <span class="token string">"example-header.ily"</span>
+
+<span class="token embedded-scheme"><span class="token punctuation">#</span><span class="token scheme language-scheme"><span class="token punctuation">(</span><span class="token function">ly:set-option</span> <span class="token symbol">'point-and-click</span> <span class="token boolean">#f</span><span class="token punctuation">)</span></span></span>
+<span class="token embedded-scheme"><span class="token punctuation">#</span><span class="token scheme language-scheme"><span class="token punctuation">(</span><span class="token function">set-global-staff-size</span> <span class="token number">24</span><span class="token punctuation">)</span></span></span>
+
+global <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword"><span class="token punctuation">\</span>time</span> <span class="token number">4/4</span>
+    <span class="token keyword"><span class="token punctuation">\</span>numericTimeSignature</span>
+    <span class="token keyword"><span class="token punctuation">\</span>key</span> c <span class="token keyword"><span class="token punctuation">\</span>major</span>
+<span class="token punctuation">}</span>
+
+cf <span class="token operator">=</span> <span class="token keyword"><span class="token punctuation">\</span>relative</span> c <span class="token punctuation">{</span>
+  <span class="token keyword"><span class="token punctuation">\</span>clef</span> bass
+  <span class="token keyword"><span class="token punctuation">\</span>global</span>
+  c4 c<span class="token punctuation">'</span> b a <span class="token operator">|</span>
+  g a f d <span class="token operator">|</span>
+  e f g g<span class="token punctuation">,</span> <span class="token operator">|</span>
+  c1
+<span class="token punctuation">}</span>
+
+upper <span class="token operator">=</span> <span class="token keyword"><span class="token punctuation">\</span>relative</span> c<span class="token punctuation">''</span> <span class="token punctuation">{</span>
+  <span class="token keyword"><span class="token punctuation">\</span>global</span>
+  r4 s4 s2 <span class="token operator">|</span>
+  s1*<span class="token number">2</span> <span class="token operator">|</span>
+  s2 s4 s
+  <span class="token keyword"><span class="token punctuation">\</span>bar</span> <span class="token string">"||"</span>
+<span class="token punctuation">}</span>
+
+bassFigures <span class="token operator">=</span> <span class="token keyword"><span class="token punctuation">\</span>figuremode</span> <span class="token punctuation">{</span>
+  s1*<span class="token number">2</span> <span class="token operator">|</span> s4 <span class="token punctuation">&lt;</span><span class="token number">6</span><span class="token punctuation">></span> <span class="token punctuation">&lt;</span><span class="token number">6</span> <span class="token number">4</span><span class="token punctuation">></span> <span class="token punctuation">&lt;</span><span class="token number">7</span><span class="token punctuation">></span> <span class="token operator">|</span> s1
+<span class="token punctuation">}</span>
+
+<span class="token keyword"><span class="token punctuation">\</span>markup</span> <span class="token punctuation">{</span> <span class="token string">"Exercise 3: Write 8th notes against the given bass line."</span> <span class="token punctuation">}</span>
+
+<span class="token keyword"><span class="token punctuation">\</span>score</span> <span class="token punctuation">{</span>
+  <span class="token keyword"><span class="token punctuation">\</span>new</span> <span class="token class-name">PianoStaff</span> <span class="token operator">&lt;&lt;</span>
+    <span class="token keyword"><span class="token punctuation">\</span>new</span> <span class="token class-name">Staff</span> <span class="token punctuation">{</span>
+      <span class="token keyword"><span class="token punctuation">\</span>context</span> Voice <span class="token operator">=</span> <span class="token string">"added voice"</span> <span class="token keyword"><span class="token punctuation">\</span>with</span> <span class="token punctuation">{</span>
+        <span class="token keyword"><span class="token punctuation">\</span>consists</span> <span class="token string">"Balloon_engraver"</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword"><span class="token punctuation">\</span>upper</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword"><span class="token punctuation">\</span>new</span> <span class="token class-name">Staff</span> <span class="token operator">=</span> lower <span class="token punctuation">{</span>
+      <span class="token operator">&lt;&lt;</span>
+<span class="token comment">%      \context Voice = "cantus firmus" \with {</span>
+<span class="token comment">%        \consists "Balloon_engraver"</span>
+<span class="token comment">%      }</span>
+        <span class="token keyword"><span class="token punctuation">\</span>context</span> Staff <span class="token operator">=</span> lower <span class="token keyword"><span class="token punctuation">\</span>cf</span>
+        <span class="token keyword"><span class="token punctuation">\</span>new</span> <span class="token class-name">FiguredBass</span> <span class="token keyword"><span class="token punctuation">\</span>bassFigures</span>
+      <span class="token operator">>></span>
+    <span class="token punctuation">}</span>
+  <span class="token operator">>></span>
+  <span class="token keyword"><span class="token punctuation">\</span>layout</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token comment">%{\midi {
+    \tempo 4 = 120
+  }%}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+(foo)
+(foo bar)
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token car">foo</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">foo</span> bar<span class="token punctuation">)</span>
+
+----------------------------------------------------

@@ -1,0 +1,339 @@
+module Main exposing (..)
+
+import Html exposing (Html)
+import Svg exposing (..)
+import Svg.Attributes exposing (..)
+import Time exposing (Time, second)
+
+
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+
+-- MODEL
+
+
+type alias Model =
+    Time
+
+
+init : ( Model, Cmd Msg )
+init =
+    ( 0, Cmd.none )
+
+
+
+-- UPDATE
+
+
+type Msg
+    = Tick Time
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        Tick newTime ->
+            ( newTime, Cmd.none )
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Time.every second (\time -> Tick time)
+
+
+
+-- VIEW
+
+
+view : Model -> Html Msg
+view model =
+    let
+        angle =
+            turns (Time.inMinutes model)
+
+        handX =
+            toString (50 + 40 * cos angle)
+
+        handY =
+            toString (50 + 40 * sin angle)
+    in
+    svg [ viewBox "0 0 100 100", width "300px" ]
+        [ circle [ cx "50", cy "50", r "45", fill "#0B79CE" ] []
+        , line [ x1 "50", y1 "50", x2 handX, y2 handY, stroke "#023963" ] []
+        ]
+----------------------------------------------------
+[
+	["keyword", "module"],
+	["constant", "Main"],
+	["keyword", "exposing"],
+	["punctuation", "("],
+	["operator", ".."],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Html ",
+		["keyword", "exposing"]
+	]],
+	["punctuation", "("],
+	["constant", "Html"],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Svg ",
+		["keyword", "exposing"]
+	]],
+	["punctuation", "("],
+	["operator", ".."],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Svg.Attributes ",
+		["keyword", "exposing"]
+	]],
+	["punctuation", "("],
+	["operator", ".."],
+	["punctuation", ")"],
+
+	["import-statement", [
+		["keyword", "import"],
+		" Time ",
+		["keyword", "exposing"]
+	]],
+	["punctuation", "("],
+	["constant", "Time"],
+	["punctuation", ","],
+	["hvariable", "second"],
+	["punctuation", ")"],
+
+	["hvariable", "main"],
+	["operator", "="],
+
+	["hvariable", "Html.program"],
+
+	["punctuation", "{"],
+	["hvariable", "init"],
+	["operator", "="],
+	["hvariable", "init"],
+
+	["punctuation", ","],
+	["hvariable", "view"],
+	["operator", "="],
+	["hvariable", "view"],
+
+	["punctuation", ","],
+	["hvariable", "update"],
+	["operator", "="],
+	["hvariable", "update"],
+
+	["punctuation", ","],
+	["hvariable", "subscriptions"],
+	["operator", "="],
+	["hvariable", "subscriptions"],
+
+	["punctuation", "}"],
+
+	["comment", "-- MODEL"],
+
+	["keyword", "type"],
+	["keyword", "alias"],
+	["constant", "Model"],
+	["operator", "="],
+
+	["constant", "Time"],
+
+	["hvariable", "init"],
+	["operator", ":"],
+	["punctuation", "("],
+	["constant", "Model"],
+	["punctuation", ","],
+	["constant", "Cmd"],
+	["constant", "Msg"],
+	["punctuation", ")"],
+
+	["hvariable", "init"],
+	["operator", "="],
+
+	["punctuation", "("],
+	["number", "0"],
+	["punctuation", ","],
+	["hvariable", "Cmd.none"],
+	["punctuation", ")"],
+
+	["comment", "-- UPDATE"],
+
+	["keyword", "type"], ["constant", "Msg"],
+	["operator", "="], ["constant", "Tick"], ["constant", "Time"],
+
+	["hvariable", "update"],
+	["operator", ":"],
+	["constant", "Msg"],
+	["operator", "->"],
+	["constant", "Model"],
+	["operator", "->"],
+	["punctuation", "("],
+	["constant", "Model"],
+	["punctuation", ","],
+	["constant", "Cmd"],
+	["constant", "Msg"],
+	["punctuation", ")"],
+
+	["hvariable", "update"],
+	["hvariable", "msg"],
+	["hvariable", "model"],
+	["operator", "="],
+
+	["keyword", "case"],
+	["hvariable", "msg"],
+	["keyword", "of"],
+
+	["constant", "Tick"],
+	["hvariable", "newTime"],
+	["operator", "->"],
+
+	["punctuation", "("],
+	["hvariable", "newTime"],
+	["punctuation", ","],
+	["hvariable", "Cmd.none"],
+	["punctuation", ")"],
+
+	["comment", "-- SUBSCRIPTIONS"],
+
+	["hvariable", "subscriptions"],
+	["operator", ":"],
+	["constant", "Model"],
+	["operator", "->"],
+	["constant", "Sub"],
+	["constant", "Msg"],
+
+	["hvariable", "subscriptions"],
+	["hvariable", "model"],
+	["operator", "="],
+
+	["hvariable", "Time.every"],
+	["hvariable", "second"],
+	["punctuation", "("],
+	"\\",
+	["hvariable", "time"],
+	["operator", "->"],
+	["constant", "Tick"],
+	["hvariable", "time"],
+	["punctuation", ")"],
+
+	["comment", "-- VIEW"],
+
+	["hvariable", "view"],
+	["operator", ":"],
+	["constant", "Model"],
+	["operator", "->"],
+	["constant", "Html"],
+	["constant", "Msg"],
+
+	["hvariable", "view"],
+	["hvariable", "model"],
+	["operator", "="],
+
+	["keyword", "let"],
+
+	["hvariable", "angle"],
+	["operator", "="],
+
+	["builtin", "turns"],
+	["punctuation", "("],
+	["hvariable", "Time.inMinutes"],
+	["hvariable", "model"],
+	["punctuation", ")"],
+
+	["hvariable", "handX"],
+	["operator", "="],
+
+	["builtin", "toString"],
+	["punctuation", "("],
+	["number", "50"],
+	["operator", "+"],
+	["number", "40"],
+	["operator", "*"],
+	["builtin", "cos"],
+	["hvariable", "angle"],
+	["punctuation", ")"],
+
+	["hvariable", "handY"],
+	["operator", "="],
+
+	["builtin", "toString"],
+	["punctuation", "("],
+	["number", "50"],
+	["operator", "+"],
+	["number", "40"],
+	["operator", "*"],
+	["builtin", "sin"],
+	["hvariable", "angle"],
+	["punctuation", ")"],
+
+	["keyword", "in"],
+
+	["hvariable", "svg"],
+	["punctuation", "["],
+	["hvariable", "viewBox"],
+	["string", "\"0 0 100 100\""],
+	["punctuation", ","],
+	["hvariable", "width"],
+	["string", "\"300px\""],
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	["hvariable", "circle"],
+	["punctuation", "["],
+	["hvariable", "cx"],
+	["string", "\"50\""],
+	["punctuation", ","],
+	["hvariable", "cy"],
+	["string", "\"50\""],
+	["punctuation", ","],
+	["hvariable", "r"],
+	["string", "\"45\""],
+	["punctuation", ","],
+	["hvariable", "fill"],
+	["string", "\"#0B79CE\""],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["punctuation", "]"],
+
+	["punctuation", ","],
+	["hvariable", "line"],
+	["punctuation", "["],
+	["hvariable", "x1"],
+	["string", "\"50\""],
+	["punctuation", ","],
+	["hvariable", "y1"],
+	["string", "\"50\""],
+	["punctuation", ","],
+	["hvariable", "x2"],
+	["hvariable", "handX"],
+	["punctuation", ","],
+	["hvariable", "y2"],
+	["hvariable", "handY"],
+	["punctuation", ","],
+	["hvariable", "stroke"],
+	["string", "\"#023963\""],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["punctuation", "]"],
+
+	["punctuation", "]"]
+]
+
+----------------------------------------------------

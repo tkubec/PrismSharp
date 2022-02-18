@@ -1,0 +1,229 @@
+const std = @import("std");
+
+pub fn main() !void {
+    // If this program is run without stdout attached, exit with an error.
+    const stdout_file = try std.io.getStdOut();
+    // If this program encounters pipe failure when printing to stdout, exit
+    // with an error.
+    try stdout_file.write("Hello, world!\n");
+}
+
+const warn = @import("std").debug.warn;
+
+pub fn main() void {
+    warn("Hello, world!\n");
+}
+
+const assert = @import("std").debug.assert;
+
+test "comments" {
+    // Comments in Zig start with "//" and end at the next LF byte (end of line).
+    // The below line is a comment, and won't be executed.
+
+    //assert(false);
+
+    const x = true;  // another comment
+    assert(x);
+}
+
+/// A structure for storing a timestamp, with nanosecond precision (this is a
+/// multiline doc comment).
+const Timestamp = struct {
+    /// The number of seconds since the epoch (this is also a doc comment).
+    seconds: i64,  // signed so we can represent pre-1970 (not a doc comment)
+    /// The number of nanoseconds past the second (doc comment again).
+    nanos: u32,
+
+    /// Returns a `Timestamp` struct representing the Unix epoch; that is, the
+    /// moment of 1970 Jan 1 00:00:00 UTC (this is a doc comment too).
+    pub fn unixEpoch() Timestamp {
+        return Timestamp{
+            .seconds = 0,
+            .nanos = 0,
+        };
+    }
+};
+----------------------------------------------------
+[
+	["keyword", "const"],
+	" std ",
+	["operator", "="],
+	["builtin", "@import"],
+	["punctuation", "("],
+	["string", "\"std\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "pub"],
+	["keyword", "fn"],
+	["function", "main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["class-name", [
+		["operator", "!"],
+		["builtin-type", "void"]
+	]],
+	["punctuation", "{"],
+
+	["comment", "// If this program is run without stdout attached, exit with an error."],
+
+	["keyword", "const"],
+	" stdout_file ",
+	["operator", "="],
+	["keyword", "try"],
+	" std",
+	["punctuation", "."],
+	"io",
+	["punctuation", "."],
+	["function", "getStdOut"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// If this program encounters pipe failure when printing to stdout, exit"],
+
+	["comment", "// with an error."],
+
+	["keyword", "try"],
+	" stdout_file",
+	["punctuation", "."],
+	["function", "write"],
+	["punctuation", "("],
+	["string", "\"Hello, world!\\n\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "const"],
+	" warn ",
+	["operator", "="],
+	["builtin", "@import"],
+	["punctuation", "("],
+	["string", "\"std\""],
+	["punctuation", ")"],
+	["punctuation", "."],
+	"debug",
+	["punctuation", "."],
+	"warn",
+	["punctuation", ";"],
+
+	["keyword", "pub"],
+	["keyword", "fn"],
+	["function", "main"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["class-name", [
+		["builtin-type", "void"]
+	]],
+	["punctuation", "{"],
+
+	["function", "warn"],
+	["punctuation", "("],
+	["string", "\"Hello, world!\\n\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "const"],
+	" assert ",
+	["operator", "="],
+	["builtin", "@import"],
+	["punctuation", "("],
+	["string", "\"std\""],
+	["punctuation", ")"],
+	["punctuation", "."],
+	"debug",
+	["punctuation", "."],
+	"assert",
+	["punctuation", ";"],
+
+	["keyword", "test"], ["string", "\"comments\""], ["punctuation", "{"],
+	["comment", "// Comments in Zig start with \"//\" and end at the next LF byte (end of line)."],
+	["comment", "// The below line is a comment, and won't be executed."],
+
+	["comment", "//assert(false);"],
+
+	["keyword", "const"],
+	" x ",
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", ";"],
+	["comment", "// another comment"],
+
+	["function", "assert"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "/// A structure for storing a timestamp, with nanosecond precision (this is a"],
+
+	["comment", "/// multiline doc comment)."],
+
+	["keyword", "const"],
+	["class-name", "Timestamp"],
+	["operator", "="],
+	["keyword", "struct"],
+	["punctuation", "{"],
+
+	["comment", "/// The number of seconds since the epoch (this is also a doc comment)."],
+
+	"\n    seconds",
+	["punctuation", ":"],
+	["class-name", [
+		["builtin-type", "i64"]
+	]],
+	["punctuation", ","],
+	["comment", "// signed so we can represent pre-1970 (not a doc comment)"],
+
+	["comment", "/// The number of nanoseconds past the second (doc comment again)."],
+
+	"\n    nanos",
+	["punctuation", ":"],
+	["class-name", [
+		["builtin-type", "u32"]
+	]],
+	["punctuation", ","],
+
+	["comment", "/// Returns a `Timestamp` struct representing the Unix epoch; that is, the"],
+
+	["comment", "/// moment of 1970 Jan 1 00:00:00 UTC (this is a doc comment too)."],
+
+	["keyword", "pub"],
+	["keyword", "fn"],
+	["function", "unixEpoch"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["class-name", ["Timestamp"]],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["class-name", ["Timestamp"]],
+	["punctuation", "{"],
+
+	["punctuation", "."],
+	"seconds ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ","],
+
+	["punctuation", "."],
+	"nanos ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

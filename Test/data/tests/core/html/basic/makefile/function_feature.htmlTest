@@ -1,0 +1,77 @@
+(abspath foo)
+(addsuffix foo)
+(and foo)
+(basename foo)
+(call foo)
+(dir foo)
+(error foo)
+(eval foo)
+(file foo)
+(filter foo)
+(filter-out foo)
+(findstring foo)
+(firstword foo)
+(flavor foo)
+(foreach foo)
+(guile foo)
+(if foo)
+(info foo)
+(join foo)
+(lastword foo)
+(load foo)
+(notdir foo)
+(or foo)
+(origin foo)
+(patsubst foo)
+(realpath foo)
+(shell foo)
+(sort foo)
+(strip foo)
+(subst foo)
+(suffix foo)
+(value foo)
+(warning foo)
+(wildcard foo)
+(word foo)
+(wordlist foo)
+(words foo)
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token function">abspath</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">addsuffix</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">and</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">basename</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">call</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">dir</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">error</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">eval</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">file</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">filter</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">filter-out</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">findstring</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">firstword</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">flavor</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">foreach</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">guile</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">if</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">info</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">join</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">lastword</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">load</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">notdir</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">or</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">origin</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">patsubst</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">realpath</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">shell</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">sort</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">strip</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">subst</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">suffix</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">value</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">warning</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">wildcard</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">word</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">wordlist</span> foo<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">words</span> foo<span class="token punctuation">)</span>
+
+----------------------------------------------------

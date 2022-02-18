@@ -1,0 +1,13 @@
+# foo bar
+// foo bar
+/*
+ * multi line
+ */
+----------------------------------------------------
+<span class="token comment"># foo bar</span>
+<span class="token comment">// foo bar</span>
+<span class="token comment">/*
+ * multi line
+ */</span>
+
+----------------------------------------------------

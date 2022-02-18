@@ -1,0 +1,27 @@
+A.invert({1:"a", 2:"A"})
+; => {"a":2}
+
+NormalLabel:
+; do something
+return
+	TabbedLabel:
+	; do something
+	return
+Sus{}//[]Label:
+; do something
+return
+----------------------------------------------------
+A<span class="token operator">.</span><span class="token function">invert</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">; => {"a":2}</span>
+
+<span class="token tag">NormalLabel</span><span class="token punctuation">:</span>
+<span class="token comment">; do something</span>
+<span class="token selector">return</span>
+	<span class="token tag">TabbedLabel</span><span class="token punctuation">:</span>
+	<span class="token comment">; do something</span>
+	<span class="token selector">return</span>
+<span class="token tag">Sus{}//[]Label</span><span class="token punctuation">:</span>
+<span class="token comment">; do something</span>
+<span class="token selector">return</span>
+
+----------------------------------------------------

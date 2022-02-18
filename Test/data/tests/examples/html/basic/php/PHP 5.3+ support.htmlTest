@@ -1,0 +1,29 @@
+namespace my\name;
+$c = new \my\name\MyClass;
+$arr = [1,2,3];
+trait ezcReflectionReturnInfo {
+    function getReturnType() { /*1*/ }
+    function getReturnDescription() { /*2*/ }
+}
+function gen_one_to_three() {
+    for ($i = 1; $i <= 3; $i++) {
+        // Note that $i is preserved between yields.
+        yield $i;
+    }
+}
+----------------------------------------------------
+<span class="token keyword">namespace</span> <span class="token package">my<span class="token punctuation">\</span>name</span><span class="token punctuation">;</span>
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>my<span class="token punctuation">\</span>name<span class="token punctuation">\</span>MyClass</span><span class="token punctuation">;</span>
+<span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">trait</span> <span class="token class-name-definition class-name">ezcReflectionReturnInfo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function-definition function">getReturnType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/*1*/</span> <span class="token punctuation">}</span>
+    <span class="token keyword">function</span> <span class="token function-definition function">getReturnDescription</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/*2*/</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-definition function">gen_one_to_three</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Note that $i is preserved between yields.</span>
+        <span class="token keyword">yield</span> <span class="token variable">$i</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

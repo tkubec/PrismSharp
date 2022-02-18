@@ -1,0 +1,55 @@
+instances[instance] {
+    server := sites[_].servers[_]
+    instance := {"address": server.hostname, "name": server.name}
+} {
+    container := containers[_]
+    instance := {"address": container.ipaddress, "name": container.name}
+}
+
+apps := [
+    {
+        "name": "web",
+        "servers": ["web-0", "web-1", "web-1000", "web-1001", "web-dev"]
+    },
+    {
+        "name": "mysql",
+        "servers": ["db-0", "db-1000"]
+    },
+    {
+        "name": "mongodb",
+        "servers": ["db-dev"]
+    }
+]
+
+not allow with input as {"user": "charlie", "method": "GET"} with data.roles as {"dev": ["bob"]}
+
+allow with input as {"user": "charlie", "method": "GET"} with data.roles as {"dev": ["charlie"]}
+----------------------------------------------------
+instances<span class="token punctuation">[</span>instance<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+    server <span class="token operator">:=</span> sites<span class="token punctuation">[</span><span class="token operator">_</span><span class="token punctuation">]</span><span class="token punctuation">.</span>servers<span class="token punctuation">[</span><span class="token operator">_</span><span class="token punctuation">]</span>
+    instance <span class="token operator">:=</span> <span class="token punctuation">{</span><span class="token property">"address"</span><span class="token operator">:</span> server<span class="token punctuation">.</span>hostname<span class="token punctuation">,</span> <span class="token property">"name"</span><span class="token operator">:</span> server<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token punctuation">{</span>
+    container <span class="token operator">:=</span> containers<span class="token punctuation">[</span><span class="token operator">_</span><span class="token punctuation">]</span>
+    instance <span class="token operator">:=</span> <span class="token punctuation">{</span><span class="token property">"address"</span><span class="token operator">:</span> container<span class="token punctuation">.</span>ipaddress<span class="token punctuation">,</span> <span class="token property">"name"</span><span class="token operator">:</span> container<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+apps <span class="token operator">:=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"web"</span><span class="token punctuation">,</span>
+        <span class="token property">"servers"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"web-0"</span><span class="token punctuation">,</span> <span class="token string">"web-1"</span><span class="token punctuation">,</span> <span class="token string">"web-1000"</span><span class="token punctuation">,</span> <span class="token string">"web-1001"</span><span class="token punctuation">,</span> <span class="token string">"web-dev"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"mysql"</span><span class="token punctuation">,</span>
+        <span class="token property">"servers"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"db-0"</span><span class="token punctuation">,</span> <span class="token string">"db-1000"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"mongodb"</span><span class="token punctuation">,</span>
+        <span class="token property">"servers"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"db-dev"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+<span class="token keyword">not</span> allow <span class="token keyword">with</span> input <span class="token keyword">as</span> <span class="token punctuation">{</span><span class="token property">"user"</span><span class="token operator">:</span> <span class="token string">"charlie"</span><span class="token punctuation">,</span> <span class="token property">"method"</span><span class="token operator">:</span> <span class="token string">"GET"</span><span class="token punctuation">}</span> <span class="token keyword">with</span> data<span class="token punctuation">.</span>roles <span class="token keyword">as</span> <span class="token punctuation">{</span><span class="token property">"dev"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"bob"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+allow <span class="token keyword">with</span> input <span class="token keyword">as</span> <span class="token punctuation">{</span><span class="token property">"user"</span><span class="token operator">:</span> <span class="token string">"charlie"</span><span class="token punctuation">,</span> <span class="token property">"method"</span><span class="token operator">:</span> <span class="token string">"GET"</span><span class="token punctuation">}</span> <span class="token keyword">with</span> data<span class="token punctuation">.</span>roles <span class="token keyword">as</span> <span class="token punctuation">{</span><span class="token property">"dev"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"charlie"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

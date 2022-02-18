@@ -1,0 +1,228 @@
+module Make_interval(Endpoint : Comparable) = struct
+
+    type t = | Interval of Endpoint.t * Endpoint.t
+             | Empty
+
+    (** [create low high] creates a new interval from [low] to
+        [high].  If [low > high], then the interval is empty *)
+    let create ~low ~high =
+      if Endpoint.compare low high > 0 then Empty
+      else Interval (low,high)
+
+    (** Returns true iff the interval is empty *)
+    let is_empty = function
+      | Empty -> true
+      | Interval _ -> false
+
+    (** [contains t x] returns true iff [x] is contained in the
+        interval [t] *)
+    let contains t x =
+      match t with
+      | Empty -> false
+      | Interval (l,h) ->
+        Endpoint.compare x l >= 0 && Endpoint.compare x h <= 0
+
+    (** [intersect t1 t2] returns the intersection of the two input
+        intervals *)
+    let intersect t1 t2 =
+      let min x y = if Endpoint.compare x y <= 0 then x else y in
+      let max x y = if Endpoint.compare x y >= 0 then x else y in
+      match t1,t2 with
+      | Empty, _ | _, Empty -> Empty
+      | Interval (l1,h1), Interval (l2,h2) ->
+        create ~low:(max l1 l2) ~high:(min h1 h2)
+
+  end ;;
+----------------------------------------------------
+[
+	["keyword", "module"],
+	" Make_interval",
+	["punctuation", "("],
+	"Endpoint ",
+	["punctuation", ":"],
+	" Comparable",
+	["punctuation", ")"],
+	["operator", "="],
+	["keyword", "struct"],
+
+	["keyword", "type"],
+	" t ",
+	["operator", "="],
+	["operator", "|"],
+	" Interval ",
+	["keyword", "of"],
+	" Endpoint",
+	["punctuation", "."],
+	"t ",
+	["operator", "*"],
+	" Endpoint",
+	["punctuation", "."],
+	"t\n             ",
+
+	["operator", "|"],
+	" Empty\n\n    ",
+
+	["comment", "(** [create low high] creates a new interval from [low] to\n        [high].  If [low > high], then the interval is empty *)"],
+
+	["keyword", "let"],
+	" create ",
+	["label", "~low"],
+	["label", "~high"],
+	["operator", "="],
+
+	["keyword", "if"],
+	" Endpoint",
+	["punctuation", "."],
+	"compare low high ",
+	["operator", ">"],
+	["number", "0"],
+	["keyword", "then"],
+	" Empty\n      ",
+
+	["keyword", "else"],
+	" Interval ",
+	["punctuation", "("],
+	"low",
+	["punctuation", ","],
+	"high",
+	["punctuation", ")"],
+
+	["comment", "(** Returns true iff the interval is empty *)"],
+
+	["keyword", "let"],
+	" is_empty ",
+	["operator", "="],
+	["keyword", "function"],
+
+	["operator", "|"],
+	" Empty ",
+	["operator", "->"],
+	["boolean", "true"],
+
+	["operator", "|"],
+	" Interval ",
+	["punctuation", "_"],
+	["operator", "->"],
+	["boolean", "false"],
+
+	["comment", "(** [contains t x] returns true iff [x] is contained in the\n        interval [t] *)"],
+
+	["keyword", "let"],
+	" contains t x ",
+	["operator", "="],
+
+	["keyword", "match"],
+	" t ",
+	["keyword", "with"],
+
+	["operator", "|"],
+	" Empty ",
+	["operator", "->"],
+	["boolean", "false"],
+
+	["operator", "|"],
+	" Interval ",
+	["punctuation", "("],
+	"l",
+	["punctuation", ","],
+	"h",
+	["punctuation", ")"],
+	["operator", "->"],
+
+	"\n        Endpoint",
+	["punctuation", "."],
+	"compare x l ",
+	["operator", ">="],
+	["number", "0"],
+	["operator", "&&"],
+	" Endpoint",
+	["punctuation", "."],
+	"compare x h ",
+	["operator", "<="],
+	["number", "0"],
+
+	["comment", "(** [intersect t1 t2] returns the intersection of the two input\n        intervals *)"],
+
+	["keyword", "let"],
+	" intersect t1 t2 ",
+	["operator", "="],
+
+	["keyword", "let"],
+	" min x y ",
+	["operator", "="],
+	["keyword", "if"],
+	" Endpoint",
+	["punctuation", "."],
+	"compare x y ",
+	["operator", "<="],
+	["number", "0"],
+	["keyword", "then"],
+	" x ",
+	["keyword", "else"],
+	" y ",
+	["keyword", "in"],
+
+	["keyword", "let"],
+	" max x y ",
+	["operator", "="],
+	["keyword", "if"],
+	" Endpoint",
+	["punctuation", "."],
+	"compare x y ",
+	["operator", ">="],
+	["number", "0"],
+	["keyword", "then"],
+	" x ",
+	["keyword", "else"],
+	" y ",
+	["keyword", "in"],
+
+	["keyword", "match"],
+	" t1",
+	["punctuation", ","],
+	"t2 ",
+	["keyword", "with"],
+
+	["operator", "|"],
+	" Empty",
+	["punctuation", ","],
+	["punctuation", "_"],
+	["operator", "|"],
+	["punctuation", "_"],
+	["punctuation", ","],
+	" Empty ",
+	["operator", "->"],
+	" Empty\n      ",
+
+	["operator", "|"],
+	" Interval ",
+	["punctuation", "("],
+	"l1",
+	["punctuation", ","],
+	"h1",
+	["punctuation", ")"],
+	["punctuation", ","],
+	" Interval ",
+	["punctuation", "("],
+	"l2",
+	["punctuation", ","],
+	"h2",
+	["punctuation", ")"],
+	["operator", "->"],
+
+	"\n        create ",
+	["label", "~low"],
+	["punctuation", ":"],
+	["punctuation", "("],
+	"max l1 l2",
+	["punctuation", ")"],
+	["label", "~high"],
+	["punctuation", ":"],
+	["punctuation", "("],
+	"min h1 h2",
+	["punctuation", ")"],
+
+	["keyword", "end"], ["punctuation", ";;"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{$title|upper}</title>
+	</head>
+	<body>
+		{if count($menu) > 1}
+			<ul class="menu">
+				{foreach $menu as $item}
+				<li><a href="{$item->href}">{$item->caption}</a></li>
+				{/foreach}
+			</ul>
+		{/if}
+	</body>
+</html>
+----------------------------------------------------
+<span class="token php language-php"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html<span class="token operator">></span>
+	<span class="token operator">&lt;</span>head<span class="token operator">></span>
+		<span class="token operator">&lt;</span>title<span class="token operator">></span><span class="token punctuation">{</span><span class="token variable">$title</span><span class="token operator">|</span><span class="token class-name">upper</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+	<span class="token operator">&lt;</span>body<span class="token operator">></span>
+		<span class="token punctuation">{</span><span class="token keyword">if</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$menu</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">}</span>
+			<span class="token operator">&lt;</span>ul <span class="token keyword">class</span><span class="token operator">=</span><span class="token string double-quoted-string">"menu"</span><span class="token operator">></span>
+				<span class="token punctuation">{</span><span class="token keyword">foreach</span> <span class="token variable">$menu</span> <span class="token keyword">as</span> <span class="token variable">$item</span><span class="token punctuation">}</span>
+				<span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string double-quoted-string">"<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$item</span><span class="token operator">-></span><span class="token property">href</span><span class="token punctuation">}</span></span>"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token variable">$item</span><span class="token operator">-></span><span class="token property">caption</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+				<span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">foreach</span><span class="token punctuation">}</span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+		<span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">}</span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span></span>
+
+----------------------------------------------------

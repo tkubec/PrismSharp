@@ -1,0 +1,231 @@
+/*
+David Cary 2010-09-14
+quick demo for wikibooks
+public domain
+*/
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> pick_vector_with_biggest_fifth_element(
+    vector<int> left,
+    vector<int> right
+){
+    if( (left[5]) < (right[5]) ){
+        return( right );
+    };
+    // else
+    return( left );
+}
+
+int vector_demo(void){
+    cout << "vector demo" << endl;
+    vector<int> left(7);
+    vector<int> right(7);
+
+    left[5] = 7;
+    right[5] = 8;
+    cout << left[5] << endl;
+    cout << right[5] << endl;
+    vector<int> biggest(
+        pick_vector_with_biggest_fifth_element( left, right )
+    );
+    cout << biggest[5] << endl;
+
+    return 0;
+}
+
+int main(void){
+    vector_demo();
+}
+----------------------------------------------------
+[
+	["comment", "/*\nDavid Cary 2010-09-14\nquick demo for wikibooks\npublic domain\n*/"],
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "include"],
+		["string", "<iostream>"]
+	]],
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "include"],
+		["string", "<vector>"]
+	]],
+	["keyword", "using"], ["keyword", "namespace"], " std", ["punctuation", ";"],
+
+	"\n\nvector",
+	["operator", "<"],
+	["keyword", "int"],
+	["operator", ">"],
+	["function", "pick_vector_with_biggest_fifth_element"],
+	["punctuation", "("],
+
+	"\n    vector",
+	["operator", "<"],
+	["keyword", "int"],
+	["operator", ">"],
+	" left",
+	["punctuation", ","],
+
+	"\n    vector",
+	["operator", "<"],
+	["keyword", "int"],
+	["operator", ">"],
+	" right\n",
+
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["punctuation", "("],
+	"left",
+	["punctuation", "["],
+	["number", "5"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["operator", "<"],
+	["punctuation", "("],
+	"right",
+	["punctuation", "["],
+	["number", "5"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["punctuation", "("],
+	" right ",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["comment", "// else"],
+
+	["keyword", "return"],
+	["punctuation", "("],
+	" left ",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "int"],
+	["function", "vector_demo"],
+	["punctuation", "("],
+	["keyword", "void"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n    cout ",
+	["operator", "<<"],
+	["string", "\"vector demo\""],
+	["operator", "<<"],
+	" endl",
+	["punctuation", ";"],
+
+	"\n    vector",
+	["operator", "<"],
+	["keyword", "int"],
+	["operator", ">"],
+	["function", "left"],
+	["punctuation", "("],
+	["number", "7"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n    vector",
+	["operator", "<"],
+	["keyword", "int"],
+	["operator", ">"],
+	["function", "right"],
+	["punctuation", "("],
+	["number", "7"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\n    left",
+	["punctuation", "["],
+	["number", "5"],
+	["punctuation", "]"],
+	["operator", "="],
+	["number", "7"],
+	["punctuation", ";"],
+
+	"\n    right",
+	["punctuation", "["],
+	["number", "5"],
+	["punctuation", "]"],
+	["operator", "="],
+	["number", "8"],
+	["punctuation", ";"],
+
+	"\n    cout ",
+	["operator", "<<"],
+	" left",
+	["punctuation", "["],
+	["number", "5"],
+	["punctuation", "]"],
+	["operator", "<<"],
+	" endl",
+	["punctuation", ";"],
+
+	"\n    cout ",
+	["operator", "<<"],
+	" right",
+	["punctuation", "["],
+	["number", "5"],
+	["punctuation", "]"],
+	["operator", "<<"],
+	" endl",
+	["punctuation", ";"],
+
+	"\n    vector",
+	["operator", "<"],
+	["keyword", "int"],
+	["operator", ">"],
+	["function", "biggest"],
+	["punctuation", "("],
+
+	["function", "pick_vector_with_biggest_fifth_element"],
+	["punctuation", "("],
+	" left",
+	["punctuation", ","],
+	" right ",
+	["punctuation", ")"],
+
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n    cout ",
+	["operator", "<<"],
+	" biggest",
+	["punctuation", "["],
+	["number", "5"],
+	["punctuation", "]"],
+	["operator", "<<"],
+	" endl",
+	["punctuation", ";"],
+
+	["keyword", "return"], ["number", "0"], ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "int"],
+	["function", "main"],
+	["punctuation", "("],
+	["keyword", "void"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "vector_demo"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,22 @@
+// Final Methods
+@Final
+private tasks = new Map&lt;string,Task&gt;();
+
+// Redefinition of Members
+@Override
+public async size(): int {
+  â€¦
+}
+
+// Dependency Injection
+@Binder
+@Bind(Storage,StorageInMemory)
+class InMemoryBinder {}
+
+@GenerateInjector @UseBinder(InMemoryBinder)
+export public class TaskManagerTest {
+  â€¦
+}
+
+--------------------------------------------------
+

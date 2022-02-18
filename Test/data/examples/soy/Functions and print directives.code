@@ -1,0 +1,3 @@
+{if length($items) > 5}
+{$foo|changeNewlineToBr}
+{$bar|truncate: 4, false}

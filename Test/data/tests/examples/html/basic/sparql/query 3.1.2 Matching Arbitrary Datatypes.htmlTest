@@ -1,0 +1,5 @@
+SELECT ?v WHERE { ?v ?p "abc"^^<http://example.org/datatype#specialDatatype> }
+----------------------------------------------------
+<span class="token keyword">SELECT</span> <span class="token variable">?v</span> <span class="token keyword">WHERE</span> <span class="token punctuation">{</span> <span class="token variable">?v</span> <span class="token variable">?p</span> <span class="token string">"abc"</span><span class="token punctuation">^^</span><span class="token url"><span class="token punctuation">&lt;</span>http://example.org/datatype#specialDatatype<span class="token punctuation">></span></span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

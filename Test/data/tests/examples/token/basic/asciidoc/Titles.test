@@ -1,0 +1,74 @@
+Level 0
+========
+Level 1
+--------
+Level 2
+~~~~~~~~
+Level 3
+^^^^^^^^
+Level 4
+++++++++
+
+= Document Title (level 0) =
+== Section title (level 1) ==
+=== Section title (level 2) ===
+==== Section title (level 3) ====
+===== Section title (level 4) =====
+
+.Notes
+----------------------------------------------------
+[
+	["title", [
+		"Level 0\n",
+		["punctuation", "========"]
+	]],
+	["title", [
+		"Level 1\n",
+		["punctuation", "--------"]
+	]],
+	["title", [
+		"Level 2\n",
+		["punctuation", "~~~~~~~~"]
+	]],
+	["title", [
+		"Level 3\n",
+		["punctuation", "^^^^^^^^"]
+	]],
+	["title", [
+		"Level 4\n",
+		["punctuation", "++++++++"]
+	]],
+
+	["title", [
+		["punctuation", "="],
+		" Document Title (level 0) ",
+		["punctuation", "="]
+	]],
+	["title", [
+		["punctuation", "=="],
+		" Section title (level 1) ",
+		["punctuation", "=="]
+	]],
+	["title", [
+		["punctuation", "==="],
+		" Section title (level 2) ",
+		["punctuation", "==="]
+	]],
+	["title", [
+		["punctuation", "===="],
+		" Section title (level 3) ",
+		["punctuation", "===="]
+	]],
+	["title", [
+		["punctuation", "====="],
+		" Section title (level 4) ",
+		["punctuation", "====="]
+	]],
+
+	["title", [
+		["punctuation", "."],
+		"Notes"
+	]]
+]
+
+----------------------------------------------------

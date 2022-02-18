@@ -1,0 +1,363 @@
+# Example from http://nim-by-example.github.io/oop_macro/
+import macros
+
+macro class*(head: expr, body: stmt): stmt {.immediate.} =
+  # The macro is immediate so that it doesn't
+  # resolve identifiers passed to it
+
+  var typeName, baseName: NimNode
+
+  if head.kind == nnkIdent:
+    # `head` is expression `typeName`
+    # echo head.treeRepr
+    # --------------------
+    # Ident !"Animal"
+    typeName = head
+
+  elif head.kind == nnkInfix and $head[0] == "of":
+    # `head` is expression `typeName of baseClass`
+    # echo head.treeRepr
+    # --------------------
+    # Infix
+    #   Ident !"of"
+    #   Ident !"Animal"
+    #   Ident !"RootObj"
+    typeName = head[1]
+    baseName = head[2]
+
+  else:
+    quit "Invalid node: " & head.lispRepr
+
+  # echo treeRepr(body)
+  # --------------------
+  # StmtList
+  #   VarSection
+  #     IdentDefs
+  #       Ident !"name"
+  #       Ident !"string"
+  #       Empty
+  #     IdentDefs
+  #       Ident !"age"
+  #       Ident !"int"
+  #       Empty
+  #   MethodDef
+  #     Ident !"vocalize"
+  #     Empty
+  #     Empty
+  #     FormalParams
+  #       Ident !"string"
+  #     Empty
+  #     Empty
+  #     StmtList
+  #       StrLit ...
+  #   MethodDef
+  #     Ident !"age_human_yrs"
+  #     Empty
+  #     Empty
+  #     FormalParams
+  #       Ident !"int"
+  #     Empty
+  #     Empty
+  #     StmtList
+  #       DotExpr
+  #         Ident !"this"
+  #         Ident !"age"
+
+  # create a new stmtList for the result
+  result = newStmtList()
+
+  # var declarations will be turned into object fields
+  var recList = newNimNode(nnkRecList)
+
+  # Iterate over the statements, adding `this: T`
+  # to the parameters of functions
+  for node in body.children:
+    case node.kind:
+
+      of nnkMethodDef, nnkProcDef:
+        # inject `this: T` into the arguments
+        let p = copyNimTree(node.params)
+        p.insert(1, newIdentDefs(ident"this", typeName))
+        node.params = p
+        result.add(node)
+
+      of nnkVarSection:
+        # variables get turned into fields of the type.
+        for n in node.children:
+          recList.add(n)
+
+      else:
+        result.add(node)
+
+  # The following prints out the AST structure:
+  #
+  # import macros
+  # dumptree:
+  #   type X = ref object of Y
+  #     z: int
+  # --------------------
+  # TypeSection
+  #   TypeDef
+  #     Ident !"X"
+  #     Empty
+  #     RefTy
+  #       ObjectTy
+  #         Empty
+  #         OfInherit
+  #           Ident !"Y"
+  #         RecList
+  #           IdentDefs
+  #             Ident !"z"
+  #             Ident !"int"
+  #             Empty
+
+  result.insert(0,
+    if baseName == nil:
+      quote do:
+        type `typeName` = ref object of RootObj
+    else:
+      quote do:
+        type `typeName` = ref object of `baseName`
+  )
+  # Inspect the tree structure:
+  #
+  # echo result.treeRepr
+  # --------------------
+  # StmtList
+  #   StmtList
+  #     TypeSection
+  #       TypeDef
+  #         Ident !"Animal"
+  #         Empty
+  #         RefTy
+  #           ObjectTy
+  #             Empty
+  #             OfInherit
+  #               Ident !"RootObj"
+  #             Empty   <= We want to replace this
+  #   MethodDef
+  #   ...
+
+  result[0][0][0][2][0][2] = recList
+
+  # Lets inspect the human-readable version of the output
+  # echo repr(result)
+  # Output:
+  #  type
+  #    Animal = ref object of RootObj
+  #      name: string
+  #      age: int
+  #
+  #  method vocalize(this: Animal): string =
+  #    "..."
+  #
+  #  method age_human_yrs(this: Animal): int =
+  #    this.age
+
+# ---
+
+class Animal of RootObj:
+  var name: string
+  var age: int
+  method vocalize: string = "..."
+  method age_human_yrs: int = this.age # `this` is injected
+
+class Dog of Animal:
+  method vocalize: string = "woof"
+  method age_human_yrs: int = this.age * 7
+
+class Cat of Animal:
+  method vocalize: string = "meow"
+
+# ---
+
+var animals: seq[Animal] = @[]
+animals.add(Dog(name: "Sparky", age: 10))
+animals.add(Cat(name: "Mitten", age: 10))
+
+for a in animals:
+  echo a.vocalize()
+  echo a.age_human_yrs()
+----------------------------------------------------
+<span class="token comment"># Example from http://nim-by-example.github.io/oop_macro/</span>
+<span class="token keyword">import</span> macros
+
+<span class="token keyword">macro</span> <span class="token function">class<span class="token operator">*</span></span><span class="token punctuation">(</span>head<span class="token operator">:</span> expr<span class="token punctuation">,</span> body<span class="token operator">:</span> stmt<span class="token punctuation">)</span><span class="token operator">:</span> stmt <span class="token punctuation">{.</span>immediate<span class="token punctuation">.}</span> <span class="token operator">=</span>
+  <span class="token comment"># The macro is immediate so that it doesn't</span>
+  <span class="token comment"># resolve identifiers passed to it</span>
+
+  <span class="token keyword">var</span> typeName<span class="token punctuation">,</span> baseName<span class="token operator">:</span> NimNode
+
+  <span class="token keyword">if</span> head<span class="token operator">.</span>kind <span class="token operator">==</span> nnkIdent<span class="token operator">:</span>
+    <span class="token comment"># `head` is expression `typeName`</span>
+    <span class="token comment"># echo head.treeRepr</span>
+    <span class="token comment"># --------------------</span>
+    <span class="token comment"># Ident !"Animal"</span>
+    typeName <span class="token operator">=</span> head
+
+  <span class="token keyword">elif</span> head<span class="token operator">.</span>kind <span class="token operator">==</span> nnkInfix <span class="token operator">and</span> <span class="token operator">$</span>head<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"of"</span><span class="token operator">:</span>
+    <span class="token comment"># `head` is expression `typeName of baseClass`</span>
+    <span class="token comment"># echo head.treeRepr</span>
+    <span class="token comment"># --------------------</span>
+    <span class="token comment"># Infix</span>
+    <span class="token comment">#   Ident !"of"</span>
+    <span class="token comment">#   Ident !"Animal"</span>
+    <span class="token comment">#   Ident !"RootObj"</span>
+    typeName <span class="token operator">=</span> head<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    baseName <span class="token operator">=</span> head<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">else</span><span class="token operator">:</span>
+    quit <span class="token string">"Invalid node: "</span> <span class="token operator">&amp;</span> head<span class="token operator">.</span>lispRepr
+
+  <span class="token comment"># echo treeRepr(body)</span>
+  <span class="token comment"># --------------------</span>
+  <span class="token comment"># StmtList</span>
+  <span class="token comment">#   VarSection</span>
+  <span class="token comment">#     IdentDefs</span>
+  <span class="token comment">#       Ident !"name"</span>
+  <span class="token comment">#       Ident !"string"</span>
+  <span class="token comment">#       Empty</span>
+  <span class="token comment">#     IdentDefs</span>
+  <span class="token comment">#       Ident !"age"</span>
+  <span class="token comment">#       Ident !"int"</span>
+  <span class="token comment">#       Empty</span>
+  <span class="token comment">#   MethodDef</span>
+  <span class="token comment">#     Ident !"vocalize"</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     FormalParams</span>
+  <span class="token comment">#       Ident !"string"</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     StmtList</span>
+  <span class="token comment">#       StrLit ...</span>
+  <span class="token comment">#   MethodDef</span>
+  <span class="token comment">#     Ident !"age_human_yrs"</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     FormalParams</span>
+  <span class="token comment">#       Ident !"int"</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     StmtList</span>
+  <span class="token comment">#       DotExpr</span>
+  <span class="token comment">#         Ident !"this"</span>
+  <span class="token comment">#         Ident !"age"</span>
+
+  <span class="token comment"># create a new stmtList for the result</span>
+  result <span class="token operator">=</span> <span class="token function">newStmtList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token comment"># var declarations will be turned into object fields</span>
+  <span class="token keyword">var</span> recList <span class="token operator">=</span> <span class="token function">newNimNode</span><span class="token punctuation">(</span>nnkRecList<span class="token punctuation">)</span>
+
+  <span class="token comment"># Iterate over the statements, adding `this: T`</span>
+  <span class="token comment"># to the parameters of functions</span>
+  <span class="token keyword">for</span> node <span class="token operator">in</span> body<span class="token operator">.</span>children<span class="token operator">:</span>
+    <span class="token keyword">case</span> node<span class="token operator">.</span>kind<span class="token operator">:</span>
+
+      <span class="token operator">of</span> nnkMethodDef<span class="token punctuation">,</span> nnkProcDef<span class="token operator">:</span>
+        <span class="token comment"># inject `this: T` into the arguments</span>
+        <span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token function">copyNimTree</span><span class="token punctuation">(</span>node<span class="token operator">.</span>params<span class="token punctuation">)</span>
+        p<span class="token operator">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token function">newIdentDefs</span><span class="token punctuation">(</span><span class="token string">ident"this"</span><span class="token punctuation">,</span> typeName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        node<span class="token operator">.</span>params <span class="token operator">=</span> p
+        result<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+
+      <span class="token operator">of</span> nnkVarSection<span class="token operator">:</span>
+        <span class="token comment"># variables get turned into fields of the type.</span>
+        <span class="token keyword">for</span> n <span class="token operator">in</span> node<span class="token operator">.</span>children<span class="token operator">:</span>
+          recList<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+
+      <span class="token keyword">else</span><span class="token operator">:</span>
+        result<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+
+  <span class="token comment"># The following prints out the AST structure:</span>
+  <span class="token comment">#</span>
+  <span class="token comment"># import macros</span>
+  <span class="token comment"># dumptree:</span>
+  <span class="token comment">#   type X = ref object of Y</span>
+  <span class="token comment">#     z: int</span>
+  <span class="token comment"># --------------------</span>
+  <span class="token comment"># TypeSection</span>
+  <span class="token comment">#   TypeDef</span>
+  <span class="token comment">#     Ident !"X"</span>
+  <span class="token comment">#     Empty</span>
+  <span class="token comment">#     RefTy</span>
+  <span class="token comment">#       ObjectTy</span>
+  <span class="token comment">#         Empty</span>
+  <span class="token comment">#         OfInherit</span>
+  <span class="token comment">#           Ident !"Y"</span>
+  <span class="token comment">#         RecList</span>
+  <span class="token comment">#           IdentDefs</span>
+  <span class="token comment">#             Ident !"z"</span>
+  <span class="token comment">#             Ident !"int"</span>
+  <span class="token comment">#             Empty</span>
+
+  result<span class="token operator">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token keyword">if</span> baseName <span class="token operator">==</span> <span class="token keyword">nil</span><span class="token operator">:</span>
+      quote <span class="token keyword">do</span><span class="token operator">:</span>
+        <span class="token keyword">type</span> <span class="token identifier"><span class="token punctuation">`</span>typeName<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token keyword">ref</span> <span class="token keyword">object</span> <span class="token operator">of</span> RootObj
+    <span class="token keyword">else</span><span class="token operator">:</span>
+      quote <span class="token keyword">do</span><span class="token operator">:</span>
+        <span class="token keyword">type</span> <span class="token identifier"><span class="token punctuation">`</span>typeName<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token keyword">ref</span> <span class="token keyword">object</span> <span class="token operator">of</span> <span class="token identifier"><span class="token punctuation">`</span>baseName<span class="token punctuation">`</span></span>
+  <span class="token punctuation">)</span>
+  <span class="token comment"># Inspect the tree structure:</span>
+  <span class="token comment">#</span>
+  <span class="token comment"># echo result.treeRepr</span>
+  <span class="token comment"># --------------------</span>
+  <span class="token comment"># StmtList</span>
+  <span class="token comment">#   StmtList</span>
+  <span class="token comment">#     TypeSection</span>
+  <span class="token comment">#       TypeDef</span>
+  <span class="token comment">#         Ident !"Animal"</span>
+  <span class="token comment">#         Empty</span>
+  <span class="token comment">#         RefTy</span>
+  <span class="token comment">#           ObjectTy</span>
+  <span class="token comment">#             Empty</span>
+  <span class="token comment">#             OfInherit</span>
+  <span class="token comment">#               Ident !"RootObj"</span>
+  <span class="token comment">#             Empty   &lt;= We want to replace this</span>
+  <span class="token comment">#   MethodDef</span>
+  <span class="token comment">#   ...</span>
+
+  result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> recList
+
+  <span class="token comment"># Lets inspect the human-readable version of the output</span>
+  <span class="token comment"># echo repr(result)</span>
+  <span class="token comment"># Output:</span>
+  <span class="token comment">#  type</span>
+  <span class="token comment">#    Animal = ref object of RootObj</span>
+  <span class="token comment">#      name: string</span>
+  <span class="token comment">#      age: int</span>
+  <span class="token comment">#</span>
+  <span class="token comment">#  method vocalize(this: Animal): string =</span>
+  <span class="token comment">#    "..."</span>
+  <span class="token comment">#</span>
+  <span class="token comment">#  method age_human_yrs(this: Animal): int =</span>
+  <span class="token comment">#    this.age</span>
+
+<span class="token comment"># ---</span>
+
+class Animal <span class="token operator">of</span> RootObj<span class="token operator">:</span>
+  <span class="token keyword">var</span> name<span class="token operator">:</span> string
+  <span class="token keyword">var</span> age<span class="token operator">:</span> int
+  <span class="token keyword">method</span> vocalize<span class="token operator">:</span> string <span class="token operator">=</span> <span class="token string">"..."</span>
+  <span class="token keyword">method</span> age_human_yrs<span class="token operator">:</span> int <span class="token operator">=</span> this<span class="token operator">.</span>age <span class="token comment"># `this` is injected</span>
+
+class Dog <span class="token operator">of</span> Animal<span class="token operator">:</span>
+  <span class="token keyword">method</span> vocalize<span class="token operator">:</span> string <span class="token operator">=</span> <span class="token string">"woof"</span>
+  <span class="token keyword">method</span> age_human_yrs<span class="token operator">:</span> int <span class="token operator">=</span> this<span class="token operator">.</span>age <span class="token operator">*</span> <span class="token number">7</span>
+
+class Cat <span class="token operator">of</span> Animal<span class="token operator">:</span>
+  <span class="token keyword">method</span> vocalize<span class="token operator">:</span> string <span class="token operator">=</span> <span class="token string">"meow"</span>
+
+<span class="token comment"># ---</span>
+
+<span class="token keyword">var</span> animals<span class="token operator">:</span> seq<span class="token punctuation">[</span>Animal<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+animals<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Dog</span><span class="token punctuation">(</span>name<span class="token operator">:</span> <span class="token string">"Sparky"</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+animals<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Cat</span><span class="token punctuation">(</span>name<span class="token operator">:</span> <span class="token string">"Mitten"</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> a <span class="token operator">in</span> animals<span class="token operator">:</span>
+  echo a<span class="token operator">.</span><span class="token function">vocalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  echo a<span class="token operator">.</span><span class="token function">age_human_yrs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

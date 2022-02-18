@@ -1,0 +1,24 @@
+module "consul" {
+  source  = "hashicorp/consul/aws"
+  servers = 5
+}
+----------------------------------------------------
+[
+	["keyword", [
+		"module",
+		["type", " \"consul\" "]
+	]],
+	["punctuation", "{"],
+
+	["property", "source"],
+	["punctuation", "="],
+	["string", ["\"hashicorp/consul/aws\""]],
+
+	["property", "servers"],
+	["punctuation", "="],
+	["number", "5"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

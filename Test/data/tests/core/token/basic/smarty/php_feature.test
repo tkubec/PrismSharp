@@ -1,0 +1,109 @@
+{php}
+   // including a php script directly from the template.
+   include('/path/to/display_weather.php');
+{/php}
+
+{* this template includes a {php} block that assign's the variable $varX *}
+{php}
+   global $foo, $bar;
+   if($foo == $bar){
+     echo 'This will be sent to browser';
+   }
+  // assign a variable to Smarty
+  $this->assign('varX','Toffee');
+{/php}
+{* output the variable *}
+<strong>{$varX}</strong> is my fav ice cream :-)
+----------------------------------------------------
+[
+	["embedded-php", [
+		["smarty", [
+			["delimiter", "{"],
+			["keyword", "php"],
+			["delimiter", "}"]
+		]],
+		["php", "\n   // including a php script directly from the template.\n   include('/path/to/display_weather.php');\n"],
+		["smarty", [
+			["delimiter", "{/"],
+			["keyword", "php"],
+			["delimiter", "}"]
+		]]
+	]],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" this template includes a ",
+	["punctuation", "{"],
+	"php",
+	["punctuation", "}"],
+	" block that assign's the variable ",
+	["variable", "$varX"],
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	"php",
+	["punctuation", "}"],
+
+	"\n   global ",
+	["variable", "$foo"],
+	["punctuation", ","],
+	["variable", "$bar"],
+	";\n   ",
+
+	["function", "if"],
+	["punctuation", "("],
+	["variable", "$foo"],
+	["operator", "=="],
+	["variable", "$bar"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n     echo ",
+	["string", "'This will be sent to browser'"],
+	";\n   ",
+
+	["punctuation", "}"],
+
+	["operator", "/"],
+	["operator", "/"],
+	" assign a variable to Smarty\n  ",
+
+	["variable", "$this"],
+	["punctuation", "->"],
+	["function", "assign"],
+	["punctuation", "("],
+	["string", "'varX'"],
+	["punctuation", ","],
+	["string", "'Toffee'"],
+	["punctuation", ")"],
+	";\n",
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"php",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" output the variable ",
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"strong",
+	["operator", ">"],
+	["punctuation", "{"],
+	["variable", "$varX"],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	"strong",
+	["operator", ">"],
+	" is my fav ice cream ",
+	["punctuation", ":"],
+	["operator", "-"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+foo();
+line.substr(0, separator_index);
+boost::trim(key);
+bpo::value<std::string>()
+bpo::value<std::vector<std::string>>()->multitoken()
+std::make_unique<service::UniqueMap>(std::move(entries));
+----------------------------------------------------
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+line<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> separator_index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+boost<span class="token double-colon punctuation">::</span><span class="token function">trim</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+bpo<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">value</span><span class="token generic class-name"><span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>string<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+bpo<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">value</span><span class="token generic class-name"><span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>vector<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>string<span class="token operator">>></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">multitoken</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">make_unique</span><span class="token generic class-name"><span class="token operator">&lt;</span>service<span class="token double-colon punctuation">::</span>UniqueMap<span class="token operator">></span></span></span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span><span class="token function">move</span><span class="token punctuation">(</span>entries<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

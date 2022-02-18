@@ -1,0 +1,64 @@
+<Läufer>foo</Läufer>
+<tag läufer="läufer">bar</tag>
+<läufer:tag>baz</läufer:tag>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"Läufer"
+		]],
+		["punctuation", ">"]
+	]],
+	"foo",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"Läufer"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"tag"
+		]],
+		["attr-name", ["läufer"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"läufer",
+			["punctuation", "\""]
+		]],
+		["punctuation", ">"]
+	]],
+	"bar",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"tag"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			["namespace", "läufer:"],
+			"tag"
+		]],
+		["punctuation", ">"]
+	]],
+	"baz",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			["namespace", "läufer:"],
+			"tag"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,30 @@
+$ git log
+commit a11a14ef7e26f2ca62d4b35eac455ce636d0dc09
+Author: lgiraudel
+Date:   Mon Feb 17 11:18:34 2014 +0100
+
+    Add of a new line
+
+commit 87edc4ad8c71b95f6e46f736eb98b742859abd95
+Author: lgiraudel
+Date:   Mon Feb 17 11:18:15 2014 +0100
+
+    Typo fix
+
+commit 3102416a90c431400d2e2a14e707fb7fd6d9e06d
+Author: lgiraudel
+Date:   Mon Feb 17 10:58:11 2014 +0100
+----------------------------------------------------
+[
+	["command", ["$ git log"]],
+	["commit-sha1", "commit a11a14ef7e26f2ca62d4b35eac455ce636d0dc09"],
+	"\nAuthor: lgiraudel\nDate:   Mon Feb 17 11:18:34 2014 +0100\n\n    Add of a new line\n\n",
+
+	["commit-sha1", "commit 87edc4ad8c71b95f6e46f736eb98b742859abd95"],
+	"\nAuthor: lgiraudel\nDate:   Mon Feb 17 11:18:15 2014 +0100\n\n    Typo fix\n\n",
+
+	["commit-sha1", "commit 3102416a90c431400d2e2a14e707fb7fd6d9e06d"],
+	"\nAuthor: lgiraudel\nDate:   Mon Feb 17 10:58:11 2014 +0100"
+]
+
+----------------------------------------------------

@@ -1,0 +1,21 @@
+12345
+12345.67
+.23E-10 # a very small number
+3.14_15_92 # a very important number
+4_294_967_296 # underscore for legibility
+0xff # hex
+0xdead_beef # more hex
+0377 # octal (only numbers, begins with 0)
+0b011011 # binary
+----------------------------------------------------
+<span class="token number">12345</span>
+<span class="token number">12345.67</span>
+<span class="token operator">.</span><span class="token number">23E-10</span> <span class="token comment"># a very small number</span>
+<span class="token number">3.14_15_92</span> <span class="token comment"># a very important number</span>
+<span class="token number">4_294_967_296</span> <span class="token comment"># underscore for legibility</span>
+<span class="token number">0xff</span> <span class="token comment"># hex</span>
+<span class="token number">0xdead_beef</span> <span class="token comment"># more hex</span>
+<span class="token number">0377</span> <span class="token comment"># octal (only numbers, begins with 0)</span>
+<span class="token number">0b011011</span> <span class="token comment"># binary</span>
+
+----------------------------------------------------

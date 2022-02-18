@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html></html>
+----------------------------------------------------
+[
+	["doctype", [
+		["punctuation", "<!"],
+		["doctype-tag", "DOCTYPE"],
+		["name", "html"],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"html"
+		]],
+		["punctuation", ">"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"html"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

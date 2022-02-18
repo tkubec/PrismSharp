@@ -1,0 +1,59 @@
+Aggregates: First, Second with Third
+
+Redirects: First => Second, Third => Fourth
+
+Jolie: "logger.ol" in LoggerService
+
+log@LoggerService( new )();
+println @ Console( "none" )()
+
+outputPort OutputPort3 {
+    location: "socket://localhost:9002/"
+    protocol: sodep
+    interfaces: Interface3
+}
+
+interface MyInterface {
+OneWay:
+    myOW( string )
+RequestResponse:
+    myRR( string )( string )
+}
+
+private service MainService {
+    embed ConfigurationService( ) as Conf
+    main {
+        getDBConn@Conf( )( res )
+    }
+}
+----------------------------------------------------
+<span class="token property">Aggregates</span><span class="token punctuation">:</span> <span class="token aggregates"><span class="token class-name">First</span><span class="token punctuation">,</span> <span class="token class-name">Second</span> <span class="token keyword">with</span> <span class="token class-name">Third</span></span>
+
+<span class="token property">Redirects</span><span class="token punctuation">:</span> <span class="token redirects"><span class="token class-name">First</span> <span class="token operator">=></span> <span class="token class-name">Second</span><span class="token punctuation">,</span> <span class="token class-name">Third</span> <span class="token operator">=></span> <span class="token class-name">Fourth</span></span>
+
+<span class="token property">Jolie</span><span class="token punctuation">:</span> <span class="token string">"logger.ol"</span> <span class="token keyword">in</span> <span class="token class-name">LoggerService</span>
+
+<span class="token function">log</span><span class="token operator">@</span><span class="token class-name">LoggerService</span><span class="token punctuation">(</span> <span class="token keyword">new</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">println</span> <span class="token operator">@</span> <span class="token class-name">Console</span><span class="token punctuation">(</span> <span class="token string">"none"</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">outputPort</span> <span class="token class-name">OutputPort3</span> <span class="token punctuation">{</span>
+    <span class="token property">location</span><span class="token punctuation">:</span> <span class="token string">"socket://localhost:9002/"</span>
+    <span class="token property">protocol</span><span class="token punctuation">:</span> sodep
+    <span class="token property">interfaces</span><span class="token punctuation">:</span> Interface3
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> MyInterface <span class="token punctuation">{</span>
+<span class="token property">OneWay</span><span class="token punctuation">:</span>
+    <span class="token function">myOW</span><span class="token punctuation">(</span> <span class="token builtin">string</span> <span class="token punctuation">)</span>
+<span class="token property">RequestResponse</span><span class="token punctuation">:</span>
+    <span class="token function">myRR</span><span class="token punctuation">(</span> <span class="token builtin">string</span> <span class="token punctuation">)</span><span class="token punctuation">(</span> <span class="token builtin">string</span> <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">service</span> <span class="token class-name">MainService</span> <span class="token punctuation">{</span>
+    <span class="token keyword">embed</span> <span class="token class-name">ConfigurationService</span><span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token class-name">Conf</span>
+    <span class="token keyword">main</span> <span class="token punctuation">{</span>
+        <span class="token function">getDBConn</span><span class="token operator">@</span><span class="token class-name">Conf</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">(</span> res <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

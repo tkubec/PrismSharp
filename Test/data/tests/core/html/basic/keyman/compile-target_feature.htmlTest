@@ -1,0 +1,19 @@
+$keyman:
+$kmfl:
+$weaver:
+$keymanweb:
+$keymanonly:
+
+c Note: return statement is only supported in .kmx in Keyman 13
+$keymanonly: + 'a' > 'a' return
+----------------------------------------------------
+<span class="token compile-target property">$keyman:</span>
+<span class="token compile-target property">$kmfl:</span>
+<span class="token compile-target property">$weaver:</span>
+<span class="token compile-target property">$keymanweb:</span>
+<span class="token compile-target property">$keymanonly:</span>
+
+<span class="token comment">c Note: return statement is only supported in .kmx in Keyman 13</span>
+<span class="token compile-target property">$keymanonly:</span> <span class="token operator">+</span> <span class="token string">'a'</span> <span class="token operator">></span> <span class="token string">'a'</span> <span class="token rule-keyword keyword">return</span>
+
+----------------------------------------------------

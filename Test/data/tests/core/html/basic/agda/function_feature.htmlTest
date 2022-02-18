@@ -1,0 +1,15 @@
+merge : {A : Set} (_<_ : A → A → Bool) → List A → List A → List A
+merge xs [] = xs
+merge [] ys = ys
+merge xs@(x ∷ xs₁) ys@(y ∷ ys₁) =
+	if x < y then x ∷ merge xs₁ ys
+					 else y ∷ merge xs ys₁
+----------------------------------------------------
+<span class="token function">merge </span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token function">A </span><span class="token operator">:</span> <span class="token keyword">Set</span><span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token function">_&lt;_ </span><span class="token operator">:</span> A <span class="token operator">→</span> A <span class="token operator">→</span> Bool<span class="token punctuation">)</span> <span class="token operator">→</span> List A <span class="token operator">→</span> List A <span class="token operator">→</span> List A
+merge xs [] <span class="token operator">=</span> xs
+merge [] ys <span class="token operator">=</span> ys
+merge xs<span class="token punctuation">@</span><span class="token punctuation">(</span>x ∷ xs₁<span class="token punctuation">)</span> ys<span class="token punctuation">@</span><span class="token punctuation">(</span>y ∷ ys₁<span class="token punctuation">)</span> <span class="token operator">=</span>
+	if x &lt; y then x ∷ merge xs₁ ys
+					 else y ∷ merge xs ys₁
+
+----------------------------------------------------

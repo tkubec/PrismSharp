@@ -1,0 +1,11 @@
+(declare)
+(declare a)
+(declare
+a)
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token declare keyword">declare</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token declare keyword">declare</span> a<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token declare keyword">declare</span>
+a<span class="token punctuation">)</span>
+
+----------------------------------------------------

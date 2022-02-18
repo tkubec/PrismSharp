@@ -1,0 +1,92 @@
+$str = "This is $great!";
+$foobar = "Another example: {${$foo->bar()}}";
+$a = <<<FOO
+    Hello $world!
+FOO;
+$b = <<<"FOOBAR"
+    Interpolation inside Heredoc strings {$obj->values[3]->name}
+FOOBAR;
+----------------------------------------------------
+[
+	["variable", "$str"],
+	["operator", "="],
+	["string", [
+		"\"This is ",
+		["interpolation", [
+			["variable", "$great"]
+		]],
+		"!\""
+	]],
+	["punctuation", ";"],
+
+	["variable", "$foobar"],
+	["operator", "="],
+	["string", [
+		"\"Another example: ",
+		["interpolation", [
+			["punctuation", "{"],
+			["variable", "$"],
+			["punctuation", "{"],
+			["variable", "$foo"],
+			["operator", "->"],
+			["function", ["bar"]],
+			["punctuation", "("],
+			["punctuation", ")"],
+			["punctuation", "}"],
+			["punctuation", "}"]
+		]],
+		"\""
+	]],
+	["punctuation", ";"],
+
+	["variable", "$a"],
+	["operator", "="],
+	["string", [
+		["delimiter", [
+			["punctuation", "<<<"],
+			"FOO"
+		]],
+
+		"\n    Hello ",
+		["interpolation", [
+			["variable", "$world"]
+		]],
+		"!\n",
+
+		["delimiter", [
+			"FOO",
+			["punctuation", ";"]
+		]]
+	]],
+
+	["variable", "$b"],
+	["operator", "="],
+	["string", [
+		["delimiter", [
+			["punctuation", "<<<\""],
+			"FOOBAR",
+			["punctuation", "\""]
+		]],
+
+		"\n    Interpolation inside Heredoc strings ",
+		["interpolation", [
+			["punctuation", "{"],
+			["variable", "$obj"],
+			["operator", "->"],
+			["property", "values"],
+			["punctuation", "["],
+			["number", "3"],
+			["punctuation", "]"],
+			["operator", "->"],
+			["property", "name"],
+			["punctuation", "}"]
+		]],
+
+		["delimiter", [
+			"FOOBAR",
+			["punctuation", ";"]
+		]]
+	]]
+]
+
+----------------------------------------------------

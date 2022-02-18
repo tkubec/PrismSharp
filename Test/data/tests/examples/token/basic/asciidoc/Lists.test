@@ -1,0 +1,81 @@
+- List item.
+* List item.
+** List item.
+*** List item.
+**** List item.
+***** List item.
+
+1.   Arabic (decimal) numbered list item.
+a.   Lower case alpha (letter) numbered list item.
+F.   Upper case alpha (letter) numbered list item.
+iii) Lower case roman numbered list item.
+IX)  Upper case roman numbered list item.
+
+. Arabic (decimal) numbered list item.
+.. Lower case alpha (letter) numbered list item.
+... Lower case roman numbered list item.
+.... Upper case alpha (letter) numbered list item.
+..... Upper case roman numbered list item.
+
+Dolor::
+  Donec eget arcu bibendum nunc consequat lobortis.
+  Suspendisse;;
+    A massa id sem aliquam auctor.
+  Morbi;;
+    Pretium nulla vel lorem.
+  In;;
+    Dictum mauris in urna.
+    Vivamus::: Fringilla mi eu lacus.
+    Donec:::   Eget arcu bibendum nunc consequat lobortis.
+----------------------------------------------------
+[
+	["list-punctuation", "-"], " List item.\n",
+	["list-punctuation", "*"], " List item.\n",
+	["list-punctuation", "**"], " List item.\n",
+	["list-punctuation", "***"], " List item.\n",
+	["list-punctuation", "****"], " List item.\n",
+	["list-punctuation", "*****"], " List item.\n\n",
+
+	["list-punctuation", "1."],
+	"   Arabic (decimal) numbered list item.\n",
+
+	["list-punctuation", "a."],
+	"   Lower case alpha (letter) numbered list item.\n",
+
+	["list-punctuation", "F."],
+	"   Upper case alpha (letter) numbered list item.\n",
+
+	["list-punctuation", "iii)"],
+	" Lower case roman numbered list item.\n",
+
+	["list-punctuation", "IX)"],
+	"  Upper case roman numbered list item.\n\n",
+
+	["list-punctuation", "."],
+	" Arabic (decimal) numbered list item.\n",
+
+	["list-punctuation", ".."],
+	" Lower case alpha (letter) numbered list item.\n",
+
+	["list-punctuation", "..."],
+	" Lower case roman numbered list item.\n",
+
+	["list-punctuation", "...."],
+	" Upper case alpha (letter) numbered list item.\n",
+
+	["list-punctuation", "....."],
+	" Upper case roman numbered list item.\n\n",
+
+	["list-label", "Dolor::"],
+	"\n  Donec eget arcu bibendum nunc consequat lobortis.\n  ",
+	["list-label", "Suspendisse;;"],
+	"\n    A massa id sem aliquam auctor.\n  ",
+	["list-label", "Morbi;;"],
+	"\n    Pretium nulla vel lorem.\n  ",
+	["list-label", "In;;"],
+	"\n    Dictum mauris in urna.\n    ",
+	["list-label", "Vivamus:::"], " Fringilla mi eu lacus.\n    ",
+	["list-label", "Donec:::"], "   Eget arcu bibendum nunc consequat lobortis."
+]
+
+----------------------------------------------------

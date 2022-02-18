@@ -1,0 +1,43 @@
+class Animal
+  constructor: (@name) ->
+  move: (meters) ->
+    alert @name + " moved #{meters}m."
+
+class Snake extends Animal
+  move: ->
+    alert "Slithering..."
+    super 5
+
+class Horse extends Animal
+  move: ->
+    alert "Galloping..."
+    super 45
+
+sam = new Snake "Sammy the Python"
+tom = new Horse "Tommy the Palomino"
+
+sam.move()
+tom.move()
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Animal</span>
+  <span class="token property">constructor</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token class-member variable">@name</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span>
+  <span class="token property">move</span><span class="token operator">:</span> <span class="token punctuation">(</span>meters<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span>
+    alert <span class="token class-member variable">@name</span> <span class="token operator">+</span> <span class="token string">" moved <span class="token interpolation variable">#{meters}</span>m."</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Snake</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span>
+  <span class="token property">move</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token operator">></span>
+    alert <span class="token string">"Slithering..."</span>
+    <span class="token keyword">super</span> <span class="token number">5</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Horse</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span>
+  <span class="token property">move</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token operator">></span>
+    alert <span class="token string">"Galloping..."</span>
+    <span class="token keyword">super</span> <span class="token number">45</span>
+
+sam <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Snake</span> <span class="token string">"Sammy the Python"</span>
+tom <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Horse</span> <span class="token string">"Tommy the Palomino"</span>
+
+sam<span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tom<span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

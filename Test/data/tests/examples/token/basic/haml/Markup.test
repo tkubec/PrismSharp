@@ -1,0 +1,32 @@
+%div
+  <p id="blah">Blah!</p>
+----------------------------------------------------
+[
+	["tag", ["%div"]],
+	["markup", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"p"
+			]],
+			["attr-name", ["id"]],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				"blah",
+				["punctuation", "\""]
+			]],
+			["punctuation", ">"]
+		]],
+		"Blah!",
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"p"
+			]],
+			["punctuation", ">"]
+		]]
+	]]
+]
+
+----------------------------------------------------

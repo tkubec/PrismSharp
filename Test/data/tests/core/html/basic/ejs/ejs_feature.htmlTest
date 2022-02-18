@@ -1,0 +1,15 @@
+<% var foo = ''
+     , bar = false; %>
+
+<% if (bar) { %>
+  <%= foo + 'It\'s ' + output %>
+<% } %>
+----------------------------------------------------
+<span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token string">''</span>
+     <span class="token punctuation">,</span> bar <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token operator">%</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>bar<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">%=</span> foo <span class="token operator">+</span> <span class="token string">'It\'s '</span> <span class="token operator">+</span> output <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> </span><span class="token delimiter punctuation">%></span>
+
+----------------------------------------------------

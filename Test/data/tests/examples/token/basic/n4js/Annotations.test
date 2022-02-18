@@ -1,0 +1,90 @@
+// Final Methods
+@Final
+private tasks = new Map<string,Task>();
+
+// Redefinition of Members
+@Override
+public async size(): int {
+  …
+}
+
+// Dependency Injection
+@Binder
+@Bind(Storage,StorageInMemory)
+class InMemoryBinder {}
+
+@GenerateInjector @UseBinder(InMemoryBinder)
+export public class TaskManagerTest {
+  …
+}
+----------------------------------------------------
+[
+	["comment", "// Final Methods"],
+
+	["annotation", "@Final"],
+
+	["keyword", "private"],
+	" tasks ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Map"]],
+	["operator", "<"],
+	["keyword", "string"],
+	["punctuation", ","],
+	"Task",
+	["operator", ">"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Redefinition of Members"],
+
+	["annotation", "@Override"],
+
+	["keyword", "public"],
+	" async ",
+	["function", "size"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", ":"],
+	" int ",
+	["punctuation", "{"],
+
+	"\n  …\n",
+
+	["punctuation", "}"],
+
+	["comment", "// Dependency Injection"],
+
+	["annotation", "@Binder"],
+
+	["annotation", "@Bind"],
+	["punctuation", "("],
+	"Storage",
+	["punctuation", ","],
+	"StorageInMemory",
+	["punctuation", ")"],
+
+	["keyword", "class"],
+	["class-name", ["InMemoryBinder"]],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["annotation", "@GenerateInjector"],
+	["annotation", "@UseBinder"],
+	["punctuation", "("],
+	"InMemoryBinder",
+	["punctuation", ")"],
+
+	["keyword", "export"],
+	["keyword", "public"],
+	["keyword", "class"],
+	["class-name", ["TaskManagerTest"]],
+	["punctuation", "{"],
+
+	"\n  …\n",
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

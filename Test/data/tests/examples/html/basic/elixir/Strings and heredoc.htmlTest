@@ -1,0 +1,17 @@
+'A string with \'quotes\'!'
+"A string with \"quotes\"!"
+"Multi-line
+strings are supported"
+""" "Heredoc" strings are
+also supported.
+"""
+----------------------------------------------------
+<span class="token string">'A string with \'quotes\'!'</span>
+<span class="token string">"A string with \"quotes\"!"</span>
+"<span class="token module class-name">Multi</span><span class="token operator">-</span>line
+strings are supported"
+<span class="token string">""" "Heredoc" strings are
+also supported.
+"""</span>
+
+----------------------------------------------------

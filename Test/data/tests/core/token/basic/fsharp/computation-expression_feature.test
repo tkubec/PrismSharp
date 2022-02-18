@@ -1,0 +1,24 @@
+async {}
+task {}
+seq {}
+foo {}
+----------------------------------------------------
+[
+	["computation-expression", "async"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["computation-expression", "task"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["computation-expression", "seq"],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["computation-expression", "foo"],
+	["punctuation", "{"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

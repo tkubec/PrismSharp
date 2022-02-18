@@ -1,0 +1,147 @@
+# First item
+# Second item
+# Third
+
+# Fuel could be:
+## Coal
+## Gasoline
+## Electricity
+# Humans need only:
+## Water
+## Protein
+
+* First item
+* Second item
+* Third
+
+* Fuel could be:
+** Coal
+** Gasoline
+** Electricity
+* Humans need only:
+** Water
+** Protein
+
+#(foo) List can have attributes too
+#{background: red} Red item
+----------------------------------------------------
+[
+	["phrase", [
+		["list", [
+			["punctuation", "#"],
+			" First item"
+		]],
+		["list", [
+			["punctuation", "#"],
+			" Second item"
+		]],
+		["list", [
+			["punctuation", "#"],
+			" Third"
+		]]
+	]],
+
+	["phrase", [
+		["list", [
+			["punctuation", "#"],
+			" Fuel could be:"
+		]],
+		["list", [
+			["punctuation", "##"],
+			" Coal"
+		]],
+		["list", [
+			["punctuation", "##"],
+			" Gasoline"
+		]],
+		["list", [
+			["punctuation", "##"],
+			" Electricity"
+		]],
+		["list", [
+			["punctuation", "#"],
+			" Humans need only:"
+		]],
+		["list", [
+			["punctuation", "##"],
+			" Water"
+		]],
+		["list", [
+			["punctuation", "##"],
+			" Protein"
+		]]
+	]],
+
+	["phrase", [
+		["list", [
+			["punctuation", "*"],
+			" First item"
+		]],
+		["list", [
+			["punctuation", "*"],
+			" Second item"
+		]],
+		["list", [
+			["punctuation", "*"],
+			" Third"
+		]]
+	]],
+
+	["phrase", [
+		["list", [
+			["punctuation", "*"],
+			" Fuel could be:"
+		]],
+		["list", [
+			["punctuation", "**"],
+			" Coal"
+		]],
+		["list", [
+			["punctuation", "**"],
+			" Gasoline"
+		]],
+		["list", [
+			["punctuation", "**"],
+			" Electricity"
+		]],
+		["list", [
+			["punctuation", "*"],
+			" Humans need only:"
+		]],
+		["list", [
+			["punctuation", "**"],
+			" Water"
+		]],
+		["list", [
+			["punctuation", "**"],
+			" Protein"
+		]]
+	]],
+
+	["phrase", [
+		["list", [
+			["punctuation", "#"],
+			["modifier", [
+				["punctuation", "("],
+				["class-id", "foo"],
+				["punctuation", ")"]
+			]],
+			" List can have attributes too"
+		]],
+		["list", [
+			["punctuation", "#"],
+			["modifier", [
+				["css", [
+					["punctuation", "{"],
+					["property", "background"],
+					["punctuation", ":"],
+					" red",
+					["punctuation", "}"]
+				]]
+			]],
+			" Red item"
+		]]
+	]]
+]
+
+----------------------------------------------------

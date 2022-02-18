@@ -1,0 +1,81 @@
+#
+# Foobar
+
+http {# This must be recognized as a comment
+}
+
+events # A comment
+{
+    worker_connections 512;
+}
+
+# A comment
+
+http# This is not a comment. There is no space
+{
+    server {# A comment
+        listen 80;# A comment
+
+        location = "/example1" # This is a comment. There is a space
+        {# This is a comment after "{". No spaces required
+            return 200 "Hello, world!";# This is a comment after ";". No spaces required
+        }# This is a comment after "}". No spaces required
+
+        location = /example2 # This is a comment. There is a space
+        {}
+
+        location = "/example3"# This is not a comment. There is no space
+        {}
+
+        location = /example4# This is not a comment. There is no space
+        {}
+    }# A comment
+}
+
+location = "/example"# This is NOT a comment. There is no space
+{}
+
+location = /example# This is NOT a comment. There is no space
+{}
+----------------------------------------------------
+<span class="token comment">#</span>
+<span class="token comment"># Foobar</span>
+
+<span class="token directive"><span class="token keyword">http</span></span> <span class="token punctuation">{</span><span class="token comment"># This must be recognized as a comment</span>
+<span class="token punctuation">}</span>
+
+<span class="token directive"><span class="token keyword">events</span> <span class="token comment"># A comment</span></span>
+<span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">worker_connections</span> <span class="token number">512</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># A comment</span>
+
+<span class="token directive"><span class="token keyword">http#</span> This is not a comment. There is no space</span>
+<span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span><span class="token comment"># A comment</span>
+        <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span><span class="token comment"># A comment</span>
+
+        <span class="token directive"><span class="token keyword">location</span> = <span class="token string">"/example1"</span> <span class="token comment"># This is a comment. There is a space</span></span>
+        <span class="token punctuation">{</span><span class="token comment"># This is a comment after "{". No spaces required</span>
+            <span class="token directive"><span class="token keyword">return</span> <span class="token number">200</span> <span class="token string">"Hello, world!"</span></span><span class="token punctuation">;</span><span class="token comment"># This is a comment after ";". No spaces required</span>
+        <span class="token punctuation">}</span><span class="token comment"># This is a comment after "}". No spaces required</span>
+
+        <span class="token directive"><span class="token keyword">location</span> = /example2 <span class="token comment"># This is a comment. There is a space</span></span>
+        <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> = <span class="token string">"/example3"</span># This is not a comment. There is no space</span>
+        <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> = /example4# This is not a comment. There is no space</span>
+        <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token comment"># A comment</span>
+<span class="token punctuation">}</span>
+
+<span class="token directive"><span class="token keyword">location</span> = <span class="token string">"/example"</span># This is NOT a comment. There is no space</span>
+<span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token directive"><span class="token keyword">location</span> = /example# This is NOT a comment. There is no space</span>
+<span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

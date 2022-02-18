@@ -1,0 +1,17 @@
+LD
+OUT
+
+; lowercase
+ldi
+jmp label1
+----------------------------------------------------
+[
+	["op-code", "LD"],
+	["op-code", "OUT"],
+
+	["comment", "; lowercase"],
+	["op-code", "ldi"],
+	["op-code", "jmp"], " label1"
+]
+
+----------------------------------------------------

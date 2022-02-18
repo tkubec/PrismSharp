@@ -1,0 +1,11 @@
+$myProduct
+$foo-bar
+$strings:LetterA
+----------------------------------------------------
+[
+	["variable", "$myProduct"],
+	["variable", "$foo-bar"],
+	["variable", "$strings:LetterA"]
+]
+
+----------------------------------------------------

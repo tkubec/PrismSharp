@@ -1,0 +1,13 @@
+---
+!!map {
+  ? !!str friends: !!seq [
+    !!map {
+      ? !!str "age"
+      : !!int 33,
+      ? !!str "name"
+      : !!str "John Smith",
+    }
+  ],
+  men:
+    [ !!str "John Smith", !!str "Bill Jones"]
+}

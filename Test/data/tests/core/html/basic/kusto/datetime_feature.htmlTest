@@ -1,0 +1,59 @@
+// ISO 8601
+2014-05-25T08:20:03.123456Z
+2014-05-25T08:20:03.123456
+2014-05-25T08:20
+2014-11-08 15:55:55.123456Z
+2014-11-08 15:55:55
+2014-11-08 15:55
+2014-11-08
+
+// RFC 822
+Sat, 8 Nov 14 15:05:02 GMT
+Sat, 8 Nov 14 15:05:02
+Sat, 8 Nov 14 15:05
+Sat, 8 Nov 14 15:05 GMT
+8 Nov 14 15:05:02 GMT
+8 Nov 14 15:05:02
+8 Nov 14 15:05
+8 Nov 14 15:05 GMT
+
+// RFC 850
+Saturday, 08-Nov-14 15:05:02 GMT
+Saturday, 08-Nov-14 15:05:02
+Saturday, 08-Nov-14 15:05 GMT
+Saturday, 08-Nov-14 15:05
+08-Nov-14 15:05:02 GMT
+08-Nov-14 15:05:02
+08-Nov-14 15:05 GMT
+08-Nov-14 15:05
+----------------------------------------------------
+<span class="token comment">// ISO 8601</span>
+<span class="token datetime number">2014-05-25T08:20:03.123456Z</span>
+<span class="token datetime number">2014-05-25T08:20:03.123456</span>
+<span class="token datetime number">2014-05-25T08:20</span>
+<span class="token datetime number">2014-11-08 15:55:55.123456Z</span>
+<span class="token datetime number">2014-11-08 15:55:55</span>
+<span class="token datetime number">2014-11-08 15:55</span>
+<span class="token datetime number">2014-11-08</span>
+
+<span class="token comment">// RFC 822</span>
+<span class="token datetime number">Sat, 8 Nov 14 15:05:02 GMT</span>
+<span class="token datetime number">Sat, 8 Nov 14 15:05:02</span>
+<span class="token datetime number">Sat, 8 Nov 14 15:05</span>
+<span class="token datetime number">Sat, 8 Nov 14 15:05 GMT</span>
+<span class="token datetime number">8 Nov 14 15:05:02 GMT</span>
+<span class="token datetime number">8 Nov 14 15:05:02</span>
+<span class="token datetime number">8 Nov 14 15:05</span>
+<span class="token datetime number">8 Nov 14 15:05 GMT</span>
+
+<span class="token comment">// RFC 850</span>
+<span class="token datetime number">Saturday, 08-Nov-14 15:05:02 GMT</span>
+<span class="token datetime number">Saturday, 08-Nov-14 15:05:02</span>
+<span class="token datetime number">Saturday, 08-Nov-14 15:05 GMT</span>
+<span class="token datetime number">Saturday, 08-Nov-14 15:05</span>
+<span class="token datetime number">08-Nov-14 15:05:02 GMT</span>
+<span class="token datetime number">08-Nov-14 15:05:02</span>
+<span class="token datetime number">08-Nov-14 15:05 GMT</span>
+<span class="token datetime number">08-Nov-14 15:05</span>
+
+----------------------------------------------------

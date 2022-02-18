@@ -1,0 +1,23 @@
+""
+"fo\"obar"
+''
+'fo\'obar'
+"fo\" # comment obar"
+
+r"\n"
+b'foo'
+rb"foo\n"
+u"foo"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"obar"</span>
+<span class="token string">''</span>
+<span class="token string">'fo\'obar'</span>
+<span class="token string">"fo\" # comment obar"</span>
+
+<span class="token string">r"\n"</span>
+<span class="token string">b'foo'</span>
+<span class="token string">rb"foo\n"</span>
+<span class="token string">u"foo"</span>
+
+----------------------------------------------------

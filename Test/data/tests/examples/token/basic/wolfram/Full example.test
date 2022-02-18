@@ -1,0 +1,52 @@
+(* Most operators are supported *)
+f /@ {1, 2, 3};
+f @@ Range[10];
+f @@@ y;
+Module[{x=1}, 
+    Return @ $Failed
+]
+----------------------------------------------------
+[
+	["comment", "(* Most operators are supported *)"],
+
+	"\nf ",
+	["operator", "/@"],
+	["punctuation", "{"],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", "}"],
+	["operator", ";"],
+
+	"\nf ",
+	["operator", "@@"],
+	" Range",
+	["punctuation", "["],
+	["number", "10"],
+	["punctuation", "]"],
+	["operator", ";"],
+
+	"\nf ",
+	["operator", "@@@"],
+	" y",
+	["operator", ";"],
+
+	["keyword", "Module"],
+	["punctuation", "["],
+	["punctuation", "{"],
+	"x",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", "}"],
+	["punctuation", ","],
+
+	["keyword", "Return"],
+	["operator", "@"],
+	["global-variable", "$Failed"],
+
+	["punctuation", "]"]
+]
+
+----------------------------------------------------

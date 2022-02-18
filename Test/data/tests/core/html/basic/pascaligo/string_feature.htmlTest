@@ -1,0 +1,21 @@
+'a'
+'ä'
+'本'
+'\t'
+'\xff'
+'\u12e4'
+
+"日本語"
+"\xff\u00FF"
+----------------------------------------------------
+<span class="token string">'a'</span>
+<span class="token string">'ä'</span>
+<span class="token string">'本'</span>
+<span class="token string">'\t'</span>
+<span class="token string">'\xff'</span>
+<span class="token string">'\u12e4'</span>
+
+<span class="token string">"日本語"</span>
+<span class="token string">"\xff\u00FF"</span>
+
+----------------------------------------------------

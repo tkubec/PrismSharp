@@ -1,0 +1,11 @@
+(foo args)
+
+; not a function
+'(a b c)
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token function">foo</span> args<span class="token punctuation">)</span>
+
+<span class="token comment">; not a function</span>
+'<span class="token punctuation">(</span>a b c<span class="token punctuation">)</span>
+
+----------------------------------------------------

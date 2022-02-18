@@ -1,0 +1,13 @@
+my_string = 'Simple string'.
+my_string = 'String with an escaped '' inside'.
+my_string = |A string template: { nvalue } times|.
+my_string = |A string template: { nvalue } times|.
+my_string = |Characters \|, \{, and \} have to be escaped by \\ in literal text.|.
+----------------------------------------------------
+my_string <span class="token operator">=</span> <span class="token string">'Simple string'</span><span class="token punctuation">.</span>
+my_string <span class="token operator">=</span> <span class="token string">'String with an escaped '</span><span class="token string">' inside'</span><span class="token punctuation">.</span>
+my_string <span class="token operator">=</span> <span class="token token-operator punctuation">|</span><span class="token string-template string">A string template: </span><span class="token token-operator punctuation">{</span> nvalue <span class="token token-operator punctuation">}</span><span class="token string-template string"> times</span><span class="token token-operator punctuation">|</span><span class="token punctuation">.</span>
+my_string <span class="token operator">=</span> <span class="token token-operator punctuation">|</span><span class="token string-template string">A string template: </span><span class="token token-operator punctuation">{</span> nvalue <span class="token token-operator punctuation">}</span><span class="token string-template string"> times</span><span class="token token-operator punctuation">|</span><span class="token punctuation">.</span>
+my_string <span class="token operator">=</span> <span class="token token-operator punctuation">|</span><span class="token string-template string">Characters \|, \{, and \} have to be escaped by \\ in literal text.</span><span class="token token-operator punctuation">|</span><span class="token punctuation">.</span>
+
+----------------------------------------------------

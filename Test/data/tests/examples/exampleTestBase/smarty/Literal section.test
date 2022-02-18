@@ -1,0 +1,19 @@
+{literal}
+	<script>
+		(function() { /* This is JS, not Smarty */ } ());
+	</script>
+{/literal}
+
+<style type="text/css">
+{literal}
+/* this is an intersting idea for this section */
+.madIdea{
+    border: 3px outset #ffffff;
+    margin: 2 3 4 5px;
+    background-color: #001122;
+}
+{/literal}
+</style>
+
+--------------------------------------------------
+

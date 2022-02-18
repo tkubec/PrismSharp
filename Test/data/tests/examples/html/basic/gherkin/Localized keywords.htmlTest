@@ -1,0 +1,27 @@
+#language: fr
+Fonctionnalité: Contrôle le format de la valeur saisie d'un champ d'une révision
+  En tant qu'expert ou analyste
+  Je ne dois pas pouvoir soumettre des données au mauvais format
+
+  Contexte:
+    Etant donné que je suis connecté avec le pseudo "p_flore" et le mot de passe "p4flore"
+    Et que la gamme du contrat 27156 supporte les révisions
+    Etant donné que le contrat ayant l'id "27156" a une révision
+    Et je suis sur "/contrat/27156/revision/1"
+    Et que j'attends quelques secondes
+    ...
+----------------------------------------------------
+<span class="token comment">#language: fr</span>
+<span class="token feature"><span class="token keyword">Fonctionnalité:</span><span class="token important"> Contrôle le format de la valeur saisie d'un champ d'une révision</span>
+  En tant qu'expert ou analyste
+  Je ne dois pas pouvoir soumettre des données au mauvais format
+</span>
+  <span class="token scenario"><span class="token keyword">Contexte:</span><span class="token important"></span></span>
+    <span class="token atrule">Etant donné</span> que je suis connecté avec le pseudo <span class="token string">"p_flore"</span> et le mot de passe <span class="token string">"p4flore"</span>
+    <span class="token atrule">Et</span> que la gamme du contrat 27156 supporte les révisions
+    <span class="token atrule">Etant donné</span> que le contrat ayant l'id <span class="token string">"27156"</span> a une révision
+    <span class="token atrule">Et</span> je suis sur <span class="token string">"/contrat/27156/revision/1"</span>
+    <span class="token atrule">Et</span> que j'attends quelques secondes
+    ...
+
+----------------------------------------------------

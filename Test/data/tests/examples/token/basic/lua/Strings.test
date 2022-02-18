@@ -1,0 +1,27 @@
+""
+"Foo\"bar"
+"Foo\
+bar \z
+baz"
+''
+'Foo\'bar'
+'Foo\
+bar \z
+baz'
+[[Multi "line"
+string]]
+[==[Multi [["line"]]
+string]==]
+----------------------------------------------------
+[
+	["string", "\"\""],
+	["string", "\"Foo\\\"bar\""],
+	["string", "\"Foo\\\nbar \\z\nbaz\""],
+	["string", "''"],
+	["string", "'Foo\\'bar'"],
+	["string", "'Foo\\\nbar \\z\nbaz'"],
+	["string", "[[Multi \"line\"\nstring]]"],
+	["string", "[==[Multi [[\"line\"]]\nstring]==]"]
+]
+
+----------------------------------------------------

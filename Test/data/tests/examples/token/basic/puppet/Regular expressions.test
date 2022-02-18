@@ -1,0 +1,25 @@
+if $host =~ /^www(\d+)\./ {}
+$foo = /foo
+	bar # Extended regexes can include comments
+baz/x
+----------------------------------------------------
+[
+	["keyword", "if"],
+	["variable", ["$host"]],
+	["operator", "=~"],
+	["regex", ["/^www(\\d+)\\./"]],
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	["variable", ["$foo"]],
+	["operator", "="],
+	["regex", [
+		["extended-regex", [
+			"/foo\n\tbar ",
+			["comment", "# Extended regexes can include comments"],
+			"\nbaz/x"
+		]]
+	]]
+]
+
+----------------------------------------------------

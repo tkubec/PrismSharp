@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Welcome!</title>
+</head>
+<body>
+	<h1>
+		Welcome ${user}<#if user == "Big Joe">, our beloved leader</#if>!
+	</h1>
+	<p>Our latest product:
+	<a href="${latestProduct.url}">${latestProduct.name}</a>!
+	<p>See what our happy customers have to say!</p>
+	<ul>
+	<#list userStories as story>
+		<li>
+			<p>${story.text?esc} - by <span>${story.user.name}</span>
+		<li>
+	</#list>
+	</ul>
+</body>
+</html>
+----------------------------------------------------
+<span class="token ftl-directive"><span class="token punctuation">&lt;</span><span class="token content ftl">html<span class="token operator">></span>
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+	<span class="token operator">&lt;</span>title<span class="token operator">></span>Welcome<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+	<span class="token operator">&lt;</span>h1<span class="token operator">></span>
+		Welcome $<span class="token punctuation">{</span>user<span class="token punctuation">}</span><span class="token operator">&lt;</span>#if user <span class="token operator">==</span> <span class="token string">"Big Joe"</span><span class="token operator">></span><span class="token punctuation">,</span> our beloved leader<span class="token operator">&lt;</span><span class="token operator">/</span>#if<span class="token operator">></span><span class="token operator">!</span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+	<span class="token operator">&lt;</span>p<span class="token operator">></span>Our latest product<span class="token punctuation">:</span>
+	<span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>latestProduct<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span>"</span><span class="token operator">></span>$<span class="token punctuation">{</span>latestProduct<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token operator">!</span>
+	<span class="token operator">&lt;</span>p<span class="token operator">></span>See what our happy customers have to say<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+	<span class="token operator">&lt;</span>ul<span class="token operator">></span>
+	<span class="token operator">&lt;</span>#list userStories <span class="token keyword">as</span> story<span class="token operator">></span>
+		<span class="token operator">&lt;</span>li<span class="token operator">></span>
+			<span class="token operator">&lt;</span>p<span class="token operator">></span>$<span class="token punctuation">{</span>story<span class="token punctuation">.</span>text<span class="token operator">?</span><span class="token builtin-function function">esc</span><span class="token punctuation">}</span> <span class="token operator">-</span> by <span class="token operator">&lt;</span>span<span class="token operator">></span>$<span class="token punctuation">{</span>story<span class="token punctuation">.</span>user<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+		<span class="token operator">&lt;</span>li<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>#list<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

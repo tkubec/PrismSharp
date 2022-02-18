@@ -1,0 +1,7 @@
+<div class="<%= Time.now.strftime('%A') %>">
+___ERB1___<%= 1 %>___ERB2___<%= 2 %>
+----------------------------------------------------
+<span class="token ruby language-ruby"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string-literal"><span class="token string">"&lt;%= Time.now.strftime('%A') %>"</span></span><span class="token operator">></span>
+___ERB1___<span class="token operator">&lt;</span><span class="token operator">%=</span> <span class="token number">1</span> <span class="token operator">%</span><span class="token operator">></span>___ERB2___<span class="token operator">&lt;</span><span class="token operator">%=</span> <span class="token number">2</span> </span><span class="token delimiter punctuation">%></span>
+
+----------------------------------------------------

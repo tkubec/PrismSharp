@@ -1,0 +1,47 @@
+**foobar**
+**foo
+bar**
+__foobar__
+__foo
+bar__
+
+__foo *bar* baz__
+__foo _bar_ baz__
+__foo ~bar~ baz__
+__foo ~~bar~~ baz__
+__foo[bar](baz)__
+__foo `bar`__
+
+**foo *bar* baz**
+**foo _bar_ baz**
+**foo ~bar~ baz**
+**foo ~~bar~~ baz**
+**foo[bar](baz)**
+**foo `bar`**
+
+not__bold__ __this__either
+----------------------------------------------------
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">foobar</span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">foo
+bar</span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">foobar</span><span class="token punctuation">__</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">foo
+bar</span><span class="token punctuation">__</span></span>
+
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">foo <span class="token italic"><span class="token punctuation">*</span><span class="token content">bar</span><span class="token punctuation">*</span></span> baz</span><span class="token punctuation">__</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">foo <span class="token italic"><span class="token punctuation">_</span><span class="token content">bar</span><span class="token punctuation">_</span></span> baz</span><span class="token punctuation">__</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">foo <span class="token strike"><span class="token punctuation">~</span><span class="token content">bar</span><span class="token punctuation">~</span></span> baz</span><span class="token punctuation">__</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">foo <span class="token strike"><span class="token punctuation">~~</span><span class="token content">bar</span><span class="token punctuation">~~</span></span> baz</span><span class="token punctuation">__</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">foo<span class="token url">[<span class="token content">bar</span>](<span class="token url">baz</span>)</span></span><span class="token punctuation">__</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">foo <span class="token code-snippet code keyword">`bar`</span></span><span class="token punctuation">__</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">foo <span class="token italic"><span class="token punctuation">*</span><span class="token content">bar</span><span class="token punctuation">*</span></span> baz</span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">foo <span class="token italic"><span class="token punctuation">_</span><span class="token content">bar</span><span class="token punctuation">_</span></span> baz</span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">foo <span class="token strike"><span class="token punctuation">~</span><span class="token content">bar</span><span class="token punctuation">~</span></span> baz</span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">foo <span class="token strike"><span class="token punctuation">~~</span><span class="token content">bar</span><span class="token punctuation">~~</span></span> baz</span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">foo<span class="token url">[<span class="token content">bar</span>](<span class="token url">baz</span>)</span></span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">foo <span class="token code-snippet code keyword">`bar`</span></span><span class="token punctuation">**</span></span>
+
+not__bold__ __this__either
+
+----------------------------------------------------

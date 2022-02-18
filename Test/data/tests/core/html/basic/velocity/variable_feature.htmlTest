@@ -1,0 +1,59 @@
+$mud
+$customer.Name
+$flogger.getPromo( $mud )
+$mud-slinger
+$mud_slinger
+$mudSlinger1
+$!mudSlinger_9
+$person.setAttributes( ["Strange", false, "Excited"] )
+$foo[0]
+$foo[$i]
+$foo["bar"]
+$foo.bar[1].junk
+$foo.callMethod()[1]
+$foo["apple"][4]
+${mudSlinger}
+$!{mudSlinger_9}
+${customer.Address}
+${purchase.getTotal()}
+<input value="$email"/>
+<input value="$!{email}"/>
+$\!foo
+$\!{foo}
+$\\!foo
+$\\\!foo
+\$foo
+\$!foo
+\$!{foo}
+\\$!{foo}
+----------------------------------------------------
+<span class="token variable">$mud</span>
+<span class="token variable">$customer<span class="token punctuation">.</span>Name</span>
+<span class="token variable">$flogger<span class="token punctuation">.</span><span class="token function">getPromo</span><span class="token punctuation">(</span> $mud <span class="token punctuation">)</span></span>
+<span class="token variable">$mud-slinger</span>
+<span class="token variable">$mud_slinger</span>
+<span class="token variable">$mudSlinger1</span>
+<span class="token variable">$!mudSlinger_9</span>
+<span class="token variable">$person<span class="token punctuation">.</span><span class="token function">setAttributes</span><span class="token punctuation">(</span> <span class="token punctuation">[</span><span class="token string">"Strange"</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token string">"Excited"</span><span class="token punctuation">]</span> <span class="token punctuation">)</span></span>
+<span class="token variable">$foo<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></span>
+<span class="token variable">$foo<span class="token punctuation">[</span>$i<span class="token punctuation">]</span></span>
+<span class="token variable">$foo<span class="token punctuation">[</span><span class="token string">"bar"</span><span class="token punctuation">]</span></span>
+<span class="token variable">$foo<span class="token punctuation">.</span>bar<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>junk</span>
+<span class="token variable">$foo<span class="token punctuation">.</span><span class="token function">callMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span></span>
+<span class="token variable">$foo<span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span></span>
+<span class="token variable">$<span class="token punctuation">{</span>mudSlinger<span class="token punctuation">}</span></span>
+<span class="token variable">$!<span class="token punctuation">{</span>mudSlinger_9<span class="token punctuation">}</span></span>
+<span class="token variable">$<span class="token punctuation">{</span>customer<span class="token punctuation">.</span>Address<span class="token punctuation">}</span></span>
+<span class="token variable">$<span class="token punctuation">{</span>purchase<span class="token punctuation">.</span><span class="token function">getTotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token variable">$email</span><span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token variable">$!<span class="token punctuation">{</span>email<span class="token punctuation">}</span></span><span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+$\!foo
+$\!{foo}
+$\\!foo
+$\\\!foo
+\$foo
+\$!foo
+\$!{foo}
+\\<span class="token variable">$!<span class="token punctuation">{</span>foo<span class="token punctuation">}</span></span>
+
+----------------------------------------------------

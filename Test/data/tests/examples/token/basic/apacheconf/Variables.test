@@ -1,0 +1,9 @@
+RewriteCond %{REQUEST_FILENAME}.php -f
+----------------------------------------------------
+[
+	["directive-inline", "RewriteCond"],
+	["variable", "%{REQUEST_FILENAME}"],
+	".php -f"
+]
+
+----------------------------------------------------

@@ -1,0 +1,33 @@
+foo: ""
+bar: "fo\"obar"
+foo: ''
+foo: "foo" # bar
+bar: 'bar' # foo
+multi: '''
+	one line
+	second line
+	third line
+'''
+multi: """
+	one line
+	second line
+	third line
+"""
+----------------------------------------------------
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token string">""</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token string">"fo\"obar"</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token string">"foo"</span> <span class="token comment"># bar</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token string">'bar'</span> <span class="token comment"># foo</span>
+<span class="token key atrule">multi</span><span class="token punctuation">:</span> <span class="token string">'''
+	one line
+	second line
+	third line
+'''</span>
+<span class="token key atrule">multi</span><span class="token punctuation">:</span> <span class="token string">"""
+	one line
+	second line
+	third line
+"""</span>
+
+----------------------------------------------------

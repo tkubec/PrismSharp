@@ -1,0 +1,25 @@
+record MyRecord {
+  string @order("ascending") myAscendingSortField;
+  string @order("descending")  myDescendingField;
+  string @order("ignore") myIgnoredField;
+}
+
+@java-class("java.util.ArrayList") array<string> myStrings;
+
+@namespace("org.apache.avro.firstNamespace")
+
+union { MD5, null} @aliases(["hash"]) nullableHash;
+----------------------------------------------------
+<span class="token keyword">record</span> <span class="token class-name">MyRecord</span> <span class="token punctuation">{</span>
+  <span class="token keyword">string</span> <span class="token annotation function">@order</span><span class="token punctuation">(</span><span class="token string">"ascending"</span><span class="token punctuation">)</span> myAscendingSortField<span class="token punctuation">;</span>
+  <span class="token keyword">string</span> <span class="token annotation function">@order</span><span class="token punctuation">(</span><span class="token string">"descending"</span><span class="token punctuation">)</span>  myDescendingField<span class="token punctuation">;</span>
+  <span class="token keyword">string</span> <span class="token annotation function">@order</span><span class="token punctuation">(</span><span class="token string">"ignore"</span><span class="token punctuation">)</span> myIgnoredField<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation function">@java-class</span><span class="token punctuation">(</span><span class="token string">"java.util.ArrayList"</span><span class="token punctuation">)</span> <span class="token keyword">array</span><span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span> myStrings<span class="token punctuation">;</span>
+
+<span class="token annotation function">@namespace</span><span class="token punctuation">(</span><span class="token string">"org.apache.avro.firstNamespace"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">union</span> <span class="token punctuation">{</span> MD5<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">}</span> <span class="token annotation function">@aliases</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"hash"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> nullableHash<span class="token punctuation">;</span>
+
+----------------------------------------------------

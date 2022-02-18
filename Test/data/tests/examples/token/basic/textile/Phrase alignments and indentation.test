@@ -1,0 +1,98 @@
+p<. align left
+
+p>. align right
+
+p=. centered
+
+p<>. justified
+
+p(. left ident 1em
+
+p((. left ident 2em
+
+p))). right ident 3em
+----------------------------------------------------
+[
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "<"]
+			]],
+			["punctuation", "."]
+		]],
+		" align left"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", ">"]
+			]],
+			["punctuation", "."]
+		]],
+		" align right"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "="]
+			]],
+			["punctuation", "."]
+		]],
+		" centered"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "<"],
+				["punctuation", ">"]
+			]],
+			["punctuation", "."]
+		]],
+		" justified"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "("]
+			]],
+			["punctuation", "."]
+		]],
+		" left ident 1em"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", "("],
+				["punctuation", "("]
+			]],
+			["punctuation", "."]
+		]],
+		" left ident 2em"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "p"],
+			["modifier", [
+				["punctuation", ")"],
+				["punctuation", ")"],
+				["punctuation", ")"]
+			]],
+			["punctuation", "."]
+		]],
+		" right ident 3em"
+	]]
+]
+
+----------------------------------------------------

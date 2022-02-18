@@ -1,0 +1,677 @@
+A
+ACCESSIBLE
+ADD
+AGENT
+AGGREGATE
+ALL
+ALTER
+AND
+ANY
+ARRAY
+AS
+ASC
+AT
+ATTRIBUTE
+AUTHID
+AVG
+BEGIN
+BETWEEN
+BFILE_BASE
+BINARY
+BLOB_BASE
+BLOCK
+BODY
+BOTH
+BOUND
+BULK
+BY
+BYTE
+C
+CALL
+CALLING
+CASCADE
+CASE
+CHAR
+CHAR_BASE
+CHARACTER
+CHARSET
+CHARSETFORM
+CHARSETID
+CHECK
+CLOB_BASE
+CLONE
+CLOSE
+CLUSTER
+CLUSTERS
+COLAUTH
+COLLECT
+COLUMNS
+COMMENT
+COMMIT
+COMMITTED
+COMPILED
+COMPRESS
+CONNECT
+CONSTANT
+CONSTRUCTOR
+CONTEXT
+CONTINUE
+CONVERT
+COUNT
+CRASH
+CREATE
+CREDENTIAL
+CURRENT
+CURSOR
+CUSTOMDATUM
+DANGLING
+DATA
+DATE
+DATE_BASE
+DAY
+DECLARE
+DEFAULT
+DEFINE
+DELETE
+DESC
+DETERMINISTIC
+DIRECTORY
+DISTINCT
+DOUBLE
+DROP
+DURATION
+ELEMENT
+ELSE
+ELSIF
+EMPTY
+END
+ESCAPE
+EXCEPT
+EXCEPTION
+EXCEPTIONS
+EXCLUSIVE
+EXECUTE
+EXISTS
+EXIT
+EXTERNAL
+FETCH
+FINAL
+FIRST
+FIXED
+FLOAT
+FOR
+FORALL
+FORCE
+FROM
+FUNCTION
+GENERAL
+GOTO
+GRANT
+GROUP
+HASH
+HAVING
+HEAP
+HIDDEN
+HOUR
+IDENTIFIED
+IF
+IMMEDIATE
+IMMUTABLE
+IN
+INCLUDING
+INDEX
+INDEXES
+INDICATOR
+INDICES
+INFINITE
+INSERT
+INSTANTIABLE
+INT
+INTERFACE
+INTERSECT
+INTERVAL
+INTO
+INVALIDATE
+IS
+ISOLATION
+JAVA
+LANGUAGE
+LARGE
+LEADING
+LENGTH
+LEVEL
+LIBRARY
+LIKE
+LIKE2
+LIKE4
+LIKEC
+LIMIT
+LIMITED
+LOCAL
+LOCK
+LONG
+LOOP
+MAP
+MAX
+MAXLEN
+MEMBER
+MERGE
+MIN
+MINUS
+MINUTE
+MOD
+MODE
+MODIFY
+MONTH
+MULTISET
+MUTABLE
+NAME
+NAN
+NATIONAL
+NATIVE
+NCHAR
+NEW
+NOCOMPRESS
+NOCOPY
+NOT
+NOWAIT
+NULL
+NUMBER_BASE
+OBJECT
+OCICOLL
+OCIDATE
+OCIDATETIME
+OCIDURATION
+OCIINTERVAL
+OCILOBLOCATOR
+OCINUMBER
+OCIRAW
+OCIREF
+OCIREFCURSOR
+OCIROWID
+OCISTRING
+OCITYPE
+OF
+OLD
+ON
+ONLY
+OPAQUE
+OPEN
+OPERATOR
+OPTION
+OR
+ORACLE
+ORADATA
+ORDER
+ORGANIZATION
+ORLANY
+ORLVARY
+OTHERS
+OUT
+OVERLAPS
+OVERRIDING
+PACKAGE
+PARALLEL_ENABLE
+PARAMETER
+PARAMETERS
+PARENT
+PARTITION
+PASCAL
+PERSISTABLE
+PIPE
+PIPELINED
+PLUGGABLE
+POLYMORPHIC
+PRAGMA
+PRECISION
+PRIOR
+PRIVATE
+PROCEDURE
+PUBLIC
+RAISE
+RANGE
+RAW
+READ
+RECORD
+REF
+REFERENCE
+RELIES_ON
+REM
+REMAINDER
+RENAME
+RESOURCE
+RESULT
+RESULT_CACHE
+RETURN
+RETURNING
+REVERSE
+REVOKE
+ROLLBACK
+ROW
+SAMPLE
+SAVE
+SAVEPOINT
+SB1
+SB2
+SB4
+SECOND
+SEGMENT
+SELECT
+SELF
+SEPARATE
+SEQUENCE
+SERIALIZABLE
+SET
+SHARE
+SHORT
+SIZE
+SIZE_T
+SOME
+SPARSE
+SQL
+SQLCODE
+SQLDATA
+SQLNAME
+SQLSTATE
+STANDARD
+START
+STATIC
+STDDEV
+STORED
+STRING
+STRUCT
+STYLE
+SUBMULTISET
+SUBPARTITION
+SUBSTITUTABLE
+SUBTYPE
+SUM
+SYNONYM
+TABAUTH
+TABLE
+TDO
+THE
+THEN
+TIME
+TIMESTAMP
+TIMEZONE_ABBR
+TIMEZONE_HOUR
+TIMEZONE_MINUTE
+TIMEZONE_REGION
+TO
+TRAILING
+TRANSACTION
+TRANSACTIONAL
+TRUSTED
+TYPE
+UB1
+UB2
+UB4
+UNDER
+UNION
+UNIQUE
+UNPLUG
+UNSIGNED
+UNTRUSTED
+UPDATE
+USE
+USING
+VALIST
+VALUE
+VALUES
+VARIABLE
+VARIANCE
+VARRAY
+VARYING
+VIEW
+VIEWS
+VOID
+WHEN
+WHERE
+WHILE
+WITH
+WORK
+WRAPPED
+WRITE
+YEAR
+ZONE
+----------------------------------------------------
+<span class="token keyword">A</span>
+<span class="token keyword">ACCESSIBLE</span>
+<span class="token keyword">ADD</span>
+<span class="token keyword">AGENT</span>
+<span class="token keyword">AGGREGATE</span>
+<span class="token keyword">ALL</span>
+<span class="token keyword">ALTER</span>
+<span class="token keyword">AND</span>
+<span class="token keyword">ANY</span>
+<span class="token keyword">ARRAY</span>
+<span class="token keyword">AS</span>
+<span class="token keyword">ASC</span>
+<span class="token keyword">AT</span>
+<span class="token keyword">ATTRIBUTE</span>
+<span class="token keyword">AUTHID</span>
+<span class="token keyword">AVG</span>
+<span class="token keyword">BEGIN</span>
+<span class="token keyword">BETWEEN</span>
+<span class="token keyword">BFILE_BASE</span>
+<span class="token keyword">BINARY</span>
+<span class="token keyword">BLOB_BASE</span>
+<span class="token keyword">BLOCK</span>
+<span class="token keyword">BODY</span>
+<span class="token keyword">BOTH</span>
+<span class="token keyword">BOUND</span>
+<span class="token keyword">BULK</span>
+<span class="token keyword">BY</span>
+<span class="token keyword">BYTE</span>
+<span class="token keyword">C</span>
+<span class="token keyword">CALL</span>
+<span class="token keyword">CALLING</span>
+<span class="token keyword">CASCADE</span>
+<span class="token keyword">CASE</span>
+<span class="token keyword">CHAR</span>
+<span class="token keyword">CHAR_BASE</span>
+<span class="token keyword">CHARACTER</span>
+<span class="token keyword">CHARSET</span>
+<span class="token keyword">CHARSETFORM</span>
+<span class="token keyword">CHARSETID</span>
+<span class="token keyword">CHECK</span>
+<span class="token keyword">CLOB_BASE</span>
+<span class="token keyword">CLONE</span>
+<span class="token keyword">CLOSE</span>
+<span class="token keyword">CLUSTER</span>
+<span class="token keyword">CLUSTERS</span>
+<span class="token keyword">COLAUTH</span>
+<span class="token keyword">COLLECT</span>
+<span class="token keyword">COLUMNS</span>
+<span class="token keyword">COMMENT</span>
+<span class="token keyword">COMMIT</span>
+<span class="token keyword">COMMITTED</span>
+<span class="token keyword">COMPILED</span>
+<span class="token keyword">COMPRESS</span>
+<span class="token keyword">CONNECT</span>
+<span class="token keyword">CONSTANT</span>
+<span class="token keyword">CONSTRUCTOR</span>
+<span class="token keyword">CONTEXT</span>
+<span class="token keyword">CONTINUE</span>
+<span class="token keyword">CONVERT</span>
+<span class="token keyword">COUNT</span>
+<span class="token keyword">CRASH</span>
+<span class="token keyword">CREATE</span>
+<span class="token keyword">CREDENTIAL</span>
+<span class="token keyword">CURRENT</span>
+<span class="token keyword">CURSOR</span>
+<span class="token keyword">CUSTOMDATUM</span>
+<span class="token keyword">DANGLING</span>
+<span class="token keyword">DATA</span>
+<span class="token keyword">DATE</span>
+<span class="token keyword">DATE_BASE</span>
+<span class="token keyword">DAY</span>
+<span class="token keyword">DECLARE</span>
+<span class="token keyword">DEFAULT</span>
+<span class="token keyword">DEFINE</span>
+<span class="token keyword">DELETE</span>
+<span class="token keyword">DESC</span>
+<span class="token keyword">DETERMINISTIC</span>
+<span class="token keyword">DIRECTORY</span>
+<span class="token keyword">DISTINCT</span>
+<span class="token keyword">DOUBLE</span>
+<span class="token keyword">DROP</span>
+<span class="token keyword">DURATION</span>
+<span class="token keyword">ELEMENT</span>
+<span class="token keyword">ELSE</span>
+<span class="token keyword">ELSIF</span>
+<span class="token keyword">EMPTY</span>
+<span class="token keyword">END</span>
+<span class="token keyword">ESCAPE</span>
+<span class="token keyword">EXCEPT</span>
+<span class="token keyword">EXCEPTION</span>
+<span class="token keyword">EXCEPTIONS</span>
+<span class="token keyword">EXCLUSIVE</span>
+<span class="token keyword">EXECUTE</span>
+<span class="token keyword">EXISTS</span>
+<span class="token keyword">EXIT</span>
+<span class="token keyword">EXTERNAL</span>
+<span class="token keyword">FETCH</span>
+<span class="token keyword">FINAL</span>
+<span class="token keyword">FIRST</span>
+<span class="token keyword">FIXED</span>
+<span class="token keyword">FLOAT</span>
+<span class="token keyword">FOR</span>
+<span class="token keyword">FORALL</span>
+<span class="token keyword">FORCE</span>
+<span class="token keyword">FROM</span>
+<span class="token keyword">FUNCTION</span>
+<span class="token keyword">GENERAL</span>
+<span class="token keyword">GOTO</span>
+<span class="token keyword">GRANT</span>
+<span class="token keyword">GROUP</span>
+<span class="token keyword">HASH</span>
+<span class="token keyword">HAVING</span>
+<span class="token keyword">HEAP</span>
+<span class="token keyword">HIDDEN</span>
+<span class="token keyword">HOUR</span>
+<span class="token keyword">IDENTIFIED</span>
+<span class="token keyword">IF</span>
+<span class="token keyword">IMMEDIATE</span>
+<span class="token keyword">IMMUTABLE</span>
+<span class="token keyword">IN</span>
+<span class="token keyword">INCLUDING</span>
+<span class="token keyword">INDEX</span>
+<span class="token keyword">INDEXES</span>
+<span class="token keyword">INDICATOR</span>
+<span class="token keyword">INDICES</span>
+<span class="token keyword">INFINITE</span>
+<span class="token keyword">INSERT</span>
+<span class="token keyword">INSTANTIABLE</span>
+<span class="token keyword">INT</span>
+<span class="token keyword">INTERFACE</span>
+<span class="token keyword">INTERSECT</span>
+<span class="token keyword">INTERVAL</span>
+<span class="token keyword">INTO</span>
+<span class="token keyword">INVALIDATE</span>
+<span class="token keyword">IS</span>
+<span class="token keyword">ISOLATION</span>
+<span class="token keyword">JAVA</span>
+<span class="token keyword">LANGUAGE</span>
+<span class="token keyword">LARGE</span>
+<span class="token keyword">LEADING</span>
+<span class="token keyword">LENGTH</span>
+<span class="token keyword">LEVEL</span>
+<span class="token keyword">LIBRARY</span>
+<span class="token keyword">LIKE</span>
+<span class="token keyword">LIKE2</span>
+<span class="token keyword">LIKE4</span>
+<span class="token keyword">LIKEC</span>
+<span class="token keyword">LIMIT</span>
+<span class="token keyword">LIMITED</span>
+<span class="token keyword">LOCAL</span>
+<span class="token keyword">LOCK</span>
+<span class="token keyword">LONG</span>
+<span class="token keyword">LOOP</span>
+<span class="token keyword">MAP</span>
+<span class="token keyword">MAX</span>
+<span class="token keyword">MAXLEN</span>
+<span class="token keyword">MEMBER</span>
+<span class="token keyword">MERGE</span>
+<span class="token keyword">MIN</span>
+<span class="token keyword">MINUS</span>
+<span class="token keyword">MINUTE</span>
+<span class="token keyword">MOD</span>
+<span class="token keyword">MODE</span>
+<span class="token keyword">MODIFY</span>
+<span class="token keyword">MONTH</span>
+<span class="token keyword">MULTISET</span>
+<span class="token keyword">MUTABLE</span>
+<span class="token keyword">NAME</span>
+<span class="token keyword">NAN</span>
+<span class="token keyword">NATIONAL</span>
+<span class="token keyword">NATIVE</span>
+<span class="token keyword">NCHAR</span>
+<span class="token keyword">NEW</span>
+<span class="token keyword">NOCOMPRESS</span>
+<span class="token keyword">NOCOPY</span>
+<span class="token keyword">NOT</span>
+<span class="token keyword">NOWAIT</span>
+<span class="token keyword">NULL</span>
+<span class="token keyword">NUMBER_BASE</span>
+<span class="token keyword">OBJECT</span>
+<span class="token keyword">OCICOLL</span>
+<span class="token keyword">OCIDATE</span>
+<span class="token keyword">OCIDATETIME</span>
+<span class="token keyword">OCIDURATION</span>
+<span class="token keyword">OCIINTERVAL</span>
+<span class="token keyword">OCILOBLOCATOR</span>
+<span class="token keyword">OCINUMBER</span>
+<span class="token keyword">OCIRAW</span>
+<span class="token keyword">OCIREF</span>
+<span class="token keyword">OCIREFCURSOR</span>
+<span class="token keyword">OCIROWID</span>
+<span class="token keyword">OCISTRING</span>
+<span class="token keyword">OCITYPE</span>
+<span class="token keyword">OF</span>
+<span class="token keyword">OLD</span>
+<span class="token keyword">ON</span>
+<span class="token keyword">ONLY</span>
+<span class="token keyword">OPAQUE</span>
+<span class="token keyword">OPEN</span>
+<span class="token keyword">OPERATOR</span>
+<span class="token keyword">OPTION</span>
+<span class="token keyword">OR</span>
+<span class="token keyword">ORACLE</span>
+<span class="token keyword">ORADATA</span>
+<span class="token keyword">ORDER</span>
+<span class="token keyword">ORGANIZATION</span>
+<span class="token keyword">ORLANY</span>
+<span class="token keyword">ORLVARY</span>
+<span class="token keyword">OTHERS</span>
+<span class="token keyword">OUT</span>
+<span class="token keyword">OVERLAPS</span>
+<span class="token keyword">OVERRIDING</span>
+<span class="token keyword">PACKAGE</span>
+<span class="token keyword">PARALLEL_ENABLE</span>
+<span class="token keyword">PARAMETER</span>
+<span class="token keyword">PARAMETERS</span>
+<span class="token keyword">PARENT</span>
+<span class="token keyword">PARTITION</span>
+<span class="token keyword">PASCAL</span>
+<span class="token keyword">PERSISTABLE</span>
+<span class="token keyword">PIPE</span>
+<span class="token keyword">PIPELINED</span>
+<span class="token keyword">PLUGGABLE</span>
+<span class="token keyword">POLYMORPHIC</span>
+<span class="token keyword">PRAGMA</span>
+<span class="token keyword">PRECISION</span>
+<span class="token keyword">PRIOR</span>
+<span class="token keyword">PRIVATE</span>
+<span class="token keyword">PROCEDURE</span>
+<span class="token keyword">PUBLIC</span>
+<span class="token keyword">RAISE</span>
+<span class="token keyword">RANGE</span>
+<span class="token keyword">RAW</span>
+<span class="token keyword">READ</span>
+<span class="token keyword">RECORD</span>
+<span class="token keyword">REF</span>
+<span class="token keyword">REFERENCE</span>
+<span class="token keyword">RELIES_ON</span>
+<span class="token keyword">REM</span>
+<span class="token keyword">REMAINDER</span>
+<span class="token keyword">RENAME</span>
+<span class="token keyword">RESOURCE</span>
+<span class="token keyword">RESULT</span>
+<span class="token keyword">RESULT_CACHE</span>
+<span class="token keyword">RETURN</span>
+<span class="token keyword">RETURNING</span>
+<span class="token keyword">REVERSE</span>
+<span class="token keyword">REVOKE</span>
+<span class="token keyword">ROLLBACK</span>
+<span class="token keyword">ROW</span>
+<span class="token keyword">SAMPLE</span>
+<span class="token keyword">SAVE</span>
+<span class="token keyword">SAVEPOINT</span>
+<span class="token keyword">SB1</span>
+<span class="token keyword">SB2</span>
+<span class="token keyword">SB4</span>
+<span class="token keyword">SECOND</span>
+<span class="token keyword">SEGMENT</span>
+<span class="token keyword">SELECT</span>
+<span class="token keyword">SELF</span>
+<span class="token keyword">SEPARATE</span>
+<span class="token keyword">SEQUENCE</span>
+<span class="token keyword">SERIALIZABLE</span>
+<span class="token keyword">SET</span>
+<span class="token keyword">SHARE</span>
+<span class="token keyword">SHORT</span>
+<span class="token keyword">SIZE</span>
+<span class="token keyword">SIZE_T</span>
+<span class="token keyword">SOME</span>
+<span class="token keyword">SPARSE</span>
+<span class="token keyword">SQL</span>
+<span class="token keyword">SQLCODE</span>
+<span class="token keyword">SQLDATA</span>
+<span class="token keyword">SQLNAME</span>
+<span class="token keyword">SQLSTATE</span>
+<span class="token keyword">STANDARD</span>
+<span class="token keyword">START</span>
+<span class="token keyword">STATIC</span>
+<span class="token keyword">STDDEV</span>
+<span class="token keyword">STORED</span>
+<span class="token keyword">STRING</span>
+<span class="token keyword">STRUCT</span>
+<span class="token keyword">STYLE</span>
+<span class="token keyword">SUBMULTISET</span>
+<span class="token keyword">SUBPARTITION</span>
+<span class="token keyword">SUBSTITUTABLE</span>
+<span class="token keyword">SUBTYPE</span>
+<span class="token keyword">SUM</span>
+<span class="token keyword">SYNONYM</span>
+<span class="token keyword">TABAUTH</span>
+<span class="token keyword">TABLE</span>
+<span class="token keyword">TDO</span>
+<span class="token keyword">THE</span>
+<span class="token keyword">THEN</span>
+<span class="token keyword">TIME</span>
+<span class="token keyword">TIMESTAMP</span>
+<span class="token keyword">TIMEZONE_ABBR</span>
+<span class="token keyword">TIMEZONE_HOUR</span>
+<span class="token keyword">TIMEZONE_MINUTE</span>
+<span class="token keyword">TIMEZONE_REGION</span>
+<span class="token keyword">TO</span>
+<span class="token keyword">TRAILING</span>
+<span class="token keyword">TRANSACTION</span>
+<span class="token keyword">TRANSACTIONAL</span>
+<span class="token keyword">TRUSTED</span>
+<span class="token keyword">TYPE</span>
+<span class="token keyword">UB1</span>
+<span class="token keyword">UB2</span>
+<span class="token keyword">UB4</span>
+<span class="token keyword">UNDER</span>
+<span class="token keyword">UNION</span>
+<span class="token keyword">UNIQUE</span>
+<span class="token keyword">UNPLUG</span>
+<span class="token keyword">UNSIGNED</span>
+<span class="token keyword">UNTRUSTED</span>
+<span class="token keyword">UPDATE</span>
+<span class="token keyword">USE</span>
+<span class="token keyword">USING</span>
+<span class="token keyword">VALIST</span>
+<span class="token keyword">VALUE</span>
+<span class="token keyword">VALUES</span>
+<span class="token keyword">VARIABLE</span>
+<span class="token keyword">VARIANCE</span>
+<span class="token keyword">VARRAY</span>
+<span class="token keyword">VARYING</span>
+<span class="token keyword">VIEW</span>
+<span class="token keyword">VIEWS</span>
+<span class="token keyword">VOID</span>
+<span class="token keyword">WHEN</span>
+<span class="token keyword">WHERE</span>
+<span class="token keyword">WHILE</span>
+<span class="token keyword">WITH</span>
+<span class="token keyword">WORK</span>
+<span class="token keyword">WRAPPED</span>
+<span class="token keyword">WRITE</span>
+<span class="token keyword">YEAR</span>
+<span class="token keyword">ZONE</span>
+
+----------------------------------------------------

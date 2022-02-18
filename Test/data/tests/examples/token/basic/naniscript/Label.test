@@ -1,0 +1,12 @@
+# Section
+#Section without whitespace
+ # Section with whitespace
+	# SectionWithTab
+----------------------------------------------------
+[
+	["label", "# Section"],
+	"\n#Section without whitespace\n # Section with whitespace\n\t",
+	["label", "# SectionWithTab"]
+]
+
+----------------------------------------------------

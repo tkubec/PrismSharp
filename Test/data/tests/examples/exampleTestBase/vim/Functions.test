@@ -1,0 +1,8 @@
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+
+--------------------------------------------------
+

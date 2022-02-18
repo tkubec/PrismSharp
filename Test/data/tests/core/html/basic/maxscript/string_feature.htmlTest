@@ -1,0 +1,17 @@
+""
+"foo should be quoted like this: \"foo\" and a new line: \n"
+"Twas brillig and the slithy tobes
+did gyre and gimbol in the wabe
+or something like that..."
+"g:\\3dsmax25\\scenes"
+@"g:\temp\newfolder\render"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo should be quoted like this: \"foo\" and a new line: \n"</span>
+<span class="token string">"Twas brillig and the slithy tobes
+did gyre and gimbol in the wabe
+or something like that..."</span>
+<span class="token string">"g:\\3dsmax25\\scenes"</span>
+<span class="token string">@"g:\temp\newfolder\render"</span>
+
+----------------------------------------------------

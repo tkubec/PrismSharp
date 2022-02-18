@@ -1,0 +1,164 @@
+/*
+ * Example AviSynth script for PrismJS demonstration.
+ * By Zinfidel
+ */
+
+SetFilterMTMode("DEFAULT_MT_MODE", MT_MULTI_INSTANCE)
+AddAutoloadDir("MAINSCRIPTDIR/programs/plugins")
+
+# Multiplies clip size and changes aspect ratio to 4:3
+function CorrectAspectRatio(clip c, int scaleFactor, bool "useNearestNeighbor") {
+    useNearestNeighbor = default(useNearestNeighbor, false)
+    stretchFactor = (c.Height * (4 / 3)) / c.Width
+
+    return useNearestNeighbor \
+        ? c.PointResize(c.Width * scaleFactor * stretchFactor, c.Height * scaleFactor) \
+        : c.Lanczos4Resize(c.Width * scaleFactor * stretchFactor, c.Height * scaleFactor)
+}
+
+AviSource("myclip.avi")
+last.CorrectAspectRatio(3, yes)
+
+
+Prefetch(4)
+----------------------------------------------------
+[
+	["comment", "/*\n * Example AviSynth script for PrismJS demonstration.\n * By Zinfidel\n */"],
+
+	["builtin-function", "SetFilterMTMode"],
+	["punctuation", "("],
+	["string", [
+		"\"",
+		["constant", "DEFAULT_MT_MODE"],
+		"\""
+	]],
+	["punctuation", ","],
+	["constant", "MT_MULTI_INSTANCE"],
+	["punctuation", ")"],
+
+	["builtin-function", "AddAutoloadDir"],
+	["punctuation", "("],
+	["string", [
+		"\"",
+		["constant", "MAINSCRIPTDIR"],
+		"/programs/plugins\""
+	]],
+	["punctuation", ")"],
+
+	["comment", "# Multiplies clip size and changes aspect ratio to 4:3"],
+
+	["keyword", "function"],
+	["function", "CorrectAspectRatio"],
+	["punctuation", "("],
+	["argument", [
+		["keyword", "clip"],
+		" c"
+	]],
+	["punctuation", ","],
+	["argument", [
+		["keyword", "int"],
+		" scaleFactor"
+	]],
+	["punctuation", ","],
+	["argument", [
+		["keyword", "bool"],
+		" \"useNearestNeighbor\""
+	]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n    useNearestNeighbor ",
+	["operator", "="],
+	["builtin-function", "default"],
+	["punctuation", "("],
+	"useNearestNeighbor",
+	["punctuation", ","],
+	["boolean", "false"],
+	["punctuation", ")"],
+
+	"\n    stretchFactor ",
+	["operator", "="],
+	["punctuation", "("],
+	"c",
+	["punctuation", "."],
+	["builtin-function", "Height"],
+	["operator", "*"],
+	["punctuation", "("],
+	["number", "4"],
+	["operator", "/"],
+	["number", "3"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator", "/"],
+	" c",
+	["punctuation", "."],
+	["builtin-function", "Width"],
+
+	["keyword", "return"],
+	" useNearestNeighbor ",
+	["line-continuation", "\\"],
+
+	["operator", "?"],
+	" c",
+	["punctuation", "."],
+	["builtin-function", "PointResize"],
+	["punctuation", "("],
+	"c",
+	["punctuation", "."],
+	["builtin-function", "Width"],
+	["operator", "*"],
+	" scaleFactor ",
+	["operator", "*"],
+	" stretchFactor",
+	["punctuation", ","],
+	" c",
+	["punctuation", "."],
+	["builtin-function", "Height"],
+	["operator", "*"],
+	" scaleFactor",
+	["punctuation", ")"],
+	["line-continuation", "\\"],
+
+	["operator", ":"],
+	" c",
+	["punctuation", "."],
+	["builtin-function", "Lanczos4Resize"],
+	["punctuation", "("],
+	"c",
+	["punctuation", "."],
+	["builtin-function", "Width"],
+	["operator", "*"],
+	" scaleFactor ",
+	["operator", "*"],
+	" stretchFactor",
+	["punctuation", ","],
+	" c",
+	["punctuation", "."],
+	["builtin-function", "Height"],
+	["operator", "*"],
+	" scaleFactor",
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["builtin-function", "AviSource"],
+	["punctuation", "("],
+	["string", ["\"myclip.avi\""]],
+	["punctuation", ")"],
+
+	["variable", "last"],
+	["punctuation", "."],
+	["function", "CorrectAspectRatio"],
+	["punctuation", "("],
+	["number", "3"],
+	["punctuation", ","],
+	["boolean", "yes"],
+	["punctuation", ")"],
+
+	["builtin-function", "Prefetch"],
+	["punctuation", "("],
+	["number", "4"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

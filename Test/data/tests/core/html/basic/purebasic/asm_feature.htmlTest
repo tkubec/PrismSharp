@@ -1,0 +1,95 @@
+Procedure.i XorTwoBlocks2(*buffer1, *buffer2, length)
+  ; move all the required data to source reg, destination reg and counter reg
+  !mov esi, [p.p_buffer1]           ; read 32-bit integer from p.p_buffer1 and move to esi
+  !mov edi, [p.p_buffer2]           ; read 32-bit integer from p.p_buffer2 and move to edi
+  !mov ecx, [p.v_length]            ; read 32-bit integer from p.v_length and move to ecx
+
+  !@@:                              ; anonymous label, can be reached by @b (back) or @f (forward)
+    !mov al, byte [edi + ecx - 1]   ; read byte from destination
+    !xor byte [esi + ecx - 1], al   ; xor source with destination (i.e. xor bytes from both blocks)
+    !dec ecx                        ; decrease counter
+  !jne @b                           ; jumb back to first anonymous label behind
+  ProcedureReturn 0
+EndProcedure
+
+!jne label1
+!jmp @b
+!EXTERN printf
+!DEFAULT rel
+
+; source: http://www.jose.it-berater.org/smfforum/index.php?topic=5091.0
+Procedure PopCount64(x.q)
+  !mov rax, [p.v_x]
+  !mov rdx, rax
+  !shr rdx, 1
+  !and rdx, [popcount64_v55]
+  !sub rax, rdx
+  ;x = (x & $3333333333333333) + ((x >> 2) & $3333333333333333)
+  !mov rdx, rax       ;x
+  !and rax, [popcount64_v33]
+  !shr rdx, 2
+  !and rdx, [popcount64_v33]
+  !add rax, rdx
+  ;x = (x + (x >> 4)) & $0f0f0f0f0f0f0f0f0f0f
+  !mov rdx, rax
+  !shr rdx, 4
+  !add rax, rdx
+  !and rax, [popcount64_v0f]
+  ;x * $0101010101010101 >> 56
+  !imul rax, [popcount64_v01]
+  !shr rax, 56
+  ProcedureReturn
+  !popcount64_v01: dq 0x0101010101010101
+  !popcount64_v0f: dq 0x0f0f0f0f0f0f0f0f
+  !popcount64_v33: dq 0x3333333333333333
+  !popcount64_v55: dq 0x5555555555555555
+EndProcedure
+----------------------------------------------------
+<span class="token keyword">Procedure</span><span class="token punctuation">.</span>i <span class="token function">XorTwoBlocks2</span><span class="token punctuation">(</span><span class="token operator">*buffer1</span><span class="token punctuation">,</span> <span class="token operator">*buffer2</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span>
+  <span class="token comment">; move all the required data to source reg, destination reg and counter reg</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">mov</span> <span class="token register">esi</span><span class="token operator">,</span> <span class="token operator">[</span>p<span class="token operator">.</span>p_buffer1<span class="token operator">]</span>           </span><span class="token comment">; read 32-bit integer from p.p_buffer1 and move to esi</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">mov</span> <span class="token register">edi</span><span class="token operator">,</span> <span class="token operator">[</span>p<span class="token operator">.</span>p_buffer2<span class="token operator">]</span>           </span><span class="token comment">; read 32-bit integer from p.p_buffer2 and move to edi</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">mov</span> <span class="token register">ecx</span><span class="token operator">,</span> <span class="token operator">[</span>p<span class="token operator">.</span>v_length<span class="token operator">]</span>            </span><span class="token comment">; read 32-bit integer from p.v_length and move to ecx</span>
+
+  <span class="token asm tag"><span class="token operator">!</span><span class="token label fasm-label">@@</span><span class="token operator">:</span>                              </span><span class="token comment">; anonymous label, can be reached by @b (back) or @f (forward)</span>
+    <span class="token asm tag"><span class="token operator">!</span><span class="token function">mov</span> <span class="token register">al</span><span class="token operator">,</span> byte <span class="token operator">[</span><span class="token register">edi</span> <span class="token operator">+</span> <span class="token register">ecx</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token operator">]</span>   </span><span class="token comment">; read byte from destination</span>
+    <span class="token asm tag"><span class="token operator">!</span><span class="token function">xor</span> byte <span class="token operator">[</span><span class="token register">esi</span> <span class="token operator">+</span> <span class="token register">ecx</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token operator">]</span><span class="token operator">,</span> <span class="token register">al</span>   </span><span class="token comment">; xor source with destination (i.e. xor bytes from both blocks)</span>
+    <span class="token asm tag"><span class="token operator">!</span><span class="token function">dec</span> <span class="token register">ecx</span>                        </span><span class="token comment">; decrease counter</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">jne</span> <span class="token label-reference-anonymous fasm-label">@b</span>                           </span><span class="token comment">; jumb back to first anonymous label behind</span>
+  <span class="token keyword">ProcedureReturn</span> <span class="token number">0</span>
+<span class="token keyword">EndProcedure</span>
+
+<span class="token asm tag"><span class="token operator">!</span><span class="token function">jne</span> <span class="token label-reference-addressed fasm-label">label1</span></span>
+<span class="token asm tag"><span class="token operator">!</span><span class="token function">jmp</span> <span class="token label-reference-anonymous fasm-label">@b</span></span>
+<span class="token asm tag"><span class="token operator">!</span><span class="token keyword">EXTERN printf</span></span>
+<span class="token asm tag"><span class="token operator">!</span><span class="token keyword">DEFAULT rel</span></span>
+
+<span class="token comment">; source: http://www.jose.it-berater.org/smfforum/index.php?topic=5091.0</span>
+<span class="token keyword">Procedure</span> <span class="token function">PopCount64</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>q<span class="token punctuation">)</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">mov</span> <span class="token register">rax</span><span class="token operator">,</span> <span class="token operator">[</span>p<span class="token operator">.</span>v_x<span class="token operator">]</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">mov</span> <span class="token register">rdx</span><span class="token operator">,</span> <span class="token register">rax</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">shr</span> <span class="token register">rdx</span><span class="token operator">,</span> <span class="token number">1</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">and</span> <span class="token register">rdx</span><span class="token operator">,</span> <span class="token operator">[</span>popcount64_v55<span class="token operator">]</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">sub</span> <span class="token register">rax</span><span class="token operator">,</span> <span class="token register">rdx</span></span>
+  <span class="token comment">;x = (x &amp; $3333333333333333) + ((x >> 2) &amp; $3333333333333333)</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">mov</span> <span class="token register">rdx</span><span class="token operator">,</span> <span class="token register">rax</span>       </span><span class="token comment">;x</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">and</span> <span class="token register">rax</span><span class="token operator">,</span> <span class="token operator">[</span>popcount64_v33<span class="token operator">]</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">shr</span> <span class="token register">rdx</span><span class="token operator">,</span> <span class="token number">2</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">and</span> <span class="token register">rdx</span><span class="token operator">,</span> <span class="token operator">[</span>popcount64_v33<span class="token operator">]</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">add</span> <span class="token register">rax</span><span class="token operator">,</span> <span class="token register">rdx</span></span>
+  <span class="token comment">;x = (x + (x >> 4)) &amp; $0f0f0f0f0f0f0f0f0f0f</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">mov</span> <span class="token register">rdx</span><span class="token operator">,</span> <span class="token register">rax</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">shr</span> <span class="token register">rdx</span><span class="token operator">,</span> <span class="token number">4</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">add</span> <span class="token register">rax</span><span class="token operator">,</span> <span class="token register">rdx</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">and</span> <span class="token register">rax</span><span class="token operator">,</span> <span class="token operator">[</span>popcount64_v0f<span class="token operator">]</span></span>
+  <span class="token comment">;x * $0101010101010101 >> 56</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">imul</span> <span class="token register">rax</span><span class="token operator">,</span> <span class="token operator">[</span>popcount64_v01<span class="token operator">]</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token function">shr</span> <span class="token register">rax</span><span class="token operator">,</span> <span class="token number">56</span></span>
+  <span class="token keyword">ProcedureReturn</span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token label fasm-label">popcount64_v01</span><span class="token operator">:</span> <span class="token function-inline function">dq</span> <span class="token number">0x0101010101010101</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token label fasm-label">popcount64_v0f</span><span class="token operator">:</span> <span class="token function-inline function">dq</span> <span class="token number">0x0f0f0f0f0f0f0f0f</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token label fasm-label">popcount64_v33</span><span class="token operator">:</span> <span class="token function-inline function">dq</span> <span class="token number">0x3333333333333333</span></span>
+  <span class="token asm tag"><span class="token operator">!</span><span class="token label fasm-label">popcount64_v55</span><span class="token operator">:</span> <span class="token function-inline function">dq</span> <span class="token number">0x5555555555555555</span></span>
+<span class="token keyword">EndProcedure</span>
+
+----------------------------------------------------

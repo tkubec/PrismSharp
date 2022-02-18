@@ -1,0 +1,4 @@
+xquery version "1.0";
+declare default element namespace "http://datypic.com/cat";
+declare boundary-space preserve;
+declare default collation "http://datypic.com/collation/custom";

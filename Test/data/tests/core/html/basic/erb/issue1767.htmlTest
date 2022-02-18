@@ -1,0 +1,31 @@
+<%# this is a block comment %>
+<%
+=begin %>
+	block comment
+	(both lines of both the begin and end tags must be at the start of their lines)
+<%
+=end %>
+
+<%# this is not %>
+	<%
+	=begin %>
+	not a comment
+	<%
+	=end %>
+----------------------------------------------------
+<span class="token delimiter punctuation">&lt;%</span><span class="token ruby language-ruby"><span class="token comment"># this is a block comment %></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span>
+<span class="token comment">=begin %>
+	block comment
+	(both lines of both the begin and end tags must be at the start of their lines)
+&lt;%
+=end</span> <span class="token string-literal"><span class="token string">%>
+
+&lt;%# this is not %></span></span>
+	<span class="token operator">&lt;</span><span class="token operator">%</span>
+	<span class="token operator">=</span><span class="token keyword">begin</span> <span class="token operator">%</span><span class="token operator">></span>
+	<span class="token keyword">not</span> a comment
+	<span class="token operator">&lt;</span><span class="token operator">%</span>
+	<span class="token operator">=</span><span class="token keyword">end</span> </span><span class="token delimiter punctuation">%></span>
+
+----------------------------------------------------

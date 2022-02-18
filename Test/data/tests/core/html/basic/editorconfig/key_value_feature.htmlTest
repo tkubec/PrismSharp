@@ -1,0 +1,9 @@
+foo = Bar Baz
+foobar = 42
+  another_value = with_indent
+----------------------------------------------------
+<span class="token key attr-name">foo</span> <span class="token value attr-value"><span class="token punctuation">=</span> Bar Baz</span>
+<span class="token key attr-name">foobar</span> <span class="token value attr-value"><span class="token punctuation">=</span> 42</span>
+  <span class="token key attr-name">another_value</span> <span class="token value attr-value"><span class="token punctuation">=</span> with_indent</span>
+
+----------------------------------------------------

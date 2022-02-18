@@ -1,0 +1,59 @@
+string 42
+L1 cross L2
+type c
+select from t where price=(max;price) fby ([]sym;ex)
+ungroup `p xgroup sp
+`instrument insert (`g; `$"Google"; `$"Internet")
+----------------------------------------------------
+[
+	["keyword", "string"],
+	["number", "42"],
+
+	"\nL1 ",
+	["keyword", "cross"],
+	" L2\n",
+
+	["keyword", "type"],
+	" c\n",
+
+	["keyword", "select"],
+	["keyword", "from"],
+	" t ",
+	["keyword", "where"],
+	" price",
+	["verb", "="],
+	["punctuation", "("],
+	["keyword", "max"],
+	["punctuation", ";"],
+	"price",
+	["punctuation", ")"],
+	["keyword", "fby"],
+	["punctuation", "("],
+	["punctuation", "["],
+	["punctuation", "]"],
+	"sym",
+	["punctuation", ";"],
+	"ex",
+	["punctuation", ")"],
+
+	["keyword", "ungroup"],
+	["symbol", "`p"],
+	["keyword", "xgroup"],
+	" sp\n",
+
+	["symbol", "`instrument"],
+	["keyword", "insert"],
+	["punctuation", "("],
+	["symbol", "`g"],
+	["punctuation", ";"],
+	["symbol", "`"],
+	["verb", "$"],
+	["string", "\"Google\""],
+	["punctuation", ";"],
+	["symbol", "`"],
+	["verb", "$"],
+	["string", "\"Internet\""],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

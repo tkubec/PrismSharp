@@ -1,0 +1,33 @@
+<#@ template hostspecific="false" language="VB" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ output extension=".txt" #>
+<#
+    Imports System.Collections.Generic
+
+    Dim numbers() As Integer = { 0, 1, 2, 3, 4, 5, 6, 8, 9, 10  }
+    ' not including 7
+
+    For Each i In numbers
+#>
+The square of <#= i #> is <#= i * i #>
+<#
+    Next
+#>
+----------------------------------------------------
+<span class="token block"><span class="token directive block"><span class="token delimiter important">&lt;#@</span><span class="token content"> <span class="token keyword">template</span> <span class="token attr-name">hostspecific</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>VB<span class="token punctuation">"</span></span> </span><span class="token delimiter important">#></span></span></span>
+<span class="token block"><span class="token directive block"><span class="token delimiter important">&lt;#@</span><span class="token content"> <span class="token keyword">assembly</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>System.Core.dll<span class="token punctuation">"</span></span> </span><span class="token delimiter important">#></span></span></span>
+<span class="token block"><span class="token directive block"><span class="token delimiter important">&lt;#@</span><span class="token content"> <span class="token keyword">output</span> <span class="token attr-name">extension</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.txt<span class="token punctuation">"</span></span> </span><span class="token delimiter important">#></span></span></span>
+<span class="token block"><span class="token standard block"><span class="token delimiter important">&lt;#</span><span class="token content language-vbnet">
+    <span class="token keyword">Imports</span> <span class="token keyword">System</span>.Collections.Generic
+
+    <span class="token keyword">Dim</span> numbers<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">As</span> <span class="token keyword">Integer</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span>  <span class="token punctuation">}</span>
+    <span class="token comment">' not including 7</span>
+
+    <span class="token keyword">For Each</span> i <span class="token keyword">In</span> numbers
+</span><span class="token delimiter important">#></span></span></span>
+The square of <span class="token block"><span class="token expression block"><span class="token delimiter important">&lt;#=</span><span class="token content language-vbnet"> i </span><span class="token delimiter important">#></span></span></span> is <span class="token block"><span class="token expression block"><span class="token delimiter important">&lt;#=</span><span class="token content language-vbnet"> i <span class="token operator">*</span> i </span><span class="token delimiter important">#></span></span></span>
+<span class="token block"><span class="token standard block"><span class="token delimiter important">&lt;#</span><span class="token content language-vbnet">
+    <span class="token keyword">Next</span>
+</span><span class="token delimiter important">#></span></span></span>
+
+----------------------------------------------------

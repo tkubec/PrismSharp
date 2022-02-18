@@ -1,0 +1,8 @@
+{% for i in (3..5) %}
+  {{ i }}
+{% endfor %}
+
+{% assign num = 4 %}
+{% for i in (1..num) %}
+  {{ i }}
+{% endfor %}

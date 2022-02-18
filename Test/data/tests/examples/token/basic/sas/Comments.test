@@ -1,0 +1,12 @@
+/* This is a
+multi-line comment */
+
+* This is a comment too;
+----------------------------------------------------
+[
+	["comment", "/* This is a\nmulti-line comment */"],
+
+	["comment", "* This is a comment too;"]
+]
+
+----------------------------------------------------

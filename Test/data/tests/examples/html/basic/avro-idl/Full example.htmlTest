@@ -1,0 +1,87 @@
+// Source: https://avro.apache.org/docs/current/idl.html#example
+
+/**
+ * An example protocol in Avro IDL
+ */
+@namespace("org.apache.avro.test")
+protocol Simple {
+
+	@aliases(["org.foo.KindOf"])
+	enum Kind {
+		FOO,
+		BAR, // the bar enum value
+		BAZ
+	}
+
+	fixed MD5(16);
+
+	record TestRecord {
+		@order("ignore")
+		string name;
+
+		@order("descending")
+		Kind kind;
+
+		MD5 hash;
+
+		union { MD5, null} @aliases(["hash"]) nullableHash;
+
+		array<long> arrayOfLongs;
+	}
+
+	error TestError {
+		string message;
+	}
+
+	string hello(string greeting);
+	TestRecord echo(TestRecord `record`);
+	int add(int arg1, int arg2);
+	bytes echoBytes(bytes data);
+	void `error`() throws TestError;
+	void ping() oneway;
+}
+----------------------------------------------------
+<span class="token comment">// Source: https://avro.apache.org/docs/current/idl.html#example</span>
+
+<span class="token comment">/**
+ * An example protocol in Avro IDL
+ */</span>
+<span class="token annotation function">@namespace</span><span class="token punctuation">(</span><span class="token string">"org.apache.avro.test"</span><span class="token punctuation">)</span>
+<span class="token keyword">protocol</span> <span class="token class-name">Simple</span> <span class="token punctuation">{</span>
+
+	<span class="token annotation function">@aliases</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"org.foo.KindOf"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+	<span class="token keyword">enum</span> <span class="token class-name">Kind</span> <span class="token punctuation">{</span>
+		FOO<span class="token punctuation">,</span>
+		BAR<span class="token punctuation">,</span> <span class="token comment">// the bar enum value</span>
+		BAZ
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">fixed</span> <span class="token function">MD5</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">record</span> <span class="token class-name">TestRecord</span> <span class="token punctuation">{</span>
+		<span class="token annotation function">@order</span><span class="token punctuation">(</span><span class="token string">"ignore"</span><span class="token punctuation">)</span>
+		<span class="token keyword">string</span> name<span class="token punctuation">;</span>
+
+		<span class="token annotation function">@order</span><span class="token punctuation">(</span><span class="token string">"descending"</span><span class="token punctuation">)</span>
+		Kind kind<span class="token punctuation">;</span>
+
+		MD5 hash<span class="token punctuation">;</span>
+
+		<span class="token keyword">union</span> <span class="token punctuation">{</span> MD5<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">}</span> <span class="token annotation function">@aliases</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"hash"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> nullableHash<span class="token punctuation">;</span>
+
+		<span class="token keyword">array</span><span class="token punctuation">&lt;</span><span class="token keyword">long</span><span class="token punctuation">></span> arrayOfLongs<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">error</span> <span class="token class-name">TestError</span> <span class="token punctuation">{</span>
+		<span class="token keyword">string</span> message<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">string</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token keyword">string</span> greeting<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	TestRecord <span class="token function">echo</span><span class="token punctuation">(</span>TestRecord <span class="token identifier">`record`</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg1<span class="token punctuation">,</span> <span class="token keyword">int</span> arg2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">bytes</span> <span class="token function">echoBytes</span><span class="token punctuation">(</span><span class="token keyword">bytes</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function-identifier function">`error`</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">TestError</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">ping</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">oneway</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

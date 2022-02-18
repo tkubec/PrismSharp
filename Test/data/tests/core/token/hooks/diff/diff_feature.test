@@ -1,0 +1,41 @@
+!     qt: core
+
+  unchanged
+
+-    qt: core
++    qt: core gui
+
+< qt: core
+> qt: core quick
+----------------------------------------------------
+[
+	["diff", [
+		["prefix", "!"],
+		["line", "     qt: core\n"]
+	]],
+
+	["unchanged", [
+		["prefix", " "],
+		["line", " unchanged\n"]
+	]],
+
+	["deleted-sign", [
+		["prefix", "-"],
+		["line", "    qt: core\n"]
+	]],
+	["inserted-sign", [
+		["prefix", "+"],
+		["line", "    qt: core gui\n"]
+	]],
+
+	["deleted-arrow", [
+		["prefix", "<"],
+		["line", " qt: core\n"]
+	]],
+	["inserted-arrow", [
+		["prefix", ">"],
+		["line", " qt: core quick"]
+	]]
+]
+
+----------------------------------------------------

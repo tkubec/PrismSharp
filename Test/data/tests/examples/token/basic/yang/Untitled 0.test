@@ -1,0 +1,204 @@
+submodule execd-dns {
+
+	belongs-to execd { prefix execd; }
+
+	import inet-types { prefix inet; }
+
+	include execd-types;
+
+	description
+		"The 'dns' component provides support for configuring the DNS resolver.
+
+		 The 'domain' keyword of /etc/resolv.conf is not supported, since
+		 it is equivalent to 'search' with a single domain. I.e. in terms
+		 of the data model, the domains are always configured as 'search'
+		 elements, even if there is only one. The set of available options
+		 has been limited to those that are generally available across
+		 different resolver implementations, and generally useful.";
+
+	revision "2008-11-04" {
+		description "draft-ietf-netmod-yang-02 compatible.";
+	}
+	revision "2007-08-29" {
+		description "Syntax fixes after pyang validation.";
+	}
+	revision "2007-06-08" {
+		description "Initial revision.";
+	}
+
+	grouping dns {
+		list search {
+			key name;
+			max-elements 3;
+			leaf name      { type int32; }
+			leaf domain    { type inet:host; }
+		}
+		list server {
+			key address;
+			max-elements 3;
+			ordered-by user;
+			leaf address   { type inet:ip-address; }
+		}
+		container options {
+			leaf ndots    { type uint8; }
+			leaf timeout  { type uint8; }
+			leaf attempts { type uint8; }
+		}
+	}
+}
+----------------------------------------------------
+[
+	["keyword", "submodule"], " execd-dns ", ["punctuation", "{"],
+
+	["keyword", "belongs-to"],
+	" execd ",
+	["punctuation", "{"],
+	["keyword", "prefix"],
+	" execd",
+	["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "import"],
+	" inet-types ",
+	["punctuation", "{"],
+	["keyword", "prefix"],
+	" inet",
+	["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "include"], " execd-types", ["punctuation", ";"],
+
+	["keyword", "description"],
+	["string", "\"The 'dns' component provides support for configuring the DNS resolver.\n\n\t\t The 'domain' keyword of /etc/resolv.conf is not supported, since\n\t\t it is equivalent to 'search' with a single domain. I.e. in terms\n\t\t of the data model, the domains are always configured as 'search'\n\t\t elements, even if there is only one. The set of available options\n\t\t has been limited to those that are generally available across\n\t\t different resolver implementations, and generally useful.\""],
+	["punctuation", ";"],
+
+	["keyword", "revision"],
+	["string", "\"2008-11-04\""],
+	["punctuation", "{"],
+
+	["keyword", "description"],
+	["string", "\"draft-ietf-netmod-yang-02 compatible.\""],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "revision"],
+	["string", "\"2007-08-29\""],
+	["punctuation", "{"],
+
+	["keyword", "description"],
+	["string", "\"Syntax fixes after pyang validation.\""],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "revision"],
+	["string", "\"2007-06-08\""],
+	["punctuation", "{"],
+
+	["keyword", "description"],
+	["string", "\"Initial revision.\""],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "grouping"],
+	" dns ",
+	["punctuation", "{"],
+
+	["keyword", "list"],
+	" search ",
+	["punctuation", "{"],
+
+	["keyword", "key"],
+	" name",
+	["punctuation", ";"],
+
+	["keyword", "max-elements"],
+	" 3",
+	["punctuation", ";"],
+
+	["keyword", "leaf"],
+	" name      ",
+	["punctuation", "{"],
+	["keyword", "type"],
+	" int32",
+	["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "leaf"],
+	" domain    ",
+	["punctuation", "{"],
+	["keyword", "type"],
+	["namespace", "inet"],
+	["punctuation", ":"],
+	"host",
+	["punctuation", ";"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "list"],
+	" server ",
+	["punctuation", "{"],
+
+	["keyword", "key"],
+	" address",
+	["punctuation", ";"],
+
+	["keyword", "max-elements"],
+	" 3",
+	["punctuation", ";"],
+
+	["keyword", "ordered-by"],
+	" user",
+	["punctuation", ";"],
+
+	["keyword", "leaf"],
+	" address   ",
+	["punctuation", "{"],
+	["keyword", "type"],
+	["namespace", "inet"],
+	["punctuation", ":"],
+	"ip-address",
+	["punctuation", ";"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "container"],
+	" options ",
+	["punctuation", "{"],
+
+	["keyword", "leaf"],
+	" ndots    ",
+	["punctuation", "{"],
+	["keyword", "type"],
+	" uint8",
+	["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "leaf"],
+	" timeout  ",
+	["punctuation", "{"],
+	["keyword", "type"],
+	" uint8",
+	["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "leaf"],
+	" attempts ",
+	["punctuation", "{"],
+	["keyword", "type"],
+	" uint8",
+	["punctuation", ";"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,17 @@
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+$ git push
+Everything up-to-date
+# echo "root"
+root
+----------------------------------------------------
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token function">git</span> checkout master</span></span>
+<span class="token output">Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+</span><span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token function">git</span> push</span></span>
+<span class="token output">Everything up-to-date
+</span><span class="token command"><span class="token shell-symbol important">#</span> <span class="token bash language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"root"</span></span></span>
+<span class="token output">root</span>
+
+----------------------------------------------------

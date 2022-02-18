@@ -1,0 +1,11 @@
+$(echo "foo")
+`echo "foo"`
+"$(echo "foo") bar"
+"`echo "foo"` bar"
+----------------------------------------------------
+<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> <span class="token string">"foo"</span><span class="token variable">)</span></span>
+<span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">echo</span> <span class="token string">"foo"</span><span class="token variable">`</span></span>
+<span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> <span class="token string">"foo"</span><span class="token variable">)</span></span> bar"</span>
+<span class="token string">"<span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">echo</span> <span class="token string">"foo"</span><span class="token variable">`</span></span> bar"</span>
+
+----------------------------------------------------

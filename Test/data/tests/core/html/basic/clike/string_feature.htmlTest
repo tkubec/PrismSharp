@@ -1,0 +1,25 @@
+""
+''
+"f\"oo"
+'b\'ar'
+"foo\
+bar"
+'foo\
+bar'
+"foo /* comment */ bar"
+'foo // bar'
+'foo // bar' //comment
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">''</span>
+<span class="token string">"f\"oo"</span>
+<span class="token string">'b\'ar'</span>
+<span class="token string">"foo\
+bar"</span>
+<span class="token string">'foo\
+bar'</span>
+<span class="token string">"foo /* comment */ bar"</span>
+<span class="token string">'foo // bar'</span>
+<span class="token string">'foo // bar'</span> <span class="token comment">//comment</span>
+
+----------------------------------------------------

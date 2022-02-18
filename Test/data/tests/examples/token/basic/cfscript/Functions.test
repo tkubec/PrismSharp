@@ -1,0 +1,24 @@
+public boolean function myFunc(required any arg) {
+  return true;
+}
+----------------------------------------------------
+[
+	["keyword", "public"],
+	["type", "boolean"],
+	["keyword", "function"],
+	["function", "myFunc"],
+	["punctuation", "("],
+	["keyword", "required"],
+	["type", "any"],
+	" arg",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["boolean", "true"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

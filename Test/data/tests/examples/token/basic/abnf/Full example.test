@@ -1,0 +1,340 @@
+rulelist       =  1*( rule / (*c-wsp c-nl) )
+
+rule           =  rulename defined-as elements c-nl
+                       ; continues if next line starts
+                       ;  with white space
+
+rulename       =  ALPHA *(ALPHA / DIGIT / "-")
+
+defined-as     =  *c-wsp ("=" / "=/") *c-wsp
+                       ; basic rules definition and
+                       ;  incremental alternatives
+
+elements       =  alternation *c-wsp
+
+c-wsp          =  WSP / (c-nl WSP)
+
+c-nl           =  comment / CRLF
+                       ; comment or newline
+
+comment        =  ";" *(WSP / VCHAR) CRLF
+
+alternation    =  concatenation
+                  *(*c-wsp "/" *c-wsp concatenation)
+
+concatenation  =  repetition *(1*c-wsp repetition)
+
+repetition     =  [repeat] element
+
+repeat         =  1*DIGIT / (*DIGIT "*" *DIGIT)
+
+element        =  rulename / group / option /
+                  char-val / num-val / prose-val
+
+group          =  "(" *c-wsp alternation *c-wsp ")"
+
+option         =  "[" *c-wsp alternation *c-wsp "]"
+
+char-val       =  DQUOTE *(%x20-21 / %x23-7E) DQUOTE
+                       ; quoted string of SP and VCHAR
+                       ;  without DQUOTE
+
+num-val        =  "%" (bin-val / dec-val / hex-val)
+
+bin-val        =  "b" 1*BIT
+                  [ 1*("." 1*BIT) / ("-" 1*BIT) ]
+                       ; series of concatenated bit values
+                       ;  or single ONEOF range
+
+dec-val        =  "d" 1*DIGIT
+                  [ 1*("." 1*DIGIT) / ("-" 1*DIGIT) ]
+
+hex-val        =  "x" 1*HEXDIG
+                  [ 1*("." 1*HEXDIG) / ("-" 1*HEXDIG) ]
+
+prose-val      =  "<" *(%x20-3D / %x3F-7E) ">"
+                       ; bracketed string of SP and VCHAR
+                       ;  without angles
+                       ; prose description, to be used as
+                       ;  last resort
+----------------------------------------------------
+[
+	["definition", ["rulelist"]],
+	["operator", "="],
+	["repetition", "1*"],
+	["punctuation", "("],
+	["rule", ["rule"]],
+	["operator", "/"],
+	["punctuation", "("],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+	["rule", ["c-nl"]],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["definition", ["rule"]],
+	["operator", "="],
+	["rule", ["rulename"]],
+	["rule", ["defined-as"]],
+	["rule", ["elements"]],
+	["rule", ["c-nl"]],
+
+	["comment", "; continues if next line starts"],
+
+	["comment", ";  with white space"],
+
+	["definition", ["rulename"]],
+	["operator", "="],
+	["core-rule", ["ALPHA"]],
+	["repetition", "*"],
+	["punctuation", "("],
+	["core-rule", ["ALPHA"]],
+	["operator", "/"],
+	["core-rule", ["DIGIT"]],
+	["operator", "/"],
+	["string", ["\"-\""]],
+	["punctuation", ")"],
+
+	["definition", ["defined-as"]],
+	["operator", "="],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+	["punctuation", "("],
+	["string", ["\"=\""]],
+	["operator", "/"],
+	["string", ["\"=/\""]],
+	["punctuation", ")"],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+
+	["comment", "; basic rules definition and"],
+
+	["comment", ";  incremental alternatives"],
+
+	["definition", ["elements"]],
+	["operator", "="],
+	["rule", ["alternation"]],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+
+	["definition", ["c-wsp"]],
+	["operator", "="],
+	["core-rule", ["WSP"]],
+	["operator", "/"],
+	["punctuation", "("],
+	["rule", ["c-nl"]],
+	["core-rule", ["WSP"]],
+	["punctuation", ")"],
+
+	["definition", ["c-nl"]],
+	["operator", "="],
+	["rule", ["comment"]],
+	["operator", "/"],
+	["core-rule", ["CRLF"]],
+
+	["comment", "; comment or newline"],
+
+	["definition", ["comment"]],
+	["operator", "="],
+	["string", ["\";\""]],
+	["repetition", "*"],
+	["punctuation", "("],
+	["core-rule", ["WSP"]],
+	["operator", "/"],
+	["core-rule", ["VCHAR"]],
+	["punctuation", ")"],
+	["core-rule", ["CRLF"]],
+
+	["definition", ["alternation"]],
+	["operator", "="],
+	["rule", ["concatenation"]],
+
+	["repetition", "*"],
+	["punctuation", "("],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+	["string", ["\"/\""]],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+	["rule", ["concatenation"]],
+	["punctuation", ")"],
+
+	["definition", ["concatenation"]],
+	["operator", "="],
+	["rule", ["repetition"]],
+	["repetition", "*"],
+	["punctuation", "("],
+	["repetition", "1*"],
+	["rule", ["c-wsp"]],
+	["rule", ["repetition"]],
+	["punctuation", ")"],
+
+	["definition", ["repetition"]],
+	["operator", "="],
+	["punctuation", "["],
+	["rule", ["repeat"]],
+	["punctuation", "]"],
+	["rule", ["element"]],
+
+	["definition", ["repeat"]],
+	["operator", "="],
+	["repetition", "1*"],
+	["core-rule", ["DIGIT"]],
+	["operator", "/"],
+	["punctuation", "("],
+	["repetition", "*"],
+	["core-rule", ["DIGIT"]],
+	["string", ["\"*\""]],
+	["repetition", "*"],
+	["core-rule", ["DIGIT"]],
+	["punctuation", ")"],
+
+	["definition", ["element"]],
+	["operator", "="],
+	["rule", ["rulename"]],
+	["operator", "/"],
+	["rule", ["group"]],
+	["operator", "/"],
+	["rule", ["option"]],
+	["operator", "/"],
+
+	["rule", ["char-val"]],
+	["operator", "/"],
+	["rule", ["num-val"]],
+	["operator", "/"],
+	["rule", ["prose-val"]],
+
+	["definition", ["group"]],
+	["operator", "="],
+	["string", ["\"(\""]],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+	["rule", ["alternation"]],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+	["string", ["\")\""]],
+
+	["definition", ["option"]],
+	["operator", "="],
+	["string", ["\"[\""]],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+	["rule", ["alternation"]],
+	["repetition", "*"],
+	["rule", ["c-wsp"]],
+	["string", ["\"]\""]],
+
+	["definition", ["char-val"]],
+	["operator", "="],
+	["core-rule", ["DQUOTE"]],
+	["repetition", "*"],
+	["punctuation", "("],
+	["range", "%x20-21"],
+	["operator", "/"],
+	["range", "%x23-7E"],
+	["punctuation", ")"],
+	["core-rule", ["DQUOTE"]],
+
+	["comment", "; quoted string of SP and VCHAR"],
+
+	["comment", ";  without DQUOTE"],
+
+	["definition", ["num-val"]],
+	["operator", "="],
+	["string", ["\"%\""]],
+	["punctuation", "("],
+	["rule", ["bin-val"]],
+	["operator", "/"],
+	["rule", ["dec-val"]],
+	["operator", "/"],
+	["rule", ["hex-val"]],
+	["punctuation", ")"],
+
+	["definition", ["bin-val"]],
+	["operator", "="],
+	["string", ["\"b\""]],
+	["repetition", "1*"],
+	["core-rule", ["BIT"]],
+
+	["punctuation", "["],
+	["repetition", "1*"],
+	["punctuation", "("],
+	["string", ["\".\""]],
+	["repetition", "1*"],
+	["core-rule", ["BIT"]],
+	["punctuation", ")"],
+	["operator", "/"],
+	["punctuation", "("],
+	["string", ["\"-\""]],
+	["repetition", "1*"],
+	["core-rule", ["BIT"]],
+	["punctuation", ")"],
+	["punctuation", "]"],
+
+	["comment", "; series of concatenated bit values"],
+
+	["comment", ";  or single ONEOF range"],
+
+	["definition", ["dec-val"]],
+	["operator", "="],
+	["string", ["\"d\""]],
+	["repetition", "1*"],
+	["core-rule", ["DIGIT"]],
+
+	["punctuation", "["],
+	["repetition", "1*"],
+	["punctuation", "("],
+	["string", ["\".\""]],
+	["repetition", "1*"],
+	["core-rule", ["DIGIT"]],
+	["punctuation", ")"],
+	["operator", "/"],
+	["punctuation", "("],
+	["string", ["\"-\""]],
+	["repetition", "1*"],
+	["core-rule", ["DIGIT"]],
+	["punctuation", ")"],
+	["punctuation", "]"],
+
+	["definition", ["hex-val"]],
+	["operator", "="],
+	["string", ["\"x\""]],
+	["repetition", "1*"],
+	["core-rule", ["HEXDIG"]],
+
+	["punctuation", "["],
+	["repetition", "1*"],
+	["punctuation", "("],
+	["string", ["\".\""]],
+	["repetition", "1*"],
+	["core-rule", ["HEXDIG"]],
+	["punctuation", ")"],
+	["operator", "/"],
+	["punctuation", "("],
+	["string", ["\"-\""]],
+	["repetition", "1*"],
+	["core-rule", ["HEXDIG"]],
+	["punctuation", ")"],
+	["punctuation", "]"],
+
+	["definition", ["prose-val"]],
+	["operator", "="],
+	["string", ["\"<\""]],
+	["repetition", "*"],
+	["punctuation", "("],
+	["range", "%x20-3D"],
+	["operator", "/"],
+	["range", "%x3F-7E"],
+	["punctuation", ")"],
+	["string", ["\">\""]],
+
+	["comment", "; bracketed string of SP and VCHAR"],
+
+	["comment", ";  without angles"],
+
+	["comment", "; prose description, to be used as"],
+
+	["comment", ";  last resort"]
+]
+
+----------------------------------------------------

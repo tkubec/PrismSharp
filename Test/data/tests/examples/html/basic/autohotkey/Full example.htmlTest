@@ -1,0 +1,113 @@
+;----Open the selected favorite
+f_OpenFavorite:
+; Fetch the array element that corresponds to the selected menu item:
+StringTrimLeft, f_path, f_path%A_ThisMenuItemPos%, 0
+if f_path =
+    return
+if f_class = #32770    ; It's a dialog.
+{
+    if f_Edit1Pos <>   ; And it has an Edit1 control.
+    {
+        ; Activate the window so that if the user is middle-clicking
+        ; outside the dialog, subsequent clicks will also work:
+        WinActivate ahk_id %f_window_id%
+        ; Retrieve any filename that might already be in the field so
+        ; that it can be restored after the switch to the new folder:
+        ControlGetText, f_text, Edit1, ahk_id %f_window_id%
+        ControlSetText, Edit1, %f_path%, ahk_id %f_window_id%
+        ControlSend, Edit1, {Enter}, ahk_id %f_window_id%
+        Sleep, 100  ; It needs extra time on some dialogs or in some cases.
+        ControlSetText, Edit1, %f_text%, ahk_id %f_window_id%
+        return
+    }
+    ; else fall through to the bottom of the subroutine to take standard action.
+}
+else if f_class in ExploreWClass,CabinetWClass  ; In Explorer, switch folders.
+{
+    if f_Edit1Pos <>   ; And it has an Edit1 control.
+    {
+        ControlSetText, Edit1, %f_path%, ahk_id %f_window_id%
+        ; Tekl reported the following: "If I want to change to Folder L:\folder
+        ; then the addressbar shows http://www.L:\folder.com. To solve this,
+        ; I added a {right} before {Enter}":
+        ControlSend, Edit1, {Right}{Enter}, ahk_id %f_window_id%
+        return
+    }
+    ; else fall through to the bottom of the subroutine to take standard action.
+}
+else if f_class = ConsoleWindowClass ; In a console window, CD to that directory
+{
+    WinActivate, ahk_id %f_window_id% ; Because sometimes the mclick deactivates it.
+    SetKeyDelay, 0  ; This will be in effect only for the duration of this thread.
+    IfInString, f_path, :  ; It contains a drive letter
+    {
+        StringLeft, f_path_drive, f_path, 1
+        Send %f_path_drive%:{enter}
+    }
+    Send, cd %f_path%{Enter}
+    return
+}
+; Since the above didn't return, one of the following is true:
+; 1) It's an unsupported window type but f_AlwaysShowMenu is y (yes).
+; 2) It's a supported type but it lacks an Edit1 control to facilitate the custom
+;    action, so instead do the default action below.
+Run, Explorer %f_path%  ; Might work on more systems without double quotes.
+return
+----------------------------------------------------
+<span class="token comment">;----Open the selected favorite</span>
+<span class="token tag">f_OpenFavorite</span><span class="token punctuation">:</span>
+<span class="token comment">; Fetch the array element that corresponds to the selected menu item:</span>
+<span class="token selector">StringTrimLeft</span><span class="token punctuation">,</span> f_path<span class="token punctuation">,</span> f_path<span class="token variable">%A_ThisMenuItemPos%</span><span class="token punctuation">,</span> <span class="token number">0</span>
+<span class="token keyword">if</span> f_path <span class="token operator">=</span>
+    <span class="token selector">return</span>
+<span class="token keyword">if</span> f_class <span class="token operator">=</span> #<span class="token number">32770</span>    <span class="token comment">; It's a dialog.</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> f_Edit1Pos <span class="token operator">&lt;></span>   <span class="token comment">; And it has an Edit1 control.</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">; Activate the window so that if the user is middle-clicking</span>
+        <span class="token comment">; outside the dialog, subsequent clicks will also work:</span>
+        <span class="token selector">WinActivate</span> <span class="token keyword">ahk_id</span> <span class="token variable">%f_window_id%</span>
+        <span class="token comment">; Retrieve any filename that might already be in the field so</span>
+        <span class="token comment">; that it can be restored after the switch to the new folder:</span>
+        <span class="token selector">ControlGetText</span><span class="token punctuation">,</span> f_text<span class="token punctuation">,</span> Edit1<span class="token punctuation">,</span> <span class="token keyword">ahk_id</span> <span class="token variable">%f_window_id%</span>
+        <span class="token selector">ControlSetText</span><span class="token punctuation">,</span> Edit1<span class="token punctuation">,</span> <span class="token variable">%f_path%</span><span class="token punctuation">,</span> <span class="token keyword">ahk_id</span> <span class="token variable">%f_window_id%</span>
+        <span class="token selector">ControlSend</span><span class="token punctuation">,</span> Edit1<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token symbol">Enter</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">ahk_id</span> <span class="token variable">%f_window_id%</span>
+        <span class="token selector">Sleep</span><span class="token punctuation">,</span> <span class="token number">100</span>  <span class="token comment">; It needs extra time on some dialogs or in some cases.</span>
+        <span class="token selector">ControlSetText</span><span class="token punctuation">,</span> Edit1<span class="token punctuation">,</span> <span class="token variable">%f_text%</span><span class="token punctuation">,</span> <span class="token keyword">ahk_id</span> <span class="token variable">%f_window_id%</span>
+        <span class="token selector">return</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">; else fall through to the bottom of the subroutine to take standard action.</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> f_class <span class="token keyword">in</span> ExploreWClass<span class="token punctuation">,</span>CabinetWClass  <span class="token comment">; In Explorer, switch folders.</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> f_Edit1Pos <span class="token operator">&lt;></span>   <span class="token comment">; And it has an Edit1 control.</span>
+    <span class="token punctuation">{</span>
+        <span class="token selector">ControlSetText</span><span class="token punctuation">,</span> Edit1<span class="token punctuation">,</span> <span class="token variable">%f_path%</span><span class="token punctuation">,</span> <span class="token keyword">ahk_id</span> <span class="token variable">%f_window_id%</span>
+        <span class="token comment">; Tekl reported the following: "If I want to change to Folder L:\folder</span>
+        <span class="token comment">; then the addressbar shows http://www.L:\folder.com. To solve this,</span>
+        <span class="token comment">; I added a {right} before {Enter}":</span>
+        <span class="token selector">ControlSend</span><span class="token punctuation">,</span> Edit1<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token symbol">Right</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token symbol">Enter</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">ahk_id</span> <span class="token variable">%f_window_id%</span>
+        <span class="token selector">return</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">; else fall through to the bottom of the subroutine to take standard action.</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> f_class <span class="token operator">=</span> ConsoleWindowClass <span class="token comment">; In a console window, CD to that directory</span>
+<span class="token punctuation">{</span>
+    <span class="token selector">WinActivate</span><span class="token punctuation">,</span> <span class="token keyword">ahk_id</span> <span class="token variable">%f_window_id%</span> <span class="token comment">; Because sometimes the mclick deactivates it.</span>
+    <span class="token selector">SetKeyDelay</span><span class="token punctuation">,</span> <span class="token number">0</span>  <span class="token comment">; This will be in effect only for the duration of this thread.</span>
+    <span class="token keyword">IfInString</span><span class="token punctuation">,</span> f_path<span class="token punctuation">,</span> <span class="token punctuation">:</span>  <span class="token comment">; It contains a drive letter</span>
+    <span class="token punctuation">{</span>
+        <span class="token selector">StringLeft</span><span class="token punctuation">,</span> f_path_drive<span class="token punctuation">,</span> f_path<span class="token punctuation">,</span> <span class="token number">1</span>
+        <span class="token selector">Send</span> <span class="token variable">%f_path_drive%</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token symbol">enter</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">Send</span><span class="token punctuation">,</span> cd <span class="token variable">%f_path%</span><span class="token punctuation">{</span><span class="token symbol">Enter</span><span class="token punctuation">}</span>
+    <span class="token selector">return</span>
+<span class="token punctuation">}</span>
+<span class="token comment">; Since the above didn't return, one of the following is true:</span>
+<span class="token comment">; 1) It's an unsupported window type but f_AlwaysShowMenu is y (yes).</span>
+<span class="token comment">; 2) It's a supported type but it lacks an Edit1 control to facilitate the custom</span>
+<span class="token comment">;    action, so instead do the default action below.</span>
+<span class="token selector">Run</span><span class="token punctuation">,</span> Explorer <span class="token variable">%f_path%</span>  <span class="token comment">; Might work on more systems without double quotes.</span>
+<span class="token selector">return</span>
+
+----------------------------------------------------

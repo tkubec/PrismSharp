@@ -1,0 +1,11 @@
+{msg desc=""}
+{msg desc="Foo \"bar\" 'baz'"}
+{$foo['bar\'baz\"\"\'']}
+{{msg desc="Example: The set of prime numbers is {2, 3, 5, 7, 11, 13, ...}."}}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">msg</span> <span class="token property">desc</span><span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">msg</span> <span class="token property">desc</span><span class="token operator">=</span><span class="token string">"Foo \"bar\" 'baz'"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo<span class="token punctuation">[</span><span class="token string">'bar\'baz\"\"\''</span><span class="token punctuation">]</span></span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token keyword">msg</span> <span class="token property">desc</span><span class="token operator">=</span><span class="token string">"Example: The set of prime numbers is {2, 3, 5, 7, 11, 13, ...}."</span><span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

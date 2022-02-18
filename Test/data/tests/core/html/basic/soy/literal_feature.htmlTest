@@ -1,0 +1,13 @@
+{literal}{$noHighlight}{/literal}
+{$highlight}{literal}<div class="{$foo}">
+{if $bar}{$bar}{/if}</div>
+{/literal}
+{literal}/* even comments */{/literal}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">literal</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$noHighlight</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">literal</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$highlight</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token keyword">literal</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>div <span class="token property">class</span><span class="token operator">=</span><span class="token string">"{$foo}"</span><span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token keyword">if</span> <span class="token variable">$bar</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$bar</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">literal</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">literal</span><span class="token delimiter punctuation">}</span><span class="token comment">/* even comments */</span><span class="token delimiter punctuation">{/</span><span class="token keyword">literal</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

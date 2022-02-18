@@ -1,0 +1,27 @@
+""
+"foo"
+"\""
+
+"foo/${bar}"
+
+''foo''
+''bar'''baz''
+
+''
+foo/${bar}
+''
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo"</span>
+<span class="token string">"\""</span>
+
+<span class="token string">"foo/<span class="token interpolation"><span class="token punctuation">${</span><span class="token expression language-dhall">bar</span><span class="token punctuation">}</span></span>"</span>
+
+<span class="token string">''foo''</span>
+<span class="token string">''bar'''baz''</span>
+
+<span class="token string">''
+foo/<span class="token interpolation"><span class="token punctuation">${</span><span class="token expression language-dhall">bar</span><span class="token punctuation">}</span></span>
+''</span>
+
+----------------------------------------------------

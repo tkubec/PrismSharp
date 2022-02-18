@@ -1,0 +1,79 @@
+@CLASS
+MyTable
+
+@create[uParam]
+^switch[$uParam.CLASS_NAME]{
+   ^case[string;void]{$t[^table::create{$uParam}]}
+   ^case[table;MyTable]{$t[^table::create[$uParam]]}
+   ^case[DEFAULT]{^throw[MyTable;Unsupported type $uParam.CLASS_NAME]}
+}
+
+# method will return value in different calling contexts
+@GET[sMode]
+^switch[$sMode]{
+   ^case[table]{$result[$t]}
+   ^case[bool]{$result($t!=0)}
+   ^case[def]{$result(true)}
+   ^case[expression;double]{$result($t)}
+   ^case[DEFAULT]{^throw[MyTable;Unsupported mode '$sMode']}
+}
+
+
+# method will handle access to the "columns"
+@GET_DEFAULT[sName]
+$result[$t.$sName]
+
+
+# wrappers for all existing methods are required
+@count[]
+^t.count[]
+
+@menu[jCode;sSeparator]
+^t.menu{$jCode}[$sSeparator]
+
+
+# new functionality
+@remove[iOffset;iLimit]
+$iLimit(^iLimit.int(0))
+$t[^t.select(^t.offset[]<$iOffset || ^t.offset[]>=$iOffset+$iLimit)]
+----------------------------------------------------
+<span class="token keyword">@CLASS</span>
+MyTable
+
+<span class="token function">@create</span><span class="token punctuation">[</span>uParam<span class="token punctuation">]</span>
+<span class="token keyword">^switch</span><span class="token punctuation">[</span><span class="token variable">$uParam<span class="token punctuation">.</span>CLASS_NAME</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+   <span class="token keyword">^case</span><span class="token punctuation">[</span>string<span class="token punctuation">;</span>void<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token variable">$t</span><span class="token punctuation">[</span><span class="token function">^table<span class="token punctuation">::</span>create</span><span class="token punctuation">{</span><span class="token variable">$uParam</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+   <span class="token keyword">^case</span><span class="token punctuation">[</span>table<span class="token punctuation">;</span>MyTable<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token variable">$t</span><span class="token punctuation">[</span><span class="token function">^table<span class="token punctuation">::</span>create</span><span class="token punctuation">[</span><span class="token variable">$uParam</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+   <span class="token keyword">^case</span><span class="token punctuation">[</span>DEFAULT<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token keyword">^throw</span><span class="token punctuation">[</span>MyTable<span class="token punctuation">;</span>Unsupported type <span class="token variable">$uParam<span class="token punctuation">.</span>CLASS_NAME</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token parser-comment comment"># method will return value in different calling contexts</span>
+<span class="token keyword">@GET</span><span class="token punctuation">[</span>sMode<span class="token punctuation">]</span>
+<span class="token keyword">^switch</span><span class="token punctuation">[</span><span class="token variable">$sMode</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+   <span class="token keyword">^case</span><span class="token punctuation">[</span>table<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token variable">$result</span><span class="token punctuation">[</span><span class="token variable">$t</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+   <span class="token keyword">^case</span><span class="token punctuation">[</span>bool<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token variable">$result</span><span class="token expression"><span class="token punctuation">(</span><span class="token variable">$t</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span></span><span class="token punctuation">}</span>
+   <span class="token keyword">^case</span><span class="token punctuation">[</span>def<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token variable">$result</span><span class="token expression"><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span></span><span class="token punctuation">}</span>
+   <span class="token keyword">^case</span><span class="token punctuation">[</span>expression<span class="token punctuation">;</span>double<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token variable">$result</span><span class="token expression"><span class="token punctuation">(</span><span class="token variable">$t</span><span class="token punctuation">)</span></span><span class="token punctuation">}</span>
+   <span class="token keyword">^case</span><span class="token punctuation">[</span>DEFAULT<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token keyword">^throw</span><span class="token punctuation">[</span>MyTable<span class="token punctuation">;</span>Unsupported mode '<span class="token variable">$sMode</span>'<span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token parser-comment comment"># method will handle access to the "columns"</span>
+<span class="token keyword">@GET_DEFAULT</span><span class="token punctuation">[</span>sName<span class="token punctuation">]</span>
+<span class="token variable">$result</span><span class="token punctuation">[</span><span class="token variable">$t<span class="token punctuation">.</span></span><span class="token variable">$sName</span><span class="token punctuation">]</span>
+
+
+<span class="token parser-comment comment"># wrappers for all existing methods are required</span>
+<span class="token function">@count</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token function">^t<span class="token punctuation">.</span>count</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token function">@menu</span><span class="token punctuation">[</span>jCode<span class="token punctuation">;</span>sSeparator<span class="token punctuation">]</span>
+<span class="token function">^t<span class="token punctuation">.</span>menu</span><span class="token punctuation">{</span><span class="token variable">$jCode</span><span class="token punctuation">}</span><span class="token punctuation">[</span><span class="token variable">$sSeparator</span><span class="token punctuation">]</span>
+
+
+<span class="token parser-comment comment"># new functionality</span>
+<span class="token function">@remove</span><span class="token punctuation">[</span>iOffset<span class="token punctuation">;</span>iLimit<span class="token punctuation">]</span>
+<span class="token variable">$iLimit</span><span class="token expression"><span class="token punctuation">(</span><span class="token function">^iLimit<span class="token punctuation">.</span>int</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span>
+<span class="token variable">$t</span><span class="token punctuation">[</span><span class="token function">^t<span class="token punctuation">.</span>select</span><span class="token expression"><span class="token punctuation">(</span><span class="token function">^t<span class="token punctuation">.</span>offset</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&lt;</span><span class="token variable">$iOffset</span> <span class="token operator">||</span> <span class="token function">^t<span class="token punctuation">.</span>offset</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">>=</span><span class="token variable">$iOffset</span><span class="token operator">+</span><span class="token variable">$iLimit</span><span class="token punctuation">)</span></span><span class="token punctuation">]</span>
+
+----------------------------------------------------

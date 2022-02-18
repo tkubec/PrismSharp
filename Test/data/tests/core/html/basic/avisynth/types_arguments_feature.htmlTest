@@ -1,0 +1,29 @@
+function test(clip input, int interleavedFields, float precision, string "floatingDesync", bool "useQTGMC", val "chromaNoise")
+{
+	castTest = clip(chromaNoise)
+	castTest = int(chromaNoise)
+	castTest = float(chromaNoise)
+	castTest = string(chromaNoise)
+	castTest = bool(chromaNoise)
+	castTest = val(chromaNoise)
+
+	return interleavedClip
+}
+
+test(5, 0.5, floatingDesync="progressive")
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token argument"><span class="token keyword">clip</span> input</span><span class="token punctuation">,</span> <span class="token argument"><span class="token keyword">int</span> interleavedFields</span><span class="token punctuation">,</span> <span class="token argument"><span class="token keyword">float</span> precision</span><span class="token punctuation">,</span> <span class="token argument"><span class="token keyword">string</span> "floatingDesync"</span><span class="token punctuation">,</span> <span class="token argument"><span class="token keyword">bool</span> "useQTGMC"</span><span class="token punctuation">,</span> <span class="token argument"><span class="token keyword">val</span> "chromaNoise"</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	castTest <span class="token operator">=</span> <span class="token type-cast keyword">clip</span><span class="token punctuation">(</span>chromaNoise<span class="token punctuation">)</span>
+	castTest <span class="token operator">=</span> <span class="token type-cast keyword">int</span><span class="token punctuation">(</span>chromaNoise<span class="token punctuation">)</span>
+	castTest <span class="token operator">=</span> <span class="token type-cast keyword">float</span><span class="token punctuation">(</span>chromaNoise<span class="token punctuation">)</span>
+	castTest <span class="token operator">=</span> <span class="token type-cast keyword">string</span><span class="token punctuation">(</span>chromaNoise<span class="token punctuation">)</span>
+	castTest <span class="token operator">=</span> <span class="token type-cast keyword">bool</span><span class="token punctuation">(</span>chromaNoise<span class="token punctuation">)</span>
+	castTest <span class="token operator">=</span> <span class="token type-cast keyword">val</span><span class="token punctuation">(</span>chromaNoise<span class="token punctuation">)</span>
+
+	<span class="token keyword">return</span> interleavedClip
+<span class="token punctuation">}</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token argument-label"><span class="token argument-name punctuation">floatingDesync</span><span class="token punctuation">=</span></span><span class="token string">"progressive"</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

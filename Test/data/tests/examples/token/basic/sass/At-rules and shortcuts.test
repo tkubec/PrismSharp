@@ -1,0 +1,52 @@
+@mixin large-text
+  color: #ff0000
+
+@media (min-width: 600px)
+  h1
+    @include large-text
+
+=large-text
+  color: #ff0000
+
+h1
+  +large-text
+----------------------------------------------------
+[
+	["atrule-line", [
+		["atrule", "@mixin"],
+		" large-text"
+	]],
+	["property-line", [
+		["property", "color"],
+		["punctuation", ":"],
+		" #ff0000"
+	]],
+
+	["atrule-line", [
+		["atrule", "@media"],
+		" (min-width: 600px)"
+	]],
+	["selector", "h1"],
+	["atrule-line", [
+		["atrule", "@include"],
+		" large-text"
+	]],
+
+	["atrule-line", [
+		["atrule", "="],
+		"large-text"
+	]],
+	["property-line", [
+		["property", "color"],
+		["punctuation", ":"],
+		" #ff0000"
+	]],
+
+	["selector", "h1"],
+	["atrule-line", [
+		["atrule", "+"],
+		"large-text"
+	]]
+]
+
+----------------------------------------------------

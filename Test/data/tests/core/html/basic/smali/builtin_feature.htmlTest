@@ -1,0 +1,23 @@
+new-array v0, v0, [I
+
+.method static constructor <clinit>()V
+
+.field mWifiOnUid:I
+
+.field public static mWifiRunning:Z = false
+.field public static final PI:D = 3.141592653589793
+
+.field static final LOG_TAG:Ljava/lang/String; = "CDMA"
+----------------------------------------------------
+new-array <span class="token register variable">v0</span><span class="token punctuation">,</span> <span class="token register variable">v0</span><span class="token punctuation">,</span> <span class="token operator">[</span><span class="token builtin">I</span>
+
+<span class="token keyword">.method</span> <span class="token keyword">static</span> <span class="token keyword">constructor</span> <span class="token function">&lt;clinit></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token builtin">V</span>
+
+<span class="token keyword">.field</span> <span class="token field variable">mWifiOnUid</span><span class="token punctuation">:</span><span class="token builtin">I</span>
+
+<span class="token keyword">.field</span> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token field variable">mWifiRunning</span><span class="token punctuation">:</span><span class="token builtin">Z</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token keyword">.field</span> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token field variable">PI</span><span class="token punctuation">:</span><span class="token builtin">D</span> <span class="token operator">=</span> <span class="token number">3.141592653589793</span>
+
+<span class="token keyword">.field</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token field variable">LOG_TAG</span><span class="token punctuation">:</span><span class="token class-name"><span class="token builtin">L</span><span class="token namespace">java<span class="token punctuation">/</span>lang<span class="token punctuation">/</span></span><span class="token class-name">String</span></span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token string">"CDMA"</span>
+
+----------------------------------------------------

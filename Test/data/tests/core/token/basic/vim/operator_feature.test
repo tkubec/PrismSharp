@@ -1,0 +1,72 @@
+|| &&
+? * / %
++ +=
+- -=
+. .=
+= == =~
+==# =~# ==? =~?
+! != !~
+!=# !~# !=? !~?
+< <=
+<# <=# <? <=?
+> >=
+># >=# >? >=?
+is isnot
+----------------------------------------------------
+[
+	["operator", "||"],
+	["operator", "&&"],
+
+	["operator", "?"],
+	["operator", "*"],
+	["operator", "/"],
+	["operator", "%"],
+
+	["operator", "+"],
+	["operator", "+="],
+
+	["operator", "-"],
+	["operator", "-="],
+
+	["operator", "."],
+	["operator", ".="],
+
+	["operator", "="],
+	["operator", "=="],
+	["operator", "=~"],
+
+	["operator", "==#"],
+	["operator", "=~#"],
+	["operator", "==?"],
+	["operator", "=~?"],
+
+	["operator", "!"],
+	["operator", "!="],
+	["operator", "!~"],
+
+	["operator", "!=#"],
+	["operator", "!~#"],
+	["operator", "!=?"],
+	["operator", "!~?"],
+
+	["operator", "<"],
+	["operator", "<="],
+
+	["operator", "<#"],
+	["operator", "<=#"],
+	["operator", "<?"],
+	["operator", "<=?"],
+
+	["operator", ">"],
+	["operator", ">="],
+
+	["operator", ">#"],
+	["operator", ">=#"],
+	["operator", ">?"],
+	["operator", ">=?"],
+
+	["operator", "is"],
+	["operator", "isnot"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,21 @@
+p(example1). An example
+
+p(#big-red). Red here
+
+p(example1#big-red2). Red here
+
+p{color:blue;margin:30px}. Spacey blue
+
+p[fr]. rouge
+----------------------------------------------------
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">(</span><span class="token class-id attr-value">example1</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span></span> An example</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">(</span><span class="token class-id attr-value">#big-red</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span></span> Red here</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">(</span><span class="token class-id attr-value">example1#big-red2</span><span class="token punctuation">)</span></span><span class="token punctuation">.</span></span> Red here</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token css"><span class="token punctuation">{</span><span class="token property">color</span><span class="token punctuation">:</span>blue<span class="token punctuation">;</span><span class="token property">margin</span><span class="token punctuation">:</span>30px<span class="token punctuation">}</span></span></span><span class="token punctuation">.</span></span> Spacey blue</span>
+
+<span class="token phrase"><span class="token block-tag"><span class="token tag">p</span><span class="token modifier"><span class="token punctuation">[</span><span class="token lang attr-value">fr</span><span class="token punctuation">]</span></span><span class="token punctuation">.</span></span> rouge</span>
+
+----------------------------------------------------

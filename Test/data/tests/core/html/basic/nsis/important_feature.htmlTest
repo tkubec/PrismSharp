@@ -1,0 +1,69 @@
+!addincludedir
+!addplugindir
+!appendfile
+!cd
+!define
+!delfile
+!echo
+!else
+!endif
+!error
+!execute
+!finalize
+!getdllversion
+!gettlbversion
+!ifdef
+!ifmacrodef
+!ifmacrondef
+!ifndef
+!if
+!include
+!insertmacro
+!macroend
+!macro
+!makensis
+!packhdr
+!pragma
+!searchparse
+!searchreplace
+!system
+!tempfile
+!undef
+!verbose
+!warning
+----------------------------------------------------
+<span class="token important">!addincludedir</span>
+<span class="token important">!addplugindir</span>
+<span class="token important">!appendfile</span>
+<span class="token important">!cd</span>
+<span class="token important">!define</span>
+<span class="token important">!delfile</span>
+<span class="token important">!echo</span>
+<span class="token important">!else</span>
+<span class="token important">!endif</span>
+<span class="token important">!error</span>
+<span class="token important">!execute</span>
+<span class="token important">!finalize</span>
+<span class="token important">!getdllversion</span>
+<span class="token important">!gettlbversion</span>
+<span class="token important">!ifdef</span>
+<span class="token important">!ifmacrodef</span>
+<span class="token important">!ifmacrondef</span>
+<span class="token important">!ifndef</span>
+<span class="token important">!if</span>
+<span class="token important">!include</span>
+<span class="token important">!insertmacro</span>
+<span class="token important">!macroend</span>
+<span class="token important">!macro</span>
+<span class="token important">!makensis</span>
+<span class="token important">!packhdr</span>
+<span class="token important">!pragma</span>
+<span class="token important">!searchparse</span>
+<span class="token important">!searchreplace</span>
+<span class="token important">!system</span>
+<span class="token important">!tempfile</span>
+<span class="token important">!undef</span>
+<span class="token important">!verbose</span>
+<span class="token important">!warning</span>
+
+----------------------------------------------------

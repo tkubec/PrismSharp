@@ -1,0 +1,9 @@
+transform: translate(-50%);
+background: rgba(0, 0, 0, 0.2);
+filter: opacity(alpha=0);
+----------------------------------------------------
+<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">opacity</span><span class="token punctuation">(</span>alpha=0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

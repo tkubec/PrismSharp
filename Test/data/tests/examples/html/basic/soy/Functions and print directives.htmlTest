@@ -1,0 +1,9 @@
+{if length($items) > 5}
+{$foo|changeNewlineToBr}
+{$bar|truncate: 4, false}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">if</span> <span class="token function">length</span><span class="token punctuation">(</span><span class="token variable">$items</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">|</span><span class="token function">changeNewlineToBr</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$bar</span><span class="token punctuation">|</span><span class="token function">truncate</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

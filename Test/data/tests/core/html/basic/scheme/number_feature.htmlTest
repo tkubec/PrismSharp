@@ -1,0 +1,75 @@
+123
+
+(foo 42 +42 -42)
+(foo 1e3 +1e3 -1e3)
+(foo 1e+3 1e-3 3.14159 3.14159e-1)
+(foo 8/3)
+(foo 3+4i 2.5+0.0i 2.5+0.0i -2.5e4+0.0e4i 3+0i -2e-5i)
+(list +10i -10i 10+10i 10.10+10.10i 10-10i 10+10e+10i)
+
+(list #d123 #e#d123e-4 #d#i12 #i-1.234i)
+
+(list #xBAD #b1110011 #o777)
+(list #i#x10 #i#x10+10i #b10+10i)
+
+[list 123]
+
+10+i
+10+.1i
+10+1.i
+
+10.0E2
+10.0D2
+10.0L2
+10.0S2
+10.0F2
+
+10.0e2
+10.0d2
+10.0l2
+10.0s2
+10.0f2
+
+; not a number but a symbol
+(define 1+2 10)
+
+(list 10.0P2 10.0g2 10.0w2)
+----------------------------------------------------
+<span class="token number">123</span>
+
+<span class="token punctuation">(</span><span class="token function">foo</span> <span class="token number">42</span> <span class="token number">+42</span> <span class="token number">-42</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">foo</span> <span class="token number">1e3</span> <span class="token number">+1e3</span> <span class="token number">-1e3</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">foo</span> <span class="token number">1e+3</span> <span class="token number">1e-3</span> <span class="token number">3.14159</span> <span class="token number">3.14159e-1</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">foo</span> <span class="token number">8/3</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">foo</span> <span class="token number">3+4i</span> <span class="token number">2.5+0.0i</span> <span class="token number">2.5+0.0i</span> <span class="token number">-2.5e4+0.0e4i</span> <span class="token number">3+0i</span> <span class="token number">-2e-5i</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token builtin">list</span> <span class="token number">+10i</span> <span class="token number">-10i</span> <span class="token number">10+10i</span> <span class="token number">10.10+10.10i</span> <span class="token number">10-10i</span> <span class="token number">10+10e+10i</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token builtin">list</span> <span class="token number">#d123</span> <span class="token number">#e#d123e-4</span> <span class="token number">#d#i12</span> <span class="token number">#i-1.234i</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token builtin">list</span> <span class="token number">#xBAD</span> <span class="token number">#b1110011</span> <span class="token number">#o777</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token builtin">list</span> <span class="token number">#i#x10</span> <span class="token number">#i#x10+10i</span> <span class="token number">#b10+10i</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">[</span><span class="token builtin">list</span> <span class="token number">123</span><span class="token punctuation">]</span>
+
+<span class="token number">10+i</span>
+<span class="token number">10+.1i</span>
+<span class="token number">10+1.i</span>
+
+<span class="token number">10.0E2</span>
+<span class="token number">10.0D2</span>
+<span class="token number">10.0L2</span>
+<span class="token number">10.0S2</span>
+<span class="token number">10.0F2</span>
+
+<span class="token number">10.0e2</span>
+<span class="token number">10.0d2</span>
+<span class="token number">10.0l2</span>
+<span class="token number">10.0s2</span>
+<span class="token number">10.0f2</span>
+
+<span class="token comment">; not a number but a symbol</span>
+<span class="token punctuation">(</span><span class="token keyword">define</span> 1+2 <span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token builtin">list</span> 10.0P2 10.0g2 10.0w2<span class="token punctuation">)</span>
+
+----------------------------------------------------

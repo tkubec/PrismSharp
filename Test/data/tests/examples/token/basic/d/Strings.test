@@ -1,0 +1,89 @@
+// WYSIWYG strings
+r"hello"
+r"c:\root\foo.exe"
+r"ab\n"
+`hello`
+`c:\root\foo.exe`
+`ab\n`
+
+// Double-quoted strings
+"hello"
+"c:\\root\\foo.exe"
+"ab\n"
+"ab
+"
+
+// Hex strings
+x"0A"
+x"00 FBCD 32FD 0A"
+
+// String postfix characters
+"hello"c  // string
+"hello"w  // wstring
+"hello"d  // dstring
+
+// Delimited strings
+q"(foo(xxx))"
+q"[foo{]"
+q"EOS
+This
+is a multi-line
+heredoc string
+EOS"
+q"/foo]/"
+
+// Token strings
+q{foo}
+q{/*}*/ }
+q{ foo(q{hello}); }
+q{ __TIME__ }
+
+// Character literals
+'a'
+'\u000A'
+----------------------------------------------------
+[
+	["comment", "// WYSIWYG strings"],
+	["string", "r\"hello\""],
+	["string", "r\"c:\\root\\foo.exe\""],
+	["string", "r\"ab\\n\""],
+	["string", "`hello`"],
+	["string", "`c:\\root\\foo.exe`"],
+	["string", "`ab\\n`"],
+
+	["comment", "// Double-quoted strings"],
+	["string", "\"hello\""],
+	["string", "\"c:\\\\root\\\\foo.exe\""],
+	["string", "\"ab\\n\""],
+	["string", "\"ab\n\""],
+
+	["comment", "// Hex strings"],
+	["string", "x\"0A\""],
+	["string", "x\"00 FBCD 32FD 0A\""],
+
+	["comment", "// String postfix characters"],
+	["string", "\"hello\"c"], ["comment", "// string"],
+	["string", "\"hello\"w"], ["comment", "// wstring"],
+	["string", "\"hello\"d"], ["comment", "// dstring"],
+
+	["comment", "// Delimited strings"],
+	["string", "q\"(foo(xxx))\""],
+	["string", "q\"[foo{]\""],
+	["string", "q\"EOS\nThis\nis a multi-line\nheredoc string\nEOS\""],
+	["string", "q\"/foo]/\""],
+
+	["comment", "// Token strings"],
+	["string", "q{foo}"],
+	["string", "q{/*}"],
+	["operator", "*"],
+	["operator", "/"],
+	["punctuation", "}"],
+	["string", "q{ foo(q{hello}); }"],
+	["string", "q{ __TIME__ }"],
+
+	["comment", "// Character literals"],
+	["char", "'a'"],
+	["char", "'\\u000A'"]
+]
+
+----------------------------------------------------

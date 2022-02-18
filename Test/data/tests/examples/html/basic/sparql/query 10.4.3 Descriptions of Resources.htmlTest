@@ -1,0 +1,7 @@
+PREFIX ent:  <http://org.example.com/employees#>
+DESCRIBE ?x WHERE { ?x ent:employeeId "1234" }
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">ent<span class="token punctuation">:</span></span></span>  <span class="token url"><span class="token punctuation">&lt;</span>http://org.example.com/employees#<span class="token punctuation">></span></span>
+<span class="token keyword">DESCRIBE</span> <span class="token variable">?x</span> <span class="token keyword">WHERE</span> <span class="token punctuation">{</span> <span class="token variable">?x</span> <span class="token function"><span class="token prefix">ent<span class="token punctuation">:</span></span><span class="token local-name">employeeId</span></span> <span class="token string">"1234"</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

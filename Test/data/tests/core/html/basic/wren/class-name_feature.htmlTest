@@ -1,0 +1,15 @@
+Foo.bar()
+
+import "beverages" for Coffee, Tea
+
+class Foo {}
+class foo {}
+----------------------------------------------------
+<span class="token class-name">Foo</span><span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">"beverages"</span></span> <span class="token keyword">for</span> <span class="token class-name">Coffee</span><span class="token punctuation">,</span> <span class="token class-name">Tea</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

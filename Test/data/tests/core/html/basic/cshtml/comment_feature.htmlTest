@@ -1,0 +1,29 @@
+@{
+    /* C# comment */
+    // Another C# comment
+}
+<!-- HTML comment -->
+
+@*
+    @{
+        /* C# comment */
+        // Another C# comment
+    }
+    <!-- HTML comment -->
+*@
+----------------------------------------------------
+<span class="token block"><span class="token keyword">@</span><span class="token csharp language-csharp"><span class="token punctuation">{</span>
+    <span class="token comment">/* C# comment */</span>
+    <span class="token comment">// Another C# comment</span>
+<span class="token punctuation">}</span></span></span>
+<span class="token comment">&lt;!-- HTML comment --></span>
+
+<span class="token razor-comment comment">@*
+    @{
+        /* C# comment */
+        // Another C# comment
+    }
+    &lt;!-- HTML comment -->
+*@</span>
+
+----------------------------------------------------

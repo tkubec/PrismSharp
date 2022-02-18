@@ -1,0 +1,23 @@
+-a  Simple option
+-b
+  Simple option on next line
+--very-long-option    Long option
++f  Option using +
+-f FILE  Option with value 1
+--file=FILE  Option with value 2
+-2, --two  Two options in a row.
+-f FILE, --file=FILE  Two options with values in a row.
+/V    A VMS/DOS-style option.
+----------------------------------------------------
+<span class="token command-line-option symbol">-a</span>  Simple option
+<span class="token command-line-option symbol">-b</span>
+  Simple option on next line
+<span class="token command-line-option symbol">--very-long-option</span>    Long option
+<span class="token command-line-option symbol">+f</span>  Option using +
+<span class="token command-line-option symbol">-f FILE</span>  Option with value 1
+<span class="token command-line-option symbol">--file=FILE</span>  Option with value 2
+<span class="token command-line-option symbol">-2, --two</span>  Two options in a row.
+<span class="token command-line-option symbol">-f FILE, --file=FILE</span>  Two options with values in a row.
+<span class="token command-line-option symbol">/V</span>    A VMS/DOS-style option.
+
+----------------------------------------------------

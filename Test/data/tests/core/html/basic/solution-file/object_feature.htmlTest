@@ -1,0 +1,25 @@
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Project1", "Project1.vbproj", "{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}"
+EndProject
+
+Global
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Debug.ActiveCfg = Debug|x86
+		{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Debug.Build.0 = Debug|x86
+		{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Release.ActiveCfg = Release|x86
+		{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Release.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
+----------------------------------------------------
+<span class="token object keyword">Project</span><span class="token punctuation">(</span><span class="token string">"<span class="token guid constant"><span class="token punctuation">{</span>F184B08F-C81C-45F6-A57F-5ABD9991F28F<span class="token punctuation">}</span></span>"</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"Project1"</span><span class="token punctuation">,</span> <span class="token string">"Project1.vbproj"</span><span class="token punctuation">,</span> <span class="token string">"<span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>"</span>
+<span class="token object keyword">EndProject</span>
+
+<span class="token object keyword">Global</span>
+	<span class="token object keyword">GlobalSection</span><span class="token punctuation">(</span>ProjectConfiguration<span class="token punctuation">)</span> <span class="token operator">=</span> postSolution
+		<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Debug.ActiveCfg</span> <span class="token operator">=</span> Debug|x86
+		<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Debug.Build.0</span> <span class="token operator">=</span> Debug|x86
+		<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Release.ActiveCfg</span> <span class="token operator">=</span> Release|x86
+		<span class="token property"><span class="token guid constant"><span class="token punctuation">{</span>8CDD8387-B905-44A8-B5D5-07BB50E05BEA<span class="token punctuation">}</span></span>.Release.Build.0</span> <span class="token operator">=</span> Release|x86
+	<span class="token object keyword">EndGlobalSection</span>
+<span class="token object keyword">EndGlobal</span>
+
+----------------------------------------------------

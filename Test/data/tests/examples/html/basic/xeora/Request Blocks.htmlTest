@@ -1,0 +1,7 @@
+$H:RequestBlockID:{ <!-- Something --> }:RequestBlockID$
+$H:RequestBlockID:{!RENDERONREQUEST <!-- Something --> }:RequestBlockID$
+----------------------------------------------------
+<span class="token directive-block-open function"><span class="token punctuation">$H:</span>RequestBlockID<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>RequestBlockID<span class="token punctuation">$</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$H:</span>RequestBlockID<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token attribute keyword"><span class="token punctuation">!</span>RENDERONREQUEST</span></span> <span class="token comment">&lt;!-- Something --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>RequestBlockID<span class="token punctuation">$</span></span>
+
+----------------------------------------------------

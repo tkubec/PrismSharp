@@ -1,0 +1,11 @@
+type response =
+  | Yes
+  | No
+  | PrettyMuch;
+----------------------------------------------------
+<span class="token keyword">type</span> response <span class="token operator">=</span>
+  <span class="token operator">|</span> <span class="token constructor">Yes</span>
+  <span class="token operator">|</span> <span class="token constructor">No</span>
+  <span class="token operator">|</span> <span class="token constructor">PrettyMuch</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

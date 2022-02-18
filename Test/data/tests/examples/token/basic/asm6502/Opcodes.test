@@ -1,0 +1,17 @@
+SEI
+CLC
+
+; lowercase
+inx
+bne label1
+----------------------------------------------------
+[
+	["op-code", "SEI"],
+	["op-code", "CLC"],
+
+	["comment", "; lowercase"],
+	["op-code", "inx"],
+	["op-code", "bne"], " label1"
+]
+
+----------------------------------------------------

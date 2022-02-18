@@ -1,0 +1,9 @@
+type storage is int
+
+function add (const store : storage; const delta : int) : storage is store + delta
+----------------------------------------------------
+<span class="token keyword">type</span> <span class="token class-name">storage</span> <span class="token keyword">is</span> <span class="token class-name"><span class="token builtin">int</span></span>
+
+<span class="token keyword">function</span> <span class="token function">add</span> <span class="token punctuation">(</span><span class="token keyword">const</span> store <span class="token punctuation">:</span> <span class="token class-name">storage</span><span class="token punctuation">;</span> <span class="token keyword">const</span> delta <span class="token punctuation">:</span> <span class="token class-name"><span class="token builtin">int</span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token class-name">storage</span> <span class="token keyword">is</span> store <span class="token operator">+</span> delta
+
+----------------------------------------------------

@@ -1,0 +1,21 @@
+'foo \'bar\' baz'
+"foo \"bar\" baz"
+"a string # containing an hash"
+$foo = <<<FOO
+    Heredoc strings are supported too!
+FOO;
+$bar = <<<'BAR'
+    And also Nowdoc strings
+BAR;
+----------------------------------------------------
+<span class="token string single-quoted-string">'foo \'bar\' baz'</span>
+<span class="token string double-quoted-string">"foo \"bar\" baz"</span>
+<span class="token string double-quoted-string">"a string # containing an hash"</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token string heredoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;</span>FOO</span>
+    Heredoc strings are supported too!
+<span class="token delimiter symbol">FOO<span class="token punctuation">;</span></span></span>
+<span class="token variable">$bar</span> <span class="token operator">=</span> <span class="token string nowdoc-string"><span class="token delimiter symbol"><span class="token punctuation">&lt;&lt;&lt;'</span>BAR<span class="token punctuation">'</span></span>
+    And also Nowdoc strings
+<span class="token delimiter symbol">BAR<span class="token punctuation">;</span></span></span>
+
+----------------------------------------------------

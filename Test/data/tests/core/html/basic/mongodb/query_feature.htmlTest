@@ -1,0 +1,13 @@
+db.users.find({
+	_id: { $nin: ObjectId('5ec72ffe00316be87cab3927') },
+	age: { $gte: 18, $lte: 99 },
+	field: { $exists: true }
+})
+----------------------------------------------------
+db<span class="token punctuation">.</span>users<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	<span class="token property">_id</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property"><span class="token keyword">$nin</span></span><span class="token operator">:</span> <span class="token builtin keyword">ObjectId</span><span class="token punctuation">(</span><span class="token string">'5ec72ffe00316be87cab3927'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property">age</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property"><span class="token keyword">$gte</span></span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token property"><span class="token keyword">$lte</span></span><span class="token operator">:</span> <span class="token number">99</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token property">field</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property"><span class="token keyword">$exists</span></span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

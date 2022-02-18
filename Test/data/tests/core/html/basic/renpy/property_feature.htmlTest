@@ -1,0 +1,467 @@
+insensitive
+idle
+hover
+selected_idle
+selected_hover
+background
+position
+alt
+xpos
+ypos
+pos
+xanchor
+yanchor
+anchor
+xalign
+yalign
+align
+xcenter
+ycenter
+xofsset
+yoffset
+ymaximum
+maximum
+xmaximum
+xminimum
+yminimum
+minimum
+xsize
+ysizexysize
+xfill
+yfill
+area
+antialias
+black_color
+bold
+caret
+color
+first_indent
+font
+size
+italic
+justify
+kerning
+language
+layout
+line_leading
+line_overlap_split
+line_spacing
+min_width
+newline_indent
+outlines
+rest_indent
+ruby_style
+slow_cps
+slow_cps_multiplier
+strikethrough
+text_align
+underline
+hyperlink_functions
+vertical
+hinting
+foreground
+left_margin
+xmargin
+top_margin
+bottom_margin
+ymargin
+left_padding
+right_padding
+xpadding
+top_padding
+bottom_padding
+ypadding
+size_group
+child
+hover_sound
+activate_sound
+mouse
+focus_mask
+keyboard_focus
+bar_vertical
+bar_invert
+bar_resizing
+left_gutter
+right_gutter
+top_gutter
+bottom_gutter
+left_bar
+right_bar
+top_bar
+bottom_bar
+thumb
+thumb_shadow
+thumb_offset
+unscrollable
+spacing
+first_spacing
+box_reverse
+box_wrap
+order_reverse
+fit_first
+ysize
+thumbnail_width
+thumbnail_height
+help
+text_ypos
+text_xpos
+idle_color
+hover_color
+selected_idle_color
+selected_hover_color
+insensitive_color
+alpha
+insensitive_background
+hover_background
+zorder
+value
+width
+xadjustment
+xanchoraround
+xaround
+xinitial
+xoffset
+xzoom
+yadjustment
+yanchoraround
+yaround
+yinitial
+yzoom
+zoom
+ground
+height
+text_style
+text_y_fudge
+selected_insensitive
+has_sound
+has_music
+has_voice
+focus
+hovered
+image_style
+length
+minwidth
+mousewheel
+offset
+prefix
+radius
+range
+right_margin
+rotate
+rotate_pad
+developer
+screen_width
+screen_height
+window_title
+name
+version
+windows_icon
+default_fullscreen
+default_text_cps
+default_afm_time
+main_menu_music
+sample_sound
+enter_sound
+exit_sound
+save_directory
+enter_transition
+exit_transition
+intra_transition
+main_game_transition
+game_main_transition
+end_splash_transition
+end_game_transition
+after_load_transition
+window_show_transition
+window_hide_transition
+adv_nvl_transition
+nvl_adv_transition
+enter_yesno_transition
+exit_yesno_transition
+enter_replay_transition
+exit_replay_transition
+say_attribute_transition
+directory_name
+executable_name
+include_update
+window_icon
+modal
+google_play_key
+google_play_salt
+drag_name
+drag_handle
+draggable
+dragged
+droppable
+dropped
+narrator_menu
+action
+default_afm_enable
+version_name
+version_tuple
+inside
+fadeout
+fadein
+layers
+layer_clipping
+linear
+scrollbars
+side_xpos
+side_ypos
+side_spacing
+edgescroll
+drag_joined
+drag_raise
+drop_shadow
+drop_shadow_color
+subpixel
+easein
+easeout
+time
+crop
+auto
+update
+get_installed_packages
+can_update
+UpdateVersion
+Update
+overlay_functions
+translations
+window_left_padding
+show_side_image
+show_two_window
+----------------------------------------------------
+<span class="token property">insensitive</span>
+<span class="token property">idle</span>
+<span class="token property">hover</span>
+<span class="token property">selected_idle</span>
+<span class="token property">selected_hover</span>
+<span class="token property">background</span>
+<span class="token property">position</span>
+<span class="token property">alt</span>
+<span class="token property">xpos</span>
+<span class="token property">ypos</span>
+<span class="token property">pos</span>
+<span class="token property">xanchor</span>
+<span class="token property">yanchor</span>
+<span class="token property">anchor</span>
+<span class="token property">xalign</span>
+<span class="token property">yalign</span>
+<span class="token property">align</span>
+<span class="token property">xcenter</span>
+<span class="token property">ycenter</span>
+<span class="token property">xofsset</span>
+<span class="token property">yoffset</span>
+<span class="token property">ymaximum</span>
+<span class="token property">maximum</span>
+<span class="token property">xmaximum</span>
+<span class="token property">xminimum</span>
+<span class="token property">yminimum</span>
+<span class="token property">minimum</span>
+<span class="token property">xsize</span>
+<span class="token property">ysizexysize</span>
+<span class="token property">xfill</span>
+<span class="token property">yfill</span>
+<span class="token property">area</span>
+<span class="token property">antialias</span>
+<span class="token property">black_color</span>
+<span class="token property">bold</span>
+<span class="token property">caret</span>
+<span class="token property">color</span>
+<span class="token property">first_indent</span>
+<span class="token property">font</span>
+<span class="token property">size</span>
+<span class="token property">italic</span>
+<span class="token property">justify</span>
+<span class="token property">kerning</span>
+<span class="token property">language</span>
+<span class="token property">layout</span>
+<span class="token property">line_leading</span>
+<span class="token property">line_overlap_split</span>
+<span class="token property">line_spacing</span>
+<span class="token property">min_width</span>
+<span class="token property">newline_indent</span>
+<span class="token property">outlines</span>
+<span class="token property">rest_indent</span>
+<span class="token property">ruby_style</span>
+<span class="token property">slow_cps</span>
+<span class="token property">slow_cps_multiplier</span>
+<span class="token property">strikethrough</span>
+<span class="token property">text_align</span>
+<span class="token property">underline</span>
+<span class="token property">hyperlink_functions</span>
+<span class="token property">vertical</span>
+<span class="token property">hinting</span>
+<span class="token property">foreground</span>
+<span class="token property">left_margin</span>
+<span class="token property">xmargin</span>
+<span class="token property">top_margin</span>
+<span class="token property">bottom_margin</span>
+<span class="token property">ymargin</span>
+<span class="token property">left_padding</span>
+<span class="token property">right_padding</span>
+<span class="token property">xpadding</span>
+<span class="token property">top_padding</span>
+<span class="token property">bottom_padding</span>
+<span class="token property">ypadding</span>
+<span class="token property">size_group</span>
+<span class="token property">child</span>
+<span class="token property">hover_sound</span>
+<span class="token property">activate_sound</span>
+<span class="token property">mouse</span>
+<span class="token property">focus_mask</span>
+<span class="token property">keyboard_focus</span>
+<span class="token property">bar_vertical</span>
+<span class="token property">bar_invert</span>
+<span class="token property">bar_resizing</span>
+<span class="token property">left_gutter</span>
+<span class="token property">right_gutter</span>
+<span class="token property">top_gutter</span>
+<span class="token property">bottom_gutter</span>
+<span class="token property">left_bar</span>
+<span class="token property">right_bar</span>
+<span class="token property">top_bar</span>
+<span class="token property">bottom_bar</span>
+<span class="token property">thumb</span>
+<span class="token property">thumb_shadow</span>
+<span class="token property">thumb_offset</span>
+<span class="token property">unscrollable</span>
+<span class="token property">spacing</span>
+<span class="token property">first_spacing</span>
+<span class="token property">box_reverse</span>
+<span class="token property">box_wrap</span>
+<span class="token property">order_reverse</span>
+<span class="token property">fit_first</span>
+<span class="token property">ysize</span>
+<span class="token property">thumbnail_width</span>
+<span class="token property">thumbnail_height</span>
+<span class="token property">help</span>
+<span class="token property">text_ypos</span>
+<span class="token property">text_xpos</span>
+<span class="token property">idle_color</span>
+<span class="token property">hover_color</span>
+<span class="token property">selected_idle_color</span>
+<span class="token property">selected_hover_color</span>
+<span class="token property">insensitive_color</span>
+<span class="token property">alpha</span>
+<span class="token property">insensitive_background</span>
+<span class="token property">hover_background</span>
+<span class="token property">zorder</span>
+<span class="token property">value</span>
+<span class="token property">width</span>
+<span class="token property">xadjustment</span>
+<span class="token property">xanchoraround</span>
+<span class="token property">xaround</span>
+<span class="token property">xinitial</span>
+<span class="token property">xoffset</span>
+<span class="token property">xzoom</span>
+<span class="token property">yadjustment</span>
+<span class="token property">yanchoraround</span>
+<span class="token property">yaround</span>
+<span class="token property">yinitial</span>
+<span class="token property">yzoom</span>
+<span class="token property">zoom</span>
+<span class="token property">ground</span>
+<span class="token property">height</span>
+<span class="token property">text_style</span>
+<span class="token property">text_y_fudge</span>
+<span class="token property">selected_insensitive</span>
+<span class="token property">has_sound</span>
+<span class="token property">has_music</span>
+<span class="token property">has_voice</span>
+<span class="token property">focus</span>
+<span class="token property">hovered</span>
+<span class="token property">image_style</span>
+<span class="token property">length</span>
+<span class="token property">minwidth</span>
+<span class="token property">mousewheel</span>
+<span class="token property">offset</span>
+<span class="token property">prefix</span>
+<span class="token property">radius</span>
+<span class="token property">range</span>
+<span class="token property">right_margin</span>
+<span class="token property">rotate</span>
+<span class="token property">rotate_pad</span>
+<span class="token property">developer</span>
+<span class="token property">screen_width</span>
+<span class="token property">screen_height</span>
+<span class="token property">window_title</span>
+<span class="token property">name</span>
+<span class="token property">version</span>
+<span class="token property">windows_icon</span>
+<span class="token property">default_fullscreen</span>
+<span class="token property">default_text_cps</span>
+<span class="token property">default_afm_time</span>
+<span class="token property">main_menu_music</span>
+<span class="token property">sample_sound</span>
+<span class="token property">enter_sound</span>
+<span class="token property">exit_sound</span>
+<span class="token property">save_directory</span>
+<span class="token property">enter_transition</span>
+<span class="token property">exit_transition</span>
+<span class="token property">intra_transition</span>
+<span class="token property">main_game_transition</span>
+<span class="token property">game_main_transition</span>
+<span class="token property">end_splash_transition</span>
+<span class="token property">end_game_transition</span>
+<span class="token property">after_load_transition</span>
+<span class="token property">window_show_transition</span>
+<span class="token property">window_hide_transition</span>
+<span class="token property">adv_nvl_transition</span>
+<span class="token property">nvl_adv_transition</span>
+<span class="token property">enter_yesno_transition</span>
+<span class="token property">exit_yesno_transition</span>
+<span class="token property">enter_replay_transition</span>
+<span class="token property">exit_replay_transition</span>
+<span class="token property">say_attribute_transition</span>
+<span class="token property">directory_name</span>
+<span class="token property">executable_name</span>
+<span class="token property">include_update</span>
+<span class="token property">window_icon</span>
+<span class="token property">modal</span>
+<span class="token property">google_play_key</span>
+<span class="token property">google_play_salt</span>
+<span class="token property">drag_name</span>
+<span class="token property">drag_handle</span>
+<span class="token property">draggable</span>
+<span class="token property">dragged</span>
+<span class="token property">droppable</span>
+<span class="token property">dropped</span>
+<span class="token property">narrator_menu</span>
+<span class="token property">action</span>
+<span class="token property">default_afm_enable</span>
+<span class="token property">version_name</span>
+<span class="token property">version_tuple</span>
+<span class="token property">inside</span>
+<span class="token property">fadeout</span>
+<span class="token property">fadein</span>
+<span class="token property">layers</span>
+<span class="token property">layer_clipping</span>
+<span class="token property">linear</span>
+<span class="token property">scrollbars</span>
+<span class="token property">side_xpos</span>
+<span class="token property">side_ypos</span>
+<span class="token property">side_spacing</span>
+<span class="token property">edgescroll</span>
+<span class="token property">drag_joined</span>
+<span class="token property">drag_raise</span>
+<span class="token property">drop_shadow</span>
+<span class="token property">drop_shadow_color</span>
+<span class="token property">subpixel</span>
+<span class="token property">easein</span>
+<span class="token property">easeout</span>
+<span class="token property">time</span>
+<span class="token property">crop</span>
+<span class="token property">auto</span>
+<span class="token property">update</span>
+<span class="token property">get_installed_packages</span>
+<span class="token property">can_update</span>
+<span class="token property">UpdateVersion</span>
+<span class="token property">Update</span>
+<span class="token property">overlay_functions</span>
+<span class="token property">translations</span>
+<span class="token property">window_left_padding</span>
+<span class="token property">show_side_image</span>
+<span class="token property">show_two_window</span>
+
+----------------------------------------------------

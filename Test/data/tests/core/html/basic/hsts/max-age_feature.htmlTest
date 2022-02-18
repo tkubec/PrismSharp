@@ -1,0 +1,11 @@
+max-age=0;
+max-age="0";
+max-age=31536000;
+max-age="31536000"
+----------------------------------------------------
+<span class="token directive property">max-age</span><span class="token operator">=</span>0<span class="token punctuation">;</span>
+<span class="token directive property">max-age</span><span class="token operator">=</span>"0"<span class="token punctuation">;</span>
+<span class="token directive property">max-age</span><span class="token operator">=</span>31536000<span class="token punctuation">;</span>
+<span class="token directive property">max-age</span><span class="token operator">=</span>"31536000"
+
+----------------------------------------------------

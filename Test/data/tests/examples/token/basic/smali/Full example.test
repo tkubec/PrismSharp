@@ -1,0 +1,163 @@
+# Source: https://github.com/JesusFreke/smali/blob/master/examples/HelloWorld/HelloWorld.smali
+
+.class public LHelloWorld;
+
+#Ye olde hello world application
+#To assemble and run this on a phone or emulator:
+#
+#java -jar smali.jar -o classes.dex HelloWorld.smali
+#zip HelloWorld.zip classes.dex
+#adb push HelloWorld.zip /data/local
+#adb shell dalvikvm -cp /data/local/HelloWorld.zip HelloWorld
+#
+#if you get out of memory type errors when running smali.jar, try
+#java -Xmx512m -jar smali.jar HelloWorld.smali
+#instead
+
+.super Ljava/lang/Object;
+
+.method public static main([Ljava/lang/String;)V
+    .registers 2
+
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string v1, "Hello World!"
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    return-void
+.end method
+----------------------------------------------------
+[
+	["comment", "# Source: https://github.com/JesusFreke/smali/blob/master/examples/HelloWorld/HelloWorld.smali"],
+
+	["keyword", ".class"],
+	["keyword", "public"],
+	["class-name", [
+		["builtin", "L"],
+		["class-name", "HelloWorld"]
+	]],
+	["punctuation", ";"],
+
+	["comment", "#Ye olde hello world application"],
+	["comment", "#To assemble and run this on a phone or emulator:"],
+	["comment", "#"],
+	["comment", "#java -jar smali.jar -o classes.dex HelloWorld.smali"],
+	["comment", "#zip HelloWorld.zip classes.dex"],
+	["comment", "#adb push HelloWorld.zip /data/local"],
+	["comment", "#adb shell dalvikvm -cp /data/local/HelloWorld.zip HelloWorld"],
+	["comment", "#"],
+	["comment", "#if you get out of memory type errors when running smali.jar, try"],
+	["comment", "#java -Xmx512m -jar smali.jar HelloWorld.smali"],
+	["comment", "#instead"],
+
+	["keyword", ".super"],
+	["class-name", [
+		["builtin", "L"],
+		["namespace", [
+			"java",
+			["punctuation", "/"],
+			"lang",
+			["punctuation", "/"]
+		]],
+		["class-name", "Object"]
+	]],
+	["punctuation", ";"],
+
+	["keyword", ".method"],
+	["keyword", "public"],
+	["keyword", "static"],
+	["function", "main"],
+	["punctuation", "("],
+	["operator", "["],
+	["class-name", [
+		["builtin", "L"],
+		["namespace", [
+			"java",
+			["punctuation", "/"],
+			"lang",
+			["punctuation", "/"]
+		]],
+		["class-name", "String"]
+	]],
+	["punctuation", ";"],
+	["punctuation", ")"],
+	["builtin", "V"],
+
+	["keyword", ".registers"],
+	["number", "2"],
+
+	"\n\n    sget-object ",
+	["register", "v0"],
+	["punctuation", ","],
+	["class-name", [
+		["builtin", "L"],
+		["namespace", [
+			"java",
+			["punctuation", "/"],
+			"lang",
+			["punctuation", "/"]
+		]],
+		["class-name", "System"]
+	]],
+	["punctuation", ";"],
+	["operator", "->"],
+	["field", "out"],
+	["punctuation", ":"],
+	["class-name", [
+		["builtin", "L"],
+		["namespace", [
+			"java",
+			["punctuation", "/"],
+			"io",
+			["punctuation", "/"]
+		]],
+		["class-name", "PrintStream"]
+	]],
+	["punctuation", ";"],
+
+	"\n\n    const-string ",
+	["register", "v1"],
+	["punctuation", ","],
+	["string", "\"Hello World!\""],
+
+	"\n\n    invoke-virtual ",
+	["punctuation", "{"],
+	["register", "v0"],
+	["punctuation", ","],
+	["register", "v1"],
+	["punctuation", "}"],
+	["punctuation", ","],
+	["class-name", [
+		["builtin", "L"],
+		["namespace", [
+			"java",
+			["punctuation", "/"],
+			"io",
+			["punctuation", "/"]
+		]],
+		["class-name", "PrintStream"]
+	]],
+	["punctuation", ";"],
+	["operator", "->"],
+	["function", "println"],
+	["punctuation", "("],
+	["class-name", [
+		["builtin", "L"],
+		["namespace", [
+			"java",
+			["punctuation", "/"],
+			"lang",
+			["punctuation", "/"]
+		]],
+		["class-name", "String"]
+	]],
+	["punctuation", ";"],
+	["punctuation", ")"],
+	["builtin", "V"],
+
+	"\n\n    return-void\n",
+	["keyword", ".end"], ["keyword", "method"]
+]
+
+----------------------------------------------------

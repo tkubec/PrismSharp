@@ -1,0 +1,119 @@
+%% https://github.com/mermaid-js/mermaid/blob/develop/docs/examples.md#larger-flowchart-with-some-styling
+
+graph TB
+	sq[Square shape] --> ci((Circle shape))
+
+	subgraph A
+		od>Odd shape]-- Two line<br/>edge comment --> ro
+		di{Diamond with <br/> line break} -.-> ro(Rounded<br>square<br>shape)
+		di==>ro2(Rounded square shape)
+	end
+
+	%% Notice that no text in shape are added here instead that is appended further down
+	e --> od3>Really long text with linebreak<br>in an Odd shape]
+
+	%% Comments after double percent signs
+	e((Inner / circle<br>and some odd <br>special characters)) --> f(,.?!+-*ز)
+
+	cyr[Cyrillic]-->cyr2((Circle shape Начало));
+
+	classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+	classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+	class sq,e green
+	class di orange
+----------------------------------------------------
+[
+	["comment", "%% https://github.com/mermaid-js/mermaid/blob/develop/docs/examples.md#larger-flowchart-with-some-styling"],
+
+	["keyword", "graph"],
+	" TB\n\tsq",
+	["text", "[Square shape]"],
+	["arrow", "-->"],
+	" ci",
+	["text", "((Circle shape))"],
+
+	["keyword", "subgraph"],
+	" A\n\t\tod",
+	["text", ">Odd shape]"],
+	["inter-arrow-label", [
+		["arrow-head", "--"],
+		["label", "Two line<br/>edge comment"],
+		["arrow", "-->"]
+	]],
+	" ro\n\t\tdi",
+	["text", "{Diamond with <br/> line break}"],
+	["arrow", "-.->"],
+	" ro",
+	["text", "(Rounded<br>square<br>shape)"],
+
+	"\n\t\tdi",
+	["arrow", "==>"],
+	"ro2",
+	["text", "(Rounded square shape)"],
+
+	["keyword", "end"],
+
+	["comment", "%% Notice that no text in shape are added here instead that is appended further down"],
+
+	"\n\te ",
+	["arrow", "-->"],
+	" od3",
+	["text", ">Really long text with linebreak<br>in an Odd shape]"],
+
+	["comment", "%% Comments after double percent signs"],
+
+	"\n\te",
+	["text", "((Inner / circle<br>and some odd <br>special characters))"],
+	["arrow", "-->"],
+	" f",
+	["text", "(,.?!+-*ز)"],
+
+	"\n\n\tcyr",
+	["text", "[Cyrillic]"],
+	["arrow", "-->"],
+	"cyr2",
+	["text", "((Circle shape Начало))"],
+	["punctuation", ";"],
+
+	["keyword", "classDef"],
+	" green ",
+	["style", [
+		["property", "fill"],
+		["operator", ":"],
+		"#9f6",
+		["punctuation", ","],
+		["property", "stroke"],
+		["operator", ":"],
+		"#333",
+		["punctuation", ","],
+		["property", "stroke-width"],
+		["operator", ":"],
+		"2px"
+	]],
+	["punctuation", ";"],
+
+	["keyword", "classDef"],
+	" orange ",
+	["style", [
+		["property", "fill"],
+		["operator", ":"],
+		"#f96",
+		["punctuation", ","],
+		["property", "stroke"],
+		["operator", ":"],
+		"#333",
+		["punctuation", ","],
+		["property", "stroke-width"],
+		["operator", ":"],
+		"4px"
+	]],
+	["punctuation", ";"],
+
+	["keyword", "class"],
+	" sq,e green\n\t",
+
+	["keyword", "class"],
+	" di orange"
+]
+
+----------------------------------------------------

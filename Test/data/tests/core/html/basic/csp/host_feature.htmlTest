@@ -1,0 +1,19 @@
+default-src trusted.com *.trusted.com;
+img-src *;
+media-src media1.com media2.com;
+script-src userscripts.example.com;
+frame-ancestors https://alice https://bob;
+frame-ancestors https://example.com/;
+
+sandbox allow-scripts;
+----------------------------------------------------
+<span class="token directive property">default-src</span> <span class="token host url">trusted.com</span> <span class="token host url"><span class="token important">*</span>.trusted.com</span><span class="token punctuation">;</span>
+<span class="token directive property">img-src</span> <span class="token host url"><span class="token important">*</span></span><span class="token punctuation">;</span>
+<span class="token directive property">media-src</span> <span class="token host url">media1.com</span> <span class="token host url">media2.com</span><span class="token punctuation">;</span>
+<span class="token directive property">script-src</span> <span class="token host url">userscripts.example.com</span><span class="token punctuation">;</span>
+<span class="token directive property">frame-ancestors</span> <span class="token host url">https://alice</span> <span class="token host url">https://bob</span><span class="token punctuation">;</span>
+<span class="token directive property">frame-ancestors</span> <span class="token host url">https://example.com/</span><span class="token punctuation">;</span>
+
+<span class="token directive property">sandbox</span> allow-scripts<span class="token punctuation">;</span>
+
+----------------------------------------------------

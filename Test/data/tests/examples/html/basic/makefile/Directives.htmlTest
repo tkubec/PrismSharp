@@ -1,0 +1,31 @@
+include foo *.mk $(bar)
+
+vpath %.c foo
+
+override define two-lines =
+foo
+$(bar)
+endef
+
+ifeq ($(CC),gcc)
+  libs=$(libs_for_gcc)
+else
+  libs=$(normal_libs)
+endif
+----------------------------------------------------
+<span class="token keyword">include</span> foo *.mk <span class="token variable">$</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span>
+
+<span class="token keyword">vpath</span> %.c foo
+
+<span class="token keyword">override</span> <span class="token keyword">define</span> two-lines <span class="token operator">=</span>
+foo
+<span class="token variable">$</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span>
+<span class="token keyword">endef</span>
+
+<span class="token keyword">ifeq</span> <span class="token punctuation">(</span><span class="token variable">$</span><span class="token punctuation">(</span>CC<span class="token punctuation">)</span>,gcc<span class="token punctuation">)</span>
+  libs<span class="token operator">=</span><span class="token variable">$</span><span class="token punctuation">(</span>libs_for_gcc<span class="token punctuation">)</span>
+<span class="token keyword">else</span>
+  libs<span class="token operator">=</span><span class="token variable">$</span><span class="token punctuation">(</span>normal_libs<span class="token punctuation">)</span>
+<span class="token keyword">endif</span>
+
+----------------------------------------------------

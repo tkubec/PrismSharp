@@ -1,0 +1,9 @@
+:foo
+:foo/bar-baz
+::foo
+----------------------------------------------------
+<span class="token symbol">:foo</span>
+<span class="token symbol">:foo/bar-baz</span>
+<span class="token symbol">::foo</span>
+
+----------------------------------------------------

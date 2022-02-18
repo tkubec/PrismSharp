@@ -1,0 +1,25 @@
+foo=  value 2
+
+foo="something" "some thing" "…"
+foo=  "something" "some thing" "…"
+foo=value 2 \
+    value 2 continued
+
+foo=value 3\
+# this line is ignored
+; this line is ignored too
+       value 3 continued
+----------------------------------------------------
+<span class="token key attr-name">foo</span><span class="token operator">=</span>  <span class="token value attr-value">value 2</span>
+
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value"><span class="token quoted">"something"</span> <span class="token quoted">"some thing"</span> <span class="token quoted">"…"</span></span>
+<span class="token key attr-name">foo</span><span class="token operator">=</span>  <span class="token value attr-value"><span class="token quoted">"something"</span> <span class="token quoted">"some thing"</span> <span class="token quoted">"…"</span></span>
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value">value 2 <span class="token punctuation">\</span>
+    value 2 continued</span>
+
+<span class="token key attr-name">foo</span><span class="token operator">=</span><span class="token value attr-value">value 3<span class="token punctuation">\</span>
+<span class="token comment"># this line is ignored</span>
+<span class="token comment">; this line is ignored too</span>
+       value 3 continued</span>
+
+----------------------------------------------------

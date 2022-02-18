@@ -1,0 +1,89 @@
+#include <Bridge.h>
+
+// pin of the piezo speaker
+int piezo = 8;
+
+/**
+ * setups
+ * runs once before everyhing else
+ */
+void setup() {
+    pinMode(piezo, OUTPUT);
+}
+
+/**
+ * loop
+ * this will run forever and do what we want
+ */
+void loop() {
+    playMelody(1);
+    delay(1000);
+}
+
+/**
+ * playMelody
+ * will play a simple melody on piezo speaker
+ */
+void playMelody(int times) {
+    int melody[] = { 4699, 4699, 3520, 4699 };
+    int duration = 6;
+
+    for( int t = 0; t < times; t++ ) {
+        for( int i = 0; i < 4; i++ ) {
+            // pass tone to selected pin
+            tone(piezoPin, melody[i], 1000/duration);
+
+            // get a bit of time between the tones
+            delay(1000 / duration * 1.30 + 80);
+
+            // and don't forget to switch of the tone afterwards
+            noTone(piezoPin);
+        }
+    }
+}
+----------------------------------------------------
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Bridge.h></span></span>
+
+<span class="token comment">// pin of the piezo speaker</span>
+<span class="token keyword">int</span> piezo <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * setups
+ * runs once before everyhing else
+ */</span>
+<span class="token keyword">void</span> <span class="token keyword">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">pinMode</span><span class="token punctuation">(</span>piezo<span class="token punctuation">,</span> <span class="token constant">OUTPUT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * loop
+ * this will run forever and do what we want
+ */</span>
+<span class="token keyword">void</span> <span class="token keyword">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">playMelody</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * playMelody
+ * will play a simple melody on piezo speaker
+ */</span>
+<span class="token keyword">void</span> <span class="token function">playMelody</span><span class="token punctuation">(</span><span class="token keyword">int</span> times<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> melody<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">4699</span><span class="token punctuation">,</span> <span class="token number">4699</span><span class="token punctuation">,</span> <span class="token number">3520</span><span class="token punctuation">,</span> <span class="token number">4699</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> duration <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> t <span class="token operator">&lt;</span> times<span class="token punctuation">;</span> t<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// pass tone to selected pin</span>
+            <span class="token function">tone</span><span class="token punctuation">(</span>piezoPin<span class="token punctuation">,</span> melody<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token operator">/</span>duration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// get a bit of time between the tones</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span> <span class="token operator">/</span> duration <span class="token operator">*</span> <span class="token number">1.30</span> <span class="token operator">+</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// and don't forget to switch of the tone afterwards</span>
+            <span class="token function">noTone</span><span class="token punctuation">(</span>piezoPin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

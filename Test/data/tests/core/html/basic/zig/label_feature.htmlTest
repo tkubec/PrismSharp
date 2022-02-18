@@ -1,0 +1,27 @@
+outer: while (true) {
+	while (true) {
+		break :outer;
+	}
+}
+
+fn eventuallyErrorSequence() anyerror!u32 {
+	return if (numbers_left == 0) error.ReachedZero else blk: {
+		numbers_left -= 1;
+		break :blk numbers_left;
+	};
+}
+----------------------------------------------------
+<span class="token label">outer</span><span class="token punctuation">:</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">break</span> <span class="token punctuation">:</span><span class="token label">outer</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">eventuallyErrorSequence</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token class-name"><span class="token builtin-type keyword">anyerror</span><span class="token operator">!</span><span class="token builtin-type keyword">u32</span></span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>numbers_left <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">error</span><span class="token punctuation">.</span>ReachedZero <span class="token keyword">else</span> <span class="token label">blk</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		numbers_left <span class="token operator">-=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span> <span class="token punctuation">:</span><span class="token label">blk</span> numbers_left<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,53 @@
+<div>
+{% if foo %}
+	<p>Foo!</p>
+{% else %}
+	<p>Not foo...</p>
+{% endif %}
+----------------------------------------------------
+[
+	["operator", "<"],
+	"div",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	" foo ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"p",
+	["operator", ">"],
+	"Foo!",
+	["operator", "<"],
+	["operator", "/"],
+	"p",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	" else ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"p",
+	["operator", ">"],
+	"Not foo",
+	["punctuation", "."],
+	["punctuation", "."],
+	["punctuation", "."],
+	["operator", "<"],
+	["operator", "/"],
+	"p",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	" endif ",
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

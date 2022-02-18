@@ -1,0 +1,21 @@
+{param visible: true /}
+{param visible:false/}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "param"],
+	["parameter", "visible"],
+	["punctuation", ":"],
+	["boolean", "true"],
+	["operator", "/"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "visible"],
+	["punctuation", ":"],
+	["boolean", "false"],
+	["delimiter", "/}"]
+]
+
+----------------------------------------------------

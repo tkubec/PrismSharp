@@ -1,0 +1,67 @@
+namespace Bell {
+  open Microsoft.Quantum.Canon;
+  open Microsoft.Quantum.Intrinsic;
+
+  operation SetQubitState(desired : Result, target : Qubit) : Unit {
+      if desired != M(target) {
+          X(target);
+      }
+  }
+
+  @EntryPoint()
+  operation TestBellState(count : Int, initial : Result) : (Int, Int) {
+
+      mutable numOnes = 0;
+      use qubit = Qubit();
+      for test in 1..count {
+          SetQubitState(initial, qubit);
+          let res = M(qubit);        
+
+          // Count the number of ones we saw:
+          if res == One {
+                set numOnes += 1;
+          }
+      }
+
+      SetQubitState(Zero, qubit); 
+
+  // Return number of times we saw a |0> and number of times we saw a |1>
+  Message("Test results (# of 0s, # of 1s): ");
+  return (count - numOnes, numOnes);
+  }
+}
+----------------------------------------------------
+<span class="token keyword">namespace</span> <span class="token class-name">Bell</span> <span class="token punctuation">{</span>
+  <span class="token keyword">open</span> <span class="token class-name">Microsoft<span class="token punctuation">.</span>Quantum<span class="token punctuation">.</span>Canon</span><span class="token punctuation">;</span>
+  <span class="token keyword">open</span> <span class="token class-name">Microsoft<span class="token punctuation">.</span>Quantum<span class="token punctuation">.</span>Intrinsic</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">operation</span> <span class="token function">SetQubitState</span><span class="token punctuation">(</span>desired <span class="token punctuation">:</span> <span class="token keyword">Result</span><span class="token punctuation">,</span> target <span class="token punctuation">:</span> <span class="token keyword">Qubit</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">Unit</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> desired <span class="token operator">!=</span> <span class="token function">M</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">X</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  @<span class="token function">EntryPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">operation</span> <span class="token function">TestBellState</span><span class="token punctuation">(</span>count <span class="token punctuation">:</span> <span class="token keyword">Int</span><span class="token punctuation">,</span> initial <span class="token punctuation">:</span> <span class="token keyword">Result</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token keyword">Int</span><span class="token punctuation">,</span> <span class="token keyword">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+      <span class="token keyword">mutable</span> numOnes <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">use</span> qubit <span class="token operator">=</span> <span class="token keyword">Qubit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> test <span class="token keyword">in</span> <span class="token number">1</span><span class="token range operator">..</span>count <span class="token punctuation">{</span>
+          <span class="token function">SetQubitState</span><span class="token punctuation">(</span>initial<span class="token punctuation">,</span> qubit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token function">M</span><span class="token punctuation">(</span>qubit<span class="token punctuation">)</span><span class="token punctuation">;</span>        
+
+          <span class="token comment">// Count the number of ones we saw:</span>
+          <span class="token keyword">if</span> res <span class="token operator">==</span> <span class="token keyword">One</span> <span class="token punctuation">{</span>
+                <span class="token keyword">set</span> numOnes <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token function">SetQubitState</span><span class="token punctuation">(</span><span class="token keyword">Zero</span><span class="token punctuation">,</span> qubit<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+  <span class="token comment">// Return number of times we saw a |0> and number of times we saw a |1></span>
+  <span class="token function">Message</span><span class="token punctuation">(</span><span class="token string">"Test results (# of 0s, # of 1s): "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>count <span class="token operator">-</span> numOnes<span class="token punctuation">,</span> numOnes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,99 @@
+submodule execd-dns {
+
+	belongs-to execd { prefix execd; }
+
+	import inet-types { prefix inet; }
+
+	include execd-types;
+
+	description
+		"The 'dns' component provides support for configuring the DNS resolver.
+
+		 The 'domain' keyword of /etc/resolv.conf is not supported, since
+		 it is equivalent to 'search' with a single domain. I.e. in terms
+		 of the data model, the domains are always configured as 'search'
+		 elements, even if there is only one. The set of available options
+		 has been limited to those that are generally available across
+		 different resolver implementations, and generally useful.";
+
+	revision "2008-11-04" {
+		description "draft-ietf-netmod-yang-02 compatible.";
+	}
+	revision "2007-08-29" {
+		description "Syntax fixes after pyang validation.";
+	}
+	revision "2007-06-08" {
+		description "Initial revision.";
+	}
+
+	grouping dns {
+		list search {
+			key name;
+			max-elements 3;
+			leaf name      { type int32; }
+			leaf domain    { type inet:host; }
+		}
+		list server {
+			key address;
+			max-elements 3;
+			ordered-by user;
+			leaf address   { type inet:ip-address; }
+		}
+		container options {
+			leaf ndots    { type uint8; }
+			leaf timeout  { type uint8; }
+			leaf attempts { type uint8; }
+		}
+	}
+}
+----------------------------------------------------
+<span class="token keyword">submodule</span> execd-dns <span class="token punctuation">{</span>
+
+	<span class="token keyword">belongs-to</span> execd <span class="token punctuation">{</span> <span class="token keyword">prefix</span> execd<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+	<span class="token keyword">import</span> inet-types <span class="token punctuation">{</span> <span class="token keyword">prefix</span> inet<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+	<span class="token keyword">include</span> execd-types<span class="token punctuation">;</span>
+
+	<span class="token keyword">description</span>
+		<span class="token string">"The 'dns' component provides support for configuring the DNS resolver.
+
+		 The 'domain' keyword of /etc/resolv.conf is not supported, since
+		 it is equivalent to 'search' with a single domain. I.e. in terms
+		 of the data model, the domains are always configured as 'search'
+		 elements, even if there is only one. The set of available options
+		 has been limited to those that are generally available across
+		 different resolver implementations, and generally useful."</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">revision</span> <span class="token string">"2008-11-04"</span> <span class="token punctuation">{</span>
+		<span class="token keyword">description</span> <span class="token string">"draft-ietf-netmod-yang-02 compatible."</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">revision</span> <span class="token string">"2007-08-29"</span> <span class="token punctuation">{</span>
+		<span class="token keyword">description</span> <span class="token string">"Syntax fixes after pyang validation."</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">revision</span> <span class="token string">"2007-06-08"</span> <span class="token punctuation">{</span>
+		<span class="token keyword">description</span> <span class="token string">"Initial revision."</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">grouping</span> dns <span class="token punctuation">{</span>
+		<span class="token keyword">list</span> search <span class="token punctuation">{</span>
+			<span class="token keyword">key</span> name<span class="token punctuation">;</span>
+			<span class="token keyword">max-elements</span> 3<span class="token punctuation">;</span>
+			<span class="token keyword">leaf</span> name      <span class="token punctuation">{</span> <span class="token keyword">type</span> int32<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+			<span class="token keyword">leaf</span> domain    <span class="token punctuation">{</span> <span class="token keyword">type</span> <span class="token namespace">inet</span><span class="token punctuation">:</span>host<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">list</span> server <span class="token punctuation">{</span>
+			<span class="token keyword">key</span> address<span class="token punctuation">;</span>
+			<span class="token keyword">max-elements</span> 3<span class="token punctuation">;</span>
+			<span class="token keyword">ordered-by</span> user<span class="token punctuation">;</span>
+			<span class="token keyword">leaf</span> address   <span class="token punctuation">{</span> <span class="token keyword">type</span> <span class="token namespace">inet</span><span class="token punctuation">:</span>ip-address<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">container</span> options <span class="token punctuation">{</span>
+			<span class="token keyword">leaf</span> ndots    <span class="token punctuation">{</span> <span class="token keyword">type</span> uint8<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+			<span class="token keyword">leaf</span> timeout  <span class="token punctuation">{</span> <span class="token keyword">type</span> uint8<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+			<span class="token keyword">leaf</span> attempts <span class="token punctuation">{</span> <span class="token keyword">type</span> uint8<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

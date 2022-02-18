@@ -1,0 +1,19 @@
+\begin{verbatim*}
+Foo bar
+\end{verbatim*}
+
+\begin{lstlisting}
+Foo bar
+baz
+\end{lstlisting}
+----------------------------------------------------
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">verbatim*</span><span class="token punctuation">}</span><span class="token cdata">
+Foo bar
+</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">verbatim*</span><span class="token punctuation">}</span>
+
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">lstlisting</span><span class="token punctuation">}</span><span class="token cdata">
+Foo bar
+baz
+</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">lstlisting</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

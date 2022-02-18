@@ -1,0 +1,21 @@
+script.
+ alert(42);
+
+.
+	script(type='text/javascript').
+
+		if(foo) {
+			bar(1 + 5);
+		}
+----------------------------------------------------
+<span class="token tag">script</span><span class="token punctuation">.</span><span class="token multiline-script">
+ <span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span>
+<span class="token punctuation">.</span>
+	<span class="token tag">script<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">'text/javascript'</span></span><span class="token punctuation">)</span></span></span><span class="token punctuation">.</span><span class="token multiline-script">
+
+		<span class="token keyword">if</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token function">bar</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span></span>
+
+----------------------------------------------------

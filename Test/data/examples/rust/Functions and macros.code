@@ -1,0 +1,4 @@
+println!("x is {}", x);
+fn next_two(x: i32) -> (i32, i32) { (x + 1, x + 2) }
+next_two(5);
+vec![1, 2, 3];

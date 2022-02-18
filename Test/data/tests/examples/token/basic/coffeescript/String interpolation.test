@@ -1,0 +1,13 @@
+"String #{interpolation} is supported"
+'This works #{only} between double-quoted strings'
+----------------------------------------------------
+[
+	["string", [
+		"\"String ",
+		["interpolation", "#{interpolation}"],
+		" is supported\""
+	]],
+	["string", "'This works #{only} between double-quoted strings'"]
+]
+
+----------------------------------------------------

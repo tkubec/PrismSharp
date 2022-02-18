@@ -1,0 +1,41 @@
+{% for i in (3..5) %}
+  {{ i }}
+{% endfor %}
+
+{% assign num = 4 %}
+{% for i in (1..num) %}
+  {{ i }}
+{% endfor %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["keyword", "for"],
+	" i ",
+	["keyword", "in"],
+	["punctuation", "("],
+	["number", "3"],
+	["range", ".."],
+	["number", "5"],
+	["punctuation", ")"],
+	" %}\n  {{ i }}\n{% ",
+	["keyword", "endfor"],
+	" %}\n\n{% ",
+	["keyword", "assign"],
+	" num ",
+	["operator", "="],
+	["number", "4"],
+	" %}\n{% ",
+	["keyword", "for"],
+	" i ",
+	["keyword", "in"],
+	["punctuation", "("],
+	["number", "1"],
+	["range", ".."],
+	"num",
+	["punctuation", ")"],
+	" %}\n  {{ i }}\n{% ",
+	["keyword", "endfor"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

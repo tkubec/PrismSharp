@@ -1,0 +1,13 @@
+b = [SELECT Price__c FROM Book__c WHERE Id =:b.Id];
+return [SELECT Name FROM Contact];
+
+// don't capture array indexing
+a[0].Name = 'Acme';
+----------------------------------------------------
+b <span class="token operator">=</span> <span class="token sql language-sql"><span class="token punctuation">[</span><span class="token keyword">SELECT</span> Price__c <span class="token keyword">FROM</span> Book__c <span class="token keyword">WHERE</span> Id <span class="token operator">=</span>:b<span class="token punctuation">.</span>Id<span class="token punctuation">]</span></span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> <span class="token sql language-sql"><span class="token punctuation">[</span><span class="token keyword">SELECT</span> Name <span class="token keyword">FROM</span> Contact<span class="token punctuation">]</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// don't capture array indexing</span>
+a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>Name <span class="token operator">=</span> <span class="token string">'Acme'</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

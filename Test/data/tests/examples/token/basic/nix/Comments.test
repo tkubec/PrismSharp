@@ -1,0 +1,12 @@
+#
+# Single line comment
+/* Multi-line
+comment */
+----------------------------------------------------
+[
+	["comment", "#"],
+	["comment", "# Single line comment"],
+	["comment", "/* Multi-line\ncomment */"]
+]
+
+----------------------------------------------------

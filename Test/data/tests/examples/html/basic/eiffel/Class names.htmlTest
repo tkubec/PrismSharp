@@ -1,0 +1,19 @@
+deferred class
+    A [G]
+
+feature
+    items: G
+        deferred  end
+
+end
+----------------------------------------------------
+<span class="token keyword">deferred</span> <span class="token keyword">class</span>
+    <span class="token class-name">A</span> <span class="token punctuation">[</span><span class="token class-name">G</span><span class="token punctuation">]</span>
+
+<span class="token keyword">feature</span>
+    items<span class="token punctuation">:</span> <span class="token class-name">G</span>
+        <span class="token keyword">deferred</span>  <span class="token keyword">end</span>
+
+<span class="token keyword">end</span>
+
+----------------------------------------------------

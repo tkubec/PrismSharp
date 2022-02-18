@@ -1,0 +1,19 @@
+import { infer, inference, infer } from 'module'
+//              ~~~~~ ✅
+
+import { type, typeDefs, type } from 'module'
+//             ~~~~ ✅
+
+import { const, constants, const } from 'module'
+//              ~~~~~ ✅
+----------------------------------------------------
+<span class="token keyword">import</span> <span class="token punctuation">{</span> infer<span class="token punctuation">,</span> inference<span class="token punctuation">,</span> infer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'module'</span>
+<span class="token comment">//              ~~~~~ ✅</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> type<span class="token punctuation">,</span> typeDefs<span class="token punctuation">,</span> type <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'module'</span>
+<span class="token comment">//             ~~~~ ✅</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token keyword">const</span><span class="token punctuation">,</span> constants<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'module'</span>
+<span class="token comment">//              ~~~~~ ✅</span>
+
+----------------------------------------------------

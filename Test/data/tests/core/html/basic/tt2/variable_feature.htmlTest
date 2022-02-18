@@ -1,0 +1,29 @@
+[% 
+	foo
+	foo.bar
+	foo.2
+	foo.1.bar.2.baz.3
+	foo.$index
+	foo
+		.
+			bar
+	world
+	hands
+	knots
+%]
+----------------------------------------------------
+<span class="token delimiter punctuation">[%</span> 
+	<span class="token variable">foo</span>
+	<span class="token variable">foo.bar</span>
+	<span class="token variable">foo.2</span>
+	<span class="token variable">foo.1.bar.2.baz.3</span>
+	<span class="token variable">foo.$index</span>
+	<span class="token variable">foo
+		.
+			bar</span>
+	<span class="token variable">world</span>
+	<span class="token variable">hands</span>
+	<span class="token variable">knots</span>
+<span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

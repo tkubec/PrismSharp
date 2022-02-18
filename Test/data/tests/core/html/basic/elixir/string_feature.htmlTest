@@ -1,0 +1,85 @@
+~s/foobar/
+~s/foo#{42}bar/
+~S|foobar|
+~c"foobar"
+~c"foo#{42}bar"
+~C'foobar'
+~w(foobar)c
+~w(foo#{42}bar)s
+~W[foobar]a
+~s{foobar}
+~s{foo#{42}bar}
+~S<foobar>
+
+"""
+Foo bar
+"""
+
+'''
+Foo bar
+'''
+
+~S"""
+Foo bar
+"""
+
+~c"""
+Foo bar
+"""
+
+~w"""
+Foo bar
+"""
+
+""
+"foo"
+"fo\"o\
+#{42}bar"
+''
+'foo'
+'fo\'o\
+bar'
+----------------------------------------------------
+<span class="token string">~s/foobar/</span>
+<span class="token string">~s/foo<span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token number">42</span><span class="token delimiter punctuation">}</span></span>bar/</span>
+<span class="token string">~S|foobar|</span>
+<span class="token string">~c"foobar"</span>
+<span class="token string">~c"foo<span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token number">42</span><span class="token delimiter punctuation">}</span></span>bar"</span>
+<span class="token string">~C'foobar'</span>
+<span class="token string">~w(foobar)c</span>
+<span class="token string">~w(foo<span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token number">42</span><span class="token delimiter punctuation">}</span></span>bar)s</span>
+<span class="token string">~W[foobar]a</span>
+<span class="token string">~s{foobar}</span>
+<span class="token string">~s{foo<span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token number">42</span><span class="token delimiter punctuation">}</span></span>bar}</span>
+<span class="token string">~S&lt;foobar></span>
+
+<span class="token string">"""
+Foo bar
+"""</span>
+
+<span class="token string">'''
+Foo bar
+'''</span>
+
+<span class="token string">~S"""
+Foo bar
+"""</span>
+
+<span class="token string">~c"""
+Foo bar
+"""</span>
+
+<span class="token string">~w"""
+Foo bar
+"""</span>
+
+<span class="token string">""</span>
+<span class="token string">"foo"</span>
+<span class="token string">"fo\"o\
+<span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token number">42</span><span class="token delimiter punctuation">}</span></span>bar"</span>
+<span class="token string">''</span>
+<span class="token string">'foo'</span>
+<span class="token string">'fo\'o\
+bar'</span>
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+m/foo/ s/foo/bar/
+m zfooz s zfoozbarz
+qr(foo) m{foo} s(foo)(bar) s{foo}{bar}
+m[foo] m<foo> tr[foo][bar] s<foo><bar>
+/foo/i
+----------------------------------------------------
+<span class="token regex">m/foo/</span> <span class="token regex">s/foo/bar/</span>
+<span class="token regex">m zfooz</span> <span class="token regex">s zfoozbarz</span>
+<span class="token regex">qr(foo)</span> <span class="token regex">m{foo}</span> <span class="token regex">s(foo)(bar)</span> <span class="token regex">s{foo}{bar}</span>
+<span class="token regex">m[foo]</span> <span class="token regex">m&lt;foo></span> <span class="token regex">tr[foo][bar]</span> <span class="token regex">s&lt;foo>&lt;bar></span>
+<span class="token regex">/foo/i</span>
+
+----------------------------------------------------

@@ -1,0 +1,99 @@
+%% flow chart
+
+--- ---- -----
+--> ---> ---->
+<-- <--- <----
+=== ==== =====
+==> ===> ====>
+<== <=== <====
+-.- -..- -...-
+-.-> -..-> -...->
+<-.- <-..- <-...-
+--x ---x ----x
+--x -.-x -..-x
+x-- x--- x----
+x-- x-.- x-..-
+--o ---o ----o
+--o -.-o -..-o
+o-- o--- o----
+o-- o-.- o-..-
+
+<--> <----> <-..-> <====>
+x--x x----x x-..-x x====x
+o--o o----o o-..-o o====o
+
+%% sequence diagram
+
+-> --> ->> -->>
+<- <-- <<- <<--
+-x --x -) --)
+x- x-- (- (--
+
+%% class diagram
+
+<|-- *-- o-- <-- <.. <|..
+--|> --* --o --> ..> ..|>
+-- ..
+
+%% ER diagram
+
+|o--o|  |o..o|
+||--||  ||..||
+}o--o{  }o..o{
+}|--|{  }|..|{
+
+|o--o|  |o..o|
+||--o{  ||..o{
+}o--|{  }o..|{
+}|--||  }|..||
+----------------------------------------------------
+<span class="token comment">%% flow chart</span>
+
+<span class="token arrow operator">---</span> <span class="token arrow operator">----</span> <span class="token arrow operator">-----</span>
+<span class="token arrow operator">--></span> <span class="token arrow operator">---></span> <span class="token arrow operator">----></span>
+<span class="token arrow operator">&lt;--</span> <span class="token arrow operator">&lt;---</span> <span class="token arrow operator">&lt;----</span>
+<span class="token arrow operator">===</span> <span class="token arrow operator">====</span> <span class="token arrow operator">=====</span>
+<span class="token arrow operator">==></span> <span class="token arrow operator">===></span> <span class="token arrow operator">====></span>
+<span class="token arrow operator">&lt;==</span> <span class="token arrow operator">&lt;===</span> <span class="token arrow operator">&lt;====</span>
+<span class="token arrow operator">-.-</span> <span class="token arrow operator">-..-</span> <span class="token arrow operator">-...-</span>
+<span class="token arrow operator">-.-></span> <span class="token arrow operator">-..-></span> <span class="token arrow operator">-...-></span>
+<span class="token arrow operator">&lt;-.-</span> <span class="token arrow operator">&lt;-..-</span> <span class="token arrow operator">&lt;-...-</span>
+<span class="token arrow operator">--x</span> <span class="token arrow operator">---x</span> <span class="token arrow operator">----x</span>
+<span class="token arrow operator">--x</span> <span class="token arrow operator">-.-x</span> <span class="token arrow operator">-..-x</span>
+<span class="token arrow operator">x--</span> <span class="token arrow operator">x---</span> <span class="token arrow operator">x----</span>
+<span class="token arrow operator">x--</span> <span class="token arrow operator">x-.-</span> <span class="token arrow operator">x-..-</span>
+<span class="token arrow operator">--o</span> <span class="token arrow operator">---o</span> <span class="token arrow operator">----o</span>
+<span class="token arrow operator">--o</span> <span class="token arrow operator">-.-o</span> <span class="token arrow operator">-..-o</span>
+<span class="token arrow operator">o--</span> <span class="token arrow operator">o---</span> <span class="token arrow operator">o----</span>
+<span class="token arrow operator">o--</span> <span class="token arrow operator">o-.-</span> <span class="token arrow operator">o-..-</span>
+
+<span class="token arrow operator">&lt;--></span> <span class="token arrow operator">&lt;----></span> <span class="token arrow operator">&lt;-..-></span> <span class="token arrow operator">&lt;====></span>
+<span class="token arrow operator">x--x</span> <span class="token arrow operator">x----x</span> <span class="token arrow operator">x-..-x</span> <span class="token arrow operator">x====x</span>
+<span class="token arrow operator">o--o</span> <span class="token arrow operator">o----o</span> <span class="token arrow operator">o-..-o</span> <span class="token arrow operator">o====o</span>
+
+<span class="token comment">%% sequence diagram</span>
+
+<span class="token arrow operator">-></span> <span class="token arrow operator">--></span> <span class="token arrow operator">->></span> <span class="token arrow operator">-->></span>
+<span class="token arrow operator">&lt;-</span> <span class="token arrow operator">&lt;--</span> <span class="token arrow operator">&lt;&lt;-</span> <span class="token arrow operator">&lt;&lt;--</span>
+<span class="token arrow operator">-x</span> <span class="token arrow operator">--x</span> <span class="token arrow operator">-)</span> <span class="token arrow operator">--)</span>
+<span class="token arrow operator">x-</span> <span class="token arrow operator">x--</span> <span class="token arrow operator">(-</span> <span class="token arrow operator">(--</span>
+
+<span class="token comment">%% class diagram</span>
+
+<span class="token arrow operator">&lt;|--</span> <span class="token arrow operator">*--</span> <span class="token arrow operator">o--</span> <span class="token arrow operator">&lt;--</span> <span class="token arrow operator">&lt;..</span> <span class="token arrow operator">&lt;|..</span>
+<span class="token arrow operator">--|></span> <span class="token arrow operator">--*</span> <span class="token arrow operator">--o</span> <span class="token arrow operator">--></span> <span class="token arrow operator">..></span> <span class="token arrow operator">..|></span>
+<span class="token arrow operator">--</span> <span class="token arrow operator">..</span>
+
+<span class="token comment">%% ER diagram</span>
+
+<span class="token arrow operator">|o--o|</span>  <span class="token arrow operator">|o..o|</span>
+<span class="token arrow operator">||--||</span>  <span class="token arrow operator">||..||</span>
+<span class="token arrow operator">}o--o{</span>  <span class="token arrow operator">}o..o{</span>
+<span class="token arrow operator">}|--|{</span>  <span class="token arrow operator">}|..|{</span>
+
+<span class="token arrow operator">|o--o|</span>  <span class="token arrow operator">|o..o|</span>
+<span class="token arrow operator">||--o{</span>  <span class="token arrow operator">||..o{</span>
+<span class="token arrow operator">}o--|{</span>  <span class="token arrow operator">}o..|{</span>
+<span class="token arrow operator">}|--||</span>  <span class="token arrow operator">}|..||</span>
+
+----------------------------------------------------

@@ -1,0 +1,30 @@
+# Immutable constants
+const snot = "fleek";
+
+# Mutable variables
+let badger = "flook";
+----------------------------------------------------
+[
+	["comment", "# Immutable constants"],
+
+	["keyword", "const"],
+	" s",
+	["operator", "not"],
+	["operator", "="],
+	["interpolated-string", [
+		["string", "\"fleek\""]
+	]],
+	["punctuation", ";"],
+
+	["comment", "# Mutable variables"],
+
+	["keyword", "let"],
+	" badger ",
+	["operator", "="],
+	["interpolated-string", [
+		["string", "\"flook\""]
+	]],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

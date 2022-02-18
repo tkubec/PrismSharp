@@ -1,0 +1,17 @@
+---
+foo: >
+	Foo bar
+	baz
+bar: |
+	Foo bar
+	baz
+----------------------------------------------------
+<span class="token punctuation">---</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token punctuation">></span><span class="token scalar string">
+	Foo bar
+	baz</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+	Foo bar
+	baz</span>
+
+----------------------------------------------------

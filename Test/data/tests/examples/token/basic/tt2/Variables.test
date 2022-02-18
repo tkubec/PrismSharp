@@ -1,0 +1,52 @@
+[% text %]
+[% article.title %]
+[%= eat.whitespace.left %]
+[% eat.whitespace.right =%]
+[%= eat.whitespace.both =%]
+[% object.method() %]
+----------------------------------------------------
+[
+	["delimiter", "[%"],
+	["variable", "text"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "article.title"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"%",
+	["operator", "="],
+	["variable", "eat.whitespace.left"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "eat.whitespace.right"],
+	["operator", "="],
+	"%",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"%",
+	["operator", "="],
+	["variable", "eat.whitespace.both"],
+	["operator", "="],
+	"%",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "object"],
+	".",
+	["function", "method"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["delimiter", "%]"]
+]
+
+----------------------------------------------------

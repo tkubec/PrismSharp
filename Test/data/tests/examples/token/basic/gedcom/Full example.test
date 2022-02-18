@@ -1,0 +1,248 @@
+0 HEAD
+1 CHAR ASCII
+1 SOUR ID_OF_CREATING_FILE
+1 GEDC
+2 VERS 5.5
+2 FORM Lineage-Linked
+1 SUBM @SUBMITTER@
+0 @SUBMITTER@ SUBM
+1 NAME /Submitter/
+1 ADDR Submitters address
+2 CONT address continued here
+0 @FATHER@ INDI
+1 NAME /Father/
+1 SEX M
+1 BIRT
+2 PLAC birth place
+2 DATE 1 JAN 1899
+1 DEAT
+2 PLAC death place
+2 DATE 31 DEC 1990
+1 FAMS @FAMILY@
+0 @MOTHER@ INDI
+1 NAME /Mother/
+1 SEX F
+1 BIRT
+2 PLAC birth place
+2 DATE 1 JAN 1899
+1 DEAT
+2 PLAC death place
+2 DATE 31 DEC 1990
+1 FAMS @FAMILY@
+0 @CHILD@ INDI
+1 NAME /Child/
+1 BIRT
+2 PLAC birth place
+2 DATE 31 JUL 1950
+1 DEAT
+2 PLAC death place
+2 DATE 29 FEB 2000
+1 FAMC @FAMILY@
+0 @FAMILY@ FAM
+1 MARR
+2 PLAC marriage place
+2 DATE 1 APR 1950
+1 HUSB @FATHER@
+1 WIFE @MOTHER@
+1 CHIL @CHILD@
+0 TRLR
+----------------------------------------------------
+[
+	["level", "0"],
+	["tag", "HEAD"],
+
+	["level", "1"],
+	["tag", "CHAR"],
+	["line-value", ["ASCII"]],
+
+	["level", "1"],
+	["tag", "SOUR"],
+	["line-value", ["ID_OF_CREATING_FILE"]],
+
+	["level", "1"],
+	["tag", "GEDC"],
+
+	["level", "2"],
+	["tag", "VERS"],
+	["line-value", ["5.5"]],
+
+	["level", "2"],
+	["tag", "FORM"],
+	["line-value", ["Lineage-Linked"]],
+
+	["level", "1"],
+	["tag", "SUBM"],
+	["line-value", [
+		["pointer", "@SUBMITTER@"]
+	]],
+
+	["level", "0"],
+	["pointer", "@SUBMITTER@"],
+	["tag", "SUBM"],
+
+	["level", "1"],
+	["tag", "NAME"],
+	["line-value", ["/Submitter/"]],
+
+	["level", "1"],
+	["tag", "ADDR"],
+	["line-value", ["Submitters address"]],
+
+	["level", "2"],
+	["tag", "CONT"],
+	["line-value", ["address continued here"]],
+
+	["level", "0"],
+	["pointer", "@FATHER@"],
+	["tag", "INDI"],
+
+	["level", "1"],
+	["tag", "NAME"],
+	["line-value", ["/Father/"]],
+
+	["level", "1"],
+	["tag", "SEX"],
+	["line-value", ["M"]],
+
+	["level", "1"],
+	["tag", "BIRT"],
+
+	["level", "2"],
+	["tag", "PLAC"],
+	["line-value", ["birth place"]],
+
+	["level", "2"],
+	["tag", "DATE"],
+	["line-value", ["1 JAN 1899"]],
+
+	["level", "1"],
+	["tag", "DEAT"],
+
+	["level", "2"],
+	["tag", "PLAC"],
+	["line-value", ["death place"]],
+
+	["level", "2"],
+	["tag", "DATE"],
+	["line-value", ["31 DEC 1990"]],
+
+	["level", "1"],
+	["tag", "FAMS"],
+	["line-value", [
+		["pointer", "@FAMILY@"]
+	]],
+
+	["level", "0"],
+	["pointer", "@MOTHER@"],
+	["tag", "INDI"],
+
+	["level", "1"],
+	["tag", "NAME"],
+	["line-value", ["/Mother/"]],
+
+	["level", "1"],
+	["tag", "SEX"],
+	["line-value", ["F"]],
+
+	["level", "1"],
+	["tag", "BIRT"],
+
+	["level", "2"],
+	["tag", "PLAC"],
+	["line-value", ["birth place"]],
+
+	["level", "2"],
+	["tag", "DATE"],
+	["line-value", ["1 JAN 1899"]],
+
+	["level", "1"],
+	["tag", "DEAT"],
+
+	["level", "2"],
+	["tag", "PLAC"],
+	["line-value", ["death place"]],
+
+	["level", "2"],
+	["tag", "DATE"],
+	["line-value", ["31 DEC 1990"]],
+
+	["level", "1"],
+	["tag", "FAMS"],
+	["line-value", [
+		["pointer", "@FAMILY@"]
+	]],
+
+	["level", "0"],
+	["pointer", "@CHILD@"],
+	["tag", "INDI"],
+
+	["level", "1"],
+	["tag", "NAME"],
+	["line-value", ["/Child/"]],
+
+	["level", "1"],
+	["tag", "BIRT"],
+
+	["level", "2"],
+	["tag", "PLAC"],
+	["line-value", ["birth place"]],
+
+	["level", "2"],
+	["tag", "DATE"],
+	["line-value", ["31 JUL 1950"]],
+
+	["level", "1"],
+	["tag", "DEAT"],
+
+	["level", "2"],
+	["tag", "PLAC"],
+	["line-value", ["death place"]],
+
+	["level", "2"],
+	["tag", "DATE"],
+	["line-value", ["29 FEB 2000"]],
+
+	["level", "1"],
+	["tag", "FAMC"],
+	["line-value", [
+		["pointer", "@FAMILY@"]
+	]],
+
+	["level", "0"],
+	["pointer", "@FAMILY@"],
+	["tag", "FAM"],
+
+	["level", "1"],
+	["tag", "MARR"],
+
+	["level", "2"],
+	["tag", "PLAC"],
+	["line-value", ["marriage place"]],
+
+	["level", "2"],
+	["tag", "DATE"],
+	["line-value", ["1 APR 1950"]],
+
+	["level", "1"],
+	["tag", "HUSB"],
+	["line-value", [
+		["pointer", "@FATHER@"]
+	]],
+
+	["level", "1"],
+	["tag", "WIFE"],
+	["line-value", [
+		["pointer", "@MOTHER@"]
+	]],
+
+	["level", "1"],
+	["tag", "CHIL"],
+	["line-value", [
+		["pointer", "@CHILD@"]
+	]],
+
+	["level", "0"],
+	["tag", "TRLR"]
+]
+
+----------------------------------------------------

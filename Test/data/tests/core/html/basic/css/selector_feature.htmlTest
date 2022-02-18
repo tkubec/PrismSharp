@@ -1,0 +1,27 @@
+foo{
+
+foo + bar {
+
+foo:first-child:hover {
+
+* {
+
+foo,
+bar{
+
+[foo="{\"}"] {
+----------------------------------------------------
+<span class="token selector">foo</span><span class="token punctuation">{</span>
+
+<span class="token selector">foo + bar</span> <span class="token punctuation">{</span>
+
+<span class="token selector">foo:first-child:hover</span> <span class="token punctuation">{</span>
+
+<span class="token selector">*</span> <span class="token punctuation">{</span>
+
+<span class="token selector">foo,
+bar</span><span class="token punctuation">{</span>
+
+<span class="token selector">[foo="{\"}"]</span> <span class="token punctuation">{</span>
+
+----------------------------------------------------

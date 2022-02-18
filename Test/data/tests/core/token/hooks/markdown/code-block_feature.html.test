@@ -1,0 +1,23 @@
+```html
+<a href="#foo">Click me!</a> &amp;
+```
+
+```unknownLanguage
+<a href="#foo">Click me!</a> &amp;
+```
+----------------------------------------------------
+[
+	["code", [
+		["punctuation", "```"], ["code-language", "html"],
+		["code-block", "<a href=\"#foo\">Click me!</a> &amp;"],
+		["punctuation", "```"]
+	]],
+
+	["code", [
+		["punctuation", "```"], ["code-language", "unknownLanguage"],
+		["code-block", "<a href=\"#foo\">Click me!</a> &amp;"],
+		["punctuation", "```"]
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,5 @@
+let someString = "Some string literal value"
+var emptyString = ""
+// String interpolation
+let multiplier = 3
+"\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"

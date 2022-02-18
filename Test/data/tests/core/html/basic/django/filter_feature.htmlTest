@@ -1,0 +1,25 @@
+{{ foo|cut|bar:5 }}
+{{ foo|bar('baz') }}
+
+{{ my_date|date:"Y-m-d" }}
+{{ value|truncatechars:9 }}
+{{ name|striptags|title }}
+{{ listx|join(', ') }}
+{{ "%s - %s"|format("Hello?", "Foo!") }}
+{{ users|join(', ', attribute='username') }}
+{{ mytext|urlize(40, true) }}
+{{ [1, 2, -3]|max }}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> <span class="token variable">foo</span><span class="token operator">|</span><span class="token filter function">cut</span><span class="token operator">|</span><span class="token filter function">bar</span><span class="token punctuation">:</span><span class="token number">5</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">foo</span><span class="token operator">|</span><span class="token filter function">bar</span><span class="token punctuation">(</span><span class="token string">'baz'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">my_date</span><span class="token operator">|</span><span class="token filter function">date</span><span class="token punctuation">:</span><span class="token string">"Y-m-d"</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">value</span><span class="token operator">|</span><span class="token filter function">truncatechars</span><span class="token punctuation">:</span><span class="token number">9</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">name</span><span class="token operator">|</span><span class="token filter function">striptags</span><span class="token operator">|</span><span class="token filter function">title</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">listx</span><span class="token operator">|</span><span class="token filter function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token string">"%s - %s"</span><span class="token operator">|</span><span class="token filter function">format</span><span class="token punctuation">(</span><span class="token string">"Hello?"</span><span class="token punctuation">,</span> <span class="token string">"Foo!"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">users</span><span class="token operator">|</span><span class="token filter function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">,</span> <span class="token variable">attribute</span><span class="token operator">=</span><span class="token string">'username'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">mytext</span><span class="token operator">|</span><span class="token filter function">urlize</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">|</span><span class="token filter function">max</span> <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

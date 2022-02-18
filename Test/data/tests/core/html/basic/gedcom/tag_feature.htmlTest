@@ -1,0 +1,13 @@
+0 HEAD
+1 foo_bar
+2 _
+3 @pointer@ _Sometag42
+4 247
+----------------------------------------------------
+<span class="token level number">0</span> <span class="token tag string">HEAD</span>
+<span class="token level number">1</span> <span class="token tag string">foo_bar</span>
+<span class="token level number">2</span> <span class="token tag string">_</span>
+<span class="token level number">3</span> <span class="token pointer variable">@pointer@</span> <span class="token tag string">_Sometag42</span>
+<span class="token level number">4</span> <span class="token tag string">247</span>
+
+----------------------------------------------------

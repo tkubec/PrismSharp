@@ -1,0 +1,15 @@
+// Single line comment
+/// Documentation single line comment
+/* Block comment
+on several lines */
+/** Multi-line
+doc comment */
+----------------------------------------------------
+[
+	["comment", "// Single line comment"],
+	["comment", "/// Documentation single line comment"],
+	["comment", "/* Block comment\non several lines */"],
+	["comment", "/** Multi-line\ndoc comment */"]
+]
+
+----------------------------------------------------

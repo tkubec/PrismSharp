@@ -1,0 +1,19 @@
+'This is a pascal string'
+''
+'a'
+^G
+#7
+#$f4
+'A tabulator character: '#9' is easy to embed'
+----------------------------------------------------
+[
+	["string", "'This is a pascal string'"],
+	["string", "''"],
+	["string", "'a'"],
+	["string", "^G"],
+	["string", "#7"],
+	["string", "#$f4"],
+	["string", "'A tabulator character: '#9' is easy to embed'"]
+]
+
+----------------------------------------------------

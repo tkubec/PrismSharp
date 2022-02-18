@@ -1,0 +1,69 @@
+@
+@ cmdWithWhiteSpaceBefore
+@cmdWithTrailingSemicolon:
+@paramlessCmd
+ @cmdWithNoParamsAndWhitespaceBefore
+	@cmdWithNoParamsAndTabBefore
+				 @cmdWithNoParamsAndTabAndSpacesBefore
+						 @cmdWithNoParamsWrappedInWhitespaces
+@cmdWithNoParamWithTrailingSpace 
+@cmdWithNoParamWithMultipleTrailingSpaces    
+@cmdWithNoParamWithTrailingTab	
+@cmdWithNoParamWithTrailingTabAndSpaces				
+@cmdWithPositiveIntParam 1
+@cmdWithNegativeIntParam -1
+@cmdWithPositiveFloatParamAndNoFraction 1.
+@cmdWithPositiveFloatParamAndFraction 1.10
+@cmdWithPositiveHegativeFloatParamAndNoFraction -1.
+@cmdWithPositiveHegativeFloatParamAndFraction -1.10
+@cmdWithBoolParamAndPositive true
+@cmdWithBoolParamAndNegative false
+@cmdWithStringParam hello$co\:mma"d"
+@cmdWithQuotedStringNamelessParameter "hello grizzly"
+@cmdWithQuotedStringNamelessParameterWithEscapedQuotesInTheValue "hello \"grizzly\""
+@set choice="moe"
+@command hello.grizzly
+@command one,two,three
+@command 1,2,3
+@command true,false,true
+@command hi:grizzly
+@command hi:1
+@command hi:true
+@command 1 in:forest danger:true
+@char 1 pos:0.25,-0.75 look:right
+----------------------------------------------------
+@
+@ cmdWithWhiteSpaceBefore
+@cmdWithTrailingSemicolon:
+<span class="token command function"><span class="token command-name">@paramlessCmd</span></span>
+ <span class="token command function"><span class="token command-name">@cmdWithNoParamsAndWhitespaceBefore</span></span>
+	<span class="token command function"><span class="token command-name">@cmdWithNoParamsAndTabBefore</span></span>
+				 <span class="token command function"><span class="token command-name">@cmdWithNoParamsAndTabAndSpacesBefore</span></span>
+						 <span class="token command function"><span class="token command-name">@cmdWithNoParamsWrappedInWhitespaces</span></span>
+<span class="token command function"><span class="token command-name">@cmdWithNoParamWithTrailingSpace</span> </span>
+<span class="token command function"><span class="token command-name">@cmdWithNoParamWithMultipleTrailingSpaces</span>    </span>
+<span class="token command function"><span class="token command-name">@cmdWithNoParamWithTrailingTab</span>	</span>
+<span class="token command function"><span class="token command-name">@cmdWithNoParamWithTrailingTabAndSpaces</span>				</span>
+<span class="token command function"><span class="token command-name">@cmdWithPositiveIntParam</span><span class="token command-params"> <span class="token command-param-value operator">1</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithNegativeIntParam</span><span class="token command-params"> <span class="token command-param-value operator">-1</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithPositiveFloatParamAndNoFraction</span><span class="token command-params"> <span class="token command-param-value operator">1.</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithPositiveFloatParamAndFraction</span><span class="token command-params"> <span class="token command-param-value operator">1.10</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithPositiveHegativeFloatParamAndNoFraction</span><span class="token command-params"> <span class="token command-param-value operator">-1.</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithPositiveHegativeFloatParamAndFraction</span><span class="token command-params"> <span class="token command-param-value operator">-1.10</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithBoolParamAndPositive</span><span class="token command-params"> <span class="token command-param-value operator">true</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithBoolParamAndNegative</span><span class="token command-params"> <span class="token command-param-value operator">false</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithStringParam</span><span class="token command-params"> <span class="token command-param-value operator">hello$co\:mma"d"</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithQuotedStringNamelessParameter</span><span class="token command-params"> <span class="token quoted-string operator">"hello grizzly"</span></span></span>
+<span class="token command function"><span class="token command-name">@cmdWithQuotedStringNamelessParameterWithEscapedQuotesInTheValue</span><span class="token command-params"> <span class="token quoted-string operator">"hello \"grizzly\""</span></span></span>
+<span class="token command function"><span class="token command-name">@set</span><span class="token command-params"> <span class="token command-param-value operator">choice="moe"</span></span></span>
+<span class="token command function"><span class="token command-name">@command</span><span class="token command-params"> <span class="token command-param-value operator">hello.grizzly</span></span></span>
+<span class="token command function"><span class="token command-name">@command</span><span class="token command-params"> <span class="token command-param-value operator">one,two,three</span></span></span>
+<span class="token command function"><span class="token command-name">@command</span><span class="token command-params"> <span class="token command-param-value operator">1,2,3</span></span></span>
+<span class="token command function"><span class="token command-name">@command</span><span class="token command-params"> <span class="token command-param-value operator">true,false,true</span></span></span>
+<span class="token command function"><span class="token command-name">@command</span><span class="token command-params"> <span class="token command-param-id property">hi:</span><span class="token command-param-value operator">grizzly</span></span></span>
+<span class="token command function"><span class="token command-name">@command</span><span class="token command-params"> <span class="token command-param-id property">hi:</span><span class="token command-param-value operator">1</span></span></span>
+<span class="token command function"><span class="token command-name">@command</span><span class="token command-params"> <span class="token command-param-id property">hi:</span><span class="token command-param-value operator">true</span></span></span>
+<span class="token command function"><span class="token command-name">@command</span><span class="token command-params"> <span class="token command-param-value operator">1</span> <span class="token command-param-id property">in:</span><span class="token command-param-value operator">forest</span> <span class="token command-param-id property">danger:</span><span class="token command-param-value operator">true</span></span></span>
+<span class="token command function"><span class="token command-name">@char</span><span class="token command-params"> <span class="token command-param-value operator">1</span> <span class="token command-param-id property">pos:</span><span class="token command-param-value operator">0.25,-0.75</span> <span class="token command-param-id property">look:</span><span class="token command-param-value operator">right</span></span></span>
+
+----------------------------------------------------

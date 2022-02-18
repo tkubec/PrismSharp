@@ -1,0 +1,21 @@
+{$foo}
+{$foo.bar}
+{$foo.$bar}
+{$foo[$bar]}
+{$foo->bar}
+{$foo->bar()}
+{#foo#}
+{$smarty.config.foo}
+{$foo[bar]}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">bar</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">$bar</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token variable">$bar</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">-></span><span class="token variable">bar</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">-></span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">#foo#</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$smarty</span><span class="token punctuation">.</span><span class="token variable">config</span><span class="token punctuation">.</span><span class="token variable">foo</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token variable">bar</span><span class="token punctuation">]</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

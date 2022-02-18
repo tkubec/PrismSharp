@@ -1,0 +1,57 @@
+abstract continue for
+new
+switch assert default
+goto package synchronized
+boolean do if private
+this break double
+implements
+protected throw byte else
+import public throws case
+enum
+instanceof
+record return transient catch
+extends
+int short try char
+final
+interface
+static void
+class
+finally long
+strictfp volatile const
+float native super while
+var null
+module requires transitive
+exports uses open
+opens with to provides
+yield
+sealed non-sealed permits
+----------------------------------------------------
+<span class="token keyword">abstract</span> <span class="token keyword">continue</span> <span class="token keyword">for</span>
+<span class="token keyword">new</span>
+<span class="token keyword">switch</span> <span class="token keyword">assert</span> <span class="token keyword">default</span>
+<span class="token keyword">goto</span> <span class="token keyword">package</span> <span class="token keyword">synchronized</span>
+<span class="token keyword">boolean</span> <span class="token keyword">do</span> <span class="token keyword">if</span> <span class="token keyword">private</span>
+<span class="token keyword">this</span> <span class="token keyword">break</span> <span class="token keyword">double</span>
+<span class="token keyword">implements</span>
+<span class="token keyword">protected</span> <span class="token keyword">throw</span> <span class="token keyword">byte</span> <span class="token keyword">else</span>
+<span class="token keyword">import</span> <span class="token keyword">public</span> <span class="token keyword">throws</span> <span class="token keyword">case</span>
+<span class="token keyword">enum</span>
+<span class="token keyword">instanceof</span>
+<span class="token keyword">record</span> <span class="token keyword">return</span> <span class="token keyword">transient</span> <span class="token keyword">catch</span>
+<span class="token keyword">extends</span>
+<span class="token keyword">int</span> <span class="token keyword">short</span> <span class="token keyword">try</span> <span class="token keyword">char</span>
+<span class="token keyword">final</span>
+<span class="token keyword">interface</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span>
+<span class="token keyword">class</span>
+<span class="token keyword">finally</span> <span class="token keyword">long</span>
+<span class="token keyword">strictfp</span> <span class="token keyword">volatile</span> <span class="token keyword">const</span>
+<span class="token keyword">float</span> <span class="token keyword">native</span> <span class="token keyword">super</span> <span class="token keyword">while</span>
+<span class="token keyword">var</span> <span class="token keyword">null</span>
+<span class="token keyword">module</span> <span class="token keyword">requires</span> <span class="token keyword">transitive</span>
+<span class="token keyword">exports</span> <span class="token keyword">uses</span> <span class="token keyword">open</span>
+<span class="token keyword">opens</span> <span class="token keyword">with</span> <span class="token keyword">to</span> <span class="token keyword">provides</span>
+<span class="token keyword">yield</span>
+<span class="token keyword">sealed</span> <span class="token keyword">non-sealed</span> <span class="token keyword">permits</span>
+
+----------------------------------------------------

@@ -1,0 +1,23 @@
+'''''foo'''''
+'''bar'''
+''baz''
+----------------------------------------------------
+[
+	["emphasis", [
+		["punctuation", "'''''"],
+		["bold-italic", "foo"],
+		["punctuation", "'''''"]
+	]],
+	["emphasis", [
+		["punctuation", "'''"],
+		["bold", "bar"],
+		["punctuation", "'''"]
+	]],
+	["emphasis", [
+		["punctuation", "''"],
+		["italic", "baz"],
+		["punctuation", "''"]
+	]]
+]
+
+----------------------------------------------------

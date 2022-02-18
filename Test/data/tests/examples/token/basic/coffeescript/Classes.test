@@ -1,0 +1,108 @@
+class Animal
+  constructor: (@name) ->
+  move: (meters) ->
+    alert @name + " moved #{meters}m."
+
+class Snake extends Animal
+  move: ->
+    alert "Slithering..."
+    super 5
+
+class Horse extends Animal
+  move: ->
+    alert "Galloping..."
+    super 45
+
+sam = new Snake "Sammy the Python"
+tom = new Horse "Tommy the Palomino"
+
+sam.move()
+tom.move()
+----------------------------------------------------
+[
+	["keyword", "class"],
+	["class-name", ["Animal"]],
+
+	["property", "constructor"],
+	["operator", ":"],
+	["punctuation", "("],
+	["class-member", "@name"],
+	["punctuation", ")"],
+	["operator", "-"],
+	["operator", ">"],
+
+	["property", "move"],
+	["operator", ":"],
+	["punctuation", "("],
+	"meters",
+	["punctuation", ")"],
+	["operator", "-"],
+	["operator", ">"],
+
+	"\n    alert ",
+	["class-member", "@name"],
+	["operator", "+"],
+	["string", [
+		"\" moved ",
+		["interpolation", "#{meters}"],
+		"m.\""
+	]],
+
+	["keyword", "class"],
+	["class-name", ["Snake"]],
+	["keyword", "extends"],
+	["class-name", ["Animal"]],
+
+	["property", "move"],
+	["operator", ":"],
+	["operator", "-"],
+	["operator", ">"],
+
+	"\n    alert ",
+	["string", ["\"Slithering...\""]],
+
+	["keyword", "super"],
+	["number", "5"],
+
+	["keyword", "class"],
+	["class-name", ["Horse"]],
+	["keyword", "extends"],
+	["class-name", ["Animal"]],
+
+	["property", "move"],
+	["operator", ":"],
+	["operator", "-"],
+	["operator", ">"],
+
+	"\n    alert ",
+	["string", ["\"Galloping...\""]],
+
+	["keyword", "super"],
+	["number", "45"],
+
+	"\n\nsam ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Snake"]],
+	["string", ["\"Sammy the Python\""]],
+
+	"\ntom ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Horse"]],
+	["string", ["\"Tommy the Palomino\""]],
+
+	"\n\nsam",
+	["punctuation", "."],
+	["function", "move"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	"\ntom",
+	["punctuation", "."],
+	["function", "move"],
+	["punctuation", "("],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

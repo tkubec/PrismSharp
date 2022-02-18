@@ -1,0 +1,19 @@
+{tag $a = true ? 10 * 5}
+<div n:attr="$a = true ? 10 * 5">
+{php '' }
+{php "" }
+{php "ba\"r" }
+{php 'ba\'z' }
+{php /* " */ }
+{php /* } */ }
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token latte-tag important">tag</span> <span class="token php language-php"><span class="token variable">$a</span> <span class="token operator">=</span> <span class="token constant boolean">true</span> <span class="token operator">?</span> <span class="token number">10</span> <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">}</span>
+<span class="token operator">&lt;</span>div n<span class="token punctuation">:</span>attr<span class="token operator">=</span><span class="token string double-quoted-string">"<span class="token interpolation"><span class="token variable">$a</span></span> = true ? 10 * 5"</span><span class="token operator">></span>
+<span class="token punctuation">{</span>php <span class="token string single-quoted-string">''</span> <span class="token punctuation">}</span>
+<span class="token punctuation">{</span>php <span class="token string double-quoted-string">""</span> <span class="token punctuation">}</span>
+<span class="token punctuation">{</span>php <span class="token string double-quoted-string">"ba\"r"</span> <span class="token punctuation">}</span>
+<span class="token punctuation">{</span>php <span class="token string single-quoted-string">'ba\'z'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">{</span>php <span class="token comment">/* " */</span> <span class="token punctuation">}</span>
+<span class="token punctuation">{</span>php <span class="token comment">/* } */</span></span> <span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

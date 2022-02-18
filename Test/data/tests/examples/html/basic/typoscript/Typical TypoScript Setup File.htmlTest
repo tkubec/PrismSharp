@@ -1,0 +1,189 @@
+# import other files
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:sitepackage/Configuration/TypoScript/Helper/DynamicContent.typoscript'
+
+page = PAGE
+page {
+	typeNum = 0
+
+	// setup templates
+	10 = FLUIDTEMPLATE
+	10 {
+		templateName = TEXT
+		templateName.stdWrap.cObject = CASE
+		templateName.stdWrap.cObject {
+			key.data = pagelayout
+
+			pagets__sitepackage_default = TEXT
+			pagets__sitepackage_default.value = Default
+
+			pagets__sitepackage_alternate = TEXT
+			pagets__sitepackage_alternate.value = Alternative
+
+			default = TEXT
+			default.value = Default
+		}
+		
+		templateRootPaths {
+			0 = EXT:sitepackage/Resources/Private/Templates/Page/
+			1 = {$sitepackage.fluidtemplate.templateRootPath}
+		}
+		
+		partialRootPaths {
+			0 = EXT:sitepackage/Resources/Private/Partials/Page/
+			1 = {$sitepackage.fluidtemplate.partialRootPath}
+		}
+		
+		layoutRootPaths {
+			0 = EXT:sitepackage/Resources/Private/Layouts/Page/
+			1 = {$sitepackage.fluidtemplate.layoutRootPath}
+		}
+
+		dataProcessing {
+			10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+			10 {
+				levels = 1
+				includeSpacer = 1
+				as = mainnavigation
+			}
+		}
+	}
+
+	// include css into head
+	includeCSS {
+		bootstrap = https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css
+		bootstrap.external = 1
+		website = EXT:sitepackage/Resources/Public/Css/styles.css
+	}
+
+	// include js into footer
+	includeJSFooter {
+		jquery = https://code.jquery.com/jquery-3.2.1.slim.min.js
+		jquery.external = 1
+		bootstrap = https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js
+		bootstrap.external = 1
+		website = EXT:sitepackage/Resources/Public/JavaScript/scripts.js
+	}
+}
+
+// global site configuration
+config {
+	absRefPrefix = auto
+	cache_period = 86400
+	debug = 0
+	disablePrefixComment = 1
+	doctype = html5
+	extTarget =
+	index_enable = 1
+	index_externals = 1
+	index_metatags = 1
+	inlineStyle2TempFile = 1
+	intTarget =
+	linkVars = L
+	metaCharset = utf-8
+	no_cache = 0
+	pageTitleFirst = 1
+	prefixLocalAnchors = all
+	removeDefaultJS = 0
+	sendCacheHeaders = 1
+	compressCss = 0
+	compressJs = 0
+	concatenateCss = 0
+	concatenateJs = 0
+}
+----------------------------------------------------
+<span class="token comment"># import other files</span>
+<span class="token function">@import <span class="token string">'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'</span></span>
+<span class="token function">@import <span class="token string">'EXT:sitepackage/Configuration/TypoScript/Helper/DynamicContent.typoscript'</span></span>
+
+<span class="token tag">page</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">PAGE</span></span>
+<span class="token tag">page</span> <span class="token punctuation">{</span>
+	<span class="token tag">typeNum</span> <span class="token operator">=</span> <span class="token string"><span class="token number">0</span></span>
+
+	<span class="token comment">// setup templates</span>
+	<span class="token number">10 <span class="token operator">=</span></span> <span class="token string"><span class="token keyword">FLUIDTEMPLATE</span></span>
+	<span class="token number">10 <span class="token operator">{</span></span>
+		<span class="token tag">templateName</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">TEXT</span></span>
+		<span class="token tag">templateName<span class="token punctuation">.</span></span><span class="token tag">stdWrap<span class="token punctuation">.</span></span><span class="token tag">cObject</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">CASE</span></span>
+		<span class="token tag">templateName<span class="token punctuation">.</span></span><span class="token tag">stdWrap<span class="token punctuation">.</span></span><span class="token tag">cObject</span> <span class="token punctuation">{</span>
+			<span class="token tag">key<span class="token punctuation">.</span></span><span class="token tag">data</span> <span class="token operator">=</span> <span class="token string">pagelayout</span>
+
+			<span class="token tag">pagets__sitepackage_default</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">TEXT</span></span>
+			<span class="token tag">pagets__sitepackage_default<span class="token punctuation">.</span></span><span class="token tag">value</span> <span class="token operator">=</span> <span class="token string">Default</span>
+
+			<span class="token tag">pagets__sitepackage_alternate</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">TEXT</span></span>
+			<span class="token tag">pagets__sitepackage_alternate<span class="token punctuation">.</span></span><span class="token tag">value</span> <span class="token operator">=</span> <span class="token string">Alternative</span>
+
+			<span class="token tag">default</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">TEXT</span></span>
+			<span class="token tag">default<span class="token punctuation">.</span></span><span class="token tag">value</span> <span class="token operator">=</span> <span class="token string">Default</span>
+		<span class="token punctuation">}</span>
+		
+		<span class="token tag">templateRootPaths</span> <span class="token punctuation">{</span>
+			<span class="token number">0 <span class="token operator">=</span></span> <span class="token string"><span class="token keyword">EXT</span><span class="token punctuation">:</span>sitepackage/Resources/Private/Templates/Page/</span>
+			<span class="token number">1 <span class="token operator">=</span></span> <span class="token string"><span class="token function">{$sitepackage.fluidtemplate.templateRootPath}</span></span>
+		<span class="token punctuation">}</span>
+		
+		<span class="token tag">partialRootPaths</span> <span class="token punctuation">{</span>
+			<span class="token number">0 <span class="token operator">=</span></span> <span class="token string"><span class="token keyword">EXT</span><span class="token punctuation">:</span>sitepackage/Resources/Private/Partials/Page/</span>
+			<span class="token number">1 <span class="token operator">=</span></span> <span class="token string"><span class="token function">{$sitepackage.fluidtemplate.partialRootPath}</span></span>
+		<span class="token punctuation">}</span>
+		
+		<span class="token tag">layoutRootPaths</span> <span class="token punctuation">{</span>
+			<span class="token number">0 <span class="token operator">=</span></span> <span class="token string"><span class="token keyword">EXT</span><span class="token punctuation">:</span>sitepackage/Resources/Private/Layouts/Page/</span>
+			<span class="token number">1 <span class="token operator">=</span></span> <span class="token string"><span class="token function">{$sitepackage.fluidtemplate.layoutRootPath}</span></span>
+		<span class="token punctuation">}</span>
+
+		<span class="token tag">dataProcessing</span> <span class="token punctuation">{</span>
+			<span class="token number">10 <span class="token operator">=</span></span> <span class="token string">TYPO3\CMS\Frontend\DataProcessing\MenuProcessor</span>
+			<span class="token number">10 <span class="token operator">{</span></span>
+				<span class="token tag">levels</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+				<span class="token tag">includeSpacer</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+				<span class="token tag">as</span> <span class="token operator">=</span> <span class="token string">mainnavigation</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// include css into head</span>
+	<span class="token tag">includeCSS</span> <span class="token punctuation">{</span>
+		<span class="token tag">bootstrap</span> <span class="token operator">=</span> <span class="token string">https<span class="token punctuation">:</span>//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css</span>
+		<span class="token tag">bootstrap<span class="token punctuation">.</span></span><span class="token tag">external</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+		<span class="token tag">website</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">EXT</span><span class="token punctuation">:</span>sitepackage/Resources/Public/Css/styles.css</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// include js into footer</span>
+	<span class="token tag">includeJSFooter</span> <span class="token punctuation">{</span>
+		<span class="token tag">jquery</span> <span class="token operator">=</span> <span class="token string">https<span class="token punctuation">:</span>//code.jquery.com/jquery-3.2.1.slim.min.js</span>
+		<span class="token tag">jquery<span class="token punctuation">.</span></span><span class="token tag">external</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+		<span class="token tag">bootstrap</span> <span class="token operator">=</span> <span class="token string">https<span class="token punctuation">:</span>//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js</span>
+		<span class="token tag">bootstrap<span class="token punctuation">.</span></span><span class="token tag">external</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+		<span class="token tag">website</span> <span class="token operator">=</span> <span class="token string"><span class="token keyword">EXT</span><span class="token punctuation">:</span>sitepackage/Resources/Public/JavaScript/scripts.js</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// global site configuration</span>
+<span class="token tag">config</span> <span class="token punctuation">{</span>
+	<span class="token tag">absRefPrefix</span> <span class="token operator">=</span> <span class="token string">auto</span>
+	<span class="token tag">cache_period</span> <span class="token operator">=</span> <span class="token string"><span class="token number">86400</span></span>
+	<span class="token tag">debug</span> <span class="token operator">=</span> <span class="token string"><span class="token number">0</span></span>
+	<span class="token tag">disablePrefixComment</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+	<span class="token tag">doctype</span> <span class="token operator">=</span> <span class="token string">html5</span>
+	<span class="token tag">extTarget</span> <span class="token operator">=</span><span class="token string"></span>
+	<span class="token tag">index_enable</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+	<span class="token tag">index_externals</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+	<span class="token tag">index_metatags</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+	<span class="token tag">inlineStyle2TempFile</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+	<span class="token tag">intTarget</span> <span class="token operator">=</span><span class="token string"></span>
+	<span class="token tag">linkVars</span> <span class="token operator">=</span> <span class="token string">L</span>
+	<span class="token tag">metaCharset</span> <span class="token operator">=</span> <span class="token string">utf-8</span>
+	<span class="token tag">no_cache</span> <span class="token operator">=</span> <span class="token string"><span class="token number">0</span></span>
+	<span class="token tag">pageTitleFirst</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+	<span class="token tag">prefixLocalAnchors</span> <span class="token operator">=</span> <span class="token string">all</span>
+	<span class="token tag">removeDefaultJS</span> <span class="token operator">=</span> <span class="token string"><span class="token number">0</span></span>
+	<span class="token tag">sendCacheHeaders</span> <span class="token operator">=</span> <span class="token string"><span class="token number">1</span></span>
+	<span class="token tag">compressCss</span> <span class="token operator">=</span> <span class="token string"><span class="token number">0</span></span>
+	<span class="token tag">compressJs</span> <span class="token operator">=</span> <span class="token string"><span class="token number">0</span></span>
+	<span class="token tag">concatenateCss</span> <span class="token operator">=</span> <span class="token string"><span class="token number">0</span></span>
+	<span class="token tag">concatenateJs</span> <span class="token operator">=</span> <span class="token string"><span class="token number">0</span></span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

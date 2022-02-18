@@ -1,0 +1,59 @@
+''
+'hello!'
+'what\'s up?'
+'steve'
+'hello ${name}!'
+'😁\u{1F642}'
+'Microsoft.Web/sites/config@2020-12-01'
+'https://${frontDoorName}.azurefd.net/.auth/login/aad/callback'
+
+'''hello!'''
+var myVar2 = '''
+hello!'''
+'''
+hello!
+'''
+'''
+  this
+    is
+      indented
+'''
+
+'''
+comments // are included
+/* because everything is read as-is */
+'''
+
+'''interpolation
+is ${blocked}'''
+----------------------------------------------------
+<span class="token string">''</span>
+<span class="token string">'hello!'</span>
+<span class="token string">'what\'s up?'</span>
+<span class="token string">'steve'</span>
+<span class="token interpolated-string"><span class="token string">'hello </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">name</span><span class="token punctuation">}</span></span><span class="token string">!'</span></span>
+<span class="token string">'😁\u{1F642}'</span>
+<span class="token string">'Microsoft.Web/sites/config@2020-12-01'</span>
+<span class="token interpolated-string"><span class="token string">'https://</span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">frontDoorName</span><span class="token punctuation">}</span></span><span class="token string">.azurefd.net/.auth/login/aad/callback'</span></span>
+
+<span class="token string">'''hello!'''</span>
+<span class="token keyword">var</span> myVar2 <span class="token operator">=</span> <span class="token string">'''
+hello!'''</span>
+<span class="token string">'''
+hello!
+'''</span>
+<span class="token string">'''
+  this
+    is
+      indented
+'''</span>
+
+<span class="token string">'''
+comments // are included
+/* because everything is read as-is */
+'''</span>
+
+<span class="token string">'''interpolation
+is ${blocked}'''</span>
+
+----------------------------------------------------

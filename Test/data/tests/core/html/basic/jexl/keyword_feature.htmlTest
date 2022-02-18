@@ -1,0 +1,9 @@
+in
+"foo" in ["foo"]
+"f" in "foo"
+----------------------------------------------------
+<span class="token keyword">in</span>
+<span class="token string">"foo"</span> <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">"foo"</span><span class="token punctuation">]</span>
+<span class="token string">"f"</span> <span class="token keyword">in</span> <span class="token string">"foo"</span>
+
+----------------------------------------------------

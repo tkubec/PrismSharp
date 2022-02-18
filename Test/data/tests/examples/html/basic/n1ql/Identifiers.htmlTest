@@ -1,0 +1,7 @@
+SELECT *
+FROM `my_bucket`;
+----------------------------------------------------
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> <span class="token identifier">`my_bucket`</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

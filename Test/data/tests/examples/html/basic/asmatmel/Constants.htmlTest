@@ -1,0 +1,77 @@
+; Pin Constant Values (Tested on Arduino UNO)
+; PD0 - 0
+; PD1 - 1
+; PD2 - 2
+; PD3 - 3
+; PD4 - 4
+; PD5 - 5
+; PD6 - 6
+; PD7 - 7
+
+; PB0 - 8
+; PB1 - 9
+; PB2 - 10
+; PB3 - 11
+; PB4 - 12
+; PB5 - 13 - System LED
+
+start:
+
+	; Set pins 0-7 to high
+	ldi		r17, (1<<PD7)|(1<<PD6)|(1<<PD5)|(1<<PD4)|(1<<PD3)|(1<<PD2)|(1<<PD1)|(1<<PD0)
+	out		PORTD, r17
+
+	; Set pins 8-13 to high
+	ldi		r16, (1<<PB5)|(1<<PB4)|(1<<PB3)|(1<<PB2)|(1<<PB1)|(1<<PB0)
+	out		PORTB, r16
+
+	; Set pins 0-7 to output mode
+	ldi		r18, (1<<DDD7)|(1<<DDD6)|(1<<DDD5)|(1<<DDD4)|(1<<DDD3)|(1<<DDD2)|(1<<DDD1)|(1<<DDD0)
+	out		DDRD, r18
+
+	; Set pins 8-13 to output mode
+	ldi		r19, (1<<DDB5)|(1<<DDB4)|(1<<DDB3)|(1<<DDB2)|(1<<DDB1)|(1<<DDB0)
+	out		DDRB, r19
+
+loop:
+	rjmp loop ; loop forever
+----------------------------------------------------
+<span class="token comment">; Pin Constant Values (Tested on Arduino UNO)</span>
+<span class="token comment">; PD0 - 0</span>
+<span class="token comment">; PD1 - 1</span>
+<span class="token comment">; PD2 - 2</span>
+<span class="token comment">; PD3 - 3</span>
+<span class="token comment">; PD4 - 4</span>
+<span class="token comment">; PD5 - 5</span>
+<span class="token comment">; PD6 - 6</span>
+<span class="token comment">; PD7 - 7</span>
+
+<span class="token comment">; PB0 - 8</span>
+<span class="token comment">; PB1 - 9</span>
+<span class="token comment">; PB2 - 10</span>
+<span class="token comment">; PB3 - 11</span>
+<span class="token comment">; PB4 - 12</span>
+<span class="token comment">; PB5 - 13 - System LED</span>
+
+start<span class="token punctuation">:</span>
+
+	<span class="token comment">; Set pins 0-7 to high</span>
+	<span class="token op-code keyword">ldi</span>		<span class="token r-register variable">r17</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD7</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD6</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD5</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD4</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD3</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD2</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD1</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PD0</span><span class="token punctuation">)</span>
+	<span class="token op-code keyword">out</span>		<span class="token constant">PORTD</span><span class="token punctuation">,</span> <span class="token r-register variable">r17</span>
+
+	<span class="token comment">; Set pins 8-13 to high</span>
+	<span class="token op-code keyword">ldi</span>		<span class="token r-register variable">r16</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PB5</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PB4</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PB3</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PB2</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PB1</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">PB0</span><span class="token punctuation">)</span>
+	<span class="token op-code keyword">out</span>		<span class="token constant">PORTB</span><span class="token punctuation">,</span> <span class="token r-register variable">r16</span>
+
+	<span class="token comment">; Set pins 0-7 to output mode</span>
+	<span class="token op-code keyword">ldi</span>		<span class="token r-register variable">r18</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDD7</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDD6</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDD5</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDD4</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDD3</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDD2</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDD1</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDD0</span><span class="token punctuation">)</span>
+	<span class="token op-code keyword">out</span>		<span class="token constant">DDRD</span><span class="token punctuation">,</span> <span class="token r-register variable">r18</span>
+
+	<span class="token comment">; Set pins 8-13 to output mode</span>
+	<span class="token op-code keyword">ldi</span>		<span class="token r-register variable">r19</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDB5</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDB4</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDB3</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDB2</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDB1</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token decimal-number number">1</span><span class="token operator">&lt;&lt;</span><span class="token constant">DDB0</span><span class="token punctuation">)</span>
+	<span class="token op-code keyword">out</span>		<span class="token constant">DDRB</span><span class="token punctuation">,</span> <span class="token r-register variable">r19</span>
+
+loop<span class="token punctuation">:</span>
+	<span class="token op-code keyword">rjmp</span> loop <span class="token comment">; loop forever</span>
+
+----------------------------------------------------

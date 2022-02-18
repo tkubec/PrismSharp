@@ -1,0 +1,31 @@
+<div class="body">
+	{{#bold}}{{body}}{{/bold}}
+</div>
+{{#with story}}
+	<div class="intro">{{{intro}}}</div>
+	<div class="body">{{{body}}}</div>
+{{/with}}
+<div class="{{#if test}}foo{{else}}bar{{/if}}"></div>
+{{#list array}}
+	{{@index}}. {{title}}
+{{/list}}
+{{#block-with-hyphens args=yep}}
+	This should probably work...
+{{/block-with-hyphens}}
+----------------------------------------------------
+<span class="token punctuation">&lt;</span><span class="token variable">div</span> <span class="token variable">class</span><span class="token punctuation">=</span><span class="token string">"body"</span><span class="token punctuation">></span>
+	<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">#</span><span class="token variable">bold</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">body</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">/</span><span class="token variable">bold</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">&lt;</span><span class="token punctuation">/</span><span class="token variable">div</span><span class="token punctuation">></span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">#</span><span class="token variable">with</span> <span class="token variable">story</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+	<span class="token punctuation">&lt;</span><span class="token variable">div</span> <span class="token variable">class</span><span class="token punctuation">=</span><span class="token string">"intro"</span><span class="token punctuation">></span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">intro</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">&lt;</span><span class="token punctuation">/</span><span class="token variable">div</span><span class="token punctuation">></span>
+	<span class="token punctuation">&lt;</span><span class="token variable">div</span> <span class="token variable">class</span><span class="token punctuation">=</span><span class="token string">"body"</span><span class="token punctuation">></span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">body</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">&lt;</span><span class="token punctuation">/</span><span class="token variable">div</span><span class="token punctuation">></span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">/</span><span class="token variable">with</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">&lt;</span><span class="token variable">div</span> <span class="token variable">class</span><span class="token punctuation">=</span><span class="token string">"{{#if test}}foo{{else}}bar{{/if}}"</span><span class="token punctuation">></span><span class="token punctuation">&lt;</span><span class="token punctuation">/</span><span class="token variable">div</span><span class="token punctuation">></span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">#</span><span class="token variable">list</span> <span class="token variable">array</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+	<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">@</span><span class="token variable">index</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">.</span> <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">title</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">/</span><span class="token variable">list</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">#</span><span class="token variable">block-with-hyphens</span> <span class="token variable">args</span><span class="token punctuation">=</span><span class="token variable">yep</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+	<span class="token variable">This</span> <span class="token variable">should</span> <span class="token variable">probably</span> <span class="token variable">work</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">/</span><span class="token variable">block-with-hyphens</span><span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

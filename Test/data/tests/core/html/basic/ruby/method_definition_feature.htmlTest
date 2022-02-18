@@ -1,0 +1,39 @@
+class Circle
+  def self.of_diameter(diameter)
+    new diameter / 2
+  end
+
+  def initialize(radius)
+    @radius = radius
+  end
+
+  def circumference
+    Math::PI * radius ** 2
+  end
+
+  # Seattle style
+  def grow_by factor:
+    @radius = @radius * factor
+  end
+end
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Circle</span>
+  <span class="token keyword">def</span> <span class="token method-definition"><span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">of_diameter</span></span><span class="token punctuation">(</span>diameter<span class="token punctuation">)</span>
+    <span class="token keyword">new</span> diameter <span class="token operator">/</span> <span class="token number">2</span>
+  <span class="token keyword">end</span>
+
+  <span class="token keyword">def</span> <span class="token method-definition"><span class="token function">initialize</span></span><span class="token punctuation">(</span>radius<span class="token punctuation">)</span>
+    <span class="token variable">@radius</span> <span class="token operator">=</span> radius
+  <span class="token keyword">end</span>
+
+  <span class="token keyword">def</span> <span class="token method-definition"><span class="token function">circumference</span></span>
+    Math<span class="token double-colon punctuation">::</span><span class="token constant">PI</span> <span class="token operator">*</span> radius <span class="token operator">**</span> <span class="token number">2</span>
+  <span class="token keyword">end</span>
+
+  <span class="token comment"># Seattle style</span>
+  <span class="token keyword">def</span> <span class="token method-definition"><span class="token function">grow_by</span></span> factor<span class="token operator">:</span>
+    <span class="token variable">@radius</span> <span class="token operator">=</span> <span class="token variable">@radius</span> <span class="token operator">*</span> factor
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

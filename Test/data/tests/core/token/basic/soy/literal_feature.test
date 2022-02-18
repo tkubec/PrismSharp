@@ -1,0 +1,62 @@
+{literal}{$noHighlight}{/literal}
+{$highlight}{literal}<div class="{$foo}">
+{if $bar}{$bar}{/if}</div>
+{/literal}
+{literal}/* even comments */{/literal}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "literal"],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["variable", ["$noHighlight"]],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "literal"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["variable", ["$highlight"]],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["keyword", "literal"],
+	["punctuation", "}"],
+	["operator", "<"],
+	"div ",
+	["property", "class"],
+	["operator", "="],
+	["string", "\"{$foo}\""],
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["keyword", "if"],
+	["variable", ["$bar"]],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["variable", ["$bar"]],
+	["punctuation", "}"],
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "if"],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	"div",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "literal"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "literal"],
+	["delimiter", "}"],
+	["comment", "/* even comments */"],
+	["delimiter", "{/"],
+	["keyword", "literal"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

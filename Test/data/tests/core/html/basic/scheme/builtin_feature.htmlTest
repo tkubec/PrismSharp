@@ -1,0 +1,401 @@
+(abs
+(and
+(append
+(apply
+(assoc
+(assq
+(assv
+(binary-port?
+(boolean=?
+(boolean?
+(bytevector
+(bytevector-append
+(bytevector-copy
+(bytevector-copy!
+(bytevector-length
+(bytevector-u8-ref
+(bytevector-u8-set!
+(bytevector?
+(caar
+(cadr
+(call-with-current-continuation
+(call-with-port
+(call-with-values
+(call/cc
+(car
+(cdar
+(cddr
+(cdr
+(ceiling
+(char->integer
+(char-ready?
+(char<=?
+(char<?
+(char=?
+(char>=?
+(char>?
+(char?
+(close-input-port
+(close-output-port
+(close-port
+(complex?
+(cons
+(current-error-port
+(current-input-port
+(current-output-port
+(denominator
+(dynamic-wind
+(eof-object
+(eof-object?
+(eq?
+(equal?
+(eqv?
+(error
+(error-object-irritants
+(error-object-message
+(error-object?
+(eval
+(even?
+(exact
+(exact-integer-sqrt
+(exact-integer?
+(exact?
+(expt
+(features
+(file-error?
+(floor
+(floor-quotient
+(floor-remainder
+(floor/
+(flush-output-port
+(for-each
+(gcd
+(get-output-bytevector
+(get-output-string
+(inexact
+(inexact?
+(input-port-open?
+(input-port?
+(integer->char
+(integer?
+(lcm
+(length
+(list
+(list->string
+(list->vector
+(list-copy
+(list-ref
+(list-set!
+(list-tail
+(list?
+(make-bytevector
+(make-list
+(make-parameter
+(make-string
+(make-vector
+(map
+(max
+(member
+(memq
+(memv
+(min
+(modulo
+(negative?
+(newline
+(not
+(null?
+(number->string
+(number?
+(numerator
+(odd?
+(open-input-bytevector
+(open-input-string
+(open-output-bytevector
+(open-output-string
+(or
+(output-port-open?
+(output-port?
+(pair?
+(peek-char
+(peek-u8
+(port?
+(positive?
+(procedure?
+(quotient
+(raise
+(raise-continuable
+(rational?
+(rationalize
+(read-bytevector
+(read-bytevector!
+(read-char
+(read-error?
+(read-line
+(read-string
+(read-u8
+(real?
+(remainder
+(reverse
+(round
+(set-car!
+(set-cdr!
+(square
+(string
+(string->list
+(string->number
+(string->symbol
+(string->utf8
+(string->vector
+(string-append
+(string-copy
+(string-copy!
+(string-fill!
+(string-for-each
+(string-length
+(string-map
+(string-ref
+(string-set!
+(string<=?
+(string<?
+(string=?
+(string>=?
+(string>?
+(string?
+(substring
+(symbol->string
+(symbol=?
+(symbol?
+(syntax-error
+(textual-port?
+(truncate
+(truncate-quotient
+(truncate-remainder
+(truncate/
+(u8-ready?
+(utf8->string
+(values
+(vector
+(vector->list
+(vector->string
+(vector-append
+(vector-copy
+(vector-copy!
+(vector-fill!
+(vector-for-each
+(vector-length
+(vector-map
+(vector-ref
+(vector-set!
+(vector?
+(with-exception-handler
+(write-bytevector
+(write-char
+(write-string
+(write-u8
+(zero?
+
+; with brackets
+[map
+[max
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token builtin">abs</span>
+<span class="token punctuation">(</span><span class="token builtin">and</span>
+<span class="token punctuation">(</span><span class="token builtin">append</span>
+<span class="token punctuation">(</span><span class="token builtin">apply</span>
+<span class="token punctuation">(</span><span class="token builtin">assoc</span>
+<span class="token punctuation">(</span><span class="token builtin">assq</span>
+<span class="token punctuation">(</span><span class="token builtin">assv</span>
+<span class="token punctuation">(</span><span class="token builtin">binary-port?</span>
+<span class="token punctuation">(</span><span class="token builtin">boolean=?</span>
+<span class="token punctuation">(</span><span class="token builtin">boolean?</span>
+<span class="token punctuation">(</span><span class="token builtin">bytevector</span>
+<span class="token punctuation">(</span><span class="token builtin">bytevector-append</span>
+<span class="token punctuation">(</span><span class="token builtin">bytevector-copy</span>
+<span class="token punctuation">(</span><span class="token builtin">bytevector-copy!</span>
+<span class="token punctuation">(</span><span class="token builtin">bytevector-length</span>
+<span class="token punctuation">(</span><span class="token builtin">bytevector-u8-ref</span>
+<span class="token punctuation">(</span><span class="token builtin">bytevector-u8-set!</span>
+<span class="token punctuation">(</span><span class="token builtin">bytevector?</span>
+<span class="token punctuation">(</span><span class="token builtin">caar</span>
+<span class="token punctuation">(</span><span class="token builtin">cadr</span>
+<span class="token punctuation">(</span><span class="token builtin">call-with-current-continuation</span>
+<span class="token punctuation">(</span><span class="token builtin">call-with-port</span>
+<span class="token punctuation">(</span><span class="token builtin">call-with-values</span>
+<span class="token punctuation">(</span><span class="token builtin">call/cc</span>
+<span class="token punctuation">(</span><span class="token builtin">car</span>
+<span class="token punctuation">(</span><span class="token builtin">cdar</span>
+<span class="token punctuation">(</span><span class="token builtin">cddr</span>
+<span class="token punctuation">(</span><span class="token builtin">cdr</span>
+<span class="token punctuation">(</span><span class="token builtin">ceiling</span>
+<span class="token punctuation">(</span><span class="token builtin">char->integer</span>
+<span class="token punctuation">(</span><span class="token builtin">char-ready?</span>
+<span class="token punctuation">(</span><span class="token builtin">char&lt;=?</span>
+<span class="token punctuation">(</span><span class="token builtin">char&lt;?</span>
+<span class="token punctuation">(</span><span class="token builtin">char=?</span>
+<span class="token punctuation">(</span><span class="token builtin">char>=?</span>
+<span class="token punctuation">(</span><span class="token builtin">char>?</span>
+<span class="token punctuation">(</span><span class="token builtin">char?</span>
+<span class="token punctuation">(</span><span class="token builtin">close-input-port</span>
+<span class="token punctuation">(</span><span class="token builtin">close-output-port</span>
+<span class="token punctuation">(</span><span class="token builtin">close-port</span>
+<span class="token punctuation">(</span><span class="token builtin">complex?</span>
+<span class="token punctuation">(</span><span class="token builtin">cons</span>
+<span class="token punctuation">(</span><span class="token builtin">current-error-port</span>
+<span class="token punctuation">(</span><span class="token builtin">current-input-port</span>
+<span class="token punctuation">(</span><span class="token builtin">current-output-port</span>
+<span class="token punctuation">(</span><span class="token builtin">denominator</span>
+<span class="token punctuation">(</span><span class="token builtin">dynamic-wind</span>
+<span class="token punctuation">(</span><span class="token builtin">eof-object</span>
+<span class="token punctuation">(</span><span class="token builtin">eof-object?</span>
+<span class="token punctuation">(</span><span class="token builtin">eq?</span>
+<span class="token punctuation">(</span><span class="token builtin">equal?</span>
+<span class="token punctuation">(</span><span class="token builtin">eqv?</span>
+<span class="token punctuation">(</span><span class="token builtin">error</span>
+<span class="token punctuation">(</span><span class="token builtin">error-object-irritants</span>
+<span class="token punctuation">(</span><span class="token builtin">error-object-message</span>
+<span class="token punctuation">(</span><span class="token builtin">error-object?</span>
+<span class="token punctuation">(</span><span class="token builtin">eval</span>
+<span class="token punctuation">(</span><span class="token builtin">even?</span>
+<span class="token punctuation">(</span><span class="token builtin">exact</span>
+<span class="token punctuation">(</span><span class="token builtin">exact-integer-sqrt</span>
+<span class="token punctuation">(</span><span class="token builtin">exact-integer?</span>
+<span class="token punctuation">(</span><span class="token builtin">exact?</span>
+<span class="token punctuation">(</span><span class="token builtin">expt</span>
+<span class="token punctuation">(</span><span class="token builtin">features</span>
+<span class="token punctuation">(</span><span class="token builtin">file-error?</span>
+<span class="token punctuation">(</span><span class="token builtin">floor</span>
+<span class="token punctuation">(</span><span class="token builtin">floor-quotient</span>
+<span class="token punctuation">(</span><span class="token builtin">floor-remainder</span>
+<span class="token punctuation">(</span><span class="token builtin">floor/</span>
+<span class="token punctuation">(</span><span class="token builtin">flush-output-port</span>
+<span class="token punctuation">(</span><span class="token builtin">for-each</span>
+<span class="token punctuation">(</span><span class="token builtin">gcd</span>
+<span class="token punctuation">(</span><span class="token builtin">get-output-bytevector</span>
+<span class="token punctuation">(</span><span class="token builtin">get-output-string</span>
+<span class="token punctuation">(</span><span class="token builtin">inexact</span>
+<span class="token punctuation">(</span><span class="token builtin">inexact?</span>
+<span class="token punctuation">(</span><span class="token builtin">input-port-open?</span>
+<span class="token punctuation">(</span><span class="token builtin">input-port?</span>
+<span class="token punctuation">(</span><span class="token builtin">integer->char</span>
+<span class="token punctuation">(</span><span class="token builtin">integer?</span>
+<span class="token punctuation">(</span><span class="token builtin">lcm</span>
+<span class="token punctuation">(</span><span class="token builtin">length</span>
+<span class="token punctuation">(</span><span class="token builtin">list</span>
+<span class="token punctuation">(</span><span class="token builtin">list->string</span>
+<span class="token punctuation">(</span><span class="token builtin">list->vector</span>
+<span class="token punctuation">(</span><span class="token builtin">list-copy</span>
+<span class="token punctuation">(</span><span class="token builtin">list-ref</span>
+<span class="token punctuation">(</span><span class="token builtin">list-set!</span>
+<span class="token punctuation">(</span><span class="token builtin">list-tail</span>
+<span class="token punctuation">(</span><span class="token builtin">list?</span>
+<span class="token punctuation">(</span><span class="token builtin">make-bytevector</span>
+<span class="token punctuation">(</span><span class="token builtin">make-list</span>
+<span class="token punctuation">(</span><span class="token builtin">make-parameter</span>
+<span class="token punctuation">(</span><span class="token builtin">make-string</span>
+<span class="token punctuation">(</span><span class="token builtin">make-vector</span>
+<span class="token punctuation">(</span><span class="token builtin">map</span>
+<span class="token punctuation">(</span><span class="token builtin">max</span>
+<span class="token punctuation">(</span><span class="token builtin">member</span>
+<span class="token punctuation">(</span><span class="token builtin">memq</span>
+<span class="token punctuation">(</span><span class="token builtin">memv</span>
+<span class="token punctuation">(</span><span class="token builtin">min</span>
+<span class="token punctuation">(</span><span class="token builtin">modulo</span>
+<span class="token punctuation">(</span><span class="token builtin">negative?</span>
+<span class="token punctuation">(</span><span class="token builtin">newline</span>
+<span class="token punctuation">(</span><span class="token builtin">not</span>
+<span class="token punctuation">(</span><span class="token builtin">null?</span>
+<span class="token punctuation">(</span><span class="token builtin">number->string</span>
+<span class="token punctuation">(</span><span class="token builtin">number?</span>
+<span class="token punctuation">(</span><span class="token builtin">numerator</span>
+<span class="token punctuation">(</span><span class="token builtin">odd?</span>
+<span class="token punctuation">(</span><span class="token builtin">open-input-bytevector</span>
+<span class="token punctuation">(</span><span class="token builtin">open-input-string</span>
+<span class="token punctuation">(</span><span class="token builtin">open-output-bytevector</span>
+<span class="token punctuation">(</span><span class="token builtin">open-output-string</span>
+<span class="token punctuation">(</span><span class="token builtin">or</span>
+<span class="token punctuation">(</span><span class="token builtin">output-port-open?</span>
+<span class="token punctuation">(</span><span class="token builtin">output-port?</span>
+<span class="token punctuation">(</span><span class="token builtin">pair?</span>
+<span class="token punctuation">(</span><span class="token builtin">peek-char</span>
+<span class="token punctuation">(</span><span class="token builtin">peek-u8</span>
+<span class="token punctuation">(</span><span class="token builtin">port?</span>
+<span class="token punctuation">(</span><span class="token builtin">positive?</span>
+<span class="token punctuation">(</span><span class="token builtin">procedure?</span>
+<span class="token punctuation">(</span><span class="token builtin">quotient</span>
+<span class="token punctuation">(</span><span class="token builtin">raise</span>
+<span class="token punctuation">(</span><span class="token builtin">raise-continuable</span>
+<span class="token punctuation">(</span><span class="token builtin">rational?</span>
+<span class="token punctuation">(</span><span class="token builtin">rationalize</span>
+<span class="token punctuation">(</span><span class="token builtin">read-bytevector</span>
+<span class="token punctuation">(</span><span class="token builtin">read-bytevector!</span>
+<span class="token punctuation">(</span><span class="token builtin">read-char</span>
+<span class="token punctuation">(</span><span class="token builtin">read-error?</span>
+<span class="token punctuation">(</span><span class="token builtin">read-line</span>
+<span class="token punctuation">(</span><span class="token builtin">read-string</span>
+<span class="token punctuation">(</span><span class="token builtin">read-u8</span>
+<span class="token punctuation">(</span><span class="token builtin">real?</span>
+<span class="token punctuation">(</span><span class="token builtin">remainder</span>
+<span class="token punctuation">(</span><span class="token builtin">reverse</span>
+<span class="token punctuation">(</span><span class="token builtin">round</span>
+<span class="token punctuation">(</span><span class="token builtin">set-car!</span>
+<span class="token punctuation">(</span><span class="token builtin">set-cdr!</span>
+<span class="token punctuation">(</span><span class="token builtin">square</span>
+<span class="token punctuation">(</span><span class="token builtin">string</span>
+<span class="token punctuation">(</span><span class="token builtin">string->list</span>
+<span class="token punctuation">(</span><span class="token builtin">string->number</span>
+<span class="token punctuation">(</span><span class="token builtin">string->symbol</span>
+<span class="token punctuation">(</span><span class="token builtin">string->utf8</span>
+<span class="token punctuation">(</span><span class="token builtin">string->vector</span>
+<span class="token punctuation">(</span><span class="token builtin">string-append</span>
+<span class="token punctuation">(</span><span class="token builtin">string-copy</span>
+<span class="token punctuation">(</span><span class="token builtin">string-copy!</span>
+<span class="token punctuation">(</span><span class="token builtin">string-fill!</span>
+<span class="token punctuation">(</span><span class="token builtin">string-for-each</span>
+<span class="token punctuation">(</span><span class="token builtin">string-length</span>
+<span class="token punctuation">(</span><span class="token builtin">string-map</span>
+<span class="token punctuation">(</span><span class="token builtin">string-ref</span>
+<span class="token punctuation">(</span><span class="token builtin">string-set!</span>
+<span class="token punctuation">(</span><span class="token builtin">string&lt;=?</span>
+<span class="token punctuation">(</span><span class="token builtin">string&lt;?</span>
+<span class="token punctuation">(</span><span class="token builtin">string=?</span>
+<span class="token punctuation">(</span><span class="token builtin">string>=?</span>
+<span class="token punctuation">(</span><span class="token builtin">string>?</span>
+<span class="token punctuation">(</span><span class="token builtin">string?</span>
+<span class="token punctuation">(</span><span class="token builtin">substring</span>
+<span class="token punctuation">(</span><span class="token builtin">symbol->string</span>
+<span class="token punctuation">(</span><span class="token builtin">symbol=?</span>
+<span class="token punctuation">(</span><span class="token builtin">symbol?</span>
+<span class="token punctuation">(</span><span class="token builtin">syntax-error</span>
+<span class="token punctuation">(</span><span class="token builtin">textual-port?</span>
+<span class="token punctuation">(</span><span class="token builtin">truncate</span>
+<span class="token punctuation">(</span><span class="token builtin">truncate-quotient</span>
+<span class="token punctuation">(</span><span class="token builtin">truncate-remainder</span>
+<span class="token punctuation">(</span><span class="token builtin">truncate/</span>
+<span class="token punctuation">(</span><span class="token builtin">u8-ready?</span>
+<span class="token punctuation">(</span><span class="token builtin">utf8->string</span>
+<span class="token punctuation">(</span><span class="token builtin">values</span>
+<span class="token punctuation">(</span><span class="token builtin">vector</span>
+<span class="token punctuation">(</span><span class="token builtin">vector->list</span>
+<span class="token punctuation">(</span><span class="token builtin">vector->string</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-append</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-copy</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-copy!</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-fill!</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-for-each</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-length</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-map</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-ref</span>
+<span class="token punctuation">(</span><span class="token builtin">vector-set!</span>
+<span class="token punctuation">(</span><span class="token builtin">vector?</span>
+<span class="token punctuation">(</span><span class="token builtin">with-exception-handler</span>
+<span class="token punctuation">(</span><span class="token builtin">write-bytevector</span>
+<span class="token punctuation">(</span><span class="token builtin">write-char</span>
+<span class="token punctuation">(</span><span class="token builtin">write-string</span>
+<span class="token punctuation">(</span><span class="token builtin">write-u8</span>
+<span class="token punctuation">(</span><span class="token builtin">zero?</span>
+
+<span class="token comment">; with brackets</span>
+<span class="token punctuation">[</span><span class="token builtin">map</span>
+<span class="token punctuation">[</span><span class="token builtin">max</span>
+
+----------------------------------------------------

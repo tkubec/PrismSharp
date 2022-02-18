@@ -1,0 +1,72 @@
+$mud
+$customer.Name
+$flogger.getPromo( $mud )
+$!{mudSlinger_9}
+$foo[0]
+$foo[$i]
+$foo["bar"]
+$foo.bar[1].junk
+$foo.callMethod()[1]
+----------------------------------------------------
+[
+	["variable", ["$mud"]],
+	["variable", [
+		"$customer",
+		["punctuation", "."],
+		"Name"
+	]],
+	["variable", [
+		"$flogger",
+		["punctuation", "."],
+		["function", "getPromo"],
+		["punctuation", "("],
+		" $mud ",
+		["punctuation", ")"]
+	]],
+	["variable", [
+		"$!",
+		["punctuation", "{"],
+		"mudSlinger_9",
+		["punctuation", "}"]
+	]],
+	["variable", [
+		"$foo",
+		["punctuation", "["],
+		["number", "0"],
+		["punctuation", "]"]
+	]],
+	["variable", [
+		"$foo",
+		["punctuation", "["],
+		"$i",
+		["punctuation", "]"]
+	]],
+	["variable", [
+		"$foo",
+		["punctuation", "["],
+		["string", "\"bar\""],
+		["punctuation", "]"]
+	]],
+	["variable", [
+		"$foo",
+		["punctuation", "."],
+		"bar",
+		["punctuation", "["],
+		["number", "1"],
+		["punctuation", "]"],
+		["punctuation", "."],
+		"junk"
+	]],
+	["variable", [
+		"$foo",
+		["punctuation", "."],
+		["function", "callMethod"],
+		["punctuation", "("],
+		["punctuation", ")"],
+		["punctuation", "["],
+		["number", "1"],
+		["punctuation", "]"]
+	]]
+]
+
+----------------------------------------------------

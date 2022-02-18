@@ -1,0 +1,26 @@
+0 .. 2_147_483_647
+2_147_483_648 .. 9_223_372_036_854_775_807
+0L .. 9_223_372_036_854_775_807L
+0U .. 4_294_967_296U
+4_294_967_296U .. 18_446_744_073_709_551_615U
+0UL .. 18_446_744_073_709_551_615UL
+0x0 .. 0x7FFF_FFFF
+0x8000_0000 .. 0xFFFF_FFFF
+0x1_0000_0000 .. 0x7FFF_FFFF_FFFF_FFFF
+0x8000_0000_0000_0000 .. 0xFFFF_FFFF_FFFF_FFFF
+0x0L .. 0x7FFF_FFFF_FFFF_FFFFL
+0x8000_0000_0000_0000L .. 0xFFFF_FFFF_FFFF_FFFFL
+0x0U .. 0xFFFF_FFFFU
+0x1_0000_0000U .. 0xFFFF_FFFF_FFFF_FFFFU
+0x0UL .. 0xFFFF_FFFF_FFFF_FFFFUL
+
+123_456.567_8          // 123456.5678
+1_2_3_4_5_6_.5_6_7_8   // 123456.5678
+1_2_3_4_5_6_.5e-6_     // 123456.5e-6
+0x1.FFFFFFFFFFFFFp1023 // double.max
+0x1p-52                // double.epsilon
+1.175494351e-38F       // float.min
+6.3i                   // idouble 6.3
+6.3fi                  // ifloat 6.3
+6.3Li                  // ireal 6.3
+4.5 + 6.2i             // complex number (phased out)

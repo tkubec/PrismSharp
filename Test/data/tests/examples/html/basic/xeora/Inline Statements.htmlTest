@@ -1,0 +1,21 @@
+$S:StatementID:{ <!-- C# Code --> }:StatementID$
+$S:StatementID:{!NOCACHE <!-- C# Code --> }:StatementID$
+
+$S:Statement1:{
+	int intvalue1 = 5;
+	int intvalue2 = Integer.Parse("0" + $~FormValue$);
+
+	return intvalue1 * intvalue2;
+}:Statement1$
+----------------------------------------------------
+<span class="token directive-block-open function"><span class="token punctuation">$S:</span>StatementID<span class="token punctuation">:</span><span class="token punctuation">{</span></span> <span class="token comment">&lt;!-- C# Code --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>StatementID<span class="token punctuation">$</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$S:</span>StatementID<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token attribute keyword"><span class="token punctuation">!</span>NOCACHE</span></span> <span class="token comment">&lt;!-- C# Code --></span> <span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>StatementID<span class="token punctuation">$</span></span>
+
+<span class="token directive-block-open function"><span class="token punctuation">$S:</span>Statement1<span class="token punctuation">:</span><span class="token punctuation">{</span></span>
+	int intvalue1 = 5;
+	int intvalue2 = Integer.Parse("0" + <span class="token variable"><span class="token punctuation">$</span><span class="token operator">~</span>FormValue<span class="token punctuation">$</span></span>);
+
+	return intvalue1 * intvalue2;
+<span class="token directive-block-close function"><span class="token punctuation">}</span><span class="token punctuation">:</span>Statement1<span class="token punctuation">$</span></span>
+
+----------------------------------------------------

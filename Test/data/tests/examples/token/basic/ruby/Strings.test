@@ -1,0 +1,32 @@
+"foo \"bar\" baz"
+'foo \'bar\' baz'
+<<STRING
+  here's some #{string} contents
+STRING
+----------------------------------------------------
+[
+	["string-literal", [
+		["string", "\"foo \\\"bar\\\" baz\""]
+	]],
+	["string-literal", [
+		["string", "'foo \\'bar\\' baz'"]
+	]],
+	["string-literal", [
+		["delimiter", [
+			["punctuation", "<<"],
+			["symbol", "STRING"]
+		]],
+		["string", "\n  here's some "],
+		["interpolation", [
+			["delimiter", "#{"],
+			["content", ["string"]],
+			["delimiter", "}"]
+		]],
+		["string", " contents\n"],
+		["delimiter", [
+			["symbol", "STRING"]
+		]]
+	]]
+]
+
+----------------------------------------------------

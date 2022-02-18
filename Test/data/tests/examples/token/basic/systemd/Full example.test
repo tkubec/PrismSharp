@@ -1,0 +1,70 @@
+# Source: https://www.freedesktop.org/software/systemd/man/systemd.syntax.html
+
+[Section A]
+KeyOne=value 1
+KeyTwo=value 2
+
+# a comment
+
+[Section B]
+Setting="something" "some thing" "…"
+KeyTwo=value 2 \
+       value 2 continued
+
+[Section C]
+KeyThree=value 3\
+# this line is ignored
+; this line is ignored too
+       value 3 continued
+----------------------------------------------------
+[
+	["comment", "# Source: https://www.freedesktop.org/software/systemd/man/systemd.syntax.html"],
+
+	["section", [
+		["punctuation", "["],
+		["section-name", "Section A"],
+		["punctuation", "]"]
+	]],
+	["key", "KeyOne"], ["operator", "="], ["value", ["value 1"]],
+	["key", "KeyTwo"], ["operator", "="], ["value", ["value 2"]],
+
+	["comment", "# a comment"],
+
+	["section", [
+		["punctuation", "["],
+		["section-name", "Section B"],
+		["punctuation", "]"]
+	]],
+
+	["key", "Setting"],
+	["operator", "="],
+	["value", [
+		["quoted", "\"something\""],
+		["quoted", "\"some thing\""],
+		["quoted", "\"…\""]
+	]],
+
+	["key", "KeyTwo"],
+	["operator", "="],
+	["value", [
+		"value 2 ", ["punctuation", "\\"],
+		"\n       value 2 continued"
+	]],
+
+	["section", [
+		["punctuation", "["],
+		["section-name", "Section C"],
+		["punctuation", "]"]
+	]],
+
+	["key", "KeyThree"],
+	["operator", "="],
+	["value", [
+		"value 3", ["punctuation", "\\"],
+		["comment", "# this line is ignored"],
+		["comment", "; this line is ignored too"],
+		"\n       value 3 continued"
+	]]
+]
+
+----------------------------------------------------

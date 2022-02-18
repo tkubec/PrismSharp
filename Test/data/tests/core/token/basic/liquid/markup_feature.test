@@ -1,0 +1,26 @@
+<a href="{{ url }}">link</a>
+
+<div class="foo"></div>
+----------------------------------------------------
+[
+	["operator", "<"],
+	"a href",
+	["operator", "="],
+	["string", "\"{{ url }}\""],
+	["operator", ">"],
+	["object", "link"],
+	["operator", "<"],
+	"/a",
+	["operator", ">"],
+
+	["operator", "<"],
+	"div class",
+	["operator", "="],
+	["string", "\"foo\""],
+	["operator", ">"],
+	["operator", "<"],
+	"/div",
+	["operator", ">"]
+]
+
+----------------------------------------------------

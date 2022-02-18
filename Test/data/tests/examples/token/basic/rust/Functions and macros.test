@@ -1,0 +1,57 @@
+println!("x is {}", x);
+fn next_two(x: i32) -> (i32, i32) { (x + 1, x + 2) }
+next_two(5);
+vec![1, 2, 3];
+----------------------------------------------------
+[
+	["macro", "println!"],
+	["punctuation", "("],
+	["string", "\"x is {}\""],
+	["punctuation", ","],
+	" x",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "fn"],
+	["function-definition", "next_two"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ":"],
+	["keyword", "i32"],
+	["punctuation", ")"],
+	["punctuation", "->"],
+	["punctuation", "("],
+	["keyword", "i32"],
+	["punctuation", ","],
+	["keyword", "i32"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+	["punctuation", "("],
+	"x ",
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", ","],
+	" x ",
+	["operator", "+"],
+	["number", "2"],
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["function", "next_two"],
+	["punctuation", "("],
+	["number", "5"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["macro", "vec!"],
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "2"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", "]"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

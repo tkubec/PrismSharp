@@ -1,0 +1,87 @@
+# Role-based Access Control (RBAC)
+
+# By default, deny requests.
+default allow = false
+
+# Allow admins to do anything.
+allow {
+	user_is_admin
+}
+
+# Allow the action if the user is granted permission to perform the action.
+allow {
+	# Find grants for the user.
+	some grant
+	user_is_granted[grant]
+
+	# Check if the grant permits the action.
+	input.action == grant.action
+	input.type == grant.type
+}
+
+# user_is_admin is true if...
+user_is_admin {
+
+	# for some `i`...
+	some i
+
+	# "admin" is the `i`-th element in the user->role mappings for the identified user.
+	data.user_roles[input.user][i] == "admin"
+}
+
+# user_is_granted is a set of grants for the user identified in the request.
+# The `grant` will be contained if the set `user_is_granted` for every...
+user_is_granted[grant] {
+	some i, j
+
+	# `role` assigned an element of the user_roles for this user...
+	role := data.user_roles[input.user][i]
+
+	# `grant` assigned a single grant from the grants list for 'role'...
+	grant := data.role_grants[role][j]
+}
+----------------------------------------------------
+<span class="token comment"># Role-based Access Control (RBAC)</span>
+
+<span class="token comment"># By default, deny requests.</span>
+<span class="token keyword">default</span> allow <span class="token operator">=</span> <span class="token boolean">false</span>
+
+<span class="token comment"># Allow admins to do anything.</span>
+allow <span class="token punctuation">{</span>
+	user_is_admin
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Allow the action if the user is granted permission to perform the action.</span>
+allow <span class="token punctuation">{</span>
+	<span class="token comment"># Find grants for the user.</span>
+	<span class="token keyword">some</span> grant
+	user_is_granted<span class="token punctuation">[</span>grant<span class="token punctuation">]</span>
+
+	<span class="token comment"># Check if the grant permits the action.</span>
+	input<span class="token punctuation">.</span>action <span class="token operator">==</span> grant<span class="token punctuation">.</span>action
+	input<span class="token punctuation">.</span>type <span class="token operator">==</span> grant<span class="token punctuation">.</span>type
+<span class="token punctuation">}</span>
+
+<span class="token comment"># user_is_admin is true if...</span>
+user_is_admin <span class="token punctuation">{</span>
+
+	<span class="token comment"># for some `i`...</span>
+	<span class="token keyword">some</span> i
+
+	<span class="token comment"># "admin" is the `i`-th element in the user->role mappings for the identified user.</span>
+	data<span class="token punctuation">.</span>user_roles<span class="token punctuation">[</span>input<span class="token punctuation">.</span>user<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"admin"</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># user_is_granted is a set of grants for the user identified in the request.</span>
+<span class="token comment"># The `grant` will be contained if the set `user_is_granted` for every...</span>
+user_is_granted<span class="token punctuation">[</span>grant<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+	<span class="token keyword">some</span> i<span class="token punctuation">,</span> j
+
+	<span class="token comment"># `role` assigned an element of the user_roles for this user...</span>
+	role <span class="token operator">:=</span> data<span class="token punctuation">.</span>user_roles<span class="token punctuation">[</span>input<span class="token punctuation">.</span>user<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+	<span class="token comment"># `grant` assigned a single grant from the grants list for 'role'...</span>
+	grant <span class="token operator">:=</span> data<span class="token punctuation">.</span>role_grants<span class="token punctuation">[</span>role<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

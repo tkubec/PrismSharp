@@ -1,0 +1,39 @@
+div
+	width 40px
+	color: red
+	background: blue;
+	animation-name test1, animation4
+
+div {
+background-{foo}: bar;
+}
+
+div
+	{foo} bar
+
+comment
+	content 'http://www.example.com' // comment
+	background url(http://example.com) /* comment */
+	background /* comment */ url("http://example.com")
+	content '/* this is string not comment */'
+----------------------------------------------------
+<span class="token selector">div</span>
+	<span class="token property-declaration"><span class="token property">width</span> <span class="token number">40</span><span class="token unit">px</span></span>
+	<span class="token property-declaration"><span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span></span>
+	<span class="token property-declaration"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span></span>
+	<span class="token property-declaration"><span class="token property">animation-name</span> test1<span class="token punctuation">,</span> animation4</span>
+
+<span class="token selector">div <span class="token punctuation">{</span></span>
+<span class="token property-declaration"><span class="token property">background-<span class="token interpolation variable"><span class="token delimiter punctuation">{</span>foo<span class="token delimiter punctuation">}</span></span></span><span class="token punctuation">:</span> bar<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">div</span>
+	<span class="token property-declaration"><span class="token property"><span class="token interpolation variable"><span class="token delimiter punctuation">{</span>foo<span class="token delimiter punctuation">}</span></span></span> bar</span>
+
+<span class="token selector">comment</span>
+	<span class="token property-declaration"><span class="token property">content</span> <span class="token string">'http://www.example.com'</span> <span class="token comment">// comment</span></span>
+	<span class="token property-declaration"><span class="token property">background</span> <span class="token url">url(http://example.com)</span> <span class="token comment">/* comment */</span></span>
+	<span class="token property-declaration"><span class="token property">background</span> <span class="token comment">/* comment */</span> <span class="token url">url("http://example.com")</span></span>
+	<span class="token property-declaration"><span class="token property">content</span> <span class="token string">'/* this is string not comment */'</span></span>
+
+----------------------------------------------------

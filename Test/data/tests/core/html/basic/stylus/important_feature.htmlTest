@@ -1,0 +1,7 @@
+color: red !important
+@extend foo !optional
+----------------------------------------------------
+<span class="token property-declaration"><span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span> <span class="token important">!important</span></span>
+<span class="token atrule-declaration"><span class="token atrule">@extend</span> foo <span class="token important">!optional</span></span>
+
+----------------------------------------------------

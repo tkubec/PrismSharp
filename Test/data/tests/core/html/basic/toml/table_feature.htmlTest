@@ -1,0 +1,13 @@
+[table]
+[[array]]
+
+# not a table
+foo = [ "bar" ]
+----------------------------------------------------
+<span class="token punctuation">[</span><span class="token table class-name">table</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token table class-name">array</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token comment"># not a table</span>
+<span class="token key property">foo</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span> <span class="token string">"bar"</span> <span class="token punctuation">]</span>
+
+----------------------------------------------------

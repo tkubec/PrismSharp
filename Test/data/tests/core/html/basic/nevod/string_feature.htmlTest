@@ -1,0 +1,21 @@
+"text in double quotes"
+""
+'text in single quotes'
+'case-sensitive text'!
+'text ''Nevod'' in quotes'
+"text ""Nevod"" in double quotes"
+'text prefix'*
+'case-sensitive text prefix'!*
+''
+----------------------------------------------------
+<span class="token string">"text in double quotes"</span>
+<span class="token string">""</span>
+<span class="token string">'text in single quotes'</span>
+<span class="token string">'case-sensitive text'<span class="token string-attrs">!</span></span>
+<span class="token string">'text ''Nevod'' in quotes'</span>
+<span class="token string">"text ""Nevod"" in double quotes"</span>
+<span class="token string">'text prefix'<span class="token string-attrs">*</span></span>
+<span class="token string">'case-sensitive text prefix'<span class="token string-attrs">!*</span></span>
+<span class="token string">''</span>
+
+----------------------------------------------------

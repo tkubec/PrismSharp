@@ -1,0 +1,23 @@
+#(define foo)
+
+#(define-music-function (parser location notes) (ly:music?) #{
+	% Yes! You can embed LilyPond in Scheme.
+	\override Score.Stem.beamlet-max-length-proportion = #'(0.5 . 0.5)
+#})
+
+##t
+
+#"s t r i n g"
+----------------------------------------------------
+<span class="token embedded-scheme"><span class="token punctuation">#</span><span class="token scheme language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> foo<span class="token punctuation">)</span></span></span>
+
+<span class="token embedded-scheme"><span class="token punctuation">#</span><span class="token scheme language-scheme"><span class="token punctuation">(</span><span class="token function">define-music-function</span> <span class="token punctuation">(</span><span class="token function">parser</span> location notes<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">ly:music?</span><span class="token punctuation">)</span> <span class="token embedded-lilypond"><span class="token punctuation">#{</span><span class="token lilypond language-lilypond">
+	<span class="token comment">% Yes! You can embed LilyPond in Scheme.</span>
+	<span class="token keyword"><span class="token punctuation">\</span>override</span> Score<span class="token punctuation">.</span>Stem<span class="token punctuation">.</span>beamlet-max-length-proportion <span class="token operator">=</span> <span class="token embedded-scheme"><span class="token punctuation">#</span><span class="token scheme language-scheme"><span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">0.5</span> . <span class="token number">0.5</span><span class="token punctuation">)</span></span></span>
+</span><span class="token punctuation">#}</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token embedded-scheme"><span class="token punctuation">#</span><span class="token scheme language-scheme"><span class="token boolean">#t</span></span></span>
+
+<span class="token embedded-scheme"><span class="token punctuation">#</span><span class="token scheme language-scheme"><span class="token string">"s t r i n g"</span></span></span>
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+Foo.prototype.bar;
+Bar.constructor;
+fooBar.prototype.bar;
+----------------------------------------------------
+<span class="token class-name">Foo</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>bar<span class="token punctuation">;</span>
+<span class="token class-name">Bar</span><span class="token punctuation">.</span>constructor<span class="token punctuation">;</span>
+fooBar<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>bar<span class="token punctuation">;</span>
+
+----------------------------------------------------

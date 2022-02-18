@@ -1,0 +1,33 @@
+{{{link "See more..." story.url}}}
+{{ true }}
+{{ custom_helper 42 href="somepage.html" false }}
+----------------------------------------------------
+[
+	["delimiter", "{{{"],
+	["variable", "link"],
+	["string", "\"See more...\""],
+	["variable", "story"],
+	["punctuation", "."],
+	["variable", "url"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["boolean", "true"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "custom_helper"],
+	["number", "42"],
+	["variable", "href"],
+	["punctuation", "="],
+	["string", "\"somepage.html\""],
+	["boolean", "false"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

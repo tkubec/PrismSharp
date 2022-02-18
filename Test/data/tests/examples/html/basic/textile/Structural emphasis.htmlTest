@@ -1,0 +1,35 @@
+I _believe_ every word.
+And then? She *fell*!
+
+I __know__.
+I **really** __know__.
+
+??Cat's Cradle?? by Vonnegut
+
+Convert with @r.to_html@
+
+I'm -sure- not sure.
+
+You are a +pleasant+ child.
+
+a ^2^ + b ^2^ = c ^2^
+log ~2~ x
+----------------------------------------------------
+<span class="token phrase">I <span class="token inline"><span class="token punctuation">_</span><span class="token italic">believe</span><span class="token punctuation">_</span></span> every word.
+And then? She <span class="token inline"><span class="token punctuation">*</span><span class="token bold">fell</span><span class="token punctuation">*</span></span>!</span>
+
+<span class="token phrase">I <span class="token inline"><span class="token punctuation">__</span><span class="token italic">know</span><span class="token punctuation">__</span></span>.
+I <span class="token inline"><span class="token punctuation">**</span><span class="token bold">really</span><span class="token punctuation">**</span></span> <span class="token inline"><span class="token punctuation">__</span><span class="token italic">know</span><span class="token punctuation">__</span></span>.</span>
+
+<span class="token phrase"><span class="token inline"><span class="token punctuation">??</span><span class="token cite string">Cat's Cradle</span><span class="token punctuation">??</span></span> by Vonnegut</span>
+
+<span class="token phrase">Convert with <span class="token inline"><span class="token punctuation">@</span><span class="token code keyword">r.to_html</span><span class="token punctuation">@</span></span></span>
+
+<span class="token phrase">I'm <span class="token inline"><span class="token punctuation">-</span><span class="token deleted">sure</span><span class="token punctuation">-</span></span> not sure.</span>
+
+<span class="token phrase">You are a <span class="token inline"><span class="token punctuation">+</span><span class="token inserted">pleasant</span><span class="token punctuation">+</span></span> child.</span>
+
+<span class="token phrase">a <span class="token inline"><span class="token punctuation">^</span>2<span class="token punctuation">^</span></span> + b <span class="token inline"><span class="token punctuation">^</span>2<span class="token punctuation">^</span></span> = c <span class="token inline"><span class="token punctuation">^</span>2<span class="token punctuation">^</span></span>
+log <span class="token inline"><span class="token punctuation">~</span>2<span class="token punctuation">~</span></span> x</span>
+
+----------------------------------------------------

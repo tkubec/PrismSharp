@@ -1,0 +1,27 @@
+macro_rules! write_html {
+	($w:expr, ) => (());
+
+	($w:expr, $e:tt) => (write!($w, "{}", $e));
+
+	($w:expr, $tag:ident [ $($inner:tt)* ] $($rest:tt)*) => {{
+		write!($w, "<{}>", stringify!($tag));
+		write_html!($w, $($inner)*);
+		write!($w, "</{}>", stringify!($tag));
+		write_html!($w, $($rest)*);
+	}};
+}
+----------------------------------------------------
+<span class="token macro property">macro_rules!</span> write_html <span class="token punctuation">{</span>
+	<span class="token punctuation">(</span><span class="token variable">$w</span><span class="token punctuation">:</span><span class="token fragment-specifier punctuation">expr</span><span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token punctuation">(</span><span class="token variable">$w</span><span class="token punctuation">:</span><span class="token fragment-specifier punctuation">expr</span><span class="token punctuation">,</span> <span class="token variable">$e</span><span class="token punctuation">:</span><span class="token fragment-specifier punctuation">tt</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token macro property">write!</span><span class="token punctuation">(</span><span class="token variable">$w</span><span class="token punctuation">,</span> <span class="token string">"{}"</span><span class="token punctuation">,</span> <span class="token variable">$e</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token punctuation">(</span><span class="token variable">$w</span><span class="token punctuation">:</span><span class="token fragment-specifier punctuation">expr</span><span class="token punctuation">,</span> <span class="token variable">$tag</span><span class="token punctuation">:</span><span class="token fragment-specifier punctuation">ident</span> <span class="token punctuation">[</span> $<span class="token punctuation">(</span><span class="token variable">$inner</span><span class="token punctuation">:</span><span class="token fragment-specifier punctuation">tt</span><span class="token punctuation">)</span><span class="token operator">*</span> <span class="token punctuation">]</span> $<span class="token punctuation">(</span><span class="token variable">$rest</span><span class="token punctuation">:</span><span class="token fragment-specifier punctuation">tt</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">{</span>
+		<span class="token macro property">write!</span><span class="token punctuation">(</span><span class="token variable">$w</span><span class="token punctuation">,</span> <span class="token string">"&lt;{}>"</span><span class="token punctuation">,</span> <span class="token macro property">stringify!</span><span class="token punctuation">(</span><span class="token variable">$tag</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token macro property">write_html!</span><span class="token punctuation">(</span><span class="token variable">$w</span><span class="token punctuation">,</span> $<span class="token punctuation">(</span><span class="token variable">$inner</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token macro property">write!</span><span class="token punctuation">(</span><span class="token variable">$w</span><span class="token punctuation">,</span> <span class="token string">"&lt;/{}>"</span><span class="token punctuation">,</span> <span class="token macro property">stringify!</span><span class="token punctuation">(</span><span class="token variable">$tag</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token macro property">write_html!</span><span class="token punctuation">(</span><span class="token variable">$w</span><span class="token punctuation">,</span> $<span class="token punctuation">(</span><span class="token variable">$rest</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

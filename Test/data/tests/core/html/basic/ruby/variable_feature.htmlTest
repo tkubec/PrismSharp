@@ -1,0 +1,21 @@
+$_
+$foo
+$BAR?
+$Baz_42!
+
+@_
+@foo
+@BAR?
+@Baz_42!
+----------------------------------------------------
+<span class="token variable">$_</span>
+<span class="token variable">$foo</span>
+<span class="token variable">$BAR?</span>
+<span class="token variable">$Baz_42!</span>
+
+<span class="token variable">@_</span>
+<span class="token variable">@foo</span>
+<span class="token variable">@BAR?</span>
+<span class="token variable">@Baz_42!</span>
+
+----------------------------------------------------

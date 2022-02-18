@@ -1,0 +1,27 @@
+class Foo </ test = "I'm a class level attribute" />{
+    </ test = "freakin attribute" /> //attributes of PrintTesty
+    function PrintTesty()
+    {
+        foreach(i,val in testy)
+        {
+            ::print("idx = "+i+" = "+val+" \n");
+        }
+    }
+    </ flippy = 10 , second = [1,2,3] /> //attributes of testy
+    testy = null;
+}
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token attribute-punctuation important">&lt;/</span> test <span class="token operator">=</span> <span class="token string">"I'm a class level attribute"</span> <span class="token attribute-punctuation important">/></span><span class="token punctuation">{</span>
+    <span class="token attribute-punctuation important">&lt;/</span> test <span class="token operator">=</span> <span class="token string">"freakin attribute"</span> <span class="token attribute-punctuation important">/></span> <span class="token comment">//attributes of PrintTesty</span>
+    <span class="token keyword">function</span> <span class="token function">PrintTesty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">foreach</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>val <span class="token keyword">in</span> testy<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token operator">::</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"idx = "</span><span class="token operator">+</span>i<span class="token operator">+</span><span class="token string">" = "</span><span class="token operator">+</span>val<span class="token operator">+</span><span class="token string">" \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token attribute-punctuation important">&lt;/</span> flippy <span class="token operator">=</span> <span class="token number">10</span> <span class="token punctuation">,</span> second <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token attribute-punctuation important">/></span> <span class="token comment">//attributes of testy</span>
+    testy <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+""
+"foo"
+"\tfoo
+bar"
+#"f"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo"</span>
+<span class="token string">"\tfoo
+bar"</span>
+<span class="token string">#"f"</span>
+
+----------------------------------------------------

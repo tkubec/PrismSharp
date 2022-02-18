@@ -1,0 +1,9 @@
+[% text %]
+[% article.title %]
+[%= eat.whitespace.left %]
+[% eat.whitespace.right =%]
+[%= eat.whitespace.both =%]
+[% object.method() %]
+
+--------------------------------------------------
+

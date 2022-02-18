@@ -1,0 +1,5 @@
+(foo ,bar ,@bar)
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token car">foo</span> <span class="token splice symbol variable">,bar</span> <span class="token splice symbol variable">,@bar</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

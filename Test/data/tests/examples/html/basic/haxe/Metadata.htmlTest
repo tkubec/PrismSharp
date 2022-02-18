@@ -1,0 +1,23 @@
+@author("Nicolas")
+@debug
+class MyClass {
+  @range(1, 8)
+  var value:Int;
+
+  @broken
+  @:noCompletion
+  static function method() { }
+}
+----------------------------------------------------
+<span class="token metadata symbol">@author</span><span class="token punctuation">(</span><span class="token string">"Nicolas"</span><span class="token punctuation">)</span>
+<span class="token metadata symbol">@debug</span>
+<span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span>
+  <span class="token keyword">var</span> value<span class="token operator">:</span><span class="token class-name">Int</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@broken</span>
+  <span class="token metadata symbol">@:noCompletion</span>
+  <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

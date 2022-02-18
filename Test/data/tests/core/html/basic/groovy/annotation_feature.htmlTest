@@ -1,0 +1,7 @@
+@BaseScript MyBaseClass baseScript
+@DelegatesTo(EmailSpec)
+----------------------------------------------------
+<span class="token annotation punctuation">@BaseScript</span> MyBaseClass baseScript
+<span class="token annotation punctuation">@DelegatesTo</span><span class="token punctuation">(</span>EmailSpec<span class="token punctuation">)</span>
+
+----------------------------------------------------

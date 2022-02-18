@@ -1,0 +1,39 @@
+"""
+	count_consecutive(str::AbstractString, start::Int)
+
+Counts the number of identical characters in a given string `str` starting from index `start`.
+
+# Examples
+
+```julia-repl
+julia> count_consecutive("AAAB", 3)
+('A', 3)
+
+julia> count_consecutive("x y z", 3)
+('y', 1)
+```
+"""
+function count_consecutive(str, start)
+	...
+end
+----------------------------------------------------
+<span class="token string">"""
+	count_consecutive(str::AbstractString, start::Int)
+
+Counts the number of identical characters in a given string `str` starting from index `start`.
+
+# Examples
+
+```julia-repl
+julia> count_consecutive("AAAB", 3)
+('A', 3)
+
+julia> count_consecutive("x y z", 3)
+('y', 1)
+```
+"""</span>
+<span class="token keyword">function</span> count_consecutive<span class="token punctuation">(</span>str<span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

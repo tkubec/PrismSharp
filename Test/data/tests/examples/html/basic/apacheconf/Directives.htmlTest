@@ -1,0 +1,11 @@
+<Files .htaccess>
+	Order allow,deny
+	Deny from all
+</Files>
+----------------------------------------------------
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;</span>Files</span><span class="token directive-block-parameter attr-value"> .htaccess</span><span class="token punctuation">></span></span>
+	<span class="token directive-inline property">Order</span> <span class="token directive-inline property">allow</span>,deny
+	<span class="token directive-inline property">Deny</span> from all
+<span class="token directive-block tag"><span class="token directive-block tag"><span class="token punctuation">&lt;/</span>Files</span><span class="token punctuation">></span></span>
+
+----------------------------------------------------

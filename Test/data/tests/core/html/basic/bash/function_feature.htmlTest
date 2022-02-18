@@ -1,0 +1,505 @@
+add
+apropos
+apt
+aptitude
+apt-cache
+apt-get
+aspell
+automysqlbackup
+awk
+basename
+bash
+bc
+bconsole
+bg
+bzip2
+cal
+cat
+cfdisk
+chgrp
+chkconfig
+chmod
+chown
+chroot
+cksum
+clear
+cmp
+column
+comm
+composer
+cp
+cron
+crontab
+csplit
+curl
+cut
+date
+dc
+dd
+ddrescue
+debootstrap
+df
+diff
+diff3
+dig
+dir
+dircolors
+dirname
+dirs
+dmesg
+du
+egrep
+eject
+env
+ethtool
+expand
+expect
+expr
+fdformat
+fdisk
+fg
+fgrep
+file
+find
+fmt
+fold
+format
+free
+fsck
+ftp
+fuser
+gawk
+git
+gparted
+grep
+groupadd
+groupdel
+groupmod
+groups
+grub-mkconfig
+gzip
+halt
+head
+hg
+history
+host
+hostname
+htop
+iconv
+id
+ifconfig
+ifdown
+ifup
+import
+install
+ip
+jobs
+join
+kill
+killall
+less
+link
+ln
+locate
+logname
+logrotate
+look
+lpc
+lpr
+lprint
+lprintd
+lprintq
+lprm
+ls
+lsof
+lynx
+make
+man
+mc
+mdadm
+mkconfig
+mkdir
+mke2fs
+mkfifo
+mkfs
+mkisofs
+mknod
+mkswap
+mmv
+more
+most
+mount
+mtools
+mtr
+mutt
+mv
+nano
+nc
+netstat
+nice
+nl
+nohup
+notify-send
+npm
+nslookup
+op
+open
+parted
+passwd
+paste
+pathchk
+ping
+pkill
+pnpm
+popd
+pr
+printcap
+printenv
+ps
+pushd
+pv
+quota
+quotacheck
+quotactl
+ram
+rar
+rcp
+reboot
+remsync
+rename
+renice
+rev
+rm
+rmdir
+rpm
+rsync
+scp
+screen
+sdiff
+sed
+sendmail
+seq
+service
+sftp
+sh
+shellcheck
+shuf
+shutdown
+sleep
+slocate
+sort
+split
+ssh
+stat
+strace
+su
+sudo
+sum
+suspend
+swapon
+sync
+tac
+tail
+tar
+tee
+time
+timeout
+top
+touch
+tr
+traceroute
+tsort
+tty
+umount
+uname
+unexpand
+uniq
+units
+unrar
+unshar
+unzip
+update-grub
+uptime
+useradd
+userdel
+usermod
+users
+uudecode
+uuencode
+v
+vdir
+vi
+vim
+virsh
+vmstat
+wait
+watch
+wc
+wget
+whereis
+which
+who
+whoami
+write
+xargs
+xdg-open
+yarn
+yes
+zenity
+zip
+zsh
+zypper
+----------------------------------------------------
+<span class="token function">add</span>
+<span class="token function">apropos</span>
+<span class="token function">apt</span>
+<span class="token function">aptitude</span>
+<span class="token function">apt-cache</span>
+<span class="token function">apt-get</span>
+<span class="token function">aspell</span>
+<span class="token function">automysqlbackup</span>
+<span class="token function">awk</span>
+<span class="token function">basename</span>
+<span class="token function">bash</span>
+<span class="token function">bc</span>
+<span class="token function">bconsole</span>
+<span class="token function">bg</span>
+<span class="token function">bzip2</span>
+<span class="token function">cal</span>
+<span class="token function">cat</span>
+<span class="token function">cfdisk</span>
+<span class="token function">chgrp</span>
+<span class="token function">chkconfig</span>
+<span class="token function">chmod</span>
+<span class="token function">chown</span>
+<span class="token function">chroot</span>
+<span class="token function">cksum</span>
+<span class="token function">clear</span>
+<span class="token function">cmp</span>
+<span class="token function">column</span>
+<span class="token function">comm</span>
+<span class="token function">composer</span>
+<span class="token function">cp</span>
+<span class="token function">cron</span>
+<span class="token function">crontab</span>
+<span class="token function">csplit</span>
+<span class="token function">curl</span>
+<span class="token function">cut</span>
+<span class="token function">date</span>
+<span class="token function">dc</span>
+<span class="token function">dd</span>
+<span class="token function">ddrescue</span>
+<span class="token function">debootstrap</span>
+<span class="token function">df</span>
+<span class="token function">diff</span>
+<span class="token function">diff3</span>
+<span class="token function">dig</span>
+<span class="token function">dir</span>
+<span class="token function">dircolors</span>
+<span class="token function">dirname</span>
+<span class="token function">dirs</span>
+<span class="token function">dmesg</span>
+<span class="token function">du</span>
+<span class="token function">egrep</span>
+<span class="token function">eject</span>
+<span class="token function">env</span>
+<span class="token function">ethtool</span>
+<span class="token function">expand</span>
+<span class="token function">expect</span>
+<span class="token function">expr</span>
+<span class="token function">fdformat</span>
+<span class="token function">fdisk</span>
+<span class="token function">fg</span>
+<span class="token function">fgrep</span>
+<span class="token function">file</span>
+<span class="token function">find</span>
+<span class="token function">fmt</span>
+<span class="token function">fold</span>
+<span class="token function">format</span>
+<span class="token function">free</span>
+<span class="token function">fsck</span>
+<span class="token function">ftp</span>
+<span class="token function">fuser</span>
+<span class="token function">gawk</span>
+<span class="token function">git</span>
+<span class="token function">gparted</span>
+<span class="token function">grep</span>
+<span class="token function">groupadd</span>
+<span class="token function">groupdel</span>
+<span class="token function">groupmod</span>
+<span class="token function">groups</span>
+<span class="token function">grub-mkconfig</span>
+<span class="token function">gzip</span>
+<span class="token function">halt</span>
+<span class="token function">head</span>
+<span class="token function">hg</span>
+<span class="token function">history</span>
+<span class="token function">host</span>
+<span class="token function">hostname</span>
+<span class="token function">htop</span>
+<span class="token function">iconv</span>
+<span class="token function">id</span>
+<span class="token function">ifconfig</span>
+<span class="token function">ifdown</span>
+<span class="token function">ifup</span>
+<span class="token function">import</span>
+<span class="token function">install</span>
+<span class="token function">ip</span>
+<span class="token function">jobs</span>
+<span class="token function">join</span>
+<span class="token function">kill</span>
+<span class="token function">killall</span>
+<span class="token function">less</span>
+<span class="token function">link</span>
+<span class="token function">ln</span>
+<span class="token function">locate</span>
+<span class="token function">logname</span>
+<span class="token function">logrotate</span>
+<span class="token function">look</span>
+<span class="token function">lpc</span>
+<span class="token function">lpr</span>
+<span class="token function">lprint</span>
+<span class="token function">lprintd</span>
+<span class="token function">lprintq</span>
+<span class="token function">lprm</span>
+<span class="token function">ls</span>
+<span class="token function">lsof</span>
+<span class="token function">lynx</span>
+<span class="token function">make</span>
+<span class="token function">man</span>
+<span class="token function">mc</span>
+<span class="token function">mdadm</span>
+<span class="token function">mkconfig</span>
+<span class="token function">mkdir</span>
+<span class="token function">mke2fs</span>
+<span class="token function">mkfifo</span>
+<span class="token function">mkfs</span>
+<span class="token function">mkisofs</span>
+<span class="token function">mknod</span>
+<span class="token function">mkswap</span>
+<span class="token function">mmv</span>
+<span class="token function">more</span>
+<span class="token function">most</span>
+<span class="token function">mount</span>
+<span class="token function">mtools</span>
+<span class="token function">mtr</span>
+<span class="token function">mutt</span>
+<span class="token function">mv</span>
+<span class="token function">nano</span>
+<span class="token function">nc</span>
+<span class="token function">netstat</span>
+<span class="token function">nice</span>
+<span class="token function">nl</span>
+<span class="token function">nohup</span>
+<span class="token function">notify-send</span>
+<span class="token function">npm</span>
+<span class="token function">nslookup</span>
+<span class="token function">op</span>
+<span class="token function">open</span>
+<span class="token function">parted</span>
+<span class="token function">passwd</span>
+<span class="token function">paste</span>
+<span class="token function">pathchk</span>
+<span class="token function">ping</span>
+<span class="token function">pkill</span>
+<span class="token function">pnpm</span>
+<span class="token function">popd</span>
+<span class="token function">pr</span>
+<span class="token function">printcap</span>
+<span class="token function">printenv</span>
+<span class="token function">ps</span>
+<span class="token function">pushd</span>
+<span class="token function">pv</span>
+<span class="token function">quota</span>
+<span class="token function">quotacheck</span>
+<span class="token function">quotactl</span>
+<span class="token function">ram</span>
+<span class="token function">rar</span>
+<span class="token function">rcp</span>
+<span class="token function">reboot</span>
+<span class="token function">remsync</span>
+<span class="token function">rename</span>
+<span class="token function">renice</span>
+<span class="token function">rev</span>
+<span class="token function">rm</span>
+<span class="token function">rmdir</span>
+<span class="token function">rpm</span>
+<span class="token function">rsync</span>
+<span class="token function">scp</span>
+<span class="token function">screen</span>
+<span class="token function">sdiff</span>
+<span class="token function">sed</span>
+<span class="token function">sendmail</span>
+<span class="token function">seq</span>
+<span class="token function">service</span>
+<span class="token function">sftp</span>
+<span class="token function">sh</span>
+<span class="token function">shellcheck</span>
+<span class="token function">shuf</span>
+<span class="token function">shutdown</span>
+<span class="token function">sleep</span>
+<span class="token function">slocate</span>
+<span class="token function">sort</span>
+<span class="token function">split</span>
+<span class="token function">ssh</span>
+<span class="token function">stat</span>
+<span class="token function">strace</span>
+<span class="token function">su</span>
+<span class="token function">sudo</span>
+<span class="token function">sum</span>
+<span class="token function">suspend</span>
+<span class="token function">swapon</span>
+<span class="token function">sync</span>
+<span class="token function">tac</span>
+<span class="token function">tail</span>
+<span class="token function">tar</span>
+<span class="token function">tee</span>
+<span class="token function">time</span>
+<span class="token function">timeout</span>
+<span class="token function">top</span>
+<span class="token function">touch</span>
+<span class="token function">tr</span>
+<span class="token function">traceroute</span>
+<span class="token function">tsort</span>
+<span class="token function">tty</span>
+<span class="token function">umount</span>
+<span class="token function">uname</span>
+<span class="token function">unexpand</span>
+<span class="token function">uniq</span>
+<span class="token function">units</span>
+<span class="token function">unrar</span>
+<span class="token function">unshar</span>
+<span class="token function">unzip</span>
+<span class="token function">update-grub</span>
+<span class="token function">uptime</span>
+<span class="token function">useradd</span>
+<span class="token function">userdel</span>
+<span class="token function">usermod</span>
+<span class="token function">users</span>
+<span class="token function">uudecode</span>
+<span class="token function">uuencode</span>
+<span class="token function">v</span>
+<span class="token function">vdir</span>
+<span class="token function">vi</span>
+<span class="token function">vim</span>
+<span class="token function">virsh</span>
+<span class="token function">vmstat</span>
+<span class="token function">wait</span>
+<span class="token function">watch</span>
+<span class="token function">wc</span>
+<span class="token function">wget</span>
+<span class="token function">whereis</span>
+<span class="token function">which</span>
+<span class="token function">who</span>
+<span class="token function">whoami</span>
+<span class="token function">write</span>
+<span class="token function">xargs</span>
+<span class="token function">xdg-open</span>
+<span class="token function">yarn</span>
+<span class="token function">yes</span>
+<span class="token function">zenity</span>
+<span class="token function">zip</span>
+<span class="token function">zsh</span>
+<span class="token function">zypper</span>
+
+----------------------------------------------------

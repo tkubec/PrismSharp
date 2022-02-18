@@ -1,0 +1,7 @@
+FILTER u.id == @id && u.name == @name
+FOR u IN @@collection
+----------------------------------------------------
+<span class="token keyword">FILTER</span> u<span class="token punctuation">.</span>id <span class="token operator">==</span> <span class="token variable">@id</span> <span class="token operator">&amp;&amp;</span> u<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token variable">@name</span>
+<span class="token keyword">FOR</span> u <span class="token keyword">IN</span> <span class="token variable">@@collection</span>
+
+----------------------------------------------------

@@ -1,0 +1,89 @@
+:: Example from http://webdocs.cs.ualberta.ca/~piotr/Mizar/Dagstuhl97/
+environ
+vocabulary SCM;
+constructors ARYTHM, PRE_FF, NAT_1, REAL_1;
+notation ARYTHM, PRE_FF, NAT_1;
+requirements ARYTHM;
+theorems REAL_1, PRE_FF, NAT_1, AXIOMS, CQC_THE1;
+schemes NAT_1;
+begin
+
+P: for k being Nat
+	st for n being Nat st n < k holds Fib (n+1) ≥ n
+		holds Fib (k+1) ≥ k
+proof let k be Nat; assume
+IH: for n being Nat st n < k holds Fib (n+1) ≥ n;
+	per cases;
+		suppose k ≤ 1; then k = 0 or k = 0+1 by CQC_THE1:2;
+			hence Fib (k+1) ≥ k by PRE_FF:1;
+		suppose 1 < k; then
+			1+1 ≤ k by NAT_1:38; then
+			consider m being Nat such that
+		A: k = 1+1+m by NAT_1:28;
+			thus Fib (k+1) ≥ k proof
+				per cases by NAT_1:19;
+				suppose S1: m = 0;
+					Fib (0+1+1+1) = Fib(0+1) + Fib(0+1+1) by PRE_FF:1
+					              = 1 + 1 by PRE_FF:1;
+					hence Fib (k+1) ≥ k by A, S1;
+				suppose m > 0; then
+					m+1 > 0+1 by REAL_1:59; then
+					m ≥ 1 by NAT_1:38; then
+				B: m+(m+1) ≥ m+1+1 by REAL_1:49;
+				C: k = m+1+1 by A, AXIOMS:13;
+				   m < m+1 & m+1 < m+1+1 by REAL_1:69; then
+				   m < k & m+1 < k by C, AXIOMS:22; then
+				D: Fib (m+1) ≥ m & Fib (m+1+1) ≥ m+1 by IH;
+				   Fib (m+1+1+1) = Fib (m+1) + Fib (m+1+1) by PRE_FF:1; then
+				   Fib (m+1+1+1) ≥ m+(m+1) by D, REAL_1:55;
+		hence Fib(k+1) ≥ k by C, B, AXIOMS:22;
+	end;
+end;
+
+for n being Nat holds Fib(n+1) ≥ n from Comp_Ind(P);
+----------------------------------------------------
+<span class="token comment">:: Example from http://webdocs.cs.ualberta.ca/~piotr/Mizar/Dagstuhl97/</span>
+<span class="token keyword">environ</span>
+<span class="token keyword">vocabulary</span> SCM<span class="token punctuation">;</span>
+<span class="token keyword">constructors</span> ARYTHM<span class="token punctuation">,</span> PRE_FF<span class="token punctuation">,</span> NAT_1<span class="token punctuation">,</span> REAL_1<span class="token punctuation">;</span>
+<span class="token keyword">notation</span> ARYTHM<span class="token punctuation">,</span> PRE_FF<span class="token punctuation">,</span> NAT_1<span class="token punctuation">;</span>
+<span class="token keyword">requirements</span> ARYTHM<span class="token punctuation">;</span>
+<span class="token keyword">theorems</span> REAL_1<span class="token punctuation">,</span> PRE_FF<span class="token punctuation">,</span> NAT_1<span class="token punctuation">,</span> AXIOMS<span class="token punctuation">,</span> CQC_THE1<span class="token punctuation">;</span>
+<span class="token keyword">schemes</span> NAT_1<span class="token punctuation">;</span>
+<span class="token keyword">begin</span>
+
+<span class="token variable">P</span><span class="token punctuation">:</span> <span class="token keyword">for</span> k <span class="token keyword">being</span> Nat
+	<span class="token keyword">st</span> <span class="token keyword">for</span> n <span class="token keyword">being</span> Nat <span class="token keyword">st</span> n &lt; k <span class="token keyword">holds</span> Fib <span class="token punctuation">(</span>n+<span class="token number">1</span><span class="token punctuation">)</span> ≥ n
+		<span class="token keyword">holds</span> Fib <span class="token punctuation">(</span>k+<span class="token number">1</span><span class="token punctuation">)</span> ≥ k
+<span class="token keyword">proof</span> <span class="token keyword">let</span> k <span class="token keyword">be</span> Nat<span class="token punctuation">;</span> <span class="token keyword">assume</span>
+<span class="token variable">IH</span><span class="token punctuation">:</span> <span class="token keyword">for</span> n <span class="token keyword">being</span> Nat <span class="token keyword">st</span> n &lt; k <span class="token keyword">holds</span> Fib <span class="token punctuation">(</span>n+<span class="token number">1</span><span class="token punctuation">)</span> ≥ n<span class="token punctuation">;</span>
+	<span class="token keyword">per</span> <span class="token keyword">cases</span><span class="token punctuation">;</span>
+		<span class="token keyword">suppose</span> k ≤ <span class="token number">1</span><span class="token punctuation">;</span> <span class="token keyword">then</span> k <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">or</span> k <span class="token operator">=</span> <span class="token number">0</span>+<span class="token number">1</span> <span class="token keyword">by</span> <span class="token variable">CQC_THE1</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">;</span>
+			<span class="token keyword">hence</span> Fib <span class="token punctuation">(</span>k+<span class="token number">1</span><span class="token punctuation">)</span> ≥ k <span class="token keyword">by</span> <span class="token variable">PRE_FF</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">suppose</span> <span class="token number">1</span> &lt; k<span class="token punctuation">;</span> <span class="token keyword">then</span>
+			<span class="token number">1</span>+<span class="token number">1</span> ≤ k <span class="token keyword">by</span> <span class="token variable">NAT_1</span><span class="token punctuation">:</span><span class="token number">38</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+			<span class="token keyword">consider</span> m <span class="token keyword">being</span> Nat <span class="token keyword">such</span> <span class="token keyword">that</span>
+		<span class="token variable">A</span><span class="token punctuation">:</span> k <span class="token operator">=</span> <span class="token number">1</span>+<span class="token number">1</span>+m <span class="token keyword">by</span> <span class="token variable">NAT_1</span><span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">;</span>
+			<span class="token keyword">thus</span> Fib <span class="token punctuation">(</span>k+<span class="token number">1</span><span class="token punctuation">)</span> ≥ k <span class="token keyword">proof</span>
+				<span class="token keyword">per</span> <span class="token keyword">cases</span> <span class="token keyword">by</span> <span class="token variable">NAT_1</span><span class="token punctuation">:</span><span class="token number">19</span><span class="token punctuation">;</span>
+				<span class="token keyword">suppose</span> <span class="token variable">S1</span><span class="token punctuation">:</span> m <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+					Fib <span class="token punctuation">(</span><span class="token number">0</span>+<span class="token number">1</span>+<span class="token number">1</span>+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> Fib<span class="token punctuation">(</span><span class="token number">0</span>+<span class="token number">1</span><span class="token punctuation">)</span> + Fib<span class="token punctuation">(</span><span class="token number">0</span>+<span class="token number">1</span>+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">by</span> <span class="token variable">PRE_FF</span><span class="token punctuation">:</span><span class="token number">1</span>
+					              <span class="token operator">=</span> <span class="token number">1</span> + <span class="token number">1</span> <span class="token keyword">by</span> <span class="token variable">PRE_FF</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span>
+					<span class="token keyword">hence</span> Fib <span class="token punctuation">(</span>k+<span class="token number">1</span><span class="token punctuation">)</span> ≥ k <span class="token keyword">by</span> A<span class="token punctuation">,</span> S1<span class="token punctuation">;</span>
+				<span class="token keyword">suppose</span> m > <span class="token number">0</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+					m+<span class="token number">1</span> > <span class="token number">0</span>+<span class="token number">1</span> <span class="token keyword">by</span> <span class="token variable">REAL_1</span><span class="token punctuation">:</span><span class="token number">59</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+					m ≥ <span class="token number">1</span> <span class="token keyword">by</span> <span class="token variable">NAT_1</span><span class="token punctuation">:</span><span class="token number">38</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+				<span class="token variable">B</span><span class="token punctuation">:</span> m+<span class="token punctuation">(</span>m+<span class="token number">1</span><span class="token punctuation">)</span> ≥ m+<span class="token number">1</span>+<span class="token number">1</span> <span class="token keyword">by</span> <span class="token variable">REAL_1</span><span class="token punctuation">:</span><span class="token number">49</span><span class="token punctuation">;</span>
+				<span class="token variable">C</span><span class="token punctuation">:</span> k <span class="token operator">=</span> m+<span class="token number">1</span>+<span class="token number">1</span> <span class="token keyword">by</span> A<span class="token punctuation">,</span> <span class="token variable">AXIOMS</span><span class="token punctuation">:</span><span class="token number">13</span><span class="token punctuation">;</span>
+				   m &lt; m+<span class="token number">1</span> <span class="token operator">&amp;</span> m+<span class="token number">1</span> &lt; m+<span class="token number">1</span>+<span class="token number">1</span> <span class="token keyword">by</span> <span class="token variable">REAL_1</span><span class="token punctuation">:</span><span class="token number">69</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+				   m &lt; k <span class="token operator">&amp;</span> m+<span class="token number">1</span> &lt; k <span class="token keyword">by</span> C<span class="token punctuation">,</span> <span class="token variable">AXIOMS</span><span class="token punctuation">:</span><span class="token number">22</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+				<span class="token variable">D</span><span class="token punctuation">:</span> Fib <span class="token punctuation">(</span>m+<span class="token number">1</span><span class="token punctuation">)</span> ≥ m <span class="token operator">&amp;</span> Fib <span class="token punctuation">(</span>m+<span class="token number">1</span>+<span class="token number">1</span><span class="token punctuation">)</span> ≥ m+<span class="token number">1</span> <span class="token keyword">by</span> IH<span class="token punctuation">;</span>
+				   Fib <span class="token punctuation">(</span>m+<span class="token number">1</span>+<span class="token number">1</span>+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> Fib <span class="token punctuation">(</span>m+<span class="token number">1</span><span class="token punctuation">)</span> + Fib <span class="token punctuation">(</span>m+<span class="token number">1</span>+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">by</span> <span class="token variable">PRE_FF</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+				   Fib <span class="token punctuation">(</span>m+<span class="token number">1</span>+<span class="token number">1</span>+<span class="token number">1</span><span class="token punctuation">)</span> ≥ m+<span class="token punctuation">(</span>m+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">by</span> D<span class="token punctuation">,</span> <span class="token variable">REAL_1</span><span class="token punctuation">:</span><span class="token number">55</span><span class="token punctuation">;</span>
+		<span class="token keyword">hence</span> Fib<span class="token punctuation">(</span>k+<span class="token number">1</span><span class="token punctuation">)</span> ≥ k <span class="token keyword">by</span> C<span class="token punctuation">,</span> B<span class="token punctuation">,</span> <span class="token variable">AXIOMS</span><span class="token punctuation">:</span><span class="token number">22</span><span class="token punctuation">;</span>
+	<span class="token keyword">end</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> n <span class="token keyword">being</span> Nat <span class="token keyword">holds</span> Fib<span class="token punctuation">(</span>n+<span class="token number">1</span><span class="token punctuation">)</span> ≥ n <span class="token keyword">from</span> Comp_Ind<span class="token punctuation">(</span>P<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

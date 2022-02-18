@@ -1,0 +1,55 @@
+Burn Rate (Hours) = 
+
+// Only consider those projects which have been alread created
+VAR filterDate = 
+    FILTER (
+        ALL ( 'Date'[Date] ),
+        'Date'[Date] <= MAX('Date'[Date])
+    )
+
+RETURN
+IF (
+    // Show blank for months before project start
+    MAX ( 'Project'[Project Created Relative Months Pos] ) < SELECTEDVALUE ( 'Date'[Fiscal RelativeMonthPos] ),
+    BLANK (),
+    MIN(
+        1,
+        DIVIDE (
+            // Add 0 to consider months with no hours
+            [Hours Actual Billable] + 0,
+            CALCULATE (
+                [Planned Hours] + 0,
+                filterDate
+            )
+        )
+    )
+)
+----------------------------------------------------
+Burn Rate <span class="token punctuation">(</span>Hours<span class="token punctuation">)</span> <span class="token operator">=</span> 
+
+<span class="token comment">// Only consider those projects which have been alread created</span>
+<span class="token keyword">VAR</span> filterDate <span class="token operator">=</span> 
+    <span class="token function">FILTER</span> <span class="token punctuation">(</span>
+        <span class="token function">ALL</span> <span class="token punctuation">(</span> <span class="token data-field symbol">'Date'[Date]</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token data-field symbol">'Date'[Date]</span> <span class="token operator">&lt;=</span> <span class="token function">MAX</span><span class="token punctuation">(</span><span class="token data-field symbol">'Date'[Date]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">RETURN</span>
+<span class="token function">IF</span> <span class="token punctuation">(</span>
+    <span class="token comment">// Show blank for months before project start</span>
+    <span class="token function">MAX</span> <span class="token punctuation">(</span> <span class="token data-field symbol">'Project'[Project Created Relative Months Pos]</span> <span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token function">SELECTEDVALUE</span> <span class="token punctuation">(</span> <span class="token data-field symbol">'Date'[Fiscal RelativeMonthPos]</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">BLANK</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">MIN</span><span class="token punctuation">(</span>
+        <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token function">DIVIDE</span> <span class="token punctuation">(</span>
+            <span class="token comment">// Add 0 to consider months with no hours</span>
+            <span class="token measure constant">[Hours Actual Billable]</span> <span class="token operator">+</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token function">CALCULATE</span> <span class="token punctuation">(</span>
+                <span class="token measure constant">[Planned Hours]</span> <span class="token operator">+</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                filterDate
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+----------------------------------------------------

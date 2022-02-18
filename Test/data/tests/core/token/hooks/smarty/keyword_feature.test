@@ -1,0 +1,34 @@
+{if count($foo)}
+{/if}
+
+{* PHP function *}
+{time()}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "if"],
+	["function", "count"],
+	["punctuation", "("],
+	["variable", "$foo"],
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	"if",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "*"],
+	" PHP function ",
+	["operator", "*"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["function", "time"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

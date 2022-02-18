@@ -1,0 +1,34 @@
+env.content + '</' + env.tag + '>'
+var foo = "/" + "/";
+var foo = "http://prismjs.com"; // Strings are strings and comments are comments ;)
+----------------------------------------------------
+[
+	"env",
+	["punctuation", "."],
+	"content ",
+	["operator", "+"],
+	["string", "'</'"],
+	["operator", "+"],
+	" env",
+	["punctuation", "."],
+	"tag ",
+	["operator", "+"],
+	["string", "'>'"],
+
+	["keyword", "var"],
+	" foo ",
+	["operator", "="],
+	["string", "\"/\""],
+	["operator", "+"],
+	["string", "\"/\""],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" foo ",
+	["operator", "="],
+	["string", "\"http://prismjs.com\""],
+	["punctuation", ";"],
+	["comment", "// Strings are strings and comments are comments ;)"]
+]
+
+----------------------------------------------------

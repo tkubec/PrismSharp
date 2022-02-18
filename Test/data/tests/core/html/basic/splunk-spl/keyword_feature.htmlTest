@@ -1,0 +1,297 @@
+abstract
+accum
+addcoltotals
+addinfo
+addtotals
+analyzefields
+anomalies
+anomalousvalue
+anomalydetection
+append
+appendcols
+appendcsv
+appendlookup
+appendpipe
+arules
+associate
+audit
+autoregress
+bin
+bucket
+bucketdir
+chart
+cluster
+cofilter
+collect
+concurrency
+contingency
+convert
+correlate
+datamodel
+dbinspect
+dedup
+delete
+delta
+diff
+erex
+eval
+eventcount
+eventstats
+extract
+fieldformat
+fields
+fieldsummary
+filldown
+fillnull
+findtypes
+folderize
+foreach
+format
+from
+gauge
+gentimes
+geom
+geomfilter
+geostats
+head
+highlight
+history
+iconify
+input
+inputcsv
+inputlookup
+iplocation
+join
+kmeans
+kv
+kvform
+loadjob
+localize
+localop
+lookup
+makecontinuous
+makemv
+makeresults
+map
+mcollect
+metadata
+metasearch
+meventcollect
+mstats
+multikv
+multisearch
+mvcombine
+mvexpand
+nomv
+outlier
+outputcsv
+outputlookup
+outputtext
+overlap
+pivot
+predict
+rangemap
+rare
+regex
+relevancy
+reltime
+rename
+replace
+rest
+return
+reverse
+rex
+rtorder
+run
+savedsearch
+script
+scrub
+search
+searchtxn
+selfjoin
+sendemail
+set
+setfields
+sichart
+sirare
+sistats
+sitimechart
+sitop
+sort
+spath
+stats
+strcat
+streamstats
+table
+tags
+tail
+timechart
+timewrap
+top
+transaction
+transpose
+trendline
+tscollect
+tstats
+typeahead
+typelearner
+typer
+union
+uniq
+untable
+where
+x11
+xmlkv
+xmlunescape
+xpath
+xyseries
+----------------------------------------------------
+<span class="token keyword">abstract</span>
+<span class="token keyword">accum</span>
+<span class="token keyword">addcoltotals</span>
+<span class="token keyword">addinfo</span>
+<span class="token keyword">addtotals</span>
+<span class="token keyword">analyzefields</span>
+<span class="token keyword">anomalies</span>
+<span class="token keyword">anomalousvalue</span>
+<span class="token keyword">anomalydetection</span>
+<span class="token keyword">append</span>
+<span class="token keyword">appendcols</span>
+<span class="token keyword">appendcsv</span>
+<span class="token keyword">appendlookup</span>
+<span class="token keyword">appendpipe</span>
+<span class="token keyword">arules</span>
+<span class="token keyword">associate</span>
+<span class="token keyword">audit</span>
+<span class="token keyword">autoregress</span>
+<span class="token keyword">bin</span>
+<span class="token keyword">bucket</span>
+<span class="token keyword">bucketdir</span>
+<span class="token keyword">chart</span>
+<span class="token keyword">cluster</span>
+<span class="token keyword">cofilter</span>
+<span class="token keyword">collect</span>
+<span class="token keyword">concurrency</span>
+<span class="token keyword">contingency</span>
+<span class="token keyword">convert</span>
+<span class="token keyword">correlate</span>
+<span class="token keyword">datamodel</span>
+<span class="token keyword">dbinspect</span>
+<span class="token keyword">dedup</span>
+<span class="token keyword">delete</span>
+<span class="token keyword">delta</span>
+<span class="token keyword">diff</span>
+<span class="token keyword">erex</span>
+<span class="token keyword">eval</span>
+<span class="token keyword">eventcount</span>
+<span class="token keyword">eventstats</span>
+<span class="token keyword">extract</span>
+<span class="token keyword">fieldformat</span>
+<span class="token keyword">fields</span>
+<span class="token keyword">fieldsummary</span>
+<span class="token keyword">filldown</span>
+<span class="token keyword">fillnull</span>
+<span class="token keyword">findtypes</span>
+<span class="token keyword">folderize</span>
+<span class="token keyword">foreach</span>
+<span class="token keyword">format</span>
+<span class="token keyword">from</span>
+<span class="token keyword">gauge</span>
+<span class="token keyword">gentimes</span>
+<span class="token keyword">geom</span>
+<span class="token keyword">geomfilter</span>
+<span class="token keyword">geostats</span>
+<span class="token keyword">head</span>
+<span class="token keyword">highlight</span>
+<span class="token keyword">history</span>
+<span class="token keyword">iconify</span>
+<span class="token keyword">input</span>
+<span class="token keyword">inputcsv</span>
+<span class="token keyword">inputlookup</span>
+<span class="token keyword">iplocation</span>
+<span class="token keyword">join</span>
+<span class="token keyword">kmeans</span>
+<span class="token keyword">kv</span>
+<span class="token keyword">kvform</span>
+<span class="token keyword">loadjob</span>
+<span class="token keyword">localize</span>
+<span class="token keyword">localop</span>
+<span class="token keyword">lookup</span>
+<span class="token keyword">makecontinuous</span>
+<span class="token keyword">makemv</span>
+<span class="token keyword">makeresults</span>
+<span class="token keyword">map</span>
+<span class="token keyword">mcollect</span>
+<span class="token keyword">metadata</span>
+<span class="token keyword">metasearch</span>
+<span class="token keyword">meventcollect</span>
+<span class="token keyword">mstats</span>
+<span class="token keyword">multikv</span>
+<span class="token keyword">multisearch</span>
+<span class="token keyword">mvcombine</span>
+<span class="token keyword">mvexpand</span>
+<span class="token keyword">nomv</span>
+<span class="token keyword">outlier</span>
+<span class="token keyword">outputcsv</span>
+<span class="token keyword">outputlookup</span>
+<span class="token keyword">outputtext</span>
+<span class="token keyword">overlap</span>
+<span class="token keyword">pivot</span>
+<span class="token keyword">predict</span>
+<span class="token keyword">rangemap</span>
+<span class="token keyword">rare</span>
+<span class="token keyword">regex</span>
+<span class="token keyword">relevancy</span>
+<span class="token keyword">reltime</span>
+<span class="token keyword">rename</span>
+<span class="token keyword">replace</span>
+<span class="token keyword">rest</span>
+<span class="token keyword">return</span>
+<span class="token keyword">reverse</span>
+<span class="token keyword">rex</span>
+<span class="token keyword">rtorder</span>
+<span class="token keyword">run</span>
+<span class="token keyword">savedsearch</span>
+<span class="token keyword">script</span>
+<span class="token keyword">scrub</span>
+<span class="token keyword">search</span>
+<span class="token keyword">searchtxn</span>
+<span class="token keyword">selfjoin</span>
+<span class="token keyword">sendemail</span>
+<span class="token keyword">set</span>
+<span class="token keyword">setfields</span>
+<span class="token keyword">sichart</span>
+<span class="token keyword">sirare</span>
+<span class="token keyword">sistats</span>
+<span class="token keyword">sitimechart</span>
+<span class="token keyword">sitop</span>
+<span class="token keyword">sort</span>
+<span class="token keyword">spath</span>
+<span class="token keyword">stats</span>
+<span class="token keyword">strcat</span>
+<span class="token keyword">streamstats</span>
+<span class="token keyword">table</span>
+<span class="token keyword">tags</span>
+<span class="token keyword">tail</span>
+<span class="token keyword">timechart</span>
+<span class="token keyword">timewrap</span>
+<span class="token keyword">top</span>
+<span class="token keyword">transaction</span>
+<span class="token keyword">transpose</span>
+<span class="token keyword">trendline</span>
+<span class="token keyword">tscollect</span>
+<span class="token keyword">tstats</span>
+<span class="token keyword">typeahead</span>
+<span class="token keyword">typelearner</span>
+<span class="token keyword">typer</span>
+<span class="token keyword">union</span>
+<span class="token keyword">uniq</span>
+<span class="token keyword">untable</span>
+<span class="token keyword">where</span>
+<span class="token keyword">x11</span>
+<span class="token keyword">xmlkv</span>
+<span class="token keyword">xmlunescape</span>
+<span class="token keyword">xpath</span>
+<span class="token keyword">xyseries</span>
+
+----------------------------------------------------

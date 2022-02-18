@@ -1,0 +1,17 @@
+dcalc = mylisp||(+ 1 2 (* 2 3))|| // == 9
+
+myFortran || program hello
+          		print *, "Hello World!"
+       		 end program hello|| //prints "Hello World!"
+
+lotto = myAPL || x[⍋x←6?40] || //6 unique random numbers from 1 to 40
+----------------------------------------------------
+dcalc <span class="token operator">=</span> <span class="token langext"><span class="token class-name">mylisp</span><span class="token punctuation">||</span><span class="token string">(+ 1 2 (* 2 3))</span><span class="token punctuation">||</span></span> <span class="token comment">// == 9</span>
+
+<span class="token langext"><span class="token class-name">myFortran</span> <span class="token punctuation">||</span><span class="token string"> program hello
+          		print *, "Hello World!"
+       		 end program hello</span><span class="token punctuation">||</span></span> <span class="token comment">//prints "Hello World!"</span>
+
+lotto <span class="token operator">=</span> <span class="token langext"><span class="token class-name">myAPL</span> <span class="token punctuation">||</span><span class="token string"> x[⍋x←6?40] </span><span class="token punctuation">||</span></span> <span class="token comment">//6 unique random numbers from 1 to 40</span>
+
+----------------------------------------------------

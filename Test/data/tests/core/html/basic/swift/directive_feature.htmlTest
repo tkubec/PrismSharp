@@ -1,0 +1,45 @@
+#if os(tvOS)
+#if !DEBUG && ENABLE_INTERNAL_TOOLS
+#if SWIFTUI_PROFILE
+#if compiler(>=5)
+#if compiler(>=5) && swift(<5)
+
+#elseif compiler(>=5)
+#else
+#endif
+
+#sourceLocation(file: "foo", line: 42)
+#sourceLocation()
+
+#error("error message")
+#warning("warning message")
+
+#available(iOS 13, *)
+
+#selector(SomeClass.doSomething(_:))
+
+#keyPath(SomeClass.someProperty)
+----------------------------------------------------
+<span class="token directive property"><span class="token directive-name">#if</span> os<span class="token punctuation">(</span>tvOS<span class="token punctuation">)</span></span>
+<span class="token directive property"><span class="token directive-name">#if</span> <span class="token operator">!</span>DEBUG <span class="token operator">&amp;&amp;</span> ENABLE_INTERNAL_TOOLS</span>
+<span class="token directive property"><span class="token directive-name">#if</span> SWIFTUI_PROFILE</span>
+<span class="token directive property"><span class="token directive-name">#if</span> compiler<span class="token punctuation">(</span><span class="token operator">>=</span><span class="token number">5</span><span class="token punctuation">)</span></span>
+<span class="token directive property"><span class="token directive-name">#if</span> compiler<span class="token punctuation">(</span><span class="token operator">>=</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> swift<span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">)</span></span>
+
+<span class="token directive property"><span class="token directive-name">#elseif</span> compiler<span class="token punctuation">(</span><span class="token operator">>=</span><span class="token number">5</span><span class="token punctuation">)</span></span>
+<span class="token directive property"><span class="token directive-name">#else</span></span>
+<span class="token directive property"><span class="token directive-name">#endif</span></span>
+
+<span class="token other-directive property">#sourceLocation</span><span class="token punctuation">(</span>file<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"foo"</span></span><span class="token punctuation">,</span> line<span class="token punctuation">:</span> <span class="token number">42</span><span class="token punctuation">)</span>
+<span class="token other-directive property">#sourceLocation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token other-directive property">#error</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"error message"</span></span><span class="token punctuation">)</span>
+<span class="token other-directive property">#warning</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"warning message"</span></span><span class="token punctuation">)</span>
+
+<span class="token other-directive property">#available</span><span class="token punctuation">(</span>iOS <span class="token number">13</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">)</span>
+
+<span class="token other-directive property">#selector</span><span class="token punctuation">(</span><span class="token class-name">SomeClass</span><span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token omit keyword">_</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token other-directive property">#keyPath</span><span class="token punctuation">(</span><span class="token class-name">SomeClass</span><span class="token punctuation">.</span>someProperty<span class="token punctuation">)</span>
+
+----------------------------------------------------

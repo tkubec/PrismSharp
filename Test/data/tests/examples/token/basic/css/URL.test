@@ -1,0 +1,15 @@
+content: url(foo.png);
+----------------------------------------------------
+[
+	["property", "content"],
+	["punctuation", ":"],
+	["url", [
+		["function", "url"],
+		["punctuation", "("],
+		"foo.png",
+		["punctuation", ")"]
+	]],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

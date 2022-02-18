@@ -1,0 +1,9 @@
+fetch('some-resource.json')
+	.then(response => response.json())
+	.catch(console.error);
+----------------------------------------------------
+<span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'some-resource.json'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

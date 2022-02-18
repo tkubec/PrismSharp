@@ -1,0 +1,17 @@
+$C:Control2:{
+$C#1:Control2:{
+$C[ParentControl]:Control2:{
+$C#1[ParentControl]:Control2:{
+$S:Statement:{!NOCACHE
+$H:HttpRequest:{!RENDERONREQUEST
+$C:Control2:{!MESSAGETEMPLATE
+----------------------------------------------------
+<span class="token directive-block-open function"><span class="token punctuation">$C:</span>Control2<span class="token punctuation">:</span><span class="token punctuation">{</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$C<span class="token tag">#1</span></span><span class="token punctuation">:</span>Control2<span class="token punctuation">:</span><span class="token punctuation">{</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$C[</span>ParentControl<span class="token punctuation">]</span><span class="token punctuation">:</span>Control2<span class="token punctuation">:</span><span class="token punctuation">{</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$C<span class="token tag">#1</span></span><span class="token punctuation">[</span>ParentControl<span class="token punctuation">]</span><span class="token punctuation">:</span>Control2<span class="token punctuation">:</span><span class="token punctuation">{</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$S:</span>Statement<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token attribute keyword"><span class="token punctuation">!</span>NOCACHE</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$H:</span>HttpRequest<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token attribute keyword"><span class="token punctuation">!</span>RENDERONREQUEST</span></span>
+<span class="token directive-block-open function"><span class="token punctuation">$C:</span>Control2<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token attribute keyword"><span class="token punctuation">!</span>MESSAGETEMPLATE</span></span>
+
+----------------------------------------------------

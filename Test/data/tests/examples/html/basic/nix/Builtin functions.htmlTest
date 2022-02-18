@@ -1,0 +1,11 @@
+name = baseNameOf (toString url);
+imap =
+	if builtins ? genList then
+		f: list: genList (n: f (n + 1) (elemAt list n)) (length list)
+----------------------------------------------------
+name <span class="token operator">=</span> <span class="token function">baseNameOf</span> <span class="token punctuation">(</span><span class="token function">toString</span> url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+imap <span class="token operator">=</span>
+	<span class="token keyword">if</span> <span class="token keyword">builtins</span> <span class="token operator">?</span> <span class="token function">genList</span> <span class="token keyword">then</span>
+		f<span class="token punctuation">:</span> list<span class="token punctuation">:</span> <span class="token function">genList</span> <span class="token punctuation">(</span>n<span class="token punctuation">:</span> f <span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">elemAt</span> list n<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">length</span> list<span class="token punctuation">)</span>
+
+----------------------------------------------------

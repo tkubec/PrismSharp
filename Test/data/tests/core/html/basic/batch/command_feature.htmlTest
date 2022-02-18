@@ -1,0 +1,37 @@
+FOR /l %%a in (5,-1,1) do (TITLE %title% -- closing in %%as)
+
+FOR /F %%A IN ('TYPE "%InFile%"^|find /v /c ""')
+
+SET title=%~n0
+
+echo.Hello World
+
+@ECHO OFF
+
+if not defined ProgressFormat set "ProgressFormat=[PPPP]"
+
+EXIT /b
+
+set /a ProgressCnt+=1
+
+IF "%~1" NEQ "" (SET %~1=%new%) ELSE (echo.%new%)
+----------------------------------------------------
+<span class="token command"><span class="token keyword">FOR</span> <span class="token parameter attr-name">/l</span> <span class="token variable">%%a</span> <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">-1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">do</span></span> <span class="token punctuation">(</span><span class="token command"><span class="token keyword">TITLE</span> <span class="token variable">%title%</span> -- closing in <span class="token variable">%%as</span></span><span class="token punctuation">)</span>
+
+<span class="token command"><span class="token keyword">FOR</span> <span class="token parameter attr-name">/F</span> <span class="token variable">%%A</span> IN ('TYPE <span class="token string">"%InFile%"</span><span class="token operator">^</span>|find <span class="token parameter attr-name">/v</span> <span class="token parameter attr-name">/c</span> <span class="token string">""</span>'</span><span class="token punctuation">)</span>
+
+<span class="token command"><span class="token keyword">SET</span> <span class="token variable">title</span><span class="token operator">=</span><span class="token variable">%~n0</span></span>
+
+<span class="token command"><span class="token keyword">echo</span>.Hello World</span>
+
+<span class="token operator">@</span><span class="token command"><span class="token keyword">ECHO</span> OFF</span>
+
+<span class="token command"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token keyword">defined</span> ProgressFormat</span> <span class="token command"><span class="token keyword">set</span> <span class="token string">"ProgressFormat=[PPPP]"</span></span>
+
+<span class="token command"><span class="token keyword">EXIT</span> <span class="token parameter attr-name">/b</span></span>
+
+<span class="token command"><span class="token keyword">set</span> <span class="token parameter attr-name">/a</span> <span class="token variable">ProgressCnt</span><span class="token operator">+=</span><span class="token number">1</span></span>
+
+<span class="token command"><span class="token keyword">IF</span> <span class="token string">"%~1"</span> <span class="token operator">NEQ</span> <span class="token string">""</span></span> <span class="token punctuation">(</span><span class="token command"><span class="token keyword">SET</span> <span class="token variable">%~1</span><span class="token operator">=</span><span class="token variable">%new%</span></span><span class="token punctuation">)</span> <span class="token command"><span class="token keyword">ELSE</span></span> <span class="token punctuation">(</span><span class="token command"><span class="token keyword">echo</span>.<span class="token variable">%new%</span></span><span class="token punctuation">)</span>
+
+----------------------------------------------------

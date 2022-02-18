@@ -1,0 +1,28 @@
+@font-face {
+	font-family: "opensans";
+	src: font-url("opensans.ttf");
+}
+----------------------------------------------------
+[
+	["atrule", [
+		["rule", "@font-face"]
+	]],
+	["punctuation", "{"],
+
+	["property", ["font-family"]],
+	["punctuation", ":"],
+	["string", "\"opensans\""],
+	["punctuation", ";"],
+
+	["property", ["src"]],
+	["punctuation", ":"],
+	["url", "font-url"],
+	["punctuation", "("],
+	["string", "\"opensans.ttf\""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

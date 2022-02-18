@@ -1,0 +1,15 @@
+/ This is comment
+    on multiple lines
+/ This is a comment
+but this is not
+-# This is another comment
+    on multiple lines
+----------------------------------------------------
+[
+	["multiline-comment", "/ This is comment\n    on multiple lines"],
+	["multiline-comment", "/ This is a comment"],
+	"\nbut this is not\n",
+	["multiline-comment", "-# This is another comment\n    on multiple lines"]
+]
+
+----------------------------------------------------

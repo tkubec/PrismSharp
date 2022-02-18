@@ -1,0 +1,62 @@
+'foo \'bar\' baz'
+"$foo \"bar\" ${baz}"
+
+@(FOOBAR) # Unquoted heredoc string
+Foo bar baz
+FOOBAR
+
+@("BARBAZ"/$L) # Quoted heredoc string
+	$foo bar ${baz}
+	|-BARBAZ
+----------------------------------------------------
+[
+	["string", ["'foo \\'bar\\' baz'"]],
+	["string", [
+		["double-quoted", [
+			"\"",
+			["interpolation", ["$foo"]],
+			" \\\"bar\\\" ",
+			["interpolation", [
+				["delimiter", "$"],
+				["punctuation", "{"],
+				["short-variable", ["baz"]],
+				["punctuation", "}"]
+			]],
+			"\""
+		]]
+	]],
+
+	["heredoc", [
+		"@(",
+		["punctuation", "FOOBAR"],
+		")"
+	]],
+	["comment", "# Unquoted heredoc string"],
+
+	["heredoc", [
+		"Foo bar baz\n",
+		["punctuation", "FOOBAR"]
+	]],
+
+	["heredoc", [
+		"@(",
+		["punctuation", "\"BARBAZ\"/$L"],
+		")"
+	]],
+	["comment", "# Quoted heredoc string"],
+
+	["heredoc", [
+		["interpolation", ["$foo"]],
+		" bar ",
+		["interpolation", [
+			["delimiter", "$"],
+			["punctuation", "{"],
+			["short-variable", ["baz"]],
+			["punctuation", "}"]
+		]],
+
+		["punctuation", "|-BARBAZ"]
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,52 @@
+"a string" "\"" "\x8" "%s"
+
+SBUF" asbdef"
+
+USE: multiline
+
+STRING: name
+content
+;
+
+HEREDOC: marker
+text
+marker
+
+[==[
+	str
+	ing
+]==]
+----------------------------------------------------
+[
+	["string", ["\"a string\""]],
+	["string", [
+		"\"",
+		["number", "\\\""],
+		"\""
+	]],
+	["string", [
+		"\"",
+		["number", "\\x"],
+		"8\""
+	]],
+	["string", [
+		"\"",
+		["number", "%s"],
+		"\""
+	]],
+
+	["custom-string", ["SBUF\" asbdef\""]],
+
+	["colon-syntax", "USE: multiline"],
+
+	["multiline-string", [
+		"STRING: name\ncontent\n",
+		["semicolon-or-setlocal", ";"]
+	]],
+
+	["multiline-string", ["HEREDOC: marker\ntext\nmarker"]],
+
+	["multiline-string", ["[==[\n\tstr\n\ting\n]==]"]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+has("mac")
+exists("s:call_count")
+----------------------------------------------------
+<span class="token function">has</span><span class="token punctuation">(</span><span class="token string">"mac"</span><span class="token punctuation">)</span>
+<span class="token function">exists</span><span class="token punctuation">(</span><span class="token string">"s:call_count"</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

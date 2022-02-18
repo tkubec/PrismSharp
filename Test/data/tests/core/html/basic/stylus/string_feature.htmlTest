@@ -1,0 +1,11 @@
+content: ""
+content: "foo"
+content: ''
+content: 'foo'
+----------------------------------------------------
+<span class="token property-declaration"><span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span></span>
+<span class="token property-declaration"><span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"foo"</span></span>
+<span class="token property-declaration"><span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span></span>
+<span class="token property-declaration"><span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'foo'</span></span>
+
+----------------------------------------------------

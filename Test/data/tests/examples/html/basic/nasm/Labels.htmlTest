@@ -1,0 +1,13 @@
+label1:     ; a non-local label
+.local:     ; this is really label1.local
+..@foo:     ; this is a special symbol
+label2:     ; another non-local label
+.local:     ; this is really label2.local
+----------------------------------------------------
+<span class="token label function">label1:</span>     <span class="token comment">; a non-local label</span>
+<span class="token label function">.local:</span>     <span class="token comment">; this is really label1.local</span>
+<span class="token label function">..@foo:</span>     <span class="token comment">; this is a special symbol</span>
+<span class="token label function">label2:</span>     <span class="token comment">; another non-local label</span>
+<span class="token label function">.local:</span>     <span class="token comment">; this is really label2.local</span>
+
+----------------------------------------------------

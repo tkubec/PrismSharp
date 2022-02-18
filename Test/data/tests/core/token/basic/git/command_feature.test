@@ -1,0 +1,18 @@
+$ git add file.txt
+foo@foobar ~ $ git diff --cached
+$ git log -p -i
+----------------------------------------------------
+[
+	["command", ["$ git add file.txt"]],
+	["command", [
+		"foo@foobar ~ $ git diff",
+		["parameter", " --cached"]
+	]],
+	["command", [
+		"$ git log",
+		["parameter", " -p"],
+		["parameter", " -i"]
+	]]
+]
+
+----------------------------------------------------

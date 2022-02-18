@@ -1,0 +1,19 @@
+class Foo
+interface bar
+extends Foo
+implements bar
+trait Foo
+instanceof \bar
+new \Foo
+catch (bar)
+----------------------------------------------------
+class <span class="token class-name">Foo</span>
+interface <span class="token class-name">bar</span>
+extends <span class="token class-name">Foo</span>
+implements <span class="token class-name">bar</span>
+trait Foo
+<span class="token keyword">instanceof</span> <span class="token class-name"><span class="token punctuation">\</span>bar</span>
+<span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>Foo</span>
+<span class="token keyword">catch</span> <span class="token punctuation">(</span>bar<span class="token punctuation">)</span>
+
+----------------------------------------------------

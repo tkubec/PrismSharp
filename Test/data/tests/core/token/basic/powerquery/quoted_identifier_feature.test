@@ -1,0 +1,13 @@
+#"foo"
+#"foo bar"
+#"foo'bar"
+#"foo""bar"
+----------------------------------------------------
+[
+	["quoted-identifier", "#\"foo\""],
+	["quoted-identifier", "#\"foo bar\""],
+	["quoted-identifier", "#\"foo'bar\""],
+	["quoted-identifier", "#\"foo\"\"bar\""]
+]
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+let someString = "Some string literal value"
+var emptyString = ""
+// String interpolation
+let multiplier = 3
+"\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
+----------------------------------------------------
+<span class="token keyword">let</span> someString <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"Some string literal value"</span></span>
+<span class="token keyword">var</span> emptyString <span class="token operator">=</span> <span class="token string-literal"><span class="token string">""</span></span>
+<span class="token comment">// String interpolation</span>
+<span class="token keyword">let</span> multiplier <span class="token operator">=</span> <span class="token number">3</span>
+<span class="token string-literal"><span class="token string">"</span><span class="token interpolation-punctuation punctuation">\(</span><span class="token interpolation">multiplier</span><span class="token interpolation-punctuation punctuation">)</span><span class="token string"> times 2.5 is </span><span class="token interpolation-punctuation punctuation">\(</span><span class="token interpolation"><span class="token class-name">Double</span><span class="token punctuation">(</span>multiplier<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.5</span></span><span class="token interpolation-punctuation punctuation">)</span><span class="token string">"</span></span>
+
+----------------------------------------------------

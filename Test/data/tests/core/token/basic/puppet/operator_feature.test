@@ -1,0 +1,55 @@
+= == =~ =>
+! != !~
+< << <<|
+<= <~ <| <-
+> >> >=
+- ->
+~>
+| |> |>>
+* / % + ?
+and in or
+----------------------------------------------------
+[
+	["operator", "="],
+	["operator", "=="],
+	["operator", "=~"],
+	["operator", "=>"],
+
+	["operator", "!"],
+	["operator", "!="],
+	["operator", "!~"],
+
+	["operator", "<"],
+	["operator", "<<"],
+	["operator", "<<|"],
+
+	["operator", "<="],
+	["operator", "<~"],
+	["operator", "<|"],
+	["operator", "<-"],
+
+	["operator", ">"],
+	["operator", ">>"],
+	["operator", ">="],
+
+	["operator", "-"],
+	["operator", "->"],
+
+	["operator", "~>"],
+
+	["operator", "|"],
+	["operator", "|>"],
+	["operator", "|>>"],
+
+	["operator", "*"],
+	["operator", "/"],
+	["operator", "%"],
+	["operator", "+"],
+	["operator", "?"],
+
+	["operator", "and"],
+	["operator", "in"],
+	["operator", "or"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,51 @@
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#menu a {
+  .bordered;
+}
+#header a {
+  color: orange;
+  #bundle > .button;
+}
+----------------------------------------------------
+[
+	["selector", [".bordered"]],
+	["punctuation", "{"],
+
+	["property", "border-top"],
+	["punctuation", ":"],
+	" dotted 1px black",
+	["punctuation", ";"],
+
+	["property", "border-bottom"],
+	["punctuation", ":"],
+	" solid 2px black",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["selector", ["#menu a"]],
+	["punctuation", "{"],
+
+	["mixin-usage", ".bordered"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["selector", ["#header a"]],
+	["punctuation", "{"],
+
+	["property", "color"],
+	["punctuation", ":"],
+	" orange",
+	["punctuation", ";"],
+
+	["mixin-usage", "#bundle > .button"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

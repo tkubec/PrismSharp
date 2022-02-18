@@ -1,0 +1,69 @@
+AL AH AX EAX
+BL BH BX EBX
+CL CH CX ECX
+DL DH DX EDX
+BP EBP
+SP ESP
+DI EDI
+SI ESI
+ES CS SS DS GS FS
+CR0 CR2 CR3 CR4
+DR0 DR1 DR2 DR3 DR6 DR7
+TR3 TR4 TR5 TR6 TR7
+ST
+ST(0) ST(1) ST(2) ST(3) ST(4) ST(5) ST(6) ST(7)
+MM0  MM1  MM2  MM3  MM4  MM5  MM6  MM7
+XMM0 XMM1 XMM2 XMM3 XMM4 XMM5 XMM6 XMM7
+
+RAX  RBX  RCX  RDX
+BPL  RBP
+SPL  RSP
+DIL  RDI
+SIL  RSI
+R8B  R8W  R8D  R8
+R9B  R9W  R9D  R9
+R10B R10W R10D R10
+R11B R11W R11D R11
+R12B R12W R12D R12
+R13B R13W R13D R13
+R14B R14W R14D R14
+R15B R15W R15D R15
+XMM8 XMM9 XMM10 XMM11 XMM12 XMM13 XMM14 XMM15
+YMM0 YMM1 YMM2  YMM3  YMM4  YMM5  YMM6  YMM7
+YMM8 YMM9 YMM10 YMM11 YMM12 YMM13 YMM14 YMM15
+----------------------------------------------------
+<span class="token register variable">AL</span> <span class="token register variable">AH</span> <span class="token register variable">AX</span> <span class="token register variable">EAX</span>
+<span class="token register variable">BL</span> <span class="token register variable">BH</span> <span class="token register variable">BX</span> <span class="token register variable">EBX</span>
+<span class="token register variable">CL</span> <span class="token register variable">CH</span> <span class="token register variable">CX</span> <span class="token register variable">ECX</span>
+<span class="token register variable">DL</span> <span class="token register variable">DH</span> <span class="token register variable">DX</span> <span class="token register variable">EDX</span>
+<span class="token register variable">BP</span> <span class="token register variable">EBP</span>
+<span class="token register variable">SP</span> <span class="token register variable">ESP</span>
+<span class="token register variable">DI</span> <span class="token register variable">EDI</span>
+<span class="token register variable">SI</span> <span class="token register variable">ESI</span>
+<span class="token register variable">ES</span> <span class="token register variable">CS</span> <span class="token register variable">SS</span> <span class="token register variable">DS</span> <span class="token register variable">GS</span> <span class="token register variable">FS</span>
+<span class="token register variable">CR0</span> <span class="token register variable">CR2</span> <span class="token register variable">CR3</span> <span class="token register variable">CR4</span>
+<span class="token register variable">DR0</span> <span class="token register variable">DR1</span> <span class="token register variable">DR2</span> <span class="token register variable">DR3</span> <span class="token register variable">DR6</span> <span class="token register variable">DR7</span>
+<span class="token register variable">TR3</span> <span class="token register variable">TR4</span> <span class="token register variable">TR5</span> <span class="token register variable">TR6</span> <span class="token register variable">TR7</span>
+<span class="token register variable">ST</span>
+<span class="token register variable">ST(0)</span> <span class="token register variable">ST(1)</span> <span class="token register variable">ST(2)</span> <span class="token register variable">ST(3)</span> <span class="token register variable">ST(4)</span> <span class="token register variable">ST(5)</span> <span class="token register variable">ST(6)</span> <span class="token register variable">ST(7)</span>
+<span class="token register variable">MM0</span>  <span class="token register variable">MM1</span>  <span class="token register variable">MM2</span>  <span class="token register variable">MM3</span>  <span class="token register variable">MM4</span>  <span class="token register variable">MM5</span>  <span class="token register variable">MM6</span>  <span class="token register variable">MM7</span>
+<span class="token register variable">XMM0</span> <span class="token register variable">XMM1</span> <span class="token register variable">XMM2</span> <span class="token register variable">XMM3</span> <span class="token register variable">XMM4</span> <span class="token register variable">XMM5</span> <span class="token register variable">XMM6</span> <span class="token register variable">XMM7</span>
+
+<span class="token register variable">RAX</span>  <span class="token register variable">RBX</span>  <span class="token register variable">RCX</span>  <span class="token register variable">RDX</span>
+<span class="token register variable">BPL</span>  <span class="token register variable">RBP</span>
+<span class="token register variable">SPL</span>  <span class="token register variable">RSP</span>
+<span class="token register variable">DIL</span>  <span class="token register variable">RDI</span>
+<span class="token register variable">SIL</span>  <span class="token register variable">RSI</span>
+<span class="token register variable">R8B</span>  <span class="token register variable">R8W</span>  <span class="token register variable">R8D</span>  <span class="token register variable">R8</span>
+<span class="token register variable">R9B</span>  <span class="token register variable">R9W</span>  <span class="token register variable">R9D</span>  <span class="token register variable">R9</span>
+<span class="token register variable">R10B</span> <span class="token register variable">R10W</span> <span class="token register variable">R10D</span> <span class="token register variable">R10</span>
+<span class="token register variable">R11B</span> <span class="token register variable">R11W</span> <span class="token register variable">R11D</span> <span class="token register variable">R11</span>
+<span class="token register variable">R12B</span> <span class="token register variable">R12W</span> <span class="token register variable">R12D</span> <span class="token register variable">R12</span>
+<span class="token register variable">R13B</span> <span class="token register variable">R13W</span> <span class="token register variable">R13D</span> <span class="token register variable">R13</span>
+<span class="token register variable">R14B</span> <span class="token register variable">R14W</span> <span class="token register variable">R14D</span> <span class="token register variable">R14</span>
+<span class="token register variable">R15B</span> <span class="token register variable">R15W</span> <span class="token register variable">R15D</span> <span class="token register variable">R15</span>
+<span class="token register variable">XMM8</span> <span class="token register variable">XMM9</span> <span class="token register variable">XMM10</span> <span class="token register variable">XMM11</span> <span class="token register variable">XMM12</span> <span class="token register variable">XMM13</span> <span class="token register variable">XMM14</span> <span class="token register variable">XMM15</span>
+<span class="token register variable">YMM0</span> <span class="token register variable">YMM1</span> <span class="token register variable">YMM2</span>  <span class="token register variable">YMM3</span>  <span class="token register variable">YMM4</span>  <span class="token register variable">YMM5</span>  <span class="token register variable">YMM6</span>  <span class="token register variable">YMM7</span>
+<span class="token register variable">YMM8</span> <span class="token register variable">YMM9</span> <span class="token register variable">YMM10</span> <span class="token register variable">YMM11</span> <span class="token register variable">YMM12</span> <span class="token register variable">YMM13</span> <span class="token register variable">YMM14</span> <span class="token register variable">YMM15</span>
+
+----------------------------------------------------

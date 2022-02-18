@@ -1,0 +1,81 @@
+{alias long.namespace.root.projectx.foomodule.utils as fooUtils}
+{call myfeature.myTemplate /}
+{delcall aaa.bbb.myButton /}
+{delpackage MyExperiment}
+{deltemplate aaa.bbb.myButton}
+{namespace ns}
+{template .example}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "alias"],
+	["command-arg", [
+		"long",
+		["punctuation", "."],
+		"namespace",
+		["punctuation", "."],
+		"root",
+		["punctuation", "."],
+		"projectx",
+		["punctuation", "."],
+		"foomodule",
+		["punctuation", "."],
+		"utils"
+	]],
+	["keyword", "as"],
+	" fooUtils",
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "call"],
+	["command-arg", [
+		"myfeature",
+		["punctuation", "."],
+		"myTemplate"
+	]],
+	["operator", "/"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "delcall"],
+	["command-arg", [
+		"aaa",
+		["punctuation", "."],
+		"bbb",
+		["punctuation", "."],
+		"myButton"
+	]],
+	["operator", "/"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "delpackage"],
+	["command-arg", ["MyExperiment"]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "deltemplate"],
+	["command-arg", [
+		"aaa",
+		["punctuation", "."],
+		"bbb",
+		["punctuation", "."],
+		"myButton"
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "namespace"],
+	["command-arg", ["ns"]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "template"],
+	["command-arg", [
+		["punctuation", "."],
+		"example"
+	]],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

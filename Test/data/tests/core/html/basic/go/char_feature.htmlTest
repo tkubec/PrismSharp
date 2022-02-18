@@ -1,0 +1,27 @@
+'a'
+'ä'
+'本'
+'\t'
+'\000'
+'\007'
+'\377'
+'\x07'
+'\xff'
+'\u12e4'
+'\U00101234'
+'\''
+----------------------------------------------------
+<span class="token char">'a'</span>
+<span class="token char">'ä'</span>
+<span class="token char">'本'</span>
+<span class="token char">'\t'</span>
+<span class="token char">'\000'</span>
+<span class="token char">'\007'</span>
+<span class="token char">'\377'</span>
+<span class="token char">'\x07'</span>
+<span class="token char">'\xff'</span>
+<span class="token char">'\u12e4'</span>
+<span class="token char">'\U00101234'</span>
+<span class="token char">'\''</span>
+
+----------------------------------------------------

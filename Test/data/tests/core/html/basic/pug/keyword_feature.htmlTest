@@ -1,0 +1,25 @@
+block title
+
+	extends ./foo.pug
+
+include ./bar.pug
+
+block append foo
+append bar
+
+block prepend foo
+prepend bar
+----------------------------------------------------
+<span class="token keyword">block title</span>
+
+	<span class="token keyword">extends ./foo.pug</span>
+
+<span class="token keyword">include ./bar.pug</span>
+
+<span class="token keyword">block append foo</span>
+<span class="token keyword">append bar</span>
+
+<span class="token keyword">block prepend foo</span>
+<span class="token keyword">prepend bar</span>
+
+----------------------------------------------------

@@ -1,0 +1,23 @@
+$T:TemplateID$
+$L:TranslationID$
+$P:TemplateID$
+----------------------------------------------------
+[
+	["directive-inline", [
+		["punctuation", ["$T:"]],
+		"TemplateID",
+		["punctuation", ["$"]]
+	]],
+	["directive-inline", [
+		["punctuation", ["$L:"]],
+		"TranslationID",
+		["punctuation", ["$"]]
+	]],
+	["directive-inline", [
+		["punctuation", ["$P:"]],
+		"TemplateID",
+		["punctuation", ["$"]]
+	]]
+]
+
+----------------------------------------------------

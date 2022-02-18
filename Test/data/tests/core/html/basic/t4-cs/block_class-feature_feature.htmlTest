@@ -1,0 +1,11 @@
+Foo
+<#+
+public class Bar {}
+#>
+----------------------------------------------------
+Foo
+<span class="token block"><span class="token class-feature block"><span class="token delimiter important">&lt;#+</span><span class="token content language-csharp">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</span><span class="token delimiter important">#></span></span></span>
+
+----------------------------------------------------

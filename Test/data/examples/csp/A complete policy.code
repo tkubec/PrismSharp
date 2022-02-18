@@ -1,0 +1,6 @@
+default-src 'none';
+script-src my.cdn.com;
+img-src 'self' data:;
+child-src 'self' data: ms-appx-web:;
+block-all-mixed-content;
+report-uri https://my-reports.com/submit;

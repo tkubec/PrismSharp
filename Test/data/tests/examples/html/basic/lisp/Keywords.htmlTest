@@ -1,0 +1,5 @@
+(let foo (bar arg))
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token keyword">let</span> foo <span class="token punctuation">(</span><span class="token car">bar</span> arg<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

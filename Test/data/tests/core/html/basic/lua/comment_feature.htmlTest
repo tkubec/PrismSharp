@@ -1,0 +1,19 @@
+#!/usr/local/bin/lua
+--
+-- Foobar
+--[[Foo
+bar]]
+--[====[Foo
+bar]=====] ]===]
+baz]====]
+----------------------------------------------------
+<span class="token comment">#!/usr/local/bin/lua</span>
+<span class="token comment">--</span>
+<span class="token comment">-- Foobar</span>
+<span class="token comment">--[[Foo
+bar]]</span>
+<span class="token comment">--[====[Foo
+bar]=====] ]===]
+baz]====]</span>
+
+----------------------------------------------------

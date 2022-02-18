@@ -1,0 +1,11 @@
+#foo
+# foo bar
+### foo bar
+baz ###
+----------------------------------------------------
+<span class="token comment">#foo</span>
+<span class="token comment"># foo bar</span>
+<span class="token multiline-comment comment">### foo bar
+baz ###</span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+[1]_
+[2]_
+[#]_
+[#foobar]_
+[CIT2002]_
+
+foobar_
+foo__
+foo:bar_
+`foo:bar`_
+`foo bar baz`__
+_`inline internal target`
+----------------------------------------------------
+<span class="token link string"><span class="token punctuation">[</span>1<span class="token punctuation">]_</span></span>
+<span class="token link string"><span class="token punctuation">[</span>2<span class="token punctuation">]_</span></span>
+<span class="token link string"><span class="token punctuation">[</span>#<span class="token punctuation">]_</span></span>
+<span class="token link string"><span class="token punctuation">[</span>#foobar<span class="token punctuation">]_</span></span>
+<span class="token link string"><span class="token punctuation">[</span>CIT2002<span class="token punctuation">]_</span></span>
+
+<span class="token link string">foobar<span class="token punctuation">_</span></span>
+<span class="token link string">foo<span class="token punctuation">__</span></span>
+<span class="token link string">foo:bar<span class="token punctuation">_</span></span>
+<span class="token link string"><span class="token punctuation">`</span>foo:bar<span class="token punctuation">`_</span></span>
+<span class="token link string"><span class="token punctuation">`</span>foo bar baz<span class="token punctuation">`__</span></span>
+<span class="token link string"><span class="token punctuation">_`</span>inline internal target<span class="token punctuation">`</span></span>
+
+----------------------------------------------------

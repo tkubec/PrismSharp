@@ -1,0 +1,53 @@
+[Foo]
+[Foo(1, 2)]
+[Foo(1, 2, Name = "bar")]
+[Foo, Bar]
+[Foo("()"), Bar("[]"), Baz]
+
+[return: MaybeNull]
+[assembly: InternalsVisibleTo("Tests")]
+
+[assembly: Foo]
+[module: Foo]
+[field: Foo]
+[event: Foo]
+[method: Foo]
+[param: Foo]
+[property: Foo]
+[return: Foo]
+[type: Foo]
+
+// not attributes
+
+var a = d
+[Foo];
+var b = new Foo<int>?[Count];
+var c = new (int, int)[Count];
+----------------------------------------------------
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Foo</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Foo</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> Name <span class="token operator">=</span> <span class="token string">"bar"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Foo</span><span class="token punctuation">,</span> <span class="token class-name">Bar</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Foo</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"()"</span><span class="token punctuation">)</span></span><span class="token punctuation">,</span> <span class="token class-name">Bar</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"[]"</span><span class="token punctuation">)</span></span><span class="token punctuation">,</span> <span class="token class-name">Baz</span></span><span class="token punctuation">]</span>
+
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">return</span><span class="token punctuation">:</span> <span class="token class-name">MaybeNull</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">assembly</span><span class="token punctuation">:</span> <span class="token class-name">InternalsVisibleTo</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"Tests"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">assembly</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">module</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">field</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">event</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">method</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">param</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">property</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">return</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token attribute"><span class="token target keyword">type</span><span class="token punctuation">:</span> <span class="token class-name">Foo</span></span><span class="token punctuation">]</span>
+
+<span class="token comment">// not attributes</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> a <span class="token operator">=</span> d
+<span class="token punctuation">[</span>Foo<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Foo<span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span><span class="token punctuation">?</span></span><span class="token punctuation">[</span>Count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name"><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span></span><span class="token punctuation">[</span>Count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

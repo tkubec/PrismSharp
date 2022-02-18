@@ -1,0 +1,29 @@
+$TTL 3d
+@ IN SOA root.localhost. root.sneaky.net. (
+    2015050503 ; serial
+    12h        ; refresh
+    15m        ; retry
+    3w         ; expire
+    3h         ; negative response TTL
+  )
+  IN NS root.localhost.
+  IN NS localhost. ; secondary name server is preferably externally maintained
+
+www IN A 3.141.59.26
+ww1 IN CNAME www
+----------------------------------------------------
+<span class="token keyword">$TTL</span> 3d
+<span class="token variable">@</span> <span class="token class keyword">IN</span> <span class="token type keyword">SOA</span> root.localhost. root.sneaky.net. <span class="token punctuation">(</span>
+    2015050503 <span class="token comment">; serial</span>
+    12h        <span class="token comment">; refresh</span>
+    15m        <span class="token comment">; retry</span>
+    3w         <span class="token comment">; expire</span>
+    3h         <span class="token comment">; negative response TTL</span>
+  <span class="token punctuation">)</span>
+  <span class="token class keyword">IN</span> <span class="token type keyword">NS</span> root.localhost.
+  <span class="token class keyword">IN</span> <span class="token type keyword">NS</span> localhost. <span class="token comment">; secondary name server is preferably externally maintained</span>
+
+www <span class="token class keyword">IN</span> <span class="token type keyword">A</span> 3.141.59.26
+ww1 <span class="token class keyword">IN</span> <span class="token type keyword">CNAME</span> www
+
+----------------------------------------------------

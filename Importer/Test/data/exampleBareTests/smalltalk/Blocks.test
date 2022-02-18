@@ -1,0 +1,10 @@
+sum := 0.
+#(2 3 5 7 11) do: [ :primel | sum := sum + (prime * prime)]
+
+sizeAdder := [ :array | total := total + array size].
+
+[ :x :y | (x * x) + (y * y)]
+[ :frame :clippingBox | frame intersect: clippingBox]
+
+--------------------------------------------------
+

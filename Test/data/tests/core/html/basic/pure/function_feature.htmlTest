@@ -1,0 +1,613 @@
+abs
+add_fundef
+add_fundef_at
+add_interface
+add_interface_at
+add_macdef
+add_macdef_at
+add_typedef
+add_typedef_at
+add_addr
+add_constdef
+add_vardef
+all
+any
+appl
+applp
+arity
+bigint
+bigintp
+blob
+blob_crc
+blob_size
+blobp
+bool
+boolp
+byte_matrix
+byte_pointer
+byte_string
+byte_cstring
+byte_string_pointer
+byte_cstring_pointer
+calloc
+cat
+catmap
+ceil
+char
+charp
+chars
+check_ptrtag
+chr
+clear_sentry
+clearsym
+closure
+closurep
+cmatrix
+cmatrixp
+col
+cols
+colcat
+colcatmap
+colmap
+colrev
+colvector
+colvectorp
+colvectorseq
+complex
+complex_float_matrix
+complex_float_pointer
+complex_matrix
+complex_matrix_view
+complex_pointer
+complexp
+conj
+cooked
+cookedp
+cst
+cstring
+cstring_dup
+cstring_list
+cstring_vector
+curry
+curry3
+cycle
+cyclen
+del_constdef
+del_fundef
+del_interface
+del_macdef
+del_typedef
+del_vardef
+delete
+diag
+diagmat
+dim
+dmatrix
+dmatrixp
+do
+double
+double_matrix
+double_matrix_view
+double_pointer
+doublep
+dowith
+dowith3
+drop
+dropwhile
+eval
+evalcmd
+exactp
+filter
+fix
+fixity
+flip
+float_matrix
+float_pointer
+floor
+foldl
+foldl1
+foldr
+foldr1
+frac
+free
+fun
+funp
+function
+functionp
+gcd
+get
+get_byte
+get_constdef
+get_double
+get_float
+get_fundef
+get_int
+get_int64
+get_interface
+get_interface_typedef
+get_long
+get_macdef
+get_pointer
+get_ptrtag
+get_short
+get_sentry
+get_string
+get_typedef
+get_vardef
+globsym
+hash
+head
+id
+im
+imatrix
+imatrixp
+index
+inexactp
+infp
+init
+insert
+int
+int_matrix
+int_matrix_view
+int_pointer
+intp
+int64_matrix
+int64_pointer
+integer
+integerp
+iterate
+iteraten
+iterwhile
+join
+key
+keys
+lambda
+lambdap
+last
+lasterr
+lasterrpos
+lcd
+list
+list2
+listp
+listmap
+make_ptrtag
+malloc
+map
+matcat
+matrix
+matrixp
+max
+member
+min
+nanp
+nargs
+nmatrix
+nmatrixp
+null
+number
+numberp
+ord
+pack
+packed
+pointer
+pointer_cast
+pointer_tag
+pointer_type
+pointerp
+pow
+pred
+ptrtag
+put
+put_byte
+put_double
+put_float
+put_int
+put_int64
+put_long
+put_pointer
+put_short
+put_string
+rational
+rationalp
+re
+real
+realp
+realloc
+record
+recordp
+redim
+reduce
+reduce_with
+ref
+refp
+repeat
+repeatn
+reverse
+rlist
+rlistp
+round
+row
+rows
+rowcat
+rowcatmap
+rowmap
+rowrev
+rowvector
+rowvectorp
+rowvectorseq
+same
+scanl
+scanl1
+scanr
+scanr1
+sentry
+sgn
+short_matrix
+short_pointer
+slice
+smatrix
+smatrixp
+sort
+split
+str
+strcat
+stream
+stride
+string
+string_dup
+string_list
+string_vector
+stringp
+subdiag
+subdiagmat
+submat
+subseq
+subseq2
+substr
+succ
+supdiag
+supdiagmat
+symbol
+symbolp
+tail
+take
+takewhile
+thunk
+thunkp
+transpose
+trunc
+tuple
+tuplep
+typep
+ubyte
+uint
+uint64
+ulong
+uncurry
+uncurry3
+unref
+unzip
+unzip3
+update
+ushort
+val
+vals
+var
+varp
+vector
+vectorp
+vectorseq
+void
+zip
+zip3
+zipwith
+zipwith3
+----------------------------------------------------
+<span class="token function">abs</span>
+<span class="token function">add_fundef</span>
+<span class="token function">add_fundef_at</span>
+<span class="token function">add_interface</span>
+<span class="token function">add_interface_at</span>
+<span class="token function">add_macdef</span>
+<span class="token function">add_macdef_at</span>
+<span class="token function">add_typedef</span>
+<span class="token function">add_typedef_at</span>
+<span class="token function">add_addr</span>
+<span class="token function">add_constdef</span>
+<span class="token function">add_vardef</span>
+<span class="token function">all</span>
+<span class="token function">any</span>
+<span class="token function">appl</span>
+<span class="token function">applp</span>
+<span class="token function">arity</span>
+<span class="token function">bigint</span>
+<span class="token function">bigintp</span>
+<span class="token function">blob</span>
+<span class="token function">blob_crc</span>
+<span class="token function">blob_size</span>
+<span class="token function">blobp</span>
+<span class="token function">bool</span>
+<span class="token function">boolp</span>
+<span class="token function">byte_matrix</span>
+<span class="token function">byte_pointer</span>
+<span class="token function">byte_string</span>
+<span class="token function">byte_cstring</span>
+<span class="token function">byte_string_pointer</span>
+<span class="token function">byte_cstring_pointer</span>
+<span class="token function">calloc</span>
+<span class="token function">cat</span>
+<span class="token function">catmap</span>
+<span class="token function">ceil</span>
+<span class="token function">char</span>
+<span class="token function">charp</span>
+<span class="token function">chars</span>
+<span class="token function">check_ptrtag</span>
+<span class="token function">chr</span>
+<span class="token function">clear_sentry</span>
+<span class="token function">clearsym</span>
+<span class="token function">closure</span>
+<span class="token function">closurep</span>
+<span class="token function">cmatrix</span>
+<span class="token function">cmatrixp</span>
+<span class="token function">col</span>
+<span class="token function">cols</span>
+<span class="token function">colcat</span>
+<span class="token function">colcatmap</span>
+<span class="token function">colmap</span>
+<span class="token function">colrev</span>
+<span class="token function">colvector</span>
+<span class="token function">colvectorp</span>
+<span class="token function">colvectorseq</span>
+<span class="token function">complex</span>
+<span class="token function">complex_float_matrix</span>
+<span class="token function">complex_float_pointer</span>
+<span class="token function">complex_matrix</span>
+<span class="token function">complex_matrix_view</span>
+<span class="token function">complex_pointer</span>
+<span class="token function">complexp</span>
+<span class="token function">conj</span>
+<span class="token function">cooked</span>
+<span class="token function">cookedp</span>
+<span class="token function">cst</span>
+<span class="token function">cstring</span>
+<span class="token function">cstring_dup</span>
+<span class="token function">cstring_list</span>
+<span class="token function">cstring_vector</span>
+<span class="token function">curry</span>
+<span class="token function">curry3</span>
+<span class="token function">cycle</span>
+<span class="token function">cyclen</span>
+<span class="token function">del_constdef</span>
+<span class="token function">del_fundef</span>
+<span class="token function">del_interface</span>
+<span class="token function">del_macdef</span>
+<span class="token function">del_typedef</span>
+<span class="token function">del_vardef</span>
+<span class="token function">delete</span>
+<span class="token function">diag</span>
+<span class="token function">diagmat</span>
+<span class="token function">dim</span>
+<span class="token function">dmatrix</span>
+<span class="token function">dmatrixp</span>
+<span class="token function">do</span>
+<span class="token function">double</span>
+<span class="token function">double_matrix</span>
+<span class="token function">double_matrix_view</span>
+<span class="token function">double_pointer</span>
+<span class="token function">doublep</span>
+<span class="token function">dowith</span>
+<span class="token function">dowith3</span>
+<span class="token function">drop</span>
+<span class="token function">dropwhile</span>
+<span class="token function">eval</span>
+<span class="token function">evalcmd</span>
+<span class="token function">exactp</span>
+<span class="token function">filter</span>
+<span class="token function">fix</span>
+<span class="token function">fixity</span>
+<span class="token function">flip</span>
+<span class="token function">float_matrix</span>
+<span class="token function">float_pointer</span>
+<span class="token function">floor</span>
+<span class="token function">foldl</span>
+<span class="token function">foldl1</span>
+<span class="token function">foldr</span>
+<span class="token function">foldr1</span>
+<span class="token function">frac</span>
+<span class="token function">free</span>
+<span class="token function">fun</span>
+<span class="token function">funp</span>
+<span class="token function">function</span>
+<span class="token function">functionp</span>
+<span class="token function">gcd</span>
+<span class="token function">get</span>
+<span class="token function">get_byte</span>
+<span class="token function">get_constdef</span>
+<span class="token function">get_double</span>
+<span class="token function">get_float</span>
+<span class="token function">get_fundef</span>
+<span class="token function">get_int</span>
+<span class="token function">get_int64</span>
+<span class="token function">get_interface</span>
+<span class="token function">get_interface_typedef</span>
+<span class="token function">get_long</span>
+<span class="token function">get_macdef</span>
+<span class="token function">get_pointer</span>
+<span class="token function">get_ptrtag</span>
+<span class="token function">get_short</span>
+<span class="token function">get_sentry</span>
+<span class="token function">get_string</span>
+<span class="token function">get_typedef</span>
+<span class="token function">get_vardef</span>
+<span class="token function">globsym</span>
+<span class="token function">hash</span>
+<span class="token function">head</span>
+<span class="token function">id</span>
+<span class="token function">im</span>
+<span class="token function">imatrix</span>
+<span class="token function">imatrixp</span>
+<span class="token function">index</span>
+<span class="token function">inexactp</span>
+<span class="token function">infp</span>
+<span class="token function">init</span>
+<span class="token function">insert</span>
+<span class="token function">int</span>
+<span class="token function">int_matrix</span>
+<span class="token function">int_matrix_view</span>
+<span class="token function">int_pointer</span>
+<span class="token function">intp</span>
+<span class="token function">int64_matrix</span>
+<span class="token function">int64_pointer</span>
+<span class="token function">integer</span>
+<span class="token function">integerp</span>
+<span class="token function">iterate</span>
+<span class="token function">iteraten</span>
+<span class="token function">iterwhile</span>
+<span class="token function">join</span>
+<span class="token function">key</span>
+<span class="token function">keys</span>
+<span class="token function">lambda</span>
+<span class="token function">lambdap</span>
+<span class="token function">last</span>
+<span class="token function">lasterr</span>
+<span class="token function">lasterrpos</span>
+<span class="token function">lcd</span>
+<span class="token function">list</span>
+<span class="token function">list2</span>
+<span class="token function">listp</span>
+<span class="token function">listmap</span>
+<span class="token function">make_ptrtag</span>
+<span class="token function">malloc</span>
+<span class="token function">map</span>
+<span class="token function">matcat</span>
+<span class="token function">matrix</span>
+<span class="token function">matrixp</span>
+<span class="token function">max</span>
+<span class="token function">member</span>
+<span class="token function">min</span>
+<span class="token function">nanp</span>
+<span class="token function">nargs</span>
+<span class="token function">nmatrix</span>
+<span class="token function">nmatrixp</span>
+<span class="token function">null</span>
+<span class="token function">number</span>
+<span class="token function">numberp</span>
+<span class="token function">ord</span>
+<span class="token function">pack</span>
+<span class="token function">packed</span>
+<span class="token function">pointer</span>
+<span class="token function">pointer_cast</span>
+<span class="token function">pointer_tag</span>
+<span class="token function">pointer_type</span>
+<span class="token function">pointerp</span>
+<span class="token function">pow</span>
+<span class="token function">pred</span>
+<span class="token function">ptrtag</span>
+<span class="token function">put</span>
+<span class="token function">put_byte</span>
+<span class="token function">put_double</span>
+<span class="token function">put_float</span>
+<span class="token function">put_int</span>
+<span class="token function">put_int64</span>
+<span class="token function">put_long</span>
+<span class="token function">put_pointer</span>
+<span class="token function">put_short</span>
+<span class="token function">put_string</span>
+<span class="token function">rational</span>
+<span class="token function">rationalp</span>
+<span class="token function">re</span>
+<span class="token function">real</span>
+<span class="token function">realp</span>
+<span class="token function">realloc</span>
+<span class="token function">record</span>
+<span class="token function">recordp</span>
+<span class="token function">redim</span>
+<span class="token function">reduce</span>
+<span class="token function">reduce_with</span>
+<span class="token function">ref</span>
+<span class="token function">refp</span>
+<span class="token function">repeat</span>
+<span class="token function">repeatn</span>
+<span class="token function">reverse</span>
+<span class="token function">rlist</span>
+<span class="token function">rlistp</span>
+<span class="token function">round</span>
+<span class="token function">row</span>
+<span class="token function">rows</span>
+<span class="token function">rowcat</span>
+<span class="token function">rowcatmap</span>
+<span class="token function">rowmap</span>
+<span class="token function">rowrev</span>
+<span class="token function">rowvector</span>
+<span class="token function">rowvectorp</span>
+<span class="token function">rowvectorseq</span>
+<span class="token function">same</span>
+<span class="token function">scanl</span>
+<span class="token function">scanl1</span>
+<span class="token function">scanr</span>
+<span class="token function">scanr1</span>
+<span class="token function">sentry</span>
+<span class="token function">sgn</span>
+<span class="token function">short_matrix</span>
+<span class="token function">short_pointer</span>
+<span class="token function">slice</span>
+<span class="token function">smatrix</span>
+<span class="token function">smatrixp</span>
+<span class="token function">sort</span>
+<span class="token function">split</span>
+<span class="token function">str</span>
+<span class="token function">strcat</span>
+<span class="token function">stream</span>
+<span class="token function">stride</span>
+<span class="token function">string</span>
+<span class="token function">string_dup</span>
+<span class="token function">string_list</span>
+<span class="token function">string_vector</span>
+<span class="token function">stringp</span>
+<span class="token function">subdiag</span>
+<span class="token function">subdiagmat</span>
+<span class="token function">submat</span>
+<span class="token function">subseq</span>
+<span class="token function">subseq2</span>
+<span class="token function">substr</span>
+<span class="token function">succ</span>
+<span class="token function">supdiag</span>
+<span class="token function">supdiagmat</span>
+<span class="token function">symbol</span>
+<span class="token function">symbolp</span>
+<span class="token function">tail</span>
+<span class="token function">take</span>
+<span class="token function">takewhile</span>
+<span class="token function">thunk</span>
+<span class="token function">thunkp</span>
+<span class="token function">transpose</span>
+<span class="token function">trunc</span>
+<span class="token function">tuple</span>
+<span class="token function">tuplep</span>
+<span class="token function">typep</span>
+<span class="token function">ubyte</span>
+<span class="token function">uint</span>
+<span class="token function">uint64</span>
+<span class="token function">ulong</span>
+<span class="token function">uncurry</span>
+<span class="token function">uncurry3</span>
+<span class="token function">unref</span>
+<span class="token function">unzip</span>
+<span class="token function">unzip3</span>
+<span class="token function">update</span>
+<span class="token function">ushort</span>
+<span class="token function">val</span>
+<span class="token function">vals</span>
+<span class="token function">var</span>
+<span class="token function">varp</span>
+<span class="token function">vector</span>
+<span class="token function">vectorp</span>
+<span class="token function">vectorseq</span>
+<span class="token function">void</span>
+<span class="token function">zip</span>
+<span class="token function">zip3</span>
+<span class="token function">zipwith</span>
+<span class="token function">zipwith3</span>
+
+----------------------------------------------------

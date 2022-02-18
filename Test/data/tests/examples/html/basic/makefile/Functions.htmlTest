@@ -1,0 +1,27 @@
+whoami    := $(shell whoami)
+host-type := $(shell arch)
+
+y = $(subst 1,2,$(x))
+
+dirs := a b c d
+files := $(foreach dir,$(dirs),$(wildcard $(dir)/*))
+
+reverse = $(2) $(1)
+foo = $(call reverse,a,b)
+
+$(foreach prog,$(PROGRAMS),$(eval $(call PROGRAM_template,$(prog))))
+----------------------------------------------------
+whoami    <span class="token operator">:=</span> <span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">shell</span> whoami<span class="token punctuation">)</span>
+host-type <span class="token operator">:=</span> <span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">shell</span> arch<span class="token punctuation">)</span>
+
+y <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">subst</span> 1,2,<span class="token variable">$</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+dirs <span class="token operator">:=</span> a b c d
+files <span class="token operator">:=</span> <span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">foreach</span> dir,<span class="token variable">$</span><span class="token punctuation">(</span>dirs<span class="token punctuation">)</span>,<span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">wildcard</span> <span class="token variable">$</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span>/*<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+reverse <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">(</span>2<span class="token punctuation">)</span> <span class="token variable">$</span><span class="token punctuation">(</span>1<span class="token punctuation">)</span>
+foo <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">call</span> reverse,a,b<span class="token punctuation">)</span>
+
+<span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">foreach</span> prog,<span class="token variable">$</span><span class="token punctuation">(</span>PROGRAMS<span class="token punctuation">)</span>,<span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">eval</span> <span class="token variable">$</span><span class="token punctuation">(</span><span class="token function">call</span> PROGRAM_template,<span class="token variable">$</span><span class="token punctuation">(</span>prog<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

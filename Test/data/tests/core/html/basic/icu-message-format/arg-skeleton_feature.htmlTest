@@ -1,0 +1,13 @@
+At {1,time,::jmm} on {1,date,::dMMMM}, there was {2} on planet {3,number,integer}.
+
+{foo,spellout}
+{foo,ordinal}
+{foo,duration}
+----------------------------------------------------
+At <span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">1</span><span class="token punctuation">,</span><span class="token arg-type keyword">time</span><span class="token punctuation">,</span><span class="token arg-skeleton">::jmm</span></span><span class="token argument-delimiter operator">}</span></span> on <span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">1</span><span class="token punctuation">,</span><span class="token arg-type keyword">date</span><span class="token punctuation">,</span><span class="token arg-skeleton">::dMMMM</span></span><span class="token argument-delimiter operator">}</span></span>, there was <span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">2</span></span><span class="token argument-delimiter operator">}</span></span> on planet <span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">3</span><span class="token punctuation">,</span><span class="token arg-type keyword">number</span><span class="token punctuation">,</span><span class="token arg-style">integer</span></span><span class="token argument-delimiter operator">}</span></span>.
+
+<span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">foo</span><span class="token punctuation">,</span><span class="token arg-type keyword">spellout</span></span><span class="token argument-delimiter operator">}</span></span>
+<span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">foo</span><span class="token punctuation">,</span><span class="token arg-type keyword">ordinal</span></span><span class="token argument-delimiter operator">}</span></span>
+<span class="token argument"><span class="token argument-delimiter operator">{</span><span class="token content"><span class="token argument-name">foo</span><span class="token punctuation">,</span><span class="token arg-type keyword">duration</span></span><span class="token argument-delimiter operator">}</span></span>
+
+----------------------------------------------------

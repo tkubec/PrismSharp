@@ -1,0 +1,60 @@
+$TTL 3d
+@ IN SOA root.localhost. root.sneaky.net. (
+    2015050503 ; serial
+    12h        ; refresh
+    15m        ; retry
+    3w         ; expire
+    3h         ; negative response TTL
+  )
+  IN NS root.localhost.
+  IN NS localhost. ; secondary name server is preferably externally maintained
+
+www IN A 3.141.59.26
+ww1 IN CNAME www
+----------------------------------------------------
+[
+	["keyword", "$TTL"],
+	" 3d\n",
+
+	["variable", "@"],
+	["class", "IN"],
+	["type", "SOA"],
+	" root.localhost. root.sneaky.net. ",
+	["punctuation", "("],
+
+	"\n    2015050503 ",
+	["comment", "; serial"],
+
+	"\n    12h        ",
+	["comment", "; refresh"],
+
+	"\n    15m        ",
+	["comment", "; retry"],
+
+	"\n    3w         ",
+	["comment", "; expire"],
+
+	"\n    3h         ",
+	["comment", "; negative response TTL"],
+
+	["punctuation", ")"],
+
+	["class", "IN"],
+	["type", "NS"],
+	" root.localhost.\n  ",
+
+	["class", "IN"],
+	["type", "NS"],
+	" localhost. ",
+	["comment", "; secondary name server is preferably externally maintained"],
+
+	"\n\nwww ",
+	["class", "IN"],
+	["type", "A"],
+	" 3.141.59.26\nww1 ",
+	["class", "IN"],
+	["type", "CNAME"],
+	" www"
+]
+
+----------------------------------------------------

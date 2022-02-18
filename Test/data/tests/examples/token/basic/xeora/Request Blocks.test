@@ -1,0 +1,38 @@
+$H:RequestBlockID:{ <!-- Something --> }:RequestBlockID$
+$H:RequestBlockID:{!RENDERONREQUEST <!-- Something --> }:RequestBlockID$
+----------------------------------------------------
+[
+	["directive-block-open", [
+		["punctuation", ["$H:"]],
+		"RequestBlockID",
+		["punctuation", [":"]],
+		["punctuation", ["{"]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"RequestBlockID",
+		["punctuation", "$"]
+	]],
+
+	["directive-block-open", [
+		["punctuation", ["$H:"]],
+		"RequestBlockID",
+		["punctuation", [":"]],
+		["punctuation", ["{"]],
+		["attribute", [
+			["punctuation", "!"],
+			"RENDERONREQUEST"
+		]]
+	]],
+	["comment", "<!-- Something -->"],
+	["directive-block-close", [
+		["punctuation", "}"],
+		["punctuation", ":"],
+		"RequestBlockID",
+		["punctuation", "$"]
+	]]
+]
+
+----------------------------------------------------

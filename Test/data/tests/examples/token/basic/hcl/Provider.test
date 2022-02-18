@@ -1,0 +1,51 @@
+provider "aws" {
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
+  region     = "us-east-1"
+}
+----------------------------------------------------
+[
+	["keyword", [
+		"provider",
+		["type", " \"aws\" "]
+	]],
+	["punctuation", "{"],
+
+	["property", "access_key"],
+	["punctuation", "="],
+	["string", [
+		"\"",
+		["interpolation", [
+			["punctuation", "$"],
+			["punctuation", "{"],
+			["keyword", "var"],
+			["punctuation", "."],
+			["type", "aws_access_key"],
+			["punctuation", "}"]
+		]],
+		"\""
+	]],
+
+	["property", "secret_key"],
+	["punctuation", "="],
+	["string", [
+		"\"",
+		["interpolation", [
+			["punctuation", "$"],
+			["punctuation", "{"],
+			["keyword", "var"],
+			["punctuation", "."],
+			["type", "aws_secret_key"],
+			["punctuation", "}"]
+		]],
+		"\""
+	]],
+
+	["property", "region"],
+	["punctuation", "="],
+	["string", ["\"us-east-1\""]],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

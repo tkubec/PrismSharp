@@ -1,0 +1,23 @@
+GET http://localhost:9999/foo.html HTTP/1.1
+Accept-Language: fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+----------------------------------------------------
+[
+	["request-line", [
+		["method", "GET"],
+		["request-target", "http://localhost:9999/foo.html"],
+		["http-version", "HTTP/1.1"]
+	]],
+	["header", [
+		["header-name", "Accept-Language"],
+		["punctuation", ":"],
+		["header-value", "fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3"]
+	]],
+	["header", [
+		["header-name", "Accept-Encoding"],
+		["punctuation", ":"],
+		["header-value", "gzip, deflate"]
+	]]
+]
+
+----------------------------------------------------

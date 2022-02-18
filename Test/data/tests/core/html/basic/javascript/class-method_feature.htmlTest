@@ -1,0 +1,19 @@
+class Test {
+	foo( x, y = 0) {}
+	async bar(x, y = 0 ) {}
+	$ ( ) {}
+	awaitFoo(){}
+	Example({ props: { a: _A, b} } = Props) {}
+	f(x = fun(), y = 0) {}
+}
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+	<span class="token function">foo</span><span class="token punctuation">(</span> <span class="token parameter">x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token keyword">async</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span></span> <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token function">$</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token function">awaitFoo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token function">Example</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">a</span><span class="token operator">:</span> _A<span class="token punctuation">,</span> b<span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token operator">=</span> Props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter">x <span class="token operator">=</span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

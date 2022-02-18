@@ -1,0 +1,29 @@
+class Foo
+{
+public:
+
+	friend bool operator== (const Foo& f1, const Foo& f2);
+	friend bool operator!= (const Foo& f1, const Foo& f2);
+
+	friend bool operator< (const Foo& f1, const Foo& f2);
+	friend bool operator> (const Foo& f1, const Foo& f2);
+
+	friend bool operator<= (const Foo& f1, const Foo& f2);
+	friend bool operator>= (const Foo& f1, const Foo& f2);
+};
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+
+	<span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">==</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f1<span class="token punctuation">,</span> <span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f1<span class="token punctuation">,</span> <span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f1<span class="token punctuation">,</span> <span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f1<span class="token punctuation">,</span> <span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">&lt;=</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f1<span class="token punctuation">,</span> <span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f1<span class="token punctuation">,</span> <span class="token keyword">const</span> Foo<span class="token operator">&amp;</span> f2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

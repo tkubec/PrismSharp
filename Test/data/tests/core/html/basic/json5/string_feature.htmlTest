@@ -1,0 +1,21 @@
+""
+"foo"
+"foo\"bar\"baz"
+"\u2642\\ "
+{"foo":"bar","baz":"\""}
+'foo"bar"baz'
+'\u0001'
+"\
+newline"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo"</span>
+<span class="token string">"foo\"bar\"baz"</span>
+<span class="token string">"\u2642\\ "</span>
+<span class="token punctuation">{</span><span class="token property">"foo"</span><span class="token operator">:</span><span class="token string">"bar"</span><span class="token punctuation">,</span><span class="token property">"baz"</span><span class="token operator">:</span><span class="token string">"\""</span><span class="token punctuation">}</span>
+<span class="token string">'foo"bar"baz'</span>
+<span class="token string">'\u0001'</span>
+<span class="token string">"\
+newline"</span>
+
+----------------------------------------------------

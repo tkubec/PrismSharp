@@ -1,0 +1,39 @@
+<@foo (
+
++ - * / %
++= -= *= /= %=
+++ --
+
+== != >= <= > <
+gt gte lt lte
+
+! && ||
+
+? ??
+
+->
+
+.. ..* ..< ..!
+
+)/>
+----------------------------------------------------
+<span class="token ftl-directive"><span class="token punctuation">&lt;</span><span class="token directive keyword">@foo</span><span class="token content ftl"> <span class="token punctuation">(</span>
+
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">*</span> <span class="token operator">/</span> <span class="token operator">%</span>
+<span class="token operator">+=</span> <span class="token operator">-=</span> <span class="token operator">*=</span> <span class="token operator">/=</span> <span class="token operator">%=</span>
+<span class="token operator">++</span> <span class="token operator">--</span>
+
+<span class="token operator">==</span> <span class="token operator">!=</span> <span class="token operator">>=</span> <span class="token operator">&lt;=</span> <span class="token operator">></span> <span class="token operator">&lt;</span>
+<span class="token operator">gt</span> <span class="token operator">gte</span> <span class="token operator">lt</span> <span class="token operator">lte</span>
+
+<span class="token operator">!</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">||</span>
+
+<span class="token operator">?</span> <span class="token operator">??</span>
+
+<span class="token operator">-></span>
+
+<span class="token operator">..</span> <span class="token operator">..*</span> <span class="token operator">..&lt;</span> <span class="token operator">..!</span>
+
+<span class="token punctuation">)</span></span><span class="token punctuation">/></span></span>
+
+----------------------------------------------------

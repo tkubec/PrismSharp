@@ -1,0 +1,16 @@
+~s"""This is a sigil
+using heredoc delimiters"""
+~r/a [reg]exp/
+~r(another|regexp)
+~w[some words]s
+~c<a char list>
+----------------------------------------------------
+[
+	["string", ["~s\"\"\"This is a sigil\nusing heredoc delimiters\"\"\""]],
+	["regex", "~r/a [reg]exp/"],
+	["regex", "~r(another|regexp)"],
+	["string", ["~w[some words]s"]],
+	["string", ["~c<a char list>"]]
+]
+
+----------------------------------------------------

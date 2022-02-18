@@ -1,0 +1,9 @@
+p = nthargf(process(".*"), 1, " \t", "\n");
+lock("test");
+execute("OS", "pwd");
+----------------------------------------------------
+p <span class="token operator">=</span> <span class="token builtin builtin-function">nthargf</span><span class="token punctuation">(</span><span class="token builtin builtin-function">process</span><span class="token punctuation">(</span><span class="token string">".*"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">" <span class="token symbol">\t</span>"</span><span class="token punctuation">,</span> <span class="token string">"<span class="token symbol">\n</span>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token builtin builtin-function">lock</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token builtin builtin-function">execute</span><span class="token punctuation">(</span><span class="token string">"OS"</span><span class="token punctuation">,</span> <span class="token string">"pwd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

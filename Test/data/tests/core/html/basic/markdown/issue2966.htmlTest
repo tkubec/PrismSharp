@@ -1,0 +1,15 @@
+* foo
+* `asd` afsdfsdfsdf
+* foo
+    * foo
+    * `REM`
+    * foo
+----------------------------------------------------
+<span class="token list punctuation">*</span> foo
+<span class="token list punctuation">*</span> <span class="token code-snippet code keyword">`asd`</span> afsdfsdfsdf
+<span class="token list punctuation">*</span> foo
+    <span class="token list punctuation">*</span> foo
+    <span class="token list punctuation">*</span> <span class="token code-snippet code keyword">`REM`</span>
+    <span class="token list punctuation">*</span> foo
+
+----------------------------------------------------

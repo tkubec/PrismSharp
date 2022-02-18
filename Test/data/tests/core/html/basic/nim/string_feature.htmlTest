@@ -1,0 +1,35 @@
+""
+"Fo\"obar"
+
+""""""
+"""Fo"o
+bar"""
+
+R"Raw ""string"
+
+r"Raw
+""string"
+
+fo\x8Fo"Foobar"
+
+bar"""Foo
+bar"""
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Fo\"obar"</span>
+
+<span class="token string">""""""</span>
+<span class="token string">"""Fo"o
+bar"""</span>
+
+<span class="token string">R"Raw ""string"</span>
+
+<span class="token string">r"Raw
+""string"</span>
+
+<span class="token string">fo\x8Fo"Foobar"</span>
+
+<span class="token string">bar"""Foo
+bar"""</span>
+
+----------------------------------------------------

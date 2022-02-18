@@ -1,0 +1,55 @@
+% 1. Title: Iris Plants Database
+%
+% 2. Sources:
+%      (a) Creator: R.A. Fisher
+%      (b) Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)
+%      (c) Date: July, 1988
+%
+@RELATION iris
+
+@ATTRIBUTE sepallength  NUMERIC
+@ATTRIBUTE sepalwidth   NUMERIC
+@ATTRIBUTE petallength  NUMERIC
+@ATTRIBUTE petalwidth   NUMERIC
+@ATTRIBUTE class        {Iris-setosa,Iris-versicolor,Iris-virginica}
+
+@DATA
+5.1,3.5,1.4,0.2,Iris-setosa
+4.9,3.0,1.4,0.2,Iris-setosa
+4.7,3.2,1.3,0.2,Iris-setosa
+4.6,3.1,1.5,0.2,Iris-setosa
+5.0,3.6,1.4,0.2,Iris-setosa
+5.4,3.9,1.7,0.4,Iris-setosa
+4.6,3.4,1.4,0.3,Iris-setosa
+5.0,3.4,1.5,0.2,Iris-setosa
+4.4,2.9,1.4,0.2,Iris-setosa
+4.9,3.1,1.5,0.1,Iris-setosa
+----------------------------------------------------
+<span class="token comment">% 1. Title: Iris Plants Database</span>
+<span class="token comment">%</span>
+<span class="token comment">% 2. Sources:</span>
+<span class="token comment">%      (a) Creator: R.A. Fisher</span>
+<span class="token comment">%      (b) Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)</span>
+<span class="token comment">%      (c) Date: July, 1988</span>
+<span class="token comment">%</span>
+<span class="token keyword">@RELATION</span> iris
+
+<span class="token keyword">@ATTRIBUTE</span> sepallength  NUMERIC
+<span class="token keyword">@ATTRIBUTE</span> sepalwidth   NUMERIC
+<span class="token keyword">@ATTRIBUTE</span> petallength  NUMERIC
+<span class="token keyword">@ATTRIBUTE</span> petalwidth   NUMERIC
+<span class="token keyword">@ATTRIBUTE</span> class        <span class="token punctuation">{</span>Iris-setosa<span class="token punctuation">,</span>Iris-versicolor<span class="token punctuation">,</span>Iris-virginica<span class="token punctuation">}</span>
+
+<span class="token keyword">@DATA</span>
+<span class="token number">5.1</span><span class="token punctuation">,</span><span class="token number">3.5</span><span class="token punctuation">,</span><span class="token number">1.4</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">4.9</span><span class="token punctuation">,</span><span class="token number">3.0</span><span class="token punctuation">,</span><span class="token number">1.4</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">4.7</span><span class="token punctuation">,</span><span class="token number">3.2</span><span class="token punctuation">,</span><span class="token number">1.3</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">4.6</span><span class="token punctuation">,</span><span class="token number">3.1</span><span class="token punctuation">,</span><span class="token number">1.5</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">3.6</span><span class="token punctuation">,</span><span class="token number">1.4</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">5.4</span><span class="token punctuation">,</span><span class="token number">3.9</span><span class="token punctuation">,</span><span class="token number">1.7</span><span class="token punctuation">,</span><span class="token number">0.4</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">4.6</span><span class="token punctuation">,</span><span class="token number">3.4</span><span class="token punctuation">,</span><span class="token number">1.4</span><span class="token punctuation">,</span><span class="token number">0.3</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">3.4</span><span class="token punctuation">,</span><span class="token number">1.5</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">4.4</span><span class="token punctuation">,</span><span class="token number">2.9</span><span class="token punctuation">,</span><span class="token number">1.4</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">,</span>Iris-setosa
+<span class="token number">4.9</span><span class="token punctuation">,</span><span class="token number">3.1</span><span class="token punctuation">,</span><span class="token number">1.5</span><span class="token punctuation">,</span><span class="token number">0.1</span><span class="token punctuation">,</span>Iris-setosa
+
+----------------------------------------------------

@@ -1,0 +1,7 @@
+name = baseNameOf (toString url);
+imap =
+	if builtins ? genList then
+		f: list: genList (n: f (n + 1) (elemAt list n)) (length list)
+
+--------------------------------------------------
+

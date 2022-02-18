@@ -1,0 +1,13 @@
+{% unless pages == empty %}
+  <!-- This will only print if the page with handle "about" is not empty -->
+  <h1>{{ pages.frontpage.not_empty_title }}</h1>
+  <div>{{ pages.frontpage.content }}</div>
+{% endunless %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token keyword">unless</span> pages <span class="token operator">==</span> <span class="token empty keyword">empty</span> %}
+  <span class="token operator">&lt;</span>!<span class="token operator">-</span><span class="token operator">-</span> This will only print <span class="token keyword">if</span> the <span class="token object">page</span> <span class="token keyword">with</span> <span class="token object">handle</span> <span class="token string">"about"</span> is not <span class="token empty keyword">empty</span> <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>h1<span class="token operator">></span>{{ pages<span class="token punctuation">.</span>frontpage<span class="token punctuation">.</span>not_empty_title }}<span class="token operator">&lt;</span>/h1<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>{{ pages<span class="token punctuation">.</span>frontpage<span class="token punctuation">.</span>content }}<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+{% <span class="token keyword">endunless</span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

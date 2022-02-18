@@ -1,0 +1,91 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX site: <http://example.org/stats#>
+
+CONSTRUCT { [] foaf:name ?name }
+WHERE
+{ [] foaf:name ?name ;
+		 site:hits ?hits .
+}
+ORDER BY desc(?hits)
+LIMIT 2
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"site",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/stats#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "CONSTRUCT"],
+	["punctuation", "{"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "name"]
+	]],
+	["variable", "?name"],
+	["punctuation", "}"],
+
+	["keyword", "WHERE"],
+
+	["punctuation", "{"],
+	["punctuation", "["],
+	["punctuation", "]"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "name"]
+	]],
+	["variable", "?name"],
+	["punctuation", ";"],
+
+	["function", [
+		["prefix", [
+			"site",
+			["punctuation", ":"]
+		]],
+		["local-name", "hits"]
+	]],
+	["variable", "?hits"],
+	["punctuation", "."],
+
+	["punctuation", "}"],
+
+	["keyword", "ORDER"],
+	["keyword", "BY"],
+	["keyword", "desc"],
+	["punctuation", "("],
+	["variable", "?hits"],
+	["punctuation", ")"],
+
+	["keyword", "LIMIT"],
+	["number", "2"]
+]
+
+----------------------------------------------------

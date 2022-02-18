@@ -1,0 +1,73 @@
+PREFIX  dc:  <http://purl.org/dc/elements/1.1/>
+PREFIX  ns:  <http://example.org/ns#>
+SELECT  ?title ?price
+WHERE   { ?x ns:price ?price .
+					FILTER (?price < 30) .
+					?x dc:title ?title . }
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://purl.org/dc/elements/1.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"ns",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/ns#",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?title"],
+	["variable", "?price"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"ns",
+			["punctuation", ":"]
+		]],
+		["local-name", "price"]
+	]],
+	["variable", "?price"],
+	["punctuation", "."],
+
+	["keyword", "FILTER"],
+	["punctuation", "("],
+	["variable", "?price"],
+	" < ",
+	["number", "30"],
+	["punctuation", ")"],
+	["punctuation", "."],
+
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]],
+		["local-name", "title"]
+	]],
+	["variable", "?title"],
+	["punctuation", "."],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,110 @@
+{template .helloNames}
+  // Greet the person.
+  {call .helloName data="all" /}<br>
+  // Greet the additional people.
+  {foreach $additionalName in $additionalNames}
+    {call .helloName}
+      {param name: $additionalName /}
+    {/call}
+    {if not isLast($additionalName)}
+      <br>  // break after every line except the last
+    {/if}
+  {ifempty}
+    No additional people to greet.
+  {/foreach}
+{/template}
+----------------------------------------------------
+[
+	["delimiter", "{"],
+	["keyword", "template"],
+	["command-arg", [
+		["punctuation", "."],
+		"helloNames"
+	]],
+	["punctuation", "}"],
+
+	["comment", "// Greet the person."],
+
+	["punctuation", "{"],
+	["keyword", "call"],
+	["command-arg", [
+		["punctuation", "."],
+		"helloName"
+	]],
+	["property", "data"],
+	["operator", "="],
+	["string", "\"all\""],
+	["operator", "/"],
+	["punctuation", "}"],
+	["operator", "<"],
+	"br",
+	["operator", ">"],
+
+	["comment", "// Greet the additional people."],
+
+	["punctuation", "{"],
+	["keyword", "foreach"],
+	["variable", ["$additionalName"]],
+	["keyword", "in"],
+	["variable", ["$additionalNames"]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "call"],
+	["command-arg", [
+		["punctuation", "."],
+		"helloName"
+	]],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "param"],
+	["parameter", "name"],
+	["punctuation", ":"],
+	["variable", ["$additionalName"]],
+	["operator", "/"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "call"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "if"],
+	["operator", "not"],
+	["function", "isLast"],
+	["punctuation", "("],
+	["variable", ["$additionalName"]],
+	["punctuation", ")"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"br",
+	["operator", ">"],
+	["comment", "// break after every line except the last"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "if"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["keyword", "ifempty"],
+	["punctuation", "}"],
+
+	"\n    No additional people to greet",
+	["punctuation", "."],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "foreach"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "/"],
+	["keyword", "template"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

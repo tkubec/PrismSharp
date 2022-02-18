@@ -1,0 +1,9 @@
+LDA #127
+STA $80f0
+LDY #%01011000
+----------------------------------------------------
+<span class="token op-code keyword">LDA</span> <span class="token decimal-number number">#127</span>
+<span class="token op-code keyword">STA</span> <span class="token hex-number number">$80f0</span>
+<span class="token op-code keyword">LDY</span> <span class="token binary-number number">#%01011000</span>
+
+----------------------------------------------------

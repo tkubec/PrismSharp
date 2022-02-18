@@ -1,0 +1,15 @@
+#language: fr
+Fonctionnalité: Contrôle le format de la valeur saisie d'un champ d'une révision
+  En tant qu'expert ou analyste
+  Je ne dois pas pouvoir soumettre des données au mauvais format
+
+  Contexte:
+    Etant donné que je suis connecté avec le pseudo "p_flore" et le mot de passe "p4flore"
+    Et que la gamme du contrat 27156 supporte les révisions
+    Etant donné que le contrat ayant l'id "27156" a une révision
+    Et je suis sur "/contrat/27156/revision/1"
+    Et que j'attends quelques secondes
+    ...
+
+--------------------------------------------------
+

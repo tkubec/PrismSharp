@@ -1,0 +1,29 @@
+options { superClass = LexerAdaptor; }
+
+@lexer::header {
+  import { Token } from 'antlr4ts/Token';
+  import { CommonToken } from 'antlr4ts/CommonToken';
+  import { Python3Parser } from './Python3Parser';
+}
+
+END : 'end' {System.out.println("found an end");} ;
+
+@header {
+from LexerAdaptor import LexerAdaptor
+}
+----------------------------------------------------
+<span class="token keyword">options</span> <span class="token action"><span class="token punctuation">{</span><span class="token content"> superClass = LexerAdaptor; </span><span class="token punctuation">}</span></span>
+
+<span class="token annotation keyword">@lexer::header</span> <span class="token action"><span class="token punctuation">{</span><span class="token content">
+  import { Token } from 'antlr4ts/Token';
+  import { CommonToken } from 'antlr4ts/CommonToken';
+  import { Python3Parser } from './Python3Parser';
+</span><span class="token punctuation">}</span></span>
+
+<span class="token definition token constant">END</span> <span class="token punctuation">:</span> <span class="token string">'end'</span> <span class="token action"><span class="token punctuation">{</span><span class="token content">System.out.println("found an end");</span><span class="token punctuation">}</span></span> <span class="token punctuation">;</span>
+
+<span class="token annotation keyword">@header</span> <span class="token action"><span class="token punctuation">{</span><span class="token content">
+from LexerAdaptor import LexerAdaptor
+</span><span class="token punctuation">}</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,21 @@
+class Foo extends Bar
+	new: (@foo)=>
+
+with MyClass 'baz'
+	.foo = "bazz"
+
+
+-- any name starting with a capital letter is considered a class
+func Foo Bar
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token keyword">extends</span> <span class="token class-name">Bar</span>
+	<span class="token property">new</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token variable">@foo</span><span class="token punctuation">)</span><span class="token operator">=></span>
+
+<span class="token keyword">with</span> <span class="token class-name">MyClass</span> <span class="token string">'baz'</span>
+	<span class="token punctuation">.</span>foo <span class="token operator">=</span> <span class="token string">"bazz"</span>
+
+
+<span class="token comment">-- any name starting with a capital letter is considered a class</span>
+func <span class="token class-name">Foo</span> <span class="token class-name">Bar</span>
+
+----------------------------------------------------

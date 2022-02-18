@@ -1,0 +1,9 @@
+allow read;
+allow read, write: if false;
+allow get, list, update;
+----------------------------------------------------
+<span class="token keyword">allow</span> <span class="token method builtin">read</span><span class="token punctuation">;</span>
+<span class="token keyword">allow</span> <span class="token method builtin">read<span class="token punctuation">,</span> write</span><span class="token punctuation">:</span> <span class="token keyword">if</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">allow</span> <span class="token method builtin">get<span class="token punctuation">,</span> list<span class="token punctuation">,</span> update</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

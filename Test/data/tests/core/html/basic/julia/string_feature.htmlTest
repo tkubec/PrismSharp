@@ -1,0 +1,35 @@
+""
+"fo\"o"
+"\xe2\x88"
+
+"""foo"""
+"""fo"o
+bar"""
+
+`echo hello`
+`echo "foo bar"`
+
+# non-standard string
+s"\g<0>1"
+b"DATA\xff\u2200"
+v"0.3-"
+raw"\\ \\\""
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"o"</span>
+<span class="token string">"\xe2\x88"</span>
+
+<span class="token string">"""foo"""</span>
+<span class="token string">"""fo"o
+bar"""</span>
+
+<span class="token string">`echo hello`</span>
+<span class="token string">`echo "foo bar"`</span>
+
+<span class="token comment"># non-standard string</span>
+<span class="token string">s"\g&lt;0>1"</span>
+<span class="token string">b"DATA\xff\u2200"</span>
+<span class="token string">v"0.3-"</span>
+<span class="token string">raw"\\ \\\""</span>
+
+----------------------------------------------------

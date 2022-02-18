@@ -1,0 +1,45 @@
+h1. Header 1
+
+h2. Header 2
+
+h3. Header 3 written on
+multiple lines
+
+bq. A block quotation
+on multiple lines.
+----------------------------------------------------
+[
+	["phrase", [
+		["block-tag", [
+			["tag", "h1"],
+			["punctuation", "."]
+		]],
+		" Header 1"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "h2"],
+			["punctuation", "."]
+		]],
+		" Header 2"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "h3"],
+			["punctuation", "."]
+		]],
+		" Header 3 written on\nmultiple lines"
+	]],
+
+	["phrase", [
+		["block-tag", [
+			["tag", "bq"],
+			["punctuation", "."]
+		]],
+		" A block quotation\non multiple lines."
+	]]
+]
+
+----------------------------------------------------

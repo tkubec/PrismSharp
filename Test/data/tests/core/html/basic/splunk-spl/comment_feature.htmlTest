@@ -1,0 +1,11 @@
+`comment("This is a comment")`
+`comment("This is too
+but on more than one line")`
+`comment("| stats sum(b) BY index")`
+----------------------------------------------------
+<span class="token comment">`comment("This is a comment")`</span>
+<span class="token comment">`comment("This is too
+but on more than one line")`</span>
+<span class="token comment">`comment("| stats sum(b) BY index")`</span>
+
+----------------------------------------------------

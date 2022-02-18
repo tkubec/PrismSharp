@@ -1,0 +1,50 @@
+{{ not a }}
+{{ 20 // 7 }}
+{{ b b-and c }}
+{% if phone matches '/^[\\d\\.]+$/' %} ... {% endif %}
+----------------------------------------------------
+[
+	["delimiter", "{{"],
+	["operator", "not"],
+	" a ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["number", "20"],
+	["operator", "//"],
+	["number", "7"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" b ",
+	["operator", "b-and"],
+	" c ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	" phone ",
+	["operator", "matches"],
+	["string", [
+		["punctuation", "'"],
+		"/^[\\\\d\\\\.]+$/",
+		["punctuation", "'"]
+	]],
+	["operator", "%"],
+	["punctuation", "}"],
+	["punctuation", "."],
+	["punctuation", "."],
+	["punctuation", "."],
+	["punctuation", "{"],
+	["operator", "%"],
+	" endif ",
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

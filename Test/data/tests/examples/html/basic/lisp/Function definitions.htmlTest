@@ -1,0 +1,9 @@
+(defun multiply-by-seven (number)
+       "Multiply NUMBER by seven."
+       (* 7 number))
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token defun"><span class="token keyword">defun</span> <span class="token function">multiply-by-seven</span> <span class="token punctuation">(</span><span class="token arguments"><span class="token argument variable">number</span></span><span class="token punctuation">)</span></span>
+       <span class="token string">"Multiply <span class="token argument">NUMBER</span> by seven."</span>
+       <span class="token punctuation">(</span><span class="token car">*</span> <span class="token number">7</span> number<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

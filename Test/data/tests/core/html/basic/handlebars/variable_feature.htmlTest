@@ -1,0 +1,9 @@
+{{comments}}
+{{@comments}}
+{{this.comments}}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span><span class="token variable">comments</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">@</span><span class="token variable">comments</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">this</span><span class="token punctuation">.</span><span class="token variable">comments</span><span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

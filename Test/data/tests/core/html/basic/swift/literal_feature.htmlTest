@@ -1,0 +1,25 @@
+#file
+#fileID
+#filePath
+#line
+#column
+#function
+#dsohandle
+
+#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+#fileLiteral(resourceName: "foo")
+#imageLiteral(resourceName: "foo")
+----------------------------------------------------
+<span class="token literal constant">#file</span>
+<span class="token literal constant">#fileID</span>
+<span class="token literal constant">#filePath</span>
+<span class="token literal constant">#line</span>
+<span class="token literal constant">#column</span>
+<span class="token literal constant">#function</span>
+<span class="token literal constant">#dsohandle</span>
+
+<span class="token literal constant">#colorLiteral</span><span class="token punctuation">(</span>red<span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span> green<span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span> blue<span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span> alpha<span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">)</span>
+<span class="token literal constant">#fileLiteral</span><span class="token punctuation">(</span>resourceName<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"foo"</span></span><span class="token punctuation">)</span>
+<span class="token literal constant">#imageLiteral</span><span class="token punctuation">(</span>resourceName<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"foo"</span></span><span class="token punctuation">)</span>
+
+----------------------------------------------------

@@ -1,0 +1,19 @@
+// comment
+# comment
+text // comment
+/*
+comment
+*/
+foo = bar // comment
+baz = //url
+----------------------------------------------------
+<span class="token comment">// comment</span>
+<span class="token comment"># comment</span>
+<span class="token tag">text</span> <span class="token comment">// comment</span>
+<span class="token comment">/*
+comment
+*/</span>
+<span class="token tag">foo</span> <span class="token operator">=</span> <span class="token string">bar </span><span class="token comment">// comment</span>
+<span class="token tag">baz</span> <span class="token operator">=</span> <span class="token string">//url</span>
+
+----------------------------------------------------

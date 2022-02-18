@@ -1,0 +1,9 @@
+<nowiki>{{foo}} ''bar'' <baz></nowiki>
+<source>{{foo}} ''bar'' <baz></source>
+<pre>{{foo}} ''bar'' <baz></pre>
+----------------------------------------------------
+<span class="token nowiki"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nowiki</span><span class="token punctuation">></span></span>{{foo}} ''bar'' &lt;baz><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nowiki</span><span class="token punctuation">></span></span></span>
+<span class="token nowiki"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span><span class="token punctuation">></span></span>{{foo}} ''bar'' &lt;baz><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>source</span><span class="token punctuation">></span></span></span>
+<span class="token nowiki"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">></span></span>{{foo}} ''bar'' &lt;baz><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span></span>
+
+----------------------------------------------------

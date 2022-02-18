@@ -1,0 +1,23 @@
+POST http://example.com HTTP/1.0
+GET http://localhost:9999/foo.html HTTP/1.1
+PUT http://www.example.com HTTP/2.0
+DELETE https://example.com HTTP/1.1
+OPTIONS https://www.example.com HTTP/1.1
+PATCH http://example.com HTTP/1.0
+TRACE http://example.com HTTP/1.0
+CONNECT http://example.com HTTP/1.0
+GET /path/to/foo.html HTTP/1.1
+GET / HTTP/1.1
+----------------------------------------------------
+<span class="token request-line"><span class="token method property">POST</span> <span class="token request-target url">http://example.com</span> <span class="token http-version property">HTTP/1.0</span></span>
+<span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">http://localhost:9999/foo.html</span> <span class="token http-version property">HTTP/1.1</span></span>
+<span class="token request-line"><span class="token method property">PUT</span> <span class="token request-target url">http://www.example.com</span> <span class="token http-version property">HTTP/2.0</span></span>
+<span class="token request-line"><span class="token method property">DELETE</span> <span class="token request-target url">https://example.com</span> <span class="token http-version property">HTTP/1.1</span></span>
+<span class="token request-line"><span class="token method property">OPTIONS</span> <span class="token request-target url">https://www.example.com</span> <span class="token http-version property">HTTP/1.1</span></span>
+<span class="token request-line"><span class="token method property">PATCH</span> <span class="token request-target url">http://example.com</span> <span class="token http-version property">HTTP/1.0</span></span>
+<span class="token request-line"><span class="token method property">TRACE</span> <span class="token request-target url">http://example.com</span> <span class="token http-version property">HTTP/1.0</span></span>
+<span class="token request-line"><span class="token method property">CONNECT</span> <span class="token request-target url">http://example.com</span> <span class="token http-version property">HTTP/1.0</span></span>
+<span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/path/to/foo.html</span> <span class="token http-version property">HTTP/1.1</span></span>
+<span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/</span> <span class="token http-version property">HTTP/1.1</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+<% lua_code %>
+<%= lua_expression %>
+<%- lua_expression %>
+<%= 'hello' -%>
+----------------------------------------------------
+<span class="token delimiter punctuation">&lt;%</span><span class="token language-lua"> lua_code <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">=</span> lua_expression <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> lua_expression <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">=</span> <span class="token string">'hello'</span> </span><span class="token delimiter punctuation">-%></span>
+
+----------------------------------------------------

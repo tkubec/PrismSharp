@@ -1,0 +1,50 @@
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+
+SELECT  ?name
+WHERE   { ?x foaf:name ?name }
+ORDER BY ?name
+LIMIT   5
+OFFSET  10
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?name"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "name"]
+	]],
+	["variable", "?name"],
+	["punctuation", "}"],
+
+	["keyword", "ORDER"],
+	["keyword", "BY"],
+	["variable", "?name"],
+
+	["keyword", "LIMIT"],
+	["number", "5"],
+
+	["keyword", "OFFSET"],
+	["number", "10"]
+]
+
+----------------------------------------------------

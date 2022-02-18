@@ -1,0 +1,449 @@
+Abort
+AddBrandingImage
+AddSize
+AdvSplash
+AllowRootDirInstall
+AllowSkipFiles
+AutoCloseWindow
+Banner
+BGFont
+BGGradient
+BGImage
+BrandingText
+BringToFront
+Call
+CallInstDLL
+Caption
+ChangeUI
+CheckBitmap
+ClearErrors
+CompletedText
+ComponentText
+CopyFiles
+CRCCheck
+CreateDirectory
+CreateFont
+CreateShortCut
+Delete
+DeleteINISec
+DeleteINIStr
+DeleteRegKey
+DeleteRegValue
+DetailPrint
+DetailsButtonText
+Dialer
+DirText
+DirVar
+DirVerify
+EnableWindow
+EnumRegKey
+EnumRegValue
+Exch
+Exec
+ExecShell
+ExecWait
+ExecShellWait
+ExpandEnvStrings
+File
+FileBufSize
+FileClose
+FileErrorText
+FileOpen
+FileRead
+FileReadByte
+FileReadUTF16LE
+FileReadWord
+FileSeek
+FileWrite
+FileWriteByte
+FileWriteUTF16LE
+FileWriteWord
+FindClose
+FindFirst
+FindNext
+FindWindow
+FlushINI
+GetCurInstType
+GetCurrentAddress
+GetDlgItem
+GetDLLVersion
+GetDLLVersionLocal
+GetErrorLevel
+GetFileTime
+GetFileTimeLocal
+GetFullPathName
+GetFunction
+GetFunctionAddress
+GetFunctionEnd
+GetInstDirError
+GetLabelAddress
+GetTempFileName
+Goto
+HideWindow
+Icon
+IfAbort
+IfErrors
+IfFileExists
+IfRebootFlag
+IfSilent
+InitPluginsDir
+InstallButtonText
+InstallColors
+InstallDir
+InstallDirRegKey
+InstProgressFlags
+InstType
+InstTypeGetText
+InstTypeSetText
+Int64Cmp
+Int64CmpU
+Int64Fmt
+IntCmp
+IntCmpU
+IntFmt
+IntOp
+IntPtrCmp
+IntPtrCmpU
+IntPtrOp
+IsWindow
+LangDLL
+LangString
+LicenseBkColor
+LicenseData
+LicenseForceSelection
+LicenseLangString
+LicenseText
+LoadLanguageFile
+LockWindow
+LogSet
+LogText
+ManifestDPIAware
+ManifestSupportedOS
+Math
+MessageBox
+MiscButtonText
+Name
+Nop
+nsDialogs
+nsExec
+NSISdl
+OutFile
+Page
+PageCallbacks
+PEDllCharacteristics
+PESubsysVer
+Pop
+Push
+Quit
+ReadEnvStr
+ReadINIStr
+ReadRegDWORD
+ReadRegStr
+Reboot
+RegDLL
+Rename
+RequestExecutionLevel
+ReserveFile
+Return
+RMDir
+SearchPath
+Section
+SectionEnd
+SectionGetFlags
+SectionGetInstTypes
+SectionGetSize
+SectionGetText
+SectionGroup
+SectionIn
+SectionSetFlags
+SectionSetInstTypes
+SectionSetSize
+SectionSetText
+SendMessage
+SetAutoClose
+SetBrandingImage
+SetCompress
+SetCompressor
+SetCompressorDictSize
+SetCtlColors
+SetCurInstType
+SetDatablockOptimize
+SetDateSave
+SetDetailsPrint
+SetDetailsView
+SetErrorLevel
+SetErrors
+SetFileAttributes
+SetFont
+SetOutPath
+SetOverwrite
+SetPluginUnload
+SetRebootFlag
+SetRegView
+SetShellVarContext
+SetSilent
+ShowInstDetails
+ShowUninstDetails
+ShowWindow
+SilentInstall
+SilentUnInstall
+Sleep
+SpaceTexts
+Splash
+StartMenu
+StrCmp
+StrCmpS
+StrCpy
+StrLen
+SubCaption
+System
+Unicode
+UninstallButtonText
+UninstallCaption
+UninstallIcon
+UninstallSubCaption
+UninstallText
+UninstPage
+UnRegDLL
+UserInfo
+Var
+VIAddVersionKey
+VIFileVersion
+VIProductVersion
+VPatch
+WindowIcon
+WriteINIStr
+WriteRegBin
+WriteRegDWORD
+WriteRegExpandStr
+WriteRegMultiStr
+WriteRegNone
+WriteRegStr
+WriteUninstaller
+XPStyle
+----------------------------------------------------
+<span class="token keyword">Abort</span>
+<span class="token keyword">AddBrandingImage</span>
+<span class="token keyword">AddSize</span>
+<span class="token keyword">AdvSplash</span>
+<span class="token keyword">AllowRootDirInstall</span>
+<span class="token keyword">AllowSkipFiles</span>
+<span class="token keyword">AutoCloseWindow</span>
+<span class="token keyword">Banner</span>
+<span class="token keyword">BGFont</span>
+<span class="token keyword">BGGradient</span>
+<span class="token keyword">BGImage</span>
+<span class="token keyword">BrandingText</span>
+<span class="token keyword">BringToFront</span>
+<span class="token keyword">Call</span>
+<span class="token keyword">CallInstDLL</span>
+<span class="token keyword">Caption</span>
+<span class="token keyword">ChangeUI</span>
+<span class="token keyword">CheckBitmap</span>
+<span class="token keyword">ClearErrors</span>
+<span class="token keyword">CompletedText</span>
+<span class="token keyword">ComponentText</span>
+<span class="token keyword">CopyFiles</span>
+<span class="token keyword">CRCCheck</span>
+<span class="token keyword">CreateDirectory</span>
+<span class="token keyword">CreateFont</span>
+<span class="token keyword">CreateShortCut</span>
+<span class="token keyword">Delete</span>
+<span class="token keyword">DeleteINISec</span>
+<span class="token keyword">DeleteINIStr</span>
+<span class="token keyword">DeleteRegKey</span>
+<span class="token keyword">DeleteRegValue</span>
+<span class="token keyword">DetailPrint</span>
+<span class="token keyword">DetailsButtonText</span>
+<span class="token keyword">Dialer</span>
+<span class="token keyword">DirText</span>
+<span class="token keyword">DirVar</span>
+<span class="token keyword">DirVerify</span>
+<span class="token keyword">EnableWindow</span>
+<span class="token keyword">EnumRegKey</span>
+<span class="token keyword">EnumRegValue</span>
+<span class="token keyword">Exch</span>
+<span class="token keyword">Exec</span>
+<span class="token keyword">ExecShell</span>
+<span class="token keyword">ExecWait</span>
+<span class="token keyword">ExecShellWait</span>
+<span class="token keyword">ExpandEnvStrings</span>
+<span class="token keyword">File</span>
+<span class="token keyword">FileBufSize</span>
+<span class="token keyword">FileClose</span>
+<span class="token keyword">FileErrorText</span>
+<span class="token keyword">FileOpen</span>
+<span class="token keyword">FileRead</span>
+<span class="token keyword">FileReadByte</span>
+<span class="token keyword">FileReadUTF16LE</span>
+<span class="token keyword">FileReadWord</span>
+<span class="token keyword">FileSeek</span>
+<span class="token keyword">FileWrite</span>
+<span class="token keyword">FileWriteByte</span>
+<span class="token keyword">FileWriteUTF16LE</span>
+<span class="token keyword">FileWriteWord</span>
+<span class="token keyword">FindClose</span>
+<span class="token keyword">FindFirst</span>
+<span class="token keyword">FindNext</span>
+<span class="token keyword">FindWindow</span>
+<span class="token keyword">FlushINI</span>
+<span class="token keyword">GetCurInstType</span>
+<span class="token keyword">GetCurrentAddress</span>
+<span class="token keyword">GetDlgItem</span>
+<span class="token keyword">GetDLLVersion</span>
+<span class="token keyword">GetDLLVersionLocal</span>
+<span class="token keyword">GetErrorLevel</span>
+<span class="token keyword">GetFileTime</span>
+<span class="token keyword">GetFileTimeLocal</span>
+<span class="token keyword">GetFullPathName</span>
+<span class="token keyword">GetFunction</span>
+<span class="token keyword">GetFunctionAddress</span>
+<span class="token keyword">GetFunctionEnd</span>
+<span class="token keyword">GetInstDirError</span>
+<span class="token keyword">GetLabelAddress</span>
+<span class="token keyword">GetTempFileName</span>
+<span class="token keyword">Goto</span>
+<span class="token keyword">HideWindow</span>
+<span class="token keyword">Icon</span>
+<span class="token keyword">IfAbort</span>
+<span class="token keyword">IfErrors</span>
+<span class="token keyword">IfFileExists</span>
+<span class="token keyword">IfRebootFlag</span>
+<span class="token keyword">IfSilent</span>
+<span class="token keyword">InitPluginsDir</span>
+<span class="token keyword">InstallButtonText</span>
+<span class="token keyword">InstallColors</span>
+<span class="token keyword">InstallDir</span>
+<span class="token keyword">InstallDirRegKey</span>
+<span class="token keyword">InstProgressFlags</span>
+<span class="token keyword">InstType</span>
+<span class="token keyword">InstTypeGetText</span>
+<span class="token keyword">InstTypeSetText</span>
+<span class="token keyword">Int64Cmp</span>
+<span class="token keyword">Int64CmpU</span>
+<span class="token keyword">Int64Fmt</span>
+<span class="token keyword">IntCmp</span>
+<span class="token keyword">IntCmpU</span>
+<span class="token keyword">IntFmt</span>
+<span class="token keyword">IntOp</span>
+<span class="token keyword">IntPtrCmp</span>
+<span class="token keyword">IntPtrCmpU</span>
+<span class="token keyword">IntPtrOp</span>
+<span class="token keyword">IsWindow</span>
+<span class="token keyword">LangDLL</span>
+<span class="token keyword">LangString</span>
+<span class="token keyword">LicenseBkColor</span>
+<span class="token keyword">LicenseData</span>
+<span class="token keyword">LicenseForceSelection</span>
+<span class="token keyword">LicenseLangString</span>
+<span class="token keyword">LicenseText</span>
+<span class="token keyword">LoadLanguageFile</span>
+<span class="token keyword">LockWindow</span>
+<span class="token keyword">LogSet</span>
+<span class="token keyword">LogText</span>
+<span class="token keyword">ManifestDPIAware</span>
+<span class="token keyword">ManifestSupportedOS</span>
+<span class="token keyword">Math</span>
+<span class="token keyword">MessageBox</span>
+<span class="token keyword">MiscButtonText</span>
+<span class="token keyword">Name</span>
+<span class="token keyword">Nop</span>
+<span class="token keyword">nsDialogs</span>
+<span class="token keyword">nsExec</span>
+<span class="token keyword">NSISdl</span>
+<span class="token keyword">OutFile</span>
+<span class="token keyword">Page</span>
+<span class="token keyword">PageCallbacks</span>
+<span class="token keyword">PEDllCharacteristics</span>
+<span class="token keyword">PESubsysVer</span>
+<span class="token keyword">Pop</span>
+<span class="token keyword">Push</span>
+<span class="token keyword">Quit</span>
+<span class="token keyword">ReadEnvStr</span>
+<span class="token keyword">ReadINIStr</span>
+<span class="token keyword">ReadRegDWORD</span>
+<span class="token keyword">ReadRegStr</span>
+<span class="token keyword">Reboot</span>
+<span class="token keyword">RegDLL</span>
+<span class="token keyword">Rename</span>
+<span class="token keyword">RequestExecutionLevel</span>
+<span class="token keyword">ReserveFile</span>
+<span class="token keyword">Return</span>
+<span class="token keyword">RMDir</span>
+<span class="token keyword">SearchPath</span>
+<span class="token keyword">Section</span>
+<span class="token keyword">SectionEnd</span>
+<span class="token keyword">SectionGetFlags</span>
+<span class="token keyword">SectionGetInstTypes</span>
+<span class="token keyword">SectionGetSize</span>
+<span class="token keyword">SectionGetText</span>
+<span class="token keyword">SectionGroup</span>
+<span class="token keyword">SectionIn</span>
+<span class="token keyword">SectionSetFlags</span>
+<span class="token keyword">SectionSetInstTypes</span>
+<span class="token keyword">SectionSetSize</span>
+<span class="token keyword">SectionSetText</span>
+<span class="token keyword">SendMessage</span>
+<span class="token keyword">SetAutoClose</span>
+<span class="token keyword">SetBrandingImage</span>
+<span class="token keyword">SetCompress</span>
+<span class="token keyword">SetCompressor</span>
+<span class="token keyword">SetCompressorDictSize</span>
+<span class="token keyword">SetCtlColors</span>
+<span class="token keyword">SetCurInstType</span>
+<span class="token keyword">SetDatablockOptimize</span>
+<span class="token keyword">SetDateSave</span>
+<span class="token keyword">SetDetailsPrint</span>
+<span class="token keyword">SetDetailsView</span>
+<span class="token keyword">SetErrorLevel</span>
+<span class="token keyword">SetErrors</span>
+<span class="token keyword">SetFileAttributes</span>
+<span class="token keyword">SetFont</span>
+<span class="token keyword">SetOutPath</span>
+<span class="token keyword">SetOverwrite</span>
+<span class="token keyword">SetPluginUnload</span>
+<span class="token keyword">SetRebootFlag</span>
+<span class="token keyword">SetRegView</span>
+<span class="token keyword">SetShellVarContext</span>
+<span class="token keyword">SetSilent</span>
+<span class="token keyword">ShowInstDetails</span>
+<span class="token keyword">ShowUninstDetails</span>
+<span class="token keyword">ShowWindow</span>
+<span class="token keyword">SilentInstall</span>
+<span class="token keyword">SilentUnInstall</span>
+<span class="token keyword">Sleep</span>
+<span class="token keyword">SpaceTexts</span>
+<span class="token keyword">Splash</span>
+<span class="token keyword">StartMenu</span>
+<span class="token keyword">StrCmp</span>
+<span class="token keyword">StrCmpS</span>
+<span class="token keyword">StrCpy</span>
+<span class="token keyword">StrLen</span>
+<span class="token keyword">SubCaption</span>
+<span class="token keyword">System</span>
+<span class="token keyword">Unicode</span>
+<span class="token keyword">UninstallButtonText</span>
+<span class="token keyword">UninstallCaption</span>
+<span class="token keyword">UninstallIcon</span>
+<span class="token keyword">UninstallSubCaption</span>
+<span class="token keyword">UninstallText</span>
+<span class="token keyword">UninstPage</span>
+<span class="token keyword">UnRegDLL</span>
+<span class="token keyword">UserInfo</span>
+<span class="token keyword">Var</span>
+<span class="token keyword">VIAddVersionKey</span>
+<span class="token keyword">VIFileVersion</span>
+<span class="token keyword">VIProductVersion</span>
+<span class="token keyword">VPatch</span>
+<span class="token keyword">WindowIcon</span>
+<span class="token keyword">WriteINIStr</span>
+<span class="token keyword">WriteRegBin</span>
+<span class="token keyword">WriteRegDWORD</span>
+<span class="token keyword">WriteRegExpandStr</span>
+<span class="token keyword">WriteRegMultiStr</span>
+<span class="token keyword">WriteRegNone</span>
+<span class="token keyword">WriteRegStr</span>
+<span class="token keyword">WriteUninstaller</span>
+<span class="token keyword">XPStyle</span>
+
+----------------------------------------------------

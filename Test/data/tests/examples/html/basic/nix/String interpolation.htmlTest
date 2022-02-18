@@ -1,0 +1,11 @@
+"foo${42}bar"
+"foo\${42}bar" # This is not interpolated
+''foo${42}bar''
+''foo''${42}bar'' # This is not interpolated
+----------------------------------------------------
+<span class="token string">"foo<span class="token interpolation"><span class="token antiquotation important">$</span><span class="token punctuation">{</span><span class="token number">42</span><span class="token punctuation">}</span></span>bar"</span>
+<span class="token string">"foo\${42}bar"</span> <span class="token comment"># This is not interpolated</span>
+<span class="token string">''foo<span class="token interpolation"><span class="token antiquotation important">$</span><span class="token punctuation">{</span><span class="token number">42</span><span class="token punctuation">}</span></span>bar''</span>
+<span class="token string">''foo''${42}bar''</span> <span class="token comment"># This is not interpolated</span>
+
+----------------------------------------------------

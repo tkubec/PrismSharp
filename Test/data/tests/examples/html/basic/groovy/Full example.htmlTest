@@ -1,0 +1,115 @@
+#!/usr/bin/env groovy
+package model
+
+import groovy.transform.CompileStatic
+import java.util.List as MyList
+
+trait Distributable {
+    void distribute(String version) {}
+}
+
+@CompileStatic
+class Distribution implements Distributable {
+    double number = 1234.234 / 567
+    def otherNumber = 3 / 4
+    boolean archivable = condition ?: true
+    def ternary = a ? b : c
+    String name = "Guillaume"
+    Closure description = null
+    List<DownloadPackage> packages = []
+    String regex = ~/.*foo.*/
+    String multi = '''
+        multi line string
+    ''' + """
+        now with double quotes and ${gstring}
+    """ + $/
+        even with dollar slashy strings
+    /$
+
+    /**
+     * description method
+     * @param cl the closure
+     */
+    void description(Closure cl) { this.description = cl }
+
+    void version(String name, Closure versionSpec) {
+        def closure = { println "hi" } as Runnable
+
+        MyList ml = [1, 2, [a: 1, b:2,c :3]]
+        for (ch in "name") {}
+
+        // single line comment
+        DownloadPackage pkg = new DownloadPackage(version: name)
+
+        check that: true
+
+        label:
+        def clone = versionSpec.rehydrate(pkg, pkg, pkg)
+        /*
+            now clone() in a multiline comment
+        */
+        clone()
+        packages.add(pkg)
+
+        assert 4 / 2 == 2
+    }
+}
+----------------------------------------------------
+<span class="token shebang comment">#!/usr/bin/env groovy</span>
+<span class="token keyword">package</span> model
+
+<span class="token keyword">import</span> groovy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>CompileStatic
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List <span class="token keyword">as</span> MyList
+
+<span class="token keyword">trait</span> Distributable <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">distribute</span><span class="token punctuation">(</span>String version<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@CompileStatic</span>
+<span class="token keyword">class</span> <span class="token class-name">Distribution</span> <span class="token keyword">implements</span> <span class="token class-name">Distributable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">double</span> number <span class="token operator">=</span> <span class="token number">1234.234</span> <span class="token operator">/</span> <span class="token number">567</span>
+    <span class="token keyword">def</span> otherNumber <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">/</span> <span class="token number">4</span>
+    <span class="token keyword">boolean</span> archivable <span class="token operator">=</span> condition <span class="token operator">?:</span> <span class="token boolean">true</span>
+    <span class="token keyword">def</span> ternary <span class="token operator">=</span> a <span class="token operator">?</span> b <span class="token punctuation">:</span> c
+    String name <span class="token operator">=</span> <span class="token string">"Guillaume"</span>
+    Closure description <span class="token operator">=</span> null
+    List<span class="token operator">&lt;</span>DownloadPackage<span class="token operator">></span> packages <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    String regex <span class="token operator">=</span> <span class="token operator">~</span><span class="token string">/.*foo.*/</span>
+    String multi <span class="token operator">=</span> <span class="token string">'''
+        multi line string
+    '''</span> <span class="token operator">+</span> <span class="token string">"""
+        now with double quotes and ${gstring}
+    """</span> <span class="token operator">+</span> <span class="token string">$/
+        even with dollar slashy strings
+    /$</span>
+
+    <span class="token comment">/**
+     * description method
+     * @param cl the closure
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">description</span><span class="token punctuation">(</span>Closure cl<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>description <span class="token operator">=</span> cl <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">version</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> Closure versionSpec<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">def</span> closure <span class="token operator">=</span> <span class="token punctuation">{</span> println <span class="token string">"hi"</span> <span class="token punctuation">}</span> <span class="token keyword">as</span> Runnable
+
+        MyList ml <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span>c <span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>ch <span class="token keyword">in</span> <span class="token string">"name"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+        <span class="token comment">// single line comment</span>
+        DownloadPackage pkg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DownloadPackage</span><span class="token punctuation">(</span>version<span class="token punctuation">:</span> name<span class="token punctuation">)</span>
+
+        check that<span class="token punctuation">:</span> <span class="token boolean">true</span>
+
+        label<span class="token punctuation">:</span>
+        <span class="token keyword">def</span> clone <span class="token operator">=</span> versionSpec<span class="token punctuation">.</span><span class="token function">rehydrate</span><span class="token punctuation">(</span>pkg<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> pkg<span class="token punctuation">)</span>
+        <span class="token comment">/*
+            now clone() in a multiline comment
+        */</span>
+        <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        packages<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>pkg<span class="token punctuation">)</span>
+
+        <span class="token keyword">assert</span> <span class="token number">4</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">2</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

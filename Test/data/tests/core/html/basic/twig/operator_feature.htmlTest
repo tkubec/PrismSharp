@@ -1,0 +1,55 @@
+{% set a = 4 %}
+{{ a == 4 }}
+{{ b != c }}
+{{ c < d }}
+{{ d <= e }}
+{{ e > f }}
+{{ f >= g }}
+{{ g + h }}
+{{ h - i }}
+{{ i ~ j }}
+{{ j * k }}
+{{ k ** l }}
+{{ l / m }}
+{{ m // n }}
+{{ n % o }}
+{{ o|default('foo') }}
+{{ p ? q : r }}
+{{ s ?: t }}
+
+{% if a and b or not c %}
+{% for p in foo %}
+{% if d b-and e and f b-xor g or h b-or i %}
+{% if j starts with 'h' %}
+{% if i ends with 'j' %}
+{% if k is same as false %}
+{% if l matches '/f[o]{2,}(?:bar)?' %}
+----------------------------------------------------
+<span class="token delimiter punctuation">{%</span> <span class="token tag-name keyword">set</span> a <span class="token operator">=</span> <span class="token number">4</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> a <span class="token operator">==</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> b <span class="token operator">!=</span> c <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> c <span class="token operator">&lt;</span> d <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> d <span class="token operator">&lt;=</span> e <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> e <span class="token operator">></span> f <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> f <span class="token operator">>=</span> g <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> g <span class="token operator">+</span> h <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> h <span class="token operator">-</span> i <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> i <span class="token operator">~</span> j <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> j <span class="token operator">*</span> k <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> k <span class="token operator">**</span> l <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> l <span class="token operator">/</span> m <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> m <span class="token operator">//</span> n <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> n <span class="token operator">%</span> o <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> o<span class="token operator">|</span>default<span class="token punctuation">(</span><span class="token string"><span class="token punctuation">'</span>foo<span class="token punctuation">'</span></span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> p <span class="token operator">?</span> q <span class="token punctuation">:</span> r <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> s <span class="token operator">?:</span> t <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> a <span class="token operator">and</span> b <span class="token operator">or</span> <span class="token operator">not</span> c <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> for p <span class="token operator">in</span> foo <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> d <span class="token operator">b-and</span> e <span class="token operator">and</span> f <span class="token operator">b-xor</span> g <span class="token operator">or</span> h <span class="token operator">b-or</span> i <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> j <span class="token operator">starts with</span> <span class="token string"><span class="token punctuation">'</span>h<span class="token punctuation">'</span></span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> i <span class="token operator">ends with</span> <span class="token string"><span class="token punctuation">'</span>j<span class="token punctuation">'</span></span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> k <span class="token operator">is</span> <span class="token operator">same as</span> <span class="token boolean">false</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> l <span class="token operator">matches</span> <span class="token string"><span class="token punctuation">'</span>/f[o]{2,}(?:bar)?<span class="token punctuation">'</span></span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

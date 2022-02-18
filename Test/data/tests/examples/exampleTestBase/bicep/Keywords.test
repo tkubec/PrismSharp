@@ -1,0 +1,15 @@
+resource appServicePlan 'Microsoft.Web/serverfarms@2020-09-01' existing =  = if (diagnosticsEnabled) {
+	name: logAnalyticsWsName
+  }
+  module cosmosDb './cosmosdb.bicep' = {
+	name: 'cosmosDbDeploy'
+  }
+  param env string
+  var oneNumber = 123
+  output databaseName string = cosmosdbDatabaseName
+  for item in cosmosdbAllowedIpAddresses: {
+	  ipAddressOrRange: item
+  }
+
+--------------------------------------------------
+

@@ -1,0 +1,63 @@
++ - * / % **
++= -= *= /=
+++ --
+~ && || ^^
+! & | ^ << >>
+
+> >= < <= == != ~=
+$ $= @ @=
+=
+
+? :
+
+Cross Dot ClockwiseFrom
+----------------------------------------------------
+[
+	["operator", "+"],
+	["operator", "-"],
+	["operator", "*"],
+	["operator", "/"],
+	["operator", "%"],
+	["operator", "**"],
+
+	["operator", "+="],
+	["operator", "-="],
+	["operator", "*="],
+	["operator", "/="],
+
+	["operator", "++"],
+	["operator", "--"],
+
+	["operator", "~"],
+	["operator", "&&"],
+	["operator", "||"],
+	["operator", "^^"],
+
+	["operator", "!"],
+	["operator", "&"],
+	["operator", "|"],
+	["operator", "^"],
+	["operator", "<<"],
+	["operator", ">>"],
+
+	["operator", ">"],
+	["operator", ">="],
+	["operator", "<"],
+	["operator", "<="],
+	["operator", "=="],
+	["operator", "!="],
+	["operator", "~="],
+
+	["operator", "$"],
+	["operator", "$="],
+	["operator", "@"],
+	["operator", "@="],
+
+	["operator", "="],
+
+	["operator", "?"], ["operator", ":"],
+
+	["operator", "Cross"], ["operator", "Dot"], ["operator", "ClockwiseFrom"]
+]
+
+----------------------------------------------------

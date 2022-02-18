@@ -1,0 +1,50 @@
+# PSL Strings are properly rendered
+print("Hello, World!");
+
+# Escaped sequences are highlighted too
+print("Goodbye \H\H\H\H\H\H\H\HHello, World!\n");
+
+# Multi-line strings are supported
+print("multi
+line");
+----------------------------------------------------
+[
+	["comment", "# PSL Strings are properly rendered"],
+
+	["builtin", "print"],
+	["punctuation", "("],
+	["string", ["\"Hello, World!\""]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# Escaped sequences are highlighted too"],
+
+	["builtin", "print"],
+	["punctuation", "("],
+	["string", [
+		"\"Goodbye ",
+		["symbol", "\\H"],
+		["symbol", "\\H"],
+		["symbol", "\\H"],
+		["symbol", "\\H"],
+		["symbol", "\\H"],
+		["symbol", "\\H"],
+		["symbol", "\\H"],
+		["symbol", "\\H"],
+		"Hello, World!",
+		["symbol", "\\n"],
+		"\""
+	]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "# Multi-line strings are supported"],
+
+	["builtin", "print"],
+	["punctuation", "("],
+	["string", ["\"multi\nline\""]],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

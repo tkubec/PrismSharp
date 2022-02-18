@@ -1,0 +1,9 @@
+{{{link "See more..." story.url}}}
+{{ true }}
+{{ custom_helper 42 href="somepage.html" false }}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{{</span><span class="token variable">link</span> <span class="token string">"See more..."</span> <span class="token variable">story</span><span class="token punctuation">.</span><span class="token variable">url</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">custom_helper</span> <span class="token number">42</span> <span class="token variable">href</span><span class="token punctuation">=</span><span class="token string">"somepage.html"</span> <span class="token boolean">false</span> <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

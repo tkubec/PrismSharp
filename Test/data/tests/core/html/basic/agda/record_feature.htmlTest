@@ -1,0 +1,15 @@
+record Fin (n : Nat) : Set where
+	constructor _[_]
+	field
+		⟦_⟧   : Nat
+		proof : suc ⟦_⟧ ≤ n
+open Fin
+----------------------------------------------------
+<span class="token keyword">record</span> <span class="token class-name">Fin</span> <span class="token punctuation">(</span><span class="token function">n </span><span class="token operator">:</span> Nat<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">Set</span> <span class="token keyword">where</span>
+	<span class="token keyword">constructor</span> _[_]
+	<span class="token keyword">field</span>
+		<span class="token function">⟦_⟧   </span><span class="token operator">:</span> Nat
+		<span class="token function">proof </span><span class="token operator">:</span> suc ⟦_⟧ ≤ n
+<span class="token keyword">open</span> Fin
+
+----------------------------------------------------

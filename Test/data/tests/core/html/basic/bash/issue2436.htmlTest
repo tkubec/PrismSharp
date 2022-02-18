@@ -1,0 +1,5 @@
+echo $'module.exports = {\n  extends: [\n    // add more generic rulesets here, such as:\n    // 'eslint:recommended',\n    "plugin:vue/vue3-recommended",\n    "prettier",\n    "prettier/vue",\n  ],\n  rules: {\n    // override/add rules settings here, such as:\n    // 'vue/no-unused-vars': 'error'\n  },\n};' > .eslintrc.js
+----------------------------------------------------
+<span class="token builtin class-name">echo</span> <span class="token string">$'module.exports = {<span class="token entity">\n</span>  extends: [<span class="token entity">\n</span>    // add more generic rulesets here, such as:<span class="token entity">\n</span>    // '</span>eslint:recommended<span class="token string">',\n    "plugin:vue/vue3-recommended",\n    "prettier",\n    "prettier/vue",\n  ],\n  rules: {\n    // override/add rules settings here, such as:\n    // '</span>vue/no-unused-vars<span class="token string">': '</span>error<span class="token string">'\n  },\n};'</span> <span class="token operator">></span> .eslintrc.js
+
+----------------------------------------------------

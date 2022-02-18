@@ -1,0 +1,12 @@
+proc foobar {baz} {
+	puts $baz
+}
+
+proc RESTORE/post/:post_id/comment/:comment_id {post_id comment_id} {
+    #| Restore a comment handler
+    comment_restore $comment_id
+    qc::actions redirect [url "/post/$post_id" show_deleted_comment_ids $comment_id]
+}
+
+--------------------------------------------------
+

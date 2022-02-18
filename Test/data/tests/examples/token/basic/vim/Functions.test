@@ -1,0 +1,31 @@
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+----------------------------------------------------
+[
+	"func",
+	["operator", "!"],
+	["function", "DeleteTrailingWS"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	"\n  exe ",
+	["string", "\"normal mz\""],
+
+	["operator", "%"],
+	"s",
+	["operator", "/"],
+	"\\s\\",
+	["operator", "+"],
+	"$",
+	["operator", "/"],
+	["operator", "/"],
+	"ge\n  exe ",
+	["string", "\"normal `z\""],
+
+	"\nendfunc"
+]
+
+----------------------------------------------------

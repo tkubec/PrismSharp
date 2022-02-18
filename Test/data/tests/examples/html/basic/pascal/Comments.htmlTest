@@ -1,0 +1,13 @@
+(* This is an
+old style comment *)
+{ This is a
+Turbo Pascal comment }
+// This is a Delphi comment.
+----------------------------------------------------
+<span class="token comment">(* This is an
+old style comment *)</span>
+<span class="token comment">{ This is a
+Turbo Pascal comment }</span>
+<span class="token comment">// This is a Delphi comment.</span>
+
+----------------------------------------------------

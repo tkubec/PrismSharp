@@ -1,0 +1,15 @@
+{
+	zuck: user(id: 4) {
+		name
+	}
+	foo(bar: Int = 0, baz: String = "("): [Int!]!
+}
+----------------------------------------------------
+<span class="token punctuation">{</span>
+	<span class="token attr-name">zuck</span><span class="token punctuation">:</span> <span class="token property-query">user</span><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token property">name</span>
+	<span class="token punctuation">}</span>
+	<span class="token attr-name">foo</span><span class="token punctuation">(</span><span class="token attr-name">bar</span><span class="token punctuation">:</span> <span class="token scalar">Int</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token attr-name">baz</span><span class="token punctuation">:</span> <span class="token scalar">String</span> <span class="token operator">=</span> <span class="token string">"("</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token scalar">Int</span><span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

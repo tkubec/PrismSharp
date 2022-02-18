@@ -1,0 +1,91 @@
+//8 bit Int
+86y
+0b00000101y
+//Unsigned 8 bit Int
+86uy
+0b00000101uy
+//16 bit Int
+86s
+//Unsigned 16 bit Int
+86us
+//Int
+86
+86l
+0b10000
+0x2A6
+//Unsigned Int
+86u
+86ul
+//unativeint
+0x00002D3Fun
+//Long
+86L
+//Unsigned Long
+86UL
+//Float
+4.14F
+4.14f
+4.f
+4.F
+0x0000000000000000lf
+//Double
+4.14
+2.3E+32
+2.3e+32
+2.3e-32
+2.3e32
+0x0000000000000000LF
+//BigInt
+9999999999999999999999999999I
+//Decimal
+0.7833M
+0.7833m
+3.m
+3.M
+----------------------------------------------------
+<span class="token comment">//8 bit Int</span>
+<span class="token number">86y</span>
+<span class="token number">0b00000101y</span>
+<span class="token comment">//Unsigned 8 bit Int</span>
+<span class="token number">86uy</span>
+<span class="token number">0b00000101uy</span>
+<span class="token comment">//16 bit Int</span>
+<span class="token number">86s</span>
+<span class="token comment">//Unsigned 16 bit Int</span>
+<span class="token number">86us</span>
+<span class="token comment">//Int</span>
+<span class="token number">86</span>
+<span class="token number">86l</span>
+<span class="token number">0b10000</span>
+<span class="token number">0x2A6</span>
+<span class="token comment">//Unsigned Int</span>
+<span class="token number">86u</span>
+<span class="token number">86ul</span>
+<span class="token comment">//unativeint</span>
+<span class="token number">0x00002D3Fun</span>
+<span class="token comment">//Long</span>
+<span class="token number">86L</span>
+<span class="token comment">//Unsigned Long</span>
+<span class="token number">86UL</span>
+<span class="token comment">//Float</span>
+<span class="token number">4.14F</span>
+<span class="token number">4.14f</span>
+<span class="token number">4.f</span>
+<span class="token number">4.F</span>
+<span class="token number">0x0000000000000000lf</span>
+<span class="token comment">//Double</span>
+<span class="token number">4.14</span>
+<span class="token number">2.3E+32</span>
+<span class="token number">2.3e+32</span>
+<span class="token number">2.3e-32</span>
+<span class="token number">2.3e32</span>
+<span class="token number">0x0000000000000000LF</span>
+<span class="token comment">//BigInt</span>
+<span class="token number">9999999999999999999999999999I</span>
+<span class="token comment">//Decimal</span>
+<span class="token number">0.7833M</span>
+<span class="token number">0.7833m</span>
+<span class="token number">3.m</span>
+<span class="token number">3.M</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+"Single-line description"
+type Foo {}
+"""
+Multiline description
+"""
+type Bar {}
+----------------------------------------------------
+<span class="token description string">"<span class="token language-markdown">Single-line description</span>"</span>
+<span class="token keyword">type</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token description string">"""<span class="token language-markdown">
+Multiline description
+</span>"""</span>
+<span class="token keyword">type</span> <span class="token class-name">Bar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

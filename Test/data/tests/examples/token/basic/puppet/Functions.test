@@ -1,0 +1,33 @@
+require apache
+template('apache/vhost-default.conf.erb')
+[1,20,3].filter |$value| { $value < 10 }
+----------------------------------------------------
+[
+	["function", "require"],
+	" apache\n",
+
+	["function", "template"],
+	["punctuation", "("],
+	["string", ["'apache/vhost-default.conf.erb'"]],
+	["punctuation", ")"],
+
+	["punctuation", "["],
+	["number", "1"],
+	["punctuation", ","],
+	["number", "20"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", "]"],
+	["punctuation", "."],
+	["function", "filter"],
+	["operator", "|"],
+	["variable", ["$value"]],
+	["operator", "|"],
+	["punctuation", "{"],
+	["variable", ["$value"]],
+	["operator", "<"],
+	["number", "10"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

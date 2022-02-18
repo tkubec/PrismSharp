@@ -1,0 +1,11 @@
+#NoTrayIcon
+#OnAutoItStartRegister "Example"
+#include-once
+#include <MsgBoxConstants.au3>
+----------------------------------------------------
+<span class="token directive keyword">#NoTrayIcon</span>
+<span class="token directive keyword">#OnAutoItStartRegister</span> <span class="token string">"Example"</span>
+<span class="token directive keyword">#include</span><span class="token operator">-</span>once
+<span class="token directive keyword">#include</span> <span class="token url">&lt;MsgBoxConstants.au3></span>
+
+----------------------------------------------------

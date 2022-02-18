@@ -1,0 +1,27 @@
+const Test = () => {
+    return (
+       <div>
+           <Button {...{onClick, disabled}}>
+               Click (Wrong Highlighting)
+           </Button>
+           <Button onClick={onClick} disabled={disabled}>
+               Click (Correct highlighting)
+           </Button>
+       </div>
+    )
+}
+----------------------------------------------------
+<span class="token keyword">const</span> <span class="token function-variable function">Test</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Button</span></span> <span class="token spread"><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">{</span>onClick<span class="token punctuation">,</span> disabled<span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+               <span class="token function">Click</span> <span class="token punctuation">(</span>Wrong Highlighting<span class="token punctuation">)</span>
+           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Button</span></span><span class="token punctuation">></span></span>
+           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Button</span></span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>onClick<span class="token punctuation">}</span></span> <span class="token attr-name">disabled</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>disabled<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+               <span class="token function">Click</span> <span class="token punctuation">(</span>Correct highlighting<span class="token punctuation">)</span>
+           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Button</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

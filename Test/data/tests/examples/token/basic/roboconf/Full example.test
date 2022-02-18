@@ -1,0 +1,159 @@
+ApacheServer {
+    # Apache instances will be deployed by Roboconf's Puppet extension
+    installer: puppet;
+
+    # Web applications could be deployed over this Apache server
+    children: My-Dash-Board, Marketing-Suite;
+
+    # Properties exported by this component.
+    # 'port' should have a default value, or we will have to set it when we create an instance.
+    exports: port = 19099;
+
+    # 'ip' is a special variable. It will be updated at runtime by a Roboconf agent.
+    exports: ip;
+
+    # Other components properties that this server needs to have so that it can start.
+    imports: LB.port (optional), LB.ip (optional);
+
+    # Here, the Apache may also be notified about components instances of type LB.
+    # The imports are marked as optional. It means that if there is no LB instance, an
+    # Apache instance will be able to start anyway.
+    #
+    # If the import was not optional, e.g.
+    #
+    # imports: LB.port, LB.ip;
+    # or even
+    # imports: LB.port (optional), LB.ip;
+    #
+    # ... then an Apache instance would need at least one LB instance somewhere.
+
+    # Imports may also reference variables from other applications
+    imports: external Lamp.lb-ip;
+}
+
+facet LoadBalanced {
+    exports: ip, port;  # Define we export two variables.
+}
+
+instance of VM {
+
+    # This will create 5 VM instances, called VM 1, VM 2, VM3, VM 4 and VM 5.
+    name: VM ;  # Yes, there is a space at the end... :)
+    count: 5;
+
+    # On every VM instance, we will deploy...
+    instance of Tomcat {
+        name: Tomcat;
+    }
+}
+----------------------------------------------------
+[
+	["component", "ApacheServer"],
+	["punctuation", "{"],
+
+	["comment", "# Apache instances will be deployed by Roboconf's Puppet extension"],
+
+	["property", "installer"],
+	["punctuation", ":"],
+	" puppet",
+	["punctuation", ";"],
+
+	["comment", "# Web applications could be deployed over this Apache server"],
+
+	["property", "children"],
+	["punctuation", ":"],
+	" My-Dash-Board",
+	["punctuation", ","],
+	" Marketing-Suite",
+	["punctuation", ";"],
+
+	["comment", "# Properties exported by this component."],
+
+	["comment", "# 'port' should have a default value, or we will have to set it when we create an instance."],
+
+	["property", "exports"],
+	["punctuation", ":"],
+	" port ",
+	["punctuation", "="],
+	["value", "19099"],
+	["punctuation", ";"],
+
+	["comment", "# 'ip' is a special variable. It will be updated at runtime by a Roboconf agent."],
+	["property", "exports"], ["punctuation", ":"], " ip", ["punctuation", ";"],
+
+	["comment", "# Other components properties that this server needs to have so that it can start."],
+
+	["property", "imports"],
+	["punctuation", ":"],
+	" LB",
+	["punctuation", "."],
+	"port ",
+	["optional", "(optional)"],
+	["punctuation", ","],
+	" LB",
+	["punctuation", "."],
+	"ip ",
+	["optional", "(optional)"],
+	["punctuation", ";"],
+
+	["comment", "# Here, the Apache may also be notified about components instances of type LB."],
+	["comment", "# The imports are marked as optional. It means that if there is no LB instance, an"],
+	["comment", "# Apache instance will be able to start anyway."],
+	["comment", "#"],
+	["comment", "# If the import was not optional, e.g."],
+	["comment", "#"],
+	["comment", "# imports: LB.port, LB.ip;"],
+	["comment", "# or even"],
+	["comment", "# imports: LB.port (optional), LB.ip;"],
+	["comment", "#"],
+	["comment", "# ... then an Apache instance would need at least one LB instance somewhere."],
+
+	["comment", "# Imports may also reference variables from other applications"],
+
+	["property", "imports"],
+	["punctuation", ":"],
+	["keyword", "external"],
+	" Lamp",
+	["punctuation", "."],
+	"lb-ip",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "facet"],
+	["component", "LoadBalanced"],
+	["punctuation", "{"],
+
+	["property", "exports"],
+	["punctuation", ":"],
+	" ip",
+	["punctuation", ","],
+	" port",
+	["punctuation", ";"],
+	["comment", "# Define we export two variables."],
+
+	["punctuation", "}"],
+
+	["keyword", "instance of"], ["component", "VM"], ["punctuation", "{"],
+
+	["comment", "# This will create 5 VM instances, called VM 1, VM 2, VM3, VM 4 and VM 5."],
+
+	["property", "name"],
+	["punctuation", ":"],
+	" VM ",
+	["punctuation", ";"],
+	["comment", "# Yes, there is a space at the end... :)"],
+
+	["property", "count"],
+	["punctuation", ":"],
+	" 5",
+	["punctuation", ";"],
+
+	["comment", "# On every VM instance, we will deploy..."],
+	["keyword", "instance of"], ["component", "Tomcat"], ["punctuation", "{"],
+	["property", "name"], ["punctuation", ":"], " Tomcat", ["punctuation", ";"],
+	["punctuation", "}"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

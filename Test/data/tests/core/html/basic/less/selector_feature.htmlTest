@@ -1,0 +1,9 @@
+.bordered {}
+.@{foo} {}
+.foo (@bg: #fff, @color: #000) {}
+----------------------------------------------------
+<span class="token selector">.bordered</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector">.@{foo}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector">.foo (<span class="token variable">@bg</span>: #fff, <span class="token variable">@color</span>: #000)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

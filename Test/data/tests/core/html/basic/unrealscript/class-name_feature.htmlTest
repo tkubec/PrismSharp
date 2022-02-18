@@ -1,0 +1,17 @@
+class Foo extends Bar;
+struct Baz {};
+enum FooBar {};
+interface IFoo extends IBar;
+
+state Action {}
+state() Defense {}
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token keyword">extends</span> <span class="token class-name">Bar</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">Baz</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">enum</span> <span class="token class-name">FooBar</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">interface</span> <span class="token class-name">IFoo</span> <span class="token keyword">extends</span> <span class="token class-name">IBar</span><span class="token punctuation">;</span>
+
+<span class="token keyword">state</span> <span class="token class-name">Action</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token class-name">Defense</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,33 @@
+<#@ template hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ output extension=".txt" #>
+<#
+    using System.Collections.Generic;
+
+    var numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, /* 7, */ 8, 9, 10  };
+
+    foreach (var i in numbers)
+    {
+#>
+The square of <#= i #> is <#= i * i #>
+<#
+    }
+#>
+----------------------------------------------------
+<span class="token block"><span class="token directive block"><span class="token delimiter important">&lt;#@</span><span class="token content"> <span class="token keyword">template</span> <span class="token attr-name">hostspecific</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>C#<span class="token punctuation">"</span></span> </span><span class="token delimiter important">#></span></span></span>
+<span class="token block"><span class="token directive block"><span class="token delimiter important">&lt;#@</span><span class="token content"> <span class="token keyword">assembly</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>System.Core.dll<span class="token punctuation">"</span></span> </span><span class="token delimiter important">#></span></span></span>
+<span class="token block"><span class="token directive block"><span class="token delimiter important">&lt;#@</span><span class="token content"> <span class="token keyword">output</span> <span class="token attr-name">extension</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.txt<span class="token punctuation">"</span></span> </span><span class="token delimiter important">#></span></span></span>
+<span class="token block"><span class="token standard block"><span class="token delimiter important">&lt;#</span><span class="token content language-csharp">
+    <span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+
+    <span class="token class-name"><span class="token keyword">var</span></span> numbers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token comment">/* 7, */</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">var</span></span> i <span class="token keyword">in</span> numbers<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+</span><span class="token delimiter important">#></span></span></span>
+The square of <span class="token block"><span class="token expression block"><span class="token delimiter important">&lt;#=</span><span class="token content language-csharp"> i </span><span class="token delimiter important">#></span></span></span> is <span class="token block"><span class="token expression block"><span class="token delimiter important">&lt;#=</span><span class="token content language-csharp"> i <span class="token operator">*</span> i </span><span class="token delimiter important">#></span></span></span>
+<span class="token block"><span class="token standard block"><span class="token delimiter important">&lt;#</span><span class="token content language-csharp">
+    <span class="token punctuation">}</span>
+</span><span class="token delimiter important">#></span></span></span>
+
+----------------------------------------------------

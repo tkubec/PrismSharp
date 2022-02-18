@@ -1,0 +1,19 @@
+\0 \\ \. \+
+\xFF
+\uFFFF \u{10FFFF}
+\cA \cZ
+\01 \077 \377
+\n \r \t \f \a
+
+\[ \]
+----------------------------------------------------
+<span class="token escape">\0</span> <span class="token special-escape escape">\\</span> <span class="token special-escape escape">\.</span> <span class="token special-escape escape">\+</span>
+<span class="token escape">\xFF</span>
+<span class="token escape">\uFFFF</span> <span class="token escape">\u{10FFFF}</span>
+<span class="token escape">\cA</span> <span class="token escape">\cZ</span>
+<span class="token escape">\01</span> <span class="token escape">\077</span> <span class="token escape">\377</span>
+<span class="token escape">\n</span> <span class="token escape">\r</span> <span class="token escape">\t</span> <span class="token escape">\f</span> <span class="token escape">\a</span>
+
+<span class="token special-escape escape">\[</span> <span class="token special-escape escape">\]</span>
+
+----------------------------------------------------

@@ -1,0 +1,25 @@
+`foo bar baz`
+``foo `bar` baz``
+
+    foobar
+
+	foobar
+	continuous
+
+``` js
+var a = 0;
+```
+----------------------------------------------------
+<span class="token code-snippet code keyword">`foo bar baz`</span>
+<span class="token code-snippet code keyword">``foo `bar` baz``</span>
+
+<span class="token code keyword">    foobar</span>
+
+<span class="token code keyword">	foobar
+	continuous</span>
+
+<span class="token code"><span class="token punctuation">```</span><span class="token code-language"> js</span>
+<span class="token code-block">var a = 0;</span>
+<span class="token punctuation">```</span></span>
+
+----------------------------------------------------

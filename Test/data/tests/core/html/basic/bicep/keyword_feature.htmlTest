@@ -1,0 +1,33 @@
+targetScope
+resource appServicePlan 'Microsoft.Web/serverfarms@2020-09-01' existing =  = if (diagnosticsEnabled) {
+  name: logAnalyticsWsName
+}
+module cosmosDb './cosmosdb.bicep' = {
+  name: 'cosmosDbDeploy'
+}
+param env string
+var oneNumber = 123
+output databaseName string = cosmosdbDatabaseName
+for item in cosmosdbAllowedIpAddresses: {
+	ipAddressOrRange: item
+}
+if
+null
+----------------------------------------------------
+<span class="token keyword">targetScope</span>
+<span class="token keyword">resource</span> appServicePlan <span class="token string">'Microsoft.Web/serverfarms@2020-09-01'</span> <span class="token keyword">existing</span> <span class="token operator">=</span>  <span class="token operator">=</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>diagnosticsEnabled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property">name</span><span class="token operator">:</span> logAnalyticsWsName
+<span class="token punctuation">}</span>
+<span class="token keyword">module</span> cosmosDb <span class="token string">'./cosmosdb.bicep'</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token property">name</span><span class="token operator">:</span> <span class="token string">'cosmosDbDeploy'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">param</span> env <span class="token datatype class-name">string</span>
+<span class="token keyword">var</span> oneNumber <span class="token operator">=</span> <span class="token number">123</span>
+<span class="token keyword">output</span> databaseName <span class="token datatype class-name">string</span> <span class="token operator">=</span> cosmosdbDatabaseName
+<span class="token keyword">for</span> item <span class="token keyword">in</span> cosmosdbAllowedIpAddresses<span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">ipAddressOrRange</span><span class="token operator">:</span> item
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span>
+<span class="token keyword">null</span>
+
+----------------------------------------------------

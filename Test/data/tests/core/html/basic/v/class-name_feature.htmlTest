@@ -1,0 +1,13 @@
+struct Abc { }
+type Alphabet = Abc | Xyz
+enum Token { }
+interface Speaker { }
+struct Repo<T> { }
+----------------------------------------------------
+<span class="token keyword">struct</span> <span class="token class-name">Abc</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">type</span> <span class="token class-name">Alphabet</span> <span class="token operator">=</span> Abc <span class="token operator">|</span> Xyz
+<span class="token keyword">enum</span> <span class="token class-name">Token</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">interface</span> <span class="token class-name">Speaker</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">struct</span> <span class="token class-name">Repo</span><span class="token generic"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

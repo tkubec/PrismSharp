@@ -1,0 +1,11 @@
+$foo
+$* $@ $# $? $$ $! $0
+${foo}
+$!!!! $????
+----------------------------------------------------
+<span class="token variable">$foo</span>
+<span class="token variable">$*</span> <span class="token variable">$@</span> <span class="token variable">$#</span> <span class="token variable">$?</span> <span class="token variable">$$</span> <span class="token variable">$!</span> <span class="token variable">$0</span>
+<span class="token variable">${foo}</span>
+<span class="token variable">$!</span><span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span> <span class="token variable">$?</span>???
+
+----------------------------------------------------

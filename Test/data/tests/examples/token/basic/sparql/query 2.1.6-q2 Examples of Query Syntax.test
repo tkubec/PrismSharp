@@ -1,0 +1,48 @@
+BASE    <http://example.org/book/>
+PREFIX  dc: <http://purl.org/dc/elements/1.1/>
+SELECT  $title
+WHERE   { <book1>  dc:title  ?title }
+----------------------------------------------------
+[
+	["keyword", "BASE"],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/book/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://purl.org/dc/elements/1.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "$title"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["url", [
+		["punctuation", "<"],
+		"book1",
+		["punctuation", ">"]
+	]],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]],
+		["local-name", "title"]
+	]],
+	["variable", "?title"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

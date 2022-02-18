@@ -1,0 +1,9 @@
+port = 8080;
+MySQL.port = 3307, My-Client-Database.port = 3308;
+my-own-variable = something;
+----------------------------------------------------
+port <span class="token punctuation">=</span> <span class="token value attr-value">8080</span><span class="token punctuation">;</span>
+MySQL<span class="token punctuation">.</span>port <span class="token punctuation">=</span> <span class="token value attr-value">3307</span><span class="token punctuation">,</span> My-Client-Database<span class="token punctuation">.</span>port <span class="token punctuation">=</span> <span class="token value attr-value">3308</span><span class="token punctuation">;</span>
+my-own-variable <span class="token punctuation">=</span> <span class="token value attr-value">something</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

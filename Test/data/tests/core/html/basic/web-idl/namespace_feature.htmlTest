@@ -1,0 +1,17 @@
+namespace SomeNamespace {
+  /* namespace_members... */
+};
+
+partial namespace SomeNamespace {
+  /* namespace_members... */
+};
+----------------------------------------------------
+<span class="token keyword">namespace</span> <span class="token namespace">SomeNamespace</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* namespace_members... */</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">partial</span> <span class="token keyword">namespace</span> <span class="token namespace">SomeNamespace</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* namespace_members... */</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

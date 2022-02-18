@@ -1,0 +1,35 @@
+syntax = "proto2";
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+import public "new.proto";
+import "other.proto";
+
+enum Foo {}
+extend Foo {}
+service Foo {}
+message Foo {
+	Bar Bar = 0;
+	foo.Bar Bar2 = 0;
+	.baz.Bar Bar3 = 0;
+}
+----------------------------------------------------
+<span class="token keyword">syntax</span> <span class="token operator">=</span> <span class="token string">"proto2"</span><span class="token punctuation">;</span>
+<span class="token keyword">syntax</span> <span class="token operator">=</span> <span class="token string">"proto3"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">option</span> java_multiple_files <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">public</span> <span class="token string">"new.proto"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">"other.proto"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">extend</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">service</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">message</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span>
+	<span class="token positional-class-name class-name">Bar</span> Bar <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token positional-class-name class-name">foo<span class="token punctuation">.</span>Bar</span> Bar2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token positional-class-name class-name"><span class="token punctuation">.</span>baz<span class="token punctuation">.</span>Bar</span> Bar3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

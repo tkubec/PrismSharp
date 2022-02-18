@@ -1,0 +1,5 @@
+q/foo bar baz/;
+q awhy not ?a;
+qw(foo bar baz) q{foo bar baz}
+q[foo bar baz] qq<foo bar baz>
+"foo bar baz" 'foo bar baz' `foo bar baz`

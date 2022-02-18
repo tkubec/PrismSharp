@@ -1,0 +1,32 @@
+define pipeline passthrough
+pipeline
+  select event from in into out;
+end;
+
+deploy pipeline passthrough;
+----------------------------------------------------
+[
+	["keyword", "define"],
+	["keyword", "pipeline"],
+	" passthrough\n",
+
+	["keyword", "pipeline"],
+
+	["keyword", "select"],
+	["keyword", "event"],
+	["keyword", "from"],
+	" in ",
+	["keyword", "into"],
+	" out",
+	["punctuation", ";"],
+
+	["keyword", "end"],
+	["punctuation", ";"],
+
+	["keyword", "deploy"],
+	["keyword", "pipeline"],
+	" passthrough",
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

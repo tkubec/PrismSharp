@@ -1,0 +1,9 @@
+/* Multi-line
+comment */
+// This is a comment with <p>some markup</p> in it
+----------------------------------------------------
+<span class="token comment">/* Multi-line
+comment */</span>
+<span class="token comment">// This is a comment with &lt;p>some markup&lt;/p> in it</span>
+
+----------------------------------------------------

@@ -1,0 +1,5 @@
+RewriteCond %{REQUEST_FILENAME}.php -f
+----------------------------------------------------
+<span class="token directive-inline property">RewriteCond</span> <span class="token variable">%{REQUEST_FILENAME}</span>.php -f
+
+----------------------------------------------------

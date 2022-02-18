@@ -1,0 +1,11 @@
+?tag=networking&order=newest#top
+?objectClass?one
+?title=Query_string&action=edit
+http://example.com/kb/index.php?cat=1;id=23
+----------------------------------------------------
+<span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">tag</span>=<span class="token value">networking</span></span><span class="token pair-delimiter">&amp;</span><span class="token pair"><span class="token key">order</span>=<span class="token value">newest</span></span></span><span class="token fragment"><span class="token fragment-delimiter">#</span>top</span>
+<span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">objectClass?one</span></span></span>
+<span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">title</span>=<span class="token value">Query_string</span></span><span class="token pair-delimiter">&amp;</span><span class="token pair"><span class="token key">action</span>=<span class="token value">edit</span></span></span>
+<span class="token scheme">http<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">example.com</span></span><span class="token path"><span class="token path-separator">/</span>kb<span class="token path-separator">/</span>index.php</span><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">cat</span>=<span class="token value">1</span></span><span class="token pair-delimiter">;</span><span class="token pair"><span class="token key">id</span>=<span class="token value">23</span></span></span>
+
+----------------------------------------------------

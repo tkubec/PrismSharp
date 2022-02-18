@@ -1,0 +1,21 @@
++ -
+* /
+\ ^
+< = >
+& # @
+$ % !
+Sub Print( _
+    Param1 As Integer, _
+    Param2 As Integer )
+----------------------------------------------------
+<span class="token operator">+</span> <span class="token operator">-</span>
+<span class="token operator">*</span> <span class="token operator">/</span>
+<span class="token operator">\</span> <span class="token operator">^</span>
+<span class="token operator">&lt;</span> <span class="token operator">=</span> <span class="token operator">></span>
+<span class="token operator">&amp;</span> <span class="token operator">#</span> <span class="token operator">@</span>
+<span class="token operator">$</span> <span class="token operator">%</span> <span class="token operator">!</span>
+<span class="token keyword">Sub</span> Print<span class="token punctuation">(</span> <span class="token operator">_</span>
+    Param1 <span class="token keyword">As</span> <span class="token keyword">Integer</span><span class="token punctuation">,</span> <span class="token operator">_</span>
+    Param2 <span class="token keyword">As</span> <span class="token keyword">Integer</span> <span class="token punctuation">)</span>
+
+----------------------------------------------------

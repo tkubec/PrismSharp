@@ -1,0 +1,39 @@
+init -1:
+    python hide:
+
+        ## Should we enable the use of developer tools? This should be
+        ## set to False before the game is released, so the user can't
+        ## cheat using developer tools.
+
+        config.developer = True
+
+        ## These control the width and height of the screen.
+
+        config.screen_width = 800
+        config.screen_height = 600
+
+        ## This controls the title of the window, when Ren'Py is
+        ## running in a window.
+
+        config.window_title = u"The Question"
+----------------------------------------------------
+<span class="token keyword">init</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token keyword">python</span> <span class="token keyword">hide</span><span class="token punctuation">:</span>
+
+        <span class="token comment">## Should we enable the use of developer tools? This should be</span>
+        <span class="token comment">## set to False before the game is released, so the user can't</span>
+        <span class="token comment">## cheat using developer tools.</span>
+
+        <span class="token keyword">config</span><span class="token punctuation">.</span><span class="token property">developer</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+
+        <span class="token comment">## These control the width and height of the screen.</span>
+
+        <span class="token keyword">config</span><span class="token punctuation">.</span><span class="token property">screen_width</span> <span class="token operator">=</span> <span class="token number">800</span>
+        <span class="token keyword">config</span><span class="token punctuation">.</span><span class="token property">screen_height</span> <span class="token operator">=</span> <span class="token number">600</span>
+
+        <span class="token comment">## This controls the title of the window, when Ren'Py is</span>
+        <span class="token comment">## running in a window.</span>
+
+        <span class="token keyword">config</span><span class="token punctuation">.</span><span class="token property">window_title</span> <span class="token operator">=</span> u<span class="token string">"The Question"</span>
+
+----------------------------------------------------

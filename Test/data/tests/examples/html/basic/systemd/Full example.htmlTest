@@ -1,0 +1,39 @@
+# Source: https://www.freedesktop.org/software/systemd/man/systemd.syntax.html
+
+[Section A]
+KeyOne=value 1
+KeyTwo=value 2
+
+# a comment
+
+[Section B]
+Setting="something" "some thing" "…"
+KeyTwo=value 2 \
+       value 2 continued
+
+[Section C]
+KeyThree=value 3\
+# this line is ignored
+; this line is ignored too
+       value 3 continued
+----------------------------------------------------
+<span class="token comment"># Source: https://www.freedesktop.org/software/systemd/man/systemd.syntax.html</span>
+
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Section A</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">KeyOne</span><span class="token operator">=</span><span class="token value attr-value">value 1</span>
+<span class="token key attr-name">KeyTwo</span><span class="token operator">=</span><span class="token value attr-value">value 2</span>
+
+<span class="token comment"># a comment</span>
+
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Section B</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">Setting</span><span class="token operator">=</span><span class="token value attr-value"><span class="token quoted">"something"</span> <span class="token quoted">"some thing"</span> <span class="token quoted">"…"</span></span>
+<span class="token key attr-name">KeyTwo</span><span class="token operator">=</span><span class="token value attr-value">value 2 <span class="token punctuation">\</span>
+       value 2 continued</span>
+
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Section C</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">KeyThree</span><span class="token operator">=</span><span class="token value attr-value">value 3<span class="token punctuation">\</span>
+<span class="token comment"># this line is ignored</span>
+<span class="token comment">; this line is ignored too</span>
+       value 3 continued</span>
+
+----------------------------------------------------

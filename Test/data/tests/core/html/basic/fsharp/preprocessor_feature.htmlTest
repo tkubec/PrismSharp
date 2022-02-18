@@ -1,0 +1,17 @@
+#if foo
+#else
+#endif
+
+#light
+#line
+#nowarn
+----------------------------------------------------
+<span class="token preprocessor property">#<span class="token directive keyword">if</span> foo</span>
+<span class="token preprocessor property">#<span class="token directive keyword">else</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token preprocessor property">#<span class="token directive keyword">light</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">line</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">nowarn</span></span>
+
+----------------------------------------------------

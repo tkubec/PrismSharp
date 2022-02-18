@@ -1,0 +1,15 @@
+ftp://ftp.nluug.nl/pub/gnu/hello/hello-2.1.1.tar.gz
+http://example.org/foo.tar.bz2
+/bin/sh
+./builder.sh
+~/foo.bar
+----------------------------------------------------
+[
+	["url", "ftp://ftp.nluug.nl/pub/gnu/hello/hello-2.1.1.tar.gz"],
+	["url", "http://example.org/foo.tar.bz2"],
+	["url", "/bin/sh"],
+	["url", "./builder.sh"],
+	["url", "~/foo.bar"]
+]
+
+----------------------------------------------------

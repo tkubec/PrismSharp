@@ -1,0 +1,24 @@
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+	&lt;meta charset="utf-8" />
+	&lt;title>I can haz embedded CSS and JS&lt;/title>
+	&lt;style>
+		@media print {
+			p { color: red !important; }
+		}
+	&lt;/style>
+&lt;/head>
+&lt;body>
+	&lt;h1>I can haz embedded CSS and JS&lt;/h1>
+	&lt;script>
+	if (true) {
+		console.log('foo');
+	}
+	&lt;/script>
+
+&lt;/body>
+&lt;/html>
+
+--------------------------------------------------
+

@@ -1,0 +1,205 @@
+namespace Bell {
+  open Microsoft.Quantum.Canon;
+  open Microsoft.Quantum.Intrinsic;
+
+  operation SetQubitState(desired : Result, target : Qubit) : Unit {
+      if desired != M(target) {
+          X(target);
+      }
+  }
+
+  @EntryPoint()
+  operation TestBellState(count : Int, initial : Result) : (Int, Int) {
+
+      mutable numOnes = 0;
+      use qubit = Qubit();
+      for test in 1..count {
+          SetQubitState(initial, qubit);
+          let res = M(qubit);        
+
+          // Count the number of ones we saw:
+          if res == One {
+                set numOnes += 1;
+          }
+      }
+
+      SetQubitState(Zero, qubit); 
+
+  // Return number of times we saw a |0> and number of times we saw a |1>
+  Message("Test results (# of 0s, # of 1s): ");
+  return (count - numOnes, numOnes);
+  }
+}
+----------------------------------------------------
+[
+	["keyword", "namespace"],
+	["class-name", ["Bell"]],
+	["punctuation", "{"],
+
+	["keyword", "open"],
+	["class-name", [
+		"Microsoft",
+		["punctuation", "."],
+		"Quantum",
+		["punctuation", "."],
+		"Canon"
+	]],
+	["punctuation", ";"],
+
+	["keyword", "open"],
+	["class-name", [
+		"Microsoft",
+		["punctuation", "."],
+		"Quantum",
+		["punctuation", "."],
+		"Intrinsic"
+	]],
+	["punctuation", ";"],
+
+	["keyword", "operation"],
+	["function", "SetQubitState"],
+	["punctuation", "("],
+	"desired ",
+	["punctuation", ":"],
+	["keyword", "Result"],
+	["punctuation", ","],
+	" target ",
+	["punctuation", ":"],
+	["keyword", "Qubit"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "Unit"],
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	" desired ",
+	["operator", "!="],
+	["function", "M"],
+	["punctuation", "("],
+	"target",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "X"],
+	["punctuation", "("],
+	"target",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	"\n\n  @",
+	["function", "EntryPoint"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["keyword", "operation"],
+	["function", "TestBellState"],
+	["punctuation", "("],
+	"count ",
+	["punctuation", ":"],
+	["keyword", "Int"],
+	["punctuation", ","],
+	" initial ",
+	["punctuation", ":"],
+	["keyword", "Result"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["punctuation", "("],
+	["keyword", "Int"],
+	["punctuation", ","],
+	["keyword", "Int"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "mutable"],
+	" numOnes ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["keyword", "use"],
+	" qubit ",
+	["operator", "="],
+	["keyword", "Qubit"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "for"],
+	" test ",
+	["keyword", "in"],
+	["number", "1"],
+	["range", ".."],
+	"count ",
+	["punctuation", "{"],
+
+	["function", "SetQubitState"],
+	["punctuation", "("],
+	"initial",
+	["punctuation", ","],
+	" qubit",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" res ",
+	["operator", "="],
+	["function", "M"],
+	["punctuation", "("],
+	"qubit",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Count the number of ones we saw:"],
+
+	["keyword", "if"],
+	" res ",
+	["operator", "=="],
+	["keyword", "One"],
+	["punctuation", "{"],
+
+	["keyword", "set"],
+	" numOnes ",
+	["operator", "+="],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["function", "SetQubitState"],
+	["punctuation", "("],
+	["keyword", "Zero"],
+	["punctuation", ","],
+	" qubit",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Return number of times we saw a |0> and number of times we saw a |1>"],
+
+	["function", "Message"],
+	["punctuation", "("],
+	["string", "\"Test results (# of 0s, # of 1s): \""],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["punctuation", "("],
+	"count ",
+	["operator", "-"],
+	" numOnes",
+	["punctuation", ","],
+	" numOnes",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

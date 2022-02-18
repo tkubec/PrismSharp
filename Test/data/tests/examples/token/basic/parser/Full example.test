@@ -1,0 +1,310 @@
+@CLASS
+MyTable
+
+@create[uParam]
+^switch[$uParam.CLASS_NAME]{
+   ^case[string;void]{$t[^table::create{$uParam}]}
+   ^case[table;MyTable]{$t[^table::create[$uParam]]}
+   ^case[DEFAULT]{^throw[MyTable;Unsupported type $uParam.CLASS_NAME]}
+}
+
+# method will return value in different calling contexts
+@GET[sMode]
+^switch[$sMode]{
+   ^case[table]{$result[$t]}
+   ^case[bool]{$result($t!=0)}
+   ^case[def]{$result(true)}
+   ^case[expression;double]{$result($t)}
+   ^case[DEFAULT]{^throw[MyTable;Unsupported mode '$sMode']}
+}
+
+
+# method will handle access to the "columns"
+@GET_DEFAULT[sName]
+$result[$t.$sName]
+
+
+# wrappers for all existing methods are required
+@count[]
+^t.count[]
+
+@menu[jCode;sSeparator]
+^t.menu{$jCode}[$sSeparator]
+
+
+# new functionality
+@remove[iOffset;iLimit]
+$iLimit(^iLimit.int(0))
+$t[^t.select(^t.offset[]<$iOffset || ^t.offset[]>=$iOffset+$iLimit)]
+----------------------------------------------------
+[
+	["keyword", "@CLASS"],
+	"\nMyTable\n\n",
+
+	["function", ["@create"]],
+	["punctuation", "["],
+	"uParam",
+	["punctuation", "]"],
+
+	["keyword", "^switch"],
+	["punctuation", "["],
+	["variable", [
+		"$uParam",
+		["punctuation", "."],
+		"CLASS_NAME"
+	]],
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"string",
+	["punctuation", ";"],
+	"void",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["variable", ["$t"]],
+	["punctuation", "["],
+	["function", [
+		"^table",
+		["punctuation", "::"],
+		"create"
+	]],
+	["punctuation", "{"],
+	["variable", ["$uParam"]],
+	["punctuation", "}"],
+	["punctuation", "]"],
+	["punctuation", "}"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"table",
+	["punctuation", ";"],
+	"MyTable",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["variable", ["$t"]],
+	["punctuation", "["],
+	["function", [
+		"^table",
+		["punctuation", "::"],
+		"create"
+	]],
+	["punctuation", "["],
+	["variable", ["$uParam"]],
+	["punctuation", "]"],
+	["punctuation", "]"],
+	["punctuation", "}"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"DEFAULT",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["keyword", "^throw"],
+	["punctuation", "["],
+	"MyTable",
+	["punctuation", ";"],
+	"Unsupported type ",
+	["variable", [
+		"$uParam",
+		["punctuation", "."],
+		"CLASS_NAME"
+	]],
+	["punctuation", "]"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["parser-comment", "# method will return value in different calling contexts"],
+
+	["keyword", "@GET"],
+	["punctuation", "["],
+	"sMode",
+	["punctuation", "]"],
+
+	["keyword", "^switch"],
+	["punctuation", "["],
+	["variable", ["$sMode"]],
+	["punctuation", "]"],
+	["punctuation", "{"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"table",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["variable", ["$result"]],
+	["punctuation", "["],
+	["variable", ["$t"]],
+	["punctuation", "]"],
+	["punctuation", "}"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"bool",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["variable", ["$result"]],
+	["expression", [
+		["punctuation", "("],
+		["variable", ["$t"]],
+		["operator", "!="],
+		["number", "0"],
+		["punctuation", ")"]
+	]],
+	["punctuation", "}"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"def",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["variable", ["$result"]],
+	["expression", [
+		["punctuation", "("],
+		["boolean", "true"],
+		["punctuation", ")"]
+	]],
+	["punctuation", "}"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"expression",
+	["punctuation", ";"],
+	"double",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["variable", ["$result"]],
+	["expression", [
+		["punctuation", "("],
+		["variable", ["$t"]],
+		["punctuation", ")"]
+	]],
+	["punctuation", "}"],
+
+	["keyword", "^case"],
+	["punctuation", "["],
+	"DEFAULT",
+	["punctuation", "]"],
+	["punctuation", "{"],
+	["keyword", "^throw"],
+	["punctuation", "["],
+	"MyTable",
+	["punctuation", ";"],
+	"Unsupported mode '",
+	["variable", ["$sMode"]],
+	"'",
+	["punctuation", "]"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["parser-comment", "# method will handle access to the \"columns\""],
+
+	["keyword", "@GET_DEFAULT"],
+	["punctuation", "["],
+	"sName",
+	["punctuation", "]"],
+
+	["variable", ["$result"]],
+	["punctuation", "["],
+	["variable", [
+		"$t",
+		["punctuation", "."]
+	]],
+	["variable", ["$sName"]],
+	["punctuation", "]"],
+
+	["parser-comment", "# wrappers for all existing methods are required"],
+
+	["function", ["@count"]],
+	["punctuation", "["],
+	["punctuation", "]"],
+
+	["function", [
+		"^t",
+		["punctuation", "."],
+		"count"
+	]],
+	["punctuation", "["],
+	["punctuation", "]"],
+
+	["function", ["@menu"]],
+	["punctuation", "["],
+	"jCode",
+	["punctuation", ";"],
+	"sSeparator",
+	["punctuation", "]"],
+
+	["function", [
+		"^t",
+		["punctuation", "."],
+		"menu"
+	]],
+	["punctuation", "{"],
+	["variable", ["$jCode"]],
+	["punctuation", "}"],
+	["punctuation", "["],
+	["variable", ["$sSeparator"]],
+	["punctuation", "]"],
+
+	["parser-comment", "# new functionality"],
+
+	["function", ["@remove"]],
+	["punctuation", "["],
+	"iOffset",
+	["punctuation", ";"],
+	"iLimit",
+	["punctuation", "]"],
+
+	["variable", ["$iLimit"]],
+	["expression", [
+		["punctuation", "("],
+		["function", [
+			"^iLimit",
+			["punctuation", "."],
+			"int"
+		]],
+		["punctuation", "("],
+		["number", "0"],
+		["punctuation", ")"],
+		["punctuation", ")"]
+	]],
+
+	["variable", ["$t"]],
+	["punctuation", "["],
+	["function", [
+		"^t",
+		["punctuation", "."],
+		"select"
+	]],
+	["expression", [
+		["punctuation", "("],
+		["function", [
+			"^t",
+			["punctuation", "."],
+			"offset"
+		]],
+		["punctuation", "["],
+		["punctuation", "]"],
+		["operator", "<"],
+		["variable", ["$iOffset"]],
+		["operator", "||"],
+		["function", [
+			"^t",
+			["punctuation", "."],
+			"offset"
+		]],
+		["punctuation", "["],
+		["punctuation", "]"],
+		["operator", ">="],
+		["variable", ["$iOffset"]],
+		["operator", "+"],
+		["variable", ["$iLimit"]],
+		["punctuation", ")"]
+	]],
+	["punctuation", "]"]
+]
+
+----------------------------------------------------

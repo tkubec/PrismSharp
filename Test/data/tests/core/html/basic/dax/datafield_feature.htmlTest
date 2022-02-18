@@ -1,0 +1,23 @@
+'table'[field]
+'table name'[field]
+'ta""ble'[field]
+'ta''ble'[field]
+'table'[field name]
+'table name'[field name]
+table[field]
+table[field name]
+'table'
+'こんにちは'
+----------------------------------------------------
+<span class="token data-field symbol">'table'[field]</span>
+<span class="token data-field symbol">'table name'[field]</span>
+<span class="token data-field symbol">'ta""ble'[field]</span>
+<span class="token data-field symbol">'ta''ble'[field]</span>
+<span class="token data-field symbol">'table'[field name]</span>
+<span class="token data-field symbol">'table name'[field name]</span>
+<span class="token data-field symbol">table[field]</span>
+<span class="token data-field symbol">table[field name]</span>
+<span class="token data-field symbol">'table'</span>
+<span class="token data-field symbol">'こんにちは'</span>
+
+----------------------------------------------------

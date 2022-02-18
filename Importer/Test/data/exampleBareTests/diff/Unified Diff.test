@@ -1,0 +1,12 @@
+--- qcli.yml	2014-12-16 11:43:41.000000000 +0800
++++ /Users/uranusjr/Desktop/qcli.yml	2014-12-31 11:28:08.000000000 +0800
+@@ -4,5 +4,5 @@
+ project:
+     sources: "src/*.cpp"
+     headers: "src/*.h"
+-    qt: core
++    qt: core gui
+ public_headers: "src/*.h"
+
+--------------------------------------------------
+

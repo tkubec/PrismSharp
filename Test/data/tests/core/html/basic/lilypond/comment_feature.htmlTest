@@ -1,0 +1,13 @@
+% single line
+
+%{
+multiple lines
+%}
+----------------------------------------------------
+<span class="token comment">% single line</span>
+
+<span class="token comment">%{
+multiple lines
+%}</span>
+
+----------------------------------------------------

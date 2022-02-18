@@ -1,0 +1,23 @@
+param myString string
+param myInt int
+param myBool bool
+param myObject object
+param myArray array
+
+output myHardcodedOutput int = 42
+output myLoopyOutput array = [for myItem in myArray: {
+  myProperty: myItem.myOtherProperty
+}]
+----------------------------------------------------
+<span class="token keyword">param</span> myString <span class="token datatype class-name">string</span>
+<span class="token keyword">param</span> myInt <span class="token datatype class-name">int</span>
+<span class="token keyword">param</span> myBool <span class="token datatype class-name">bool</span>
+<span class="token keyword">param</span> myObject <span class="token datatype class-name">object</span>
+<span class="token keyword">param</span> myArray <span class="token datatype class-name">array</span>
+
+<span class="token keyword">output</span> myHardcodedOutput <span class="token datatype class-name">int</span> <span class="token operator">=</span> <span class="token number">42</span>
+<span class="token keyword">output</span> myLoopyOutput <span class="token datatype class-name">array</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">for</span> myItem <span class="token keyword">in</span> myArray<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">myProperty</span><span class="token operator">:</span> myItem<span class="token punctuation">.</span>myOtherProperty
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+
+----------------------------------------------------

@@ -1,0 +1,16 @@
+"'this' is a string"
+'and so is "this"'
+U+0041 d65 x41   c these are all the letter A
+----------------------------------------------------
+[
+	["string", "\"'this' is a string\""],
+
+	["string", "'and so is \"this\"'"],
+
+	["number", "U+0041"],
+	["number", "d65"],
+	["number", "x41"],
+	["comment", "c these are all the letter A"]
+]
+
+----------------------------------------------------

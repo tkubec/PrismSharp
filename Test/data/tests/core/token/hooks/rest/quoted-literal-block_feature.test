@@ -1,0 +1,151 @@
+::
+! Foo
+!! Bar
+! Baz
+
+Foobar ::
+" Foo
+" Bar
+"" Baz
+
+::
+# Foo
+# Bar
+
+::
+$ Foo
+$ Bar
+
+::
+% Foo
+% Bar
+
+::
+& Foo
+& Bar
+
+::
+' Foo
+' Bar
+
+::
+( Foo
+( Bar
+
+::
+) Foo
+) Bar
+
+::
+* Foo
+* Bar
+
+::
++ Foo
++ Bar
+
+::
+, Foo
+, Bar
+
+::
+- Foo
+- Bar
+
+::
+. Foo
+. Bar
+
+::
+/ Foo
+/ Bar
+
+::
+: Foo
+: Bar
+
+::
+; Foo
+; Bar
+
+::
+< Foo
+< Bar
+
+::
+= Foo
+= Bar
+
+::
+> Foo
+> Bar
+
+::
+? Foo
+? Bar
+
+::
+@ Foo
+@ Bar
+
+::
+[ Foo
+[ Bar
+
+::
+\ Foo
+\ Bar
+
+::
+] Foo
+] Bar
+
+::
+^ Foo
+^ Bar
+
+::
+_ Foo
+_ Bar
+
+::
+` Foo
+` Bar
+
+::
+{ Foo
+{ Bar
+
+::
+| Foo
+| Bar
+
+::
+} Foo
+} Bar
+
+::
+~ Foo
+~ Bar
+----------------------------------------------------
+[
+	"::\n! Foo\n!! Bar\n! Baz\n\nFoobar ::\n\" Foo\n\" Bar\n\"\" Baz\n\n::\n# Foo\n# Bar\n\n::\n$ Foo\n$ Bar\n\n::\n% Foo\n% Bar\n\n::\n& Foo\n& Bar\n\n::\n' Foo\n' Bar\n\n::\n( Foo\n( Bar\n\n::\n) Foo\n) Bar\n\n::\n",
+	["list-bullet", "*"],
+	" Foo\n",
+	["list-bullet", "*"],
+	" Bar\n\n::\n",
+	["list-bullet", "+"],
+	" Foo\n",
+	["list-bullet", "+"],
+	" Bar\n\n::\n, Foo\n, Bar\n\n::\n",
+	["list-bullet", "-"],
+	" Foo\n",
+	["list-bullet", "-"],
+	" Bar\n\n::\n. Foo\n. Bar\n\n::\n/ Foo\n/ Bar\n\n::\n: Foo\n: Bar\n\n::\n; Foo\n; Bar\n\n::\n< Foo\n< Bar\n\n::\n= Foo\n= Bar\n\n::\n> Foo\n> Bar\n\n::\n? Foo\n? Bar\n\n::\n@ Foo\n@ Bar\n\n::\n[ Foo\n[ Bar\n\n::\n\\ Foo\n\\ Bar\n\n::\n] Foo\n] Bar\n\n::\n^ Foo\n^ Bar\n\n::\n_ Foo\n_ Bar\n\n::\n` Foo\n` Bar\n\n::\n{ Foo\n{ Bar\n\n::\n",
+	["punctuation", "|"],
+	" Foo\n",
+	["punctuation", "|"],
+	" Bar\n\n::\n} Foo\n} Bar\n\n::\n~ Foo\n~ Bar"
+]
+
+----------------------------------------------------

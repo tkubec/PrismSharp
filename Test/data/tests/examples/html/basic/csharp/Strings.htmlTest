@@ -1,0 +1,11 @@
+"foo \"bar\" baz"
+@"Verbatim strings"
+@"Luis: ""Patrick, where did you get that overnight bag?""
+    Patrick: ""Jean Paul Gaultier.""";
+----------------------------------------------------
+<span class="token string">"foo \"bar\" baz"</span>
+<span class="token string">@"Verbatim strings"</span>
+<span class="token string">@"Luis: ""Patrick, where did you get that overnight bag?""
+    Patrick: ""Jean Paul Gaultier."""</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+""
+"fo\"o"
+"fo\"o\
+bar"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"fo\"o"</span>
+<span class="token string">"fo\"o\
+bar"</span>
+
+----------------------------------------------------

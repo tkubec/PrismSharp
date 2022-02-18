@@ -1,0 +1,36 @@
+<html:p foo:bar="baz" foo:weee></html:p>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			["namespace", "html:"],
+			"p"
+		]],
+		["attr-name", [
+			["namespace", "foo:"],
+			"bar"
+		]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"baz",
+			["punctuation", "\""]
+		]],
+		["attr-name", [
+			["namespace", "foo:"],
+			"weee"
+		]],
+		["punctuation", ">"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			["namespace", "html:"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

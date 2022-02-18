@@ -1,0 +1,27 @@
+"foo :"bar:" baz"
+"foo:)bar:>baz"
+"Interpolation :{works} too!"
+----------------------------------------------------
+[
+	["string", [
+		"\"foo ",
+		["symbol", ":\""],
+		"bar",
+		["symbol", ":\""],
+		" baz\""
+	]],
+	["string", [
+		"\"foo",
+		["symbol", ":)"],
+		"bar",
+		["symbol", ":>"],
+		"baz\""
+	]],
+	["string", [
+		"\"Interpolation ",
+		["variable", ":{works}"],
+		" too!\""
+	]]
+]
+
+----------------------------------------------------

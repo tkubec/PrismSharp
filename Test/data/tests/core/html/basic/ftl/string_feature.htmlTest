@@ -1,0 +1,31 @@
+<@foo (
+
+"foo'\"'
+\"\\"
+'foo\'
+'
+
+r"foo${bar}"
+r'foo${bar}'
+
+"foo${bar}"
+'foo${bar + "foo}" + '}'}'
+
+)/>
+----------------------------------------------------
+<span class="token ftl-directive"><span class="token punctuation">&lt;</span><span class="token directive keyword">@foo</span><span class="token content ftl"> <span class="token punctuation">(</span>
+
+<span class="token string">"foo'\"'
+\"\\"</span>
+<span class="token string">'foo\'
+'</span>
+
+<span class="token string">r"foo${bar}"</span>
+<span class="token string">r'foo${bar}'</span>
+
+<span class="token string">"foo<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>bar<span class="token interpolation-punctuation punctuation">}</span></span>"</span>
+<span class="token string">'foo<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>bar <span class="token operator">+</span> <span class="token string">"foo}"</span> <span class="token operator">+</span> <span class="token string">'}'</span><span class="token interpolation-punctuation punctuation">}</span></span>'</span>
+
+<span class="token punctuation">)</span></span><span class="token punctuation">/></span></span>
+
+----------------------------------------------------

@@ -1,0 +1,3 @@
+NB. Implementation of quicksort (tacit programming)
+
+quicksort=: (($:@(<#[), (=#[), $:@(>#[)) ({~ ?@#)) ^: (1<#)

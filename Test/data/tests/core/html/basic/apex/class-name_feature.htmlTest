@@ -1,0 +1,71 @@
+Integer i;
+Integer i = (Integer)obj;
+Integer[] myInts = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+Object obj = new MyApexClass();
+list<Item__c> itemList;
+List<List<Set<Integer>>> my_list_2 = new List<List<Set<Integer>>>();
+Map<ID, Shipping_Invoice__C> updateMap = new Map<ID, Shipping_Invoice__C>();
+set<Id> AllItems = new set<id>();
+
+public Season getSouthernHemisphereSeason(season northernHemisphereSeason) {}
+
+for(Shipping_Invoice__C sc : AllShippingInvoices){}
+public static Integer calculate() {}
+
+if (sobject instanceof Account) {
+	Account a = (Account) sobject;
+}
+
+public class myOuterClass {}
+public enum MyEnumClass { X, Y }
+public class YellowMarker extends Marker {}
+interface MySecondInterface extends MyInterface {}
+public virtual class InnerClass implements MySecondInterface {}
+
+
+class Foo {
+	List<Account> accs {get; set;}
+	Integer i {get; set;}
+}
+
+
+public with sharing class sharingClass {}
+public without sharing class noSharing {}
+public inherited sharing class InheritedSharingClass{}
+----------------------------------------------------
+<span class="token keyword">Integer</span> i<span class="token punctuation">;</span>
+<span class="token keyword">Integer</span> i <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">Integer</span><span class="token punctuation">)</span>obj<span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">Integer</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> myInts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token keyword">Integer</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">Object</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyApexClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">list</span><span class="token punctuation">&lt;</span>Item__c<span class="token punctuation">></span></span> itemList<span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">List</span><span class="token punctuation">&lt;</span><span class="token keyword">List</span><span class="token punctuation">&lt;</span><span class="token keyword">Set</span><span class="token punctuation">&lt;</span><span class="token keyword">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span><span class="token punctuation">></span></span> my_list_2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token keyword">List</span><span class="token punctuation">&lt;</span><span class="token keyword">List</span><span class="token punctuation">&lt;</span><span class="token keyword">Set</span><span class="token punctuation">&lt;</span><span class="token keyword">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">Map</span><span class="token punctuation">&lt;</span>ID<span class="token punctuation">,</span> Shipping_Invoice__C<span class="token punctuation">></span></span> updateMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token keyword">Map</span><span class="token punctuation">&lt;</span>ID<span class="token punctuation">,</span> Shipping_Invoice__C<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">set</span><span class="token punctuation">&lt;</span>Id<span class="token punctuation">></span></span> AllItems <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token keyword">set</span><span class="token punctuation">&lt;</span>id<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token class-name">Season</span> <span class="token function">getSouthernHemisphereSeason</span><span class="token punctuation">(</span><span class="token class-name">season</span> northernHemisphereSeason<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">Shipping_Invoice__C</span> sc <span class="token operator">:</span> AllShippingInvoices<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">Integer</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">sobject</span> <span class="token keyword">instanceof</span> <span class="token class-name">Account</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token class-name">Account</span> a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Account</span><span class="token punctuation">)</span> <span class="token keyword">sobject</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">myOuterClass</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">MyEnumClass</span> <span class="token punctuation">{</span> X<span class="token punctuation">,</span> Y <span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">YellowMarker</span> <span class="token keyword">extends</span> <span class="token class-name">Marker</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">interface</span> <span class="token class-name">MySecondInterface</span> <span class="token keyword">extends</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">virtual</span> <span class="token keyword">class</span> <span class="token class-name">InnerClass</span> <span class="token keyword">implements</span> <span class="token class-name">MySecondInterface</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span>
+	<span class="token class-name"><span class="token keyword">List</span><span class="token punctuation">&lt;</span>Account<span class="token punctuation">></span></span> accs <span class="token punctuation">{</span><span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+	<span class="token keyword">Integer</span> i <span class="token punctuation">{</span><span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">with sharing</span> <span class="token keyword">class</span> <span class="token class-name">sharingClass</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">without sharing</span> <span class="token keyword">class</span> <span class="token class-name">noSharing</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">inherited sharing</span> <span class="token keyword">class</span> <span class="token class-name">InheritedSharingClass</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

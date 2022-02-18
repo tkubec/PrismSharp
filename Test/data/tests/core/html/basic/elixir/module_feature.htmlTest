@@ -1,0 +1,13 @@
+defmodule Math do
+  def sum(a, b) do
+    a + b
+  end
+end
+----------------------------------------------------
+<span class="token keyword">defmodule</span> <span class="token module class-name">Math</span> <span class="token keyword">do</span>
+  <span class="token keyword">def</span> <span class="token function">sum</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token keyword">do</span>
+    a <span class="token operator">+</span> b
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

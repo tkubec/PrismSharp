@@ -1,0 +1,7 @@
+"foo \"bar\" baz"
+'foo \'bar\' baz'
+"Multi-line strings ending with a \
+are supported too."
+
+--------------------------------------------------
+

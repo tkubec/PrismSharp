@@ -1,0 +1,41 @@
+if(instance_exists(_inst) || _inst==global){
+	if(_delay<=0){
+		_time+=1;
+		if(_time<_duration){
+			event_user(0);
+		}else{
+			if(_inst!=global){
+				variable_instance_set(_inst,_var_name,_start+_change);
+			}else{
+				variable_global_set(_var_name,_start+_change);
+			}
+			instance_destroy();
+		}
+	}else{
+		_delay-=1;
+	}
+}else{
+	instance_destroy();
+}
+----------------------------------------------------
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">instance_exists</span><span class="token punctuation">(</span>_inst<span class="token punctuation">)</span> <span class="token operator">||</span> _inst<span class="token operator">==</span><span class="token constant">global</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>_delay<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		_time<span class="token operator">+=</span><span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>_time<span class="token operator">&lt;</span>_duration<span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token function">event_user</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>_inst<span class="token operator">!=</span><span class="token constant">global</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+				<span class="token function">variable_instance_set</span><span class="token punctuation">(</span>_inst<span class="token punctuation">,</span>_var_name<span class="token punctuation">,</span>_start<span class="token operator">+</span>_change<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+				<span class="token function">variable_global_set</span><span class="token punctuation">(</span>_var_name<span class="token punctuation">,</span>_start<span class="token operator">+</span>_change<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token function">instance_destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+		_delay<span class="token operator">-=</span><span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+	<span class="token function">instance_destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

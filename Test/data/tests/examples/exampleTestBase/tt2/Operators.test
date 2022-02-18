@@ -1,0 +1,6 @@
+[% FOREACH post IN q.listPosts(lingua => 'de') %]
+  [% post.title | myfilter(foo = "bar") %]
+[% END %]
+
+--------------------------------------------------
+

@@ -1,0 +1,9 @@
+# This is a comment
+include foo # This is another comment
+----------------------------------------------------
+[
+	["comment", "# This is a comment"],
+	["keyword", "include"], " foo ", ["comment", "# This is another comment"]
+]
+
+----------------------------------------------------

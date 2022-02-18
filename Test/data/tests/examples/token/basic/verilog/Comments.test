@@ -1,0 +1,10 @@
+/* Multiline comments in Verilog
+   look like C comments and // is OK in here. */
+// Single-line comment in Verilog.
+----------------------------------------------------
+[
+	["comment", "/* Multiline comments in Verilog\n   look like C comments and // is OK in here. */"],
+	["comment", "// Single-line comment in Verilog."]
+]
+
+----------------------------------------------------

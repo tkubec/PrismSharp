@@ -1,0 +1,27 @@
+""
+"abc"
+"\""
+''
+'#'
+'"abc"'
+"""
+	abc
+	"""
+'''
+	abc
+	'''
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"abc"</span>
+<span class="token string">"\""</span>
+<span class="token string">''</span>
+<span class="token string">'#'</span>
+<span class="token string">'"abc"'</span>
+<span class="token string">"""
+	abc
+	"""</span>
+<span class="token string">'''
+	abc
+	'''</span>
+
+----------------------------------------------------

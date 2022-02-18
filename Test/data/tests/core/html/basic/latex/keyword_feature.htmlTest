@@ -1,0 +1,17 @@
+\begin{foobar}
+\end{foobar}
+\ref{foobar}
+\cite{foobar}
+\label{foobar}
+\usepackage{foobar}
+\documentclass[11px,twoside,a4paper]{foobar}
+----------------------------------------------------
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">foobar</span><span class="token punctuation">}</span>
+<span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">foobar</span><span class="token punctuation">}</span>
+<span class="token function selector">\ref</span><span class="token punctuation">{</span><span class="token keyword">foobar</span><span class="token punctuation">}</span>
+<span class="token function selector">\cite</span><span class="token punctuation">{</span><span class="token keyword">foobar</span><span class="token punctuation">}</span>
+<span class="token function selector">\label</span><span class="token punctuation">{</span><span class="token keyword">foobar</span><span class="token punctuation">}</span>
+<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">foobar</span><span class="token punctuation">}</span>
+<span class="token function selector">\documentclass</span><span class="token punctuation">[</span>11px,twoside,a4paper<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token keyword">foobar</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

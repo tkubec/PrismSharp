@@ -1,0 +1,51 @@
+@f @g x
+
+@f
+@g
+x
+
+@sealed
+class ExampleClass {
+
+  @first()
+  @second()
+  method() {}
+
+  @enumerable(false)
+  greet() {
+    return "Hello, " + this.greeting;
+  }
+
+  @configurable(false)
+  get y() {
+    return this._y;
+  }
+
+}
+----------------------------------------------------
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">f</span></span> <span class="token decorator"><span class="token at operator">@</span><span class="token function">g</span></span> x
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">f</span></span>
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">g</span></span>
+x
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">sealed</span></span>
+<span class="token keyword">class</span> <span class="token class-name">ExampleClass</span> <span class="token punctuation">{</span>
+
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">first</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">second</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">enumerable</span></span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+  <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"Hello, "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>greeting<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">configurable</span></span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+  <span class="token keyword">get</span> <span class="token function">y</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_y<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

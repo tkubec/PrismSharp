@@ -1,0 +1,27 @@
+interface Dictionary<T> {
+	[key: string]: T;
+}
+
+interface Foo extends Dictionary<number> {}
+
+class Bar<T> extends Baz<T> implements FooBar<number, T | null> {}
+
+type Record<K extends keyof any, T> = {
+	[P in K]: T;
+}
+type Diff<T, U> = T extends U ? never : T;
+----------------------------------------------------
+<span class="token keyword">interface</span> <span class="token class-name">Dictionary<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token punctuation">{</span>
+	<span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Foo</span> <span class="token keyword">extends</span> <span class="token class-name">Dictionary<span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token operator">></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Bar<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token keyword">extends</span> <span class="token class-name">Baz<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token keyword">implements</span> <span class="token class-name">FooBar<span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token constant">T</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token operator">></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Record<span class="token operator">&lt;</span><span class="token constant">K</span> <span class="token keyword">extends</span> <span class="token keyword">keyof</span> <span class="token builtin">any</span><span class="token punctuation">,</span> <span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token punctuation">[</span><span class="token constant">P</span> <span class="token keyword">in</span> <span class="token constant">K</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">type</span> <span class="token class-name">Diff<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">U</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token constant">T</span> <span class="token keyword">extends</span> <span class="token class-name"><span class="token constant">U</span></span> <span class="token operator">?</span> <span class="token builtin">never</span> <span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

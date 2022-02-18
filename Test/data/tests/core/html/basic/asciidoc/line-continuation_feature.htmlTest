@@ -1,0 +1,15 @@
+Foo +
+bar
+
+* Foo
++
+bar
+----------------------------------------------------
+Foo <span class="token line-continuation punctuation">+</span>
+bar
+
+<span class="token list-punctuation punctuation">*</span> Foo
+<span class="token line-continuation punctuation">+</span>
+bar
+
+----------------------------------------------------

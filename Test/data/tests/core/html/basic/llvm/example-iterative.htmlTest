@@ -1,0 +1,39 @@
+define i32 @add(i32 %a, i32 %b) {
+entry:
+  br label %tailrecurse
+
+tailrecurse:
+  %a.tr = phi i32 [ %a, %entry ], [ %tmp2, %recurse ]
+  %b.tr = phi i32 [ %b, %entry ], [ %tmp3, %recurse ]
+  %tmp1 = icmp eq i32 %a.tr, 0
+  br i1 %tmp1, label %done, label %recurse
+
+recurse:
+  %tmp2 = sub i32 %a.tr, 1
+  %tmp3 = add i32 %b.tr, 1
+  br label %tailrecurse
+
+done:
+  ret i32 %b.tr
+}
+----------------------------------------------------
+<span class="token keyword">define</span> <span class="token type class-name">i32</span> <span class="token variable">@add</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%a</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token label">entry:</span>
+  <span class="token keyword">br</span> <span class="token type class-name">label</span> <span class="token variable">%tailrecurse</span>
+
+<span class="token label">tailrecurse:</span>
+  <span class="token variable">%a.tr</span> <span class="token punctuation">=</span> <span class="token keyword">phi</span> <span class="token type class-name">i32</span> <span class="token punctuation">[</span> <span class="token variable">%a</span><span class="token punctuation">,</span> <span class="token variable">%entry</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token variable">%tmp2</span><span class="token punctuation">,</span> <span class="token variable">%recurse</span> <span class="token punctuation">]</span>
+  <span class="token variable">%b.tr</span> <span class="token punctuation">=</span> <span class="token keyword">phi</span> <span class="token type class-name">i32</span> <span class="token punctuation">[</span> <span class="token variable">%b</span><span class="token punctuation">,</span> <span class="token variable">%entry</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token variable">%tmp3</span><span class="token punctuation">,</span> <span class="token variable">%recurse</span> <span class="token punctuation">]</span>
+  <span class="token variable">%tmp1</span> <span class="token punctuation">=</span> <span class="token keyword">icmp</span> <span class="token keyword">eq</span> <span class="token type class-name">i32</span> <span class="token variable">%a.tr</span><span class="token punctuation">,</span> <span class="token number">0</span>
+  <span class="token keyword">br</span> <span class="token type class-name">i1</span> <span class="token variable">%tmp1</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%done</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%recurse</span>
+
+<span class="token label">recurse:</span>
+  <span class="token variable">%tmp2</span> <span class="token punctuation">=</span> <span class="token keyword">sub</span> <span class="token type class-name">i32</span> <span class="token variable">%a.tr</span><span class="token punctuation">,</span> <span class="token number">1</span>
+  <span class="token variable">%tmp3</span> <span class="token punctuation">=</span> <span class="token keyword">add</span> <span class="token type class-name">i32</span> <span class="token variable">%b.tr</span><span class="token punctuation">,</span> <span class="token number">1</span>
+  <span class="token keyword">br</span> <span class="token type class-name">label</span> <span class="token variable">%tailrecurse</span>
+
+<span class="token label">done:</span>
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token variable">%b.tr</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

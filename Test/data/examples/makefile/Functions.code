@@ -1,0 +1,12 @@
+whoami    := $(shell whoami)
+host-type := $(shell arch)
+
+y = $(subst 1,2,$(x))
+
+dirs := a b c d
+files := $(foreach dir,$(dirs),$(wildcard $(dir)/*))
+
+reverse = $(2) $(1)
+foo = $(call reverse,a,b)
+
+$(foreach prog,$(PROGRAMS),$(eval $(call PROGRAM_template,$(prog))))

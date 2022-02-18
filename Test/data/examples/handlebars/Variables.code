@@ -1,0 +1,4 @@
+<p>{{ text }}</p>
+<h1>{{article.title}}</h1>
+{{{ triple_stash_is_supported }}}
+{{articles.[10].[#comments]}}

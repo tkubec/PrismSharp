@@ -1,0 +1,19 @@
+<<<ABC_1
+Text "not a string"
+# not a comment "not a string"
+ABC_1;
+
+<<<ABC_2
+2nd here_doc \n\t
+ABC_2;
+----------------------------------------------------
+<span class="token heredoc-string string">&lt;&lt;&lt;ABC_1
+Text "not a string"
+# not a comment "not a string"
+ABC_1</span><span class="token punctuation">;</span>
+
+<span class="token heredoc-string string">&lt;&lt;&lt;ABC_2
+2nd here_doc \n\t
+ABC_2</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

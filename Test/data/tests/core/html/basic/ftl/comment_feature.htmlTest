@@ -1,0 +1,27 @@
+<#-- comment -->
+
+<#assign x <#-- A comment --> = 123 <#-- A comment -->>
+<#function f(x <#-- A comment -->, y <#-- A comment -->)>
+	<#return <#-- A comment --> 1 <#-- A comment -->>
+</#function>
+<#assign someHash = {
+	"foo": 123, <#-- A comment -->
+	"bar": x <#-- A comment --> + 1,
+	<#-- A comment -->
+	"baaz": f(1 <#-- A comment -->, 2 <#-- A comment -->)
+} <#-- A comment -->>
+----------------------------------------------------
+<span class="token ftl-comment comment">&lt;#-- comment -->
+
+&lt;#assign x &lt;#-- A comment --> = 123 &lt;#-- A comment -->>
+&lt;#function f(x &lt;#-- A comment -->, y &lt;#-- A comment -->)>
+	&lt;#return &lt;#-- A comment --> 1 &lt;#-- A comment -->>
+&lt;/#function>
+&lt;#assign someHash = {
+	"foo": 123, &lt;#-- A comment -->
+	"bar": x &lt;#-- A comment --> + 1,
+	&lt;#-- A comment -->
+	"baaz": f(1 &lt;#-- A comment -->, 2 &lt;#-- A comment -->)
+} &lt;#-- A comment -->></span>
+
+----------------------------------------------------

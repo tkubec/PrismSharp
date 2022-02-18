@@ -1,0 +1,17 @@
+---
+foo: ""
+bar: "fo\"obar"
+foo: ''
+bar: 'fo\'obar'
+foo: "foo" # bar
+bar: 'bar' # foo
+----------------------------------------------------
+<span class="token punctuation">---</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token string">""</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token string">"fo\"obar"</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token string">'fo\'obar'</span>
+<span class="token key atrule">foo</span><span class="token punctuation">:</span> <span class="token string">"foo"</span> <span class="token comment"># bar</span>
+<span class="token key atrule">bar</span><span class="token punctuation">:</span> <span class="token string">'bar'</span> <span class="token comment"># foo</span>
+
+----------------------------------------------------

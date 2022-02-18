@@ -1,0 +1,49 @@
+struct foo {}
+
+let foo: CStr;
+let foo: &'a CStr;
+let foo: &'a Foo<dyn Bar>;
+Option::Some(foo);
+Option::None;
+
+// we can differentiate between enum variants and class names
+// so let's make the bug a feature!
+enum Foo {
+	Const,
+	Tuple(i8,i8),
+	Struct {
+		foo: u8
+	}
+}
+
+pub trait Summary {
+	fn summarize(&self) -> String;
+}
+
+type Point = (u8, u8);
+----------------------------------------------------
+<span class="token keyword">struct</span> <span class="token type-definition class-name">foo</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> foo<span class="token punctuation">:</span> <span class="token class-name">CStr</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> foo<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token lifetime-annotation symbol">'a</span> <span class="token class-name">CStr</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> foo<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token lifetime-annotation symbol">'a</span> <span class="token class-name">Foo</span><span class="token operator">&lt;</span><span class="token keyword">dyn</span> <span class="token class-name">Bar</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token class-name">Option</span><span class="token punctuation">::</span><span class="token class-name">Some</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Option</span><span class="token punctuation">::</span><span class="token class-name">None</span><span class="token punctuation">;</span>
+
+<span class="token comment">// we can differentiate between enum variants and class names</span>
+<span class="token comment">// so let's make the bug a feature!</span>
+<span class="token keyword">enum</span> <span class="token type-definition class-name">Foo</span> <span class="token punctuation">{</span>
+	<span class="token class-name">Const</span><span class="token punctuation">,</span>
+	<span class="token class-name">Tuple</span><span class="token punctuation">(</span><span class="token keyword">i8</span><span class="token punctuation">,</span><span class="token keyword">i8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token class-name">Struct</span> <span class="token punctuation">{</span>
+		foo<span class="token punctuation">:</span> <span class="token keyword">u8</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">pub</span> <span class="token keyword">trait</span> <span class="token type-definition class-name">Summary</span> <span class="token punctuation">{</span>
+	<span class="token keyword">fn</span> <span class="token function-definition function">summarize</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token class-name">String</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token type-definition class-name">Point</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">u8</span><span class="token punctuation">,</span> <span class="token keyword">u8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

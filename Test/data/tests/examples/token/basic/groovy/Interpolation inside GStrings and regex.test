@@ -1,0 +1,13 @@
+"The answer is ${21*2}"
+"The $foxtype ${foxcolor.join()} fox"
+/foo${21*2}baz/
+'No interpolation here : ${21*2}'
+----------------------------------------------------
+[
+	["string", "\"The answer is ${21*2}\""],
+	["string", "\"The $foxtype ${foxcolor.join()} fox\""],
+	["string", "/foo${21*2}baz/"],
+	["string", "'No interpolation here : ${21*2}'"]
+]
+
+----------------------------------------------------

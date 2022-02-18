@@ -1,0 +1,87 @@
+#foreach($mud in $mudsOnSpecial)
+#if($customer.hasPurchased($mud))
+#set($a = "Velocity")
+#set($foo.bar[1] = 3)
+#{set}($map["apple"] = "orange")
+#if($foo == $bar)#end
+#if (!$foo)#end
+#if ($foo && $foo.bar)#end
+#{if}($foo1 || $foo2)#end
+#set( $monkey.Say = ["Not", $my, "fault"] )
+#set( $monkey.Map = {"banana" : "good", "roast beef" : "bad"})
+#set( $result = $query.criteria("address") )
+#set( $result = true )
+#set( $result = false )
+#if( $foo < 10 )
+#elseif( $foo == 10 )
+#else
+#end
+#if( $foo == $bar)it's true!#{else}it's not!#end
+#include( "greetings.txt", $seasonalstock )
+#parse( "me.vm" )
+#{parse}( "me.vm" )
+#break
+#{break}
+#break($macro.topmost)
+#stop('$foo was not in context')
+#{stop}
+#evaluate($dynamicsource)
+#macro( d )
+<tr><td></td></tr>
+#end
+#d()
+#@d()Hello!#end
+\#include( "a.txt" )
+\\#include ( "a.txt" )
+#set($foo=["$10 and ","a pie"])#foreach($a in $foo)$a#end
+#set( $foo = $bar + 3 )
+#set( $foo = $bar - 4 )
+#set( $foo = $bar * 6 )
+#set( $foo = $bar / 2 )
+#set( $foo = $bar % 5 )
+#foreach( $foo in [1..5] )
+----------------------------------------------------
+<span class="token directive"><span class="token keyword">#foreach</span><span class="token punctuation">(</span><span class="token variable">$mud</span> <span class="token keyword">in</span> <span class="token variable">$mudsOnSpecial</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#if</span><span class="token punctuation">(</span><span class="token variable">$customer<span class="token punctuation">.</span><span class="token function">hasPurchased</span><span class="token punctuation">(</span>$mud<span class="token punctuation">)</span></span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string">"Velocity"</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span><span class="token variable">$foo<span class="token punctuation">.</span>bar<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span></span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#<span class="token punctuation">{</span>set<span class="token punctuation">}</span></span><span class="token punctuation">(</span><span class="token variable">$map<span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">]</span></span> <span class="token operator">=</span> <span class="token string">"orange"</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#if</span><span class="token punctuation">(</span><span class="token variable">$foo</span> <span class="token operator">==</span> <span class="token variable">$bar</span><span class="token punctuation">)</span></span><span class="token directive"><span class="token keyword">#end</span></span>
+<span class="token directive"><span class="token keyword">#if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$foo</span><span class="token punctuation">)</span></span><span class="token directive"><span class="token keyword">#end</span></span>
+<span class="token directive"><span class="token keyword">#if</span> <span class="token punctuation">(</span><span class="token variable">$foo</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$foo<span class="token punctuation">.</span>bar</span><span class="token punctuation">)</span></span><span class="token directive"><span class="token keyword">#end</span></span>
+<span class="token directive"><span class="token keyword">#<span class="token punctuation">{</span>if<span class="token punctuation">}</span></span><span class="token punctuation">(</span><span class="token variable">$foo1</span> <span class="token operator">||</span> <span class="token variable">$foo2</span><span class="token punctuation">)</span></span><span class="token directive"><span class="token keyword">#end</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$monkey<span class="token punctuation">.</span>Say</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Not"</span><span class="token punctuation">,</span> <span class="token variable">$my</span><span class="token punctuation">,</span> <span class="token string">"fault"</span><span class="token punctuation">]</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$monkey<span class="token punctuation">.</span>Map</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"banana"</span> <span class="token punctuation">:</span> <span class="token string">"good"</span><span class="token punctuation">,</span> <span class="token string">"roast beef"</span> <span class="token punctuation">:</span> <span class="token string">"bad"</span><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$query<span class="token punctuation">.</span><span class="token function">criteria</span><span class="token punctuation">(</span><span class="token string">"address"</span><span class="token punctuation">)</span></span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token boolean">true</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#if</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#elseif</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token operator">==</span> <span class="token number">10</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#else</span></span>
+<span class="token directive"><span class="token keyword">#end</span></span>
+<span class="token directive"><span class="token keyword">#if</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token operator">==</span> <span class="token variable">$bar</span><span class="token punctuation">)</span></span>it's true!<span class="token directive"><span class="token keyword">#<span class="token punctuation">{</span>else<span class="token punctuation">}</span></span></span>it's not!<span class="token directive"><span class="token keyword">#end</span></span>
+<span class="token directive"><span class="token keyword">#include</span><span class="token punctuation">(</span> <span class="token string">"greetings.txt"</span><span class="token punctuation">,</span> <span class="token variable">$seasonalstock</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#parse</span><span class="token punctuation">(</span> <span class="token string">"me.vm"</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#<span class="token punctuation">{</span>parse<span class="token punctuation">}</span></span><span class="token punctuation">(</span> <span class="token string">"me.vm"</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#break</span></span>
+<span class="token directive"><span class="token keyword">#<span class="token punctuation">{</span>break<span class="token punctuation">}</span></span></span>
+<span class="token directive"><span class="token keyword">#break</span><span class="token punctuation">(</span><span class="token variable">$macro<span class="token punctuation">.</span>topmost</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#stop</span><span class="token punctuation">(</span><span class="token string">'$foo was not in context'</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#<span class="token punctuation">{</span>stop<span class="token punctuation">}</span></span></span>
+<span class="token directive"><span class="token keyword">#evaluate</span><span class="token punctuation">(</span><span class="token variable">$dynamicsource</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#macro</span><span class="token punctuation">(</span> d <span class="token punctuation">)</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token directive"><span class="token keyword">#end</span></span>
+<span class="token directive"><span class="token keyword">#d</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#@d</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>Hello!<span class="token directive"><span class="token keyword">#end</span></span>
+\#include( "a.txt" )
+\\<span class="token directive"><span class="token keyword">#include</span> <span class="token punctuation">(</span> <span class="token string">"a.txt"</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span><span class="token variable">$foo</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"$10 and "</span><span class="token punctuation">,</span><span class="token string">"a pie"</span><span class="token punctuation">]</span><span class="token punctuation">)</span></span><span class="token directive"><span class="token keyword">#foreach</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token keyword">in</span> <span class="token variable">$foo</span><span class="token punctuation">)</span></span><span class="token variable">$a</span><span class="token directive"><span class="token keyword">#end</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token variable">$bar</span> <span class="token operator">+</span> <span class="token number">3</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token variable">$bar</span> <span class="token operator">-</span> <span class="token number">4</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token variable">$bar</span> <span class="token operator">*</span> <span class="token number">6</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token variable">$bar</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#set</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token variable">$bar</span> <span class="token operator">%</span> <span class="token number">5</span> <span class="token punctuation">)</span></span>
+<span class="token directive"><span class="token keyword">#foreach</span><span class="token punctuation">(</span> <span class="token variable">$foo</span> <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">..</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token punctuation">)</span></span>
+
+----------------------------------------------------

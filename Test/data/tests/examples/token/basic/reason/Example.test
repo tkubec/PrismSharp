@@ -1,0 +1,150 @@
+type car = {maker: string, model: string};
+type carList =
+  | List car carList
+  | NoMore;
+
+let chevy = {maker: "Chevy", model: "Suburban"};
+let toyota = {maker: "Toyota", model: "Tacoma"};
+let myCarList = List chevy (List toyota NoMore);
+
+let hasExactlyTwoCars = fun lst =>
+  switch lst {
+    | NoMore => false                              /* 0 */
+    | List p NoMore => false                       /* 1 */
+    | List p (List p2 NoMore) => true              /* 2 */
+    | List p (List p2 (List p3 theRest)) => false  /* 3+ */
+  };
+
+let justTwo = hasExactlyTwoCars myCarList;  /* true! */
+----------------------------------------------------
+[
+	["keyword", "type"],
+	" car ",
+	["operator", "="],
+	["punctuation", "{"],
+	"maker",
+	["punctuation", ":"],
+	" string",
+	["punctuation", ","],
+	" model",
+	["punctuation", ":"],
+	" string",
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "type"],
+	" carList ",
+	["operator", "="],
+
+	["operator", "|"],
+	["constructor", "List"],
+	" car carList\n  ",
+
+	["operator", "|"],
+	["constructor", "NoMore"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" chevy ",
+	["operator", "="],
+	["punctuation", "{"],
+	"maker",
+	["punctuation", ":"],
+	["string", "\"Chevy\""],
+	["punctuation", ","],
+	" model",
+	["punctuation", ":"],
+	["string", "\"Suburban\""],
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" toyota ",
+	["operator", "="],
+	["punctuation", "{"],
+	"maker",
+	["punctuation", ":"],
+	["string", "\"Toyota\""],
+	["punctuation", ","],
+	" model",
+	["punctuation", ":"],
+	["string", "\"Tacoma\""],
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" myCarList ",
+	["operator", "="],
+	["constructor", "List"],
+	" chevy ",
+	["punctuation", "("],
+	["constructor", "List"],
+	" toyota ",
+	["constructor", "NoMore"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" hasExactlyTwoCars ",
+	["operator", "="],
+	["keyword", "fun"],
+	" lst ",
+	["operator", "=>"],
+
+	["keyword", "switch"],
+	" lst ",
+	["punctuation", "{"],
+
+	["operator", "|"],
+	["constructor", "NoMore"],
+	["operator", "=>"],
+	["boolean", "false"],
+	["comment", "/* 0 */"],
+
+	["operator", "|"],
+	["constructor", "List"],
+	" p ",
+	["constructor", "NoMore"],
+	["operator", "=>"],
+	["boolean", "false"],
+	["comment", "/* 1 */"],
+
+	["operator", "|"],
+	["constructor", "List"],
+	" p ",
+	["punctuation", "("],
+	["constructor", "List"],
+	" p2 ",
+	["constructor", "NoMore"],
+	["punctuation", ")"],
+	["operator", "=>"],
+	["boolean", "true"],
+	["comment", "/* 2 */"],
+
+	["operator", "|"],
+	["constructor", "List"],
+	" p ",
+	["punctuation", "("],
+	["constructor", "List"],
+	" p2 ",
+	["punctuation", "("],
+	["constructor", "List"],
+	" p3 theRest",
+	["punctuation", ")"],
+	["punctuation", ")"],
+	["operator", "=>"],
+	["boolean", "false"],
+	["comment", "/* 3+ */"],
+
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "let"],
+	" justTwo ",
+	["operator", "="],
+	" hasExactlyTwoCars myCarList",
+	["punctuation", ";"],
+	["comment", "/* true! */"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,619 @@
+BFD_CHECK
+DNS_CHECK
+FILE_CHECK
+HTTP_GET
+MISC_CHECK
+NAME
+PING_CHECK
+SCRIPTS
+SMTP_CHECK
+SSL
+SSL_GET
+TCP_CHECK
+UDP_CHECK
+accept
+advert_int
+alpha
+auth_pass
+auth_type
+authentication
+bfd_cpu_affinity
+bfd_instance
+bfd_no_swap
+bfd_priority
+bfd_process_name
+bfd_rlimit_rttime
+bfd_rt_priority
+bind_if
+bind_port
+bindto
+ca
+certificate
+check_unicast_src
+checker
+checker_cpu_affinity
+checker_log_all_failures
+checker_no_swap
+checker_priority
+checker_rlimit_rttime
+checker_rt_priority
+child_wait_time
+connect_ip
+connect_port
+connect_timeout
+dbus_service_name
+debug
+default_interface
+delay
+delay_before_retry
+delay_loop
+digest
+dont_track_primary
+dynamic
+dynamic_interfaces
+enable_dbus
+enable_script_security
+enable_sni
+enable_snmp_checker
+enable_snmp_rfc
+enable_snmp_rfcv2
+enable_snmp_rfcv3
+enable_snmp_vrrp
+enable_traps
+end
+fall
+fast_recovery
+file
+flag-1
+flag-2
+flag-3
+fork_delay
+full_command
+fwmark
+garp_group
+garp_interval
+garp_lower_prio_delay
+garp_lower_prio_repeat
+garp_master_delay
+garp_master_refresh
+garp_master_refresh_repeat
+garp_master_repeat
+global_defs
+global_tracking
+gna_interval
+group
+ha_suspend
+hashed
+helo_name
+higher_prio_send_advert
+hoplimit
+http_protocol
+hysteresis
+idle_tx
+include
+inhibit_on_failure
+init_fail
+init_file
+instance
+interface
+interfaces
+interval
+ip_family
+ipvs_process_name
+keepalived.conf
+kernel_rx_buf_size
+key
+linkbeat_interfaces
+linkbeat_use_polling
+log_all_failures
+log_unknown_vrids
+lower_prio_no_advert
+lthreshold
+lvs_flush
+lvs_flush_onstop
+lvs_method
+lvs_netlink_cmd_rcv_bufs
+lvs_netlink_cmd_rcv_bufs_force
+lvs_netlink_monitor_rcv_bufs
+lvs_netlink_monitor_rcv_bufs_force
+lvs_notify_fifo
+lvs_notify_fifo_script
+lvs_sched
+lvs_sync_daemon
+max_auto_priority
+max_hops
+mcast_src_ip
+mh-fallback
+mh-port
+min_auto_priority_delay
+min_rx
+min_tx
+misc_dynamic
+misc_path
+misc_timeout
+multiplier
+name
+namespace_with_ipsets
+native_ipv6
+neighbor_ip
+net_namespace
+net_namespace_ipvs
+nftables
+nftables_counters
+nftables_ifindex
+nftables_priority
+no_accept
+no_checker_emails
+no_email_faults
+nopreempt
+notification_email
+notification_email_from
+notify
+notify_backup
+notify_deleted
+notify_down
+notify_fault
+notify_fifo
+notify_fifo_script
+notify_master
+notify_master_rx_lower_pri
+notify_priority_changes
+notify_stop
+notify_up
+old_unicast_checksum
+omega
+ops
+param_match
+passive
+password
+path
+persistence_engine
+persistence_granularity
+persistence_timeout
+preempt
+preempt_delay
+priority
+process
+process_monitor_rcv_bufs
+process_monitor_rcv_bufs_force
+process_name
+process_names
+promote_secondaries
+protocol
+proxy_arp
+proxy_arp_pvlan
+quorum
+quorum_down
+quorum_max
+quorum_up
+random_seed
+real_server
+regex
+regex_max_offset
+regex_min_offset
+regex_no_match
+regex_options
+regex_stack
+reload_time_file
+reload_repeat
+require_reply
+retry
+rise
+router_id
+rs_init_notifies
+script
+script_user
+sh-fallback
+sh-port
+shutdown_script
+shutdown_script_timeout
+skip_check_adv_addr
+smtp_alert
+smtp_alert_checker
+smtp_alert_vrrp
+smtp_connect_timeout
+smtp_helo_name
+smtp_server
+snmp_socket
+sorry_server
+sorry_server_inhibit
+sorry_server_lvs_method
+source_ip
+start
+startup_script
+startup_script_timeout
+state
+static_ipaddress
+static_routes
+static_rules
+status_code
+step
+strict_mode
+sync_group_tracking_weight
+terminate_delay
+timeout
+track_bfd
+track_file
+track_group
+track_interface
+track_process
+track_script
+track_src_ip
+ttl
+type
+umask
+unicast_peer
+unicast_src_ip
+unicast_ttl
+url
+use_ipvlan
+use_pid_dir
+use_vmac
+user
+uthreshold
+val1
+val2
+val3
+version
+virtual_ipaddress
+virtual_ipaddress_excluded
+virtual_router_id
+virtual_routes
+virtual_rules
+virtual_server
+virtual_server_group
+virtualhost
+vmac_xmit_base
+vrrp
+vrrp_check_unicast_src
+vrrp_cpu_affinity
+vrrp_garp_interval
+vrrp_garp_lower_prio_delay
+vrrp_garp_lower_prio_repeat
+vrrp_garp_master_delay
+vrrp_garp_master_refresh
+vrrp_garp_master_refresh_repeat
+vrrp_garp_master_repeat
+vrrp_gna_interval
+vrrp_higher_prio_send_advert
+vrrp_instance
+vrrp_ipsets
+vrrp_iptables
+vrrp_lower_prio_no_advert
+vrrp_mcast_group4
+vrrp_mcast_group6
+vrrp_min_garp
+vrrp_netlink_cmd_rcv_bufs
+vrrp_netlink_cmd_rcv_bufs_force
+vrrp_netlink_monitor_rcv_bufs
+vrrp_netlink_monitor_rcv_bufs_force
+vrrp_no_swap
+vrrp_notify_fifo
+vrrp_notify_fifo_script
+vrrp_notify_priority_changes
+vrrp_priority
+vrrp_process_name
+vrrp_rlimit_rttime
+vrrp_rt_priority
+vrrp_rx_bufs_multiplier
+vrrp_rx_bufs_policy
+vrrp_script
+vrrp_skip_check_adv_addr
+vrrp_startup_delay
+vrrp_strict
+vrrp_sync_group
+vrrp_track_process
+vrrp_version
+warmup
+weight
+----------------------------------------------------
+<span class="token property">BFD_CHECK</span>
+<span class="token property">DNS_CHECK</span>
+<span class="token property">FILE_CHECK</span>
+<span class="token property">HTTP_GET</span>
+<span class="token property">MISC_CHECK</span>
+<span class="token property">NAME</span>
+<span class="token property">PING_CHECK</span>
+<span class="token property">SCRIPTS</span>
+<span class="token property">SMTP_CHECK</span>
+<span class="token property">SSL</span>
+<span class="token property">SSL_GET</span>
+<span class="token property">TCP_CHECK</span>
+<span class="token property">UDP_CHECK</span>
+<span class="token property">accept</span>
+<span class="token property">advert_int</span>
+<span class="token property">alpha</span>
+<span class="token property">auth_pass</span>
+<span class="token property">auth_type</span>
+<span class="token property">authentication</span>
+<span class="token property">bfd_cpu_affinity</span>
+<span class="token property">bfd_instance</span>
+<span class="token property">bfd_no_swap</span>
+<span class="token property">bfd_priority</span>
+<span class="token property">bfd_process_name</span>
+<span class="token property">bfd_rlimit_rttime</span>
+<span class="token property">bfd_rt_priority</span>
+<span class="token property">bind_if</span>
+<span class="token property">bind_port</span>
+<span class="token property">bindto</span>
+<span class="token property">ca</span>
+<span class="token property">certificate</span>
+<span class="token property">check_unicast_src</span>
+<span class="token property">checker</span>
+<span class="token property">checker_cpu_affinity</span>
+<span class="token property">checker_log_all_failures</span>
+<span class="token property">checker_no_swap</span>
+<span class="token property">checker_priority</span>
+<span class="token property">checker_rlimit_rttime</span>
+<span class="token property">checker_rt_priority</span>
+<span class="token property">child_wait_time</span>
+<span class="token property">connect_ip</span>
+<span class="token property">connect_port</span>
+<span class="token property">connect_timeout</span>
+<span class="token property">dbus_service_name</span>
+<span class="token property">debug</span>
+<span class="token property">default_interface</span>
+<span class="token property">delay</span>
+<span class="token property">delay_before_retry</span>
+<span class="token property">delay_loop</span>
+<span class="token property">digest</span>
+<span class="token property">dont_track_primary</span>
+<span class="token property">dynamic</span>
+<span class="token property">dynamic_interfaces</span>
+<span class="token property">enable_dbus</span>
+<span class="token property">enable_script_security</span>
+<span class="token property">enable_sni</span>
+<span class="token property">enable_snmp_checker</span>
+<span class="token property">enable_snmp_rfc</span>
+<span class="token property">enable_snmp_rfcv2</span>
+<span class="token property">enable_snmp_rfcv3</span>
+<span class="token property">enable_snmp_vrrp</span>
+<span class="token property">enable_traps</span>
+<span class="token property">end</span>
+<span class="token property">fall</span>
+<span class="token property">fast_recovery</span>
+<span class="token property">file</span>
+<span class="token property">flag-1</span>
+<span class="token property">flag-2</span>
+<span class="token property">flag-3</span>
+<span class="token property">fork_delay</span>
+<span class="token property">full_command</span>
+<span class="token property">fwmark</span>
+<span class="token property">garp_group</span>
+<span class="token property">garp_interval</span>
+<span class="token property">garp_lower_prio_delay</span>
+<span class="token property">garp_lower_prio_repeat</span>
+<span class="token property">garp_master_delay</span>
+<span class="token property">garp_master_refresh</span>
+<span class="token property">garp_master_refresh_repeat</span>
+<span class="token property">garp_master_repeat</span>
+<span class="token property">global_defs</span>
+<span class="token property">global_tracking</span>
+<span class="token property">gna_interval</span>
+<span class="token property">group</span>
+<span class="token property">ha_suspend</span>
+<span class="token property">hashed</span>
+<span class="token property">helo_name</span>
+<span class="token property">higher_prio_send_advert</span>
+<span class="token property">hoplimit</span>
+<span class="token property">http_protocol</span>
+<span class="token property">hysteresis</span>
+<span class="token property">idle_tx</span>
+<span class="token property">include</span>
+<span class="token property">inhibit_on_failure</span>
+<span class="token property">init_fail</span>
+<span class="token property">init_file</span>
+<span class="token property">instance</span>
+<span class="token property">interface</span>
+<span class="token property">interfaces</span>
+<span class="token property">interval</span>
+<span class="token property">ip_family</span>
+<span class="token property">ipvs_process_name</span>
+<span class="token property">keepalived.conf</span>
+<span class="token property">kernel_rx_buf_size</span>
+<span class="token property">key</span>
+<span class="token property">linkbeat_interfaces</span>
+<span class="token property">linkbeat_use_polling</span>
+<span class="token property">log_all_failures</span>
+<span class="token property">log_unknown_vrids</span>
+<span class="token property">lower_prio_no_advert</span>
+<span class="token property">lthreshold</span>
+<span class="token property">lvs_flush</span>
+<span class="token property">lvs_flush_onstop</span>
+<span class="token property">lvs_method</span>
+<span class="token property">lvs_netlink_cmd_rcv_bufs</span>
+<span class="token property">lvs_netlink_cmd_rcv_bufs_force</span>
+<span class="token property">lvs_netlink_monitor_rcv_bufs</span>
+<span class="token property">lvs_netlink_monitor_rcv_bufs_force</span>
+<span class="token property">lvs_notify_fifo</span>
+<span class="token property">lvs_notify_fifo_script</span>
+<span class="token property">lvs_sched</span>
+<span class="token property">lvs_sync_daemon</span>
+<span class="token property">max_auto_priority</span>
+<span class="token property">max_hops</span>
+<span class="token property">mcast_src_ip</span>
+<span class="token property">mh-fallback</span>
+<span class="token property">mh-port</span>
+<span class="token property">min_auto_priority_delay</span>
+<span class="token property">min_rx</span>
+<span class="token property">min_tx</span>
+<span class="token property">misc_dynamic</span>
+<span class="token property">misc_path</span>
+<span class="token property">misc_timeout</span>
+<span class="token property">multiplier</span>
+<span class="token property">name</span>
+<span class="token property">namespace_with_ipsets</span>
+<span class="token property">native_ipv6</span>
+<span class="token property">neighbor_ip</span>
+<span class="token property">net_namespace</span>
+<span class="token property">net_namespace_ipvs</span>
+<span class="token property">nftables</span>
+<span class="token property">nftables_counters</span>
+<span class="token property">nftables_ifindex</span>
+<span class="token property">nftables_priority</span>
+<span class="token property">no_accept</span>
+<span class="token property">no_checker_emails</span>
+<span class="token property">no_email_faults</span>
+<span class="token property">nopreempt</span>
+<span class="token property">notification_email</span>
+<span class="token property">notification_email_from</span>
+<span class="token property">notify</span>
+<span class="token property">notify_backup</span>
+<span class="token property">notify_deleted</span>
+<span class="token property">notify_down</span>
+<span class="token property">notify_fault</span>
+<span class="token property">notify_fifo</span>
+<span class="token property">notify_fifo_script</span>
+<span class="token property">notify_master</span>
+<span class="token property">notify_master_rx_lower_pri</span>
+<span class="token property">notify_priority_changes</span>
+<span class="token property">notify_stop</span>
+<span class="token property">notify_up</span>
+<span class="token property">old_unicast_checksum</span>
+<span class="token property">omega</span>
+<span class="token property">ops</span>
+<span class="token property">param_match</span>
+<span class="token property">passive</span>
+<span class="token property">password</span>
+<span class="token property">path</span>
+<span class="token property">persistence_engine</span>
+<span class="token property">persistence_granularity</span>
+<span class="token property">persistence_timeout</span>
+<span class="token property">preempt</span>
+<span class="token property">preempt_delay</span>
+<span class="token property">priority</span>
+<span class="token property">process</span>
+<span class="token property">process_monitor_rcv_bufs</span>
+<span class="token property">process_monitor_rcv_bufs_force</span>
+<span class="token property">process_name</span>
+<span class="token property">process_names</span>
+<span class="token property">promote_secondaries</span>
+<span class="token property">protocol</span>
+<span class="token property">proxy_arp</span>
+<span class="token property">proxy_arp_pvlan</span>
+<span class="token property">quorum</span>
+<span class="token property">quorum_down</span>
+<span class="token property">quorum_max</span>
+<span class="token property">quorum_up</span>
+<span class="token property">random_seed</span>
+<span class="token property">real_server</span>
+<span class="token property">regex</span>
+<span class="token property">regex_max_offset</span>
+<span class="token property">regex_min_offset</span>
+<span class="token property">regex_no_match</span>
+<span class="token property">regex_options</span>
+<span class="token property">regex_stack</span>
+<span class="token property">reload_time_file</span>
+<span class="token property">reload_repeat</span>
+<span class="token property">require_reply</span>
+<span class="token property">retry</span>
+<span class="token property">rise</span>
+<span class="token property">router_id</span>
+<span class="token property">rs_init_notifies</span>
+<span class="token property">script</span>
+<span class="token property">script_user</span>
+<span class="token property">sh-fallback</span>
+<span class="token property">sh-port</span>
+<span class="token property">shutdown_script</span>
+<span class="token property">shutdown_script_timeout</span>
+<span class="token property">skip_check_adv_addr</span>
+<span class="token property">smtp_alert</span>
+<span class="token property">smtp_alert_checker</span>
+<span class="token property">smtp_alert_vrrp</span>
+<span class="token property">smtp_connect_timeout</span>
+<span class="token property">smtp_helo_name</span>
+<span class="token property">smtp_server</span>
+<span class="token property">snmp_socket</span>
+<span class="token property">sorry_server</span>
+<span class="token property">sorry_server_inhibit</span>
+<span class="token property">sorry_server_lvs_method</span>
+<span class="token property">source_ip</span>
+<span class="token property">start</span>
+<span class="token property">startup_script</span>
+<span class="token property">startup_script_timeout</span>
+<span class="token property">state</span>
+<span class="token property">static_ipaddress</span>
+<span class="token property">static_routes</span>
+<span class="token property">static_rules</span>
+<span class="token property">status_code</span>
+<span class="token property">step</span>
+<span class="token property">strict_mode</span>
+<span class="token property">sync_group_tracking_weight</span>
+<span class="token property">terminate_delay</span>
+<span class="token property">timeout</span>
+<span class="token property">track_bfd</span>
+<span class="token property">track_file</span>
+<span class="token property">track_group</span>
+<span class="token property">track_interface</span>
+<span class="token property">track_process</span>
+<span class="token property">track_script</span>
+<span class="token property">track_src_ip</span>
+<span class="token property">ttl</span>
+<span class="token property">type</span>
+<span class="token property">umask</span>
+<span class="token property">unicast_peer</span>
+<span class="token property">unicast_src_ip</span>
+<span class="token property">unicast_ttl</span>
+<span class="token property">url</span>
+<span class="token property">use_ipvlan</span>
+<span class="token property">use_pid_dir</span>
+<span class="token property">use_vmac</span>
+<span class="token property">user</span>
+<span class="token property">uthreshold</span>
+<span class="token property">val1</span>
+<span class="token property">val2</span>
+<span class="token property">val3</span>
+<span class="token property">version</span>
+<span class="token property">virtual_ipaddress</span>
+<span class="token property">virtual_ipaddress_excluded</span>
+<span class="token property">virtual_router_id</span>
+<span class="token property">virtual_routes</span>
+<span class="token property">virtual_rules</span>
+<span class="token property">virtual_server</span>
+<span class="token property">virtual_server_group</span>
+<span class="token property">virtualhost</span>
+<span class="token property">vmac_xmit_base</span>
+<span class="token property">vrrp</span>
+<span class="token property">vrrp_check_unicast_src</span>
+<span class="token property">vrrp_cpu_affinity</span>
+<span class="token property">vrrp_garp_interval</span>
+<span class="token property">vrrp_garp_lower_prio_delay</span>
+<span class="token property">vrrp_garp_lower_prio_repeat</span>
+<span class="token property">vrrp_garp_master_delay</span>
+<span class="token property">vrrp_garp_master_refresh</span>
+<span class="token property">vrrp_garp_master_refresh_repeat</span>
+<span class="token property">vrrp_garp_master_repeat</span>
+<span class="token property">vrrp_gna_interval</span>
+<span class="token property">vrrp_higher_prio_send_advert</span>
+<span class="token property">vrrp_instance</span>
+<span class="token property">vrrp_ipsets</span>
+<span class="token property">vrrp_iptables</span>
+<span class="token property">vrrp_lower_prio_no_advert</span>
+<span class="token property">vrrp_mcast_group4</span>
+<span class="token property">vrrp_mcast_group6</span>
+<span class="token property">vrrp_min_garp</span>
+<span class="token property">vrrp_netlink_cmd_rcv_bufs</span>
+<span class="token property">vrrp_netlink_cmd_rcv_bufs_force</span>
+<span class="token property">vrrp_netlink_monitor_rcv_bufs</span>
+<span class="token property">vrrp_netlink_monitor_rcv_bufs_force</span>
+<span class="token property">vrrp_no_swap</span>
+<span class="token property">vrrp_notify_fifo</span>
+<span class="token property">vrrp_notify_fifo_script</span>
+<span class="token property">vrrp_notify_priority_changes</span>
+<span class="token property">vrrp_priority</span>
+<span class="token property">vrrp_process_name</span>
+<span class="token property">vrrp_rlimit_rttime</span>
+<span class="token property">vrrp_rt_priority</span>
+<span class="token property">vrrp_rx_bufs_multiplier</span>
+<span class="token property">vrrp_rx_bufs_policy</span>
+<span class="token property">vrrp_script</span>
+<span class="token property">vrrp_skip_check_adv_addr</span>
+<span class="token property">vrrp_startup_delay</span>
+<span class="token property">vrrp_strict</span>
+<span class="token property">vrrp_sync_group</span>
+<span class="token property">vrrp_track_process</span>
+<span class="token property">vrrp_version</span>
+<span class="token property">warmup</span>
+<span class="token property">weight</span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+<#import "/libs/commons.ftl" as com>
+
+<#if a < b>
+	a is less than b
+<#elseif (a > b)>
+	a is greater than b
+<#else>
+	a is equal to by
+</#if>
+
+<@foo></@foo>
+<@foo/>
+----------------------------------------------------
+<span class="token ftl-directive"><span class="token punctuation">&lt;</span><span class="token directive keyword">#import</span><span class="token content ftl"> <span class="token string">"/libs/commons.ftl"</span> <span class="token keyword">as</span> com<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>#if a <span class="token operator">&lt;</span> b<span class="token operator">></span>
+	a is less than b
+<span class="token operator">&lt;</span>#<span class="token function">elseif</span> <span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span><span class="token operator">></span>
+	a is greater than b
+<span class="token operator">&lt;</span>#else<span class="token operator">></span>
+	a is equal to by
+<span class="token operator">&lt;</span><span class="token operator">/</span>#if<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>@foo<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>@foo<span class="token operator">></span>
+<span class="token operator">&lt;</span>@foo</span><span class="token punctuation">/></span></span>
+
+----------------------------------------------------

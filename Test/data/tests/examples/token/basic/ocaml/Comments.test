@@ -1,0 +1,10 @@
+(* Simple comment *)
+(* Multi-line
+comment *)
+----------------------------------------------------
+[
+	["comment", "(* Simple comment *)"],
+	["comment", "(* Multi-line\ncomment *)"]
+]
+
+----------------------------------------------------

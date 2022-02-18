@@ -1,0 +1,21 @@
+// foo
+ bar
+
+	// foo
+		bar baz
+
+// foo
+
+	// bar
+----------------------------------------------------
+<span class="token comment">// foo
+ bar</span>
+
+	<span class="token comment">// foo
+		bar baz</span>
+
+<span class="token comment">// foo</span>
+
+	<span class="token comment">// bar</span>
+
+----------------------------------------------------

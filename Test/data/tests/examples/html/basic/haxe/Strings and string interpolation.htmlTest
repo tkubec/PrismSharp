@@ -1,0 +1,13 @@
+"Foo
+bar $baz"
+'Foo
+bar'
+"${4 + 2}"
+----------------------------------------------------
+<span class="token string">"Foo
+bar $baz"</span>
+<span class="token string-interpolation"><span class="token string">'Foo
+bar'</span></span>
+<span class="token string">"${4 + 2}"</span>
+
+----------------------------------------------------

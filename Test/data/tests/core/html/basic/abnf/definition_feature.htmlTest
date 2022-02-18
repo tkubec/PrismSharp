@@ -1,0 +1,7 @@
+foo-bar   =  %x20
+<foo-foo> =/ foo-bar
+----------------------------------------------------
+<span class="token definition keyword">foo-bar</span>   <span class="token operator">=</span>  <span class="token terminal number">%x20</span>
+<span class="token definition keyword"><span class="token punctuation">&lt;</span>foo-foo<span class="token punctuation">></span></span> <span class="token operator">=/</span> <span class="token rule">foo-bar</span>
+
+----------------------------------------------------

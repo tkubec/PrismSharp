@@ -1,0 +1,35 @@
+// Regex "y" and "u" flags
+var a = /[a-zA-Z]+/gimyu;
+
+// for..of loops
+for(let x of y) { }
+
+// Modules: import
+import { foo as bar } from "file.js"
+
+// Template strings
+`Only on ${y} one line`
+`This template string ${x} is on
+
+multiple lines.`
+`40 + 2 = ${ 40 + 2 }`
+`The squares of the first 3 natural integers are ${[for (x of [1,2,3]) x*x].join(', ')}`
+----------------------------------------------------
+<span class="token comment">// Regex "y" and "u" flags</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[a-zA-Z]+</span><span class="token regex-delimiter">/</span><span class="token regex-flags">gimyu</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// for..of loops</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> x <span class="token keyword">of</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Modules: import</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo <span class="token keyword">as</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"file.js"</span>
+
+<span class="token comment">// Template strings</span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Only on </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>y<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> one line</span><span class="token template-punctuation string">`</span></span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">This template string </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is on
+
+multiple lines.</span><span class="token template-punctuation string">`</span></span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">40 + 2 = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> <span class="token number">40</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">The squares of the first 3 natural integers are </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token punctuation">[</span><span class="token keyword">for</span> <span class="token punctuation">(</span>x <span class="token keyword">of</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> x<span class="token operator">*</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">', '</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+
+----------------------------------------------------

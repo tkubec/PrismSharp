@@ -1,0 +1,251 @@
+CHAR_BIT
+CHAR_MAX
+CHAR_MIN
+CLK_ADDRESS_CLAMP
+CLK_ADDRESS_CLAMP_TO_EDGE
+CLK_ADDRESS_NONE
+CLK_ADDRESS_REPEAT
+CLK_FILTER_LINEAR
+CLK_FILTER_NEAREST
+CLK_GLOBAL_MEM_FENCE
+CLK_LOCAL_MEM_FENCE
+CLK_NORMALIZED_COORDS_FALSE
+CLK_NORMALIZED_COORDS_TRUE
+CL_A
+CL_ARGB
+CL_BGRA
+CL_FLOAT
+CL_HALF_FLOAT
+CL_INTENSITY
+CL_LUMINANCE
+CL_R
+CL_RA
+CL_RG
+CL_RGB
+CL_RGBA
+CL_RGBx
+CL_RGx
+CL_Rx
+CL_SIGNED_INT16
+CL_SIGNED_INT32
+CL_SIGNED_INT8
+CL_SNORM_INT16
+CL_SNORM_INT8
+CL_UNORM_INT16
+CL_UNORM_INT8
+CL_UNORM_INT_101010
+CL_UNORM_SHORT_555
+CL_UNORM_SHORT_565
+CL_UNSIGNED_INT16
+CL_UNSIGNED_INT32
+CL_UNSIGNED_INT8
+DBL_DIG
+DBL_EPSILON
+DBL_MANT_DIG
+DBL_MAX
+DBL_MAX_10_EXP
+DBL_MIN
+DBL_MIN_10_EXP
+DBL_MIN_EXP
+FLT_DIG
+FLT_EPSILON
+FLT_MANT_DIG
+FLT_MAX
+FLT_MAX_10_EXP
+FLT_MAX_EXP
+FLT_MIN
+FLT_MIN_10_EXP
+FLT_MIN_EXP
+FLT_RADIX
+HALF_DIG
+HALF_EPSILON
+HALF_MANT_DIG
+HALF_MAX
+HALF_MAX_10_EXP
+HALF_MAX_EXP
+HALF_MIN
+HALF_MIN_10_EXP
+HALF_MIN_EXP
+HUGE_VALF
+HUGE_VAL
+INFINITY
+INT_MAX
+INT_MIN
+LONG_MAX
+LONG_MIN
+MAXFLOAT
+M_1_PI
+M_2_PI
+M_2_SQRTPI
+M_E
+M_LN10
+M_LN2
+M_LOG10E
+M_LOG2E
+M_PI
+M_PI_2
+M_PI_4
+M_SQRT1_2
+M_SQRT2
+M_1_PI_F
+M_2_PI_F
+M_2_SQRTPI_F
+M_E_F
+M_LN10_F
+M_LN2_F
+M_LOG10E_F
+M_LOG2E_F
+M_PI_F
+M_PI_2_F
+M_PI_4_F
+M_SQRT1_2_F
+M_SQRT2_F
+M_1_PI_H
+M_2_PI_H
+M_2_SQRTPI_H
+M_E_H
+M_LN10_H
+M_LN2_H
+M_LOG10E_H
+M_LOG2E_H
+M_PI_H
+M_PI_2_H
+M_PI_4_H
+M_SQRT1_2_H
+M_SQRT2_H
+NAN
+SCHAR_MAX
+SCHAR_MIN
+SHRT_MAX
+SHRT_MIN
+UCHAR_MAX
+USHRT_MAX
+UINT_MAX
+ULONG_MAX
+----------------------------------------------------
+<span class="token constant-opencl-kernel constant">CHAR_BIT</span>
+<span class="token constant-opencl-kernel constant">CHAR_MAX</span>
+<span class="token constant-opencl-kernel constant">CHAR_MIN</span>
+<span class="token constant-opencl-kernel constant">CLK_ADDRESS_CLAMP</span>
+<span class="token constant-opencl-kernel constant">CLK_ADDRESS_CLAMP_TO_EDGE</span>
+<span class="token constant-opencl-kernel constant">CLK_ADDRESS_NONE</span>
+<span class="token constant-opencl-kernel constant">CLK_ADDRESS_REPEAT</span>
+<span class="token constant-opencl-kernel constant">CLK_FILTER_LINEAR</span>
+<span class="token constant-opencl-kernel constant">CLK_FILTER_NEAREST</span>
+<span class="token constant-opencl-kernel constant">CLK_GLOBAL_MEM_FENCE</span>
+<span class="token constant-opencl-kernel constant">CLK_LOCAL_MEM_FENCE</span>
+<span class="token constant-opencl-kernel constant">CLK_NORMALIZED_COORDS_FALSE</span>
+<span class="token constant-opencl-kernel constant">CLK_NORMALIZED_COORDS_TRUE</span>
+<span class="token constant-opencl-kernel constant">CL_A</span>
+<span class="token constant-opencl-kernel constant">CL_ARGB</span>
+<span class="token constant-opencl-kernel constant">CL_BGRA</span>
+<span class="token constant-opencl-kernel constant">CL_FLOAT</span>
+<span class="token constant-opencl-kernel constant">CL_HALF_FLOAT</span>
+<span class="token constant-opencl-kernel constant">CL_INTENSITY</span>
+<span class="token constant-opencl-kernel constant">CL_LUMINANCE</span>
+<span class="token constant-opencl-kernel constant">CL_R</span>
+<span class="token constant-opencl-kernel constant">CL_RA</span>
+<span class="token constant-opencl-kernel constant">CL_RG</span>
+<span class="token constant-opencl-kernel constant">CL_RGB</span>
+<span class="token constant-opencl-kernel constant">CL_RGBA</span>
+<span class="token constant-opencl-kernel constant">CL_RGBx</span>
+<span class="token constant-opencl-kernel constant">CL_RGx</span>
+<span class="token constant-opencl-kernel constant">CL_Rx</span>
+<span class="token constant-opencl-kernel constant">CL_SIGNED_INT16</span>
+<span class="token constant-opencl-kernel constant">CL_SIGNED_INT32</span>
+<span class="token constant-opencl-kernel constant">CL_SIGNED_INT8</span>
+<span class="token constant-opencl-kernel constant">CL_SNORM_INT16</span>
+<span class="token constant-opencl-kernel constant">CL_SNORM_INT8</span>
+<span class="token constant-opencl-kernel constant">CL_UNORM_INT16</span>
+<span class="token constant-opencl-kernel constant">CL_UNORM_INT8</span>
+<span class="token constant-opencl-kernel constant">CL_UNORM_INT_101010</span>
+<span class="token constant-opencl-kernel constant">CL_UNORM_SHORT_555</span>
+<span class="token constant-opencl-kernel constant">CL_UNORM_SHORT_565</span>
+<span class="token constant-opencl-kernel constant">CL_UNSIGNED_INT16</span>
+<span class="token constant-opencl-kernel constant">CL_UNSIGNED_INT32</span>
+<span class="token constant-opencl-kernel constant">CL_UNSIGNED_INT8</span>
+<span class="token constant-opencl-kernel constant">DBL_DIG</span>
+<span class="token constant-opencl-kernel constant">DBL_EPSILON</span>
+<span class="token constant-opencl-kernel constant">DBL_MANT_DIG</span>
+<span class="token constant-opencl-kernel constant">DBL_MAX</span>
+<span class="token constant-opencl-kernel constant">DBL_MAX_10_EXP</span>
+<span class="token constant-opencl-kernel constant">DBL_MIN</span>
+<span class="token constant-opencl-kernel constant">DBL_MIN_10_EXP</span>
+<span class="token constant-opencl-kernel constant">DBL_MIN_EXP</span>
+<span class="token constant-opencl-kernel constant">FLT_DIG</span>
+<span class="token constant-opencl-kernel constant">FLT_EPSILON</span>
+<span class="token constant-opencl-kernel constant">FLT_MANT_DIG</span>
+<span class="token constant-opencl-kernel constant">FLT_MAX</span>
+<span class="token constant-opencl-kernel constant">FLT_MAX_10_EXP</span>
+<span class="token constant-opencl-kernel constant">FLT_MAX_EXP</span>
+<span class="token constant-opencl-kernel constant">FLT_MIN</span>
+<span class="token constant-opencl-kernel constant">FLT_MIN_10_EXP</span>
+<span class="token constant-opencl-kernel constant">FLT_MIN_EXP</span>
+<span class="token constant-opencl-kernel constant">FLT_RADIX</span>
+<span class="token constant-opencl-kernel constant">HALF_DIG</span>
+<span class="token constant-opencl-kernel constant">HALF_EPSILON</span>
+<span class="token constant-opencl-kernel constant">HALF_MANT_DIG</span>
+<span class="token constant-opencl-kernel constant">HALF_MAX</span>
+<span class="token constant-opencl-kernel constant">HALF_MAX_10_EXP</span>
+<span class="token constant-opencl-kernel constant">HALF_MAX_EXP</span>
+<span class="token constant-opencl-kernel constant">HALF_MIN</span>
+<span class="token constant-opencl-kernel constant">HALF_MIN_10_EXP</span>
+<span class="token constant-opencl-kernel constant">HALF_MIN_EXP</span>
+<span class="token constant-opencl-kernel constant">HUGE_VALF</span>
+<span class="token constant-opencl-kernel constant">HUGE_VAL</span>
+<span class="token constant-opencl-kernel constant">INFINITY</span>
+<span class="token constant-opencl-kernel constant">INT_MAX</span>
+<span class="token constant-opencl-kernel constant">INT_MIN</span>
+<span class="token constant-opencl-kernel constant">LONG_MAX</span>
+<span class="token constant-opencl-kernel constant">LONG_MIN</span>
+<span class="token constant-opencl-kernel constant">MAXFLOAT</span>
+<span class="token constant-opencl-kernel constant">M_1_PI</span>
+<span class="token constant-opencl-kernel constant">M_2_PI</span>
+<span class="token constant-opencl-kernel constant">M_2_SQRTPI</span>
+<span class="token constant-opencl-kernel constant">M_E</span>
+<span class="token constant-opencl-kernel constant">M_LN10</span>
+<span class="token constant-opencl-kernel constant">M_LN2</span>
+<span class="token constant-opencl-kernel constant">M_LOG10E</span>
+<span class="token constant-opencl-kernel constant">M_LOG2E</span>
+<span class="token constant-opencl-kernel constant">M_PI</span>
+<span class="token constant-opencl-kernel constant">M_PI_2</span>
+<span class="token constant-opencl-kernel constant">M_PI_4</span>
+<span class="token constant-opencl-kernel constant">M_SQRT1_2</span>
+<span class="token constant-opencl-kernel constant">M_SQRT2</span>
+<span class="token constant-opencl-kernel constant">M_1_PI_F</span>
+<span class="token constant-opencl-kernel constant">M_2_PI_F</span>
+<span class="token constant-opencl-kernel constant">M_2_SQRTPI_F</span>
+<span class="token constant-opencl-kernel constant">M_E_F</span>
+<span class="token constant-opencl-kernel constant">M_LN10_F</span>
+<span class="token constant-opencl-kernel constant">M_LN2_F</span>
+<span class="token constant-opencl-kernel constant">M_LOG10E_F</span>
+<span class="token constant-opencl-kernel constant">M_LOG2E_F</span>
+<span class="token constant-opencl-kernel constant">M_PI_F</span>
+<span class="token constant-opencl-kernel constant">M_PI_2_F</span>
+<span class="token constant-opencl-kernel constant">M_PI_4_F</span>
+<span class="token constant-opencl-kernel constant">M_SQRT1_2_F</span>
+<span class="token constant-opencl-kernel constant">M_SQRT2_F</span>
+<span class="token constant-opencl-kernel constant">M_1_PI_H</span>
+<span class="token constant-opencl-kernel constant">M_2_PI_H</span>
+<span class="token constant-opencl-kernel constant">M_2_SQRTPI_H</span>
+<span class="token constant-opencl-kernel constant">M_E_H</span>
+<span class="token constant-opencl-kernel constant">M_LN10_H</span>
+<span class="token constant-opencl-kernel constant">M_LN2_H</span>
+<span class="token constant-opencl-kernel constant">M_LOG10E_H</span>
+<span class="token constant-opencl-kernel constant">M_LOG2E_H</span>
+<span class="token constant-opencl-kernel constant">M_PI_H</span>
+<span class="token constant-opencl-kernel constant">M_PI_2_H</span>
+<span class="token constant-opencl-kernel constant">M_PI_4_H</span>
+<span class="token constant-opencl-kernel constant">M_SQRT1_2_H</span>
+<span class="token constant-opencl-kernel constant">M_SQRT2_H</span>
+<span class="token constant-opencl-kernel constant">NAN</span>
+<span class="token constant-opencl-kernel constant">SCHAR_MAX</span>
+<span class="token constant-opencl-kernel constant">SCHAR_MIN</span>
+<span class="token constant-opencl-kernel constant">SHRT_MAX</span>
+<span class="token constant-opencl-kernel constant">SHRT_MIN</span>
+<span class="token constant-opencl-kernel constant">UCHAR_MAX</span>
+<span class="token constant-opencl-kernel constant">USHRT_MAX</span>
+<span class="token constant-opencl-kernel constant">UINT_MAX</span>
+<span class="token constant-opencl-kernel constant">ULONG_MAX</span>
+
+----------------------------------------------------

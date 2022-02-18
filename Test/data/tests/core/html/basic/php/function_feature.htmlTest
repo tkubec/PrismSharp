@@ -1,0 +1,59 @@
+class A {
+  function __call() {}
+}
+
+$a = new A();
+$a->if(); // it's allowed to call a magic method with keyword since forever in PHP
+
+class A {
+  function if() {} // error before 7.0, allowed now
+}
+
+$variable->foreach(); // this "foreach" is a method
+$variable->method();  // this is also a method
+$var->match()
+
+foreach ($list as $value) { // this "foreach" is a keyword
+}
+
+Test::foreach(); // this is "foreach" static method
+Test::method();  // this is "method" static method
+
+// The only exception: class
+$variable->class(); // this "class" should be interpreted as "keyword"
+Test::class; // This "class" should still be a keyword
+
+mb_string(); // call to a global function
+\mb_string(); // namespace \ is global
+\a\b\c\mb_string(); // function in \a\b\c namespace
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function-definition function">__call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$a</span><span class="token operator">-></span><span class="token function">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// it's allowed to call a magic method with keyword since forever in PHP</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function-definition function">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">// error before 7.0, allowed now</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$variable</span><span class="token operator">-></span><span class="token function">foreach</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// this "foreach" is a method</span>
+<span class="token variable">$variable</span><span class="token operator">-></span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// this is also a method</span>
+<span class="token variable">$var</span><span class="token operator">-></span><span class="token function">match</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$list</span> <span class="token keyword">as</span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// this "foreach" is a keyword</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name static-context">Test</span><span class="token operator">::</span><span class="token function">foreach</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// this is "foreach" static method</span>
+<span class="token class-name static-context">Test</span><span class="token operator">::</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// this is "method" static method</span>
+
+<span class="token comment">// The only exception: class</span>
+<span class="token variable">$variable</span><span class="token operator">-></span><span class="token keyword">class</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// this "class" should be interpreted as "keyword"</span>
+<span class="token class-name static-context">Test</span><span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">;</span> <span class="token comment">// This "class" should still be a keyword</span>
+
+<span class="token function">mb_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// call to a global function</span>
+<span class="token function"><span class="token punctuation">\</span>mb_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// namespace \ is global</span>
+<span class="token function"><span class="token punctuation">\</span>a<span class="token punctuation">\</span>b<span class="token punctuation">\</span>c<span class="token punctuation">\</span>mb_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// function in \a\b\c namespace</span>
+
+----------------------------------------------------

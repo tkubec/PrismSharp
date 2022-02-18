@@ -1,0 +1,23 @@
+#
+# foobar
+=begin
+foo bar baz
+=end
+=begin
+=end
+=begin foo
+=end
+#{comment}
+----------------------------------------------------
+<span class="token comment">#</span>
+<span class="token comment"># foobar</span>
+<span class="token comment">=begin
+foo bar baz
+=end</span>
+<span class="token comment">=begin
+=end</span>
+<span class="token comment">=begin foo
+=end</span>
+<span class="token comment">#{comment}</span>
+
+----------------------------------------------------

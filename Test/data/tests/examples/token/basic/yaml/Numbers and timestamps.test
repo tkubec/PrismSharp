@@ -1,0 +1,90 @@
+---
+Integers: [ 0, -0, 3, 0o7, 0x3A, -19 ]
+Floats: [ 0., -0.0, .5, 12e03, +12e03, -2E+05 ]
+Also floats: [ .inf, -.Inf, +.INF, .NAN ]
+Timestamps:
+  canonical: 2001-12-15T02:59:43.1Z
+  iso8601: 2001-12-14t21:59:43.10-05:00
+  spaced: 2001-12-14 21:59:43.10 -5
+  date: 2002-12-14
+  times:
+    - 10:53
+    - 10:53:20.53
+----------------------------------------------------
+[
+	["punctuation", "---"],
+
+	["key", "Integers"],
+	["punctuation", ":"],
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", ","],
+	["number", "-0"],
+	["punctuation", ","],
+	["number", "3"],
+	["punctuation", ","],
+	["number", "0o7"],
+	["punctuation", ","],
+	["number", "0x3A"],
+	["punctuation", ","],
+	["number", "-19"],
+	["punctuation", "]"],
+
+	["key", "Floats"],
+	["punctuation", ":"],
+	["punctuation", "["],
+	["number", "0."],
+	["punctuation", ","],
+	["number", "-0.0"],
+	["punctuation", ","],
+	["number", ".5"],
+	["punctuation", ","],
+	["number", "12e03"],
+	["punctuation", ","],
+	["number", "+12e03"],
+	["punctuation", ","],
+	["number", "-2E+05"],
+	["punctuation", "]"],
+
+	["key", "Also floats"],
+	["punctuation", ":"],
+	["punctuation", "["],
+	["number", ".inf"],
+	["punctuation", ","],
+	["number", "-.Inf"],
+	["punctuation", ","],
+	["number", "+.INF"],
+	["punctuation", ","],
+	["number", ".NAN"],
+	["punctuation", "]"],
+
+	["key", "Timestamps"],
+	["punctuation", ":"],
+
+	["key", "canonical"],
+	["punctuation", ":"],
+	["datetime", "2001-12-15T02:59:43.1Z"],
+
+	["key", "iso8601"],
+	["punctuation", ":"],
+	["datetime", "2001-12-14t21:59:43.10-05:00"],
+
+	["key", "spaced"],
+	["punctuation", ":"],
+	["datetime", "2001-12-14 21:59:43.10 -5"],
+
+	["key", "date"],
+	["punctuation", ":"],
+	["datetime", "2002-12-14"],
+
+	["key", "times"],
+	["punctuation", ":"],
+
+	["punctuation", "-"],
+	["datetime", "10:53"],
+
+	["punctuation", "-"],
+	["datetime", "10:53:20.53"]
+]
+
+----------------------------------------------------

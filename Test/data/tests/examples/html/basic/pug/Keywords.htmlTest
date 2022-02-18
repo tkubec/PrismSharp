@@ -1,0 +1,11 @@
+include ./includes/head.pug
+extends ./layout.pug
+block content
+append head
+----------------------------------------------------
+<span class="token keyword">include ./includes/head.pug</span>
+<span class="token keyword">extends ./layout.pug</span>
+<span class="token keyword">block content</span>
+<span class="token keyword">append head</span>
+
+----------------------------------------------------

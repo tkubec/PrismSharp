@@ -1,0 +1,159 @@
+interface SearchFunc {
+  (source: string, subString: string): boolean;
+}
+
+var mySearch: SearchFunc;
+mySearch = function(source: string, subString: string) {
+  var result = source.search(subString);
+  if (result == -1) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
+class Greeter {
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
+
+var greeter = new Greeter("world");
+----------------------------------------------------
+[
+	["keyword", "interface"],
+	["class-name", ["SearchFunc"]],
+	["punctuation", "{"],
+
+	["punctuation", "("],
+	"source",
+	["operator", ":"],
+	["builtin", "string"],
+	["punctuation", ","],
+	" subString",
+	["operator", ":"],
+	["builtin", "string"],
+	["punctuation", ")"],
+	["operator", ":"],
+	["builtin", "boolean"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "var"],
+	" mySearch",
+	["operator", ":"],
+	" SearchFunc",
+	["punctuation", ";"],
+
+	["function-variable", "mySearch"],
+	["operator", "="],
+	["keyword", "function"],
+	["punctuation", "("],
+	"source",
+	["operator", ":"],
+	["builtin", "string"],
+	["punctuation", ","],
+	" subString",
+	["operator", ":"],
+	["builtin", "string"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "var"],
+	" result ",
+	["operator", "="],
+	" source",
+	["punctuation", "."],
+	["function", "search"],
+	["punctuation", "("],
+	"subString",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"result ",
+	["operator", "=="],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["boolean", "false"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["boolean", "true"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	["class-name", ["Greeter"]],
+	["punctuation", "{"],
+
+	"\n    greeting",
+	["operator", ":"],
+	["builtin", "string"],
+	["punctuation", ";"],
+
+	["function", "constructor"],
+	["punctuation", "("],
+	"message",
+	["operator", ":"],
+	["builtin", "string"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	"greeting ",
+	["operator", "="],
+	" message",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["function", "greet"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["string", "\"Hello, \""],
+	["operator", "+"],
+	["keyword", "this"],
+	["punctuation", "."],
+	"greeting",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "var"],
+	" greeter ",
+	["operator", "="],
+	["keyword", "new"],
+	["class-name", ["Greeter"]],
+	["punctuation", "("],
+	["string", "\"world\""],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

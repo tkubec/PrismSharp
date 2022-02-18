@@ -1,0 +1,19 @@
+(defvar foo)
+(defvar foo bar)
+(defvar     foo)
+(defvar)
+(defconst foo)
+(defcustom foo)
+(defgroup foo)
+(defvar defabc)
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token defvar"><span class="token keyword">defvar</span> <span class="token variable">foo</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defvar"><span class="token keyword">defvar</span> <span class="token variable">foo</span></span> bar<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defvar"><span class="token keyword">defvar</span>     <span class="token variable">foo</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">defvar</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defvar"><span class="token keyword">defconst</span> <span class="token variable">foo</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defvar"><span class="token keyword">defcustom</span> <span class="token variable">foo</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defvar"><span class="token keyword">defgroup</span> <span class="token variable">foo</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token defvar"><span class="token keyword">defvar</span> <span class="token variable">defabc</span></span><span class="token punctuation">)</span>
+
+----------------------------------------------------

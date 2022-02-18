@@ -1,0 +1,11 @@
+;
+; comment
+
+a$ = 2 ;Test
+----------------------------------------------------
+<span class="token comment">;</span>
+<span class="token comment">; comment</span>
+
+a$ <span class="token operator">=</span> <span class="token number">2</span> <span class="token comment">;Test</span>
+
+----------------------------------------------------

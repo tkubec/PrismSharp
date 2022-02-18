@@ -1,0 +1,19 @@
+{}
+{ Abs(a, d) + 12 - 1 / -230.0 + "Lol ipsum" }
+Expressions inside a generic text line: Loreim ipsu,{ Abs(a, d) + 12 - 1 / -230.0 + "Lol ipsum" } doler sit amen {¯\_(ツ)_/¯}.
+@ExpressionInsteadOfNamelessParameterValue {x > 0}
+@ExpressionBlendedWithNamelessParameterValue sdf{x > 0}df
+@ExpressionsInsideNamedParameterValueWrappedInQuotes text:"{a} < {b}"
+@ExpressionsBlendedWithNamedParameterValue param:32r2f,df{x > 0},d.{Abs(0) + 12.24 > 0}ff
+@ExpressionsInsteadOfNamelessParameterAndQuotedParameter {remark} if:remark=="Saying \\"Stop { "the" } car\\" was a mistake."
+----------------------------------------------------
+<span class="token generic-text punctuation"><span class="token expression selector">{}</span></span>
+<span class="token generic-text punctuation"><span class="token expression selector">{ Abs(a, d) + 12 - 1 / -230.0 + "Lol ipsum" }</span></span>
+<span class="token generic-text punctuation">Expressions inside a generic text line: Loreim ipsu,<span class="token expression selector">{ Abs(a, d) + 12 - 1 / -230.0 + "Lol ipsum" }</span> doler sit amen <span class="token expression selector">{¯\_(ツ)_/¯}</span>.</span>
+<span class="token command function"><span class="token command-name">@ExpressionInsteadOfNamelessParameterValue</span> <span class="token expression selector">{x > 0}</span></span>
+<span class="token command function"><span class="token command-name">@ExpressionBlendedWithNamelessParameterValue</span><span class="token command-params"> <span class="token command-param-value operator">sdf</span></span><span class="token expression selector">{x > 0}</span><span class="token command-params"><span class="token command-param-value operator">df</span></span></span>
+<span class="token command function"><span class="token command-name">@ExpressionsInsideNamedParameterValueWrappedInQuotes</span><span class="token command-params"> <span class="token command-param-id property">text:</span><span class="token command-param-value operator">"</span></span><span class="token expression selector">{a}</span><span class="token command-params"> <span class="token command-param-value operator">&lt;</span> </span><span class="token expression selector">{b}</span><span class="token command-params"><span class="token command-param-value operator">"</span></span></span>
+<span class="token command function"><span class="token command-name">@ExpressionsBlendedWithNamedParameterValue</span><span class="token command-params"> <span class="token command-param-id property">param:</span><span class="token command-param-value operator">32r2f,df</span></span><span class="token expression selector">{x > 0}</span><span class="token command-params"><span class="token command-param-value operator">,d.</span></span><span class="token expression selector">{Abs(0) + 12.24 > 0}</span><span class="token command-params"><span class="token command-param-value operator">ff</span></span></span>
+<span class="token command function"><span class="token command-name">@ExpressionsInsteadOfNamelessParameterAndQuotedParameter</span> <span class="token expression selector">{remark}</span><span class="token command-params"> <span class="token command-param-id property">if:</span><span class="token command-param-value operator">remark==</span><span class="token quoted-string operator">"Saying \\"</span><span class="token command-param-value operator">Stop</span> </span><span class="token expression selector">{ "the" }</span><span class="token command-params"> <span class="token command-param-value operator">car\\"</span> <span class="token command-param-value operator">was</span> <span class="token command-param-value operator">a</span> <span class="token command-param-value operator">mistake."</span></span></span>
+
+----------------------------------------------------

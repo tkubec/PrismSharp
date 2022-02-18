@@ -1,0 +1,17 @@
+[%# this entire directive is ignored no
+    matter how many lines it wraps onto
+%]
+[% # this is a comment
+   theta = 20      # so is this
+   rho   = 30      # <aol>me too!</aol>
+%]
+----------------------------------------------------
+<span class="token comment">[%# this entire directive is ignored no
+    matter how many lines it wraps onto
+%]</span>
+<span class="token punctuation">[</span>% <span class="token comment"># this is a comment</span>
+   <span class="token variable">theta</span> <span class="token operator">=</span> <span class="token number">20</span>      <span class="token comment"># so is this</span>
+   <span class="token variable">rho</span>   <span class="token operator">=</span> <span class="token number">30</span>      <span class="token comment"># &lt;aol>me too!&lt;/aol></span>
+<span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

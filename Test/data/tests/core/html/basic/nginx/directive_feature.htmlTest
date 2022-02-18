@@ -1,0 +1,63 @@
+name parameter1;
+name "parameter1";
+name parameter1 parameter2;
+name parameter1 "parameter2";
+name "parameter1" parameter2;
+name para\;meter1;
+name "para;meter1";
+name "para\;meter1";
+internal;
+internal    ;
+
+# A multiline parameter
+name "para
+
+meter1";
+
+name {
+    name parameter1  'parameter2' \; par#ameter3;
+    name parameter1 \" 'he"llo' par#ameter2;
+    name parameter1; name parameter1;
+    name parameter1 \{ 'hello';
+    name {
+        internal;
+        name parameter1 parameter2;
+    }
+}
+
+name "#foo"; name; #bar
+name " #foo"; #bar
+name ';oh no' parameter;
+----------------------------------------------------
+<span class="token directive"><span class="token keyword">name</span> parameter1</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">name</span> <span class="token string">"parameter1"</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">name</span> parameter1 parameter2</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">name</span> parameter1 <span class="token string">"parameter2"</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">name</span> <span class="token string">"parameter1"</span> parameter2</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">name</span> para\;meter1</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">name</span> <span class="token string">"para;meter1"</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">name</span> <span class="token string">"para\;meter1"</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">internal</span></span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">internal</span></span>    <span class="token punctuation">;</span>
+
+<span class="token comment"># A multiline parameter</span>
+<span class="token directive"><span class="token keyword">name</span> <span class="token string">"para
+
+meter1"</span></span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">name</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">name</span> parameter1  <span class="token string">'parameter2'</span> \; par#ameter3</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">name</span> parameter1 \" <span class="token string">'he"llo'</span> par#ameter2</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">name</span> parameter1</span><span class="token punctuation">;</span> <span class="token directive"><span class="token keyword">name</span> parameter1</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">name</span> parameter1 \{ <span class="token string">'hello'</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">name</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">internal</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">name</span> parameter1 parameter2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token directive"><span class="token keyword">name</span> <span class="token string">"#foo"</span></span><span class="token punctuation">;</span> <span class="token directive"><span class="token keyword">name</span></span><span class="token punctuation">;</span> <span class="token comment">#bar</span>
+<span class="token directive"><span class="token keyword">name</span> <span class="token string">" #foo"</span></span><span class="token punctuation">;</span> <span class="token comment">#bar</span>
+<span class="token directive"><span class="token keyword">name</span> <span class="token string">';oh no'</span> parameter</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

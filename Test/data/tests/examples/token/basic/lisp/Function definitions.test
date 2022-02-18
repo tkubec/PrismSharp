@@ -1,0 +1,31 @@
+(defun multiply-by-seven (number)
+       "Multiply NUMBER by seven."
+       (* 7 number))
+----------------------------------------------------
+[
+	["punctuation", "("],
+	["defun", [
+		["keyword", "defun"],
+		["function", "multiply-by-seven"],
+		["punctuation", "("],
+		["arguments", [
+			["argument", "number"]
+		]],
+		["punctuation", ")"]
+	]],
+
+	["string", [
+		"\"Multiply ",
+		["argument", "NUMBER"],
+		" by seven.\""
+	]],
+
+	["punctuation", "("],
+	["car", "*"],
+	["number", "7"],
+	" number",
+	["punctuation", ")"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

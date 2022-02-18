@@ -1,0 +1,40 @@
+[% FOREACH post IN q.listPosts(lingua => 'de') %]
+  [% post.title | myfilter(foo = "bar") %]
+[% END %]
+----------------------------------------------------
+[
+	["delimiter", "[%"],
+	["keyword", "FOREACH"],
+	["variable", "post"],
+	["keyword", "IN"],
+	["variable", "q"],
+	".",
+	["function", "listPosts"],
+	["punctuation", "("],
+	["variable", "lingua"],
+	["operator", "=>"],
+	["single-quoted-string", "'de'"],
+	["punctuation", ")"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["variable", "post.title"],
+	["operator", "|"],
+	["function", "myfilter"],
+	["punctuation", "("],
+	["variable", "foo"],
+	["operator", "="],
+	["double-quoted-string", ["\"bar\""]],
+	["punctuation", ")"],
+	" %",
+	["punctuation", "]"],
+
+	["punctuation", "["],
+	"% ",
+	["keyword", "END"],
+	["delimiter", "%]"]
+]
+
+----------------------------------------------------

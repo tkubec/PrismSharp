@@ -1,0 +1,9 @@
+@important
+@billing @bicker @annoy
+	@foo
+----------------------------------------------------
+<span class="token tag">@important</span>
+<span class="token tag">@billing</span> <span class="token tag">@bicker</span> <span class="token tag">@annoy</span>
+	<span class="token tag">@foo</span>
+
+----------------------------------------------------

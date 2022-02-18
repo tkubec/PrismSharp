@@ -1,0 +1,97 @@
+* Lists are easy to do:
+** start every line
+* with a star
+** more stars mean
+*** deeper levels
+
+# Numbered lists are good
+## very organized
+## easy to follow
+
+; Definition lists
+; item : definition
+; semicolon plus term
+: colon plus definition
+
+* Or create mixed lists
+*# and nest them
+*#* like this
+*#*; definitions
+*#*: work:
+*#*; apple
+*#*; banana
+*#*: fruits
+----------------------------------------------------
+[
+	["punctuation", "*"],
+	" Lists are easy to do:\n",
+
+	["punctuation", "*"],
+	["punctuation", "*"],
+	" start every line\n",
+
+	["punctuation", "*"],
+	" with a star\n",
+
+	["punctuation", "*"],
+	["punctuation", "*"],
+	" more stars mean\n",
+
+	["punctuation", "*"],
+	["punctuation", "*"],
+	["punctuation", "*"],
+	" deeper levels\n\n",
+
+	["punctuation", "#"], " Numbered lists are good\n",
+	["punctuation", "#"], ["punctuation", "#"], " very organized\n",
+	["punctuation", "#"], ["punctuation", "#"], " easy to follow\n\n",
+
+	["punctuation", ";"], " Definition lists\n",
+	["punctuation", ";"], " item : definition\n",
+	["punctuation", ";"], " semicolon plus term\n",
+	["punctuation", ":"], " colon plus definition\n\n",
+
+	["punctuation", "*"],
+	" Or create mixed lists\n",
+
+	["punctuation", "*"],
+	["punctuation", "#"],
+	" and nest them\n",
+
+	["punctuation", "*"],
+	["punctuation", "#"],
+	["punctuation", "*"],
+	" like this\n",
+
+	["punctuation", "*"],
+	["punctuation", "#"],
+	["punctuation", "*"],
+	["punctuation", ";"],
+	" definitions\n",
+
+	["punctuation", "*"],
+	["punctuation", "#"],
+	["punctuation", "*"],
+	["punctuation", ":"],
+	" work:\n",
+
+	["punctuation", "*"],
+	["punctuation", "#"],
+	["punctuation", "*"],
+	["punctuation", ";"],
+	" apple\n",
+
+	["punctuation", "*"],
+	["punctuation", "#"],
+	["punctuation", "*"],
+	["punctuation", ";"],
+	" banana\n",
+
+	["punctuation", "*"],
+	["punctuation", "#"],
+	["punctuation", "*"],
+	["punctuation", ":"],
+	" fruits"
+]
+
+----------------------------------------------------

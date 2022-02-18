@@ -1,0 +1,25 @@
+url(foo.png)
+url(close\)parens)
+url('foo.png')
+url("foo.png")
+url('foo\
+bar.png')
+url("foo\
+bar.png")
+
+@import url("https://cdn.jsdelivr.net/npm/prismj1.19.0/themes/prism-dark.css");
+@import url("https://cdn.jsdelivr.net/npm/prismjs/themes/prism-dark.css");
+----------------------------------------------------
+<span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>foo.png<span class="token punctuation">)</span></span>
+<span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>close\)parens<span class="token punctuation">)</span></span>
+<span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'foo.png'</span><span class="token punctuation">)</span></span>
+<span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"foo.png"</span><span class="token punctuation">)</span></span>
+<span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'foo\
+bar.png'</span><span class="token punctuation">)</span></span>
+<span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"foo\
+bar.png"</span><span class="token punctuation">)</span></span>
+
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://cdn.jsdelivr.net/npm/prismj1.19.0/themes/prism-dark.css"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://cdn.jsdelivr.net/npm/prismjs/themes/prism-dark.css"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span></span>
+
+----------------------------------------------------

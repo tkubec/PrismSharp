@@ -1,0 +1,19 @@
+""
+"foobar"
+"fo:"o"
+"foo:)bar:>baz"
+"foo:(FF)baz"
+"foo:[bar]baz"
+"foo:{bar}baz"
+"foo BTW bar" BTW and out
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foobar"</span>
+<span class="token string">"fo<span class="token symbol">:"</span>o"</span>
+<span class="token string">"foo<span class="token symbol">:)</span>bar<span class="token symbol">:></span>baz"</span>
+<span class="token string">"foo<span class="token symbol">:(FF)</span>baz"</span>
+<span class="token string">"foo<span class="token symbol">:[bar]</span>baz"</span>
+<span class="token string">"foo<span class="token variable">:{bar}</span>baz"</span>
+<span class="token string">"foo BTW bar"</span> <span class="token comment">BTW and out</span>
+
+----------------------------------------------------

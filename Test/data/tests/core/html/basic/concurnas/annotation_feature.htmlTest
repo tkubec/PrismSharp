@@ -1,0 +1,11 @@
+@Deprecated(SUBSYSTEM_DEPRECATED)
+@SetUp
+@Suppress
+copyMe@
+----------------------------------------------------
+<span class="token annotation builtin">@Deprecated</span><span class="token punctuation">(</span>SUBSYSTEM_DEPRECATED<span class="token punctuation">)</span>
+<span class="token annotation builtin">@SetUp</span>
+<span class="token annotation builtin">@Suppress</span>
+copyMe<span class="token annotation builtin">@</span>
+
+----------------------------------------------------

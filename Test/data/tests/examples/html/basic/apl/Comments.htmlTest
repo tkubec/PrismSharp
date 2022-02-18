@@ -1,0 +1,7 @@
+#!/usr/bin/env runapl
+a←1 2 3 ⍝ this is a comment
+----------------------------------------------------
+<span class="token comment">#!/usr/bin/env runapl</span>
+a<span class="token assignment keyword">←</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token comment">⍝ this is a comment</span>
+
+----------------------------------------------------

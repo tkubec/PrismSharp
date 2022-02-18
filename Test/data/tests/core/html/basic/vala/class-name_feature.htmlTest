@@ -1,0 +1,15 @@
+class Foo
+enum Bar
+interface BarBaz
+class Foo : Bar
+[Foobar]
+void Foo(Bar bar, Baz baz)
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">Foo</span>
+<span class="token keyword">enum</span> <span class="token class-name">Bar</span>
+<span class="token keyword">interface</span> <span class="token class-name">BarBaz</span>
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token punctuation">:</span> <span class="token class-name">Bar</span>
+<span class="token punctuation">[</span><span class="token class-name">Foobar</span><span class="token punctuation">]</span>
+<span class="token keyword">void</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token class-name">Bar</span> bar<span class="token punctuation">,</span> <span class="token class-name">Baz</span> baz<span class="token punctuation">)</span>
+
+----------------------------------------------------

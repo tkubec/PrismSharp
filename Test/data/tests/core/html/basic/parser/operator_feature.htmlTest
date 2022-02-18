@@ -1,0 +1,67 @@
+(~42)
+(+42)
+(-42)
+(4/2)
+(9\2)
+(9%2)
+(!true)
+(4!|2)
+(true!||false)
+(4!=2)
+(4&2)
+(true&&false)
+(4|2)
+(true||false)
+(4==2)
+(4<2)
+(4<=2)
+(4<<2)
+(4>2)
+(4>=2)
+(4>>2)
+(-f "foo")
+(-d "foo")
+(def $foo)
+(4 eq 2)
+(4 ge 2)
+(4 gt 2)
+(in "foo")
+($foo is string)
+(4 le 2)
+(4 lt 2)
+(4 ne 2)
+----------------------------------------------------
+<span class="token expression"><span class="token punctuation">(</span><span class="token operator">~</span><span class="token number">42</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token operator">+</span><span class="token number">42</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">42</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">9</span><span class="token operator">\</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">9</span><span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token operator">!</span><span class="token boolean">true</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">!|</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token operator">!||</span><span class="token boolean">false</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">!=</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">&amp;</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token operator">&amp;&amp;</span><span class="token boolean">false</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">|</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token operator">||</span><span class="token boolean">false</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">&lt;=</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">&lt;&lt;</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">></span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">>=</span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">>></span><span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token operator">-f</span> <span class="token string">"foo"</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token operator">-d</span> <span class="token string">"foo"</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token operator">def</span> <span class="token variable">$foo</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">eq</span> <span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">ge</span> <span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">gt</span> <span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token operator">in</span> <span class="token string">"foo"</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token variable">$foo</span> <span class="token operator">is</span> string<span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">le</span> <span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">lt</span> <span class="token number">2</span><span class="token punctuation">)</span></span>
+<span class="token expression"><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">ne</span> <span class="token number">2</span><span class="token punctuation">)</span></span>
+
+----------------------------------------------------

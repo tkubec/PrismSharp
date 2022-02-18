@@ -1,0 +1,27 @@
+}
+{ 1 2 3 4 }
+{ a b c d e f }
+{ "a" "b" "c" }
+
+{ { a b } { c d } }
+H{ { a b } { c d } }
+H{ { "a" "b" } { "c" "d" } }
+V{ 1 2 3 4 }
+V{ "1" "2" "3" "4" }
+BV{ 1 2 3 4 }
+{
+----------------------------------------------------
+<span class="token normal-word">}</span>
+<span class="token curly-brace-literal-delimiter operator">{</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token curly-brace-literal-delimiter operator">{</span> <span class="token normal-word">a</span> <span class="token normal-word">b</span> <span class="token normal-word">c</span> <span class="token normal-word">d</span> <span class="token normal-word">e</span> <span class="token boolean">f</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token curly-brace-literal-delimiter operator">{</span> <span class="token string">"a"</span> <span class="token string">"b"</span> <span class="token string">"c"</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+
+<span class="token curly-brace-literal-delimiter operator">{</span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token normal-word">a</span> <span class="token normal-word">b</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token normal-word">c</span> <span class="token normal-word">d</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token curly-brace-literal-delimiter operator">H{</span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token normal-word">a</span> <span class="token normal-word">b</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token normal-word">c</span> <span class="token normal-word">d</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token curly-brace-literal-delimiter operator">H{</span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token string">"a"</span> <span class="token string">"b"</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token curly-brace-literal-delimiter operator">{</span> <span class="token string">"c"</span> <span class="token string">"d"</span> <span class="token curly-brace-literal-delimiter operator">}</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token curly-brace-literal-delimiter operator">V{</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token curly-brace-literal-delimiter operator">V{</span> <span class="token string">"1"</span> <span class="token string">"2"</span> <span class="token string">"3"</span> <span class="token string">"4"</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token curly-brace-literal-delimiter operator">BV{</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token curly-brace-literal-delimiter operator">}</span>
+<span class="token normal-word">{</span>
+
+----------------------------------------------------

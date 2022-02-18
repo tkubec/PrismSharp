@@ -1,0 +1,8 @@
+	PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+	SELECT ?name ?mbox
+	 WHERE { ?x foaf:name  ?name ;
+							foaf:mbox  ?mbox .
+FILTER regex(str(?mbox), "@work.example") }
+
+--------------------------------------------------
+

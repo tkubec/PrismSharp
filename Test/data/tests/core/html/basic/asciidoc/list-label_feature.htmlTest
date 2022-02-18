@@ -1,0 +1,59 @@
+In::
+Lorem::
+  Foo bar baz
+Dolor:::
+  Ipsum::::
+    Donec;;
+      Foobar
+
+____
+In::
+Lorem::
+  Foo bar baz
+Dolor:::
+  Ipsum::::
+    Donec;;
+      Foobar
+____
+
+|========
+|
+In::
+Lorem::
+  Foo bar baz
+Dolor:::
+  Ipsum::::
+    Donec;;
+      Foobar
+|========
+----------------------------------------------------
+<span class="token list-label symbol">In::</span>
+<span class="token list-label symbol">Lorem::</span>
+  Foo bar baz
+<span class="token list-label symbol">Dolor:::</span>
+  <span class="token list-label symbol">Ipsum::::</span>
+    <span class="token list-label symbol">Donec;;</span>
+      Foobar
+
+<span class="token other-block"><span class="token punctuation">____</span>
+<span class="token list-label symbol">In::</span>
+<span class="token list-label symbol">Lorem::</span>
+  Foo bar baz
+<span class="token list-label symbol">Dolor:::</span>
+  <span class="token list-label symbol">Ipsum::::</span>
+    <span class="token list-label symbol">Donec;;</span>
+      Foobar
+<span class="token punctuation">____</span></span>
+
+<span class="token table"><span class="token punctuation">|========</span>
+<span class="token punctuation">|</span>
+<span class="token list-label symbol">In::</span>
+<span class="token list-label symbol">Lorem::</span>
+  Foo bar baz
+<span class="token list-label symbol">Dolor:::</span>
+  <span class="token list-label symbol">Ipsum::::</span>
+    <span class="token list-label symbol">Donec;;</span>
+      Foobar
+<span class="token punctuation">|========</span></span>
+
+----------------------------------------------------

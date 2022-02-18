@@ -1,0 +1,25 @@
+Sales YTD := 
+CALCULATE (
+    [Sales Amount], 
+    DATESYTD( 'Date'[Date] )
+)
+----------------------------------------------------
+[
+	"Sales YTD ",
+	["operator", ":="],
+
+	["function", "CALCULATE"],
+	["punctuation", "("],
+
+	["measure", "[Sales Amount]"],
+	["punctuation", ","],
+
+	["function", "DATESYTD"],
+	["punctuation", "("],
+	["data-field", "'Date'[Date]"],
+	["punctuation", ")"],
+
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

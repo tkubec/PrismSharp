@@ -1,0 +1,5 @@
+public class AllChangesIndexer extends SiteIndexer<Change.Id, ChangeData, ChangeIndex> {
+----------------------------------------------------
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AllChangesIndexer</span> <span class="token keyword">extends</span> <span class="token class-name">SiteIndexer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Change<span class="token punctuation">.</span>Id</span><span class="token punctuation">,</span> <span class="token class-name">ChangeData</span><span class="token punctuation">,</span> <span class="token class-name">ChangeIndex</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+
+----------------------------------------------------

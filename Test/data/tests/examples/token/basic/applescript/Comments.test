@@ -1,0 +1,13 @@
+-- Single line comment
+#!/usr/bin/osascript
+(* Here is
+a block
+comment *)
+----------------------------------------------------
+[
+	["comment", "-- Single line comment"],
+	["comment", "#!/usr/bin/osascript"],
+	["comment", "(* Here is\na block\ncomment *)"]
+]
+
+----------------------------------------------------

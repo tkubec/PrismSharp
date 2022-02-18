@@ -1,0 +1,22 @@
+LicenseLangString myLicenseData ${LANG_ENGLISH} "bigtest.nsi"
+LicenseData $(myLicenseData)
+StrCmp $LANGUAGE ${LANG_ENGLISH} 0 +2
+----------------------------------------------------
+[
+	["keyword", "LicenseLangString"],
+	" myLicenseData ",
+	["constant", "${LANG_ENGLISH}"],
+	["string", "\"bigtest.nsi\""],
+
+	["keyword", "LicenseData"],
+	["constant", "$(myLicenseData)"],
+
+	["keyword", "StrCmp"],
+	["variable", "$LANGUAGE"],
+	["constant", "${LANG_ENGLISH}"],
+	["number", "0"],
+	["operator", "+"],
+	["number", "2"]
+]
+
+----------------------------------------------------

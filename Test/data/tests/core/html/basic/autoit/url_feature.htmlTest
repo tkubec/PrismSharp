@@ -1,0 +1,7 @@
+#include <foo.au3>
+#include "foo.au3"
+----------------------------------------------------
+<span class="token directive keyword">#include</span> <span class="token url">&lt;foo.au3></span>
+<span class="token directive keyword">#include</span> <span class="token url">"foo.au3"</span>
+
+----------------------------------------------------

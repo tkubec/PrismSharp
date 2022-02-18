@@ -1,0 +1,7 @@
+a < b;
+c && d;
+----------------------------------------------------
+a <span class="token operator">&lt;</span> b<span class="token punctuation">;</span>
+c <span class="token operator">&amp;&amp;</span> d<span class="token punctuation">;</span>
+
+----------------------------------------------------

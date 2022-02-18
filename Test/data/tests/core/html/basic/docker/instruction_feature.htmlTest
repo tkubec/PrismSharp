@@ -1,0 +1,97 @@
+RUN apt-get \
+update && apt-get \
+#comment
+#
+\
+\
+
+
+install git -y #not-a-comment \
+something
+
+RUN echo hello \
+# comment
+world
+
+        # this is a comment-line
+    RUN echo hello
+RUN echo world
+
+RUN echo "\
+     hello\
+     world"
+
+LABEL multi.label1="value1" \
+      multi.label2="value2" \
+      other="value3"
+
+EXPOSE 80/udp
+
+ENV MY_NAME="John Doe"
+ENV MY_NAME="John Doe" MY_DOG=Rex\ The\ Dog \
+    MY_CAT=fluffy
+
+ADD hom?.txt /mydir/
+
+ENTRYPOINT ["executable", "param1", "param2"]
+
+FROM debian:stable
+RUN apt-get update && apt-get install -y --force-yes apache2
+EXPOSE 80 443
+VOLUME ["/var/www", "/var/log/apache2", "/etc/apache2"]
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+ENTRYPOINT [ "/path/myprocess", \
+             "arg1",            \
+             "arg2"             \
+]
+----------------------------------------------------
+<span class="token instruction"><span class="token keyword">RUN</span> apt-get <span class="token operator">\</span>
+update &amp;&amp; apt-get <span class="token operator">\</span>
+<span class="token comment">#comment</span>
+<span class="token comment">#</span>
+<span class="token operator">\</span>
+<span class="token operator">\</span>
+
+
+install git -y #not-a-comment <span class="token operator">\</span>
+something</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> echo hello <span class="token operator">\</span>
+<span class="token comment"># comment</span>
+world</span>
+
+        <span class="token comment"># this is a comment-line</span>
+    <span class="token instruction"><span class="token keyword">RUN</span> echo hello</span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo world</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">"\
+     hello\
+     world"</span></span>
+
+<span class="token instruction"><span class="token keyword">LABEL</span> multi.label1=<span class="token string">"value1"</span> <span class="token operator">\</span>
+      multi.label2=<span class="token string">"value2"</span> <span class="token operator">\</span>
+      other=<span class="token string">"value3"</span></span>
+
+<span class="token instruction"><span class="token keyword">EXPOSE</span> 80/udp</span>
+
+<span class="token instruction"><span class="token keyword">ENV</span> MY_NAME=<span class="token string">"John Doe"</span></span>
+<span class="token instruction"><span class="token keyword">ENV</span> MY_NAME=<span class="token string">"John Doe"</span> MY_DOG=Rex\ The\ Dog <span class="token operator">\</span>
+    MY_CAT=fluffy</span>
+
+<span class="token instruction"><span class="token keyword">ADD</span> hom?.txt /mydir/</span>
+
+<span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [<span class="token string">"executable"</span>, <span class="token string">"param1"</span>, <span class="token string">"param2"</span>]</span>
+
+<span class="token instruction"><span class="token keyword">FROM</span> debian:stable</span>
+<span class="token instruction"><span class="token keyword">RUN</span> apt-get update &amp;&amp; apt-get install -y --force-yes apache2</span>
+<span class="token instruction"><span class="token keyword">EXPOSE</span> 80 443</span>
+<span class="token instruction"><span class="token keyword">VOLUME</span> [<span class="token string">"/var/www"</span>, <span class="token string">"/var/log/apache2"</span>, <span class="token string">"/etc/apache2"</span>]</span>
+<span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [<span class="token string">"/usr/sbin/apache2ctl"</span>, <span class="token string">"-D"</span>, <span class="token string">"FOREGROUND"</span>]</span>
+
+<span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [ <span class="token string">"/path/myprocess"</span>, <span class="token operator">\</span>
+             <span class="token string">"arg1"</span>,            <span class="token operator">\</span>
+             <span class="token string">"arg2"</span>             <span class="token operator">\</span>
+]</span>
+
+----------------------------------------------------

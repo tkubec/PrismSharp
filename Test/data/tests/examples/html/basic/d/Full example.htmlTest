@@ -1,0 +1,277 @@
+#!/usr/bin/dmd -run
+/* sh style script syntax is supported! */
+/* Hello World in D
+   To compile:
+     dmd hello.d
+   or to optimize:
+     dmd -O -inline -release hello.d
+   or to get generated documentation:
+     dmd hello.d -D
+  */
+import std.stdio;  // References to  commonly used I/O routines.
+void main(char[][] args)   // 'void' here means return 0 by default.
+{
+    // Write-Formatted-Line
+     writefln("Hello World, "   // automatic concatenation of string literals
+              "Reloaded");
+     // Strings are denoted as a dynamic array of chars 'char[]'
+     // auto type inference and built-in foreach
+     foreach(argc, argv; args)
+    {
+        // OOP is supported, of course! And automatic type inference.
+         auto cl = new CmdLin(argc, argv);
+
+        // 'writefln' is the improved 'printf' !!
+         // user-defined class properties.
+         writefln(cl.argnum, cl.suffix, " arg: %s", cl.argv);
+        // Garbage Collection or explicit memory management - your choice!!!
+         delete cl;
+    }
+     // Nested structs, classes and functions!
+     struct specs
+    {
+        // all vars. automatically initialized
+         int count, allocated;
+    }
+
+    // Note that declarations read right-to-left.
+    // So that 'char[][]' reads as an array of an array of chars.
+
+    specs argspecs(char[][] args)
+    // Optional (built-in) function contracts.
+     in{
+        assert (args.length > 0); // assert built in
+     }
+    out(result){
+        assert(result.count == CmdLin.total);
+        assert(result.allocated > 0);
+    }
+    body{
+        specs* s = new specs;
+        // no need for '->'
+         s.count = args.length;  // The 'length' property is number of elements.
+         s.allocated = typeof(args).sizeof; // built-in properties for native types
+         foreach(argv; args)
+            s.allocated += argv.length * typeof(argv[0]).sizeof;
+        return *s;
+    }
+
+    // built-in string and common string operations, e.g. '~' is concatenate.
+     char[] argcmsg  = "argc = %d";
+    char[] allocmsg = "allocated = %d";
+    writefln(argcmsg ~ ", " ~ allocmsg,
+         argspecs(args).count,argspecs(args).allocated);
+}
+/**
+   Stores a single command line argument.
+ */
+ class CmdLin
+{
+    private {
+     int _argc;
+     char[] _argv;
+     static uint _totalc;
+    }
+
+ public:
+/************
+      Object constructor.
+      params:
+        argc = ordinal count of this argument.
+        argv = text of the parameter
+  *********/
+     this(int argc, char[] argv)
+    {
+        _argc = argc + 1;
+        _argv = argv;
+        _totalc++;
+    }
+
+    ~this() /// Object destructor
+     {
+        // Doesn't actually do anything for this example.
+     }
+
+     int argnum() /// A property that returns arg number
+     {
+        return _argc;
+    }
+     char[] argv() /// A property  that returns arg text
+     {
+        return _argv;
+    }
+     wchar[] suffix() /// A property  that returns ordinal suffix
+     {
+        wchar[] suffix;  // Built in  Unicode strings (utf8,utf16, utf32)
+         switch(_argc)
+        {
+        case 1:
+            suffix = "st";
+            break;
+        case 2:
+            suffix = "nd";
+            break;
+        case 3:
+            suffix = "rd";
+            break;
+        default:  // 'default' is mandatory with "-w" compile switch.
+             suffix = "th";
+        }
+        return suffix;
+    }
+
+/* **************
+      * A property of the whole class, not just an instance.
+      * returns: The total number of commandline args added.
+      *************/
+     static typeof(_totalc) total()
+    {
+        return _totalc;
+    }
+     // Class invariant, things that must be true after any method is run.
+     invariant
+     {
+         assert(_argc > 0);
+         assert(_totalc >= _argc);
+     }
+}
+----------------------------------------------------
+<span class="token comment">#!/usr/bin/dmd -run</span>
+<span class="token comment">/* sh style script syntax is supported! */</span>
+<span class="token comment">/* Hello World in D
+   To compile:
+     dmd hello.d
+   or to optimize:
+     dmd -O -inline -release hello.d
+   or to get generated documentation:
+     dmd hello.d -D
+  */</span>
+<span class="token keyword">import</span> std<span class="token punctuation">.</span>stdio<span class="token punctuation">;</span>  <span class="token comment">// References to  commonly used I/O routines.</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>   <span class="token comment">// 'void' here means return 0 by default.</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Write-Formatted-Line</span>
+     <span class="token function">writefln</span><span class="token punctuation">(</span><span class="token string">"Hello World, "</span>   <span class="token comment">// automatic concatenation of string literals</span>
+              <span class="token string">"Reloaded"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token comment">// Strings are denoted as a dynamic array of chars 'char[]'</span>
+     <span class="token comment">// auto type inference and built-in foreach</span>
+     <span class="token keyword">foreach</span><span class="token punctuation">(</span>argc<span class="token punctuation">,</span> argv<span class="token punctuation">;</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// OOP is supported, of course! And automatic type inference.</span>
+         <span class="token keyword">auto</span> cl <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CmdLin</span><span class="token punctuation">(</span>argc<span class="token punctuation">,</span> argv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 'writefln' is the improved 'printf' !!</span>
+         <span class="token comment">// user-defined class properties.</span>
+         <span class="token function">writefln</span><span class="token punctuation">(</span>cl<span class="token punctuation">.</span>argnum<span class="token punctuation">,</span> cl<span class="token punctuation">.</span>suffix<span class="token punctuation">,</span> <span class="token string">" arg: %s"</span><span class="token punctuation">,</span> cl<span class="token punctuation">.</span>argv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Garbage Collection or explicit memory management - your choice!!!</span>
+         <span class="token keyword">delete</span> cl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+     <span class="token comment">// Nested structs, classes and functions!</span>
+     <span class="token keyword">struct</span> specs
+    <span class="token punctuation">{</span>
+        <span class="token comment">// all vars. automatically initialized</span>
+         <span class="token keyword">int</span> count<span class="token punctuation">,</span> allocated<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Note that declarations read right-to-left.</span>
+    <span class="token comment">// So that 'char[][]' reads as an array of an array of chars.</span>
+
+    specs <span class="token function">argspecs</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token comment">// Optional (built-in) function contracts.</span>
+     <span class="token operator">in</span><span class="token punctuation">{</span>
+        <span class="token keyword">assert</span> <span class="token punctuation">(</span>args<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// assert built in</span>
+     <span class="token punctuation">}</span>
+    <span class="token keyword">out</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">assert</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>count <span class="token operator">==</span> CmdLin<span class="token punctuation">.</span>total<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">assert</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>allocated <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">body</span><span class="token punctuation">{</span>
+        specs<span class="token operator">*</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">specs</span><span class="token punctuation">;</span>
+        <span class="token comment">// no need for '->'</span>
+         s<span class="token punctuation">.</span>count <span class="token operator">=</span> args<span class="token punctuation">.</span>length<span class="token punctuation">;</span>  <span class="token comment">// The 'length' property is number of elements.</span>
+         s<span class="token punctuation">.</span>allocated <span class="token operator">=</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">.</span>sizeof<span class="token punctuation">;</span> <span class="token comment">// built-in properties for native types</span>
+         <span class="token keyword">foreach</span><span class="token punctuation">(</span>argv<span class="token punctuation">;</span> args<span class="token punctuation">)</span>
+            s<span class="token punctuation">.</span>allocated <span class="token operator">+=</span> argv<span class="token punctuation">.</span>length <span class="token operator">*</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sizeof<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">*</span>s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// built-in string and common string operations, e.g. '~' is concatenate.</span>
+     <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> argcmsg  <span class="token operator">=</span> <span class="token string">"argc = %d"</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> allocmsg <span class="token operator">=</span> <span class="token string">"allocated = %d"</span><span class="token punctuation">;</span>
+    <span class="token function">writefln</span><span class="token punctuation">(</span>argcmsg <span class="token operator">~</span> <span class="token string">", "</span> <span class="token operator">~</span> allocmsg<span class="token punctuation">,</span>
+         <span class="token function">argspecs</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">,</span><span class="token function">argspecs</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">.</span>allocated<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/**
+   Stores a single command line argument.
+ */</span>
+ <span class="token keyword">class</span> <span class="token class-name">CmdLin</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token punctuation">{</span>
+     <span class="token keyword">int</span> _argc<span class="token punctuation">;</span>
+     <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> _argv<span class="token punctuation">;</span>
+     <span class="token keyword">static</span> <span class="token keyword">uint</span> _totalc<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+ <span class="token keyword">public</span><span class="token punctuation">:</span>
+<span class="token comment">/************
+      Object constructor.
+      params:
+        argc = ordinal count of this argument.
+        argv = text of the parameter
+  *********/</span>
+     <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> argv<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _argc <span class="token operator">=</span> argc <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        _argv <span class="token operator">=</span> argv<span class="token punctuation">;</span>
+        _totalc<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token operator">~</span><span class="token keyword">this</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">/// Object destructor</span>
+     <span class="token punctuation">{</span>
+        <span class="token comment">// Doesn't actually do anything for this example.</span>
+     <span class="token punctuation">}</span>
+
+     <span class="token keyword">int</span> <span class="token function">argnum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">/// A property that returns arg number</span>
+     <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> _argc<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+     <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">argv</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">/// A property  that returns arg text</span>
+     <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> _argv<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+     <span class="token keyword">wchar</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">suffix</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">/// A property  that returns ordinal suffix</span>
+     <span class="token punctuation">{</span>
+        <span class="token keyword">wchar</span><span class="token punctuation">[</span><span class="token punctuation">]</span> suffix<span class="token punctuation">;</span>  <span class="token comment">// Built in  Unicode strings (utf8,utf16, utf32)</span>
+         <span class="token keyword">switch</span><span class="token punctuation">(</span>_argc<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            suffix <span class="token operator">=</span> <span class="token string">"st"</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            suffix <span class="token operator">=</span> <span class="token string">"nd"</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token number">3</span><span class="token punctuation">:</span>
+            suffix <span class="token operator">=</span> <span class="token string">"rd"</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span>  <span class="token comment">// 'default' is mandatory with "-w" compile switch.</span>
+             suffix <span class="token operator">=</span> <span class="token string">"th"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> suffix<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment">/* **************
+      * A property of the whole class, not just an instance.
+      * returns: The total number of commandline args added.
+      *************/</span>
+     <span class="token keyword">static</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span>_totalc<span class="token punctuation">)</span> <span class="token function">total</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> _totalc<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+     <span class="token comment">// Class invariant, things that must be true after any method is run.</span>
+     <span class="token keyword">invariant</span>
+     <span class="token punctuation">{</span>
+         <span class="token keyword">assert</span><span class="token punctuation">(</span>_argc <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">assert</span><span class="token punctuation">(</span>_totalc <span class="token operator">>=</span> _argc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

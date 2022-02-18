@@ -1,0 +1,87 @@
+function To_Functable(t, fn)
+  return setmetatable(t,
+    {
+     __index = function(t, k) return fn(k) end,
+     __call = function(t, k) return t[k] end
+    })
+end
+
+-- Functable bottles of beer implementation
+
+spell_out = {
+  "One", "Two", "Three", "Four", "Five",
+  "Six", "Seven", "Eight", "Nine", "Ten",
+  [0] = "No more",
+  [-1] = "Lots more"
+}
+
+spell_out = To_Functable(spell_out, function(i) return i end)
+
+bottles = To_Functable({"Just one bottle of beer"},
+                       function(i)
+                         return spell_out(i) .. " bottles of beer"
+                       end)
+
+function line1(i)
+  return bottles(i) .. " on the wall, " .. bottles(i) .. "\n"
+end
+
+line2 = To_Functable({[0] = "Go to the store, Buy some more,\n"},
+                     function(i)
+                       return "Take one down and pass it around,\n"
+                     end)
+
+function line3(i)
+  return bottles(i) .. " on the wall.\n"
+end
+
+function song(n)
+  for i = n, 0, -1 do
+    io.write(line1(i), line2(i), line3(i - 1), "\n")
+  end
+end
+----------------------------------------------------
+<span class="token keyword">function</span> <span class="token function">To_Functable</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> fn<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token function">setmetatable</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+     __index <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token keyword">end</span><span class="token punctuation">,</span>
+     __call <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token keyword">return</span> t<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token keyword">end</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token comment">-- Functable bottles of beer implementation</span>
+
+spell_out <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">"One"</span><span class="token punctuation">,</span> <span class="token string">"Two"</span><span class="token punctuation">,</span> <span class="token string">"Three"</span><span class="token punctuation">,</span> <span class="token string">"Four"</span><span class="token punctuation">,</span> <span class="token string">"Five"</span><span class="token punctuation">,</span>
+  <span class="token string">"Six"</span><span class="token punctuation">,</span> <span class="token string">"Seven"</span><span class="token punctuation">,</span> <span class="token string">"Eight"</span><span class="token punctuation">,</span> <span class="token string">"Nine"</span><span class="token punctuation">,</span> <span class="token string">"Ten"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"No more"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Lots more"</span>
+<span class="token punctuation">}</span>
+
+spell_out <span class="token operator">=</span> <span class="token function">To_Functable</span><span class="token punctuation">(</span>spell_out<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">return</span> i <span class="token keyword">end</span><span class="token punctuation">)</span>
+
+bottles <span class="token operator">=</span> <span class="token function">To_Functable</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"Just one bottle of beer"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+                       <span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                         <span class="token keyword">return</span> <span class="token function">spell_out</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">" bottles of beer"</span>
+                       <span class="token keyword">end</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">line1</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token function">bottles</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">" on the wall, "</span> <span class="token operator">..</span> <span class="token function">bottles</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">"\n"</span>
+<span class="token keyword">end</span>
+
+line2 <span class="token operator">=</span> <span class="token function">To_Functable</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Go to the store, Buy some more,\n"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+                     <span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                       <span class="token keyword">return</span> <span class="token string">"Take one down and pass it around,\n"</span>
+                     <span class="token keyword">end</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">line3</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token function">bottles</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">" on the wall.\n"</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> <span class="token function">song</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> i <span class="token operator">=</span> n<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">do</span>
+    io<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token function">line1</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">line2</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">line3</span><span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+----------------------------------------------------

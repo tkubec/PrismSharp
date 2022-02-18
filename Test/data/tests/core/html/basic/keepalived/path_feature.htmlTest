@@ -1,0 +1,15 @@
+vrrp_instance VI_1 {
+	notify_master /etc/keepalived/to_master.sh
+    notify_backup C:\keepalived\to_backup.bat
+    net_namespace /var/run/keepalived
+    net_namespace C:\users\prism\keepalived
+}
+----------------------------------------------------
+<span class="token property">vrrp_instance</span> VI_1 <span class="token punctuation">{</span>
+	<span class="token property">notify_master</span> <span class="token path string">/etc/keepalived/to_master.sh</span>
+    <span class="token property">notify_backup</span> <span class="token path string">C:\keepalived\to_backup.bat</span>
+    <span class="token property">net_namespace</span> <span class="token path string">/var/run/keepalived</span>
+    <span class="token property">net_namespace</span> <span class="token path string">C:\users\prism\keepalived</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

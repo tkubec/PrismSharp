@@ -1,0 +1,9 @@
+c Match RAlt+E on desktops, Ctrl+Alt+E on web because L/R Alt not consistently supported in browsers.
+$KeymanOnly: + [RALT K_E] > "€"
+$KeymanWeb: + [CTRL ALT K_E] > "€"
+----------------------------------------------------
+<span class="token comment">c Match RAlt+E on desktops, Ctrl+Alt+E on web because L/R Alt not consistently supported in browsers.</span>
+<span class="token compile-target property">$KeymanOnly:</span> <span class="token operator">+</span> <span class="token virtual-key function">[RALT K_E]</span> <span class="token operator">></span> <span class="token string">"€"</span>
+<span class="token compile-target property">$KeymanWeb:</span> <span class="token operator">+</span> <span class="token virtual-key function">[CTRL ALT K_E]</span> <span class="token operator">></span> <span class="token string">"€"</span>
+
+----------------------------------------------------

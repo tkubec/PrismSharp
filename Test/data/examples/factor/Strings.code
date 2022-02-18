@@ -1,0 +1,18 @@
+"a string" "\"" "\x8" "%s"
+
+SBUF" asbdef"
+
+USE: multiline
+
+STRING: name
+content
+;
+
+HEREDOC: marker
+text
+marker
+
+[==[
+	str
+	ing
+]==]

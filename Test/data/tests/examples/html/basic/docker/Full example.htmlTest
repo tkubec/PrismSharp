@@ -1,0 +1,85 @@
+# Nginx
+#
+# VERSION               0.0.1
+
+FROM      ubuntu
+MAINTAINER Victor Vieux <victor@docker.com>
+
+LABEL Description="This image is used to start the foobar executable" Vendor="ACME Products" Version="1.0"
+RUN apt-get update && apt-get install -y inotify-tools nginx apache2 openssh-server
+
+# Firefox over VNC
+#
+# VERSION               0.3
+
+FROM ubuntu
+
+# Install vnc, xvfb in order to create a 'fake' display and firefox
+RUN apt-get update && apt-get install -y x11vnc xvfb firefox
+RUN mkdir ~/.vnc
+# Setup a password
+RUN x11vnc -storepasswd 1234 ~/.vnc/passwd
+# Autostart firefox (might not be the best way, but it does the trick)
+RUN bash -c 'echo "firefox" >> /.bashrc'
+
+EXPOSE 5900
+CMD    ["x11vnc", "-forever", "-usepw", "-create"]
+
+# Multiple images example
+#
+# VERSION               0.1
+
+FROM ubuntu
+RUN echo foo > bar
+# Will output something like ===> 907ad6c2736f
+
+FROM ubuntu
+RUN echo moo > oink
+# Will output something like ===> 695d7793cbe4
+
+# You᾿ll now have two images, 907ad6c2736f with /bar, and 695d7793cbe4 with
+# /oink.
+----------------------------------------------------
+<span class="token comment"># Nginx</span>
+<span class="token comment">#</span>
+<span class="token comment"># VERSION               0.0.1</span>
+
+<span class="token instruction"><span class="token keyword">FROM</span>      ubuntu</span>
+<span class="token instruction"><span class="token keyword">MAINTAINER</span> Victor Vieux &lt;victor@docker.com></span>
+
+<span class="token instruction"><span class="token keyword">LABEL</span> Description=<span class="token string">"This image is used to start the foobar executable"</span> Vendor=<span class="token string">"ACME Products"</span> Version=<span class="token string">"1.0"</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> apt-get update &amp;&amp; apt-get install -y inotify-tools nginx apache2 openssh-server</span>
+
+<span class="token comment"># Firefox over VNC</span>
+<span class="token comment">#</span>
+<span class="token comment"># VERSION               0.3</span>
+
+<span class="token instruction"><span class="token keyword">FROM</span> ubuntu</span>
+
+<span class="token comment"># Install vnc, xvfb in order to create a 'fake' display and firefox</span>
+<span class="token instruction"><span class="token keyword">RUN</span> apt-get update &amp;&amp; apt-get install -y x11vnc xvfb firefox</span>
+<span class="token instruction"><span class="token keyword">RUN</span> mkdir ~/.vnc</span>
+<span class="token comment"># Setup a password</span>
+<span class="token instruction"><span class="token keyword">RUN</span> x11vnc -storepasswd 1234 ~/.vnc/passwd</span>
+<span class="token comment"># Autostart firefox (might not be the best way, but it does the trick)</span>
+<span class="token instruction"><span class="token keyword">RUN</span> bash -c <span class="token string">'echo "firefox" >> /.bashrc'</span></span>
+
+<span class="token instruction"><span class="token keyword">EXPOSE</span> 5900</span>
+<span class="token instruction"><span class="token keyword">CMD</span>    [<span class="token string">"x11vnc"</span>, <span class="token string">"-forever"</span>, <span class="token string">"-usepw"</span>, <span class="token string">"-create"</span>]</span>
+
+<span class="token comment"># Multiple images example</span>
+<span class="token comment">#</span>
+<span class="token comment"># VERSION               0.1</span>
+
+<span class="token instruction"><span class="token keyword">FROM</span> ubuntu</span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo foo > bar</span>
+<span class="token comment"># Will output something like ===> 907ad6c2736f</span>
+
+<span class="token instruction"><span class="token keyword">FROM</span> ubuntu</span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo moo > oink</span>
+<span class="token comment"># Will output something like ===> 695d7793cbe4</span>
+
+<span class="token comment"># You᾿ll now have two images, 907ad6c2736f with /bar, and 695d7793cbe4 with</span>
+<span class="token comment"># /oink.</span>
+
+----------------------------------------------------

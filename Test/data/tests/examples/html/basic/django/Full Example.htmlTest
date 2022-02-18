@@ -1,0 +1,37 @@
+{# This a Django template example #}
+{% extends "base_generic.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ section.title }}</h1>
+
+{% for story in story_list %}
+<h2>
+  <a href="{{ story.get_absolute_url }}">
+    {{ story.headline|upper }}
+  </a>
+</h2>
+<p>{{ story.tease|truncatewords:"100" }}</p>
+{% endfor %}
+{% endblock %}
+----------------------------------------------------
+<span class="token punctuation">{</span># <span class="token variable">This</span> <span class="token variable">a</span> <span class="token variable">Django</span> <span class="token variable">template</span> <span class="token variable">example</span> #<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">extends</span> <span class="token string">"base_generic.html"</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">block</span> <span class="token variable">title</span> <span class="token operator">%</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">section</span><span class="token punctuation">.</span><span class="token variable">title</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">endblock</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">block</span> <span class="token variable">content</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token variable">h1</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">section</span><span class="token punctuation">.</span><span class="token variable">title</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token variable">h1</span><span class="token operator">></span>
+
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> <span class="token variable">story</span> <span class="token keyword">in</span> <span class="token variable">story_list</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token variable">h2</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token variable">a</span> <span class="token variable">href</span><span class="token operator">=</span><span class="token string">"{{ story.get_absolute_url }}"</span><span class="token operator">></span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">story</span><span class="token punctuation">.</span><span class="token variable">headline</span><span class="token operator">|</span><span class="token filter function">upper</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token variable">a</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token variable">h2</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token variable">p</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">story</span><span class="token punctuation">.</span><span class="token variable">tease</span><span class="token operator">|</span><span class="token filter function">truncatewords</span><span class="token punctuation">:</span><span class="token string">"100"</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token variable">p</span><span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">endfor</span> <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">%</span> <span class="token variable">endblock</span> <span class="token delimiter punctuation">%}</span>
+
+----------------------------------------------------

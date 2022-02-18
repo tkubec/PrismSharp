@@ -1,0 +1,29 @@
+#define
+#undef
+#if
+#ifdef
+#ifndef
+#else
+#elif
+#endif
+#error
+#pragma
+#extension
+#version
+#line
+----------------------------------------------------
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">undef</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">elif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">error</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">extension</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">version</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">line</span></span>
+
+----------------------------------------------------

@@ -1,0 +1,89 @@
+virtual_server 192.168.1.200 3306 {
+	lvs_sched rr
+	lvs_sched wrr
+	lvs_sched lc
+	lvs_sched wlc
+	lvs_sched lblc
+	lvs_sched sh
+	lvs_sched mh
+	lvs_sched dh
+	lvs_sched fo
+	lvs_sched ovf
+	lvs_sched lblcr
+	lvs_sched sed
+	lvs_sched nq
+
+    lvs_method NAT
+    lvs_method DR
+    lvs_method TUN
+
+    protocol TCP
+    protocol UDP
+    protocol SCTP
+}
+
+vrrp_instance test {
+    state MASTER
+    state BACKUP
+
+    authentication {
+        auth_type PASS
+        auth_type AH
+    }
+}
+
+DNS_CHECK {
+	type A
+	type NS
+	type CNAME
+	type SOA
+	type MX
+	type TXT
+	type AAAA
+}
+----------------------------------------------------
+<span class="token property">virtual_server</span> <span class="token ip number">192.168.1.200</span> <span class="token number">3306</span> <span class="token punctuation">{</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">rr</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">wrr</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">lc</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">wlc</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">lblc</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">sh</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">mh</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">dh</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">fo</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">ovf</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">lblcr</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">sed</span>
+	<span class="token property">lvs_sched</span> <span class="token constant">nq</span>
+
+    <span class="token property">lvs_method</span> <span class="token constant">NAT</span>
+    <span class="token property">lvs_method</span> <span class="token constant">DR</span>
+    <span class="token property">lvs_method</span> <span class="token constant">TUN</span>
+
+    <span class="token property">protocol</span> <span class="token constant">TCP</span>
+    <span class="token property">protocol</span> <span class="token constant">UDP</span>
+    <span class="token property">protocol</span> <span class="token constant">SCTP</span>
+<span class="token punctuation">}</span>
+
+<span class="token property">vrrp_instance</span> test <span class="token punctuation">{</span>
+    <span class="token property">state</span> <span class="token constant">MASTER</span>
+    <span class="token property">state</span> <span class="token constant">BACKUP</span>
+
+    <span class="token property">authentication</span> <span class="token punctuation">{</span>
+        <span class="token property">auth_type</span> <span class="token constant">PASS</span>
+        <span class="token property">auth_type</span> <span class="token constant">AH</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token property">DNS_CHECK</span> <span class="token punctuation">{</span>
+	<span class="token property">type</span> <span class="token constant">A</span>
+	<span class="token property">type</span> <span class="token constant">NS</span>
+	<span class="token property">type</span> <span class="token constant">CNAME</span>
+	<span class="token property">type</span> <span class="token constant">SOA</span>
+	<span class="token property">type</span> <span class="token constant">MX</span>
+	<span class="token property">type</span> <span class="token constant">TXT</span>
+	<span class="token property">type</span> <span class="token constant">AAAA</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

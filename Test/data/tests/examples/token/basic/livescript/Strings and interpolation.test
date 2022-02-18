@@ -1,0 +1,58 @@
+''
+''''''
+""
+""""""
+'Foo \' bar
+	baz'
+'''Foo \''' bar
+	bar'''
+"Foo #bar \"
+	#{2 + 2}\""
+"""#foobar \""" #{ if /test/ == 'test' then 3 else 4}
+	baz"""
+----------------------------------------------------
+[
+	["string", "''"],
+	["string", "''''''"],
+	["interpolated-string", [
+		["string", "\"\""]
+	]],
+	["interpolated-string", [
+		["string", "\"\"\"\"\"\""]
+	]],
+	["string", "'Foo \\' bar\n\tbaz'"],
+	["string", "'''Foo \\''' bar\n\tbar'''"],
+	["interpolated-string", [
+		["string", "\"Foo "],
+		["variable", "#bar"],
+		["string", " \\\"\n\t"],
+		["interpolation", [
+			["interpolation-punctuation", "#{"],
+			["number", "2"],
+			["operator", "+"],
+			["number", "2"],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", "\\\"\""]
+	]],
+	["interpolated-string", [
+		["string", "\"\"\""],
+		["variable", "#foobar"],
+		["string", " \\\"\"\" "],
+		["interpolation", [
+			["interpolation-punctuation", "#{"],
+			["keyword", "if"],
+			["regex", "/test/"],
+			["operator", "=="],
+			["string", "'test'"],
+			["keyword", "then"],
+			["number", "3"],
+			["keyword", "else"],
+			["number", "4"],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", "\n\tbaz\"\"\""]
+	]]
+]
+
+----------------------------------------------------

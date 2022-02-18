@@ -1,0 +1,27 @@
+{$foo}
+{$foo_bar42}
+{#pageTitle#}
+{$foo.bar.baz}
+{$foo->bar->baz}
+{$foo[row]}
+{$foo[$x+$x]}
+{$foo.a.$b.c}
+{$foo.a.{$b+4}.c}
+{$foo.a.{$b.c}}
+{$foo={counter}+3}
+{$foo->bar($baz,2,$bar)}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo_bar42</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">#pageTitle#</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">bar</span><span class="token punctuation">.</span><span class="token variable">baz</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">-></span><span class="token variable">bar</span><span class="token punctuation">-></span><span class="token variable">baz</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token variable">row</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">[</span><span class="token variable">$x</span><span class="token operator">+</span><span class="token variable">$x</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">a</span><span class="token punctuation">.</span><span class="token variable">$b</span><span class="token punctuation">.</span><span class="token variable">c</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">a</span><span class="token punctuation">.</span><span class="token punctuation">{</span><span class="token variable">$b</span><span class="token operator">+</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token variable">c</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">.</span><span class="token variable">a</span><span class="token punctuation">.</span><span class="token punctuation">{</span><span class="token variable">$b</span><span class="token punctuation">.</span><span class="token variable">c</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token operator">=</span><span class="token punctuation">{</span>counter<span class="token punctuation">}</span><span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">-></span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token variable">$baz</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token variable">$bar</span><span class="token punctuation">)</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

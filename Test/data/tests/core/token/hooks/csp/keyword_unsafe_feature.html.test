@@ -1,0 +1,19 @@
+navigate-to 'unsafe-allow-redirects';
+script-src 'unsafe-dynamic' 'unsafe-eval' 'unsafe-hash-attributes' 'unsafe-hashed-attributes' 'unsafe-hashes' 'unsafe-inline';
+----------------------------------------------------
+[
+	["directive", "navigate-to"],
+	["keyword", "'unsafe-allow-redirects'"],
+	["punctuation", ";"],
+
+	["directive", "script-src"],
+	["keyword", "'unsafe-dynamic'"],
+	["keyword", "'unsafe-eval'"],
+	["keyword", "'unsafe-hash-attributes'"],
+	["keyword", "'unsafe-hashed-attributes'"],
+	["keyword", "'unsafe-hashes'"],
+	["keyword", "'unsafe-inline'"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

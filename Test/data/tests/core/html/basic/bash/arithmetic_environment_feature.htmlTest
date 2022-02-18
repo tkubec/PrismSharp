@@ -1,0 +1,11 @@
+(( 4 + 5 ))
+$((5 * 7))
+"foo $((5 * 7)) bar"
+for (( NUM=1 ; NUM<=1000 ; NUM++ ))
+----------------------------------------------------
+<span class="token variable"><span class="token punctuation">((</span> <span class="token number">4</span> <span class="token operator">+</span> <span class="token number">5</span> <span class="token punctuation">))</span></span>
+<span class="token variable"><span class="token variable">$((</span><span class="token number">5</span> <span class="token operator">*</span> <span class="token number">7</span><span class="token variable">))</span></span>
+<span class="token string">"foo <span class="token variable"><span class="token variable">$((</span><span class="token number">5</span> <span class="token operator">*</span> <span class="token number">7</span><span class="token variable">))</span></span> bar"</span>
+<span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span> NUM<span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">;</span> NUM<span class="token operator">&lt;=</span><span class="token number">1000</span> <span class="token punctuation">;</span> NUM<span class="token operator">++</span> <span class="token punctuation">))</span></span>
+
+----------------------------------------------------

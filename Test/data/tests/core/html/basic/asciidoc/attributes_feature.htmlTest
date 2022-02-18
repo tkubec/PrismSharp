@@ -1,0 +1,99 @@
+Foo [big red yellow-background]#obvious#
+
+[float]
+[quote,'http://en.wikipedia.org/wiki/Samuel_Johnson[Samuel Johnson]']
+[quote,'&#34;with *an* image&#34; image:foo.png[] (TM)']
+
+[NOTE]
+[icon="./images/icons/wink.png"]
+[icons=None, caption="My Special Note"]
+[start=7]
+
+[cols="e,m,^,>s",width="25%"]
+
+=====
+Foo [big red yellow-background]#obvious#
+
+[float]
+[quote,'http://en.wikipedia.org/wiki/Samuel_Johnson[Samuel Johnson]']
+[quote,'&#34;with *an* image&#34; image:foo.png[] (TM)']
+
+[NOTE]
+[icon="./images/icons/wink.png"]
+[icons=None, caption="My Special Note"]
+[start=7]
+
+[cols="e,m,^,>s",width="25%"]
+=====
+
+|=====
+|
+Foo [big red yellow-background]#obvious#
+
+[float]
+[quote,'http://en.wikipedia.org/wiki/Samuel_Johnson[Samuel Johnson]']
+[quote,'&#34;with *an* image&#34; image:foo.png[] (TM)']
+
+[NOTE]
+[icon="./images/icons/wink.png"]
+[icons=None, caption="My Special Note"]
+[start=7]
+
+[cols="e,m,^,>s",width="25%"]
+|=====
+
+
+latexmath:[$C = \alpha + \beta Y^{\gamma} + \epsilon$]
+asciimath:[`x/x={(1,if x!=0),(text{undefined},if x=0):}`]
+latexmath:[$\sum_{n=1}^\infty \frac{1}{2^n}$]
+----------------------------------------------------
+Foo <span class="token inline"><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">big red yellow-background</span><span class="token punctuation">]</span></span><span class="token punctuation">#</span>obvious<span class="token punctuation">#</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">float</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">quote</span><span class="token punctuation">,</span><span class="token interpreted"><span class="token punctuation">'</span><span class="token macro"><span class="token function">http</span><span class="token punctuation">:</span>//en.wikipedia.org/wiki/Samuel_Johnson<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">Samuel Johnson</span><span class="token punctuation">]</span></span></span><span class="token punctuation">'</span></span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">quote</span><span class="token punctuation">,</span><span class="token interpreted"><span class="token punctuation">'</span><span class="token entity">&amp;#34;</span>with <span class="token inline"><span class="token bold"><span class="token punctuation">*</span>an<span class="token punctuation">*</span></span></span> image<span class="token entity">&amp;#34;</span> <span class="token macro"><span class="token function">image</span><span class="token punctuation">:</span>foo.png<span class="token attributes"><span class="token punctuation">[</span><span class="token punctuation">]</span></span></span> <span class="token replacement builtin">(TM)</span><span class="token punctuation">'</span></span><span class="token punctuation">]</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">NOTE</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">icon</span><span class="token operator">=</span><span class="token string">"./images/icons/wink.png"</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">icons</span><span class="token operator">=</span><span class="token attr-value">None</span><span class="token punctuation">,</span> <span class="token variable">caption</span><span class="token operator">=</span><span class="token string">"My Special Note"</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">start</span><span class="token operator">=</span><span class="token attr-value">7</span><span class="token punctuation">]</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">cols</span><span class="token operator">=</span><span class="token string">"e,m,^,>s"</span><span class="token punctuation">,</span><span class="token variable">width</span><span class="token operator">=</span><span class="token string">"25%"</span><span class="token punctuation">]</span></span>
+
+<span class="token other-block"><span class="token punctuation">=====</span>
+Foo <span class="token inline"><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">big red yellow-background</span><span class="token punctuation">]</span></span><span class="token punctuation">#</span>obvious<span class="token punctuation">#</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">float</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">quote</span><span class="token punctuation">,</span><span class="token interpreted"><span class="token punctuation">'</span><span class="token macro"><span class="token function">http</span><span class="token punctuation">:</span>//en.wikipedia.org/wiki/Samuel_Johnson<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">Samuel Johnson</span><span class="token punctuation">]</span></span></span><span class="token punctuation">'</span></span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">quote</span><span class="token punctuation">,</span><span class="token interpreted"><span class="token punctuation">'</span><span class="token entity">&amp;#34;</span>with <span class="token inline"><span class="token bold"><span class="token punctuation">*</span>an<span class="token punctuation">*</span></span></span> image<span class="token entity">&amp;#34;</span> <span class="token macro"><span class="token function">image</span><span class="token punctuation">:</span>foo.png<span class="token attributes"><span class="token punctuation">[</span><span class="token punctuation">]</span></span></span> <span class="token replacement builtin">(TM)</span><span class="token punctuation">'</span></span><span class="token punctuation">]</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">NOTE</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">icon</span><span class="token operator">=</span><span class="token string">"./images/icons/wink.png"</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">icons</span><span class="token operator">=</span><span class="token attr-value">None</span><span class="token punctuation">,</span> <span class="token variable">caption</span><span class="token operator">=</span><span class="token string">"My Special Note"</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">start</span><span class="token operator">=</span><span class="token attr-value">7</span><span class="token punctuation">]</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">cols</span><span class="token operator">=</span><span class="token string">"e,m,^,>s"</span><span class="token punctuation">,</span><span class="token variable">width</span><span class="token operator">=</span><span class="token string">"25%"</span><span class="token punctuation">]</span></span>
+<span class="token punctuation">=====</span></span>
+
+<span class="token table"><span class="token punctuation">|=====</span>
+<span class="token punctuation">|</span>
+Foo <span class="token inline"><span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">big red yellow-background</span><span class="token punctuation">]</span></span><span class="token punctuation">#</span>obvious<span class="token punctuation">#</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">float</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">quote</span><span class="token punctuation">,</span><span class="token interpreted"><span class="token punctuation">'</span><span class="token macro"><span class="token function">http</span><span class="token punctuation">:</span>//en.wikipedia.org/wiki/Samuel_Johnson<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">Samuel Johnson</span><span class="token punctuation">]</span></span></span><span class="token punctuation">'</span></span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">quote</span><span class="token punctuation">,</span><span class="token interpreted"><span class="token punctuation">'</span><span class="token entity">&amp;#34;</span>with <span class="token inline"><span class="token bold"><span class="token punctuation">*</span>an<span class="token punctuation">*</span></span></span> image<span class="token entity">&amp;#34;</span> <span class="token macro"><span class="token function">image</span><span class="token punctuation">:</span>foo.png<span class="token attributes"><span class="token punctuation">[</span><span class="token punctuation">]</span></span></span> <span class="token replacement builtin">(TM)</span><span class="token punctuation">'</span></span><span class="token punctuation">]</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token attr-value">NOTE</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">icon</span><span class="token operator">=</span><span class="token string">"./images/icons/wink.png"</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">icons</span><span class="token operator">=</span><span class="token attr-value">None</span><span class="token punctuation">,</span> <span class="token variable">caption</span><span class="token operator">=</span><span class="token string">"My Special Note"</span><span class="token punctuation">]</span></span>
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">start</span><span class="token operator">=</span><span class="token attr-value">7</span><span class="token punctuation">]</span></span>
+
+<span class="token attributes"><span class="token punctuation">[</span><span class="token variable">cols</span><span class="token operator">=</span><span class="token string">"e,m,^,>s"</span><span class="token punctuation">,</span><span class="token variable">width</span><span class="token operator">=</span><span class="token string">"25%"</span><span class="token punctuation">]</span></span>
+<span class="token punctuation">|=====</span></span>
+
+
+<span class="token macro"><span class="token function">latexmath</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token quoted"><span class="token punctuation">$</span>C = \alpha + \beta Y^{\gamma} + \epsilon<span class="token punctuation">$</span></span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">asciimath</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token quoted"><span class="token punctuation">`</span>x/x={(1,if x!=0),(text{undefined},if x=0):}<span class="token punctuation">`</span></span><span class="token punctuation">]</span></span></span>
+<span class="token macro"><span class="token function">latexmath</span><span class="token punctuation">:</span><span class="token attributes"><span class="token punctuation">[</span><span class="token quoted"><span class="token punctuation">$</span>\sum_{n=1}^\infty \frac{1}{2^n}<span class="token punctuation">$</span></span><span class="token punctuation">]</span></span></span>
+
+----------------------------------------------------

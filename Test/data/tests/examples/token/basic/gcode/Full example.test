@@ -1,0 +1,65 @@
+M190 S60 ; Heat bed to 60°C
+G21 ; Set units to millimeters
+G28 ; Move to Origin (Homing)
+G29 ; Auto Bed Leveling
+G28 X0 Y0 ; Home X and Y to min endstops
+M107 ; Fan off
+M109 S200 ; Heat hotend to 200°C
+G92 E0 ; Set current extruder position as zero
+G1 F200 E15 ; Extrude 15mm filament with 200mm/min
+G92 E0 ; Set current extruder position as zero
+G1 F500
+----------------------------------------------------
+[
+	["keyword", "M190"],
+	["property", "S"],
+	"60 ",
+	["comment", "; Heat bed to 60°C"],
+
+	["keyword", "G21"],
+	["comment", "; Set units to millimeters"],
+
+	["keyword", "G28"],
+	["comment", "; Move to Origin (Homing)"],
+
+	["keyword", "G29"],
+	["comment", "; Auto Bed Leveling"],
+
+	["keyword", "G28"],
+	["property", "X"],
+	"0 ",
+	["property", "Y"],
+	"0 ",
+	["comment", "; Home X and Y to min endstops"],
+
+	["keyword", "M107"],
+	["comment", "; Fan off"],
+
+	["keyword", "M109"],
+	["property", "S"],
+	"200 ",
+	["comment", "; Heat hotend to 200°C"],
+
+	["keyword", "G92"],
+	["property", "E"],
+	"0 ",
+	["comment", "; Set current extruder position as zero"],
+
+	["keyword", "G1"],
+	["property", "F"],
+	"200 ",
+	["property", "E"],
+	"15 ",
+	["comment", "; Extrude 15mm filament with 200mm/min"],
+
+	["keyword", "G92"],
+	["property", "E"],
+	"0 ",
+	["comment", "; Set current extruder position as zero"],
+
+	["keyword", "G1"],
+	["property", "F"],
+	"500"
+]
+
+----------------------------------------------------

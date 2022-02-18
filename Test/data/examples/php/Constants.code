@@ -1,0 +1,3 @@
+define('MAXSIZE', 42);
+echo MAXSIZE;
+json_decode($json, false, 512, JSON_BIGINT_AS_STRING)

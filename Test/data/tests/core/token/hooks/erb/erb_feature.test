@@ -1,0 +1,34 @@
+<%# comment %>
+<%= render @products || "empty_list" %>
+<% @books.each do |book| %>
+----------------------------------------------------
+[
+	["delimiter", "<%"],
+	["ruby", [
+		["comment", "# comment %>"],
+
+		["operator", "<"],
+		["operator", "%="],
+		" render ",
+		["variable", "@products"],
+		["operator", "||"],
+		["string-literal", [
+			["string", "\"empty_list\""]
+		]],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["variable", "@books"],
+		["punctuation", "."],
+		["keyword", "each"],
+		["keyword", "do"],
+		["operator", "|"],
+		"book",
+		["operator", "|"]
+	]],
+	["delimiter", "%>"]
+]
+
+----------------------------------------------------

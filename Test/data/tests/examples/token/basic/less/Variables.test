@@ -1,0 +1,22 @@
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+----------------------------------------------------
+[
+	["variable", [
+		"@nice-blue",
+		["punctuation", ":"]
+	]],
+	" #5B83AD",
+	["punctuation", ";"],
+
+	["variable", [
+		"@light-blue",
+		["punctuation", ":"]
+	]],
+	["variable", "@nice-blue"],
+	["operator", "+"],
+	" #111",
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package foo.generated;
+option java_package = "org.foo.generated";
+option optimize_for = SPEED;
+
+// What's up with all the foo?
+message Foo {
+
+  message Bar {
+
+    optional string key   = 1;
+    optional Foo value = 2;
+    optional string value_raw = 3 [deprecated=true];
+  }
+
+  enum Level {
+    INFO  = 0;
+    WARN  = 1;
+    ERROR = 2;
+  }
+
+  repeated Property property = 1;
+}
+----------------------------------------------------
+<span class="token keyword">syntax</span> <span class="token operator">=</span> <span class="token string">"proto3"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">package</span> foo<span class="token punctuation">.</span>generated<span class="token punctuation">;</span>
+<span class="token keyword">option</span> java_package <span class="token operator">=</span> <span class="token string">"org.foo.generated"</span><span class="token punctuation">;</span>
+<span class="token keyword">option</span> optimize_for <span class="token operator">=</span> SPEED<span class="token punctuation">;</span>
+
+<span class="token comment">// What's up with all the foo?</span>
+<span class="token keyword">message</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">message</span> <span class="token class-name">Bar</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">optional</span> <span class="token builtin">string</span> key   <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">optional</span> <span class="token positional-class-name class-name">Foo</span> value <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">optional</span> <span class="token builtin">string</span> value_raw <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">[</span><span class="token annotation">deprecated</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">enum</span> <span class="token class-name">Level</span> <span class="token punctuation">{</span>
+    INFO  <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    WARN  <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    ERROR <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">repeated</span> <span class="token positional-class-name class-name">Property</span> property <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

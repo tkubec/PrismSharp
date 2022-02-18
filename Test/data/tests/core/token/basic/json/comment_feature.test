@@ -1,0 +1,24 @@
+{
+	// Line comment ""
+	"//": "//",
+
+	/* Block comment */
+	"/*": "*/"
+}
+----------------------------------------------------
+[
+	["punctuation", "{"],
+
+	["comment", "// Line comment \"\""],
+
+	["property", "\"//\""],
+	["operator", ":"],
+	["string", "\"//\""],
+	["punctuation", ","],
+
+	["comment", "/* Block comment */"],
+	["property", "\"/*\""], ["operator", ":"], ["string", "\"*/\""],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

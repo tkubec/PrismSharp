@@ -1,0 +1,9 @@
+script
+  :coffee
+    console.log 'This is coffee script'
+----------------------------------------------------
+<span class="token tag">script</span>
+  <span class="token filter"><span class="token filter-name variable">:coffee</span>
+    <span class="token text">console.log 'This is coffee script'</span></span>
+
+----------------------------------------------------

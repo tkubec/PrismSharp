@@ -1,0 +1,95 @@
+{\n}
+{\r}
+{\t}
+{alias foo as bar}
+{call}
+{case}
+{css}
+{default}
+{delcall}
+{delpackage}
+{deltemplate}
+{else}
+{elseif}
+{fallbackmsg}
+{for}
+{foreach $i in $foo}
+{if}
+{ifempty}
+{lb}
+{let}
+{literal}{/literal}
+{msg}
+{namespace}
+{nil}
+{param}
+{@param}
+{@param?}
+{rb}
+{sp}
+{switch}
+{template}
+{xid}
+{@param foo: any}
+{@param foo: attributes}
+{@param foo: bool}
+{@param foo: css}
+{@param foo: float}
+{@param foo: int}
+{@param foo: js}
+{@param foo: html}
+{@param foo: list<int>}
+{@param foo: map<int,string>}
+{@param foo: null}
+{@param foo: number}
+{@param foo: string}
+{@param foo: uri}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">\n</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">\r</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">\t</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">alias</span> <span class="token command-arg string">foo</span> <span class="token keyword">as</span> bar<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">call</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">case</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">css</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">default</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">delcall</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">delpackage</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">deltemplate</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">else</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">elseif</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">fallbackmsg</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">for</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">foreach</span> <span class="token variable">$i</span> <span class="token keyword">in</span> <span class="token variable">$foo</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">if</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">ifempty</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">lb</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">let</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">literal</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">/</span><span class="token keyword">literal</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">msg</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">namespace</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">nil</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">param</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param?</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">rb</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">sp</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">switch</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">template</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">xid</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">attributes</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">bool</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">css</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">float</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">int</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">js</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">html</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">list</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">map</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">string</span><span class="token operator">></span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">@param</span> <span class="token parameter variable">foo</span><span class="token punctuation">:</span> <span class="token keyword">uri</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

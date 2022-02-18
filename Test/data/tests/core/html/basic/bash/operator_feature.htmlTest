@@ -1,0 +1,39 @@
+a |& b &> c
+a >&2
+a 2<&
+a <> b
+a &>> b
+a && b || c
+
+<(yes) <(if true; then :; fi) <(echo) <(true)
+<(for x in a b; do :; done)
+<(select x in a b; do :; done)
+>(yes) >(if true; then :; fi) >(echo) >(true)
+>(for x in a b; do :; done)
+>(select x in a b; do :; done)
+
+${x:1:2} ${x:-a} ${x:=a} ${x:?a} ${x:+a}
+${!x} ${x/a/b}
+${x#*a} ${x##*a} ${x%a*} ${x%%a*}
+${x^a} ${x^^a} ${x,a} ${x,,a}
+----------------------------------------------------
+a <span class="token operator">|&amp;</span> b <span class="token operator">&amp;></span> c
+a <span class="token operator">></span><span class="token file-descriptor important">&amp;2</span>
+a <span class="token operator"><span class="token file-descriptor important">2</span>&lt;&amp;</span>
+a <span class="token operator">&lt;></span> b
+a <span class="token operator">&amp;>></span> b
+a <span class="token operator">&amp;&amp;</span> b <span class="token operator">||</span> c
+
+<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">yes</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token keyword">fi</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin class-name">echo</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token keyword">for</span> <span class="token for-or-select variable">x</span> <span class="token keyword">in</span> a b<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token keyword">done</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token for-or-select variable">x</span> <span class="token keyword">in</span> a b<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token keyword">done</span><span class="token punctuation">)</span>
+<span class="token operator">></span><span class="token punctuation">(</span><span class="token function">yes</span><span class="token punctuation">)</span> <span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token keyword">fi</span><span class="token punctuation">)</span> <span class="token operator">></span><span class="token punctuation">(</span><span class="token builtin class-name">echo</span><span class="token punctuation">)</span> <span class="token operator">></span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">for</span> <span class="token for-or-select variable">x</span> <span class="token keyword">in</span> a b<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token keyword">done</span><span class="token punctuation">)</span>
+<span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token for-or-select variable">x</span> <span class="token keyword">in</span> a b<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token builtin class-name">:</span><span class="token punctuation">;</span> <span class="token keyword">done</span><span class="token punctuation">)</span>
+
+<span class="token variable">${x<span class="token operator">:</span>1<span class="token operator">:</span>2}</span> <span class="token variable">${x<span class="token operator">:-</span>a}</span> <span class="token variable">${x<span class="token operator">:=</span>a}</span> <span class="token variable">${x<span class="token operator">:?</span>a}</span> <span class="token variable">${x<span class="token operator">:+</span>a}</span>
+<span class="token variable">${<span class="token operator">!</span>x}</span> <span class="token variable">${x<span class="token operator">/</span>a<span class="token operator">/</span>b}</span>
+<span class="token variable">${x<span class="token operator">#</span>*a}</span> <span class="token variable">${x<span class="token operator">##</span>*a}</span> <span class="token variable">${x<span class="token operator">%</span>a*}</span> <span class="token variable">${x<span class="token operator">%%</span>a*}</span>
+<span class="token variable">${x<span class="token operator">^</span>a}</span> <span class="token variable">${x<span class="token operator">^^</span>a}</span> <span class="token variable">${x<span class="token operator">,</span>a}</span> <span class="token variable">${x<span class="token operator">,,</span>a}</span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+""
+"foo""bar"
+"foo %foo% bar $bar$ baz @baz@"
+''
+'foo''bar'
+'foo %foo% bar $bar$ baz @baz@'
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"foo""bar"</span>
+<span class="token string">"foo <span class="token variable">%foo%</span> bar <span class="token variable">$bar$</span> baz <span class="token variable">@baz@</span>"</span>
+<span class="token string">''</span>
+<span class="token string">'foo''bar'</span>
+<span class="token string">'foo <span class="token variable">%foo%</span> bar <span class="token variable">$bar$</span> baz <span class="token variable">@baz@</span>'</span>
+
+----------------------------------------------------

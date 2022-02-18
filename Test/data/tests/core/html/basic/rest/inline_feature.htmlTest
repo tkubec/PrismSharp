@@ -1,0 +1,19 @@
+Foo *emphasis*.
+**Strong** bar.
+This is `interpreted text`.
+:role:`interpreted text`
+`interpreted text`:role:
+``inline literals``
+This is a regexp: ``[+-]?(\d+(\.\d*)?|\.\d+)``
+Usage of |substitution|.
+----------------------------------------------------
+Foo <span class="token inline"><span class="token punctuation">*</span><span class="token italic">emphasis</span><span class="token punctuation">*</span></span>.
+<span class="token inline"><span class="token punctuation">**</span><span class="token bold">Strong</span><span class="token punctuation">**</span></span> bar.
+This is <span class="token inline"><span class="token punctuation">`</span><span class="token interpreted-text attr-value">interpreted text</span><span class="token punctuation">`</span></span>.
+<span class="token inline"><span class="token role function"><span class="token punctuation">:</span>role<span class="token punctuation">:</span></span><span class="token punctuation">`</span><span class="token interpreted-text attr-value">interpreted text</span><span class="token punctuation">`</span></span>
+<span class="token inline"><span class="token punctuation">`</span><span class="token interpreted-text attr-value">interpreted text</span><span class="token punctuation">`</span><span class="token role function"><span class="token punctuation">:</span>role<span class="token punctuation">:</span></span></span>
+<span class="token inline"><span class="token punctuation">``</span><span class="token inline-literal symbol">inline literals</span><span class="token punctuation">``</span></span>
+This is a regexp: <span class="token inline"><span class="token punctuation">``</span><span class="token inline-literal symbol">[+-]?(\d+(\.\d*)?|\.\d+)</span><span class="token punctuation">``</span></span>
+Usage of <span class="token inline"><span class="token punctuation">|</span><span class="token substitution attr-value">substitution</span><span class="token punctuation">|</span></span>.
+
+----------------------------------------------------

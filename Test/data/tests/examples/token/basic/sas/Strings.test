@@ -1,0 +1,20 @@
+'Single quoted string';
+"Double quoted string";
+'String ''quoted'' string "containing" quote';
+"Double ""quoted"" string 'containing' quote";
+----------------------------------------------------
+[
+	["string", "'Single quoted string'"],
+	["punctuation", ";"],
+
+	["string", "\"Double quoted string\""],
+	["punctuation", ";"],
+
+	["string", "'String ''quoted'' string \"containing\" quote'"],
+	["punctuation", ";"],
+
+	["string", "\"Double \"\"quoted\"\" string 'containing' quote\""],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

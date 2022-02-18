@@ -1,0 +1,13 @@
+<a n:href="Post:show $post->id">link</a>
+<a n:href = "Post:show $post->id">link</a>
+<div n:if=$items>
+<div n:tag-if='$a > $b'>
+<script n:nonce>
+----------------------------------------------------
+<span class="token php language-php"><span class="token operator">&lt;</span>a n<span class="token punctuation">:</span>href<span class="token operator">=</span><span class="token string double-quoted-string">"Post:show <span class="token interpolation"><span class="token variable">$post</span><span class="token operator">-></span><span class="token property">id</span></span>"</span><span class="token operator">></span>link<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+<span class="token operator">&lt;</span>a n<span class="token punctuation">:</span>href <span class="token operator">=</span> <span class="token string double-quoted-string">"Post:show <span class="token interpolation"><span class="token variable">$post</span><span class="token operator">-></span><span class="token property">id</span></span>"</span><span class="token operator">></span>link<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+<span class="token operator">&lt;</span>div n<span class="token punctuation">:</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token variable">$items</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>div n<span class="token punctuation">:</span>tag<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string single-quoted-string">'$a > $b'</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>script n<span class="token punctuation">:</span>nonce<span class="token operator">></span></span>
+
+----------------------------------------------------

@@ -1,0 +1,15 @@
+---
+A null: null
+A null: ~
+Also a null: # Empty
+Not a null: ""
+Booleans: [ true, True, false, FALSE ]
+----------------------------------------------------
+<span class="token punctuation">---</span>
+<span class="token key atrule">A null</span><span class="token punctuation">:</span> <span class="token null important">null</span>
+<span class="token key atrule">A null</span><span class="token punctuation">:</span> <span class="token null important">~</span>
+<span class="token key atrule">Also a null</span><span class="token punctuation">:</span> <span class="token comment"># Empty</span>
+<span class="token key atrule">Not a null</span><span class="token punctuation">:</span> <span class="token string">""</span>
+<span class="token key atrule">Booleans</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token boolean important">true</span><span class="token punctuation">,</span> <span class="token boolean important">True</span><span class="token punctuation">,</span> <span class="token boolean important">false</span><span class="token punctuation">,</span> <span class="token boolean important">FALSE</span> <span class="token punctuation">]</span>
+
+----------------------------------------------------

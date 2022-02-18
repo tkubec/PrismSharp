@@ -1,0 +1,11 @@
+@use "foo" as bar;
+@use "foo" with ($color: blue);
+@forward "foo" show bar;
+@forward "foo" hide baz;
+----------------------------------------------------
+<span class="token keyword">@use</span> <span class="token string">"foo"</span> <span class="token module-modifier keyword">as</span> bar<span class="token punctuation">;</span>
+<span class="token keyword">@use</span> <span class="token string">"foo"</span> <span class="token module-modifier keyword">with</span> <span class="token punctuation">(</span><span class="token property"><span class="token variable">$color</span></span><span class="token punctuation">:</span> blue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">@forward</span> <span class="token string">"foo"</span> <span class="token module-modifier keyword">show</span> bar<span class="token punctuation">;</span>
+<span class="token keyword">@forward</span> <span class="token string">"foo"</span> <span class="token module-modifier keyword">hide</span> baz<span class="token punctuation">;</span>
+
+----------------------------------------------------

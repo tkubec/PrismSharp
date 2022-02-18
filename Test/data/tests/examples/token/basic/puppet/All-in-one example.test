@@ -1,0 +1,673 @@
+file {'ntp.conf':
+  path    => '/etc/ntp.conf',
+  ensure  => file,
+  content => template('ntp/ntp.conf'),
+  owner   => 'root',
+  mode    => '0644',
+}
+package {'ntp':
+  ensure => installed,
+  before => File['ntp.conf'],
+}
+service {'ntpd':
+  ensure    => running,
+  subscribe => File['ntp.conf'],
+}
+Package['ntp'] -> File['ntp.conf'] ~> Service['ntpd']
+
+$package_list = ['ntp', 'apache2', 'vim-nox', 'wget']
+$myhash = { key => { subkey => 'b' }}
+
+include ntp
+require ntp
+class {'ntp':}
+
+define apache::vhost ($port, $docroot, $servername = $title, $vhost_name = '*') {
+  include apache
+  include apache::params
+  $vhost_dir = $apache::params::vhost_dir
+  file { "${vhost_dir}/${servername}.conf":
+      content => template('apache/vhost-default.conf.erb'),
+      owner   => 'www',
+      group   => 'www',
+      mode    => '644',
+      require => Package['httpd'],
+      notify  => Service['httpd'],
+  }
+}
+
+apache::vhost {'homepages':
+  port    => 8081,
+  docroot => '/var/www-testhost',
+}
+Apache::Vhost['homepages']
+
+node 'www1.example.com' {
+  include common
+  include apache
+  include squid
+}
+node /^www\d+$/ {
+  include common
+}
+
+# comment
+/* comment */
+
+if $is_virtual {
+  warning( 'Tried to include class ntp on virtual machine; this node may be misclassified.' )
+}
+elsif $operatingsystem == 'Darwin' {
+  warning( 'This NTP module does not yet work on our Mac laptops.' )
+else {
+  include ntp
+}
+
+if $hostname =~ /^www(\d+)\./ {
+  notify { "Welcome web server $1": }
+}
+
+case $operatingsystem {
+  'Solaris':          { include role::solaris }
+  'RedHat', 'CentOS': { include role::redhat  }
+  /^(Debian|Ubuntu)$/:{ include role::debian  }
+  default:            { include role::generic }
+}
+$rootgroup = $osfamily ? {
+    'Solaris'          => 'wheel',
+    /(Darwin|FreeBSD)/ => 'wheel',
+    default            => 'root',
+}
+
+User <| groups == 'admin' |>
+Concat::Fragment <<| tag == "bacula-storage-dir-${bacula_director}" |>>
+
+Exec <| title == 'update_migrations' |> {
+  environment => 'RUBYLIB=/usr/lib/ruby/site_ruby/1.8/',
+}
+
+@user {'deploy':
+  uid     => 2004,
+  comment => 'Deployment User',
+  group   => www-data,
+  groups  => ["enterprise"],
+  tag     => [deploy, web],
+}
+
+@@nagios_service { "check_zfs${hostname}":
+  use                 => 'generic-service',
+  host_name           => "$fqdn",
+  check_command       => 'check_nrpe_1arg!check_zfs',
+  service_description => "check_zfs${hostname}",
+  target              => '/etc/nagios3/conf.d/nagios_service.cfg',
+  notify              => Service[$nagios::params::nagios_service],
+}
+----------------------------------------------------
+[
+	"file ",
+	["punctuation", "{"],
+	["string", ["'ntp.conf'"]],
+	["punctuation", ":"],
+
+	["attr-name", "path"],
+	["operator", "=>"],
+	["string", ["'/etc/ntp.conf'"]],
+	["punctuation", ","],
+
+	["attr-name", "ensure"],
+	["operator", "=>"],
+	" file",
+	["punctuation", ","],
+
+	["attr-name", "content"],
+	["operator", "=>"],
+	["function", "template"],
+	["punctuation", "("],
+	["string", ["'ntp/ntp.conf'"]],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["attr-name", "owner"],
+	["operator", "=>"],
+	["string", ["'root'"]],
+	["punctuation", ","],
+
+	["attr-name", "mode"],
+	["operator", "=>"],
+	["string", ["'0644'"]],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	"\npackage ",
+	["punctuation", "{"],
+	["string", ["'ntp'"]],
+	["punctuation", ":"],
+
+	["attr-name", "ensure"],
+	["operator", "=>"],
+	" installed",
+	["punctuation", ","],
+
+	["attr-name", "before"],
+	["operator", "=>"],
+	" File",
+	["punctuation", "["],
+	["string", ["'ntp.conf'"]],
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	"\nservice ",
+	["punctuation", "{"],
+	["string", ["'ntpd'"]],
+	["punctuation", ":"],
+
+	["attr-name", "ensure"],
+	["operator", "=>"],
+	" running",
+	["punctuation", ","],
+
+	["attr-name", "subscribe"],
+	["operator", "=>"],
+	" File",
+	["punctuation", "["],
+	["string", ["'ntp.conf'"]],
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	"\nPackage",
+	["punctuation", "["],
+	["string", ["'ntp'"]],
+	["punctuation", "]"],
+	["operator", "->"],
+	" File",
+	["punctuation", "["],
+	["string", ["'ntp.conf'"]],
+	["punctuation", "]"],
+	["operator", "~>"],
+	" Service",
+	["punctuation", "["],
+	["string", ["'ntpd'"]],
+	["punctuation", "]"],
+
+	["variable", ["$package_list"]],
+	["operator", "="],
+	["punctuation", "["],
+	["string", ["'ntp'"]],
+	["punctuation", ","],
+	["string", ["'apache2'"]],
+	["punctuation", ","],
+	["string", ["'vim-nox'"]],
+	["punctuation", ","],
+	["string", ["'wget'"]],
+	["punctuation", "]"],
+
+	["variable", ["$myhash"]],
+	["operator", "="],
+	["punctuation", "{"],
+	["attr-name", "key"],
+	["operator", "=>"],
+	["punctuation", "{"],
+	["attr-name", "subkey"],
+	["operator", "=>"],
+	["string", ["'b'"]],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["function", "include"],
+	" ntp\n",
+
+	["function", "require"],
+	" ntp\n",
+
+	["keyword", "class"],
+	["punctuation", "{"],
+	["string", ["'ntp'"]],
+	["punctuation", ":"],
+	["punctuation", "}"],
+
+	["keyword", "define"],
+	" apache",
+	["punctuation", "::"],
+	"vhost ",
+	["punctuation", "("],
+	["variable", ["$port"]],
+	["punctuation", ","],
+	["variable", ["$docroot"]],
+	["punctuation", ","],
+	["variable", ["$servername"]],
+	["operator", "="],
+	["variable", ["$title"]],
+	["punctuation", ","],
+	["variable", ["$vhost_name"]],
+	["operator", "="],
+	["string", ["'*'"]],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "include"],
+	" apache\n  ",
+
+	["function", "include"],
+	" apache",
+	["punctuation", "::"],
+	"params\n  ",
+
+	["variable", ["$vhost_dir"]],
+	["operator", "="],
+	["variable", [
+		"$apache",
+		["punctuation", "::"],
+		"params",
+		["punctuation", "::"],
+		"vhost_dir"
+	]],
+
+	"\n  file ",
+	["punctuation", "{"],
+	["string", [
+		["double-quoted", [
+			"\"",
+			["interpolation", [
+				["delimiter", "$"],
+				["punctuation", "{"],
+				["short-variable", ["vhost_dir"]],
+				["punctuation", "}"]
+			]],
+			"/",
+			["interpolation", [
+				["delimiter", "$"],
+				["punctuation", "{"],
+				["short-variable", ["servername"]],
+				["punctuation", "}"]
+			]],
+			".conf\""
+		]]
+	]],
+	["punctuation", ":"],
+
+	["attr-name", "content"],
+	["operator", "=>"],
+	["function", "template"],
+	["punctuation", "("],
+	["string", ["'apache/vhost-default.conf.erb'"]],
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	["attr-name", "owner"],
+	["operator", "=>"],
+	["string", ["'www'"]],
+	["punctuation", ","],
+
+	["attr-name", "group"],
+	["operator", "=>"],
+	["string", ["'www'"]],
+	["punctuation", ","],
+
+	["attr-name", "mode"],
+	["operator", "=>"],
+	["string", ["'644'"]],
+	["punctuation", ","],
+
+	["attr-name", "require"],
+	["operator", "=>"],
+	" Package",
+	["punctuation", "["],
+	["string", ["'httpd'"]],
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["attr-name", "notify"],
+	["operator", "=>"],
+	" Service",
+	["punctuation", "["],
+	["string", ["'httpd'"]],
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	"\n\napache",
+	["punctuation", "::"],
+	"vhost ",
+	["punctuation", "{"],
+	["string", ["'homepages'"]],
+	["punctuation", ":"],
+
+	["attr-name", "port"],
+	["operator", "=>"],
+	["number", "8081"],
+	["punctuation", ","],
+
+	["attr-name", "docroot"],
+	["operator", "=>"],
+	["string", ["'/var/www-testhost'"]],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	"\nApache",
+	["punctuation", "::"],
+	"Vhost",
+	["punctuation", "["],
+	["string", ["'homepages'"]],
+	["punctuation", "]"],
+
+	["keyword", "node"],
+	["string", ["'www1.example.com'"]],
+	["punctuation", "{"],
+
+	["function", "include"],
+	" common\n  ",
+
+	["function", "include"],
+	" apache\n  ",
+
+	["function", "include"],
+	" squid\n",
+
+	["punctuation", "}"],
+
+	["keyword", "node"],
+	["regex", ["/^www\\d+$/"]],
+	["punctuation", "{"],
+
+	["function", "include"],
+	" common\n",
+
+	["punctuation", "}"],
+
+	["comment", "# comment"],
+	["multiline-comment", "/* comment */"],
+
+	["keyword", "if"],
+	["variable", ["$is_virtual"]],
+	["punctuation", "{"],
+
+	["function", "warning"],
+	["punctuation", "("],
+	["string", ["'Tried to include class ntp on virtual machine; this node may be misclassified.'"]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "elsif"],
+	["variable", ["$operatingsystem"]],
+	["operator", "=="],
+	["string", ["'Darwin'"]],
+	["punctuation", "{"],
+
+	["function", "warning"],
+	["punctuation", "("],
+	["string", ["'This NTP module does not yet work on our Mac laptops.'"]],
+	["punctuation", ")"],
+
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["function", "include"],
+	" ntp\n",
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["variable", ["$hostname"]],
+	["operator", "=~"],
+	["regex", ["/^www(\\d+)\\./"]],
+	["punctuation", "{"],
+
+	"\n  notify ",
+	["punctuation", "{"],
+	["string", [
+		["double-quoted", [
+			"\"Welcome web server ",
+			["interpolation", ["$1"]],
+			"\""
+		]]
+	]],
+	["punctuation", ":"],
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "case"],
+	["variable", ["$operatingsystem"]],
+	["punctuation", "{"],
+
+	["string", ["'Solaris'"]],
+	["punctuation", ":"],
+	["punctuation", "{"],
+	["function", "include"],
+	" role",
+	["punctuation", "::"],
+	"solaris ",
+	["punctuation", "}"],
+
+	["string", ["'RedHat'"]],
+	["punctuation", ","],
+	["string", ["'CentOS'"]],
+	["punctuation", ":"],
+	["punctuation", "{"],
+	["function", "include"],
+	" role",
+	["punctuation", "::"],
+	"redhat  ",
+	["punctuation", "}"],
+
+	["operator", "/"],
+	"^",
+	["punctuation", "("],
+	"Debian",
+	["operator", "|"],
+	"Ubuntu",
+	["punctuation", ")"],
+	"$",
+	["operator", "/"],
+	["punctuation", ":"],
+	["punctuation", "{"],
+	["function", "include"],
+	" role",
+	["punctuation", "::"],
+	"debian  ",
+	["punctuation", "}"],
+
+	["keyword", "default"],
+	["punctuation", ":"],
+	["punctuation", "{"],
+	["function", "include"],
+	" role",
+	["punctuation", "::"],
+	"generic ",
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["variable", ["$rootgroup"]],
+	["operator", "="],
+	["variable", ["$osfamily"]],
+	["operator", "?"],
+	["punctuation", "{"],
+
+	["string", ["'Solaris'"]],
+	["operator", "=>"],
+	["string", ["'wheel'"]],
+	["punctuation", ","],
+
+	["regex", ["/(Darwin|FreeBSD)/"]],
+	["operator", "=>"],
+	["string", ["'wheel'"]],
+	["punctuation", ","],
+
+	["attr-name", "default"],
+	["operator", "=>"],
+	["string", ["'root'"]],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	"\n\nUser ",
+	["operator", "<|"],
+	" groups ",
+	["operator", "=="],
+	["string", ["'admin'"]],
+	["operator", "|>"],
+
+	"\nConcat",
+	["punctuation", "::"],
+	"Fragment ",
+	["operator", "<<|"],
+	["function", "tag"],
+	["operator", "=="],
+	["string", [
+		["double-quoted", [
+			"\"bacula-storage-dir-",
+			["interpolation", [
+				["delimiter", "$"],
+				["punctuation", "{"],
+				["short-variable", ["bacula_director"]],
+				["punctuation", "}"]
+			]],
+			"\""
+		]]
+	]],
+	["operator", "|>>"],
+
+	"\n\nExec ",
+	["operator", "<|"],
+	" title ",
+	["operator", "=="],
+	["string", ["'update_migrations'"]],
+	["operator", "|>"],
+	["punctuation", "{"],
+
+	["attr-name", "environment"],
+	["operator", "=>"],
+	["string", ["'RUBYLIB=/usr/lib/ruby/site_ruby/1.8/'"]],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	"\n\n@user ",
+	["punctuation", "{"],
+	["string", ["'deploy'"]],
+	["punctuation", ":"],
+
+	["attr-name", "uid"],
+	["operator", "=>"],
+	["number", "2004"],
+	["punctuation", ","],
+
+	["attr-name", "comment"],
+	["operator", "=>"],
+	["string", ["'Deployment User'"]],
+	["punctuation", ","],
+
+	["attr-name", "group"],
+	["operator", "=>"],
+	" www",
+	["operator", "-"],
+	"data",
+	["punctuation", ","],
+
+	["attr-name", "groups"],
+	["operator", "=>"],
+	["punctuation", "["],
+	["string", [
+		["double-quoted", ["\"enterprise\""]]
+	]],
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["attr-name", "tag"],
+	["operator", "=>"],
+	["punctuation", "["],
+	"deploy",
+	["punctuation", ","],
+	" web",
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+
+	"\n\n@@nagios_service ",
+	["punctuation", "{"],
+	["string", [
+		["double-quoted", [
+			"\"check_zfs",
+			["interpolation", [
+				["delimiter", "$"],
+				["punctuation", "{"],
+				["short-variable", ["hostname"]],
+				["punctuation", "}"]
+			]],
+			"\""
+		]]
+	]],
+	["punctuation", ":"],
+
+	["attr-name", "use"],
+	["operator", "=>"],
+	["string", ["'generic-service'"]],
+	["punctuation", ","],
+
+	["attr-name", "host_name"],
+	["operator", "=>"],
+	["string", [
+		["double-quoted", [
+			"\"",
+			["interpolation", ["$fqdn"]],
+			"\""
+		]]
+	]],
+	["punctuation", ","],
+
+	["attr-name", "check_command"],
+	["operator", "=>"],
+	["string", ["'check_nrpe_1arg!check_zfs'"]],
+	["punctuation", ","],
+
+	["attr-name", "service_description"],
+	["operator", "=>"],
+	["string", [
+		["double-quoted", [
+			"\"check_zfs",
+			["interpolation", [
+				["delimiter", "$"],
+				["punctuation", "{"],
+				["short-variable", ["hostname"]],
+				["punctuation", "}"]
+			]],
+			"\""
+		]]
+	]],
+	["punctuation", ","],
+
+	["attr-name", "target"],
+	["operator", "=>"],
+	["string", ["'/etc/nagios3/conf.d/nagios_service.cfg'"]],
+	["punctuation", ","],
+
+	["attr-name", "notify"],
+	["operator", "=>"],
+	" Service",
+	["punctuation", "["],
+	["variable", [
+		"$nagios",
+		["punctuation", "::"],
+		"params",
+		["punctuation", "::"],
+		"nagios_service"
+	]],
+	["punctuation", "]"],
+	["punctuation", ","],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

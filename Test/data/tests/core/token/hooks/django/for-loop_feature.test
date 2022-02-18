@@ -1,0 +1,109 @@
+{% for value in values recursive %}
+    {% if loop.previtem is defined and value > loop.previtem %}
+        The value just increased!
+    {% endif %}
+    {{ value }}
+    {% if loop.nextitem is defined and loop.nextitem > value %}
+        The value will increase even more!
+    {% endif %}
+{% endfor %}
+
+{% for user in users if not user.hidden %}
+----------------------------------------------------
+[
+	["delimiter", "{%"],
+	["tag", "for"],
+	["variable", "value"],
+	["keyword", "in"],
+	["variable", "values"],
+	["keyword", "recursive"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	["keyword", "loop"],
+	["punctuation", "."],
+	["variable", "previtem"],
+	["keyword", "is"],
+	["test", "defined"],
+	["keyword", "and"],
+	["variable", "value"],
+	["operator", ">"],
+	["keyword", "loop"],
+	["punctuation", "."],
+	["variable", "previtem"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["variable", "The"],
+	["variable", "value"],
+	["variable", "just"],
+	["variable", "increased"],
+	"!\n    ",
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "endif"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "value"],
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "if"],
+	["keyword", "loop"],
+	["punctuation", "."],
+	["variable", "nextitem"],
+	["keyword", "is"],
+	["test", "defined"],
+	["keyword", "and"],
+	["keyword", "loop"],
+	["punctuation", "."],
+	["variable", "nextitem"],
+	["operator", ">"],
+	["variable", "value"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["variable", "The"],
+	["variable", "value"],
+	["variable", "will"],
+	["variable", "increase"],
+	["variable", "even"],
+	["variable", "more"],
+	"!\n    ",
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "endif"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["variable", "endfor"],
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	["keyword", "for"],
+	["variable", "user"],
+	["keyword", "in"],
+	["variable", "users"],
+	["keyword", "if"],
+	["keyword", "not"],
+	["variable", "user"],
+	["punctuation", "."],
+	["variable", "hidden"],
+	["delimiter", "%}"]
+]
+
+----------------------------------------------------

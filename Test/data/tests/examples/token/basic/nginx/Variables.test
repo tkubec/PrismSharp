@@ -1,0 +1,12 @@
+fastcgi_param SERVER_NAME $server_name;
+----------------------------------------------------
+[
+	["directive", [
+		["keyword", "fastcgi_param"],
+		" SERVER_NAME ",
+		["variable", "$server_name"]
+	]],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

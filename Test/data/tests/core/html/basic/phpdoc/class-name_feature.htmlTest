@@ -1,0 +1,55 @@
+/**
+ * @param string|null $parameter a parameter
+ * @return self
+ * @var MyClass[int]
+ * @throws \foo\MyException if something bad happens
+ */
+
+/**
+ * @param callback $parameter
+ * @param resource $parameter
+ * @param boolean $parameter
+ * @param integer $parameter
+ * @param double $parameter
+ * @param object $parameter
+ * @param string $parameter
+ * @param array $parameter
+ * @param false $parameter
+ * @param float $parameter
+ * @param mixed $parameter
+ * @param bool $parameter
+ * @param null $parameter
+ * @param self $parameter
+ * @param true $parameter
+ * @param void $parameter
+ * @param int $parameter
+ */
+----------------------------------------------------
+/**
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">string</span><span class="token punctuation">|</span><span class="token keyword">null</span></span> <span class="token parameter">$parameter</span> a parameter
+ * <span class="token keyword">@return</span> <span class="token class-name"><span class="token keyword">self</span></span>
+ * <span class="token keyword">@var</span> <span class="token class-name">MyClass<span class="token punctuation">[</span><span class="token keyword">int</span><span class="token punctuation">]</span></span>
+ * <span class="token keyword">@throws</span> <span class="token class-name"><span class="token punctuation">\</span>foo<span class="token punctuation">\</span>MyException</span> if something bad happens
+ */
+
+/**
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">callback</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">resource</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">boolean</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">integer</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">double</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">object</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">string</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">array</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">false</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">float</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">mixed</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">bool</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">null</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">self</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">true</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">void</span></span> <span class="token parameter">$parameter</span>
+ * <span class="token keyword">@param</span> <span class="token class-name"><span class="token keyword">int</span></span> <span class="token parameter">$parameter</span>
+ */
+
+----------------------------------------------------

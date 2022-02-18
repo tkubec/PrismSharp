@@ -1,0 +1,9 @@
+PREFIX  dc:  &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX  ns:  &lt;http://example.org/ns#&gt;
+SELECT  ?title ?price
+WHERE   { ?x ns:price ?price .
+					FILTER (?price &lt; 30) .
+					?x dc:title ?title . }
+
+--------------------------------------------------
+

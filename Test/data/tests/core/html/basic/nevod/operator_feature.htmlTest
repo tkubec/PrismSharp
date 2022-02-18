@@ -1,0 +1,19 @@
+( , ) ;
++ _
+.. ...
+[ 0-5 ]
+&
+~
+?
+{}
+----------------------------------------------------
+<span class="token punctuation">(</span> <span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token operator sequence">+</span> <span class="token operator sequence">_</span>
+<span class="token operator span">..</span> <span class="token operator span">...</span>
+<span class="token operator repetition">[</span> <span class="token quantifier number">0-5</span> <span class="token operator repetition">]</span>
+<span class="token operator conjunction">&amp;</span>
+<span class="token operator exception">~</span>
+<span class="token operator optionality">?</span>
+<span class="token operator variation">{</span><span class="token operator variation">}</span>
+
+----------------------------------------------------

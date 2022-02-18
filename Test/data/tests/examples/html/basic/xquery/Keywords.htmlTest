@@ -1,0 +1,11 @@
+xquery version "1.0";
+declare default element namespace "http://datypic.com/cat";
+declare boundary-space preserve;
+declare default collation "http://datypic.com/collation/custom";
+----------------------------------------------------
+<span class="token keyword">xquery</span> <span class="token keyword">version</span> <span class="token string">"1.0"</span><span class="token punctuation">;</span>
+<span class="token keyword">declare</span> <span class="token keyword">default</span> <span class="token builtin">element</span> <span class="token keyword">namespace</span> <span class="token string">"http://datypic.com/cat"</span><span class="token punctuation">;</span>
+<span class="token keyword">declare</span> <span class="token keyword">boundary-space</span> <span class="token keyword">preserve</span><span class="token punctuation">;</span>
+<span class="token keyword">declare</span> <span class="token keyword">default</span> <span class="token keyword">collation</span> <span class="token string">"http://datypic.com/collation/custom"</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

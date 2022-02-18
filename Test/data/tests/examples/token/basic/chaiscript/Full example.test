@@ -1,0 +1,267 @@
+// http://chaiscript.com/examples.html#ChaiScript_Language_Examples
+// Source: https://gist.github.com/lefticus/cf058f2927fef68d58e0#file-chaiscript_overview-chai
+
+// ChaiScript supports the normal kind of control blocks you've come to expect from
+// C++ and JavaScript
+
+
+if (5 > 2) {
+  print("Yup, 5 > 2");
+} else if (2 > 5) {
+  // never gonna happen
+} else {
+  // really not going to happen
+}
+
+var x = true;
+
+while (x)
+{
+  print("x was true")
+  x = false;
+}
+
+for (var i = 1; i < 10; ++i)
+{
+  print(i); // prints 1 through 9
+}
+
+
+// function definition
+
+def myFunc(x) {
+  print(x);
+}
+
+// function definition with function guards
+def myFunc(x) : x > 2 && x < 5 {
+  print(to_string(x) + " is between 2 and 5")
+}
+
+def myFunc(x) : x >= 5 {
+  print(t_string(x) + " is greater than or equal to 5")
+}
+
+myFunc(3)
+
+// ChaiScript also supports in string evaluation, which C++ does not
+
+print("${3 + 5} is 8");
+
+// And dynamic code evaluation
+
+var value = eval("4 + 2 + 12");
+
+// value is equal to 18
+----------------------------------------------------
+[
+	["comment", "// http://chaiscript.com/examples.html#ChaiScript_Language_Examples"],
+	["comment", "// Source: https://gist.github.com/lefticus/cf058f2927fef68d58e0#file-chaiscript_overview-chai"],
+
+	["comment", "// ChaiScript supports the normal kind of control blocks you've come to expect from"],
+	["comment", "// C++ and JavaScript"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["number", "5"],
+	["operator", ">"],
+	["number", "2"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["string-interpolation", [
+		["string", "\"Yup, 5 > 2\""]
+	]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["keyword", "if"],
+	["punctuation", "("],
+	["number", "2"],
+	["operator", ">"],
+	["number", "5"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["comment", "// never gonna happen"],
+
+	["punctuation", "}"],
+	["keyword", "else"],
+	["punctuation", "{"],
+
+	["comment", "// really not going to happen"],
+
+	["punctuation", "}"],
+
+	["keyword", "var"],
+	" x ",
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", ";"],
+
+	["keyword", "while"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["string-interpolation", [
+		["string", "\"x was true\""]
+	]],
+	["punctuation", ")"],
+
+	"\n  x ",
+	["operator", "="],
+	["boolean", "false"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["keyword", "var"],
+	" i ",
+	["operator", "="],
+	["number", "1"],
+	["punctuation", ";"],
+	" i ",
+	["operator", "<"],
+	["number", "10"],
+	["punctuation", ";"],
+	["operator", "++"],
+	"i",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["function", "print"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["comment", "// prints 1 through 9"],
+
+	["punctuation", "}"],
+
+	["comment", "// function definition"],
+
+	["keyword", "def"],
+	["function", "myFunc"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["function", "print"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", "// function definition with function guards"],
+
+	["keyword", "def"],
+	["function", "myFunc"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["operator", ":"],
+	" x ",
+	["operator", ">"],
+	["number", "2"],
+	["operator", "&&"],
+	" x ",
+	["operator", "<"],
+	["number", "5"],
+	["punctuation", "{"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["function", "to_string"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["operator", "+"],
+	["string-interpolation", [
+		["string", "\" is between 2 and 5\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["keyword", "def"],
+	["function", "myFunc"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["operator", ":"],
+	" x ",
+	["operator", ">="],
+	["number", "5"],
+	["punctuation", "{"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["function", "t_string"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["operator", "+"],
+	["string-interpolation", [
+		["string", "\" is greater than or equal to 5\""]
+	]],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["function", "myFunc"],
+	["punctuation", "("],
+	["number", "3"],
+	["punctuation", ")"],
+
+	["comment", "// ChaiScript also supports in string evaluation, which C++ does not"],
+
+	["function", "print"],
+	["punctuation", "("],
+	["string-interpolation", [
+		["string", "\""],
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["interpolation-expression", [
+				["number", "3"],
+				["operator", "+"],
+				["number", "5"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		["string", " is 8\""]
+	]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// And dynamic code evaluation"],
+
+	["keyword", "var"],
+	" value ",
+	["operator", "="],
+	["function", "eval"],
+	["punctuation", "("],
+	["string-interpolation", [
+		["string", "\"4 + 2 + 12\""]
+	]],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// value is equal to 18"]
+]
+
+----------------------------------------------------

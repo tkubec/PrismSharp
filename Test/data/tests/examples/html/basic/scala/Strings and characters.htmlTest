@@ -1,0 +1,11 @@
+'a'
+"foo bar baz"
+"""Multi-line
+string"""
+----------------------------------------------------
+<span class="token char">'a'</span>
+<span class="token string">"foo bar baz"</span>
+<span class="token triple-quoted-string string">"""Multi-line
+string"""</span>
+
+----------------------------------------------------

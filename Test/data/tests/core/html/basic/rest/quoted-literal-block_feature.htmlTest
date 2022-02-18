@@ -1,0 +1,261 @@
+::
+! Foo
+!! Bar
+! Baz
+
+Foobar ::
+" Foo
+" Bar
+"" Baz
+
+::
+# Foo
+# Bar
+
+::
+$ Foo
+$ Bar
+
+::
+% Foo
+% Bar
+
+::
+& Foo
+& Bar
+
+::
+' Foo
+' Bar
+
+::
+( Foo
+( Bar
+
+::
+) Foo
+) Bar
+
+::
+* Foo
+* Bar
+
+::
++ Foo
++ Bar
+
+::
+, Foo
+, Bar
+
+::
+- Foo
+- Bar
+
+::
+. Foo
+. Bar
+
+::
+/ Foo
+/ Bar
+
+::
+: Foo
+: Bar
+
+::
+; Foo
+; Bar
+
+::
+< Foo
+< Bar
+
+::
+= Foo
+= Bar
+
+::
+> Foo
+> Bar
+
+::
+? Foo
+? Bar
+
+::
+@ Foo
+@ Bar
+
+::
+[ Foo
+[ Bar
+
+::
+\ Foo
+\ Bar
+
+::
+] Foo
+] Bar
+
+::
+^ Foo
+^ Bar
+
+::
+_ Foo
+_ Bar
+
+::
+` Foo
+` Bar
+
+::
+{ Foo
+{ Bar
+
+::
+| Foo
+| Bar
+
+::
+} Foo
+} Bar
+
+::
+~ Foo
+~ Bar
+----------------------------------------------------
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">!</span> Foo
+<span class="token literal-block-punctuation punctuation">!!</span> Bar
+<span class="token literal-block-punctuation punctuation">!</span> Baz</span>
+
+Foobar <span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">"</span> Foo
+<span class="token literal-block-punctuation punctuation">"</span> Bar
+<span class="token literal-block-punctuation punctuation">""</span> Baz</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">#</span> Foo
+<span class="token literal-block-punctuation punctuation">#</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">$</span> Foo
+<span class="token literal-block-punctuation punctuation">$</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">%</span> Foo
+<span class="token literal-block-punctuation punctuation">%</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">&amp;</span> Foo
+<span class="token literal-block-punctuation punctuation">&amp;</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">'</span> Foo
+<span class="token literal-block-punctuation punctuation">'</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">(</span> Foo
+<span class="token literal-block-punctuation punctuation">(</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">)</span> Foo
+<span class="token literal-block-punctuation punctuation">)</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">*</span> Foo
+<span class="token literal-block-punctuation punctuation">*</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">+</span> Foo
+<span class="token literal-block-punctuation punctuation">+</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">,</span> Foo
+<span class="token literal-block-punctuation punctuation">,</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">-</span> Foo
+<span class="token literal-block-punctuation punctuation">-</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">.</span> Foo
+<span class="token literal-block-punctuation punctuation">.</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">/</span> Foo
+<span class="token literal-block-punctuation punctuation">/</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">:</span> Foo
+<span class="token literal-block-punctuation punctuation">:</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">;</span> Foo
+<span class="token literal-block-punctuation punctuation">;</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">&lt;</span> Foo
+<span class="token literal-block-punctuation punctuation">&lt;</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">=</span> Foo
+<span class="token literal-block-punctuation punctuation">=</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">></span> Foo
+<span class="token literal-block-punctuation punctuation">></span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">?</span> Foo
+<span class="token literal-block-punctuation punctuation">?</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">@</span> Foo
+<span class="token literal-block-punctuation punctuation">@</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">[</span> Foo
+<span class="token literal-block-punctuation punctuation">[</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">\</span> Foo
+<span class="token literal-block-punctuation punctuation">\</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">]</span> Foo
+<span class="token literal-block-punctuation punctuation">]</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">^</span> Foo
+<span class="token literal-block-punctuation punctuation">^</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">_</span> Foo
+<span class="token literal-block-punctuation punctuation">_</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">`</span> Foo
+<span class="token literal-block-punctuation punctuation">`</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">{</span> Foo
+<span class="token literal-block-punctuation punctuation">{</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">|</span> Foo
+<span class="token literal-block-punctuation punctuation">|</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">}</span> Foo
+<span class="token literal-block-punctuation punctuation">}</span> Bar</span>
+
+<span class="token quoted-literal-block"><span class="token literal-block-punctuation punctuation">::</span>
+<span class="token literal-block-punctuation punctuation">~</span> Foo
+<span class="token literal-block-punctuation punctuation">~</span> Bar</span>
+
+----------------------------------------------------

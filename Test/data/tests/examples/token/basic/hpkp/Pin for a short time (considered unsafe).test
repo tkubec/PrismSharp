@@ -1,0 +1,17 @@
+pin-sha256="EpOpN/ahUF6jhWShDUdy+NvvtaGcu5F7qM6+x2mfkh4=";
+max-age=123
+----------------------------------------------------
+[
+	["directive", "pin-sha256"],
+	["operator", "="],
+	"\"EpOpN/ahUF6jhWShDUdy+NvvtaGcu5F7qM6+x2mfkh4",
+	["operator", "="],
+	"\"",
+	["punctuation", ";"],
+
+	["directive", "max-age"],
+	["operator", "="],
+	"123"
+]
+
+----------------------------------------------------

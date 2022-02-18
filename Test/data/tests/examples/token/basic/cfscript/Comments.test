@@ -1,0 +1,24 @@
+// This is a comment
+
+/* This is a comment
+on multiple lines */
+
+/**
+* This is a Javadoc style comment
+*
+* @hint This is an annotation
+*/
+----------------------------------------------------
+[
+	["comment", "// This is a comment"],
+
+	["comment", ["/* This is a comment\non multiple lines */"]],
+
+	["comment", [
+		"/**\n* This is a Javadoc style comment\n*\n*",
+		["annotation", " @hint"],
+		" This is an annotation\n*/"
+	]]
+]
+
+----------------------------------------------------

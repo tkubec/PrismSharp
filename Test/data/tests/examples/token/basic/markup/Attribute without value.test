@@ -1,0 +1,38 @@
+<p data-foo></p>
+<p data-foo ></p>
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["attr-name", ["data-foo"]],
+		["punctuation", ">"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["attr-name", ["data-foo"]],
+		["punctuation", ">"]
+	]],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]]
+]
+
+----------------------------------------------------

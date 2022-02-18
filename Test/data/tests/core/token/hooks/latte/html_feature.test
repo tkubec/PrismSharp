@@ -1,0 +1,115 @@
+<a href="{link Post:show $post->id}">{$post->title}</a>
+<a {if $post->id}title="ahoj"{/if}>{$post->title}</a>
+
+{tag $a = true ? 10 * 5}
+<div n:attr="$a = true ? 10 * 5">
+{php '' }
+{php "" }
+{php "ba\"r" }
+{php 'ba\'z' }
+{php /* " */ }
+----------------------------------------------------
+[
+	["php", [
+		["operator", "<"],
+		"a href",
+		["operator", "="],
+		["string", [
+			"\"{link Post:show ",
+			["interpolation", [
+				["variable", "$post"],
+				["operator", "->"],
+				["property", "id"]
+			]],
+			"}\""
+		]],
+		["operator", ">"],
+		["punctuation", "{"],
+		["variable", "$post"],
+		["operator", "->"],
+		["property", "title"],
+		["punctuation", "}"],
+		["operator", "<"],
+		["operator", "/"],
+		"a",
+		["operator", ">"],
+
+		["operator", "<"],
+		"a ",
+		["punctuation", "{"],
+		["keyword", "if"],
+		["variable", "$post"],
+		["operator", "->"],
+		["property", "id"],
+		["punctuation", "}"],
+		"title",
+		["operator", "="],
+		["string", ["\"ahoj\""]],
+		["punctuation", "{"],
+		["operator", "/"],
+		["keyword", "if"],
+		["punctuation", "}"],
+		["operator", ">"],
+		["punctuation", "{"],
+		["variable", "$post"],
+		["operator", "->"],
+		["property", "title"],
+		["punctuation", "}"],
+		["operator", "<"],
+		["operator", "/"],
+		"a",
+		["operator", ">"],
+
+		["punctuation", "{"],
+		["class-name", "tag"],
+		["variable", "$a"],
+		["operator", "="],
+		["constant", "true"],
+		["operator", "?"],
+		["number", "10"],
+		["operator", "*"],
+		["number", "5"],
+		["punctuation", "}"],
+
+		["operator", "<"],
+		"div n",
+		["punctuation", ":"],
+		"attr",
+		["operator", "="],
+		["string", [
+			"\"",
+			["interpolation", [
+				["variable", "$a"]
+			]],
+			" = true ? 10 * 5\""
+		]],
+		["operator", ">"],
+
+		["punctuation", "{"],
+		"php ",
+		["string", "''"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["string", ["\"\""]],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["string", ["\"ba\\\"r\""]],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["string", "'ba\\'z'"],
+		["punctuation", "}"],
+
+		["punctuation", "{"],
+		"php ",
+		["comment", "/* \" */"]
+	]],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

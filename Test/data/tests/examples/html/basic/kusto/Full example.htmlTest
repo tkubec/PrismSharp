@@ -1,0 +1,15 @@
+// Source: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer
+
+StormEvents
+| where StartTime > datetime(2007-02-01) and StartTime < datetime(2007-03-01)
+| where EventType == 'Flood' and State == 'CALIFORNIA'
+| project StartTime, EndTime , State , EventType , EpisodeNarrative
+----------------------------------------------------
+<span class="token comment">// Source: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer</span>
+
+StormEvents
+<span class="token operator">|</span> <span class="token verb keyword">where</span> StartTime <span class="token operator">></span> <span class="token class-name">datetime</span><span class="token punctuation">(</span><span class="token datetime number">2007-02-01</span><span class="token punctuation">)</span> <span class="token keyword">and</span> StartTime <span class="token operator">&lt;</span> <span class="token class-name">datetime</span><span class="token punctuation">(</span><span class="token datetime number">2007-03-01</span><span class="token punctuation">)</span>
+<span class="token operator">|</span> <span class="token verb keyword">where</span> EventType <span class="token operator">==</span> <span class="token string">'Flood'</span> <span class="token keyword">and</span> State <span class="token operator">==</span> <span class="token string">'CALIFORNIA'</span>
+<span class="token operator">|</span> <span class="token verb keyword">project</span> StartTime<span class="token punctuation">,</span> EndTime <span class="token punctuation">,</span> State <span class="token punctuation">,</span> EventType <span class="token punctuation">,</span> EpisodeNarrative
+
+----------------------------------------------------

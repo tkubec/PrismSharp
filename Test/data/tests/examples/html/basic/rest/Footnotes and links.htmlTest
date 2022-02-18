@@ -1,0 +1,91 @@
+.. [1] Body elements go here.
+
+If [#note]_ is the first footnote reference, it will show up as
+"[1]".  We can refer to it again as [#note]_ and again see
+"[1]".  We can also refer to it as note_ (an ordinary internal
+hyperlink reference).
+
+.. [#note] This is the footnote labeled "note".
+
+Here is a symbolic footnote reference: [*]_.
+
+.. [*] This is the footnote.
+
+[2]_ will be "2" (manually numbered),
+[#]_ will be "3" (anonymous auto-numbered), and
+[#label]_ will be "1" (labeled auto-numbered).
+
+.. [2] This footnote is labeled manually, so its number is fixed.
+
+.. [#label] This autonumber-labeled footnote will be labeled "1".
+   It is the first auto-numbered footnote and no other footnote
+   with label "1" exists.  The order of the footnotes is used to
+   determine numbering, not the order of the footnote references.
+
+.. [#] This footnote will be labeled "3".  It is the second
+   auto-numbered footnote, but footnote label "2" is already used.
+
+Here is a citation reference: [CIT2002]_.
+
+.. [CIT2002] This is the citation.  It's just like a footnote,
+   except the label is textual.
+
+.. _hyperlink-name: link-block
+
+.. __: anonymous-hyperlink-target-link-block
+
+__ anonymous-hyperlink-target-link-block
+
+Clicking on this internal hyperlink will take us to the target_
+below.
+
+.. _target:
+
+The hyperlink target above points to this paragraph.
+----------------------------------------------------
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>1<span class="token punctuation">]</span></span> Body elements go here.
+
+If <span class="token link string"><span class="token punctuation">[</span>#note<span class="token punctuation">]_</span></span> is the first footnote reference, it will show up as
+"[1]".  We can refer to it again as <span class="token link string"><span class="token punctuation">[</span>#note<span class="token punctuation">]_</span></span> and again see
+"[1]".  We can also refer to it as <span class="token link string">note<span class="token punctuation">_</span></span> (an ordinary internal
+hyperlink reference).
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>#note<span class="token punctuation">]</span></span> This is the footnote labeled "note".
+
+Here is a symbolic footnote reference: <span class="token link string"><span class="token punctuation">[</span>*<span class="token punctuation">]_</span></span>.
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>*<span class="token punctuation">]</span></span> This is the footnote.
+
+<span class="token link string"><span class="token punctuation">[</span>2<span class="token punctuation">]_</span></span> will be "2" (manually numbered),
+<span class="token link string"><span class="token punctuation">[</span>#<span class="token punctuation">]_</span></span> will be "3" (anonymous auto-numbered), and
+<span class="token link string"><span class="token punctuation">[</span>#label<span class="token punctuation">]_</span></span> will be "1" (labeled auto-numbered).
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>2<span class="token punctuation">]</span></span> This footnote is labeled manually, so its number is fixed.
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>#label<span class="token punctuation">]</span></span> This autonumber-labeled footnote will be labeled "1".
+   It is the first auto-numbered footnote and no other footnote
+   with label "1" exists.  The order of the footnotes is used to
+   determine numbering, not the order of the footnote references.
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>#<span class="token punctuation">]</span></span> This footnote will be labeled "3".  It is the second
+   auto-numbered footnote, but footnote label "2" is already used.
+
+Here is a citation reference: <span class="token link string"><span class="token punctuation">[</span>CIT2002<span class="token punctuation">]_</span></span>.
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">[</span>CIT2002<span class="token punctuation">]</span></span> This is the citation.  It's just like a footnote,
+   except the label is textual.
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">_</span>hyperlink-name<span class="token punctuation">:</span></span> link-block
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">_</span><span class="token punctuation">_</span><span class="token punctuation">:</span></span> anonymous-hyperlink-target-link-block
+
+<span class="token punctuation">__</span> anonymous-hyperlink-target-link-block
+
+Clicking on this internal hyperlink will take us to the <span class="token link string">target<span class="token punctuation">_</span></span>
+below.
+
+<span class="token punctuation">..</span> <span class="token link-target string"><span class="token punctuation">_</span>target<span class="token punctuation">:</span></span>
+
+The hyperlink target above points to this paragraph.
+
+----------------------------------------------------

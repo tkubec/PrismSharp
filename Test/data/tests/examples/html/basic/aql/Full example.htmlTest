@@ -1,0 +1,35 @@
+FOR u IN users
+    FOR f IN friends
+        FILTER u.active == @active && f.active == true && u.id == f.userId
+        RETURN { "name" : u.name, "friends" : friends }
+
+LET name = "Peter"
+LET age = 42
+RETURN { name, age }
+
+FOR u IN users
+    FILTER u.status == "not active"
+    UPDATE u WITH { status: "inactive" } IN users
+
+FOR i IN 1..100
+    INSERT { value: i } IN test
+    RETURN NEW
+----------------------------------------------------
+<span class="token keyword">FOR</span> u <span class="token keyword">IN</span> users
+    <span class="token keyword">FOR</span> f <span class="token keyword">IN</span> friends
+        <span class="token keyword">FILTER</span> u<span class="token punctuation">.</span>active <span class="token operator">==</span> <span class="token variable">@active</span> <span class="token operator">&amp;&amp;</span> f<span class="token punctuation">.</span>active <span class="token operator">==</span> <span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> u<span class="token punctuation">.</span>id <span class="token operator">==</span> f<span class="token punctuation">.</span>userId
+        <span class="token keyword">RETURN</span> <span class="token punctuation">{</span> <span class="token property">"name"</span> <span class="token punctuation">:</span> u<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token property">"friends"</span> <span class="token punctuation">:</span> friends <span class="token punctuation">}</span>
+
+<span class="token keyword">LET</span> name <span class="token operator">=</span> <span class="token string">"Peter"</span>
+<span class="token keyword">LET</span> age <span class="token operator">=</span> <span class="token number">42</span>
+<span class="token keyword">RETURN</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> age <span class="token punctuation">}</span>
+
+<span class="token keyword">FOR</span> u <span class="token keyword">IN</span> users
+    <span class="token keyword">FILTER</span> u<span class="token punctuation">.</span>status <span class="token operator">==</span> <span class="token string">"not active"</span>
+    <span class="token keyword">UPDATE</span> u <span class="token keyword">WITH</span> <span class="token punctuation">{</span> <span class="token property">status</span><span class="token punctuation">:</span> <span class="token string">"inactive"</span> <span class="token punctuation">}</span> <span class="token keyword">IN</span> users
+
+<span class="token keyword">FOR</span> i <span class="token keyword">IN</span> <span class="token number">1</span><span class="token range operator">..</span><span class="token number">100</span>
+    <span class="token keyword">INSERT</span> <span class="token punctuation">{</span> <span class="token property">value</span><span class="token punctuation">:</span> i <span class="token punctuation">}</span> <span class="token keyword">IN</span> test
+    <span class="token keyword">RETURN</span> <span class="token keyword">NEW</span>
+
+----------------------------------------------------

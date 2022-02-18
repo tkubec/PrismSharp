@@ -1,0 +1,15 @@
+%{
+  #include &lt;stdio.h>
+  #include &lt;math.h>
+  int yylex (void);
+  void yyerror (char const *);
+%}
+
+%define api.value.type {double}
+%token NUM
+%union { char *string; }
+%%
+%%
+
+--------------------------------------------------
+

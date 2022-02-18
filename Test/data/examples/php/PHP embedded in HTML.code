@@ -1,0 +1,7 @@
+<div class="<?php echo $a ? 'foo' : 'bar'; ?>">
+<?php if($var < 42) {
+    echo "Something";
+} else {
+    echo "Something else";
+} ?>
+</div>

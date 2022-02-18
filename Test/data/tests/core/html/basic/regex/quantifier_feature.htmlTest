@@ -1,0 +1,19 @@
+* + ?
+{2} {2,} {0,1}
+
+*? +? ??
+{2}? {2,}? {0,1}?
+
+*+ ++ ?+
+{2}+ {2,}+ {0,1}+
+----------------------------------------------------
+<span class="token quantifier number">*</span> <span class="token quantifier number">+</span> <span class="token quantifier number">?</span>
+<span class="token quantifier number">{2}</span> <span class="token quantifier number">{2,}</span> <span class="token quantifier number">{0,1}</span>
+
+<span class="token quantifier number">*?</span> <span class="token quantifier number">+?</span> <span class="token quantifier number">??</span>
+<span class="token quantifier number">{2}?</span> <span class="token quantifier number">{2,}?</span> <span class="token quantifier number">{0,1}?</span>
+
+<span class="token quantifier number">*+</span> <span class="token quantifier number">++</span> <span class="token quantifier number">?+</span>
+<span class="token quantifier number">{2}+</span> <span class="token quantifier number">{2,}+</span> <span class="token quantifier number">{0,1}+</span>
+
+----------------------------------------------------

@@ -1,0 +1,35 @@
+HTTP/1.1 200 OK
+Server: GitHub.com
+Date: Mon, 22 Dec 2014 18:25:30 GMT
+Content-Type: text/html; charset=utf-8
+Last-Modified: Sun, 21 Dec 2014 20:29:48 GMT
+Transfer-Encoding: chunked
+Expires: Mon, 22 Dec 2014 18:35:30 GMT
+Cache-Control: max-age=600
+Vary: Accept-Encoding
+Content-Encoding: gzip
+
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body></body>
+</html>
+----------------------------------------------------
+<span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">200</span> <span class="token reason-phrase string">OK</span></span>
+<span class="token header"><span class="token header-name keyword">Server</span><span class="token punctuation">:</span> <span class="token header-value">GitHub.com</span></span>
+<span class="token header"><span class="token header-name keyword">Date</span><span class="token punctuation">:</span> <span class="token header-value">Mon, 22 Dec 2014 18:25:30 GMT</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Type</span><span class="token punctuation">:</span> <span class="token header-value">text/html; charset=utf-8</span></span>
+<span class="token header"><span class="token header-name keyword">Last-Modified</span><span class="token punctuation">:</span> <span class="token header-value">Sun, 21 Dec 2014 20:29:48 GMT</span></span>
+<span class="token header"><span class="token header-name keyword">Transfer-Encoding</span><span class="token punctuation">:</span> <span class="token header-value">chunked</span></span>
+<span class="token header"><span class="token header-name keyword">Expires</span><span class="token punctuation">:</span> <span class="token header-value">Mon, 22 Dec 2014 18:35:30 GMT</span></span>
+<span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">max-age=600</span></span>
+<span class="token header"><span class="token header-name keyword">Vary</span><span class="token punctuation">:</span> <span class="token header-value">Accept-Encoding</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Encoding</span><span class="token punctuation">:</span> <span class="token header-value">gzip</span></span>
+
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>&lt;/head>
+&lt;body>&lt;/body>
+&lt;/html>
+
+----------------------------------------------------

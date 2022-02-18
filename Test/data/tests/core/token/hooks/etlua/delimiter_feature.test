@@ -1,0 +1,35 @@
+<% lua_code %>
+<%= lua_expression %>
+<%- lua_expression %>
+<%= 'hello' -%>
+----------------------------------------------------
+[
+	["delimiter", "<%"],
+	["language-lua", [
+		" lua_code ",
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["operator", "="],
+		" lua_expression ",
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["operator", "-"],
+		" lua_expression ",
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["operator", "="],
+		["string", "'hello'"]
+	]],
+	["delimiter", "-%>"]
+]
+
+----------------------------------------------------

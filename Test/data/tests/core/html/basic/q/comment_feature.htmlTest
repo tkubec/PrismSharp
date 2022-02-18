@@ -1,0 +1,29 @@
+#!/usr/bin/env q
+/ Foobar "baz"
+
+/
+Foo
+bar "baz"
+\
+
+`john / an atom of type symbol
+
+\
+Foo
+Bar "baz"
+----------------------------------------------------
+<span class="token comment">#!/usr/bin/env q</span>
+<span class="token comment">/ Foobar "baz"</span>
+
+<span class="token comment">/
+Foo
+bar "baz"
+\</span>
+
+<span class="token symbol">`john</span> <span class="token comment">/ an atom of type symbol</span>
+
+<span class="token comment">\
+Foo
+Bar "baz"</span>
+
+----------------------------------------------------

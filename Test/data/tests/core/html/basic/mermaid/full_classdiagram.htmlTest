@@ -1,0 +1,377 @@
+classDiagram
+      Animal <|-- Duck
+      Animal <|-- Fish
+      Animal <|-- Zebra
+      Animal : +int age
+      Animal : +String gender
+      Animal: +isMammal()
+      Animal: +mate()
+      class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+      }
+      class Fish{
+          -int sizeInFeet
+          -canEat()
+      }
+      class Zebra{
+          +bool is_wild
+          +run()
+      }
+
+classDiagram
+    class BankAccount
+    BankAccount : +String owner
+    BankAccount : +Bigdecimal balance
+    BankAccount : +deposit(amount)
+    BankAccount : +withdrawl(amount)
+
+classDiagram
+    class Animal
+    Vehicle <|-- Car
+
+class BankAccount
+ BankAccount : +String owner
+ BankAccount : +BigDecimal balance
+ BankAccount : +deposit(amount)
+ BankAccount : +withdrawal(amount)
+
+class BankAccount{
+    +String owner
+    +BigDecimal balance
+    +deposit(amount)
+    +withdrawl(amount)
+}
+
+class BankAccount{
+    +String owner
+    +BigDecimal balance
+    +deposit(amount) bool
+    +withdrawl(amount) int
+}
+
+classDiagram
+class Square~Shape~{
+    int id
+    List~int~ position
+    setPoints(List~int~ points)
+    getPoints() List~int~
+}
+
+Square : -List~string~ messages
+Square : +setMessages(List~string~ messages)
+Square : +getMessages() List~string~
+
+classDiagram
+classA <|-- classB
+classC *-- classD
+classE o-- classF
+classG <-- classH
+classI -- classJ
+classK <.. classL
+classM <|.. classN
+classO .. classP
+
+classDiagram
+classA --|> classB : Inheritance
+classC --* classD : Composition
+classE --o classF : Aggregation
+classG --> classH : Association
+classI -- classJ : Link(Solid)
+classK ..> classL : Dependency
+classM ..|> classN : Realization
+classO .. classP : Link(Dashed)
+
+classDiagram
+classA <|-- classB : implements
+classC *-- classD : composition
+classE o-- classF : association
+
+classDiagram
+    Customer "1" --> "*" Ticket
+    Student "1" --> "1..*" Course
+    Galaxy --> "many" Star : Contains
+
+classDiagram
+class Shape
+<<interface>> Shape
+
+classDiagram
+class Shape{
+    <<interface>>
+    noOfVertices
+    draw()
+}
+class Color{
+    <<enumeration>>
+    RED
+    BLUE
+    GREEN
+    WHITE
+    BLACK
+}
+
+classDiagram
+%% This whole line is a comment classDiagram class Shape <<interface>>
+class Shape{
+    <<interface>>
+    noOfVertices
+    draw()
+}
+
+classDiagram
+  direction RL
+  class Student {
+    -idCard : IdCard
+  }
+  class IdCard{
+    -id : int
+    -name : string
+  }
+  class Bike{
+    -id : int
+    -name : string
+  }
+  Student "1" --o "1" IdCard : carries
+  Student "1" --o "1" Bike : rides
+
+action className "reference" "tooltip"
+click className call callback() "tooltip"
+click className href "url" "tooltip"
+
+classDiagram
+class Shape
+link Shape "http://www.github.com" "This is a tooltip for a link"
+class Shape2
+click Shape2 href "http://www.github.com" "This is a tooltip for a link"
+
+classDiagram
+class Shape
+callback Shape "callbackFunction" "This is a tooltip for a callback"
+class Shape2
+click Shape2 call callbackFunction() "This is a tooltip for a callback"
+
+classDiagram
+Animal <|-- Duck
+Animal <|-- Fish
+Animal <|-- Zebra
+Animal : +int age
+Animal : +String gender
+Animal: +isMammal()
+Animal: +mate()
+class Duck{
+  +String beakColor
+  +swim()
+  +quack()
+  }
+class Fish{
+  -int sizeInFeet
+  -canEat()
+  }
+class Zebra{
+  +bool is_wild
+  +run()
+  }
+
+  callback Duck callback "Tooltip"
+  link Zebra "http://www.github.com" "This is a link"
+
+classDiagram
+    class Animal:::cssClass
+
+classDiagram
+    class Animal:::cssClass {
+        -int sizeInFeet
+        -canEat()
+    }
+----------------------------------------------------
+<span class="token keyword">classDiagram</span>
+      Animal <span class="token arrow operator">&lt;|--</span> Duck
+      Animal <span class="token arrow operator">&lt;|--</span> Fish
+      Animal <span class="token arrow operator">&lt;|--</span> Zebra
+      Animal <span class="token operator">:</span> +int age
+      Animal <span class="token operator">:</span> +String gender
+      Animal<span class="token operator">:</span> +isMammal<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      Animal<span class="token operator">:</span> +mate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">class</span> Duck<span class="token punctuation">{</span>
+          +String beakColor
+          +swim<span class="token punctuation">(</span><span class="token punctuation">)</span>
+          +quack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">class</span> Fish<span class="token punctuation">{</span>
+          -int sizeInFeet
+          -canEat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">class</span> Zebra<span class="token punctuation">{</span>
+          +bool is_wild
+          +run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+
+<span class="token keyword">classDiagram</span>
+    <span class="token keyword">class</span> BankAccount
+    BankAccount <span class="token operator">:</span> +String owner
+    BankAccount <span class="token operator">:</span> +Bigdecimal balance
+    BankAccount <span class="token operator">:</span> +deposit<span class="token text string">(amount)</span>
+    BankAccount <span class="token operator">:</span> +withdrawl<span class="token text string">(amount)</span>
+
+<span class="token keyword">classDiagram</span>
+    <span class="token keyword">class</span> Animal
+    Vehicle <span class="token arrow operator">&lt;|--</span> Car
+
+<span class="token keyword">class</span> BankAccount
+ BankAccount <span class="token operator">:</span> +String owner
+ BankAccount <span class="token operator">:</span> +BigDecimal balance
+ BankAccount <span class="token operator">:</span> +deposit<span class="token text string">(amount)</span>
+ BankAccount <span class="token operator">:</span> +withdrawal<span class="token text string">(amount)</span>
+
+<span class="token keyword">class</span> BankAccount<span class="token punctuation">{</span>
+    +String owner
+    +BigDecimal balance
+    +deposit<span class="token text string">(amount)</span>
+    +withdrawl<span class="token text string">(amount)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> BankAccount<span class="token punctuation">{</span>
+    +String owner
+    +BigDecimal balance
+    +deposit<span class="token text string">(amount)</span> bool
+    +withdrawl<span class="token text string">(amount)</span> int
+<span class="token punctuation">}</span>
+
+<span class="token keyword">classDiagram</span>
+<span class="token keyword">class</span> Square~Shape~<span class="token punctuation">{</span>
+    int id
+    List~int~ position
+    setPoints<span class="token text string">(List~int~ points)</span>
+    getPoints<span class="token punctuation">(</span><span class="token punctuation">)</span> List~int~
+<span class="token punctuation">}</span>
+
+Square <span class="token operator">:</span> -List~string~ messages
+Square <span class="token operator">:</span> +setMessages<span class="token text string">(List~string~ messages)</span>
+Square <span class="token operator">:</span> +getMessages<span class="token punctuation">(</span><span class="token punctuation">)</span> List~string~
+
+<span class="token keyword">classDiagram</span>
+classA <span class="token arrow operator">&lt;|--</span> classB
+classC <span class="token arrow operator">*--</span> classD
+classE <span class="token arrow operator">o--</span> classF
+classG <span class="token arrow operator">&lt;--</span> classH
+classI <span class="token arrow operator">--</span> classJ
+classK <span class="token arrow operator">&lt;..</span> classL
+classM <span class="token arrow operator">&lt;|..</span> classN
+classO <span class="token arrow operator">..</span> classP
+
+<span class="token keyword">classDiagram</span>
+classA <span class="token arrow operator">--|></span> classB <span class="token operator">:</span> Inheritance
+classC <span class="token arrow operator">--*</span> classD <span class="token operator">:</span> Composition
+classE <span class="token arrow operator">--o</span> classF <span class="token operator">:</span> Aggregation
+classG <span class="token arrow operator">--></span> classH <span class="token operator">:</span> Association
+classI <span class="token arrow operator">--</span> classJ <span class="token operator">:</span> Link<span class="token text string">(Solid)</span>
+classK <span class="token arrow operator">..></span> classL <span class="token operator">:</span> Dependency
+classM <span class="token arrow operator">..|></span> classN <span class="token operator">:</span> Realization
+classO <span class="token arrow operator">..</span> classP <span class="token operator">:</span> Link<span class="token text string">(Dashed)</span>
+
+<span class="token keyword">classDiagram</span>
+classA <span class="token arrow operator">&lt;|--</span> classB <span class="token operator">:</span> implements
+classC <span class="token arrow operator">*--</span> classD <span class="token operator">:</span> composition
+classE <span class="token arrow operator">o--</span> classF <span class="token operator">:</span> association
+
+<span class="token keyword">classDiagram</span>
+    Customer <span class="token string">"1"</span> <span class="token arrow operator">--></span> <span class="token string">"*"</span> Ticket
+    Student <span class="token string">"1"</span> <span class="token arrow operator">--></span> <span class="token string">"1..*"</span> Course
+    Galaxy <span class="token arrow operator">--></span> <span class="token string">"many"</span> Star <span class="token operator">:</span> Contains
+
+<span class="token keyword">classDiagram</span>
+<span class="token keyword">class</span> Shape
+<span class="token annotation important">&lt;&lt;interface>></span> Shape
+
+<span class="token keyword">classDiagram</span>
+<span class="token keyword">class</span> Shape<span class="token punctuation">{</span>
+    <span class="token annotation important">&lt;&lt;interface>></span>
+    noOfVertices
+    draw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> Color<span class="token punctuation">{</span>
+    <span class="token annotation important">&lt;&lt;enumeration>></span>
+    RED
+    BLUE
+    GREEN
+    WHITE
+    BLACK
+<span class="token punctuation">}</span>
+
+<span class="token keyword">classDiagram</span>
+<span class="token comment">%% This whole line is a comment classDiagram class Shape &lt;&lt;interface>></span>
+<span class="token keyword">class</span> Shape<span class="token punctuation">{</span>
+    <span class="token annotation important">&lt;&lt;interface>></span>
+    noOfVertices
+    draw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">classDiagram</span>
+  <span class="token keyword">direction</span> RL
+  <span class="token keyword">class</span> Student <span class="token punctuation">{</span>
+    -idCard <span class="token operator">:</span> IdCard
+  <span class="token punctuation">}</span>
+  <span class="token keyword">class</span> IdCard<span class="token punctuation">{</span>
+    -id <span class="token operator">:</span> int
+    -name <span class="token operator">:</span> string
+  <span class="token punctuation">}</span>
+  <span class="token keyword">class</span> Bike<span class="token punctuation">{</span>
+    -id <span class="token operator">:</span> int
+    -name <span class="token operator">:</span> string
+  <span class="token punctuation">}</span>
+  Student <span class="token string">"1"</span> <span class="token arrow operator">--o</span> <span class="token string">"1"</span> IdCard <span class="token operator">:</span> carries
+  Student <span class="token string">"1"</span> <span class="token arrow operator">--o</span> <span class="token string">"1"</span> Bike <span class="token operator">:</span> rides
+
+<span class="token keyword">action</span> className <span class="token string">"reference"</span> <span class="token string">"tooltip"</span>
+<span class="token keyword">click</span> className call callback<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token string">"tooltip"</span>
+<span class="token keyword">click</span> className href <span class="token string">"url"</span> <span class="token string">"tooltip"</span>
+
+<span class="token keyword">classDiagram</span>
+<span class="token keyword">class</span> Shape
+<span class="token keyword">link</span> Shape <span class="token string">"http://www.github.com"</span> <span class="token string">"This is a tooltip for a link"</span>
+<span class="token keyword">class</span> Shape2
+<span class="token keyword">click</span> Shape2 href <span class="token string">"http://www.github.com"</span> <span class="token string">"This is a tooltip for a link"</span>
+
+<span class="token keyword">classDiagram</span>
+<span class="token keyword">class</span> Shape
+<span class="token keyword">callback</span> Shape <span class="token string">"callbackFunction"</span> <span class="token string">"This is a tooltip for a callback"</span>
+<span class="token keyword">class</span> Shape2
+<span class="token keyword">click</span> Shape2 call callbackFunction<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token string">"This is a tooltip for a callback"</span>
+
+<span class="token keyword">classDiagram</span>
+Animal <span class="token arrow operator">&lt;|--</span> Duck
+Animal <span class="token arrow operator">&lt;|--</span> Fish
+Animal <span class="token arrow operator">&lt;|--</span> Zebra
+Animal <span class="token operator">:</span> +int age
+Animal <span class="token operator">:</span> +String gender
+Animal<span class="token operator">:</span> +isMammal<span class="token punctuation">(</span><span class="token punctuation">)</span>
+Animal<span class="token operator">:</span> +mate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> Duck<span class="token punctuation">{</span>
+  +String beakColor
+  +swim<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  +quack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token keyword">class</span> Fish<span class="token punctuation">{</span>
+  -int sizeInFeet
+  -canEat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token keyword">class</span> Zebra<span class="token punctuation">{</span>
+  +bool is_wild
+  +run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">callback</span> Duck callback <span class="token string">"Tooltip"</span>
+  <span class="token keyword">link</span> Zebra <span class="token string">"http://www.github.com"</span> <span class="token string">"This is a link"</span>
+
+<span class="token keyword">classDiagram</span>
+    <span class="token keyword">class</span> Animal<span class="token operator">:::</span>cssClass
+
+<span class="token keyword">classDiagram</span>
+    <span class="token keyword">class</span> Animal<span class="token operator">:::</span>cssClass <span class="token punctuation">{</span>
+        -int sizeInFeet
+        -canEat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+----------------------------------------------------

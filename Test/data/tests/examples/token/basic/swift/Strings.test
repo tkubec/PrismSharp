@@ -1,0 +1,49 @@
+let someString = "Some string literal value"
+var emptyString = ""
+// String interpolation
+let multiplier = 3
+"\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
+----------------------------------------------------
+[
+	["keyword", "let"],
+	" someString ",
+	["operator", "="],
+	["string-literal", [
+		["string", "\"Some string literal value\""]
+	]],
+
+	["keyword", "var"],
+	" emptyString ",
+	["operator", "="],
+	["string-literal", [
+		["string", "\"\""]
+	]],
+
+	["comment", "// String interpolation"],
+
+	["keyword", "let"],
+	" multiplier ",
+	["operator", "="],
+	["number", "3"],
+
+	["string-literal", [
+		["string", "\""],
+		["interpolation-punctuation", "\\("],
+		["interpolation", ["multiplier"]],
+		["interpolation-punctuation", ")"],
+		["string", " times 2.5 is "],
+		["interpolation-punctuation", "\\("],
+		["interpolation", [
+			["class-name", "Double"],
+			["punctuation", "("],
+			"multiplier",
+			["punctuation", ")"],
+			["operator", "*"],
+			["number", "2.5"]
+		]],
+		["interpolation-punctuation", ")"],
+		["string", "\""]
+	]]
+]
+
+----------------------------------------------------

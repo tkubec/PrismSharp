@@ -1,0 +1,5 @@
+"foo #{'bar'+my_variable}"
+----------------------------------------------------
+<span class="token string-literal"><span class="token string">"foo </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content"><span class="token string-literal"><span class="token string">'bar'</span></span><span class="token operator">+</span>my_variable</span><span class="token delimiter punctuation">}</span></span><span class="token string">"</span></span>
+
+----------------------------------------------------

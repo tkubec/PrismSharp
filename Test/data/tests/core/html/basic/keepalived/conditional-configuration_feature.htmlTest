@@ -1,0 +1,23 @@
+global_defs {
+   @main   router_id main_router
+}
+
+vrrp_instance VRRP {
+   @main    unicast_src_ip 1.2.3.4
+   unicast_peer {
+	   @^main    1.2.3.4
+   }
+}
+----------------------------------------------------
+<span class="token property">global_defs</span> <span class="token punctuation">{</span>
+   <span class="token conditional-configuration variable">@main</span>   <span class="token property">router_id</span> main_router
+<span class="token punctuation">}</span>
+
+<span class="token property">vrrp_instance</span> VRRP <span class="token punctuation">{</span>
+   <span class="token conditional-configuration variable">@main</span>    <span class="token property">unicast_src_ip</span> <span class="token ip number">1.2.3.4</span>
+   <span class="token property">unicast_peer</span> <span class="token punctuation">{</span>
+	   <span class="token conditional-configuration variable">@^main</span>    <span class="token ip number">1.2.3.4</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

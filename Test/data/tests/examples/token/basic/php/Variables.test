@@ -1,0 +1,28 @@
+$some_var = 5;
+$otherVar = "Some text";
+$null = null;
+$false = false;
+----------------------------------------------------
+[
+	["variable", "$some_var"],
+	["operator", "="],
+	["number", "5"],
+	["punctuation", ";"],
+
+	["variable", "$otherVar"],
+	["operator", "="],
+	["string", ["\"Some text\""]],
+	["punctuation", ";"],
+
+	["variable", "$null"],
+	["operator", "="],
+	["constant", "null"],
+	["punctuation", ";"],
+
+	["variable", "$false"],
+	["operator", "="],
+	["constant", "false"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

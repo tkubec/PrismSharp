@@ -1,0 +1,43 @@
+echo $STRING
+args=("$@")
+echo ${args[0]} ${args[1]} ${args[2]}
+----------------------------------------------------
+[
+	["builtin", "echo"],
+	["variable", "$STRING"],
+
+	["assign-left", ["args"]],
+	["operator", ["="]],
+	["punctuation", "("],
+	["string", [
+		"\"",
+		["variable", "$@"],
+		"\""
+	]],
+	["punctuation", ")"],
+
+	["builtin", "echo"],
+	["variable", [
+		"${args",
+		["punctuation", "["],
+		"0",
+		["punctuation", "]"],
+		"}"
+	]],
+	["variable", [
+		"${args",
+		["punctuation", "["],
+		"1",
+		["punctuation", "]"],
+		"}"
+	]],
+	["variable", [
+		"${args",
+		["punctuation", "["],
+		"2",
+		["punctuation", "]"],
+		"}"
+	]]
+]
+
+----------------------------------------------------

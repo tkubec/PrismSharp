@@ -1,0 +1,23 @@
+; Single-line comment
+#comments-start
+	Multi-line
+	comment
+#comments-end
+#cs
+	Multi-line
+	comment
+#ce
+;#comments-start
+	foo()
+;#comments-end
+----------------------------------------------------
+[
+	["comment", "; Single-line comment"],
+	["comment", "#comments-start\n\tMulti-line\n\tcomment\n#comments-end"],
+	["comment", "#cs\n\tMulti-line\n\tcomment\n#ce"],
+	["comment", ";#comments-start"],
+	["function", "foo"], ["punctuation", "("], ["punctuation", ")"],
+	["comment", ";#comments-end"]
+]
+
+----------------------------------------------------

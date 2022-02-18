@@ -1,0 +1,21 @@
+(lambda (number) (* 7 number))
+----------------------------------------------------
+[
+	["punctuation", "("],
+	["lambda", [
+		["keyword", "lambda"],
+		["punctuation", "("],
+		["arguments", [
+			["argument", "number"]
+		]],
+		["punctuation", ")"]
+	]],
+	["punctuation", "("],
+	["car", "*"],
+	["number", "7"],
+	" number",
+	["punctuation", ")"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

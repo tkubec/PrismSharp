@@ -1,0 +1,309 @@
+rules_version = '2';
+service cloud.firestore {
+
+  match /databases/{database}/documents {
+
+    // Returns `true` if the requested post is 'published'
+    // or the user authored the post
+    function authorOrPublished() {
+      return resource.data.published == true || request.auth.uid == resource.data.author;
+    }
+
+    match /{path=**}/posts/{post} {
+
+      // Anyone can query published posts
+      // Authors can query their unpublished posts
+      allow list: if authorOrPublished();
+
+      // Anyone can retrieve a published post
+      // Authors can retrieve an unpublished post
+      allow get: if authorOrPublished();
+    }
+
+    match /forums/{forumid}/posts/{postid} {
+      // Only a post's author can write to a post
+      allow write: if request.auth.uid == resource.data.author;
+    }
+  }
+
+  match /databases/{database}/reviews {
+    // Assign roles to all users and refine access based on user roles
+    match /some_collection/{document} {
+      allow read: if get(/databases/$(database)/reviews/users/$(request.auth.uid)).data.role == "Reader"
+      allow write: if get(/databases/$(database)/reviews/users/$(request.auth.uid)).data.role == "Writer"
+    }
+  }
+}
+----------------------------------------------------
+[
+	["keyword", "rules_version"],
+	["operator", "="],
+	["string", "'2'"],
+	["punctuation", ";"],
+
+	["keyword", "service"],
+	" cloud",
+	["punctuation", "."],
+	"firestore ",
+	["punctuation", "{"],
+
+	["keyword", "match"],
+	["path", [
+		["punctuation", "/"],
+		"databases",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "{"],
+			"database",
+			["punctuation", "}"]
+		]],
+		["punctuation", "/"],
+		"documents"
+	]],
+	["punctuation", "{"],
+
+	["comment", "// Returns `true` if the requested post is 'published'"],
+
+	["comment", "// or the user authored the post"],
+
+	["keyword", "function"],
+	["function", "authorOrPublished"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	" resource",
+	["punctuation", "."],
+	"data",
+	["punctuation", "."],
+	"published ",
+	["operator", "=="],
+	["boolean", "true"],
+	["operator", "||"],
+	" request",
+	["punctuation", "."],
+	"auth",
+	["punctuation", "."],
+	"uid ",
+	["operator", "=="],
+	" resource",
+	["punctuation", "."],
+	"data",
+	["punctuation", "."],
+	"author",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "match"],
+	["path", [
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "{"],
+			"path",
+			["operator", "="],
+			["keyword", "**"],
+			["punctuation", "}"]
+		]],
+		["punctuation", "/"],
+		"posts",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "{"],
+			"post",
+			["punctuation", "}"]
+		]]
+	]],
+	["punctuation", "{"],
+
+	["comment", "// Anyone can query published posts"],
+
+	["comment", "// Authors can query their unpublished posts"],
+
+	["keyword", "allow"],
+	["method", ["list"]],
+	["punctuation", ":"],
+	["keyword", "if"],
+	["function", "authorOrPublished"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", "// Anyone can retrieve a published post"],
+
+	["comment", "// Authors can retrieve an unpublished post"],
+
+	["keyword", "allow"],
+	["method", ["get"]],
+	["punctuation", ":"],
+	["keyword", "if"],
+	["function", "authorOrPublished"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "match"],
+	["path", [
+		["punctuation", "/"],
+		"forums",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "{"],
+			"forumid",
+			["punctuation", "}"]
+		]],
+		["punctuation", "/"],
+		"posts",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "{"],
+			"postid",
+			["punctuation", "}"]
+		]]
+	]],
+	["punctuation", "{"],
+
+	["comment", "// Only a post's author can write to a post"],
+
+	["keyword", "allow"],
+	["method", ["write"]],
+	["punctuation", ":"],
+	["keyword", "if"],
+	" request",
+	["punctuation", "."],
+	"auth",
+	["punctuation", "."],
+	"uid ",
+	["operator", "=="],
+	" resource",
+	["punctuation", "."],
+	"data",
+	["punctuation", "."],
+	"author",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "match"],
+	["path", [
+		["punctuation", "/"],
+		"databases",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "{"],
+			"database",
+			["punctuation", "}"]
+		]],
+		["punctuation", "/"],
+		"reviews"
+	]],
+	["punctuation", "{"],
+
+	["comment", "// Assign roles to all users and refine access based on user roles"],
+
+	["keyword", "match"],
+	["path", [
+		["punctuation", "/"],
+		"some_collection",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "{"],
+			"document",
+			["punctuation", "}"]
+		]]
+	]],
+	["punctuation", "{"],
+
+	["keyword", "allow"],
+	["method", ["read"]],
+	["punctuation", ":"],
+	["keyword", "if"],
+	["function", "get"],
+	["punctuation", "("],
+	["path", [
+		["punctuation", "/"],
+		"databases",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "$"],
+			["punctuation", "("],
+			"database",
+			["punctuation", ")"]
+		]],
+		["punctuation", "/"],
+		"reviews",
+		["punctuation", "/"],
+		"users",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "$"],
+			["punctuation", "("],
+			"request",
+			["punctuation", "."],
+			"auth",
+			["punctuation", "."],
+			"uid",
+			["punctuation", ")"]
+		]]
+	]],
+	["punctuation", ")"],
+	["punctuation", "."],
+	"data",
+	["punctuation", "."],
+	"role ",
+	["operator", "=="],
+	["string", "\"Reader\""],
+
+	["keyword", "allow"],
+	["method", ["write"]],
+	["punctuation", ":"],
+	["keyword", "if"],
+	["function", "get"],
+	["punctuation", "("],
+	["path", [
+		["punctuation", "/"],
+		"databases",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "$"],
+			["punctuation", "("],
+			"database",
+			["punctuation", ")"]
+		]],
+		["punctuation", "/"],
+		"reviews",
+		["punctuation", "/"],
+		"users",
+		["punctuation", "/"],
+		["variable", [
+			["punctuation", "$"],
+			["punctuation", "("],
+			"request",
+			["punctuation", "."],
+			"auth",
+			["punctuation", "."],
+			"uid",
+			["punctuation", ")"]
+		]]
+	]],
+	["punctuation", ")"],
+	["punctuation", "."],
+	"data",
+	["punctuation", "."],
+	"role ",
+	["operator", "=="],
+	["string", "\"Writer\""],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

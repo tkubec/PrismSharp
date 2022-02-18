@@ -1,0 +1,36 @@
+SELECT 1 && 1;
+SELECT 1 OR NULL;
+SELECT 5 & 2*3;
+SELECT 2 BETWEEN 1 AND 3;
+----------------------------------------------------
+[
+	["keyword", "SELECT"],
+	["number", "1"],
+	["operator", "&&"],
+	["number", "1"],
+	["punctuation", ";"],
+
+	["keyword", "SELECT"],
+	["number", "1"],
+	["operator", "OR"],
+	["boolean", "NULL"],
+	["punctuation", ";"],
+
+	["keyword", "SELECT"],
+	["number", "5"],
+	["operator", "&"],
+	["number", "2"],
+	["operator", "*"],
+	["number", "3"],
+	["punctuation", ";"],
+
+	["keyword", "SELECT"],
+	["number", "2"],
+	["operator", "BETWEEN"],
+	["number", "1"],
+	["operator", "AND"],
+	["number", "3"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

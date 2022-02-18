@@ -1,0 +1,54 @@
+99+L
+x<42|x>98
+(x<42)|x>98
+42~(4 2;(1 0))
+(4 2)~(4; 2*1)
+----------------------------------------------------
+[
+	["number", "99"],
+	["verb", "+"],
+	"L\nx",
+	["verb", "<"],
+	["number", "42"],
+	["verb", "|"],
+	"x",
+	["verb", ">"],
+	["number", "98"],
+
+	["punctuation", "("],
+	"x",
+	["verb", "<"],
+	["number", "42"],
+	["punctuation", ")"],
+	["verb", "|"],
+	"x",
+	["verb", ">"],
+	["number", "98"],
+
+	["number", "42"],
+	["verb", "~"],
+	["punctuation", "("],
+	["number", "4"],
+	["number", "2"],
+	["punctuation", ";"],
+	["punctuation", "("],
+	["number", "1"],
+	["number", "0"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+	["number", "4"],
+	["number", "2"],
+	["punctuation", ")"],
+	["verb", "~"],
+	["punctuation", "("],
+	["number", "4"],
+	["punctuation", ";"],
+	["number", "2"],
+	["verb", "*"],
+	["number", "1"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

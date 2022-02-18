@@ -1,0 +1,15 @@
+## Section below is not parsed
+#[[
+	## This is not a comment
+]]#
+----------------------------------------------------
+[
+	["velocity-comment", "## Section below is not parsed"],
+	["unparsed", [
+		["punctuation", "#[["],
+		"\n\t## This is not a comment\n",
+		["punctuation", "]]#"]
+	]]
+]
+
+----------------------------------------------------

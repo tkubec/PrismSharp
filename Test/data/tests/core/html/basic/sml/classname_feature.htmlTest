@@ -1,0 +1,47 @@
+val FOO: (string list) * 'a * 'a -> (svalue,'a) token
+val FOO: (string) * 'a * 'a -> (svalue,'a) token
+val FOO: (int) * 'a * 'a -> (svalue,'a) token
+val FOO: (string list) * 'a * 'a -> (svalue,'a) token
+val FOO: 'a * 'a -> (svalue,'a) token
+
+datatype spec_ast = SPEC of {head : string list,
+                             decls : decl_ast list,
+                             rules : rule_ast list,
+                             tail : string list}
+
+type out_state = {
+tout : real,
+dtout : real,
+dtime : real,
+strm : TextIO.outstream
+}
+val outState = ref (NONE : out_state option)
+
+val systemLines: string -> string list
+val systemCleanLines: string -> string list
+val systemStanzas: string -> string list list
+----------------------------------------------------
+<span class="token keyword">val</span> FOO<span class="token punctuation">:</span> <span class="token class-name"><span class="token punctuation">(</span>string list<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">-></span> <span class="token punctuation">(</span>svalue<span class="token punctuation">,</span><span class="token variable">'a</span><span class="token punctuation">)</span> token</span>
+<span class="token keyword">val</span> FOO<span class="token punctuation">:</span> <span class="token class-name"><span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">-></span> <span class="token punctuation">(</span>svalue<span class="token punctuation">,</span><span class="token variable">'a</span><span class="token punctuation">)</span> token</span>
+<span class="token keyword">val</span> FOO<span class="token punctuation">:</span> <span class="token class-name"><span class="token punctuation">(</span>int<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">-></span> <span class="token punctuation">(</span>svalue<span class="token punctuation">,</span><span class="token variable">'a</span><span class="token punctuation">)</span> token</span>
+<span class="token keyword">val</span> FOO<span class="token punctuation">:</span> <span class="token class-name"><span class="token punctuation">(</span>string list<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">-></span> <span class="token punctuation">(</span>svalue<span class="token punctuation">,</span><span class="token variable">'a</span><span class="token punctuation">)</span> token</span>
+<span class="token keyword">val</span> FOO<span class="token punctuation">:</span> <span class="token class-name"><span class="token variable">'a</span> <span class="token operator">*</span> <span class="token variable">'a</span> <span class="token operator">-></span> <span class="token punctuation">(</span>svalue<span class="token punctuation">,</span><span class="token variable">'a</span><span class="token punctuation">)</span> token</span>
+
+<span class="token keyword">datatype</span> <span class="token class-name">spec_ast</span> <span class="token operator">=</span> SPEC <span class="token keyword">of</span> <span class="token punctuation">{</span>head <span class="token punctuation">:</span> <span class="token class-name">string list</span><span class="token punctuation">,</span>
+                             decls <span class="token punctuation">:</span> <span class="token class-name">decl_ast list</span><span class="token punctuation">,</span>
+                             rules <span class="token punctuation">:</span> <span class="token class-name">rule_ast list</span><span class="token punctuation">,</span>
+                             tail <span class="token punctuation">:</span> <span class="token class-name">string list</span><span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">out_state</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+tout <span class="token punctuation">:</span> <span class="token class-name">real</span><span class="token punctuation">,</span>
+dtout <span class="token punctuation">:</span> <span class="token class-name">real</span><span class="token punctuation">,</span>
+dtime <span class="token punctuation">:</span> <span class="token class-name">real</span><span class="token punctuation">,</span>
+strm <span class="token punctuation">:</span> <span class="token class-name">TextIO<span class="token punctuation">.</span>outstream</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">val</span> outState <span class="token operator">=</span> ref <span class="token punctuation">(</span>NONE <span class="token punctuation">:</span> <span class="token class-name">out_state option</span><span class="token punctuation">)</span>
+
+<span class="token keyword">val</span> systemLines<span class="token punctuation">:</span> <span class="token class-name">string <span class="token operator">-></span> string list</span>
+<span class="token keyword">val</span> systemCleanLines<span class="token punctuation">:</span> <span class="token class-name">string <span class="token operator">-></span> string list</span>
+<span class="token keyword">val</span> systemStanzas<span class="token punctuation">:</span> <span class="token class-name">string <span class="token operator">-></span> string list list</span>
+
+----------------------------------------------------

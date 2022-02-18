@@ -1,0 +1,15 @@
+// comment
+/*
+comment
+*/
+
+# not really a comment but ignored
+----------------------------------------------------
+<span class="token comment">// comment</span>
+<span class="token comment">/*
+comment
+*/</span>
+
+<span class="token comment"># not really a comment but ignored</span>
+
+----------------------------------------------------

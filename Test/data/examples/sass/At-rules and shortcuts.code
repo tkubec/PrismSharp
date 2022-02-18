@@ -1,0 +1,12 @@
+@mixin large-text
+  color: #ff0000
+
+@media (min-width: 600px)
+  h1
+    @include large-text
+
+=large-text
+  color: #ff0000
+
+h1
+  +large-text

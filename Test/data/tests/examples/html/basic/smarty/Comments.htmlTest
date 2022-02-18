@@ -1,0 +1,9 @@
+{* This is a comment with <p>some markup</p> in it *}
+{* Multi-line
+comment *}
+----------------------------------------------------
+<span class="token comment">{* This is a comment with &lt;p>some markup&lt;/p> in it *}</span>
+<span class="token punctuation">{</span><span class="token operator">*</span> Multi<span class="token operator">-</span>line
+comment <span class="token operator">*</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

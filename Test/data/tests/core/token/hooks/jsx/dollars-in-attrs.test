@@ -1,0 +1,21 @@
+<div $$="bar baz" />;
+----------------------------------------------------
+[
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"div"
+		]],
+		["attr-name", ["$$"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"bar baz",
+			["punctuation", "\""]
+		]],
+		["punctuation", "/>"]
+	]],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

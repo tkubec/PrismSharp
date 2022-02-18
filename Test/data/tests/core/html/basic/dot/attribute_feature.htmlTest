@@ -1,0 +1,29 @@
+[foo=bar]
+
+[
+	foo = 123;
+	"graph" = "
+some
+value", 123 = bar baz = 123
+]
+
+[label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+  <TR><TD>left</TD><TD PORT="f1">mid dle</TD><TD PORT="f2">right</TD></TR>
+</TABLE>>]
+----------------------------------------------------
+<span class="token punctuation">[</span><span class="token attr-name">foo</span><span class="token operator">=</span><span class="token attr-value">bar</span><span class="token punctuation">]</span>
+
+<span class="token punctuation">[</span>
+	<span class="token attr-name">foo</span> <span class="token operator">=</span> <span class="token attr-value">123</span><span class="token punctuation">;</span>
+	<span class="token attr-name">"graph"</span> <span class="token operator">=</span> <span class="token attr-value">"
+some
+value"</span><span class="token punctuation">,</span> <span class="token attr-name">123</span> <span class="token operator">=</span> <span class="token attr-value">bar</span> <span class="token attr-name">baz</span> <span class="token operator">=</span> <span class="token attr-value">123</span>
+<span class="token punctuation">]</span>
+
+<span class="token punctuation">[</span><span class="token attr-name">label</span><span class="token operator">=</span><span class="token attr-value">&lt;<span class="token markup language-markup language-html language-xml">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TABLE</span> <span class="token attr-name">BORDER</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">CELLBORDER</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">CELLSPACING</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TR</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TD</span><span class="token punctuation">></span></span>left<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TD</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TD</span> <span class="token attr-name">PORT</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>f1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>mid dle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TD</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TD</span> <span class="token attr-name">PORT</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>f2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>right<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TD</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TR</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TABLE</span><span class="token punctuation">></span></span></span>></span><span class="token punctuation">]</span>
+
+----------------------------------------------------

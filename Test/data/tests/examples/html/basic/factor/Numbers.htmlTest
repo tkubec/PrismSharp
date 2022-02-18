@@ -1,0 +1,27 @@
+5 1/5 +9 -9 +1/5 -1/5 -1/5. 23+1/5 -23-1/5 23-1/5 ! NOTE: last one = word
+
++12.13 0.01 0e0 3E4 3e-4 3E-4 030 0xd 0o30 0b1100
+-12.13 -0 -0.01 -0e0 -3E4 -3E-4 -030 -0xd -0o30 -0b1100
+
+348756424956392657834385437598743583648756332457
+-348756424956392657834385437598743583648756332457
+
+NAN: a
+NAN: 80000deadbeef
+
+0b1.010p2 0x1.0p3 0x1.p1 0b1.111111p1111 ...
+----------------------------------------------------
+<span class="token number">5</span> <span class="token number">1/5</span> <span class="token number">+9</span> <span class="token number">-9</span> <span class="token number">+1/5</span> <span class="token number">-1/5</span> <span class="token number">-1/5.</span> <span class="token number">23+1/5</span> <span class="token number">-23-1/5</span> <span class="token normal-word">23-1/5</span> <span class="token comment">! <span class="token function">NOTE</span>: last one = word</span>
+
+<span class="token number">+12.13</span> <span class="token number">0.01</span> <span class="token number">0e0</span> <span class="token number">3E4</span> <span class="token number">3e-4</span> <span class="token number">3E-4</span> <span class="token number">030</span> <span class="token number">0xd</span> <span class="token number">0o30</span> <span class="token number">0b1100</span>
+<span class="token number">-12.13</span> <span class="token number">-0</span> <span class="token number">-0.01</span> <span class="token number">-0e0</span> <span class="token number">-3E4</span> <span class="token number">-3E-4</span> <span class="token number">-030</span> <span class="token number">-0xd</span> <span class="token number">-0o30</span> <span class="token number">-0b1100</span>
+
+<span class="token number">348756424956392657834385437598743583648756332457</span>
+<span class="token number">-348756424956392657834385437598743583648756332457</span>
+
+<span class="token number">NAN: a</span>
+<span class="token number">NAN: 80000deadbeef</span>
+
+<span class="token number">0b1.010p2</span> <span class="token number">0x1.0p3</span> <span class="token number">0x1.p1</span> <span class="token number">0b1.111111p1111</span> <span class="token normal-word">...</span>
+
+----------------------------------------------------

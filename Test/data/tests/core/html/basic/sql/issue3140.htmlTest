@@ -1,0 +1,11 @@
+select
+   `t`.`col1`, `t`.`col2`, `t`.`col3`, `t`.`col4`
+from
+   `test_table` as `t`
+----------------------------------------------------
+<span class="token keyword">select</span>
+   <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>col1<span class="token punctuation">`</span></span><span class="token punctuation">,</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>col2<span class="token punctuation">`</span></span><span class="token punctuation">,</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>col3<span class="token punctuation">`</span></span><span class="token punctuation">,</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>col4<span class="token punctuation">`</span></span>
+<span class="token keyword">from</span>
+   <span class="token identifier"><span class="token punctuation">`</span>test_table<span class="token punctuation">`</span></span> <span class="token keyword">as</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span>
+
+----------------------------------------------------

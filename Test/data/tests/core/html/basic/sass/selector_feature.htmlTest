@@ -1,0 +1,23 @@
+div, span
+.foo .bar + div
+#foobar .baz:first-child
+
+div,
+  .bar
+
+	#foo,
+		.bar,
+		.baz
+----------------------------------------------------
+<span class="token selector">div, span</span>
+<span class="token selector">.foo .bar + div</span>
+<span class="token selector">#foobar .baz:first-child</span>
+
+<span class="token selector">div,
+  .bar</span>
+
+	<span class="token selector">#foo,
+		.bar,
+		.baz</span>
+
+----------------------------------------------------

@@ -1,0 +1,31 @@
+// Source: https://go.dev/doc/modules/gomod-ref#example
+
+module example.com/mymodule
+
+go 1.14
+
+require (
+    example.com/othermodule v1.2.3
+    example.com/thismodule v1.2.3
+    example.com/thatmodule v1.2.3
+)
+
+replace example.com/thatmodule => ../thatmodule
+exclude example.com/thismodule v1.3.0
+----------------------------------------------------
+<span class="token comment">// Source: https://go.dev/doc/modules/gomod-ref#example</span>
+
+<span class="token keyword">module</span> example.com/mymodule
+
+<span class="token keyword">go</span> <span class="token go-version number">1.14</span>
+
+<span class="token keyword">require</span> <span class="token punctuation">(</span>
+    example.com/othermodule <span class="token version number">v1.2.3</span>
+    example.com/thismodule <span class="token version number">v1.2.3</span>
+    example.com/thatmodule <span class="token version number">v1.2.3</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">replace</span> example.com/thatmodule <span class="token operator">=></span> ../thatmodule
+<span class="token keyword">exclude</span> example.com/thismodule <span class="token version number">v1.3.0</span>
+
+----------------------------------------------------

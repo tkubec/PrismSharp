@@ -1,0 +1,12 @@
+$S:StatementID:{ <!-- C# Code --> }:StatementID$
+$S:StatementID:{!NOCACHE <!-- C# Code --> }:StatementID$
+
+$S:Statement1:{
+	int intvalue1 = 5;
+	int intvalue2 = Integer.Parse("0" + $~FormValue$);
+
+	return intvalue1 * intvalue2;
+}:Statement1$
+
+--------------------------------------------------
+

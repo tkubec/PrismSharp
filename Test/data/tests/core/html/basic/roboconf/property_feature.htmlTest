@@ -1,0 +1,11 @@
+extends :
+imports:
+installer:
+data.ec2.elastic.ip:
+----------------------------------------------------
+<span class="token property">extends</span> <span class="token punctuation">:</span>
+<span class="token property">imports</span><span class="token punctuation">:</span>
+<span class="token property">installer</span><span class="token punctuation">:</span>
+<span class="token property">data.ec2.elastic.ip</span><span class="token punctuation">:</span>
+
+----------------------------------------------------

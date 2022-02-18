@@ -1,0 +1,363 @@
+acos
+add_diary
+annotate
+annotate_get
+asctime
+asin
+atan
+atexit
+ascii_to_ebcdic
+batch_set
+blackout
+cat
+ceil
+chan_exists
+change_state
+close
+code_cvt
+cond_signal
+cond_wait
+console_type
+convert_base
+convert_date
+convert_locale_date
+cos
+cosh
+create
+destroy_lock
+dump_hist
+date
+destroy
+difference
+dget_text
+dcget_text
+ebcdic_to_ascii
+encrypt
+event_archive
+event_catalog_get
+event_check
+event_query
+event_range_manage
+event_range_query
+event_report
+event_schedule
+event_trigger
+event_trigger2
+execute
+exists
+exp
+fabs
+floor
+fmod
+full_discovery
+file
+fopen
+ftell
+fseek
+grep
+get_vars
+getenv
+get
+get_chan_info
+get_ranges
+get_text
+gethostinfo
+getpid
+getpname
+history_get_retention
+history
+index
+int
+is_var
+intersection
+isnumber
+internal
+in_transition
+join
+kill
+length
+lines
+lock
+lock_info
+log
+loge
+log10
+matchline
+msg_check
+msg_get_format
+msg_get_severity
+msg_printf
+msg_sprintf
+ntharg
+num_consoles
+nthargf
+nthline
+nthlinef
+num_bytes
+print
+proc_exists
+process
+popen
+printf
+pconfig
+poplines
+pow
+PslExecute
+PslFunctionCall
+PslFunctionExists
+PslSetOptions
+random
+read
+readln
+refresh_parameters
+remote_check
+remote_close
+remote_event_query
+remote_event_trigger
+remote_file_send
+remote_open
+remove
+replace
+rindex
+sec_check_priv
+sec_store_get
+sec_store_set
+set_alarm_ranges
+set_locale
+share
+sin
+sinh
+sleep
+sopen
+sqrt
+srandom
+subset
+set
+substr
+system
+sprintf
+sort
+subset
+snmp_agent_config
+_snmp_debug
+snmp_agent_stop
+snmp_agent_start
+snmp_h_set
+snmp_h_get_next
+snmp_h_get
+snmp_set
+snmp_walk
+snmp_get_next
+snmp_get
+snmp_config
+snmp_close
+snmp_open
+snmp_trap_receive
+snmp_trap_ignore
+snmp_trap_listen
+snmp_trap_send
+snmp_trap_raise_std_trap
+snmp_trap_register_im
+splitline
+strcasecmp
+str_repeat
+trim
+tail
+tan
+tanh
+time
+tmpnam
+tolower
+toupper
+trace_psl_process
+text_domain
+unlock
+unique
+union
+unset
+va_arg
+va_start
+write
+----------------------------------------------------
+<span class="token builtin builtin-function">acos</span>
+<span class="token builtin builtin-function">add_diary</span>
+<span class="token builtin builtin-function">annotate</span>
+<span class="token builtin builtin-function">annotate_get</span>
+<span class="token builtin builtin-function">asctime</span>
+<span class="token builtin builtin-function">asin</span>
+<span class="token builtin builtin-function">atan</span>
+<span class="token builtin builtin-function">atexit</span>
+<span class="token builtin builtin-function">ascii_to_ebcdic</span>
+<span class="token builtin builtin-function">batch_set</span>
+<span class="token builtin builtin-function">blackout</span>
+<span class="token builtin builtin-function">cat</span>
+<span class="token builtin builtin-function">ceil</span>
+<span class="token builtin builtin-function">chan_exists</span>
+<span class="token builtin builtin-function">change_state</span>
+<span class="token builtin builtin-function">close</span>
+<span class="token builtin builtin-function">code_cvt</span>
+<span class="token builtin builtin-function">cond_signal</span>
+<span class="token builtin builtin-function">cond_wait</span>
+<span class="token builtin builtin-function">console_type</span>
+<span class="token builtin builtin-function">convert_base</span>
+<span class="token builtin builtin-function">convert_date</span>
+<span class="token builtin builtin-function">convert_locale_date</span>
+<span class="token builtin builtin-function">cos</span>
+<span class="token builtin builtin-function">cosh</span>
+<span class="token builtin builtin-function">create</span>
+<span class="token builtin builtin-function">destroy_lock</span>
+<span class="token builtin builtin-function">dump_hist</span>
+<span class="token builtin builtin-function">date</span>
+<span class="token builtin builtin-function">destroy</span>
+<span class="token builtin builtin-function">difference</span>
+<span class="token builtin builtin-function">dget_text</span>
+<span class="token builtin builtin-function">dcget_text</span>
+<span class="token builtin builtin-function">ebcdic_to_ascii</span>
+<span class="token builtin builtin-function">encrypt</span>
+<span class="token builtin builtin-function">event_archive</span>
+<span class="token builtin builtin-function">event_catalog_get</span>
+<span class="token builtin builtin-function">event_check</span>
+<span class="token builtin builtin-function">event_query</span>
+<span class="token builtin builtin-function">event_range_manage</span>
+<span class="token builtin builtin-function">event_range_query</span>
+<span class="token builtin builtin-function">event_report</span>
+<span class="token builtin builtin-function">event_schedule</span>
+<span class="token builtin builtin-function">event_trigger</span>
+<span class="token builtin builtin-function">event_trigger2</span>
+<span class="token builtin builtin-function">execute</span>
+<span class="token builtin builtin-function">exists</span>
+<span class="token builtin builtin-function">exp</span>
+<span class="token builtin builtin-function">fabs</span>
+<span class="token builtin builtin-function">floor</span>
+<span class="token builtin builtin-function">fmod</span>
+<span class="token builtin builtin-function">full_discovery</span>
+<span class="token builtin builtin-function">file</span>
+<span class="token builtin builtin-function">fopen</span>
+<span class="token builtin builtin-function">ftell</span>
+<span class="token builtin builtin-function">fseek</span>
+<span class="token builtin builtin-function">grep</span>
+<span class="token builtin builtin-function">get_vars</span>
+<span class="token builtin builtin-function">getenv</span>
+<span class="token builtin builtin-function">get</span>
+<span class="token builtin builtin-function">get_chan_info</span>
+<span class="token builtin builtin-function">get_ranges</span>
+<span class="token builtin builtin-function">get_text</span>
+<span class="token builtin builtin-function">gethostinfo</span>
+<span class="token builtin builtin-function">getpid</span>
+<span class="token builtin builtin-function">getpname</span>
+<span class="token builtin builtin-function">history_get_retention</span>
+<span class="token builtin builtin-function">history</span>
+<span class="token builtin builtin-function">index</span>
+<span class="token builtin builtin-function">int</span>
+<span class="token builtin builtin-function">is_var</span>
+<span class="token builtin builtin-function">intersection</span>
+<span class="token builtin builtin-function">isnumber</span>
+<span class="token builtin builtin-function">internal</span>
+<span class="token builtin builtin-function">in_transition</span>
+<span class="token builtin builtin-function">join</span>
+<span class="token builtin builtin-function">kill</span>
+<span class="token builtin builtin-function">length</span>
+<span class="token builtin builtin-function">lines</span>
+<span class="token builtin builtin-function">lock</span>
+<span class="token builtin builtin-function">lock_info</span>
+<span class="token builtin builtin-function">log</span>
+<span class="token builtin builtin-function">loge</span>
+<span class="token builtin builtin-function">log10</span>
+<span class="token builtin builtin-function">matchline</span>
+<span class="token builtin builtin-function">msg_check</span>
+<span class="token builtin builtin-function">msg_get_format</span>
+<span class="token builtin builtin-function">msg_get_severity</span>
+<span class="token builtin builtin-function">msg_printf</span>
+<span class="token builtin builtin-function">msg_sprintf</span>
+<span class="token builtin builtin-function">ntharg</span>
+<span class="token builtin builtin-function">num_consoles</span>
+<span class="token builtin builtin-function">nthargf</span>
+<span class="token builtin builtin-function">nthline</span>
+<span class="token builtin builtin-function">nthlinef</span>
+<span class="token builtin builtin-function">num_bytes</span>
+<span class="token builtin builtin-function">print</span>
+<span class="token builtin builtin-function">proc_exists</span>
+<span class="token builtin builtin-function">process</span>
+<span class="token builtin builtin-function">popen</span>
+<span class="token builtin builtin-function">printf</span>
+<span class="token builtin builtin-function">pconfig</span>
+<span class="token builtin builtin-function">poplines</span>
+<span class="token builtin builtin-function">pow</span>
+<span class="token builtin builtin-function">PslExecute</span>
+<span class="token builtin builtin-function">PslFunctionCall</span>
+<span class="token builtin builtin-function">PslFunctionExists</span>
+<span class="token builtin builtin-function">PslSetOptions</span>
+<span class="token builtin builtin-function">random</span>
+<span class="token builtin builtin-function">read</span>
+<span class="token builtin builtin-function">readln</span>
+<span class="token builtin builtin-function">refresh_parameters</span>
+<span class="token builtin builtin-function">remote_check</span>
+<span class="token builtin builtin-function">remote_close</span>
+<span class="token builtin builtin-function">remote_event_query</span>
+<span class="token builtin builtin-function">remote_event_trigger</span>
+<span class="token builtin builtin-function">remote_file_send</span>
+<span class="token builtin builtin-function">remote_open</span>
+<span class="token builtin builtin-function">remove</span>
+<span class="token builtin builtin-function">replace</span>
+<span class="token builtin builtin-function">rindex</span>
+<span class="token builtin builtin-function">sec_check_priv</span>
+<span class="token builtin builtin-function">sec_store_get</span>
+<span class="token builtin builtin-function">sec_store_set</span>
+<span class="token builtin builtin-function">set_alarm_ranges</span>
+<span class="token builtin builtin-function">set_locale</span>
+<span class="token builtin builtin-function">share</span>
+<span class="token builtin builtin-function">sin</span>
+<span class="token builtin builtin-function">sinh</span>
+<span class="token builtin builtin-function">sleep</span>
+<span class="token builtin builtin-function">sopen</span>
+<span class="token builtin builtin-function">sqrt</span>
+<span class="token builtin builtin-function">srandom</span>
+<span class="token builtin builtin-function">subset</span>
+<span class="token builtin builtin-function">set</span>
+<span class="token builtin builtin-function">substr</span>
+<span class="token builtin builtin-function">system</span>
+<span class="token builtin builtin-function">sprintf</span>
+<span class="token builtin builtin-function">sort</span>
+<span class="token builtin builtin-function">subset</span>
+<span class="token builtin builtin-function">snmp_agent_config</span>
+<span class="token builtin builtin-function">_snmp_debug</span>
+<span class="token builtin builtin-function">snmp_agent_stop</span>
+<span class="token builtin builtin-function">snmp_agent_start</span>
+<span class="token builtin builtin-function">snmp_h_set</span>
+<span class="token builtin builtin-function">snmp_h_get_next</span>
+<span class="token builtin builtin-function">snmp_h_get</span>
+<span class="token builtin builtin-function">snmp_set</span>
+<span class="token builtin builtin-function">snmp_walk</span>
+<span class="token builtin builtin-function">snmp_get_next</span>
+<span class="token builtin builtin-function">snmp_get</span>
+<span class="token builtin builtin-function">snmp_config</span>
+<span class="token builtin builtin-function">snmp_close</span>
+<span class="token builtin builtin-function">snmp_open</span>
+<span class="token builtin builtin-function">snmp_trap_receive</span>
+<span class="token builtin builtin-function">snmp_trap_ignore</span>
+<span class="token builtin builtin-function">snmp_trap_listen</span>
+<span class="token builtin builtin-function">snmp_trap_send</span>
+<span class="token builtin builtin-function">snmp_trap_raise_std_trap</span>
+<span class="token builtin builtin-function">snmp_trap_register_im</span>
+<span class="token builtin builtin-function">splitline</span>
+<span class="token builtin builtin-function">strcasecmp</span>
+<span class="token builtin builtin-function">str_repeat</span>
+<span class="token builtin builtin-function">trim</span>
+<span class="token builtin builtin-function">tail</span>
+<span class="token builtin builtin-function">tan</span>
+<span class="token builtin builtin-function">tanh</span>
+<span class="token builtin builtin-function">time</span>
+<span class="token builtin builtin-function">tmpnam</span>
+<span class="token builtin builtin-function">tolower</span>
+<span class="token builtin builtin-function">toupper</span>
+<span class="token builtin builtin-function">trace_psl_process</span>
+<span class="token builtin builtin-function">text_domain</span>
+<span class="token builtin builtin-function">unlock</span>
+<span class="token builtin builtin-function">unique</span>
+<span class="token builtin builtin-function">union</span>
+<span class="token builtin builtin-function">unset</span>
+<span class="token builtin builtin-function">va_arg</span>
+<span class="token builtin builtin-function">va_start</span>
+<span class="token builtin builtin-function">write</span>
+
+----------------------------------------------------

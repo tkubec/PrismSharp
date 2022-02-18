@@ -1,0 +1,21 @@
+# PSL Strings are properly rendered
+print("Hello, World!");
+
+# Escaped sequences are highlighted too
+print("Goodbye \H\H\H\H\H\H\H\HHello, World!\n");
+
+# Multi-line strings are supported
+print("multi
+line");
+----------------------------------------------------
+<span class="token comment"># PSL Strings are properly rendered</span>
+<span class="token builtin builtin-function">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># Escaped sequences are highlighted too</span>
+<span class="token builtin builtin-function">print</span><span class="token punctuation">(</span><span class="token string">"Goodbye <span class="token symbol">\H</span><span class="token symbol">\H</span><span class="token symbol">\H</span><span class="token symbol">\H</span><span class="token symbol">\H</span><span class="token symbol">\H</span><span class="token symbol">\H</span><span class="token symbol">\H</span>Hello, World!<span class="token symbol">\n</span>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># Multi-line strings are supported</span>
+<span class="token builtin builtin-function">print</span><span class="token punctuation">(</span><span class="token string">"multi
+line"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

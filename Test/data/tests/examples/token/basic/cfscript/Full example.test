@@ -1,0 +1,148 @@
+component accessors="true" {
+  property type="string" name="prop1" default="";
+  property string prop2;
+  function init(){
+    this.prop3 = 12;
+    return this;
+  }
+
+  /**
+  * @hint Annotations supported
+  * @foo.hint
+  */
+  public any function build( required foo, color="blue", boolean bar=true ){
+    arguments.foo = {
+      'name' : "something",
+      test = true
+    }
+    var foobar = function( required string baz, x=true, y=false ){
+      return "bar!";
+    };
+    return foo;
+  }
+}
+----------------------------------------------------
+[
+	["keyword", "component"],
+	" accessors",
+	["operator", "="],
+	["string", "\"true\""],
+	["punctuation", "{"],
+
+	["keyword", "property"],
+	" type",
+	["operator", "="],
+	["string", "\"string\""],
+	" name",
+	["operator", "="],
+	["string", "\"prop1\""],
+	" default",
+	["operator", "="],
+	["string", "\"\""],
+	["punctuation", ";"],
+
+	["keyword", "property"],
+	["type", "string"],
+	" prop2",
+	["punctuation", ";"],
+
+	["keyword", "function"],
+	["function", "init"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["scope", "this"],
+	["punctuation", "."],
+	"prop3 ",
+	["operator", "="],
+	["number", "12"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["scope", "this"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", [
+		"/**\n  *",
+		["annotation", " @hint"],
+		" Annotations supported\n  *",
+		["annotation", " @foo.hint"],
+
+		"\n  */"
+	]],
+
+	["keyword", "public"],
+	["type", "any"],
+	["keyword", "function"],
+	["function", "build"],
+	["punctuation", "("],
+	["keyword", "required"],
+	" foo",
+	["punctuation", ","],
+	" color",
+	["operator", "="],
+	["string", "\"blue\""],
+	["punctuation", ","],
+	["type", "boolean"],
+	" bar",
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["scope", "arguments"],
+	["punctuation", "."],
+	"foo ",
+	["operator", "="],
+	["punctuation", "{"],
+
+	["string", "'name'"],
+	["operator", ":"],
+	["string", "\"something\""],
+	["punctuation", ","],
+
+	"\n      test ",
+	["operator", "="],
+	["boolean", "true"],
+
+	["punctuation", "}"],
+
+	["keyword", "var"],
+	["function-variable", "foobar"],
+	["operator", "="],
+	["keyword", "function"],
+	["punctuation", "("],
+	["keyword", "required"],
+	["type", "string"],
+	" baz",
+	["punctuation", ","],
+	" x",
+	["operator", "="],
+	["boolean", "true"],
+	["punctuation", ","],
+	" y",
+	["operator", "="],
+	["boolean", "false"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["string", "\"bar!\""],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	" foo",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

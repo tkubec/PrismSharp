@@ -1,0 +1,17 @@
+Function AddNumbers(ByVal X As Integer, ByVal Y As Integer)
+    AddNumbers = X + Y
+End Function
+Module Test
+    Sub Main()
+    End Sub
+End Module
+----------------------------------------------------
+<span class="token keyword">Function</span> AddNumbers<span class="token punctuation">(</span><span class="token keyword">ByVal</span> X <span class="token keyword">As</span> <span class="token keyword">Integer</span><span class="token punctuation">,</span> <span class="token keyword">ByVal</span> Y <span class="token keyword">As</span> <span class="token keyword">Integer</span><span class="token punctuation">)</span>
+    AddNumbers <span class="token operator">=</span> X <span class="token operator">+</span> Y
+<span class="token keyword">End</span> <span class="token keyword">Function</span>
+<span class="token keyword">Module</span> Test
+    <span class="token keyword">Sub</span> Main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">End</span> <span class="token keyword">Sub</span>
+<span class="token keyword">End</span> <span class="token keyword">Module</span>
+
+----------------------------------------------------

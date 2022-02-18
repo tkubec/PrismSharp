@@ -1,0 +1,59 @@
+public class MyTest {
+    lateinit var subject: TestSubject
+
+    @SetUp fun setup() {
+        subject = TestSubject()
+    }
+
+    @Test fun test() {
+        subject.method()  // dereference directly
+    }
+}
+----------------------------------------------------
+[
+	["keyword", "public"],
+	["keyword", "class"],
+	" MyTest ",
+	["punctuation", "{"],
+
+	["keyword", "lateinit"],
+	["keyword", "var"],
+	" subject",
+	["operator", ":"],
+	" TestSubject\n\n    ",
+
+	["annotation", "@SetUp"],
+	["keyword", "fun"],
+	["function", "setup"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n        subject ",
+	["operator", "="],
+	["function", "TestSubject"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "}"],
+
+	["annotation", "@Test"],
+	["keyword", "fun"],
+	["function", "test"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\n        subject",
+	["punctuation", "."],
+	["function", "method"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["comment", "// dereference directly"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

@@ -1,0 +1,31 @@
+""
+"Foo\"bar"
+"Foo\
+bar \z
+baz"
+''
+'Foo\'bar'
+'Foo\
+bar \z
+baz'
+[[Multi "line"
+string]]
+[==[Multi [["line"]]
+string]==]
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Foo\"bar"</span>
+<span class="token string">"Foo\
+bar \z
+baz"</span>
+<span class="token string">''</span>
+<span class="token string">'Foo\'bar'</span>
+<span class="token string">'Foo\
+bar \z
+baz'</span>
+<span class="token string">[[Multi "line"
+string]]</span>
+<span class="token string">[==[Multi [["line"]]
+string]==]</span>
+
+----------------------------------------------------

@@ -1,0 +1,57 @@
+## BASIC PASSWORD PROTECTION
+AuthType basic
+AuthName "prompt"
+AuthUserFile /.htpasswd
+AuthGroupFile /dev/null
+Require valid-user
+
+## ALLOW FROM IP OR VALID PASSWORD
+Require valid-user
+Allow from 192.168.1.23
+Satisfy Any
+
+## PROTECT FILES
+Order Allow,Deny
+Deny from all
+
+## REQUIRE SUBDOMAIN
+RewriteCond %{HTTP_HOST} !^$
+RewriteCond %{HTTP_HOST} !^subdomain\.domain\.tld$ [NC]
+RewriteRule ^/(.*)$ http://subdomain.domain.tld/$1 [L,R=301]
+
+ErrorDocument 403 http://www.example.com/logo.gif
+ErrorDocument 403 /images/you_bad_hotlinker.gif
+
+## REDIRECT UPLOADS
+RewriteCond %{REQUEST_METHOD} ^(PUT|POST)$ [NC]
+RewriteRule ^(.*)$ /cgi-bin/form-upload-processor.cgi?p=$1 [L,QSA]
+----------------------------------------------------
+<span class="token comment">## BASIC PASSWORD PROTECTION</span>
+<span class="token directive-inline property">AuthType</span> basic
+<span class="token directive-inline property">AuthName</span> <span class="token string">"prompt"</span>
+<span class="token directive-inline property">AuthUserFile</span> /.htpasswd
+<span class="token directive-inline property">AuthGroupFile</span> /dev/null
+<span class="token directive-inline property">Require</span> valid-user
+
+<span class="token comment">## ALLOW FROM IP OR VALID PASSWORD</span>
+<span class="token directive-inline property">Require</span> valid-user
+<span class="token directive-inline property">Allow</span> from 192.168.1.23
+<span class="token directive-inline property">Satisfy</span> Any
+
+<span class="token comment">## PROTECT FILES</span>
+<span class="token directive-inline property">Order</span> <span class="token directive-inline property">Allow</span>,Deny
+<span class="token directive-inline property">Deny</span> from all
+
+<span class="token comment">## REQUIRE SUBDOMAIN</span>
+<span class="token directive-inline property">RewriteCond</span> <span class="token variable">%{HTTP_HOST}</span><span class="token regex"> !^$</span>
+<span class="token directive-inline property">RewriteCond</span> <span class="token variable">%{HTTP_HOST}</span><span class="token regex"> !^subdomain\.domain\.tld$</span> <span class="token directive-flags keyword">[NC]</span>
+<span class="token directive-inline property">RewriteRule</span><span class="token regex"> ^/(.*)$</span> http://subdomain.domain.tld/<span class="token variable">$1</span> <span class="token directive-flags keyword">[L,R=301]</span>
+
+<span class="token directive-inline property">ErrorDocument</span> 403 http://www.example.com/logo.gif
+<span class="token directive-inline property">ErrorDocument</span> 403 /images/you_bad_hotlinker.gif
+
+<span class="token comment">## REDIRECT UPLOADS</span>
+<span class="token directive-inline property">RewriteCond</span> <span class="token variable">%{REQUEST_METHOD}</span><span class="token regex"> ^(PUT|POST)$</span> <span class="token directive-flags keyword">[NC]</span>
+<span class="token directive-inline property">RewriteRule</span><span class="token regex"> ^(.*)$</span> /cgi-bin/form-upload-processor.cgi?p=<span class="token variable">$1</span> <span class="token directive-flags keyword">[L,QSA]</span>
+
+----------------------------------------------------

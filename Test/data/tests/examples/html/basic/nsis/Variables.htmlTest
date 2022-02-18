@@ -1,0 +1,9 @@
+LicenseLangString myLicenseData ${LANG_ENGLISH} "bigtest.nsi"
+LicenseData $(myLicenseData)
+StrCmp $LANGUAGE ${LANG_ENGLISH} 0 +2
+----------------------------------------------------
+<span class="token keyword">LicenseLangString</span> myLicenseData <span class="token constant">${LANG_ENGLISH}</span> <span class="token string">"bigtest.nsi"</span>
+<span class="token keyword">LicenseData</span> <span class="token constant">$(myLicenseData)</span>
+<span class="token keyword">StrCmp</span> <span class="token variable">$LANGUAGE</span> <span class="token constant">${LANG_ENGLISH}</span> <span class="token number">0</span> <span class="token operator">+</span><span class="token number">2</span>
+
+----------------------------------------------------

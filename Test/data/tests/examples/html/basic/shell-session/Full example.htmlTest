@@ -1,0 +1,13 @@
+foo@bar:/$ cd ~
+foo@bar:~$ sudo -i
+[sudo] password for foo:
+root@bar:~# echo "hello!"
+hello!
+----------------------------------------------------
+<span class="token command"><span class="token info punctuation"><span class="token user">foo@bar</span><span class="token punctuation">:</span><span class="token path">/</span></span><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token builtin class-name">cd</span> ~</span></span>
+<span class="token command"><span class="token info punctuation"><span class="token user">foo@bar</span><span class="token punctuation">:</span><span class="token path">~</span></span><span class="token shell-symbol important">$</span> <span class="token bash language-bash"><span class="token function">sudo</span> -i</span></span>
+<span class="token output">[sudo] password for foo:
+</span><span class="token command"><span class="token info punctuation"><span class="token user">root@bar</span><span class="token punctuation">:</span><span class="token path">~</span></span><span class="token shell-symbol important">#</span> <span class="token bash language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"hello!"</span></span></span>
+<span class="token output">hello!</span>
+
+----------------------------------------------------

@@ -1,0 +1,77 @@
+[% BLOCK header %]
+[% CALL dbi.disconnect %]
+[% CASE 23 %]
+[% CATCH the.ball %]
+[% CLEAR %]
+[% DEBUG on %]
+[% DEBUG off %]
+[% DEFAULT answer = 42 %]
+[% ELSE %]
+[% ELSIF bar %]
+[% END %]
+[% FILTER html %]
+[% FINAL breathe %]
+[% FOREACH project IN time %]
+[% GET foo %]
+[% IF foo %]
+[% IN %]
+[% INCLUDE "$inc" %]
+[% INSERT filename.html %]
+[% LAST IF exhausted %]
+[% MACRO header INCLUDE header %]
+[% META title = 'Hello!' %]
+[% NEXT IF client %]
+[% PERL %]
+[% PROCESS "functions.tt" %]
+[% RAWPERL %]
+[% RETURN %]
+[% SET answer = 42 %]
+[% STOP %]
+[% SWITCH mday %]
+[% TAGS [@ @] %]
+[% THROW up %]
+[% TRY %]
+[% UNLESS fear %]
+[% USE Plugin %]
+[% WHILE my.guitar.gently.weeps %]
+[% WRAPPER 'html5.html' %]
+----------------------------------------------------
+<span class="token delimiter punctuation">[%</span> <span class="token keyword">BLOCK</span> <span class="token variable">header</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">CALL</span> <span class="token variable">dbi.disconnect</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">CASE</span> <span class="token number">23</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">CATCH</span> <span class="token variable">the.ball</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">CLEAR</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">DEBUG</span> <span class="token variable">on</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">DEBUG</span> <span class="token variable">off</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">DEFAULT</span> <span class="token variable">answer</span> <span class="token operator">=</span> <span class="token number">42</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">ELSE</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">ELSIF</span> <span class="token variable">bar</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">END</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">FILTER</span> <span class="token variable">html</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">FINAL</span> <span class="token variable">breathe</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">FOREACH</span> <span class="token variable">project</span> <span class="token keyword">IN</span> <span class="token variable">time</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">GET</span> <span class="token variable">foo</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">IF</span> <span class="token variable">foo</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">IN</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">INCLUDE</span> <span class="token double-quoted-string string">"<span class="token variable">$inc</span>"</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">INSERT</span> <span class="token variable">filename.html</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">LAST</span> <span class="token keyword">IF</span> <span class="token variable">exhausted</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">MACRO</span> <span class="token variable">header</span> <span class="token keyword">INCLUDE</span> <span class="token variable">header</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">META</span> <span class="token variable">title</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'Hello!'</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">NEXT</span> <span class="token keyword">IF</span> <span class="token variable">client</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">PERL</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">PROCESS</span> <span class="token double-quoted-string string">"functions.tt"</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">RAWPERL</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">RETURN</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">SET</span> <span class="token variable">answer</span> <span class="token operator">=</span> <span class="token number">42</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">STOP</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">SWITCH</span> <span class="token variable">mday</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">TAGS</span> <span class="token punctuation">[</span>@ @<span class="token punctuation">]</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">THROW</span> <span class="token variable">up</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">TRY</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">UNLESS</span> <span class="token variable">fear</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">USE</span> <span class="token variable">Plugin</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">WHILE</span> <span class="token variable">my.guitar.gently.weeps</span> %<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>% <span class="token keyword">WRAPPER</span> <span class="token single-quoted-string string">'html5.html'</span> <span class="token delimiter punctuation">%]</span>
+
+----------------------------------------------------

@@ -1,0 +1,44 @@
+" ," ,/: ("Now";"is";"the";"time")
+L1,/:\:L2
+0+/10 20 30
+(1#) each 1001 1002 1004 1003
+----------------------------------------------------
+[
+	["string", "\" ,\""],
+	["verb", ","],
+	["adverb", "/:"],
+	["punctuation", "("],
+	["string", "\"Now\""],
+	["punctuation", ";"],
+	["string", "\"is\""],
+	["punctuation", ";"],
+	["string", "\"the\""],
+	["punctuation", ";"],
+	["string", "\"time\""],
+	["punctuation", ")"],
+
+	"\nL1",
+	["verb", ","],
+	["adverb", "/:"],
+	["adverb", "\\:"],
+	"L2\n",
+
+	["number", "0"],
+	["verb", "+"],
+	["adverb", "/"],
+	["number", "10"],
+	["number", "20"],
+	["number", "30"],
+
+	["punctuation", "("],
+	["number", "1"],
+	["verb", "#"],
+	["punctuation", ")"],
+	["adverb", "each"],
+	["number", "1001"],
+	["number", "1002"],
+	["number", "1004"],
+	["number", "1003"]
+]
+
+----------------------------------------------------

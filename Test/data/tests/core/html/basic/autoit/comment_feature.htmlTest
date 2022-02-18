@@ -1,0 +1,31 @@
+;
+; foo
+#comments-start
+	foobar()
+#comments-end
+#cs
+	foobar()
+#ce
+;#comments-start
+	foobar()
+;#comments-end
+;#cs
+	foobar()
+;#ce
+----------------------------------------------------
+<span class="token comment">;</span>
+<span class="token comment">; foo</span>
+<span class="token comment">#comments-start
+	foobar()
+#comments-end</span>
+<span class="token comment">#cs
+	foobar()
+#ce</span>
+<span class="token comment">;#comments-start</span>
+	<span class="token function">foobar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">;#comments-end</span>
+<span class="token comment">;#cs</span>
+	<span class="token function">foobar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">;#ce</span>
+
+----------------------------------------------------

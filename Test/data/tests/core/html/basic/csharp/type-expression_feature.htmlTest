@@ -1,0 +1,15 @@
+default(int)
+default(Foo)
+typeof(Foo)
+typeof((int, long))
+default(Foo<Bar, IFoo<Bar>>)
+sizeof(int)
+----------------------------------------------------
+<span class="token keyword">default</span><span class="token punctuation">(</span><span class="token type-expression class-name"><span class="token keyword">int</span></span><span class="token punctuation">)</span>
+<span class="token keyword">default</span><span class="token punctuation">(</span><span class="token type-expression class-name">Foo</span><span class="token punctuation">)</span>
+<span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token type-expression class-name">Foo</span><span class="token punctuation">)</span>
+<span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token type-expression class-name"><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">long</span><span class="token punctuation">)</span></span><span class="token punctuation">)</span>
+<span class="token keyword">default</span><span class="token punctuation">(</span><span class="token type-expression class-name">Foo<span class="token punctuation">&lt;</span>Bar<span class="token punctuation">,</span> IFoo<span class="token punctuation">&lt;</span>Bar<span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">)</span>
+<span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token type-expression class-name"><span class="token keyword">int</span></span><span class="token punctuation">)</span>
+
+----------------------------------------------------

@@ -1,0 +1,6 @@
+SELECT COUNT(*) AS total, MAX(foo) AS max_foo
+FROM `my_bucket`
+WHERE `foo` IS NOT NULL;
+CREATE INDEX productName_index1 ON bucket_name(productName, ProductID)
+WHERE type="product" USING GSI
+WITH {"nodes":["node1:8091", "node2:8091", "node3:8091"]};

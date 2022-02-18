@@ -1,0 +1,35 @@
+::
+
+    for a in [5,4,3,2,1]:   # this is program code, shown as-is
+        print a
+    print "it's..."
+    # a literal block continues until the indentation ends
+
+John Doe wrote::
+
+>> *Great* idea!
+>
+> Why didn't I think of that?
+
+You just did!  ;-)
+----------------------------------------------------
+[
+	["literal-block", [
+		["literal-block-punctuation", "::"],
+
+		"\n\n    for a in [5,4,3,2,1]:   # this is program code, shown as-is\n        print a\n    print \"it's...\"\n    # a literal block continues until the indentation ends"
+	]],
+
+	"\n\nJohn Doe wrote",
+	["quoted-literal-block", [
+		["literal-block-punctuation", "::"],
+
+		["literal-block-punctuation", ">>"], " *Great* idea!\n",
+		["literal-block-punctuation", ">"],
+		["literal-block-punctuation", ">"], " Why didn't I think of that?"
+	]],
+
+	"\n\nYou just did!  ;-)"
+]
+
+----------------------------------------------------

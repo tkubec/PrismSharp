@@ -1,0 +1,17 @@
+MATCH (person:Person)-[:WORKS_FOR]->(company)
+WHERE company.name STARTS WITH "Company"
+AND EXISTS {
+  MATCH (person)-[:LIKES]->(t:Technology)
+  WHERE size((t)<-[:LIKES]-()) >= 3
+}
+RETURN person.name as person, company.name AS company;
+----------------------------------------------------
+<span class="token keyword">MATCH</span> <span class="token punctuation">(</span>person<span class="token operator">:</span><span class="token class-name">Person</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token punctuation">[</span><span class="token operator">:</span><span class="token relationship property">WORKS_FOR</span><span class="token punctuation">]</span><span class="token operator">-></span><span class="token punctuation">(</span>company<span class="token punctuation">)</span>
+<span class="token keyword">WHERE</span> company<span class="token punctuation">.</span>name <span class="token keyword">STARTS</span> <span class="token keyword">WITH</span> <span class="token string">"Company"</span>
+<span class="token keyword">AND</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">{</span>
+  <span class="token keyword">MATCH</span> <span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token operator">-</span><span class="token punctuation">[</span><span class="token operator">:</span><span class="token relationship property">LIKES</span><span class="token punctuation">]</span><span class="token operator">-></span><span class="token punctuation">(</span>t<span class="token operator">:</span><span class="token class-name">Technology</span><span class="token punctuation">)</span>
+  <span class="token keyword">WHERE</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token operator">&lt;-</span><span class="token punctuation">[</span><span class="token operator">:</span><span class="token relationship property">LIKES</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">3</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">RETURN</span> person<span class="token punctuation">.</span>name <span class="token keyword">as</span> person<span class="token punctuation">,</span> company<span class="token punctuation">.</span>name <span class="token keyword">AS</span> company<span class="token punctuation">;</span>
+
+----------------------------------------------------

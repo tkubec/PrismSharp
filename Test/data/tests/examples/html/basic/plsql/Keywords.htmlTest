@@ -1,0 +1,65 @@
+CREATE OR REPLACE PROCEDURE
+hello_place (place_in IN VARCHAR2)
+IS
+  l_message  VARCHAR2 (100);
+BEGIN
+  l_message  := 'Hello ' || place_in;
+  DBMS_OUTPUT.put_line (l_message);
+END hello_place;
+
+DECLARE
+  l_dept_id
+  employees.department_id%TYPE := 10;
+BEGIN
+  DELETE FROM employees
+       WHERE department_id = l_dept_id;
+
+  DBMS_OUTPUT.put_line (SQL%ROWCOUNT);
+END;
+
+DECLARE
+  l_message   VARCHAR2 (100) := 'Hello';
+  l_message2  VARCHAR2 (100) := ' World!';
+BEGIN
+  IF SYSDATE >= TO_DATE ('01-JAN-2011')
+  THEN
+    l_message2 := l_message || l_message2;
+    DBMS_OUTPUT.put_line (l_message2);
+  ELSE
+    DBMS_OUTPUT.put_line (l_message);
+  END IF;
+END;
+----------------------------------------------------
+<span class="token keyword">CREATE</span> <span class="token keyword">OR</span> REPLACE <span class="token keyword">PROCEDURE</span>
+hello_place <span class="token punctuation">(</span>place_in <span class="token keyword">IN</span> VARCHAR2<span class="token punctuation">)</span>
+<span class="token keyword">IS</span>
+  l_message  VARCHAR2 <span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">BEGIN</span>
+  l_message  <span class="token operator">:=</span> <span class="token string">'Hello '</span> <span class="token operator">||</span> place_in<span class="token punctuation">;</span>
+  DBMS_OUTPUT<span class="token punctuation">.</span>put_line <span class="token punctuation">(</span>l_message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> hello_place<span class="token punctuation">;</span>
+
+<span class="token keyword">DECLARE</span>
+  l_dept_id
+  employees<span class="token punctuation">.</span>department_id<span class="token operator">%</span><span class="token keyword">TYPE</span> <span class="token operator">:=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">BEGIN</span>
+  <span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> employees
+       <span class="token keyword">WHERE</span> department_id <span class="token operator">=</span> l_dept_id<span class="token punctuation">;</span>
+
+  DBMS_OUTPUT<span class="token punctuation">.</span>put_line <span class="token punctuation">(</span><span class="token keyword">SQL</span><span class="token operator">%</span>ROWCOUNT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span><span class="token punctuation">;</span>
+
+<span class="token keyword">DECLARE</span>
+  l_message   VARCHAR2 <span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
+  l_message2  VARCHAR2 <span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">' World!'</span><span class="token punctuation">;</span>
+<span class="token keyword">BEGIN</span>
+  <span class="token keyword">IF</span> SYSDATE <span class="token operator">>=</span> TO_DATE <span class="token punctuation">(</span><span class="token string">'01-JAN-2011'</span><span class="token punctuation">)</span>
+  <span class="token keyword">THEN</span>
+    l_message2 <span class="token operator">:=</span> l_message <span class="token operator">||</span> l_message2<span class="token punctuation">;</span>
+    DBMS_OUTPUT<span class="token punctuation">.</span>put_line <span class="token punctuation">(</span>l_message2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">ELSE</span>
+    DBMS_OUTPUT<span class="token punctuation">.</span>put_line <span class="token punctuation">(</span>l_message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

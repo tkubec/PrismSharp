@@ -1,0 +1,17 @@
+{if not isLast($additionalName)}
+{if length($items) > 5}
+{$x|noAutoescape}
+{elseif round($pi) == 3}
+{for $i in range($numLines)}
+{$foo|changeNewLineToBr|bidiSpanWrap}
+{$bar | truncate : 4 , false}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">if</span> <span class="token operator">not</span> <span class="token function">isLast</span><span class="token punctuation">(</span><span class="token variable">$additionalName</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">if</span> <span class="token function">length</span><span class="token punctuation">(</span><span class="token variable">$items</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$x</span><span class="token punctuation">|</span><span class="token function">noAutoescape</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">elseif</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token variable">$pi</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token keyword">for</span> <span class="token variable">$i</span> <span class="token keyword">in</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token variable">$numLines</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token punctuation">|</span><span class="token function">changeNewLineToBr</span><span class="token punctuation">|</span><span class="token function">bidiSpanWrap</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$bar</span> <span class="token punctuation">|</span> <span class="token function">truncate</span> <span class="token punctuation">:</span> <span class="token number">4</span> <span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

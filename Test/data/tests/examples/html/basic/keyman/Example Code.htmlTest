@@ -1,0 +1,177 @@
+c =====================Begin Identity Section===================================================
+c 
+c Mnemonic input method for Amharic script on US-QWERTY
+c keyboards for Keyman version 7.1, compliant with Unicode 4.1 and later.
+c 
+
+store(&VERSION) '9.0'
+store(&Name) "Amharic"
+c store(&MnemonicLayout) "1"
+store(&CapsAlwaysOff) "1"
+store(&Copyright) "Creative Commons Attribution 3.0"
+store(&Message) "This is an Amharic language mnemonic input method for Ethiopic script that requires Unicode 4.1 support."
+store(&WINDOWSLANGUAGES) 'x045E x045E'
+store(&LANGUAGE) 'x045E'
+store(&EthnologueCode) "amh"
+store(&VISUALKEYBOARD) 'gff-amh-7.kvk'
+store(&KMW_EMBEDCSS) 'gff-amh-7.css'
+HOTKEY "^%A"
+c 
+c =====================End Identity Section=====================================================
+
+c =====================Begin Data Section=======================================================
+
+c ---------------------Maps for Numbers---------------------------------------------------------
+store(ArabOnes) '23456789'
+store(ones)     '፪፫፬፭፮፯፰፱'
+store(tens)     '፳፴፵፶፷፸፹፺'
+store(arabNumbers) '123456789'
+store(ethNumbers) '፩፪፫፬፭፮፯፰፱፲፳፴፵፶፷፸፹፺፻፼'
+store(arabNumbersWithZero) '0123456789'
+store(ColonOrComma) ':,'
+store(ethWordspaceOrComma) '፡፣'
+c ---------------------End Numbers--------------------------------------------------------------
+
+c =====================End Data Section=========================================================
+
+c =====================Begin Functional Section=================================================
+c 
+store(&LAYOUTFILE) 'gff-amh-7_layout.js'
+store(&BITMAP) 'amharic.bmp'
+store(&TARGETS) 'any windows'
+begin Unicode > use(main)
+group(main) using keys    
+
+c ---------------------Input of Numbers---------------------------------------------------------
+
+c Special Rule for Arabic Numerals
+c 
+c The following attempts to auto-correct the use of Ethiopic wordspace and
+c Ethiopic comma within an Arabic numeral context.  Ethiopic wordspace gets
+c used erroneously in time formats and Ethiopic commas as an order of thousands
+c delimiter. The correction context is not known until numerals appear on _both_
+c sides of the punctuation.
+c 
+  any(arabNumbersWithZero) any(ethWordspaceOrComma) + any(arabNumbers) > index(arabNumbersWithZero,1) index(ColonOrComma,2) index(arabNumbers,3)
+
+c Ethiopic Numerals
+
+  "'" + '1' > '፩'
+  "'" + any(ArabOnes) > index(ones,2)
+
+c special cases for multiples of one
+  '፩'  + '0' > '፲'
+  '፲'  + '0' > '፻'
+  '፻'  + '0' > '፲፻'
+  '፲፻' + '0' > '፼'
+  '፼'  + '0' > '፲፼'    
+  '፲፼' + '0' > '፻፼' 
+  '፻፼'  + '0' > '፲፻፼'
+  '፲፻፼' + '0' > '፼፼'
+  '፼፼' + '0' > context beep  c do not go any higher, we could beep here
+
+c upto the order of 100 million
+  any(ones)     + '0' > index(tens,1)
+  any(tens)     + '0' > index(ones,1) '፻'  c Hundreds
+  any(ones)  '፻ '+ '0' > index(tens,1) '፻'  c Thousands
+  any(tens)  '፻' + '0' > index(ones,1) '፼'  c Ten Thousands
+  any(ones)  '፼' + '0' > index(tens,1) '፼'  c Hundred Thousands
+  any(tens)  '፼' + '0' > index(ones,1) '፻፼' c Millions
+  any(ones) '፻፼' + '0' > index(tens,1) '፻፼' c Ten Millions
+  any(tens) '፻፼' + '0' > index(ones,1) '፼፼' c Hundred Millions
+
+c enhance this later, look for something that can copy a match over
+  any(ethNumbers) + any(arabNumbers) > index(ethNumbers,1)  index(ethNumbers,2)
+c ---------------------End Input of Numbers-----------------------------------------------------
+                                            
+c =====================End Functional Section===================================================
+----------------------------------------------------
+<span class="token comment">c =====================Begin Identity Section===================================================</span>
+<span class="token comment">c </span>
+<span class="token comment">c Mnemonic input method for Amharic script on US-QWERTY</span>
+<span class="token comment">c keyboards for Keyman version 7.1, compliant with Unicode 4.1 and later.</span>
+<span class="token comment">c </span>
+
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;VERSION</span><span class="token punctuation">)</span> <span class="token string">'9.0'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;Name</span><span class="token punctuation">)</span> <span class="token string">"Amharic"</span>
+<span class="token comment">c store(&amp;MnemonicLayout) "1"</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;CapsAlwaysOff</span><span class="token punctuation">)</span> <span class="token string">"1"</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;Copyright</span><span class="token punctuation">)</span> <span class="token string">"Creative Commons Attribution 3.0"</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;Message</span><span class="token punctuation">)</span> <span class="token string">"This is an Amharic language mnemonic input method for Ethiopic script that requires Unicode 4.1 support."</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;WINDOWSLANGUAGES</span><span class="token punctuation">)</span> <span class="token string">'x045E x045E'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;LANGUAGE</span><span class="token punctuation">)</span> <span class="token string">'x045E'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;EthnologueCode</span><span class="token punctuation">)</span> <span class="token string">"amh"</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;VISUALKEYBOARD</span><span class="token punctuation">)</span> <span class="token string">'gff-amh-7.kvk'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;KMW_EMBEDCSS</span><span class="token punctuation">)</span> <span class="token string">'gff-amh-7.css'</span>
+<span class="token header-statement bold">HOTKEY</span> <span class="token string">"^%A"</span>
+<span class="token comment">c </span>
+<span class="token comment">c =====================End Identity Section=====================================================</span>
+
+<span class="token comment">c =====================Begin Data Section=======================================================</span>
+
+<span class="token comment">c ---------------------Maps for Numbers---------------------------------------------------------</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span>ArabOnes<span class="token punctuation">)</span> <span class="token string">'23456789'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span>ones<span class="token punctuation">)</span>     <span class="token string">'፪፫፬፭፮፯፰፱'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span>tens<span class="token punctuation">)</span>     <span class="token string">'፳፴፵፶፷፸፹፺'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span>arabNumbers<span class="token punctuation">)</span> <span class="token string">'123456789'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span>ethNumbers<span class="token punctuation">)</span> <span class="token string">'፩፪፫፬፭፮፯፰፱፲፳፴፵፶፷፸፹፺፻፼'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span>arabNumbersWithZero<span class="token punctuation">)</span> <span class="token string">'0123456789'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span>ColonOrComma<span class="token punctuation">)</span> <span class="token string">':,'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span>ethWordspaceOrComma<span class="token punctuation">)</span> <span class="token string">'፡፣'</span>
+<span class="token comment">c ---------------------End Numbers--------------------------------------------------------------</span>
+
+<span class="token comment">c =====================End Data Section=========================================================</span>
+
+<span class="token comment">c =====================Begin Functional Section=================================================</span>
+<span class="token comment">c </span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;LAYOUTFILE</span><span class="token punctuation">)</span> <span class="token string">'gff-amh-7_layout.js'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;BITMAP</span><span class="token punctuation">)</span> <span class="token string">'amharic.bmp'</span>
+<span class="token rule-keyword keyword">store</span><span class="token punctuation">(</span><span class="token header-keyword bold">&amp;TARGETS</span><span class="token punctuation">)</span> <span class="token string">'any windows'</span>
+<span class="token structural-keyword keyword">begin</span> <span class="token structural-keyword keyword">Unicode</span> <span class="token operator">></span> <span class="token rule-keyword keyword">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span>
+<span class="token structural-keyword keyword">group</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span> <span class="token structural-keyword keyword">using keys</span>    
+
+<span class="token comment">c ---------------------Input of Numbers---------------------------------------------------------</span>
+
+<span class="token comment">c Special Rule for Arabic Numerals</span>
+<span class="token comment">c </span>
+<span class="token comment">c The following attempts to auto-correct the use of Ethiopic wordspace and</span>
+<span class="token comment">c Ethiopic comma within an Arabic numeral context.  Ethiopic wordspace gets</span>
+<span class="token comment">c used erroneously in time formats and Ethiopic commas as an order of thousands</span>
+<span class="token comment">c delimiter. The correction context is not known until numerals appear on _both_</span>
+<span class="token comment">c sides of the punctuation.</span>
+<span class="token comment">c </span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>arabNumbersWithZero<span class="token punctuation">)</span> <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>ethWordspaceOrComma<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>arabNumbers<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>arabNumbersWithZero<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>ColonOrComma<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>arabNumbers<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token comment">c Ethiopic Numerals</span>
+
+  <span class="token string">"'"</span> <span class="token operator">+</span> <span class="token string">'1'</span> <span class="token operator">></span> <span class="token string">'፩'</span>
+  <span class="token string">"'"</span> <span class="token operator">+</span> <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>ArabOnes<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>ones<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">c special cases for multiples of one</span>
+  <span class="token string">'፩'</span>  <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token string">'፲'</span>
+  <span class="token string">'፲'</span>  <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token string">'፻'</span>
+  <span class="token string">'፻'</span>  <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token string">'፲፻'</span>
+  <span class="token string">'፲፻'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token string">'፼'</span>
+  <span class="token string">'፼'</span>  <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token string">'፲፼'</span>    
+  <span class="token string">'፲፼'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token string">'፻፼'</span> 
+  <span class="token string">'፻፼'</span>  <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token string">'፲፻፼'</span>
+  <span class="token string">'፲፻፼'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token string">'፼፼'</span>
+  <span class="token string">'፼፼'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">context</span> <span class="token rule-keyword keyword">beep</span>  <span class="token comment">c do not go any higher, we could beep here</span>
+
+<span class="token comment">c upto the order of 100 million</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>ones<span class="token punctuation">)</span>     <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>tens<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>tens<span class="token punctuation">)</span>     <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>ones<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">'፻'</span>  <span class="token comment">c Hundreds</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>ones<span class="token punctuation">)</span>  <span class="token string">'፻ '</span><span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>tens<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">'፻'</span>  <span class="token comment">c Thousands</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>tens<span class="token punctuation">)</span>  <span class="token string">'፻'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>ones<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">'፼'</span>  <span class="token comment">c Ten Thousands</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>ones<span class="token punctuation">)</span>  <span class="token string">'፼'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>tens<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">'፼'</span>  <span class="token comment">c Hundred Thousands</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>tens<span class="token punctuation">)</span>  <span class="token string">'፼'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>ones<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">'፻፼'</span> <span class="token comment">c Millions</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>ones<span class="token punctuation">)</span> <span class="token string">'፻፼'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>tens<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">'፻፼'</span> <span class="token comment">c Ten Millions</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>tens<span class="token punctuation">)</span> <span class="token string">'፻፼'</span> <span class="token operator">+</span> <span class="token string">'0'</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>ones<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">'፼፼'</span> <span class="token comment">c Hundred Millions</span>
+
+<span class="token comment">c enhance this later, look for something that can copy a match over</span>
+  <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>ethNumbers<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token rule-keyword keyword">any</span><span class="token punctuation">(</span>arabNumbers<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>ethNumbers<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token rule-keyword keyword">index</span><span class="token punctuation">(</span>ethNumbers<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">c ---------------------End Input of Numbers-----------------------------------------------------</span>
+                                            
+<span class="token comment">c =====================End Functional Section===================================================</span>
+
+----------------------------------------------------

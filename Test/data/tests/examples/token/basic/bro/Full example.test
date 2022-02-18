@@ -1,0 +1,3974 @@
+##! Scan detector ported from Bro 1.x.
+##!
+##! This script has evolved over many years and is quite a mess right now. We
+##! have adapted it to work with Bro 2.x, but eventually Bro 2.x will
+##! get its own rewritten and generalized scan detector.
+
+@load base/frameworks/notice/main
+
+module Scan;
+
+export {
+	redef enum Notice::Type += {
+		## The source has scanned a number of ports.
+		PortScan,
+		## The source has scanned a number of addresses.
+		AddressScan,
+		## Apparent flooding backscatter seen from source.
+		BackscatterSeen,
+
+		## Summary of scanning activity.
+		ScanSummary,
+		## Summary of distinct ports per scanner.
+		PortScanSummary,
+		## Summary of distinct low ports per scanner.
+		LowPortScanSummary,
+
+		## Source reached :bro:id:`Scan::shut_down_thresh`
+		ShutdownThresh,
+		## Source touched privileged ports.
+		LowPortTrolling,
+	};
+
+	# Whether to consider UDP "connections" for scan detection.
+	# Can lead to false positives due to UDP fanout from some P2P apps.
+	const suppress_UDP_scan_checks = F &redef;
+
+	const activate_priv_port_check = T &redef;
+	const activate_landmine_check = F &redef;
+	const landmine_thresh_trigger = 5 &redef;
+
+	const landmine_address: set[addr] &redef;
+
+	const scan_summary_trigger = 25 &redef;
+	const port_summary_trigger = 20 &redef;
+	const lowport_summary_trigger = 10 &redef;
+
+	# Raise ShutdownThresh after this many failed attempts
+	const shut_down_thresh = 100 &redef;
+
+	# Which services should be analyzed when detecting scanning
+	# (not consulted if analyze_all_services is set).
+	const analyze_services: set[port] &redef;
+	const analyze_all_services = T &redef;
+
+	# Track address scaners only if at least these many hosts contacted.
+	const addr_scan_trigger = 0 &redef;
+
+	# Ignore address scanners for further scan detection after
+	# scanning this many hosts.
+	# 0 disables.
+	const ignore_scanners_threshold = 0 &redef;
+
+	# Report a scan of peers at each of these points.
+	const report_peer_scan: vector of count = {
+		20, 100, 1000, 10000, 50000, 100000, 250000, 500000, 1000000,
+	} &redef;
+
+	const report_outbound_peer_scan: vector of count = {
+		100, 1000, 10000,
+	} &redef;
+
+	# Report a scan of ports at each of these points.
+	const report_port_scan: vector of count = {
+		50, 250, 1000, 5000, 10000, 25000, 65000,
+	} &redef;
+
+	# Once a source has scanned this many different ports (to however many
+	# different remote hosts), start tracking its per-destination access.
+	const possible_port_scan_thresh = 20 &redef;
+
+	# Threshold for scanning privileged ports.
+	const priv_scan_trigger = 5 &redef;
+	const troll_skip_service = {
+		25/tcp, 21/tcp, 22/tcp, 20/tcp, 80/tcp,
+	} &redef;
+
+	const report_accounts_tried: vector of count = {
+		20, 100, 1000, 10000, 100000, 1000000,
+	} &redef;
+
+	const report_remote_accounts_tried: vector of count = {
+		100, 500,
+	} &redef;
+
+	# Report a successful password guessing if the source attempted
+	# at least this many.
+	const password_guessing_success_threshhold = 20 &redef;
+
+	const skip_accounts_tried: set[addr] &redef;
+
+	const addl_web = {
+		81/tcp, 443/tcp, 8000/tcp, 8001/tcp, 8080/tcp, }
+	&redef;
+
+	const skip_services = { 113/tcp, } &redef;
+	const skip_outbound_services = { 21/tcp, addl_web, }
+		&redef;
+
+	const skip_scan_sources = {
+		255.255.255.255,	# who knows why we see these, but we do
+	} &redef;
+
+	const skip_scan_nets: set[subnet] = {} &redef;
+
+	# List of well known local server/ports to exclude for scanning
+	# purposes.
+	const skip_dest_server_ports: set[addr, port] = {} &redef;
+
+	# Reverse (SYN-ack) scans seen from these ports are considered
+	# to reflect possible SYN-flooding backscatter, and not true
+	# (stealth) scans.
+	const backscatter_ports = {
+		80/tcp, 8080/tcp, 53/tcp, 53/udp, 179/tcp, 6666/tcp, 6667/tcp,
+	} &redef;
+
+	const report_backscatter: vector of count = {
+		20,
+	} &redef;
+
+	global check_scan:
+		function(c: connection, established: bool, reverse: bool): bool;
+
+	# The following tables are defined here so that we can redef
+	# the expire timeouts.
+	# FIXME: should we allow redef of attributes on IDs which
+	# are not exported?
+
+	# How many different hosts connected to with a possible
+	# backscatter signature.
+	global distinct_backscatter_peers: table[addr] of table[addr] of count
+		&read_expire = 15 min;
+
+	# Expire functions that trigger summaries.
+	global scan_summary:
+		function(t: table[addr] of set[addr], orig: addr): interval;
+	global port_summary:
+		function(t: table[addr] of set[port], orig: addr): interval;
+	global lowport_summary:
+		function(t: table[addr] of set[port], orig: addr): interval;
+
+	# Indexed by scanner address, yields # distinct peers scanned.
+	# pre_distinct_peers tracks until addr_scan_trigger hosts first.
+	global pre_distinct_peers: table[addr] of set[addr]
+		&read_expire = 15 mins &redef;
+
+	global distinct_peers: table[addr] of set[addr]
+		&read_expire = 15 mins &expire_func=scan_summary &redef;
+	global distinct_ports: table[addr] of set[port]
+		&read_expire = 15 mins &expire_func=port_summary &redef;
+	global distinct_low_ports: table[addr] of set[port]
+		&read_expire = 15 mins &expire_func=lowport_summary &redef;
+
+	# Indexed by scanner address, yields a table with scanned hosts
+	# (and ports).
+	global scan_triples: table[addr] of table[addr] of set[port];
+
+	global remove_possible_source:
+		function(s: set[addr], idx: addr): interval;
+	global possible_scan_sources: set[addr]
+		&expire_func=remove_possible_source &read_expire = 15 mins;
+
+	# Indexed by source address, yields user name & password tried.
+	global accounts_tried: table[addr] of set[string, string]
+		&read_expire = 1 days;
+
+	global ignored_scanners: set[addr] &create_expire = 1 day &redef;
+
+	# These tables track whether a threshold has been reached.
+	# More precisely, the counter is the next index of threshold vector.
+	global shut_down_thresh_reached: table[addr] of bool &default=F;
+	global rb_idx: table[addr] of count
+			&default=1 &read_expire = 1 days &redef;
+	global rps_idx: table[addr] of count
+			&default=1 &read_expire = 1 days &redef;
+	global rops_idx: table[addr] of count
+			&default=1 &read_expire = 1 days &redef;
+	global rpts_idx: table[addr,addr] of count
+			&default=1 &read_expire = 1 days &redef;
+	global rat_idx: table[addr] of count
+			&default=1 &read_expire = 1 days &redef;
+	global rrat_idx: table[addr] of count
+			&default=1 &read_expire = 1 days &redef;
+}
+
+global thresh_check: function(v: vector of count, idx: table[addr] of count,
+				orig: addr, n: count): bool;
+global thresh_check_2: function(v: vector of count,
+				idx: table[addr,addr] of count, orig: addr,
+				resp: addr, n: count): bool;
+
+function scan_summary(t: table[addr] of set[addr], orig: addr): interval
+	{
+	local num_distinct_peers = orig in t ? |t[orig]| : 0;
+
+	if ( num_distinct_peers >= scan_summary_trigger )
+		NOTICE([$note=ScanSummary, $src=orig, $n=num_distinct_peers,
+			$identifier=fmt("%s", orig),
+			$msg=fmt("%s scanned a total of %d hosts",
+					orig, num_distinct_peers)]);
+
+	return 0 secs;
+	}
+
+function port_summary(t: table[addr] of set[port], orig: addr): interval
+	{
+	local num_distinct_ports = orig in t ? |t[orig]| : 0;
+
+	if ( num_distinct_ports >= port_summary_trigger )
+		NOTICE([$note=PortScanSummary, $src=orig, $n=num_distinct_ports,
+			$identifier=fmt("%s", orig),
+			$msg=fmt("%s scanned a total of %d ports",
+					orig, num_distinct_ports)]);
+
+	return 0 secs;
+	}
+
+function lowport_summary(t: table[addr] of set[port], orig: addr): interval
+	{
+	local num_distinct_lowports = orig in t ? |t[orig]| : 0;
+
+	if ( num_distinct_lowports >= lowport_summary_trigger )
+		NOTICE([$note=LowPortScanSummary, $src=orig,
+			$n=num_distinct_lowports,
+			$identifier=fmt("%s", orig),
+			$msg=fmt("%s scanned a total of %d low ports",
+					orig, num_distinct_lowports)]);
+
+	return 0 secs;
+	}
+
+function clear_addr(a: addr)
+	{
+	delete distinct_peers[a];
+	delete distinct_ports[a];
+	delete distinct_low_ports[a];
+	delete scan_triples[a];
+	delete possible_scan_sources[a];
+	delete distinct_backscatter_peers[a];
+	delete pre_distinct_peers[a];
+	delete rb_idx[a];
+	delete rps_idx[a];
+	delete rops_idx[a];
+	delete rat_idx[a];
+	delete rrat_idx[a];
+	delete shut_down_thresh_reached[a];
+	delete ignored_scanners[a];
+	}
+
+function ignore_addr(a: addr)
+	{
+	clear_addr(a);
+	add ignored_scanners[a];
+	}
+
+function check_scan(c: connection, established: bool, reverse: bool): bool
+	{
+	local id = c$id;
+
+	local service = "ftp-data" in c$service ? 20/tcp
+			: (reverse ? id$orig_p : id$resp_p);
+	local rev_service = reverse ? id$resp_p : id$orig_p;
+	local orig = reverse ? id$resp_h : id$orig_h;
+	local resp = reverse ? id$orig_h : id$resp_h;
+	local outbound = Site::is_local_addr(orig);
+
+	# The following works better than using get_conn_transport_proto()
+	# because c might not correspond to an active connection (which
+	# causes the function to fail).
+	if ( suppress_UDP_scan_checks &&
+	     service >= 0/udp && service <= 65535/udp )
+		return F;
+
+	if ( service in skip_services && ! outbound )
+		return F;
+
+	if ( outbound && service in skip_outbound_services )
+		return F;
+
+	if ( orig in skip_scan_sources )
+		return F;
+
+	if ( orig in skip_scan_nets )
+		return F;
+
+	# Don't include well known server/ports for scanning purposes.
+	if ( ! outbound && [resp, service] in skip_dest_server_ports )
+		return F;
+
+	if ( orig in ignored_scanners)
+		return F;
+
+	if ( ! established &&
+		# not established, service not expressly allowed
+
+		# not known peer set
+		(orig !in distinct_peers || resp !in distinct_peers[orig]) &&
+
+		# want to consider service for scan detection
+		(analyze_all_services || service in analyze_services) )
+		{
+		if ( reverse && rev_service in backscatter_ports &&
+		     # reverse, non-priv backscatter port
+		     service >= 1024/tcp )
+			{
+			if ( orig !in distinct_backscatter_peers )
+				{
+				local empty_bs_table:
+					table[addr] of count &default=0;
+				distinct_backscatter_peers[orig] =
+					empty_bs_table;
+				}
+
+			if ( ++distinct_backscatter_peers[orig][resp] <= 2 &&
+			     # The test is <= 2 because we get two check_scan()
+			     # calls, once on connection attempt and once on
+			     # tear-down.
+
+			     distinct_backscatter_peers[orig][resp] == 1 &&
+
+			     # Looks like backscatter, and it's not scanning
+			     # a privileged port.
+
+			     thresh_check(report_backscatter, rb_idx, orig,
+					|distinct_backscatter_peers[orig]|)
+			   )
+				{
+				NOTICE([$note=BackscatterSeen, $src=orig,
+					$p=rev_service,
+					$identifier=fmt("%s", orig),
+					$msg=fmt("backscatter seen from %s (%d hosts; %s)",
+						orig, |distinct_backscatter_peers[orig]|, rev_service)]);
+				}
+
+			if ( ignore_scanners_threshold > 0 &&
+			     |distinct_backscatter_peers[orig]| >
+					ignore_scanners_threshold )
+				ignore_addr(orig);
+			}
+
+		else
+			{ # done with backscatter check
+			local ignore = F;
+
+			if ( orig !in distinct_peers && addr_scan_trigger > 0 )
+				{
+				if ( orig !in pre_distinct_peers )
+					pre_distinct_peers[orig] = set();
+
+				add pre_distinct_peers[orig][resp];
+				if ( |pre_distinct_peers[orig]| < addr_scan_trigger )
+					ignore = T;
+				}
+
+			if ( ! ignore )
+				{ # XXXXX
+
+				if ( orig !in distinct_peers )
+					distinct_peers[orig] = set() &mergeable;
+
+				if ( resp !in distinct_peers[orig] )
+					add distinct_peers[orig][resp];
+
+				local n = |distinct_peers[orig]|;
+
+				# Check for threshold if not outbound.
+				if ( ! shut_down_thresh_reached[orig] &&
+				     n >= shut_down_thresh &&
+				     ! outbound && orig !in Site::neighbor_nets )
+					{
+					shut_down_thresh_reached[orig] = T;
+					local msg = fmt("shutdown threshold reached for %s", orig);
+					NOTICE([$note=ShutdownThresh, $src=orig,
+						$identifier=fmt("%s", orig),
+						$p=service, $msg=msg]);
+					}
+
+				else
+					{
+					local address_scan = F;
+					if ( outbound &&
+					     # inside host scanning out?
+					     thresh_check(report_outbound_peer_scan, rops_idx, orig, n) )
+						address_scan = T;
+
+					if ( ! outbound &&
+					     thresh_check(report_peer_scan, rps_idx, orig, n) )
+						address_scan = T;
+
+					if ( address_scan )
+						NOTICE([$note=AddressScan,
+							$src=orig, $p=service,
+							$n=n,
+							$identifier=fmt("%s-%d", orig, n),
+							$msg=fmt("%s has scanned %d hosts (%s)",
+								orig, n, service)]);
+
+					if ( address_scan &&
+					     ignore_scanners_threshold > 0 &&
+					     n > ignore_scanners_threshold )
+						ignore_addr(orig);
+					}
+				}
+			} # XXXX
+		}
+
+	if ( established )
+		# Don't consider established connections for port scanning,
+		# it's too easy to be mislead by FTP-like applications that
+		# legitimately gobble their way through the port space.
+		return F;
+
+	# Coarse search for port-scanning candidates: those that have made
+	# connections (attempts) to possible_port_scan_thresh or more
+	# distinct ports.
+	if ( orig !in distinct_ports || service !in distinct_ports[orig] )
+		{
+		if ( orig !in distinct_ports )
+			distinct_ports[orig] = set() &mergeable;
+
+		if ( service !in distinct_ports[orig] )
+			add distinct_ports[orig][service];
+
+		if ( |distinct_ports[orig]| >= possible_port_scan_thresh &&
+			orig !in scan_triples )
+			{
+			scan_triples[orig] = table() &mergeable;
+			add possible_scan_sources[orig];
+			}
+		}
+
+	# Check for low ports.
+	if ( activate_priv_port_check && ! outbound && service < 1024/tcp &&
+	     service !in troll_skip_service )
+		{
+		if ( orig !in distinct_low_ports ||
+		     service !in distinct_low_ports[orig] )
+			{
+			if ( orig !in distinct_low_ports )
+				distinct_low_ports[orig] = set() &mergeable;
+
+			add distinct_low_ports[orig][service];
+
+			if ( |distinct_low_ports[orig]| == priv_scan_trigger &&
+			     orig !in Site::neighbor_nets )
+				{
+				local svrc_msg = fmt("low port trolling %s %s", orig, service);
+				NOTICE([$note=LowPortTrolling, $src=orig,
+					$identifier=fmt("%s", orig),
+					$p=service, $msg=svrc_msg]);
+				}
+
+			if ( ignore_scanners_threshold > 0 &&
+			     |distinct_low_ports[orig]| >
+					ignore_scanners_threshold )
+				ignore_addr(orig);
+			}
+		}
+
+	# For sources that have been identified as possible scan sources,
+	# keep track of per-host scanning.
+	if ( orig in possible_scan_sources )
+		{
+		if ( orig !in scan_triples )
+			scan_triples[orig] = table() &mergeable;
+
+		if ( resp !in scan_triples[orig] )
+			scan_triples[orig][resp] = set() &mergeable;
+
+		if ( service !in scan_triples[orig][resp] )
+			{
+			add scan_triples[orig][resp][service];
+
+			if ( thresh_check_2(report_port_scan, rpts_idx,
+					    orig, resp,
+					    |scan_triples[orig][resp]|) )
+				{
+				local m = |scan_triples[orig][resp]|;
+				NOTICE([$note=PortScan, $n=m, $src=orig,
+					$p=service,
+					$identifier=fmt("%s-%d", orig, n),
+					$msg=fmt("%s has scanned %d ports of %s",
+					orig, m, resp)]);
+				}
+			}
+		}
+
+	return T;
+	}
+
+
+# Hook into the catch&release dropping. When an address gets restored, we reset
+# the source to allow dropping it again.
+event Drop::address_restored(a: addr)
+	{
+	clear_addr(a);
+	}
+
+event Drop::address_cleared(a: addr)
+	{
+	clear_addr(a);
+	}
+
+# When removing a possible scan source, we automatically delete its scanned
+# hosts and ports.  But we do not want the deletion propagated, because every
+# peer calls the expire_function on its own (and thus applies the delete
+# operation on its own table).
+function remove_possible_source(s: set[addr], idx: addr): interval
+	{
+	suspend_state_updates();
+	delete scan_triples[idx];
+	resume_state_updates();
+
+	return 0 secs;
+	}
+
+# To recognize whether a certain threshhold vector (e.g. report_peer_scans)
+# has been transgressed, a global variable containing the next vector index
+# (idx) must be incremented.  This cumbersome mechanism is necessary because
+# values naturally don't increment by one (e.g. replayed table merges).
+function thresh_check(v: vector of count, idx: table[addr] of count,
+			orig: addr, n: count): bool
+	{
+	if ( ignore_scanners_threshold > 0 && n > ignore_scanners_threshold )
+		{
+		ignore_addr(orig);
+		return F;
+		}
+
+	if ( idx[orig] <= |v| && n >= v[idx[orig]] )
+		{
+		++idx[orig];
+		return T;
+		}
+	else
+		return F;
+	}
+
+# Same as above, except the index has a different type signature.
+function thresh_check_2(v: vector of count, idx: table[addr, addr] of count,
+			orig: addr, resp: addr, n: count): bool
+	{
+	if ( ignore_scanners_threshold > 0 && n > ignore_scanners_threshold )
+		{
+		ignore_addr(orig);
+		return F;
+		}
+
+	if ( idx[orig,resp] <= |v| && n >= v[idx[orig, resp]] )
+		{
+		++idx[orig,resp];
+		return T;
+		}
+	else
+		return F;
+	}
+
+event connection_established(c: connection)
+	{
+	local is_reverse_scan = (c$orig$state == TCP_INACTIVE);
+	Scan::check_scan(c, T, is_reverse_scan);
+	}
+
+event partial_connection(c: connection)
+	{
+	Scan::check_scan(c, T, F);
+	}
+
+event connection_attempt(c: connection)
+	{
+	Scan::check_scan(c, F, c$orig$state == TCP_INACTIVE);
+	}
+
+event connection_half_finished(c: connection)
+	{
+	# Half connections never were "established", so do scan-checking here.
+	Scan::check_scan(c, F, F);
+	}
+
+event connection_rejected(c: connection)
+	{
+	local is_reverse_scan = c$orig$state == TCP_RESET;
+
+	Scan::check_scan(c, F, is_reverse_scan);
+	}
+
+event connection_reset(c: connection)
+	{
+	if ( c$orig$state == TCP_INACTIVE || c$resp$state == TCP_INACTIVE )
+		# We never heard from one side - that looks like a scan.
+		Scan::check_scan(c, c$orig$size + c$resp$size > 0,
+				c$orig$state == TCP_INACTIVE);
+	}
+
+event connection_pending(c: connection)
+	{
+	if ( c$orig$state == TCP_PARTIAL && c$resp$state == TCP_INACTIVE )
+		Scan::check_scan(c, F, F);
+	}
+
+# Report the remaining entries in the tables.
+event bro_done()
+	{
+	for ( orig in distinct_peers )
+		scan_summary(distinct_peers, orig);
+
+	for ( orig in distinct_ports )
+		port_summary(distinct_ports, orig);
+
+	for ( orig in distinct_low_ports )
+		lowport_summary(distinct_low_ports, orig);
+	}
+----------------------------------------------------
+[
+	["comment", ["##! Scan detector ported from Bro 1.x."]],
+	["comment", ["##!"]],
+	["comment", ["##! This script has evolved over many years and is quite a mess right now. We"]],
+	["comment", ["##! have adapted it to work with Bro 2.x, but eventually Bro 2.x will"]],
+	["comment", ["##! get its own rewritten and generalized scan detector."]],
+
+	["builtin", "@load"],
+	" base",
+	["operator", "/"],
+	"frameworks",
+	["operator", "/"],
+	"notice",
+	["operator", "/"],
+	"main\n\n",
+
+	["keyword", "module"], " Scan", ["punctuation", ";"],
+
+	["keyword", "export"],
+	["punctuation", "{"],
+
+	["builtin", "redef"],
+	["keyword", "enum"],
+	" Notice",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"Type ",
+	["operator", "+"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["comment", ["## The source has scanned a number of ports."]],
+
+	"\n\t\tPortScan",
+	["punctuation", ","],
+
+	["comment", ["## The source has scanned a number of addresses."]],
+
+	"\n\t\tAddressScan",
+	["punctuation", ","],
+
+	["comment", ["## Apparent flooding backscatter seen from source."]],
+
+	"\n\t\tBackscatterSeen",
+	["punctuation", ","],
+
+	["comment", ["## Summary of scanning activity."]],
+	"\n\t\tScanSummary", ["punctuation", ","],
+	["comment", ["## Summary of distinct ports per scanner."]],
+	"\n\t\tPortScanSummary", ["punctuation", ","],
+	["comment", ["## Summary of distinct low ports per scanner."]],
+	"\n\t\tLowPortScanSummary", ["punctuation", ","],
+
+	["comment", ["## Source reached :bro:id:`Scan::shut_down_thresh`"]],
+	"\n\t\tShutdownThresh", ["punctuation", ","],
+	["comment", ["## Source touched privileged ports."]],
+	"\n\t\tLowPortTrolling", ["punctuation", ","],
+	["punctuation", "}"], ["punctuation", ";"],
+
+	["comment", ["# Whether to consider UDP \"connections\" for scan detection."]],
+
+	["comment", ["# Can lead to false positives due to UDP fanout from some P2P apps."]],
+
+	["keyword", "const"],
+	["constant", "suppress_UDP_scan_checks"],
+	["operator", "="],
+	["boolean", "F"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "activate_priv_port_check"],
+	["operator", "="],
+	["boolean", "T"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "activate_landmine_check"],
+	["operator", "="],
+	["boolean", "F"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "landmine_thresh_trigger"],
+	["operator", "="],
+	["number", "5"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "landmine_address"],
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "scan_summary_trigger"],
+	["operator", "="],
+	["number", "25"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "port_summary_trigger"],
+	["operator", "="],
+	["number", "20"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "lowport_summary_trigger"],
+	["operator", "="],
+	["number", "10"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Raise ShutdownThresh after this many failed attempts"]],
+
+	["keyword", "const"],
+	["constant", "shut_down_thresh"],
+	["operator", "="],
+	["number", "100"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Which services should be analyzed when detecting scanning"]],
+
+	["comment", ["# (not consulted if analyze_all_services is set)."]],
+
+	["keyword", "const"],
+	["constant", "analyze_services"],
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "port"],
+	["punctuation", "]"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "analyze_all_services"],
+	["operator", "="],
+	["boolean", "T"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Track address scaners only if at least these many hosts contacted."]],
+
+	["keyword", "const"],
+	["constant", "addr_scan_trigger"],
+	["operator", "="],
+	["number", "0"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Ignore address scanners for further scan detection after"]],
+
+	["comment", ["# scanning this many hosts."]],
+
+	["comment", ["# 0 disables."]],
+
+	["keyword", "const"],
+	["constant", "ignore_scanners_threshold"],
+	["operator", "="],
+	["number", "0"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Report a scan of peers at each of these points."]],
+
+	["keyword", "const"],
+	["constant", "report_peer_scan"],
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "20"],
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	["number", "1000"],
+	["punctuation", ","],
+	["number", "10000"],
+	["punctuation", ","],
+	["number", "50000"],
+	["punctuation", ","],
+	["number", "100000"],
+	["punctuation", ","],
+	["number", "250000"],
+	["punctuation", ","],
+	["number", "500000"],
+	["punctuation", ","],
+	["number", "1000000"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "report_outbound_peer_scan"],
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "100"],
+	["punctuation", ","],
+	["number", "1000"],
+	["punctuation", ","],
+	["number", "10000"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Report a scan of ports at each of these points."]],
+
+	["keyword", "const"],
+	["constant", "report_port_scan"],
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "50"],
+	["punctuation", ","],
+	["number", "250"],
+	["punctuation", ","],
+	["number", "1000"],
+	["punctuation", ","],
+	["number", "5000"],
+	["punctuation", ","],
+	["number", "10000"],
+	["punctuation", ","],
+	["number", "25000"],
+	["punctuation", ","],
+	["number", "65000"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Once a source has scanned this many different ports (to however many"]],
+
+	["comment", ["# different remote hosts), start tracking its per-destination access."]],
+
+	["keyword", "const"],
+	["constant", "possible_port_scan_thresh"],
+	["operator", "="],
+	["number", "20"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Threshold for scanning privileged ports."]],
+
+	["keyword", "const"],
+	["constant", "priv_scan_trigger"],
+	["operator", "="],
+	["number", "5"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "troll_skip_service"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "25"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "21"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "22"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "20"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "80"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "report_accounts_tried"],
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "20"],
+	["punctuation", ","],
+	["number", "100"],
+	["punctuation", ","],
+	["number", "1000"],
+	["punctuation", ","],
+	["number", "10000"],
+	["punctuation", ","],
+	["number", "100000"],
+	["punctuation", ","],
+	["number", "1000000"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "report_remote_accounts_tried"],
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "100"],
+	["punctuation", ","],
+	["number", "500"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Report a successful password guessing if the source attempted"]],
+
+	["comment", ["# at least this many."]],
+
+	["keyword", "const"],
+	["constant", "password_guessing_success_threshhold"],
+	["operator", "="],
+	["number", "20"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "skip_accounts_tried"],
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "addl_web"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "81"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "443"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "8000"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "8001"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "8080"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["punctuation", "}"],
+
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "skip_services"],
+	["operator", "="],
+	["punctuation", "{"],
+	["number", "113"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "skip_outbound_services"],
+	["operator", "="],
+	["punctuation", "{"],
+	["number", "21"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	" addl_web",
+	["punctuation", ","],
+	["punctuation", "}"],
+
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "skip_scan_sources"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "255.255"],
+	["number", ".255"],
+	["number", ".255"],
+	["punctuation", ","],
+	["comment", ["# who knows why we see these, but we do"]],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "skip_scan_nets"],
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "subnet"],
+	["punctuation", "]"],
+	["operator", "="],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# List of well known local server/ports to exclude for scanning"]],
+
+	["comment", ["# purposes."]],
+
+	["keyword", "const"],
+	["constant", "skip_dest_server_ports"],
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", ","],
+	["keyword", "port"],
+	["punctuation", "]"],
+	["operator", "="],
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Reverse (SYN-ack) scans seen from these ports are considered"]],
+
+	["comment", ["# to reflect possible SYN-flooding backscatter, and not true"]],
+
+	["comment", ["# (stealth) scans."]],
+
+	["keyword", "const"],
+	["constant", "backscatter_ports"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "80"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "8080"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "53"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "53"],
+	["operator", "/"],
+	"udp",
+	["punctuation", ","],
+	["number", "179"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "6666"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+	["number", "6667"],
+	["operator", "/"],
+	"tcp",
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "const"],
+	["constant", "report_backscatter"],
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["operator", "="],
+	["punctuation", "{"],
+
+	["number", "20"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" check_scan",
+	["punctuation", ":"],
+
+	["keyword", "function"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ","],
+	" established",
+	["punctuation", ":"],
+	["keyword", "bool"],
+	["punctuation", ","],
+	" reverse",
+	["punctuation", ":"],
+	["keyword", "bool"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "bool"],
+	["punctuation", ";"],
+
+	["comment", ["# The following tables are defined here so that we can redef"]],
+	["comment", ["# the expire timeouts."]],
+	["comment", [
+		"# ",
+		["italic", "FIXME"],
+		": should we allow redef of attributes on IDs which"
+	]],
+	["comment", ["# are not exported?"]],
+
+	["comment", ["# How many different hosts connected to with a possible"]],
+
+	["comment", ["# backscatter signature."]],
+
+	["keyword", "global"],
+	" distinct_backscatter_peers",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "15"],
+	" min",
+	["punctuation", ";"],
+
+	["comment", ["# Expire functions that trigger summaries."]],
+
+	["keyword", "global"],
+	" scan_summary",
+	["punctuation", ":"],
+
+	["keyword", "function"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "interval"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" port_summary",
+	["punctuation", ":"],
+
+	["keyword", "function"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "port"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "interval"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" lowport_summary",
+	["punctuation", ":"],
+
+	["keyword", "function"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "port"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "interval"],
+	["punctuation", ";"],
+
+	["comment", ["# Indexed by scanner address, yields # distinct peers scanned."]],
+
+	["comment", ["# pre_distinct_peers tracks until addr_scan_trigger hosts first."]],
+
+	["keyword", "global"],
+	" pre_distinct_peers",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "15"],
+	" mins ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" distinct_peers",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "15"],
+	" mins ",
+	["builtin", "&expire_func"],
+	["operator", "="],
+	"scan_summary ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" distinct_ports",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "port"],
+	["punctuation", "]"],
+
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "15"],
+	" mins ",
+	["builtin", "&expire_func"],
+	["operator", "="],
+	"port_summary ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" distinct_low_ports",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "port"],
+	["punctuation", "]"],
+
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "15"],
+	" mins ",
+	["builtin", "&expire_func"],
+	["operator", "="],
+	"lowport_summary ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# Indexed by scanner address, yields a table with scanned hosts"]],
+
+	["comment", ["# (and ports)."]],
+
+	["keyword", "global"],
+	" scan_triples",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "port"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" remove_possible_source",
+	["punctuation", ":"],
+
+	["keyword", "function"],
+	["punctuation", "("],
+	"s",
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" idx",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "interval"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" possible_scan_sources",
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+
+	["builtin", "&expire_func"],
+	["operator", "="],
+	"remove_possible_source ",
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "15"],
+	" mins",
+	["punctuation", ";"],
+
+	["comment", ["# Indexed by source address, yields user name & password tried."]],
+
+	["keyword", "global"],
+	" accounts_tried",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "string"],
+	["punctuation", ","],
+	["keyword", "string"],
+	["punctuation", "]"],
+
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "1"],
+	" days",
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" ignored_scanners",
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["builtin", "&create_expire"],
+	["operator", "="],
+	["number", "1"],
+	" day ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["comment", ["# These tables track whether a threshold has been reached."]],
+
+	["comment", ["# More precisely, the counter is the next index of threshold vector."]],
+
+	["keyword", "global"],
+	" shut_down_thresh_reached",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "bool"],
+	["builtin", "&default"],
+	["operator", "="],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" rb_idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+
+	["builtin", "&default"],
+	["operator", "="],
+	["number", "1"],
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "1"],
+	" days ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" rps_idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+
+	["builtin", "&default"],
+	["operator", "="],
+	["number", "1"],
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "1"],
+	" days ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" rops_idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+
+	["builtin", "&default"],
+	["operator", "="],
+	["number", "1"],
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "1"],
+	" days ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" rpts_idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", ","],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+
+	["builtin", "&default"],
+	["operator", "="],
+	["number", "1"],
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "1"],
+	" days ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" rat_idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+
+	["builtin", "&default"],
+	["operator", "="],
+	["number", "1"],
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "1"],
+	" days ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" rrat_idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+
+	["builtin", "&default"],
+	["operator", "="],
+	["number", "1"],
+	["builtin", "&read_expire"],
+	["operator", "="],
+	["number", "1"],
+	" days ",
+	["builtin", "&redef"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "global"],
+	" thresh_check",
+	["punctuation", ":"],
+	["keyword", "function"],
+	["punctuation", "("],
+	"v",
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["punctuation", ","],
+	" idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["punctuation", ","],
+
+	"\n\t\t\t\torig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ","],
+	" n",
+	["punctuation", ":"],
+	["keyword", "count"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "bool"],
+	["punctuation", ";"],
+
+	["keyword", "global"],
+	" thresh_check_2",
+	["punctuation", ":"],
+	["keyword", "function"],
+	["punctuation", "("],
+	"v",
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["punctuation", ","],
+
+	"\n\t\t\t\tidx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", ","],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ","],
+
+	"\n\t\t\t\tresp",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ","],
+	" n",
+	["punctuation", ":"],
+	["keyword", "count"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "bool"],
+	["punctuation", ";"],
+
+	["keyword", "function"],
+	["function", "scan_summary"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "interval"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" num_distinct_peers ",
+	["operator", "="],
+	" orig ",
+	["keyword", "in"],
+	" t ",
+	["operator", "?"],
+	["operator", "|"],
+	"t",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" num_distinct_peers ",
+	["operator", ">="],
+	" scan_summary_trigger ",
+	["punctuation", ")"],
+
+	"\n\t\tNOTICE",
+	["punctuation", "("],
+	["punctuation", "["],
+	"$note",
+	["operator", "="],
+	"ScanSummary",
+	["punctuation", ","],
+	" $src",
+	["operator", "="],
+	"orig",
+	["punctuation", ","],
+	" $n",
+	["operator", "="],
+	"num_distinct_peers",
+	["punctuation", ","],
+
+	"\n\t\t\t$identifier",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\t\t\t$msg",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s scanned a total of %d hosts\""],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\torig",
+	["punctuation", ","],
+	" num_distinct_peers",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"], ["number", "0"], " secs", ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "port_summary"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "port"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "interval"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" num_distinct_ports ",
+	["operator", "="],
+	" orig ",
+	["keyword", "in"],
+	" t ",
+	["operator", "?"],
+	["operator", "|"],
+	"t",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" num_distinct_ports ",
+	["operator", ">="],
+	" port_summary_trigger ",
+	["punctuation", ")"],
+
+	"\n\t\tNOTICE",
+	["punctuation", "("],
+	["punctuation", "["],
+	"$note",
+	["operator", "="],
+	"PortScanSummary",
+	["punctuation", ","],
+	" $src",
+	["operator", "="],
+	"orig",
+	["punctuation", ","],
+	" $n",
+	["operator", "="],
+	"num_distinct_ports",
+	["punctuation", ","],
+
+	"\n\t\t\t$identifier",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\t\t\t$msg",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s scanned a total of %d ports\""],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\torig",
+	["punctuation", ","],
+	" num_distinct_ports",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"], ["number", "0"], " secs", ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "lowport_summary"],
+	["punctuation", "("],
+	"t",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "port"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "interval"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" num_distinct_lowports ",
+	["operator", "="],
+	" orig ",
+	["keyword", "in"],
+	" t ",
+	["operator", "?"],
+	["operator", "|"],
+	"t",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["punctuation", ":"],
+	["number", "0"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" num_distinct_lowports ",
+	["operator", ">="],
+	" lowport_summary_trigger ",
+	["punctuation", ")"],
+
+	"\n\t\tNOTICE",
+	["punctuation", "("],
+	["punctuation", "["],
+	"$note",
+	["operator", "="],
+	"LowPortScanSummary",
+	["punctuation", ","],
+	" $src",
+	["operator", "="],
+	"orig",
+	["punctuation", ","],
+
+	"\n\t\t\t$n",
+	["operator", "="],
+	"num_distinct_lowports",
+	["punctuation", ","],
+
+	"\n\t\t\t$identifier",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\t\t\t$msg",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s scanned a total of %d low ports\""],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\torig",
+	["punctuation", ","],
+	" num_distinct_lowports",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"], ["number", "0"], " secs", ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "clear_addr"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "delete"],
+	" distinct_peers",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" distinct_ports",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" distinct_low_ports",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" scan_triples",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" possible_scan_sources",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" distinct_backscatter_peers",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" pre_distinct_peers",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" rb_idx",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" rps_idx",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" rops_idx",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" rat_idx",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" rrat_idx",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" shut_down_thresh_reached",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" ignored_scanners",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "ignore_addr"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tclear_addr",
+	["punctuation", "("],
+	"a",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "add"],
+	" ignored_scanners",
+	["punctuation", "["],
+	"a",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "function"],
+	["function", "check_scan"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ","],
+	" established",
+	["punctuation", ":"],
+	["keyword", "bool"],
+	["punctuation", ","],
+	" reverse",
+	["punctuation", ":"],
+	["keyword", "bool"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "bool"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" id ",
+	["operator", "="],
+	" c$id",
+	["punctuation", ";"],
+
+	["keyword", "local"],
+	" service ",
+	["operator", "="],
+	["string", "\"ftp-data\""],
+	["keyword", "in"],
+	" c$service ",
+	["operator", "?"],
+	["number", "20"],
+	["operator", "/"],
+	"tcp\n\t\t\t",
+
+	["punctuation", ":"],
+	["punctuation", "("],
+	"reverse ",
+	["operator", "?"],
+	" id$orig_p ",
+	["punctuation", ":"],
+	" id$resp_p",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "local"],
+	" rev_service ",
+	["operator", "="],
+	" reverse ",
+	["operator", "?"],
+	" id$resp_p ",
+	["punctuation", ":"],
+	" id$orig_p",
+	["punctuation", ";"],
+
+	["keyword", "local"],
+	" orig ",
+	["operator", "="],
+	" reverse ",
+	["operator", "?"],
+	" id$resp_h ",
+	["punctuation", ":"],
+	" id$orig_h",
+	["punctuation", ";"],
+
+	["keyword", "local"],
+	" resp ",
+	["operator", "="],
+	" reverse ",
+	["operator", "?"],
+	" id$orig_h ",
+	["punctuation", ":"],
+	" id$resp_h",
+	["punctuation", ";"],
+
+	["keyword", "local"],
+	" outbound ",
+	["operator", "="],
+	" Site",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"is_local_addr",
+	["punctuation", "("],
+	"orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["comment", ["# The following works better than using get_conn_transport_proto()"]],
+
+	["comment", ["# because c might not correspond to an active connection (which"]],
+
+	["comment", ["# causes the function to fail)."]],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" suppress_UDP_scan_checks ",
+	["operator", "&&"],
+
+	"\n\t     service ",
+	["operator", ">="],
+	["number", "0"],
+	["operator", "/"],
+	"udp ",
+	["operator", "&&"],
+	" service ",
+	["operator", "<="],
+	["number", "65535"],
+	["operator", "/"],
+	"udp ",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" service ",
+	["keyword", "in"],
+	" skip_services ",
+	["operator", "&&"],
+	["operator", "!"],
+	" outbound ",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" outbound ",
+	["operator", "&&"],
+	" service ",
+	["keyword", "in"],
+	" skip_outbound_services ",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["keyword", "in"],
+	" skip_scan_sources ",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["keyword", "in"],
+	" skip_scan_nets ",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["comment", ["# Don't include well known server/ports for scanning purposes."]],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	" outbound ",
+	["operator", "&&"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", ","],
+	" service",
+	["punctuation", "]"],
+	["keyword", "in"],
+	" skip_dest_server_ports ",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["keyword", "in"],
+	" ignored_scanners",
+	["punctuation", ")"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	" established ",
+	["operator", "&&"],
+
+	["comment", ["# not established, service not expressly allowed"]],
+
+	["comment", ["# not known peer set"]],
+
+	["punctuation", "("],
+	"orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_peers ",
+	["operator", "||"],
+	" resp ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["operator", "&&"],
+
+	["comment", ["# want to consider service for scan detection"]],
+
+	["punctuation", "("],
+	"analyze_all_services ",
+	["operator", "||"],
+	" service ",
+	["keyword", "in"],
+	" analyze_services",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" reverse ",
+	["operator", "&&"],
+	" rev_service ",
+	["keyword", "in"],
+	" backscatter_ports ",
+	["operator", "&&"],
+
+	["comment", ["# reverse, non-priv backscatter port"]],
+
+	"\n\t\t     service ",
+	["operator", ">="],
+	["number", "1024"],
+	["operator", "/"],
+	"tcp ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_backscatter_peers ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" empty_bs_table",
+	["punctuation", ":"],
+
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["builtin", "&default"],
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\tdistinct_backscatter_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "="],
+
+	"\n\t\t\t\t\tempty_bs_table",
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "++"],
+	"distinct_backscatter_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["operator", "<="],
+	["number", "2"],
+	["operator", "&&"],
+
+	["comment", ["# The test is <= 2 because we get two check_scan()"]],
+
+	["comment", ["# calls, once on connection attempt and once on"]],
+
+	["comment", ["# tear-down."]],
+
+	"\n\n\t\t\t     distinct_backscatter_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["operator", "=="],
+	["number", "1"],
+	["operator", "&&"],
+
+	["comment", ["# Looks like backscatter, and it's not scanning"]],
+	["comment", ["# a privileged port."]],
+
+	"\n\n\t\t\t     thresh_check",
+	["punctuation", "("],
+	"report_backscatter",
+	["punctuation", ","],
+	" rb_idx",
+	["punctuation", ","],
+	" orig",
+	["punctuation", ","],
+
+	["operator", "|"],
+	"distinct_backscatter_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["punctuation", ")"],
+
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\t\t\tNOTICE",
+	["punctuation", "("],
+	["punctuation", "["],
+	"$note",
+	["operator", "="],
+	"BackscatterSeen",
+	["punctuation", ","],
+	" $src",
+	["operator", "="],
+	"orig",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t$p",
+	["operator", "="],
+	"rev_service",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t$identifier",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t$msg",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"backscatter seen from %s (%d hosts; %s)\""],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t\torig",
+	["punctuation", ","],
+	["operator", "|"],
+	"distinct_backscatter_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["punctuation", ","],
+	" rev_service",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" ignore_scanners_threshold ",
+	["operator", ">"],
+	["number", "0"],
+	["operator", "&&"],
+
+	["operator", "|"],
+	"distinct_backscatter_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["operator", ">"],
+
+	"\n\t\t\t\t\tignore_scanners_threshold ",
+	["punctuation", ")"],
+
+	"\n\t\t\t\tignore_addr",
+	["punctuation", "("],
+	"orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+
+	["punctuation", "{"],
+	["comment", ["# done with backscatter check"]],
+
+	["keyword", "local"],
+	" ignore ",
+	["operator", "="],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_peers ",
+	["operator", "&&"],
+	" addr_scan_trigger ",
+	["operator", ">"],
+	["number", "0"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" pre_distinct_peers ",
+	["punctuation", ")"],
+
+	"\n\t\t\t\t\tpre_distinct_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "="],
+	["keyword", "set"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "add"],
+	" pre_distinct_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "|"],
+	"pre_distinct_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["operator", "<"],
+	" addr_scan_trigger ",
+	["punctuation", ")"],
+
+	"\n\t\t\t\t\tignore ",
+	["operator", "="],
+	["boolean", "T"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	" ignore ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+	["comment", ["# XXXXX"]],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_peers ",
+	["punctuation", ")"],
+
+	"\n\t\t\t\t\tdistinct_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "="],
+	["keyword", "set"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["builtin", "&mergeable"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" resp ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["keyword", "add"],
+	" distinct_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "local"],
+	" n ",
+	["operator", "="],
+	["operator", "|"],
+	"distinct_peers",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["punctuation", ";"],
+
+	["comment", ["# Check for threshold if not outbound."]],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	" shut_down_thresh_reached",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "&&"],
+
+	"\n\t\t\t\t     n ",
+	["operator", ">="],
+	" shut_down_thresh ",
+	["operator", "&&"],
+
+	["operator", "!"],
+	" outbound ",
+	["operator", "&&"],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" Site",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"neighbor_nets ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\t\t\t\tshut_down_thresh_reached",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "="],
+	["boolean", "T"],
+	["punctuation", ";"],
+
+	["keyword", "local"],
+	" msg ",
+	["operator", "="],
+	" fmt",
+	["punctuation", "("],
+	["string", "\"shutdown threshold reached for %s\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\t\tNOTICE",
+	["punctuation", "("],
+	["punctuation", "["],
+	"$note",
+	["operator", "="],
+	"ShutdownThresh",
+	["punctuation", ","],
+	" $src",
+	["operator", "="],
+	"orig",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t\t$identifier",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t\t$p",
+	["operator", "="],
+	"service",
+	["punctuation", ","],
+	" $msg",
+	["operator", "="],
+	"msg",
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" address_scan ",
+	["operator", "="],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" outbound ",
+	["operator", "&&"],
+
+	["comment", ["# inside host scanning out?"]],
+
+	"\n\t\t\t\t\t     thresh_check",
+	["punctuation", "("],
+	"report_outbound_peer_scan",
+	["punctuation", ","],
+	" rops_idx",
+	["punctuation", ","],
+	" orig",
+	["punctuation", ","],
+	" n",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	"\n\t\t\t\t\t\taddress_scan ",
+	["operator", "="],
+	["boolean", "T"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "!"],
+	" outbound ",
+	["operator", "&&"],
+
+	"\n\t\t\t\t\t     thresh_check",
+	["punctuation", "("],
+	"report_peer_scan",
+	["punctuation", ","],
+	" rps_idx",
+	["punctuation", ","],
+	" orig",
+	["punctuation", ","],
+	" n",
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	"\n\t\t\t\t\t\taddress_scan ",
+	["operator", "="],
+	["boolean", "T"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" address_scan ",
+	["punctuation", ")"],
+
+	"\n\t\t\t\t\t\tNOTICE",
+	["punctuation", "("],
+	["punctuation", "["],
+	"$note",
+	["operator", "="],
+	"AddressScan",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t\t\t$src",
+	["operator", "="],
+	"orig",
+	["punctuation", ","],
+	" $p",
+	["operator", "="],
+	"service",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t\t\t$n",
+	["operator", "="],
+	"n",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t\t\t$identifier",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s-%d\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ","],
+	" n",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t\t\t$msg",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s has scanned %d hosts (%s)\""],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t\t\t\torig",
+	["punctuation", ","],
+	" n",
+	["punctuation", ","],
+	" service",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" address_scan ",
+	["operator", "&&"],
+
+	"\n\t\t\t\t\t     ignore_scanners_threshold ",
+	["operator", ">"],
+	["number", "0"],
+	["operator", "&&"],
+
+	"\n\t\t\t\t\t     n ",
+	["operator", ">"],
+	" ignore_scanners_threshold ",
+	["punctuation", ")"],
+
+	"\n\t\t\t\t\t\tignore_addr",
+	["punctuation", "("],
+	"orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+	["comment", ["# XXXX"]],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" established ",
+	["punctuation", ")"],
+
+	["comment", ["# Don't consider established connections for port scanning,"]],
+
+	["comment", ["# it's too easy to be mislead by FTP-like applications that"]],
+
+	["comment", ["# legitimately gobble their way through the port space."]],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["comment", ["# Coarse search for port-scanning candidates: those that have made"]],
+
+	["comment", ["# connections (attempts) to possible_port_scan_thresh or more"]],
+
+	["comment", ["# distinct ports."]],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_ports ",
+	["operator", "||"],
+	" service ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_ports ",
+	["punctuation", ")"],
+
+	"\n\t\t\tdistinct_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "="],
+	["keyword", "set"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["builtin", "&mergeable"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" service ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["keyword", "add"],
+	" distinct_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"service",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "|"],
+	"distinct_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["operator", ">="],
+	" possible_port_scan_thresh ",
+	["operator", "&&"],
+
+	"\n\t\t\torig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" scan_triples ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\t\tscan_triples",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "="],
+	["keyword", "table"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["builtin", "&mergeable"],
+	["punctuation", ";"],
+
+	["keyword", "add"],
+	" possible_scan_sources",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["comment", ["# Check for low ports."]],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" activate_priv_port_check ",
+	["operator", "&&"],
+	["operator", "!"],
+	" outbound ",
+	["operator", "&&"],
+	" service ",
+	["operator", "<"],
+	["number", "1024"],
+	["operator", "/"],
+	"tcp ",
+	["operator", "&&"],
+
+	"\n\t     service ",
+	["operator", "!"],
+	["keyword", "in"],
+	" troll_skip_service ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_low_ports ",
+	["operator", "||"],
+
+	"\n\t\t     service ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_low_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" distinct_low_ports ",
+	["punctuation", ")"],
+
+	"\n\t\t\t\tdistinct_low_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "="],
+	["keyword", "set"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["builtin", "&mergeable"],
+	["punctuation", ";"],
+
+	["keyword", "add"],
+	" distinct_low_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"service",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	["operator", "|"],
+	"distinct_low_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["operator", "=="],
+	" priv_scan_trigger ",
+	["operator", "&&"],
+
+	"\n\t\t\t     orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" Site",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"neighbor_nets ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" svrc_msg ",
+	["operator", "="],
+	" fmt",
+	["punctuation", "("],
+	["string", "\"low port trolling %s %s\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ","],
+	" service",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\tNOTICE",
+	["punctuation", "("],
+	["punctuation", "["],
+	"$note",
+	["operator", "="],
+	"LowPortTrolling",
+	["punctuation", ","],
+	" $src",
+	["operator", "="],
+	"orig",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t$identifier",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t$p",
+	["operator", "="],
+	"service",
+	["punctuation", ","],
+	" $msg",
+	["operator", "="],
+	"svrc_msg",
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" ignore_scanners_threshold ",
+	["operator", ">"],
+	["number", "0"],
+	["operator", "&&"],
+
+	["operator", "|"],
+	"distinct_low_ports",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "|"],
+	["operator", ">"],
+
+	"\n\t\t\t\t\tignore_scanners_threshold ",
+	["punctuation", ")"],
+
+	"\n\t\t\t\tignore_addr",
+	["punctuation", "("],
+	"orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["comment", ["# For sources that have been identified as possible scan sources,"]],
+
+	["comment", ["# keep track of per-host scanning."]],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["keyword", "in"],
+	" possible_scan_sources ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" orig ",
+	["operator", "!"],
+	["keyword", "in"],
+	" scan_triples ",
+	["punctuation", ")"],
+
+	"\n\t\t\tscan_triples",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "="],
+	["keyword", "table"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["builtin", "&mergeable"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" resp ",
+	["operator", "!"],
+	["keyword", "in"],
+	" scan_triples",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	"\n\t\t\tscan_triples",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["operator", "="],
+	["keyword", "set"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["builtin", "&mergeable"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" service ",
+	["operator", "!"],
+	["keyword", "in"],
+	" scan_triples",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "add"],
+	" scan_triples",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"service",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" thresh_check_2",
+	["punctuation", "("],
+	"report_port_scan",
+	["punctuation", ","],
+	" rpts_idx",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t    orig",
+	["punctuation", ","],
+	" resp",
+	["punctuation", ","],
+
+	["operator", "|"],
+	"scan_triples",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["operator", "|"],
+	["punctuation", ")"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" m ",
+	["operator", "="],
+	["operator", "|"],
+	"scan_triples",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"resp",
+	["punctuation", "]"],
+	["operator", "|"],
+	["punctuation", ";"],
+
+	"\n\t\t\t\tNOTICE",
+	["punctuation", "("],
+	["punctuation", "["],
+	"$note",
+	["operator", "="],
+	"PortScan",
+	["punctuation", ","],
+	" $n",
+	["operator", "="],
+	"m",
+	["punctuation", ","],
+	" $src",
+	["operator", "="],
+	"orig",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t$p",
+	["operator", "="],
+	"service",
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t$identifier",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s-%d\""],
+	["punctuation", ","],
+	" orig",
+	["punctuation", ","],
+	" n",
+	["punctuation", ")"],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\t$msg",
+	["operator", "="],
+	"fmt",
+	["punctuation", "("],
+	["string", "\"%s has scanned %d ports of %s\""],
+	["punctuation", ","],
+
+	"\n\t\t\t\t\torig",
+	["punctuation", ","],
+	" m",
+	["punctuation", ","],
+	" resp",
+	["punctuation", ")"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["keyword", "return"], ["boolean", "T"], ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["comment", ["# Hook into the catch&release dropping. When an address gets restored, we reset"]],
+
+	["comment", ["# the source to allow dropping it again."]],
+
+	["keyword", "event"],
+	["function", "Drop::address_restored"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tclear_addr",
+	["punctuation", "("],
+	"a",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "event"],
+	["function", "Drop::address_cleared"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tclear_addr",
+	["punctuation", "("],
+	"a",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", ["# When removing a possible scan source, we automatically delete its scanned"]],
+
+	["comment", ["# hosts and ports.  But we do not want the deletion propagated, because every"]],
+
+	["comment", ["# peer calls the expire_function on its own (and thus applies the delete"]],
+
+	["comment", ["# operation on its own table)."]],
+
+	["keyword", "function"],
+	["function", "remove_possible_source"],
+	["punctuation", "("],
+	"s",
+	["punctuation", ":"],
+	["keyword", "set"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["punctuation", ","],
+	" idx",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "interval"],
+
+	["punctuation", "{"],
+
+	"\n\tsuspend_state_updates",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "delete"],
+	" scan_triples",
+	["punctuation", "["],
+	"idx",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	"\n\tresume_state_updates",
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"], ["number", "0"], " secs", ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["comment", ["# To recognize whether a certain threshhold vector (e.g. report_peer_scans)"]],
+
+	["comment", ["# has been transgressed, a global variable containing the next vector index"]],
+
+	["comment", ["# (idx) must be incremented.  This cumbersome mechanism is necessary because"]],
+
+	["comment", ["# values naturally don't increment by one (e.g. replayed table merges)."]],
+
+	["keyword", "function"],
+	["function", "thresh_check"],
+	["punctuation", "("],
+	"v",
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["punctuation", ","],
+	" idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["punctuation", ","],
+
+	"\n\t\t\torig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ","],
+	" n",
+	["punctuation", ":"],
+	["keyword", "count"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "bool"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" ignore_scanners_threshold ",
+	["operator", ">"],
+	["number", "0"],
+	["operator", "&&"],
+	" n ",
+	["operator", ">"],
+	" ignore_scanners_threshold ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\tignore_addr",
+	["punctuation", "("],
+	"orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" idx",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["operator", "<="],
+	["operator", "|"],
+	"v",
+	["operator", "|"],
+	["operator", "&&"],
+	" n ",
+	["operator", ">="],
+	" v",
+	["punctuation", "["],
+	"idx",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["operator", "++"],
+	"idx",
+	["punctuation", "["],
+	"orig",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["boolean", "T"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", ["# Same as above, except the index has a different type signature."]],
+
+	["keyword", "function"],
+	["function", "thresh_check_2"],
+	["punctuation", "("],
+	"v",
+	["punctuation", ":"],
+	["keyword", "vector"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["punctuation", ","],
+	" idx",
+	["punctuation", ":"],
+	["keyword", "table"],
+	["punctuation", "["],
+	["keyword", "addr"],
+	["punctuation", ","],
+	["keyword", "addr"],
+	["punctuation", "]"],
+	["keyword", "of"],
+	["keyword", "count"],
+	["punctuation", ","],
+
+	"\n\t\t\torig",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ","],
+	" resp",
+	["punctuation", ":"],
+	["keyword", "addr"],
+	["punctuation", ","],
+	" n",
+	["punctuation", ":"],
+	["keyword", "count"],
+	["punctuation", ")"],
+	["punctuation", ":"],
+	["keyword", "bool"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" ignore_scanners_threshold ",
+	["operator", ">"],
+	["number", "0"],
+	["operator", "&&"],
+	" n ",
+	["operator", ">"],
+	" ignore_scanners_threshold ",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\t\tignore_addr",
+	["punctuation", "("],
+	"orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" idx",
+	["punctuation", "["],
+	"orig",
+	["punctuation", ","],
+	"resp",
+	["punctuation", "]"],
+	["operator", "<="],
+	["operator", "|"],
+	"v",
+	["operator", "|"],
+	["operator", "&&"],
+	" n ",
+	["operator", ">="],
+	" v",
+	["punctuation", "["],
+	"idx",
+	["punctuation", "["],
+	"orig",
+	["punctuation", ","],
+	" resp",
+	["punctuation", "]"],
+	["punctuation", "]"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["operator", "++"],
+	"idx",
+	["punctuation", "["],
+	"orig",
+	["punctuation", ","],
+	"resp",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "return"],
+	["boolean", "T"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "else"],
+
+	["keyword", "return"],
+	["boolean", "F"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "event"],
+	["function", "connection_established"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" is_reverse_scan ",
+	["operator", "="],
+	["punctuation", "("],
+	"c$orig$state ",
+	["operator", "=="],
+	" TCP_INACTIVE",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\n\tScan",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"check_scan",
+	["punctuation", "("],
+	"c",
+	["punctuation", ","],
+	["boolean", "T"],
+	["punctuation", ","],
+	" is_reverse_scan",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "event"],
+	["function", "partial_connection"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tScan",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"check_scan",
+	["punctuation", "("],
+	"c",
+	["punctuation", ","],
+	["boolean", "T"],
+	["punctuation", ","],
+	["boolean", "F"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "event"],
+	["function", "connection_attempt"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	"\n\tScan",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"check_scan",
+	["punctuation", "("],
+	"c",
+	["punctuation", ","],
+	["boolean", "F"],
+	["punctuation", ","],
+	" c$orig$state ",
+	["operator", "=="],
+	" TCP_INACTIVE",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "event"],
+	["function", "connection_half_finished"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["comment", ["# Half connections never were \"established\", so do scan-checking here."]],
+
+	"\n\tScan",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"check_scan",
+	["punctuation", "("],
+	"c",
+	["punctuation", ","],
+	["boolean", "F"],
+	["punctuation", ","],
+	["boolean", "F"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "event"],
+	["function", "connection_rejected"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "local"],
+	" is_reverse_scan ",
+	["operator", "="],
+	" c$orig$state ",
+	["operator", "=="],
+	" TCP_RESET",
+	["punctuation", ";"],
+
+	"\n\n\tScan",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"check_scan",
+	["punctuation", "("],
+	"c",
+	["punctuation", ","],
+	["boolean", "F"],
+	["punctuation", ","],
+	" is_reverse_scan",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "event"],
+	["function", "connection_reset"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" c$orig$state ",
+	["operator", "=="],
+	" TCP_INACTIVE ",
+	["operator", "||"],
+	" c$resp$state ",
+	["operator", "=="],
+	" TCP_INACTIVE ",
+	["punctuation", ")"],
+
+	["comment", ["# We never heard from one side - that looks like a scan."]],
+
+	"\n\t\tScan",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"check_scan",
+	["punctuation", "("],
+	"c",
+	["punctuation", ","],
+	" c$orig$size ",
+	["operator", "+"],
+	" c$resp$size ",
+	["operator", ">"],
+	["number", "0"],
+	["punctuation", ","],
+
+	"\n\t\t\t\tc$orig$state ",
+	["operator", "=="],
+	" TCP_INACTIVE",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "event"],
+	["function", "connection_pending"],
+	["punctuation", "("],
+	"c",
+	["punctuation", ":"],
+	" connection",
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	" c$orig$state ",
+	["operator", "=="],
+	" TCP_PARTIAL ",
+	["operator", "&&"],
+	" c$resp$state ",
+	["operator", "=="],
+	" TCP_INACTIVE ",
+	["punctuation", ")"],
+
+	"\n\t\tScan",
+	["punctuation", ":"],
+	["punctuation", ":"],
+	"check_scan",
+	["punctuation", "("],
+	"c",
+	["punctuation", ","],
+	["boolean", "F"],
+	["punctuation", ","],
+	["boolean", "F"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["comment", ["# Report the remaining entries in the tables."]],
+
+	["keyword", "event"],
+	["function", "bro_done"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	" orig ",
+	["keyword", "in"],
+	" distinct_peers ",
+	["punctuation", ")"],
+
+	"\n\t\tscan_summary",
+	["punctuation", "("],
+	"distinct_peers",
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	" orig ",
+	["keyword", "in"],
+	" distinct_ports ",
+	["punctuation", ")"],
+
+	"\n\t\tport_summary",
+	["punctuation", "("],
+	"distinct_ports",
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	" orig ",
+	["keyword", "in"],
+	" distinct_low_ports ",
+	["punctuation", ")"],
+
+	"\n\t\tlowport_summary",
+	["punctuation", "("],
+	"distinct_low_ports",
+	["punctuation", ","],
+	" orig",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

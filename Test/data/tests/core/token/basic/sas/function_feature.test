@@ -1,0 +1,18 @@
+function()
+x=addrlong(item);
+----------------------------------------------------
+[
+	["function", "function"],
+	["punctuation", "("],
+	["punctuation", ")"],
+
+	"\r\nx",
+	["operator", "="],
+	["function", "addrlong"],
+	["punctuation", "("],
+	"item",
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------

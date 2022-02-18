@@ -1,0 +1,17 @@
+"Hello, world!" println
+A := Object clone    // creates a new, empty object named "A"
+factorial := method(n,
+    if(n == 0, return 1)
+    res := 1
+    Range 1 to(n) foreach(i, res = res * i)
+)
+----------------------------------------------------
+<span class="token string">"Hello, world!"</span> <span class="token keyword">println</span>
+A <span class="token operator">:=</span> <span class="token builtin">Object</span> <span class="token keyword">clone</span>    <span class="token comment">// creates a new, empty object named "A"</span>
+factorial <span class="token operator">:=</span> <span class="token keyword">method</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">return</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    res <span class="token operator">:=</span> <span class="token number">1</span>
+    Range <span class="token number">1</span> to<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token keyword">foreach</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> res <span class="token operator">=</span> res <span class="token operator">*</span> i<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+----------------------------------------------------

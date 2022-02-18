@@ -1,0 +1,75 @@
+// Source: https://www.warp10.io/content/04_Tutorials/01_WarpScript/05_Best_Practices
+
+//factorial macro. take a number on the stack, push its factorial
+<%
+	'input' STORE
+	1
+	1 $input <% * %> FOR
+%> 'factorial' STORE
+
+//build a map with key from 1 to 10 and value = key!
+{} 'result' STORE
+
+1 10
+<%
+	'key' STORE
+	$result $key @factorial $key PUT
+	DROP //remove the map let by PUT
+%> FOR
+
+//push the result on the stack
+$result
+----------------------------------------------------
+[
+	["comment", "// Source: https://www.warp10.io/content/04_Tutorials/01_WarpScript/05_Best_Practices"],
+
+	["comment", "//factorial macro. take a number on the stack, push its factorial"],
+
+	["punctuation", "<%"],
+
+	["string", "'input'"],
+	" STORE\n\t",
+
+	["number", "1"],
+
+	["number", "1"],
+	["variable", "$input"],
+	["punctuation", "<%"],
+	["operator", "*"],
+	["punctuation", "%>"],
+	["keyword", "FOR"],
+
+	["punctuation", "%>"],
+	["string", "'factorial'"],
+	" STORE\n\n",
+
+	["comment", "//build a map with key from 1 to 10 and value = key!"],
+
+	["punctuation", "{"],
+	["punctuation", "}"],
+	["string", "'result'"],
+	" STORE\n\n",
+
+	["number", "1"],
+	["number", "10"],
+
+	["punctuation", "<%"],
+
+	["string", "'key'"],
+	" STORE\n\t",
+
+	["variable", "$result"],
+	["variable", "$key"],
+	["macro", "@factorial"],
+	["variable", "$key"],
+	" PUT\n\tDROP ",
+	["comment", "//remove the map let by PUT"],
+
+	["punctuation", "%>"],
+	["keyword", "FOR"],
+
+	["comment", "//push the result on the stack"],
+	["variable", "$result"]
+]
+
+----------------------------------------------------

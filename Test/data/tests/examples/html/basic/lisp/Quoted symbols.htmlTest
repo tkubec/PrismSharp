@@ -1,0 +1,5 @@
+(foo #'bar)
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token car">foo</span> <span class="token quoted-symbol variable symbol">#'bar</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

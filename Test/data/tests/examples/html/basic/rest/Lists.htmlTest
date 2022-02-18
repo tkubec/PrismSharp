@@ -1,0 +1,41 @@
+- This is the first bullet list item.
+- This is the first paragraph in the second item in the list.
+
+  This is the second paragraph in the second item in the list.
+
+  - This is a sublist.  The bullet lines up with the left edge of
+    the text blocks above.
+
+- This is the third item of the main list.
+
+This paragraph is not part of the list.
+
+1. Item 1 initial text.
+
+   a) Item 1a.
+   b) Item 1b.
+
+2. a) Item 2a.
+   b) Item 2b.
+----------------------------------------------------
+<span class="token list-bullet punctuation">-</span> This is the first bullet list item.
+<span class="token list-bullet punctuation">-</span> This is the first paragraph in the second item in the list.
+
+  This is the second paragraph in the second item in the list.
+
+  <span class="token list-bullet punctuation">-</span> This is a sublist.  The bullet lines up with the left edge of
+    the text blocks above.
+
+<span class="token list-bullet punctuation">-</span> This is the third item of the main list.
+
+This paragraph is not part of the list.
+
+<span class="token list-bullet punctuation">1.</span> Item 1 initial text.
+
+   <span class="token list-bullet punctuation">a)</span> Item 1a.
+   <span class="token list-bullet punctuation">b)</span> Item 1b.
+
+<span class="token list-bullet punctuation">2.</span> <span class="token list-bullet punctuation">a)</span> Item 2a.
+   <span class="token list-bullet punctuation">b)</span> Item 2b.
+
+----------------------------------------------------

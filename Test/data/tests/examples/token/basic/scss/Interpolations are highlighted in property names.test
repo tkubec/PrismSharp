@@ -1,0 +1,23 @@
+p.#{$name} {
+    #{$attr}-color: blue;
+}
+----------------------------------------------------
+[
+	["selector", [
+		"p.",
+		["variable", "#{$name}"]
+	]],
+	["punctuation", "{"],
+
+	["property", [
+		["variable", "#{$attr}"],
+		"-color"
+	]],
+	["punctuation", ":"],
+	" blue",
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

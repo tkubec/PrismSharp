@@ -1,0 +1,25 @@
+$width: 5em;
+#main {
+    width: $width;
+}
+----------------------------------------------------
+[
+	["property", [
+		["variable", "$width"]
+	]],
+	["punctuation", ":"],
+	" 5em",
+	["punctuation", ";"],
+
+	["selector", ["#main "]],
+	["punctuation", "{"],
+
+	["property", ["width"]],
+	["punctuation", ":"],
+	["variable", "$width"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

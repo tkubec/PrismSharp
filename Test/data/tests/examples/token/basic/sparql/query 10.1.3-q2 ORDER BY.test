@@ -1,0 +1,54 @@
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+
+SELECT ?name
+WHERE { ?x foaf:name ?name ; :empId ?emp }
+ORDER BY ?name DESC(?emp)
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?name"],
+
+	["keyword", "WHERE"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "name"]
+	]],
+	["variable", "?name"],
+	["punctuation", ";"],
+	["function", [
+		["prefix", [
+			["punctuation", ":"]
+		]],
+		["local-name", "empId"]
+	]],
+	["variable", "?emp"],
+	["punctuation", "}"],
+
+	["keyword", "ORDER"],
+	["keyword", "BY"],
+	["variable", "?name"],
+	["keyword", "DESC"],
+	["punctuation", "("],
+	["variable", "?emp"],
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

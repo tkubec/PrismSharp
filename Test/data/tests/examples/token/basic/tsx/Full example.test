@@ -1,0 +1,217 @@
+import * as React from 'react';
+
+interface IState {
+	clicks: number;
+}
+
+export class Clicker extends React.Component<any, IState> {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			clicks: 0,
+		};
+	}
+
+	public clickHandler = () => {
+		this.setState({ clicks: this.state.clicks + 1 });
+	}
+
+	public render() {
+		return (
+			<div>
+				<p>You have clicked the button {this.state.clicks} time(s).</p>
+				<p>
+					<button onClick={this.clickHandler}>click me</button>
+				</p>
+			</div>
+		);
+	}
+}
+----------------------------------------------------
+[
+	["keyword", "import"],
+	["operator", "*"],
+	["keyword", "as"],
+	" React ",
+	["keyword", "from"],
+	["string", "'react'"],
+	["punctuation", ";"],
+
+	["keyword", "interface"], ["class-name", ["IState"]], ["punctuation", "{"],
+	"\n\tclicks", ["operator", ":"], ["builtin", "number"], ["punctuation", ";"],
+	["punctuation", "}"],
+
+	["keyword", "export"],
+	["keyword", "class"],
+	["class-name", ["Clicker"]],
+	["keyword", "extends"],
+	["class-name", ["React"]],
+	["punctuation", "."],
+	"Component",
+	["operator", "<"],
+	["builtin", "any"],
+	["punctuation", ","],
+	" IState",
+	["operator", ">"],
+	["punctuation", "{"],
+
+	["function", "constructor"],
+	["punctuation", "("],
+	"props",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "super"],
+	["punctuation", "("],
+	"props",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	"state ",
+	["operator", "="],
+	["punctuation", "{"],
+
+	"\n\t\t\tclicks",
+	["operator", ":"],
+	["number", "0"],
+	["punctuation", ","],
+
+	["punctuation", "}"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "public"],
+	["function-variable", "clickHandler"],
+	["operator", "="],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["operator", "=>"],
+	["punctuation", "{"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	["function", "setState"],
+	["punctuation", "("],
+	["punctuation", "{"],
+	" clicks",
+	["operator", ":"],
+	["keyword", "this"],
+	["punctuation", "."],
+	"state",
+	["punctuation", "."],
+	"clicks ",
+	["operator", "+"],
+	["number", "1"],
+	["punctuation", "}"],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "public"],
+	["function", "render"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["punctuation", "("],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+	"You have clicked the button ",
+	["punctuation", "{"],
+	["keyword", "this"],
+	["punctuation", "."],
+	"state",
+	["punctuation", "."],
+	"clicks",
+	["punctuation", "}"],
+	["function", "time"],
+	["punctuation", "("],
+	"s",
+	["punctuation", ")"],
+	["punctuation", "."],
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"button"
+		]],
+		["attr-name", ["onClick"]],
+		["script", [
+			["script-punctuation", "="],
+			["punctuation", "{"],
+			["keyword", "this"],
+			["punctuation", "."],
+			"clickHandler",
+			["punctuation", "}"]
+		]],
+		["punctuation", ">"]
+	]],
+	"click me",
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"button"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"p"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["tag", [
+		["tag", [
+			["punctuation", "</"],
+			"div"
+		]],
+		["punctuation", ">"]
+	]],
+
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

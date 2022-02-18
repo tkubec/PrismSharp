@@ -1,0 +1,22 @@
+kbd.o command.o files.o : command.h
+display.o insert.o search.o files.o : buffer.h
+
+.PHONY: clean
+clean:
+        rm *.o temp
+----------------------------------------------------
+[
+	["target", ["kbd.o command.o files.o"]],
+	["punctuation", ":"],
+	" command.h\n",
+
+	["target", ["display.o insert.o search.o files.o"]],
+	["punctuation", ":"],
+	" buffer.h\n\n",
+
+	["builtin-target", ".PHONY"], ["punctuation", ":"], " clean\n",
+	["target", ["clean"]], ["punctuation", ":"],
+	"\n        rm *.o temp"
+]
+
+----------------------------------------------------

@@ -1,0 +1,163 @@
+%<
+int mygcd(int x, int y)
+{
+  if (y == 0)
+    return x;
+  else
+    return mygcd(y, x%y);
+}
+%>
+
+%< -*- Fortran90 -*-
+function fact(n) result(p)
+  integer n, p
+  p = 1
+  do i = 1, n
+     p = p*i
+  end do
+end function fact
+%>
+
+%< -*- C++ -*-
+
+#include <pure/runtime.h>
+#include <string>
+#include <map>
+
+// An STL map mapping strings to Pure expressions.
+
+using namespace std;
+typedef map<string,pure_expr*> exprmap;
+
+// Since we can't directly deal with C++ classes in Pure, provide some C
+// functions to create, destroy and manipulate these objects.
+
+extern "C" exprmap *map_create()
+{
+  return new exprmap;
+}
+
+extern "C" void map_add(exprmap *m, const char *key, pure_expr *x)
+{
+  exprmap::iterator it = m->find(string(key));
+  if (it != m->end()) pure_free(it->second);
+  (*m)[key] = pure_new(x);
+}
+
+extern "C" void map_del(exprmap *m, const char *key)
+{
+  exprmap::iterator it = m->find(key);
+  if (it != m->end()) {
+    pure_free(it->second);
+    m->erase(it);
+  }
+}
+
+extern "C" pure_expr *map_get(exprmap *m, const char *key)
+{
+  exprmap::iterator it = m->find(key);
+  return (it != m->end())?it->second:0;
+}
+
+extern "C" pure_expr *map_keys(exprmap *m)
+{
+  size_t i = 0, n = m->size();
+  pure_expr **xs = new pure_expr*[n];
+  for (exprmap::iterator it = m->begin(); it != m->end(); ++it)
+    xs[i++] = pure_string_dup(it->first.c_str());
+  pure_expr *x = pure_listv(n, xs);
+  delete[] xs;
+  return x;
+}
+
+extern "C" void map_destroy(exprmap *m)
+{
+  for (exprmap::iterator it = m->begin(); it != m->end(); ++it)
+    pure_free(it->second);
+  delete m;
+}
+
+%>
+----------------------------------------------------
+<span class="token inline-lang"><span class="token delimiter punctuation">%&lt;</span>
+int mygcd(int x, int y)
+{
+  if (y == 0)
+    return x;
+  else
+    return mygcd(y, x%y);
+}
+<span class="token delimiter punctuation">%></span></span>
+
+<span class="token inline-lang"><span class="token delimiter punctuation">%&lt; </span><span class="token lang comment">-*- Fortran90 -*-</span>
+function fact(n) result(p)
+  integer n, p
+  p = 1
+  do i = 1, n
+     p = p*i
+  end do
+end function fact
+<span class="token delimiter punctuation">%></span></span>
+
+<span class="token inline-lang"><span class="token delimiter punctuation">%&lt; </span><span class="token lang comment">-*- C++ -*-</span>
+
+#include &lt;pure/runtime.h>
+#include &lt;string>
+#include &lt;map>
+
+// An STL map mapping strings to Pure expressions.
+
+using namespace std;
+typedef map&lt;string,pure_expr*> exprmap;
+
+// Since we can't directly deal with C++ classes in Pure, provide some C
+// functions to create, destroy and manipulate these objects.
+
+extern "C" exprmap *map_create()
+{
+  return new exprmap;
+}
+
+extern "C" void map_add(exprmap *m, const char *key, pure_expr *x)
+{
+  exprmap::iterator it = m->find(string(key));
+  if (it != m->end()) pure_free(it->second);
+  (*m)[key] = pure_new(x);
+}
+
+extern "C" void map_del(exprmap *m, const char *key)
+{
+  exprmap::iterator it = m->find(key);
+  if (it != m->end()) {
+    pure_free(it->second);
+    m->erase(it);
+  }
+}
+
+extern "C" pure_expr *map_get(exprmap *m, const char *key)
+{
+  exprmap::iterator it = m->find(key);
+  return (it != m->end())?it->second:0;
+}
+
+extern "C" pure_expr *map_keys(exprmap *m)
+{
+  size_t i = 0, n = m->size();
+  pure_expr **xs = new pure_expr*[n];
+  for (exprmap::iterator it = m->begin(); it != m->end(); ++it)
+    xs[i++] = pure_string_dup(it->first.c_str());
+  pure_expr *x = pure_listv(n, xs);
+  delete[] xs;
+  return x;
+}
+
+extern "C" void map_destroy(exprmap *m)
+{
+  for (exprmap::iterator it = m->begin(); it != m->end(); ++it)
+    pure_free(it->second);
+  delete m;
+}
+
+<span class="token delimiter punctuation">%></span></span>
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+.. This is a comment
+
+..
+   _so: is this!
+
+..
+   [and] this!
+
+..
+   this:: too!
+
+..
+   |even| this:: !
+----------------------------------------------------
+[
+	["punctuation", ".."], ["comment", " This is a comment"],
+
+	["punctuation", ".."], ["comment", "\n   _so: is this!"],
+
+	["punctuation", ".."], ["comment", "\n   [and] this!"],
+
+	["punctuation", ".."], ["comment", "\n   this:: too!"],
+
+	["punctuation", ".."], ["comment", "\n   |even| this:: !"]
+]
+
+----------------------------------------------------

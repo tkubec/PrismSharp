@@ -1,0 +1,39 @@
+"double quoted\"' % string"
+"abc // what now?"
+multiline_literal = "hello
+  world"
+foo = <<EOF
+  bar
+  baz
+  EOF
+bar = <<-EOF_TEXT
+  bar
+  "baz"
+  EOF_TEXT
+foo = <<FOO
+ # I'm not a comment
+ // me neither
+ /* this might make a good test */
+ This string can contain FOO but not at the start of a line.
+FOO
+----------------------------------------------------
+<span class="token string">"double quoted\"' % string"</span>
+<span class="token string">"abc // what now?"</span>
+<span class="token property">multiline_literal</span> <span class="token punctuation">=</span> <span class="token string">"hello
+  world"</span>
+<span class="token property">foo</span> <span class="token punctuation">=</span> <span class="token heredoc string">&lt;&lt;EOF
+  bar
+  baz
+  EOF</span>
+<span class="token property">bar</span> <span class="token punctuation">=</span> <span class="token heredoc string">&lt;&lt;-EOF_TEXT
+  bar
+  "baz"
+  EOF_TEXT</span>
+<span class="token property">foo</span> <span class="token punctuation">=</span> <span class="token heredoc string">&lt;&lt;FOO
+ # I'm not a comment
+ // me neither
+ /* this might make a good test */
+ This string can contain FOO but not at the start of a line.
+FOO</span>
+
+----------------------------------------------------

@@ -1,0 +1,11 @@
+var myObjWithSpecialChars = {
+  '$special\tchars!': true
+  normalKey: 'val'
+}
+----------------------------------------------------
+<span class="token keyword">var</span> myObjWithSpecialChars <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token property">'$special\tchars!'</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token property">normalKey</span><span class="token operator">:</span> <span class="token string">'val'</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

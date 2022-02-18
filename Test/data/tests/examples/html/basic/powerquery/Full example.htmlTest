@@ -1,0 +1,103 @@
+let
+    Source = Sales,
+    LookupTable = #table(
+    type table
+        [
+            #"FROM"=text,
+            #"TO"=text
+        ], 
+        {
+            {"CEE","Central & Eastern Europe"},
+            {"WE","Western Europe"}  
+        }
+    ),
+
+    JT = Table.NestedJoin(
+        Source, 
+        {"Area"}, 
+        LookupTable, 
+        {"FROM"}, 
+        "Map", 
+        JoinKind.LeftOuter
+    ),
+
+    #"Expanded Map" = Table.ExpandTableColumn(
+        JT, 
+        "Map", 
+        {"TO"}, 
+        {"TO"}
+    ),
+
+    #"Replace non-matches with original value" = Table.AddColumn(
+        #"Expanded Map", 
+        "Replaced", 
+        each 
+            if [TO] = null then [Area] 
+            else [TO]
+    ),
+
+    #"Remove original column" = Table.RemoveColumns(
+        #"Replace non-matches with original value",
+        {"Area", "TO"}
+    ),
+
+    #"Renamed replace column to original name" = Table.RenameColumns(
+        #"Remove original column",
+        {{"Replaced", "Area"}}
+    )
+
+in
+    #"Renamed replace column to original name"
+----------------------------------------------------
+<span class="token keyword">let</span>
+    Source <span class="token operator">=</span> Sales<span class="token punctuation">,</span>
+    LookupTable <span class="token operator">=</span> <span class="token keyword">#table</span><span class="token punctuation">(</span>
+    <span class="token keyword">type</span> <span class="token data-type class-name">table</span>
+        <span class="token punctuation">[</span>
+            <span class="token quoted-identifier">#"FROM"</span><span class="token operator">=</span><span class="token data-type class-name">text</span><span class="token punctuation">,</span>
+            <span class="token quoted-identifier">#"TO"</span><span class="token operator">=</span><span class="token data-type class-name">text</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span> 
+        <span class="token punctuation">{</span>
+            <span class="token punctuation">{</span><span class="token string">"CEE"</span><span class="token punctuation">,</span><span class="token string">"Central &amp; Eastern Europe"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token string">"WE"</span><span class="token punctuation">,</span><span class="token string">"Western Europe"</span><span class="token punctuation">}</span>  
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    JT <span class="token operator">=</span> <span class="token function">Table.NestedJoin</span><span class="token punctuation">(</span>
+        Source<span class="token punctuation">,</span> 
+        <span class="token punctuation">{</span><span class="token string">"Area"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
+        LookupTable<span class="token punctuation">,</span> 
+        <span class="token punctuation">{</span><span class="token string">"FROM"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
+        <span class="token string">"Map"</span><span class="token punctuation">,</span> 
+        <span class="token constant">JoinKind.LeftOuter</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token quoted-identifier">#"Expanded Map"</span> <span class="token operator">=</span> <span class="token function">Table.ExpandTableColumn</span><span class="token punctuation">(</span>
+        JT<span class="token punctuation">,</span> 
+        <span class="token string">"Map"</span><span class="token punctuation">,</span> 
+        <span class="token punctuation">{</span><span class="token string">"TO"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
+        <span class="token punctuation">{</span><span class="token string">"TO"</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token quoted-identifier">#"Replace non-matches with original value"</span> <span class="token operator">=</span> <span class="token function">Table.AddColumn</span><span class="token punctuation">(</span>
+        <span class="token quoted-identifier">#"Expanded Map"</span><span class="token punctuation">,</span> 
+        <span class="token string">"Replaced"</span><span class="token punctuation">,</span> 
+        <span class="token keyword">each</span> 
+            <span class="token keyword">if</span> <span class="token punctuation">[</span>TO<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token constant">null</span> <span class="token keyword">then</span> <span class="token punctuation">[</span>Area<span class="token punctuation">]</span> 
+            <span class="token keyword">else</span> <span class="token punctuation">[</span>TO<span class="token punctuation">]</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token quoted-identifier">#"Remove original column"</span> <span class="token operator">=</span> <span class="token function">Table.RemoveColumns</span><span class="token punctuation">(</span>
+        <span class="token quoted-identifier">#"Replace non-matches with original value"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span><span class="token string">"Area"</span><span class="token punctuation">,</span> <span class="token string">"TO"</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token quoted-identifier">#"Renamed replace column to original name"</span> <span class="token operator">=</span> <span class="token function">Table.RenameColumns</span><span class="token punctuation">(</span>
+        <span class="token quoted-identifier">#"Remove original column"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token string">"Replaced"</span><span class="token punctuation">,</span> <span class="token string">"Area"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+
+<span class="token keyword">in</span>
+    <span class="token quoted-identifier">#"Renamed replace column to original name"</span>
+
+----------------------------------------------------

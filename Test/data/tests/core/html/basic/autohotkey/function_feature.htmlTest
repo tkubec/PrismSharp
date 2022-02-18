@@ -1,0 +1,13 @@
+foo(
+foo_bar(
+
+; not a function
+if(
+----------------------------------------------------
+<span class="token function">foo</span><span class="token punctuation">(</span>
+<span class="token function">foo_bar</span><span class="token punctuation">(</span>
+
+<span class="token comment">; not a function</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>
+
+----------------------------------------------------

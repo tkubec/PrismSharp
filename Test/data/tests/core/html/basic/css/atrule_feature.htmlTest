@@ -1,0 +1,15 @@
+@import url(foo.css);
+@media print {}
+@media (min-width: 640px) and (min-height: 1000px) {}
+@supports (top: 50vmax)
+	or (top: 50vw) {}
+@main-color: red;
+----------------------------------------------------
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>foo.css<span class="token punctuation">)</span></span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@media</span> print</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 640px<span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-height</span><span class="token punctuation">:</span> 1000px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@supports</span> <span class="token punctuation">(</span><span class="token property">top</span><span class="token punctuation">:</span> 50vmax<span class="token punctuation">)</span>
+	<span class="token keyword">or</span> <span class="token punctuation">(</span><span class="token property">top</span><span class="token punctuation">:</span> 50vw<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@main-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></span>
+
+----------------------------------------------------

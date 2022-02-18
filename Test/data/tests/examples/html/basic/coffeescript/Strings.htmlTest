@@ -1,0 +1,23 @@
+'foo \'bar\' baz'
+"foo \"bar\" baz"
+'Multi-line
+strings are supported'
+"Multi-line
+strings are supported"
+''' 'Block strings'
+are supported too'''
+""" "Block strings"
+are supported too"""
+----------------------------------------------------
+<span class="token string">'foo \'bar\' baz'</span>
+<span class="token string">"foo \"bar\" baz"</span>
+<span class="token string">'Multi-line
+strings are supported'</span>
+<span class="token string">"Multi-line
+strings are supported"</span>
+<span class="token multiline-string string">''' 'Block strings'
+are supported too'''</span>
+<span class="token multiline-string string">""" "Block strings"
+are supported too"""</span>
+
+----------------------------------------------------

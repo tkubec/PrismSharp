@@ -1,0 +1,23 @@
+'''''Both bold and italic'''''
+'''Only bold'''
+''Only italic''
+----------------------------------------------------
+[
+	["emphasis", [
+		["punctuation", "'''''"],
+		["bold-italic", "Both bold and italic"],
+		["punctuation", "'''''"]
+	]],
+	["emphasis", [
+		["punctuation", "'''"],
+		["bold", "Only bold"],
+		["punctuation", "'''"]
+	]],
+	["emphasis", [
+		["punctuation", "''"],
+		["italic", "Only italic"],
+		["punctuation", "''"]
+	]]
+]
+
+----------------------------------------------------

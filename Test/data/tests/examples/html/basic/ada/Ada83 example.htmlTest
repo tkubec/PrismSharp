@@ -1,0 +1,19 @@
+WITH ADA.TEXT_IO;
+
+--  Comments look like this.
+
+PROCEDURE TEST IS
+BEGIN
+   ADA.TEXT_IO.PUT_LINE ("Hello");   --  Comments look like this.
+END TEST;
+----------------------------------------------------
+<span class="token keyword">WITH</span> <span class="token variable">ADA</span><span class="token punctuation">.</span><span class="token variable">TEXT_IO</span><span class="token punctuation">;</span>
+
+<span class="token comment">--  Comments look like this.</span>
+
+<span class="token keyword">PROCEDURE</span> <span class="token variable">TEST</span> <span class="token keyword">IS</span>
+<span class="token keyword">BEGIN</span>
+   <span class="token variable">ADA</span><span class="token punctuation">.</span><span class="token variable">TEXT_IO</span><span class="token punctuation">.</span><span class="token variable">PUT_LINE</span> <span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">--  Comments look like this.</span>
+<span class="token keyword">END</span> <span class="token variable">TEST</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

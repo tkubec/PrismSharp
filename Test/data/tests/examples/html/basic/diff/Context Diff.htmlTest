@@ -1,0 +1,33 @@
+*** qcli.yml	2014-12-16 11:43:41.000000000 +0800
+--- /Users/uranusjr/Desktop/qcli.yml	2014-12-31 11:28:08.000000000 +0800
+***************
+*** 4,8 ****
+  project:
+      sources: "src/*.cpp"
+      headers: "src/*.h"
+!     qt: core
+  public_headers: "src/*.h"
+--- 4,8 ----
+  project:
+      sources: "src/*.cpp"
+      headers: "src/*.h"
+!     qt: core gui
+  public_headers: "src/*.h"
+----------------------------------------------------
+<span class="token coord">*** qcli.yml	2014-12-16 11:43:41.000000000 +0800</span>
+<span class="token coord">--- /Users/uranusjr/Desktop/qcli.yml	2014-12-31 11:28:08.000000000 +0800</span>
+<span class="token coord">***************</span>
+<span class="token coord">*** 4,8 ****</span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> project:
+</span><span class="token prefix unchanged"> </span><span class="token line">     sources: "src/*.cpp"
+</span><span class="token prefix unchanged"> </span><span class="token line">     headers: "src/*.h"
+</span></span><span class="token diff bold"><span class="token prefix diff">!</span><span class="token line">     qt: core
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> public_headers: "src/*.h"
+</span></span><span class="token coord">--- 4,8 ----</span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> project:
+</span><span class="token prefix unchanged"> </span><span class="token line">     sources: "src/*.cpp"
+</span><span class="token prefix unchanged"> </span><span class="token line">     headers: "src/*.h"
+</span></span><span class="token diff bold"><span class="token prefix diff">!</span><span class="token line">     qt: core gui
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> public_headers: "src/*.h"</span></span>
+
+----------------------------------------------------

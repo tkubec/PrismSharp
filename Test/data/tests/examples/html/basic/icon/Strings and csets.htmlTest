@@ -1,0 +1,11 @@
+""
+"Foo\"bar"
+''
+'a\'bcdefg'
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"Foo\"bar"</span>
+<span class="token string">''</span>
+<span class="token string">'a\'bcdefg'</span>
+
+----------------------------------------------------

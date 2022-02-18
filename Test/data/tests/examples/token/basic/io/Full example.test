@@ -1,0 +1,60 @@
+"Hello, world!" println
+A := Object clone    // creates a new, empty object named "A"
+factorial := method(n,
+    if(n == 0, return 1)
+    res := 1
+    Range 1 to(n) foreach(i, res = res * i)
+)
+----------------------------------------------------
+[
+	["string", "\"Hello, world!\""],
+	["keyword", "println"],
+
+	"\nA ",
+	["operator", ":="],
+	["builtin", "Object"],
+	["keyword", "clone"],
+	["comment", "// creates a new, empty object named \"A\""],
+
+	"\nfactorial ",
+	["operator", ":="],
+	["keyword", "method"],
+	["punctuation", "("],
+	"n",
+	["punctuation", ","],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"n ",
+	["operator", "=="],
+	["number", "0"],
+	["punctuation", ","],
+	["operator", "return"],
+	["number", "1"],
+	["punctuation", ")"],
+
+	"\n    res ",
+	["operator", ":="],
+	["number", "1"],
+
+	"\n    Range ",
+	["number", "1"],
+	" to",
+	["punctuation", "("],
+	"n",
+	["punctuation", ")"],
+	["keyword", "foreach"],
+	["punctuation", "("],
+	"i",
+	["punctuation", ","],
+	" res ",
+	["operator", "="],
+	" res ",
+	["operator", "*"],
+	" i",
+	["punctuation", ")"],
+
+	["punctuation", ")"]
+]
+
+----------------------------------------------------

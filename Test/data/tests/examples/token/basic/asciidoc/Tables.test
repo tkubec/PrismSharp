@@ -1,0 +1,59 @@
+[cols="e,m,^,>s",width="25%"]
+|============================
+|1 >s|2 |3 |4
+^|5 2.2+^.^|6 .3+<.>m|7
+^|8
+|9 2+>|10
+|============================
+----------------------------------------------------
+[
+	["attributes", [
+		["punctuation", "["],
+		["variable", "cols"],
+		["operator", "="],
+		["string", "\"e,m,^,>s\""],
+		["punctuation", ","],
+		["variable", "width"],
+		["operator", "="],
+		["string", "\"25%\""],
+		["punctuation", "]"]
+	]],
+
+	["table", [
+		["punctuation", "|============================"],
+
+		["punctuation", "|"],
+		"1 ",
+		["specifiers", ">s"],
+		["punctuation", "|"],
+		"2 ",
+		["punctuation", "|"],
+		"3 ",
+		["punctuation", "|"],
+		"4\n",
+
+		["specifiers", "^"],
+		["punctuation", "|"],
+		"5 ",
+		["specifiers", "2.2+^.^"],
+		["punctuation", "|"],
+		"6 ",
+		["specifiers", ".3+<.>m"],
+		["punctuation", "|"],
+		"7\n",
+
+		["specifiers", "^"],
+		["punctuation", "|"],
+		"8\n",
+
+		["punctuation", "|"],
+		"9 ",
+		["specifiers", "2+>"],
+		["punctuation", "|"],
+		"10\n",
+
+		["punctuation", "|============================"]
+	]]
+]
+
+----------------------------------------------------

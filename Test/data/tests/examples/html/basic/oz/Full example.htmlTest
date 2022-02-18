@@ -1,0 +1,117 @@
+proc {DisMember X Ys}
+   dis Ys = X|_ [] Yr in Ys = _|Yr {DisMember X Yr} end
+end
+
+class DataBase from BaseObject
+   attr d
+   meth init
+      d := {NewDictionary}
+   end
+   meth dic($) @d end
+   meth tell(I)
+      case {IsFree I.1} then
+         raise database(nonground(I)) end
+      else
+         Is = {Dictionary.condGet @d I.1 nil} in
+         {Dictionary.put @d I.1 {Append Is [I]}}
+      end
+   end
+   meth ask(I)
+      case {IsFree I} orelse {IsFree I.1} then
+         {DisMember I {Flatten {Dictionary.items @d}}}
+      else
+         {DisMember I {Dictionary.condGet @d I.1 nil}}
+      end
+   end
+   meth entries($)
+      {Dictionary.entries @d}
+   end
+end
+
+declare
+proc {Dynamic ?Pred}
+   Pred = {New DataBase init}
+end
+proc {Assert P I}
+   {P tell(I)}
+end
+proc {Query P I}
+   {P ask(I)}
+end
+
+EdgeP = {Dynamic}
+{ForAll
+[edge(1 2)
+ edge(2 1)   % Cycle
+ edge(2 3)
+ edge(3 4)
+ edge(2 5)
+ edge(5 6)
+ edge(4 6)
+ edge(6 7)
+ edge(6 8)
+ edge(1 5)
+ edge(5 1)  % Cycle
+]
+proc {$ I} {Assert EdgeP I} end
+}
+----------------------------------------------------
+<span class="token keyword">proc</span> <span class="token punctuation">{</span><span class="token function">DisMember</span> X Ys<span class="token punctuation">}</span>
+   <span class="token keyword">dis</span> Ys <span class="token operator">=</span> X<span class="token operator">|</span><span class="token keyword">_</span> <span class="token keyword">[]</span> Yr <span class="token keyword">in</span> Ys <span class="token operator">=</span> <span class="token keyword">_</span><span class="token operator">|</span>Yr <span class="token punctuation">{</span><span class="token function">DisMember</span> X Yr<span class="token punctuation">}</span> <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">class</span> DataBase <span class="token keyword">from</span> BaseObject
+   <span class="token keyword">attr</span> d
+   <span class="token keyword">meth</span> init
+      d <span class="token operator">:=</span> <span class="token punctuation">{</span><span class="token function">NewDictionary</span><span class="token punctuation">}</span>
+   <span class="token keyword">end</span>
+   <span class="token keyword">meth</span> <span class="token function">dic</span><span class="token punctuation">(</span><span class="token keyword">$</span><span class="token punctuation">)</span> <span class="token operator">@</span>d <span class="token keyword">end</span>
+   <span class="token keyword">meth</span> <span class="token function">tell</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span>
+      <span class="token keyword">case</span> <span class="token punctuation">{</span><span class="token function">IsFree</span> I<span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token keyword">then</span>
+         <span class="token keyword">raise</span> <span class="token function">database</span><span class="token punctuation">(</span><span class="token function">nonground</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">end</span>
+      <span class="token keyword">else</span>
+         Is <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token function">Dictionary</span><span class="token punctuation">.</span>condGet <span class="token operator">@</span>d I<span class="token punctuation">.</span><span class="token number">1</span> <span class="token keyword">nil</span><span class="token punctuation">}</span> <span class="token keyword">in</span>
+         <span class="token punctuation">{</span><span class="token function">Dictionary</span><span class="token punctuation">.</span>put <span class="token operator">@</span>d I<span class="token punctuation">.</span><span class="token number">1</span> <span class="token punctuation">{</span><span class="token function">Append</span> Is <span class="token punctuation">[</span>I<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token keyword">end</span>
+   <span class="token keyword">end</span>
+   <span class="token keyword">meth</span> <span class="token function">ask</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span>
+      <span class="token keyword">case</span> <span class="token punctuation">{</span><span class="token function">IsFree</span> I<span class="token punctuation">}</span> <span class="token operator">orelse</span> <span class="token punctuation">{</span><span class="token function">IsFree</span> I<span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token keyword">then</span>
+         <span class="token punctuation">{</span><span class="token function">DisMember</span> I <span class="token punctuation">{</span><span class="token function">Flatten</span> <span class="token punctuation">{</span><span class="token function">Dictionary</span><span class="token punctuation">.</span>items <span class="token operator">@</span>d<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token keyword">else</span>
+         <span class="token punctuation">{</span><span class="token function">DisMember</span> I <span class="token punctuation">{</span><span class="token function">Dictionary</span><span class="token punctuation">.</span>condGet <span class="token operator">@</span>d I<span class="token punctuation">.</span><span class="token number">1</span> <span class="token keyword">nil</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token keyword">end</span>
+   <span class="token keyword">end</span>
+   <span class="token keyword">meth</span> <span class="token function">entries</span><span class="token punctuation">(</span><span class="token keyword">$</span><span class="token punctuation">)</span>
+      <span class="token punctuation">{</span><span class="token function">Dictionary</span><span class="token punctuation">.</span>entries <span class="token operator">@</span>d<span class="token punctuation">}</span>
+   <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">declare</span>
+<span class="token keyword">proc</span> <span class="token punctuation">{</span><span class="token function">Dynamic</span> <span class="token punctuation">?</span>Pred<span class="token punctuation">}</span>
+   Pred <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token function">New</span> DataBase init<span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+<span class="token keyword">proc</span> <span class="token punctuation">{</span><span class="token function">Assert</span> P I<span class="token punctuation">}</span>
+   <span class="token punctuation">{</span><span class="token function">P</span> <span class="token function">tell</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+<span class="token keyword">proc</span> <span class="token punctuation">{</span><span class="token function">Query</span> P I<span class="token punctuation">}</span>
+   <span class="token punctuation">{</span><span class="token function">P</span> <span class="token function">ask</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+
+EdgeP <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token function">Dynamic</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token function">ForAll</span>
+<span class="token punctuation">[</span><span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">1</span><span class="token punctuation">)</span>   <span class="token comment">% Cycle</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">5</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token number">6</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">4</span> <span class="token number">6</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">6</span> <span class="token number">7</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">6</span> <span class="token number">8</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">5</span><span class="token punctuation">)</span>
+ <span class="token function">edge</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment">% Cycle</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">proc</span> <span class="token punctuation">{</span><span class="token keyword">$</span> I<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token function">Assert</span> EdgeP I<span class="token punctuation">}</span> <span class="token keyword">end</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

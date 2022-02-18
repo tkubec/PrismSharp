@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <ul id="navigation">
+        {% for item in navigation %}
+            <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+        {% endfor %}
+        </ul>
+
+        <h1>My Webpage</h1>
+        {{ a_variable }}
+    </body>
+</html>
+----------------------------------------------------
+[
+	["operator", "<"],
+	"!DOCTYPE html",
+	["operator", ">"],
+
+	["operator", "<"],
+	"html",
+	["operator", ">"],
+
+	["operator", "<"],
+	"head",
+	["operator", ">"],
+
+	["operator", "<"],
+	"title",
+	["operator", ">"],
+	"My Webpage",
+	["operator", "<"],
+	["operator", "/"],
+	"title",
+	["operator", ">"],
+
+	["operator", "<"],
+	["operator", "/"],
+	"head",
+	["operator", ">"],
+
+	["operator", "<"],
+	"body",
+	["operator", ">"],
+
+	["operator", "<"],
+	"ul id",
+	["operator", "="],
+	["string", [
+		["punctuation", "\""],
+		"navigation",
+		["punctuation", "\""]
+	]],
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	" for item ",
+	["operator", "in"],
+	" navigation ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	"li",
+	["operator", ">"],
+	["operator", "<"],
+	"a href",
+	["operator", "="],
+	["string", [
+		["punctuation", "\""],
+		"{{ item.href }}",
+		["punctuation", "\""]
+	]],
+	["operator", ">"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" item",
+	["punctuation", "."],
+	"caption ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	"a",
+	["operator", ">"],
+	["operator", "<"],
+	["operator", "/"],
+	"li",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["operator", "%"],
+	" endfor ",
+	["operator", "%"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	["operator", "/"],
+	"ul",
+	["operator", ">"],
+
+	["operator", "<"],
+	"h1",
+	["operator", ">"],
+	"My Webpage",
+	["operator", "<"],
+	["operator", "/"],
+	"h1",
+	["operator", ">"],
+
+	["punctuation", "{"],
+	["punctuation", "{"],
+	" a_variable ",
+	["punctuation", "}"],
+	["punctuation", "}"],
+
+	["operator", "<"],
+	["operator", "/"],
+	"body",
+	["operator", ">"],
+
+	["operator", "<"],
+	["operator", "/"],
+	"html",
+	["operator", ">"]
+]
+
+----------------------------------------------------

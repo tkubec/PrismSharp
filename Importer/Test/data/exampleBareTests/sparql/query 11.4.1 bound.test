@@ -1,0 +1,10 @@
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX dc:   &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?name
+ WHERE { ?x foaf:givenName  ?givenName .
+				 OPTIONAL { ?x dc:date ?date } .
+				 FILTER ( bound(?date) ) }
+
+--------------------------------------------------
+

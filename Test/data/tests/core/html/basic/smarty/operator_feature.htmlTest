@@ -1,0 +1,29 @@
+{if $a + $b - $c == $d}
+{if $e * $f / $g % $h === $i}
+{if $j < $k and $l > $m eq $n <= $o and $p >= $q}
+{if !$r != $s && $t || $u}
+{if $v is not even by 3 or $v is even}
+{if $w is div by 2 or $w is not div by 3}
+{if $x is not odd or $x is odd by 4}
+{if $y ne $z or $a neq $b}
+{if $c gt $d or $e lt $f}
+{if $g gte $h or $i ge $j or $k lte $l or $m le $n}
+{if not $o and $p mod 4}
+{foo bar=baz}
+{$foo|upper}
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">if</span> <span class="token variable">$a</span> <span class="token operator">+</span> <span class="token variable">$b</span> <span class="token operator">-</span> <span class="token variable">$c</span> <span class="token operator">==</span> <span class="token variable">$d</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$e</span> <span class="token operator">*</span> <span class="token variable">$f</span> <span class="token operator">/</span> <span class="token variable">$g</span> <span class="token operator">%</span> <span class="token variable">$h</span> <span class="token operator">===</span> <span class="token variable">$i</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$j</span> <span class="token operator">&lt;</span> <span class="token variable">$k</span> <span class="token operator">and</span> <span class="token variable">$l</span> <span class="token operator">></span> <span class="token variable">$m</span> <span class="token operator">eq</span> <span class="token variable">$n</span> <span class="token operator">&lt;=</span> <span class="token variable">$o</span> <span class="token operator">and</span> <span class="token variable">$p</span> <span class="token operator">>=</span> <span class="token variable">$q</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token operator">!</span><span class="token variable">$r</span> <span class="token operator">!=</span> <span class="token variable">$s</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$t</span> <span class="token operator">||</span> <span class="token variable">$u</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$v</span> <span class="token operator">is not even by</span> <span class="token number">3</span> <span class="token operator">or</span> <span class="token variable">$v</span> <span class="token operator">is even</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$w</span> <span class="token operator">is div by</span> <span class="token number">2</span> <span class="token operator">or</span> <span class="token variable">$w</span> <span class="token operator">is not div by</span> <span class="token number">3</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$x</span> <span class="token operator">is not odd</span> <span class="token operator">or</span> <span class="token variable">$x</span> <span class="token operator">is odd by</span> <span class="token number">4</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$y</span> <span class="token operator">ne</span> <span class="token variable">$z</span> <span class="token operator">or</span> <span class="token variable">$a</span> <span class="token operator">neq</span> <span class="token variable">$b</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$c</span> <span class="token operator">gt</span> <span class="token variable">$d</span> <span class="token operator">or</span> <span class="token variable">$e</span> <span class="token operator">lt</span> <span class="token variable">$f</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token variable">$g</span> <span class="token operator">gte</span> <span class="token variable">$h</span> <span class="token operator">or</span> <span class="token variable">$i</span> <span class="token operator">ge</span> <span class="token variable">$j</span> <span class="token operator">or</span> <span class="token variable">$k</span> <span class="token operator">lte</span> <span class="token variable">$l</span> <span class="token operator">or</span> <span class="token variable">$m</span> <span class="token operator">le</span> <span class="token variable">$n</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>if <span class="token operator">not</span> <span class="token variable">$o</span> <span class="token operator">and</span> <span class="token variable">$p</span> <span class="token operator">mod</span> <span class="token number">4</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span>foo <span class="token attr-name">bar</span><span class="token operator">=</span><span class="token variable">baz</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token operator">|</span><span class="token function">upper</span><span class="token delimiter punctuation">}</span>
+
+----------------------------------------------------

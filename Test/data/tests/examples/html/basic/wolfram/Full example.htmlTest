@@ -1,0 +1,17 @@
+(* Most operators are supported *)
+f /@ {1, 2, 3};
+f @@ Range[10];
+f @@@ y;
+Module[{x=1}, 
+    Return @ $Failed
+]
+----------------------------------------------------
+<span class="token comment">(* Most operators are supported *)</span>
+f <span class="token operator">/@</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token operator">;</span>
+f <span class="token operator">@@</span> Range<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token operator">;</span>
+f <span class="token operator">@@@</span> y<span class="token operator">;</span>
+<span class="token keyword">Module</span><span class="token punctuation">[</span><span class="token punctuation">{</span>x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token keyword">Return</span> <span class="token operator">@</span> <span class="token global-variable variable">$Failed</span>
+<span class="token punctuation">]</span>
+
+----------------------------------------------------

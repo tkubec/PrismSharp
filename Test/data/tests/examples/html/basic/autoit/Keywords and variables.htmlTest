@@ -1,0 +1,17 @@
+; Display all the numbers for 1 to 10 but skip displaying  7.
+For $i = 1 To 10
+    If $i = 7 Then
+        ContinueLoop ; Skip displaying the message box when $i is equal to 7.
+    EndIf
+    MsgBox($MB_SYSTEMMODAL, "", "The value of $i is: " & $i)
+Next
+----------------------------------------------------
+<span class="token comment">; Display all the numbers for 1 to 10 but skip displaying  7.</span>
+<span class="token keyword">For</span> <span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">To</span> <span class="token number">10</span>
+    <span class="token keyword">If</span> <span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">7</span> <span class="token keyword">Then</span>
+        <span class="token keyword">ContinueLoop</span> <span class="token comment">; Skip displaying the message box when $i is equal to 7.</span>
+    <span class="token keyword">EndIf</span>
+    <span class="token function">MsgBox</span><span class="token punctuation">(</span><span class="token variable">$MB_SYSTEMMODAL</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"The value of $i is: "</span> <span class="token operator">&amp;</span> <span class="token variable">$i</span><span class="token punctuation">)</span>
+<span class="token keyword">Next</span>
+
+----------------------------------------------------

@@ -1,0 +1,9 @@
+!define VERSION "1.0.3"
+!insertmacro MyFunc ""
+----------------------------------------------------
+[
+	["important", "!define"], " VERSION ", ["string", "\"1.0.3\""],
+	["important", "!insertmacro"], " MyFunc ", ["string", "\"\""]
+]
+
+----------------------------------------------------

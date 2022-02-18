@@ -1,0 +1,35 @@
+----
+== Foobar ==
+Bar _baz_ (TM) <1>
+* Foo <2>
+<1> Foobar
+2> Baz
+----
+
+.......
+.Foo
+. Foobar <1>
+include::addendum.txt <2>
+> Foo
+> Bar
+__Foo__**bar**{baz}
+.......
+----------------------------------------------------
+<span class="token literal-block"><span class="token punctuation">----</span>
+== Foobar ==
+Bar _baz_ (TM) <span class="token callout symbol">&lt;1></span>
+* Foo <span class="token callout symbol">&lt;2></span>
+<span class="token callout symbol">&lt;1></span> Foobar
+<span class="token callout symbol">2></span> Baz
+<span class="token punctuation">----</span></span>
+
+<span class="token literal-block"><span class="token punctuation">.......</span>
+.Foo
+. Foobar <span class="token callout symbol">&lt;1></span>
+include::addendum.txt <span class="token callout symbol">&lt;2></span>
+<span class="token callout symbol">></span> Foo
+<span class="token callout symbol">></span> Bar
+__Foo__**bar**{baz}
+<span class="token punctuation">.......</span></span>
+
+----------------------------------------------------

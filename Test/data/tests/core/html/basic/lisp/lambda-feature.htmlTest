@@ -1,0 +1,7 @@
+(lambda () ())
+(lambda () (foo bar))
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token lambda"><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token arguments"></span><span class="token punctuation">)</span></span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token lambda"><span class="token keyword">lambda</span> <span class="token punctuation">(</span><span class="token arguments"></span><span class="token punctuation">)</span></span> <span class="token punctuation">(</span><span class="token car">foo</span> bar<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

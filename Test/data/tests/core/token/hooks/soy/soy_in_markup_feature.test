@@ -1,0 +1,38 @@
+<div>{$msg}</div>
+<div class="{$msg}">
+<h{$headingLevel}>
+___SOY1___{$foo}
+----------------------------------------------------
+[
+	["operator", "<"],
+	"div",
+	["operator", ">"],
+	["punctuation", "{"],
+	["variable", ["$msg"]],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	"div",
+	["operator", ">"],
+
+	["operator", "<"],
+	"div ",
+	["property", "class"],
+	["operator", "="],
+	["string", "\"{$msg}\""],
+	["operator", ">"],
+
+	["operator", "<"],
+	"h",
+	["punctuation", "{"],
+	["variable", ["$headingLevel"]],
+	["punctuation", "}"],
+	["operator", ">"],
+
+	"\n___SOY1___",
+	["punctuation", "{"],
+	["variable", ["$foo"]],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

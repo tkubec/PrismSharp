@@ -1,0 +1,27 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT ?who ?g ?mbox
+FROM <http://example.org/dft.ttl>
+FROM NAMED <http://example.org/alice>
+FROM NAMED <http://example.org/bob>
+WHERE
+{
+	 ?g dc:publisher ?who .
+	 GRAPH ?g { ?x foaf:mbox ?mbox }
+}
+----------------------------------------------------
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://xmlns.com/foaf/0.1/<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span> <span class="token function"><span class="token prefix">dc<span class="token punctuation">:</span></span></span> <span class="token url"><span class="token punctuation">&lt;</span>http://purl.org/dc/elements/1.1/<span class="token punctuation">></span></span>
+
+<span class="token keyword">SELECT</span> <span class="token variable">?who</span> <span class="token variable">?g</span> <span class="token variable">?mbox</span>
+<span class="token keyword">FROM</span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/dft.ttl<span class="token punctuation">></span></span>
+<span class="token keyword">FROM</span> <span class="token keyword">NAMED</span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/alice<span class="token punctuation">></span></span>
+<span class="token keyword">FROM</span> <span class="token keyword">NAMED</span> <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/bob<span class="token punctuation">></span></span>
+<span class="token keyword">WHERE</span>
+<span class="token punctuation">{</span>
+	 <span class="token variable">?g</span> <span class="token function"><span class="token prefix">dc<span class="token punctuation">:</span></span><span class="token local-name">publisher</span></span> <span class="token variable">?who</span> <span class="token punctuation">.</span>
+	 <span class="token keyword">GRAPH</span> <span class="token variable">?g</span> <span class="token punctuation">{</span> <span class="token variable">?x</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">mbox</span></span> <span class="token variable">?mbox</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

@@ -1,0 +1,177 @@
+// From http://help.autodesk.com/view/MAYAUL/2015/ENU/?guid=Example_scripts_Dynamics_Time_Playback
+// Alias Script File
+// MODIFY THIS AT YOUR OWN RISK
+//
+// Creation Date: 8 May 1996
+// Author: rh
+//
+// Description:
+// Playback from frame 0 to frame <n> and return the
+// 		the playback rate in frames/sec. If a negative frame
+// count is given, this indicates silent mode. In silent
+// mode, no output is printed.
+//
+// This version is intended for use in batch tests of dynamics.
+// It requests particle and rigid body positions every frame.
+//
+// RETURN
+// Frame rate in frames/sec
+//
+global proc float dynTimePlayback( float $frames )
+{
+ int $silent;
+ // Get the list of particle shapes.
+ //
+ string $particleObjects[] = `ls -type particle`;
+ int $particleCount = size( $particleObjects );
+ // Get the list of transforms.
+ // This will include rigid bodies.
+ //
+ string $transforms[] = `ls -tr`;
+ int $trCount = size( $transforms );
+ 	// Check for negative $frames. This indicates
+ // $silent mode.
+ //
+ if ($frames < 0)
+ {
+ $silent = 1;
+ $frames = -$frames;
+ }
+ else
+ {
+ $silent = 0;
+ }
+ // Setup the playback options.
+ //
+ playbackOptions -min 1 -max $frames -loop "once";
+ currentTime -edit 0;
+ // Playback the animation using the timerX command
+ // to compute the $elapsed time.
+ //
+ float $startTime, $elapsed;
+ $startTime = `timerX`;
+// play -wait;
+ int $i;
+ for ($i = 1; $i < $frames; $i++ )
+ {
+ // Set time
+ //
+ currentTime -e $i;
+ int $obj;
+ // Request count for every particle object.
+ //
+ for ($obj = 0; $obj < $particleCount; $obj++)
+ {
+			string $cmd = "getAttr " + $particleObjects[$obj]+".count";
+ eval( $cmd );
+ }
+ // Request position for every transform
+		// (includes every rigid body).
+ //
+ for ($obj = 0; $obj < $trCount; $obj++)
+ {
+ string $cmd = "getAttr " + $transforms[$obj]+".translate";
+ eval ($cmd);
+ }
+ }
+ $elapsed = `timerX -st $startTime`;
+ // Compute the playback frame $rate. Print results.
+ //
+ float $rate = ($elapsed == 0 ? 0.0 : $frames / $elapsed) ;
+ if ( ! $silent)
+ {
+ print( "Playback time: " + $elapsed + " secs\n" );
+ print( "Playback $rate: " + $rate + " $frames/sec\n" );
+ }
+ return ( $rate );
+} // timePlayback //
+----------------------------------------------------
+<span class="token comment">// From http://help.autodesk.com/view/MAYAUL/2015/ENU/?guid=Example_scripts_Dynamics_Time_Playback</span>
+<span class="token comment">// Alias Script File</span>
+<span class="token comment">// MODIFY THIS AT YOUR OWN RISK</span>
+<span class="token comment">//</span>
+<span class="token comment">// Creation Date: 8 May 1996</span>
+<span class="token comment">// Author: rh</span>
+<span class="token comment">//</span>
+<span class="token comment">// Description:</span>
+<span class="token comment">// Playback from frame 0 to frame &lt;n> and return the</span>
+<span class="token comment">// 		the playback rate in frames/sec. If a negative frame</span>
+<span class="token comment">// count is given, this indicates silent mode. In silent</span>
+<span class="token comment">// mode, no output is printed.</span>
+<span class="token comment">//</span>
+<span class="token comment">// This version is intended for use in batch tests of dynamics.</span>
+<span class="token comment">// It requests particle and rigid body positions every frame.</span>
+<span class="token comment">//</span>
+<span class="token comment">// RETURN</span>
+<span class="token comment">// Frame rate in frames/sec</span>
+<span class="token comment">//</span>
+<span class="token keyword">global</span> <span class="token keyword">proc</span> <span class="token keyword">float</span> <span class="token function">dynTimePlayback</span><span class="token punctuation">(</span> <span class="token keyword">float</span> <span class="token variable">$frames</span> <span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> <span class="token variable">$silent</span><span class="token punctuation">;</span>
+ <span class="token comment">// Get the list of particle shapes.</span>
+ <span class="token comment">//</span>
+ <span class="token keyword">string</span> <span class="token variable">$particleObjects</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token code italic"><span class="token delimiter punctuation">`</span><span class="token function">ls</span> <span class="token flag operator">-type</span> <span class="token function">particle</span><span class="token delimiter punctuation">`</span></span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> <span class="token variable">$particleCount</span> <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span> <span class="token variable">$particleObjects</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment">// Get the list of transforms.</span>
+ <span class="token comment">// This will include rigid bodies.</span>
+ <span class="token comment">//</span>
+ <span class="token keyword">string</span> <span class="token variable">$transforms</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token code italic"><span class="token delimiter punctuation">`</span><span class="token function">ls</span> <span class="token flag operator">-tr</span><span class="token delimiter punctuation">`</span></span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> <span class="token variable">$trCount</span> <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span> <span class="token variable">$transforms</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	<span class="token comment">// Check for negative $frames. This indicates</span>
+ <span class="token comment">// $silent mode.</span>
+ <span class="token comment">//</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$frames</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+ <span class="token variable">$silent</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+ <span class="token variable">$frames</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token variable">$frames</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">else</span>
+ <span class="token punctuation">{</span>
+ <span class="token variable">$silent</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token comment">// Setup the playback options.</span>
+ <span class="token comment">//</span>
+ <span class="token function">playbackOptions</span> <span class="token flag operator">-min</span> <span class="token number">1</span> <span class="token flag operator">-max</span> <span class="token variable">$frames</span> <span class="token flag operator">-loop</span> <span class="token string">"once"</span><span class="token punctuation">;</span>
+ <span class="token function">currentTime</span> <span class="token flag operator">-edit</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token comment">// Playback the animation using the timerX command</span>
+ <span class="token comment">// to compute the $elapsed time.</span>
+ <span class="token comment">//</span>
+ <span class="token keyword">float</span> <span class="token variable">$startTime</span><span class="token punctuation">,</span> <span class="token variable">$elapsed</span><span class="token punctuation">;</span>
+ <span class="token variable">$startTime</span> <span class="token operator">=</span> <span class="token code italic"><span class="token delimiter punctuation">`</span><span class="token function">timerX</span><span class="token delimiter punctuation">`</span></span><span class="token punctuation">;</span>
+<span class="token comment">// play -wait;</span>
+ <span class="token keyword">int</span> <span class="token variable">$i</span><span class="token punctuation">;</span>
+ <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token variable">$frames</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span> <span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+ <span class="token comment">// Set time</span>
+ <span class="token comment">//</span>
+ <span class="token function">currentTime</span> <span class="token flag operator">-e</span> <span class="token variable">$i</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> <span class="token variable">$obj</span><span class="token punctuation">;</span>
+ <span class="token comment">// Request count for every particle object.</span>
+ <span class="token comment">//</span>
+ <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$obj</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$obj</span> <span class="token operator">&lt;</span> <span class="token variable">$particleCount</span><span class="token punctuation">;</span> <span class="token variable">$obj</span><span class="token operator">++</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+			<span class="token keyword">string</span> <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token string">"getAttr "</span> <span class="token operator">+</span> <span class="token variable">$particleObjects</span><span class="token punctuation">[</span><span class="token variable">$obj</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">".count"</span><span class="token punctuation">;</span>
+ <span class="token function">eval</span><span class="token punctuation">(</span> <span class="token variable">$cmd</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token comment">// Request position for every transform</span>
+		<span class="token comment">// (includes every rigid body).</span>
+ <span class="token comment">//</span>
+ <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$obj</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$obj</span> <span class="token operator">&lt;</span> <span class="token variable">$trCount</span><span class="token punctuation">;</span> <span class="token variable">$obj</span><span class="token operator">++</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+ <span class="token keyword">string</span> <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token string">"getAttr "</span> <span class="token operator">+</span> <span class="token variable">$transforms</span><span class="token punctuation">[</span><span class="token variable">$obj</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">".translate"</span><span class="token punctuation">;</span>
+ <span class="token function">eval</span> <span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+ <span class="token variable">$elapsed</span> <span class="token operator">=</span> <span class="token code italic"><span class="token delimiter punctuation">`</span><span class="token function">timerX</span> <span class="token flag operator">-st</span> <span class="token variable">$startTime</span><span class="token delimiter punctuation">`</span></span><span class="token punctuation">;</span>
+ <span class="token comment">// Compute the playback frame $rate. Print results.</span>
+ <span class="token comment">//</span>
+ <span class="token keyword">float</span> <span class="token variable">$rate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">$elapsed</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">?</span> <span class="token number">0.0</span> <span class="token punctuation">:</span> <span class="token variable">$frames</span> <span class="token operator">/</span> <span class="token variable">$elapsed</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span> <span class="token variable">$silent</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+ <span class="token function">print</span><span class="token punctuation">(</span> <span class="token string">"Playback time: "</span> <span class="token operator">+</span> <span class="token variable">$elapsed</span> <span class="token operator">+</span> <span class="token string">" secs\n"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">print</span><span class="token punctuation">(</span> <span class="token string">"Playback $rate: "</span> <span class="token operator">+</span> <span class="token variable">$rate</span> <span class="token operator">+</span> <span class="token string">" $frames/sec\n"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">return</span> <span class="token punctuation">(</span> <span class="token variable">$rate</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token comment">// timePlayback //</span>
+
+----------------------------------------------------

@@ -1,0 +1,17 @@
+a {}
+p, div {}
+#foobar .foo {}
+&:hover {}
+&-sidebar {}
+#context a%extreme {}
+#{$selector}:before {}
+----------------------------------------------------
+<span class="token selector">a </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector">p, div </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector">#foobar .foo </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector"><span class="token parent important">&amp;</span>-sidebar </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector">#context a<span class="token placeholder">%extreme</span> </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector"><span class="token variable">#{$selector}</span>:before </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

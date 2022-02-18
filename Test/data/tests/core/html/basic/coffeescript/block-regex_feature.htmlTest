@@ -1,0 +1,17 @@
+///foo[bar]///
+///foo
+[bar]///
+///foo
+b#{ar}baz///
+///foo #bar
+baz///
+----------------------------------------------------
+<span class="token block-regex regex">///foo[bar]///</span>
+<span class="token block-regex regex">///foo
+[bar]///</span>
+<span class="token block-regex regex">///foo
+b<span class="token interpolation variable">#{ar}</span>baz///</span>
+<span class="token block-regex regex">///foo <span class="token comment">#bar</span>
+baz///</span>
+
+----------------------------------------------------

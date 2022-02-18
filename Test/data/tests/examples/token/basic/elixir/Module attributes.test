@@ -1,0 +1,52 @@
+defmodule MyServer do
+  @vsn 2
+end
+
+defmodule Math do
+  @moduledoc """
+  Provides math-related functions.
+
+      iex> Math.sum(1, 2)
+      3
+
+  """
+
+  @doc """
+  Calculates the sum of two numbers.
+  """
+  def sum(a, b), do: a + b
+end
+----------------------------------------------------
+[
+	["keyword", "defmodule"], ["module", "MyServer"], ["keyword", "do"],
+	["attribute", "@vsn"], ["number", "2"],
+	["keyword", "end"],
+
+	["keyword", "defmodule"], ["module", "Math"], ["keyword", "do"],
+	["doc", [
+		["attribute", "@moduledoc"],
+		["string", "\"\"\"\n  Provides math-related functions.\n\n      iex> Math.sum(1, 2)\n      3\n\n  \"\"\""]
+	]],
+
+	["doc", [
+		["attribute", "@doc"],
+		["string", "\"\"\"\n  Calculates the sum of two numbers.\n  \"\"\""]
+	]],
+
+	["keyword", "def"],
+	["function", "sum"],
+	["punctuation", "("],
+	"a",
+	["punctuation", ","],
+	" b",
+	["punctuation", ")"],
+	["punctuation", ","],
+	["attr-name", "do:"],
+	" a ",
+	["operator", "+"],
+	" b\n",
+
+	["keyword", "end"]
+]
+
+----------------------------------------------------

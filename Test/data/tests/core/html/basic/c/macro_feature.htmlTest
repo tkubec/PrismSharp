@@ -1,0 +1,67 @@
+# include <stdio.h>
+# include "stdio.h"
+	#define PG_locked 0
+
+#defined
+#elif
+#else
+#endif
+#error
+#ifdef
+#ifndef
+#if
+#import
+#include
+#line
+#pragma
+#undef
+#using
+
+#somethingunknown
+
+#define FOO /*
+ comment
+*/ 1
+
+#define FOO 1 // trailing comment
+#define FOO (1 + 1)
+
+#define MAX(a, b) \
+	((a) < (b) ? (b) : (a))
+
+#define BAR(s) no_##s
+----------------------------------------------------
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
+	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">PG_locked</span> <span class="token expression"><span class="token number">0</span></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">defined</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">elif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">error</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">import</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">line</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">undef</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">using</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">somethingunknown</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">FOO</span> <span class="token comment">/*
+ comment
+*/</span> <span class="token expression"><span class="token number">1</span></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">FOO</span> <span class="token expression"><span class="token number">1</span> </span><span class="token comment">// trailing comment</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">FOO</span> <span class="token expression"><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">MAX</span><span class="token expression"><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> </span><span class="token punctuation">\</span>
+	<span class="token expression"><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">BAR</span><span class="token expression"><span class="token punctuation">(</span>s<span class="token punctuation">)</span> no_</span><span class="token punctuation">##</span><span class="token expression">s</span></span>
+
+----------------------------------------------------

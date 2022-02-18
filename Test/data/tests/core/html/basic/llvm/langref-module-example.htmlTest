@@ -1,0 +1,41 @@
+; Declare the string constant as a global constant.
+@.str = private unnamed_addr constant [13 x i8] c"hello world\0A\00"
+
+; External declaration of the puts function
+declare i32 @puts(i8* nocapture) nounwind
+
+; Definition of main function
+define i32 @main() {   ; i32()*
+  ; Convert [13 x i8]* to i8*...
+  %cast210 = getelementptr [13 x i8], [13 x i8]* @.str, i64 0, i64 0
+
+  ; Call puts function to write out the string to stdout.
+  call i32 @puts(i8* %cast210)
+  ret i32 0
+}
+
+; Named metadata
+!0 = !{i32 42, null, !"string"}
+!foo = !{!0}
+----------------------------------------------------
+<span class="token comment">; Declare the string constant as a global constant.</span>
+<span class="token variable">@.str</span> <span class="token punctuation">=</span> <span class="token keyword">private</span> <span class="token keyword">unnamed_addr</span> <span class="token keyword">constant</span> <span class="token punctuation">[</span><span class="token number">13</span> <span class="token keyword">x</span> <span class="token type class-name">i8</span><span class="token punctuation">]</span> <span class="token keyword">c</span><span class="token string">"hello world\0A\00"</span>
+
+<span class="token comment">; External declaration of the puts function</span>
+<span class="token keyword">declare</span> <span class="token type class-name">i32</span> <span class="token variable">@puts</span><span class="token punctuation">(</span><span class="token type class-name">i8</span><span class="token punctuation">*</span> <span class="token keyword">nocapture</span><span class="token punctuation">)</span> <span class="token keyword">nounwind</span>
+
+<span class="token comment">; Definition of main function</span>
+<span class="token keyword">define</span> <span class="token type class-name">i32</span> <span class="token variable">@main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   <span class="token comment">; i32()*</span>
+  <span class="token comment">; Convert [13 x i8]* to i8*...</span>
+  <span class="token variable">%cast210</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token punctuation">[</span><span class="token number">13</span> <span class="token keyword">x</span> <span class="token type class-name">i8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">13</span> <span class="token keyword">x</span> <span class="token type class-name">i8</span><span class="token punctuation">]</span><span class="token punctuation">*</span> <span class="token variable">@.str</span><span class="token punctuation">,</span> <span class="token type class-name">i64</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i64</span> <span class="token number">0</span>
+
+  <span class="token comment">; Call puts function to write out the string to stdout.</span>
+  <span class="token keyword">call</span> <span class="token type class-name">i32</span> <span class="token variable">@puts</span><span class="token punctuation">(</span><span class="token type class-name">i8</span><span class="token punctuation">*</span> <span class="token variable">%cast210</span><span class="token punctuation">)</span>
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">; Named metadata</span>
+<span class="token variable">!0</span> <span class="token punctuation">=</span> <span class="token punctuation">!</span><span class="token punctuation">{</span><span class="token type class-name">i32</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">!</span><span class="token string">"string"</span><span class="token punctuation">}</span>
+<span class="token variable">!foo</span> <span class="token punctuation">=</span> <span class="token punctuation">!</span><span class="token punctuation">{</span><span class="token variable">!0</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

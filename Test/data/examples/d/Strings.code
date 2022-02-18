@@ -1,0 +1,43 @@
+// WYSIWYG strings
+r"hello"
+r"c:\root\foo.exe"
+r"ab\n"
+`hello`
+`c:\root\foo.exe`
+`ab\n`
+
+// Double-quoted strings
+"hello"
+"c:\\root\\foo.exe"
+"ab\n"
+"ab
+"
+
+// Hex strings
+x"0A"
+x"00 FBCD 32FD 0A"
+
+// String postfix characters
+"hello"c  // string
+"hello"w  // wstring
+"hello"d  // dstring
+
+// Delimited strings
+q"(foo(xxx))"
+q"[foo{]"
+q"EOS
+This
+is a multi-line
+heredoc string
+EOS"
+q"/foo]/"
+
+// Token strings
+q{foo}
+q{/*}*/ }
+q{ foo(q{hello}); }
+q{ __TIME__ }
+
+// Character literals
+'a'
+'\u000A'

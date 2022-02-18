@@ -1,0 +1,7 @@
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+----------------------------------------------------
+<span class="token variable">@nice-blue<span class="token punctuation">:</span></span> #5B83AD<span class="token punctuation">;</span>
+<span class="token variable">@light-blue<span class="token punctuation">:</span></span> <span class="token variable">@nice-blue</span> <span class="token operator">+</span> #111<span class="token punctuation">;</span>
+
+----------------------------------------------------

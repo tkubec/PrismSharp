@@ -1,0 +1,25 @@
+42
+3.14159
+3.2e10
+0.4e-8
+1.4E+2
+BadFacex
+0c1x
+0b0ax
+
+"3132,3334"x
+'3132,3334'x
+----------------------------------------------------
+<span class="token number">42</span>
+<span class="token number">3.14159</span>
+<span class="token number">3.2e10</span>
+<span class="token number">0.4e-8</span>
+<span class="token number">1.4E+2</span>
+BadFacex
+<span class="token number">0c1x</span>
+<span class="token number">0b0ax</span>
+
+<span class="token numeric-constant number">"3132,3334"x</span>
+<span class="token numeric-constant number">'3132,3334'x</span>
+
+----------------------------------------------------

@@ -1,0 +1,85 @@
+'Hello, $name!'
+"age = $user.age"
+'can register = ${user.age > 13}'
+'x = ${x:4.2f}'
+'[${x:10}]'
+'[${int(x):-10}]'
+----------------------------------------------------
+[
+	["string", [
+		"'Hello, ",
+		["interpolation", [
+			["interpolation-variable", "$name"]
+		]],
+		"!'"
+	]],
+	["string", [
+		"\"age = ",
+		["interpolation", [
+			["interpolation-variable", "$user.age"]
+		]],
+		"\""
+	]],
+	["string", [
+		"'can register = ",
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["interpolation-expression", [
+				"user",
+				["punctuation", "."],
+				"age ",
+				["operator", ">"],
+				["number", "13"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		"'"
+	]],
+	["string", [
+		"'x = ",
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["interpolation-expression", [
+				"x",
+				["punctuation", ":"],
+				["number", "4"],
+				["punctuation", "."],
+				"2f"
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		"'"
+	]],
+	["string", [
+		"'[",
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["interpolation-expression", [
+				"x",
+				["punctuation", ":"],
+				["number", "10"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		"]'"
+	]],
+	["string", [
+		"'[",
+		["interpolation", [
+			["interpolation-punctuation", "${"],
+			["interpolation-expression", [
+				["function", "int"],
+				["punctuation", "("],
+				"x",
+				["punctuation", ")"],
+				["punctuation", ":"],
+				["operator", "-"],
+				["number", "10"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		"]'"
+	]]
+]
+
+----------------------------------------------------

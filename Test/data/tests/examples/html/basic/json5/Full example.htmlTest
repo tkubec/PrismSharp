@@ -1,0 +1,27 @@
+{
+  // comments
+  unquoted: 'and you can quote me on that',
+  singleQuotes: 'I can use "double quotes" here',
+  lineBreaks: "Look, Mom! \
+No \\n's!",
+  hexadecimal: 0xdecaf,
+  leadingDecimalPoint: .8675309, andTrailing: 8675309.,
+  positiveSign: +1,
+  trailingComma: 'in objects', andIn: ['arrays',],
+  "backwardsCompatible": "with JSON",
+}
+----------------------------------------------------
+<span class="token punctuation">{</span>
+  <span class="token comment">// comments</span>
+  <span class="token property unquoted">unquoted</span><span class="token operator">:</span> <span class="token string">'and you can quote me on that'</span><span class="token punctuation">,</span>
+  <span class="token property unquoted">singleQuotes</span><span class="token operator">:</span> <span class="token string">'I can use "double quotes" here'</span><span class="token punctuation">,</span>
+  <span class="token property unquoted">lineBreaks</span><span class="token operator">:</span> <span class="token string">"Look, Mom! \
+No \\n's!"</span><span class="token punctuation">,</span>
+  <span class="token property unquoted">hexadecimal</span><span class="token operator">:</span> <span class="token number">0xdecaf</span><span class="token punctuation">,</span>
+  <span class="token property unquoted">leadingDecimalPoint</span><span class="token operator">:</span> <span class="token number">.8675309</span><span class="token punctuation">,</span> <span class="token property unquoted">andTrailing</span><span class="token operator">:</span> <span class="token number">8675309.</span><span class="token punctuation">,</span>
+  <span class="token property unquoted">positiveSign</span><span class="token operator">:</span> <span class="token number">+1</span><span class="token punctuation">,</span>
+  <span class="token property unquoted">trailingComma</span><span class="token operator">:</span> <span class="token string">'in objects'</span><span class="token punctuation">,</span> <span class="token property unquoted">andIn</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'arrays'</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"backwardsCompatible"</span><span class="token operator">:</span> <span class="token string">"with JSON"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

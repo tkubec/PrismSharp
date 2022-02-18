@@ -1,0 +1,25 @@
+@some.decorator(foobar)
+def foo(bar):
+	pass
+
+@decorator
+def foo(bar):
+	pass
+
+@decorator
+def foo(bar):
+	pass
+----------------------------------------------------
+<span class="token decorator annotation punctuation">@some<span class="token punctuation">.</span>decorator</span><span class="token punctuation">(</span>foobar<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">pass</span>
+
+<span class="token decorator annotation punctuation">@decorator</span>
+<span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">pass</span>
+
+<span class="token decorator annotation punctuation">@decorator</span>
+<span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">pass</span>
+
+----------------------------------------------------

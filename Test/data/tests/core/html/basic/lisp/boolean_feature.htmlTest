@@ -1,0 +1,11 @@
+(t)
+(nil)
+(foo t)
+[t ]
+----------------------------------------------------
+<span class="token punctuation">(</span><span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token boolean">nil</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">foo</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token boolean">t</span> <span class="token punctuation">]</span>
+
+----------------------------------------------------

@@ -1,0 +1,14 @@
+// Single line comment
+/* Multi-line
+	comment */
+/+ Mutli-line
+	/+ nestable +/
+	comment +/
+----------------------------------------------------
+[
+	["comment", "// Single line comment"],
+	["comment", "/* Multi-line\n\tcomment */"],
+	["comment", "/+ Mutli-line\n\t/+ nestable +/\n\tcomment +/"]
+]
+
+----------------------------------------------------

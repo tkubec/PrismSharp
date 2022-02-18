@@ -1,0 +1,11 @@
+var FOO;
+const FOO_BAR;
+const BAZ42;
+gl.FLOAT_MAT2x4;
+----------------------------------------------------
+<span class="token keyword">var</span> <span class="token constant">FOO</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">FOO_BAR</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">BAZ42</span><span class="token punctuation">;</span>
+gl<span class="token punctuation">.</span><span class="token constant">FLOAT_MAT2x4</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

@@ -1,0 +1,705 @@
+asm;
+asm_fragment;
+auto;
+break;
+case;
+catch;
+cbuffer;
+centroid;
+char;
+class;
+column_major;
+compile;
+compile_fragment;
+const;
+const_cast;
+continue;
+default;
+delete;
+discard;
+do;
+dynamic_cast;
+else;
+enum;
+explicit;
+export;
+extern;
+for;
+friend;
+fxgroup;
+goto;
+groupshared;
+if;
+in;
+inline;
+inout;
+interface;
+line;
+lineadj;
+linear;
+long;
+matrix;
+mutable;
+namespace;
+new;
+nointerpolation;
+noperspective;
+operator;
+out;
+packoffset;
+pass;
+pixelfragment;
+point;
+precise;
+private;
+protected;
+public;
+register;
+reinterpret_cast;
+return;
+row_major;
+sample;
+sampler;
+shared;
+short;
+signed;
+sizeof;
+snorm;
+stateblock;
+stateblock_state;
+static;
+static_cast;
+string;
+struct;
+switch;
+tbuffer;
+technique;
+technique10;
+technique11;
+template;
+texture;
+this;
+throw;
+triangle;
+triangleadj;
+try;
+typedef;
+typename;
+uniform;
+union;
+unorm;
+unsigned;
+using;
+vector;
+vertexfragment;
+virtual;
+void;
+volatile;
+while;
+;
+bool;
+bool1;
+bool1x1;
+bool1x2;
+bool1x3;
+bool1x4;
+bool2;
+bool2x1;
+bool2x2;
+bool2x3;
+bool2x4;
+bool3;
+bool3x1;
+bool3x2;
+bool3x3;
+bool3x4;
+bool4;
+bool4x1;
+bool4x2;
+bool4x3;
+bool4x4;
+double;
+double1;
+double1x1;
+double1x2;
+double1x3;
+double1x4;
+double2;
+double2x1;
+double2x2;
+double2x3;
+double2x4;
+double3;
+double3x1;
+double3x2;
+double3x3;
+double3x4;
+double4;
+double4x1;
+double4x2;
+double4x3;
+double4x4;
+dword;
+dword1;
+dword1x1;
+dword1x2;
+dword1x3;
+dword1x4;
+dword2;
+dword2x1;
+dword2x2;
+dword2x3;
+dword2x4;
+dword3;
+dword3x1;
+dword3x2;
+dword3x3;
+dword3x4;
+dword4;
+dword4x1;
+dword4x2;
+dword4x3;
+dword4x4;
+float;
+float1;
+float1x1;
+float1x2;
+float1x3;
+float1x4;
+float2;
+float2x1;
+float2x2;
+float2x3;
+float2x4;
+float3;
+float3x1;
+float3x2;
+float3x3;
+float3x4;
+float4;
+float4x1;
+float4x2;
+float4x3;
+float4x4;
+half;
+half1;
+half1x1;
+half1x2;
+half1x3;
+half1x4;
+half2;
+half2x1;
+half2x2;
+half2x3;
+half2x4;
+half3;
+half3x1;
+half3x2;
+half3x3;
+half3x4;
+half4;
+half4x1;
+half4x2;
+half4x3;
+half4x4;
+int;
+int1;
+int1x1;
+int1x2;
+int1x3;
+int1x4;
+int2;
+int2x1;
+int2x2;
+int2x3;
+int2x4;
+int3;
+int3x1;
+int3x2;
+int3x3;
+int3x4;
+int4;
+int4x1;
+int4x2;
+int4x3;
+int4x4;
+min10float;
+min10float1;
+min10float1x1;
+min10float1x2;
+min10float1x3;
+min10float1x4;
+min10float2;
+min10float2x1;
+min10float2x2;
+min10float2x3;
+min10float2x4;
+min10float3;
+min10float3x1;
+min10float3x2;
+min10float3x3;
+min10float3x4;
+min10float4;
+min10float4x1;
+min10float4x2;
+min10float4x3;
+min10float4x4;
+min12int;
+min12int1;
+min12int1x1;
+min12int1x2;
+min12int1x3;
+min12int1x4;
+min12int2;
+min12int2x1;
+min12int2x2;
+min12int2x3;
+min12int2x4;
+min12int3;
+min12int3x1;
+min12int3x2;
+min12int3x3;
+min12int3x4;
+min12int4;
+min12int4x1;
+min12int4x2;
+min12int4x3;
+min12int4x4;
+min16float;
+min16float1;
+min16float1x1;
+min16float1x2;
+min16float1x3;
+min16float1x4;
+min16float2;
+min16float2x1;
+min16float2x2;
+min16float2x3;
+min16float2x4;
+min16float3;
+min16float3x1;
+min16float3x2;
+min16float3x3;
+min16float3x4;
+min16float4;
+min16float4x1;
+min16float4x2;
+min16float4x3;
+min16float4x4;
+min16int;
+min16int1;
+min16int1x1;
+min16int1x2;
+min16int1x3;
+min16int1x4;
+min16int2;
+min16int2x1;
+min16int2x2;
+min16int2x3;
+min16int2x4;
+min16int3;
+min16int3x1;
+min16int3x2;
+min16int3x3;
+min16int3x4;
+min16int4;
+min16int4x1;
+min16int4x2;
+min16int4x3;
+min16int4x4;
+min16uint;
+min16uint1;
+min16uint1x1;
+min16uint1x2;
+min16uint1x3;
+min16uint1x4;
+min16uint2;
+min16uint2x1;
+min16uint2x2;
+min16uint2x3;
+min16uint2x4;
+min16uint3;
+min16uint3x1;
+min16uint3x2;
+min16uint3x3;
+min16uint3x4;
+min16uint4;
+min16uint4x1;
+min16uint4x2;
+min16uint4x3;
+min16uint4x4;
+uint;
+uint1;
+uint1x1;
+uint1x2;
+uint1x3;
+uint1x4;
+uint2;
+uint2x1;
+uint2x2;
+uint2x3;
+uint2x4;
+uint3;
+uint3x1;
+uint3x2;
+uint3x3;
+uint3x4;
+uint4;
+uint4x1;
+uint4x2;
+uint4x3;
+uint4x4;
+----------------------------------------------------
+<span class="token keyword">asm</span><span class="token punctuation">;</span>
+<span class="token keyword">asm_fragment</span><span class="token punctuation">;</span>
+<span class="token keyword">auto</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token keyword">case</span><span class="token punctuation">;</span>
+<span class="token keyword">catch</span><span class="token punctuation">;</span>
+<span class="token keyword">cbuffer</span><span class="token punctuation">;</span>
+<span class="token keyword">centroid</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span><span class="token punctuation">;</span>
+<span class="token keyword">column_major</span><span class="token punctuation">;</span>
+<span class="token keyword">compile</span><span class="token punctuation">;</span>
+<span class="token keyword">compile_fragment</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span><span class="token punctuation">;</span>
+<span class="token keyword">const_cast</span><span class="token punctuation">;</span>
+<span class="token keyword">continue</span><span class="token punctuation">;</span>
+<span class="token keyword">default</span><span class="token punctuation">;</span>
+<span class="token keyword">delete</span><span class="token punctuation">;</span>
+<span class="token keyword">discard</span><span class="token punctuation">;</span>
+<span class="token keyword">do</span><span class="token punctuation">;</span>
+<span class="token keyword">dynamic_cast</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span><span class="token punctuation">;</span>
+<span class="token keyword">enum</span><span class="token punctuation">;</span>
+<span class="token keyword">explicit</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span><span class="token punctuation">;</span>
+<span class="token keyword">extern</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">;</span>
+<span class="token keyword">friend</span><span class="token punctuation">;</span>
+<span class="token keyword">fxgroup</span><span class="token punctuation">;</span>
+<span class="token keyword">goto</span><span class="token punctuation">;</span>
+<span class="token keyword">groupshared</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">;</span>
+<span class="token keyword">in</span><span class="token punctuation">;</span>
+<span class="token keyword">inline</span><span class="token punctuation">;</span>
+<span class="token keyword">inout</span><span class="token punctuation">;</span>
+<span class="token keyword">interface</span><span class="token punctuation">;</span>
+<span class="token keyword">line</span><span class="token punctuation">;</span>
+<span class="token keyword">lineadj</span><span class="token punctuation">;</span>
+<span class="token keyword">linear</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span><span class="token punctuation">;</span>
+<span class="token keyword">matrix</span><span class="token punctuation">;</span>
+<span class="token keyword">mutable</span><span class="token punctuation">;</span>
+<span class="token keyword">namespace</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span><span class="token punctuation">;</span>
+<span class="token keyword">nointerpolation</span><span class="token punctuation">;</span>
+<span class="token keyword">noperspective</span><span class="token punctuation">;</span>
+<span class="token keyword">operator</span><span class="token punctuation">;</span>
+<span class="token keyword">out</span><span class="token punctuation">;</span>
+<span class="token keyword">packoffset</span><span class="token punctuation">;</span>
+<span class="token keyword">pass</span><span class="token punctuation">;</span>
+<span class="token keyword">pixelfragment</span><span class="token punctuation">;</span>
+<span class="token keyword">point</span><span class="token punctuation">;</span>
+<span class="token keyword">precise</span><span class="token punctuation">;</span>
+<span class="token keyword">private</span><span class="token punctuation">;</span>
+<span class="token keyword">protected</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token punctuation">;</span>
+<span class="token keyword">register</span><span class="token punctuation">;</span>
+<span class="token keyword">reinterpret_cast</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token keyword">row_major</span><span class="token punctuation">;</span>
+<span class="token keyword">sample</span><span class="token punctuation">;</span>
+<span class="token keyword">sampler</span><span class="token punctuation">;</span>
+<span class="token keyword">shared</span><span class="token punctuation">;</span>
+<span class="token keyword">short</span><span class="token punctuation">;</span>
+<span class="token keyword">signed</span><span class="token punctuation">;</span>
+<span class="token keyword">sizeof</span><span class="token punctuation">;</span>
+<span class="token keyword">snorm</span><span class="token punctuation">;</span>
+<span class="token keyword">stateblock</span><span class="token punctuation">;</span>
+<span class="token keyword">stateblock_state</span><span class="token punctuation">;</span>
+<span class="token keyword">static</span><span class="token punctuation">;</span>
+<span class="token keyword">static_cast</span><span class="token punctuation">;</span>
+<span class="token keyword">string</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span><span class="token punctuation">;</span>
+<span class="token keyword">switch</span><span class="token punctuation">;</span>
+<span class="token keyword">tbuffer</span><span class="token punctuation">;</span>
+<span class="token keyword">technique</span><span class="token punctuation">;</span>
+<span class="token keyword">technique10</span><span class="token punctuation">;</span>
+<span class="token keyword">technique11</span><span class="token punctuation">;</span>
+<span class="token keyword">template</span><span class="token punctuation">;</span>
+<span class="token keyword">texture</span><span class="token punctuation">;</span>
+<span class="token keyword">this</span><span class="token punctuation">;</span>
+<span class="token keyword">throw</span><span class="token punctuation">;</span>
+<span class="token keyword">triangle</span><span class="token punctuation">;</span>
+<span class="token keyword">triangleadj</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span><span class="token punctuation">;</span>
+<span class="token keyword">typedef</span><span class="token punctuation">;</span>
+<span class="token keyword">typename</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span><span class="token punctuation">;</span>
+<span class="token keyword">union</span><span class="token punctuation">;</span>
+<span class="token keyword">unorm</span><span class="token punctuation">;</span>
+<span class="token keyword">unsigned</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span><span class="token punctuation">;</span>
+<span class="token keyword">vector</span><span class="token punctuation">;</span>
+<span class="token keyword">vertexfragment</span><span class="token punctuation">;</span>
+<span class="token keyword">virtual</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token keyword">volatile</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">;</span>
+<span class="token punctuation">;</span>
+<span class="token keyword">bool</span><span class="token punctuation">;</span>
+<span class="token keyword">bool1</span><span class="token punctuation">;</span>
+<span class="token keyword">bool1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">bool1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">bool1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">bool1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">bool2</span><span class="token punctuation">;</span>
+<span class="token keyword">bool2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">bool2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">bool2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">bool2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">bool3</span><span class="token punctuation">;</span>
+<span class="token keyword">bool3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">bool3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">bool3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">bool3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">bool4</span><span class="token punctuation">;</span>
+<span class="token keyword">bool4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">bool4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">bool4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">bool4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span><span class="token punctuation">;</span>
+<span class="token keyword">double1</span><span class="token punctuation">;</span>
+<span class="token keyword">double1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">double1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">double1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">double1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">double2</span><span class="token punctuation">;</span>
+<span class="token keyword">double2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">double2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">double2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">double2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">double3</span><span class="token punctuation">;</span>
+<span class="token keyword">double3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">double3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">double3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">double3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">double4</span><span class="token punctuation">;</span>
+<span class="token keyword">double4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">double4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">double4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">double4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">dword</span><span class="token punctuation">;</span>
+<span class="token keyword">dword1</span><span class="token punctuation">;</span>
+<span class="token keyword">dword1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">dword1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">dword1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">dword1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">dword2</span><span class="token punctuation">;</span>
+<span class="token keyword">dword2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">dword2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">dword2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">dword2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">dword3</span><span class="token punctuation">;</span>
+<span class="token keyword">dword3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">dword3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">dword3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">dword3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">dword4</span><span class="token punctuation">;</span>
+<span class="token keyword">dword4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">dword4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">dword4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">dword4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">float</span><span class="token punctuation">;</span>
+<span class="token keyword">float1</span><span class="token punctuation">;</span>
+<span class="token keyword">float1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">float1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">float1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">float1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">float2</span><span class="token punctuation">;</span>
+<span class="token keyword">float2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">float2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">float2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">float2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">float3</span><span class="token punctuation">;</span>
+<span class="token keyword">float3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">float3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">float3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">float3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">float4</span><span class="token punctuation">;</span>
+<span class="token keyword">float4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">float4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">float4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">float4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">half</span><span class="token punctuation">;</span>
+<span class="token keyword">half1</span><span class="token punctuation">;</span>
+<span class="token keyword">half1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">half1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">half1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">half1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">half2</span><span class="token punctuation">;</span>
+<span class="token keyword">half2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">half2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">half2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">half2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">half3</span><span class="token punctuation">;</span>
+<span class="token keyword">half3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">half3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">half3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">half3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">half4</span><span class="token punctuation">;</span>
+<span class="token keyword">half4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">half4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">half4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">half4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span><span class="token punctuation">;</span>
+<span class="token keyword">int1</span><span class="token punctuation">;</span>
+<span class="token keyword">int1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">int1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">int1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">int1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">int2</span><span class="token punctuation">;</span>
+<span class="token keyword">int2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">int2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">int2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">int2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">int3</span><span class="token punctuation">;</span>
+<span class="token keyword">int3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">int3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">int3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">int3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">int4</span><span class="token punctuation">;</span>
+<span class="token keyword">int4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">int4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">int4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">int4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float1</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float2</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float3</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float4</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min10float4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int1</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int2</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int3</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int4</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min12int4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16float4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16int4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint4</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">min16uint4x4</span><span class="token punctuation">;</span>
+<span class="token keyword">uint</span><span class="token punctuation">;</span>
+<span class="token keyword">uint1</span><span class="token punctuation">;</span>
+<span class="token keyword">uint1x1</span><span class="token punctuation">;</span>
+<span class="token keyword">uint1x2</span><span class="token punctuation">;</span>
+<span class="token keyword">uint1x3</span><span class="token punctuation">;</span>
+<span class="token keyword">uint1x4</span><span class="token punctuation">;</span>
+<span class="token keyword">uint2</span><span class="token punctuation">;</span>
+<span class="token keyword">uint2x1</span><span class="token punctuation">;</span>
+<span class="token keyword">uint2x2</span><span class="token punctuation">;</span>
+<span class="token keyword">uint2x3</span><span class="token punctuation">;</span>
+<span class="token keyword">uint2x4</span><span class="token punctuation">;</span>
+<span class="token keyword">uint3</span><span class="token punctuation">;</span>
+<span class="token keyword">uint3x1</span><span class="token punctuation">;</span>
+<span class="token keyword">uint3x2</span><span class="token punctuation">;</span>
+<span class="token keyword">uint3x3</span><span class="token punctuation">;</span>
+<span class="token keyword">uint3x4</span><span class="token punctuation">;</span>
+<span class="token keyword">uint4</span><span class="token punctuation">;</span>
+<span class="token keyword">uint4x1</span><span class="token punctuation">;</span>
+<span class="token keyword">uint4x2</span><span class="token punctuation">;</span>
+<span class="token keyword">uint4x3</span><span class="token punctuation">;</span>
+<span class="token keyword">uint4x4</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

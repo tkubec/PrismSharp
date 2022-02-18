@@ -1,0 +1,35 @@
+{literal}
+	<script>
+		(function() { /* This is JS, not Smarty */ } ());
+	</script>
+{/literal}
+
+<style type="text/css">
+{literal}
+/* this is an intersting idea for this section */
+.madIdea{
+    border: 3px outset #ffffff;
+    margin: 2 3 4 5px;
+    background-color: #001122;
+}
+{/literal}
+</style>
+----------------------------------------------------
+<span class="token delimiter punctuation">{</span><span class="token keyword">literal</span><span class="token punctuation">}</span>
+	<span class="token operator">&lt;</span>script<span class="token operator">></span>
+		<span class="token punctuation">(</span><span class="token function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">/</span><span class="token operator">*</span> This is JS<span class="token punctuation">,</span> <span class="token operator">not</span> Smarty <span class="token operator">*</span><span class="token operator">/</span> <span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>;
+	<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">/</span>literal<span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span>style <span class="token attr-name">type</span><span class="token operator">=</span><span class="token string">"text/css"</span><span class="token operator">></span>
+<span class="token punctuation">{</span>literal<span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">*</span> this is an intersting idea for this section <span class="token operator">*</span><span class="token operator">/</span>
+<span class="token punctuation">.</span><span class="token variable">madIdea</span><span class="token punctuation">{</span>
+    border<span class="token punctuation">:</span> <span class="token number">3</span>px outset #ffffff;
+    margin<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span>px;
+    background<span class="token operator">-</span>color<span class="token punctuation">:</span> #<span class="token number">001122</span>;
+<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token operator">/</span>literal<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+
+----------------------------------------------------

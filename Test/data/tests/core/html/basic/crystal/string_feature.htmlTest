@@ -1,0 +1,121 @@
+"hello world"
+
+"\""                  # double quote
+"\\"                  # backslash
+"\#"                  # hash character (to escape interpolation)
+"\a"                  # alert
+"\b"                  # backspace
+"\e"                  # escape
+"\f"                  # form feed
+"\n"                  # newline
+"\r"                  # carriage return
+"\t"                  # tab
+"\v"                  # vertical tab
+"\377"                # octal ASCII character
+"\xFF"                # hexadecimal ASCII character
+"\uFFFF"              # hexadecimal unicode character
+"\u{0}".."\u{10FFFF}" # hexadecimal unicode character
+
+"\101" # => "A"
+"\123" # => "S"
+"\12"  # => "\n"
+"\1"   # string with one character with code point 1
+
+"\u{48 45 4C 4C 4F}" # => "HELLO"
+
+"sum: #{a} + #{b} = #{a + b}"
+
+"\#{a + b}"  # => "#{a + b}"
+%q(#{a + b}) # => "#{a + b}"
+
+%(hello ("world")) # => "hello (\"world\")"
+%[hello ["world"]] # => "hello [\"world\"]"
+%{hello {"world"}} # => "hello {\"world\"}"
+%<hello <"world">> # => "hello <\"world\">"
+%|hello "world"|   # => "hello \"world\""
+
+name = "world"
+%q(hello \n #{name}) # => "hello \\n \#{name}"
+%Q(hello \n #{name}) # => "hello \n world"
+
+%w(foo bar baz)  # => ["foo", "bar", "baz"]
+%w(foo\nbar baz) # => ["foo\\nbar", "baz"]
+%w(foo(bar) baz) # => ["foo(bar)", "baz"]
+
+%w(foo\ bar baz) # => ["foo bar", "baz"]
+
+"hello " \
+"world, " \
+"no newlines" # same as "hello world, no newlines"
+
+"hello \
+     world, \
+     no newlines" # same as "hello world, no newlines"
+
+<<-XML
+<parent>
+  <child />
+</parent>
+XML
+----------------------------------------------------
+<span class="token string-literal"><span class="token string">"hello world"</span></span>
+
+<span class="token string-literal"><span class="token string">"\""</span></span>                  <span class="token comment"># double quote</span>
+<span class="token string-literal"><span class="token string">"\\"</span></span>                  <span class="token comment"># backslash</span>
+<span class="token string-literal"><span class="token string">"\#"</span></span>                  <span class="token comment"># hash character (to escape interpolation)</span>
+<span class="token string-literal"><span class="token string">"\a"</span></span>                  <span class="token comment"># alert</span>
+<span class="token string-literal"><span class="token string">"\b"</span></span>                  <span class="token comment"># backspace</span>
+<span class="token string-literal"><span class="token string">"\e"</span></span>                  <span class="token comment"># escape</span>
+<span class="token string-literal"><span class="token string">"\f"</span></span>                  <span class="token comment"># form feed</span>
+<span class="token string-literal"><span class="token string">"\n"</span></span>                  <span class="token comment"># newline</span>
+<span class="token string-literal"><span class="token string">"\r"</span></span>                  <span class="token comment"># carriage return</span>
+<span class="token string-literal"><span class="token string">"\t"</span></span>                  <span class="token comment"># tab</span>
+<span class="token string-literal"><span class="token string">"\v"</span></span>                  <span class="token comment"># vertical tab</span>
+<span class="token string-literal"><span class="token string">"\377"</span></span>                <span class="token comment"># octal ASCII character</span>
+<span class="token string-literal"><span class="token string">"\xFF"</span></span>                <span class="token comment"># hexadecimal ASCII character</span>
+<span class="token string-literal"><span class="token string">"\uFFFF"</span></span>              <span class="token comment"># hexadecimal unicode character</span>
+<span class="token string-literal"><span class="token string">"\u{0}"</span></span><span class="token operator">..</span><span class="token string-literal"><span class="token string">"\u{10FFFF}"</span></span> <span class="token comment"># hexadecimal unicode character</span>
+
+<span class="token string-literal"><span class="token string">"\101"</span></span> <span class="token comment"># => "A"</span>
+<span class="token string-literal"><span class="token string">"\123"</span></span> <span class="token comment"># => "S"</span>
+<span class="token string-literal"><span class="token string">"\12"</span></span>  <span class="token comment"># => "\n"</span>
+<span class="token string-literal"><span class="token string">"\1"</span></span>   <span class="token comment"># string with one character with code point 1</span>
+
+<span class="token string-literal"><span class="token string">"\u{48 45 4C 4C 4F}"</span></span> <span class="token comment"># => "HELLO"</span>
+
+<span class="token string-literal"><span class="token string">"sum: </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">a</span><span class="token delimiter punctuation">}</span></span><span class="token string"> + </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">b</span><span class="token delimiter punctuation">}</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">a <span class="token operator">+</span> b</span><span class="token delimiter punctuation">}</span></span><span class="token string">"</span></span>
+
+<span class="token string-literal"><span class="token string">"\#{a + b}"</span></span>  <span class="token comment"># => "#{a + b}"</span>
+<span class="token string-literal"><span class="token string">%q(</span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">a <span class="token operator">+</span> b</span><span class="token delimiter punctuation">}</span></span><span class="token string">)</span></span> <span class="token comment"># => "#{a + b}"</span>
+
+<span class="token string-literal"><span class="token string">%(hello ("world"))</span></span> <span class="token comment"># => "hello (\"world\")"</span>
+<span class="token string-literal"><span class="token string">%[hello ["world"]]</span></span> <span class="token comment"># => "hello [\"world\"]"</span>
+<span class="token string-literal"><span class="token string">%{hello {"world"}}</span></span> <span class="token comment"># => "hello {\"world\"}"</span>
+<span class="token string-literal"><span class="token string">%&lt;hello &lt;"world">></span></span> <span class="token comment"># => "hello &lt;\"world\">"</span>
+<span class="token string-literal"><span class="token string">%|hello "world"|</span></span>   <span class="token comment"># => "hello \"world\""</span>
+
+name <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"world"</span></span>
+<span class="token string-literal"><span class="token string">%q(hello \n </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">name</span><span class="token delimiter punctuation">}</span></span><span class="token string">)</span></span> <span class="token comment"># => "hello \\n \#{name}"</span>
+<span class="token string-literal"><span class="token string">%Q(hello \n </span><span class="token interpolation"><span class="token delimiter punctuation">#{</span><span class="token content">name</span><span class="token delimiter punctuation">}</span></span><span class="token string">)</span></span> <span class="token comment"># => "hello \n world"</span>
+
+<span class="token string-literal"><span class="token string">%w(foo bar baz)</span></span>  <span class="token comment"># => ["foo", "bar", "baz"]</span>
+<span class="token string-literal"><span class="token string">%w(foo\nbar baz)</span></span> <span class="token comment"># => ["foo\\nbar", "baz"]</span>
+<span class="token string-literal"><span class="token string">%w(foo(bar) baz)</span></span> <span class="token comment"># => ["foo(bar)", "baz"]</span>
+
+<span class="token string-literal"><span class="token string">%w(foo\ bar baz)</span></span> <span class="token comment"># => ["foo bar", "baz"]</span>
+
+<span class="token string-literal"><span class="token string">"hello "</span></span> <span class="token punctuation">\</span>
+<span class="token string-literal"><span class="token string">"world, "</span></span> <span class="token punctuation">\</span>
+<span class="token string-literal"><span class="token string">"no newlines"</span></span> <span class="token comment"># same as "hello world, no newlines"</span>
+
+<span class="token string-literal"><span class="token string">"hello \
+     world, \
+     no newlines"</span></span> <span class="token comment"># same as "hello world, no newlines"</span>
+
+<span class="token string-literal heredoc-string"><span class="token delimiter"><span class="token punctuation">&lt;&lt;-</span><span class="token symbol">XML</span></span><span class="token string">
+&lt;parent>
+  &lt;child />
+&lt;/parent>
+</span><span class="token delimiter"><span class="token symbol">XML</span></span></span>
+
+----------------------------------------------------

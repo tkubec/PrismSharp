@@ -1,0 +1,14 @@
+{{! This is a comment with <p>some markup</p> in it }}
+{{! This is a comment }} {{ this_is_not }}
+----------------------------------------------------
+[
+	["comment", "{{! This is a comment with <p>some markup</p> in it }}"],
+
+	["comment", "{{! This is a comment }}"],
+	["punctuation", "{"],
+	["punctuation", "{"],
+	["variable", "this_is_not"],
+	["delimiter", "}}"]
+]
+
+----------------------------------------------------

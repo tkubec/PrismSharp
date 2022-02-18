@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{$title|upper}</title>
+	</head>
+	<body>
+		{if count($menu) > 1}
+			<ul class="menu">
+				{foreach $menu as $item}
+				<li><a href="{$item->href}">{$item->caption}</a></li>
+				{/foreach}
+			</ul>
+		{/if}
+	</body>
+</html>
+----------------------------------------------------
+[
+	["php", [
+		["operator", "<"],
+		["operator", "!"],
+		["constant", "DOCTYPE"],
+		" html",
+		["operator", ">"],
+
+		["operator", "<"],
+		"html",
+		["operator", ">"],
+
+		["operator", "<"],
+		"head",
+		["operator", ">"],
+
+		["operator", "<"],
+		"title",
+		["operator", ">"],
+		["punctuation", "{"],
+		["variable", "$title"],
+		["operator", "|"],
+		["class-name", "upper"],
+		["punctuation", "}"],
+		["operator", "<"],
+		["operator", "/"],
+		"title",
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "/"],
+		"head",
+		["operator", ">"],
+
+		["operator", "<"],
+		"body",
+		["operator", ">"],
+
+		["punctuation", "{"],
+		["keyword", "if"],
+		["function", ["count"]],
+		["punctuation", "("],
+		["variable", "$menu"],
+		["punctuation", ")"],
+		["operator", ">"],
+		["number", "1"],
+		["punctuation", "}"],
+
+		["operator", "<"],
+		"ul ",
+		["keyword", "class"],
+		["operator", "="],
+		["string", ["\"menu\""]],
+		["operator", ">"],
+
+		["punctuation", "{"],
+		["keyword", "foreach"],
+		["variable", "$menu"],
+		["keyword", "as"],
+		["variable", "$item"],
+		["punctuation", "}"],
+
+		["operator", "<"],
+		"li",
+		["operator", ">"],
+		["operator", "<"],
+		"a href",
+		["operator", "="],
+		["string", [
+			"\"",
+			["interpolation", [
+				["punctuation", "{"],
+				["variable", "$item"],
+				["operator", "->"],
+				["property", "href"],
+				["punctuation", "}"]
+			]],
+			"\""
+		]],
+		["operator", ">"],
+		["punctuation", "{"],
+		["variable", "$item"],
+		["operator", "->"],
+		["property", "caption"],
+		["punctuation", "}"],
+		["operator", "<"],
+		["operator", "/"],
+		"a",
+		["operator", ">"],
+		["operator", "<"],
+		["operator", "/"],
+		"li",
+		["operator", ">"],
+
+		["punctuation", "{"],
+		["operator", "/"],
+		["keyword", "foreach"],
+		["punctuation", "}"],
+
+		["operator", "<"],
+		["operator", "/"],
+		"ul",
+		["operator", ">"],
+
+		["punctuation", "{"],
+		["operator", "/"],
+		["keyword", "if"],
+		["punctuation", "}"],
+
+		["operator", "<"],
+		["operator", "/"],
+		"body",
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "/"],
+		"html",
+		["operator", ">"]
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,13 @@
+{{ this }}
+{% raw %}
+In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
+{% endraw %}
+{{ this }}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> this }}
+{% <span class="token keyword">raw</span> %}
+In Handlebars<span class="token punctuation">,</span> {{ this }} will be HTML<span class="token operator">-</span>escaped<span class="token punctuation">,</span> but {{{ that }}} will not<span class="token punctuation">.</span>
+{% <span class="token keyword">endraw</span> %}
+{{ this <span class="token delimiter punctuation">}}</span>
+
+----------------------------------------------------

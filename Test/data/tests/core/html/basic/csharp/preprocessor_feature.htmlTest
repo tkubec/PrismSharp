@@ -1,0 +1,31 @@
+#define DEBUG
+#if DEBUG
+#endif
+
+#elif
+#else
+#endregion
+#error
+#line
+#nullable
+#pragma
+#region
+#undef
+#warning
+----------------------------------------------------
+<span class="token preprocessor property">#<span class="token directive keyword">define</span> DEBUG</span>
+<span class="token preprocessor property">#<span class="token directive keyword">if</span> DEBUG</span>
+<span class="token preprocessor property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token preprocessor property">#<span class="token directive keyword">elif</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">else</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">error</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">line</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">nullable</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">pragma</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">region</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">undef</span></span>
+<span class="token preprocessor property">#<span class="token directive keyword">warning</span></span>
+
+----------------------------------------------------

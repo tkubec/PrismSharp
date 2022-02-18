@@ -1,0 +1,11 @@
+.. image:: mylogo.jpeg
+.. figure:: foo.png
+
+.. note:: This is a paragraph.
+----------------------------------------------------
+<span class="token punctuation">..</span> <span class="token directive function">image<span class="token punctuation">::</span></span> mylogo.jpeg
+<span class="token punctuation">..</span> <span class="token directive function">figure<span class="token punctuation">::</span></span> foo.png
+
+<span class="token punctuation">..</span> <span class="token directive function">note<span class="token punctuation">::</span></span> This is a paragraph.
+
+----------------------------------------------------

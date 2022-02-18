@@ -1,0 +1,7 @@
+LDA $8000,x
+ASL A
+----------------------------------------------------
+<span class="token op-code keyword">LDA</span> <span class="token hex-number number">$8000</span><span class="token punctuation">,</span><span class="token register variable">x</span>
+<span class="token op-code keyword">ASL</span> <span class="token register variable">A</span>
+
+----------------------------------------------------

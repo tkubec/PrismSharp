@@ -1,0 +1,17 @@
+class C {..}
+interface I {..}
+
+foo(c: C, i: I) {
+    c instanceof C; // ok
+    c instanceof I; // ok
+}
+----------------------------------------------------
+<span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span class="token keyword">interface</span> <span class="token class-name">I</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">c</span><span class="token operator">:</span> <span class="token constant">C</span><span class="token punctuation">,</span> <span class="token literal-property property">i</span><span class="token operator">:</span> <span class="token constant">I</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    c <span class="token keyword">instanceof</span> <span class="token class-name">C</span><span class="token punctuation">;</span> <span class="token comment">// ok</span>
+    c <span class="token keyword">instanceof</span> <span class="token class-name">I</span><span class="token punctuation">;</span> <span class="token comment">// ok</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

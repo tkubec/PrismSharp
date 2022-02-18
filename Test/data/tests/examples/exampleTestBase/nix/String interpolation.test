@@ -1,0 +1,7 @@
+"foo${42}bar"
+"foo\${42}bar" # This is not interpolated
+''foo${42}bar''
+''foo''${42}bar'' # This is not interpolated
+
+--------------------------------------------------
+

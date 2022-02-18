@@ -1,0 +1,17 @@
+'1jan2013'd
+'9:25:19pm't
+'18jan2003:9:27:05am'dt
+
+* don't match the following just because of "'t";
+
+'foo'¦¦'test';
+----------------------------------------------------
+<span class="token datetime number">'1jan2013'd</span>
+<span class="token datetime number">'9:25:19pm't</span>
+<span class="token datetime number">'18jan2003:9:27:05am'dt</span>
+
+<span class="token comment">* don't match the following just because of "'t";</span>
+
+<span class="token string">'foo'</span><span class="token operator">¦¦</span><span class="token string">'test'</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

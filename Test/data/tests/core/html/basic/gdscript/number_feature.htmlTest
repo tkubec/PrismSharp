@@ -1,0 +1,31 @@
+123
+-123
+123.456
+.5
+1.2e-34
+
+0xBadFace
+0b01010101
+
+1_000_000_000_000
+0xBAD_FACE
+0b_0010_0010_0100_0100
+
+INF NAN PI TAU
+----------------------------------------------------
+<span class="token number">123</span>
+<span class="token operator">-</span><span class="token number">123</span>
+<span class="token number">123.456</span>
+<span class="token number">.5</span>
+<span class="token number">1.2e-34</span>
+
+<span class="token number">0xBadFace</span>
+<span class="token number">0b01010101</span>
+
+<span class="token number">1_000_000_000_000</span>
+<span class="token number">0xBAD_FACE</span>
+<span class="token number">0b_0010_0010_0100_0100</span>
+
+<span class="token number">INF</span> <span class="token number">NAN</span> <span class="token number">PI</span> <span class="token number">TAU</span>
+
+----------------------------------------------------

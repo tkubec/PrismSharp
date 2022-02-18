@@ -1,0 +1,9 @@
+foo = 423
+bar=1
+baz.10 =
+----------------------------------------------------
+<span class="token tag">foo</span> <span class="token operator">=</span> <span class="token string"><span class="token number">423</span></span>
+<span class="token tag">bar</span><span class="token operator">=</span><span class="token string"><span class="token number">1</span></span>
+<span class="token tag">baz<span class="token punctuation">.</span></span><span class="token number">10 <span class="token operator">=</span></span><span class="token string"></span>
+
+----------------------------------------------------

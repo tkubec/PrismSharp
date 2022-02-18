@@ -1,0 +1,15 @@
+[*]
+[**.kt]
+[{**.kt, **.kts}]
+[?[!seq].log.{0..9}]
+[\\**.log]
+  [Section with indent]
+----------------------------------------------------
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span></span>
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token operator">**</span>.kt<span class="token punctuation">]</span></span>
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token operator">**</span>.kt<span class="token punctuation">,</span> <span class="token operator">**</span>.kts<span class="token punctuation">}</span><span class="token punctuation">]</span></span>
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token operator">?</span><span class="token punctuation">[</span><span class="token operator">!</span>seq<span class="token punctuation">]</span>.log.<span class="token punctuation">{</span>0<span class="token operator">..</span>9<span class="token punctuation">}</span><span class="token punctuation">]</span></span>
+<span class="token section keyword"><span class="token punctuation">[</span><span class="token regex">\\*</span><span class="token operator">*</span>.log<span class="token punctuation">]</span></span>
+  <span class="token section keyword"><span class="token punctuation">[</span>Section with indent<span class="token punctuation">]</span></span>
+
+----------------------------------------------------

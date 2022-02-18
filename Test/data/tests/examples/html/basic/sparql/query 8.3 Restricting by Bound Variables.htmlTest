@@ -1,0 +1,45 @@
+PREFIX  data:  <http://example.org/foaf/>
+PREFIX  foaf:  <http://xmlns.com/foaf/0.1/>
+PREFIX  rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?mbox ?nick ?ppd
+WHERE
+{
+	GRAPH data:aliceFoaf
+	{
+		?alice foaf:mbox <mailto:alice@work.example> ;
+					 foaf:knows ?whom .
+		?whom  foaf:mbox ?mbox ;
+					 rdfs:seeAlso ?ppd .
+		?ppd  a foaf:PersonalProfileDocument .
+	} .
+	GRAPH ?ppd
+	{
+			?w foaf:mbox ?mbox ;
+				 foaf:nick ?nick
+	}
+}
+----------------------------------------------------
+<span class="token keyword">PREFIX</span>  <span class="token function"><span class="token prefix">data<span class="token punctuation">:</span></span></span>  <span class="token url"><span class="token punctuation">&lt;</span>http://example.org/foaf/<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span>  <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span></span>  <span class="token url"><span class="token punctuation">&lt;</span>http://xmlns.com/foaf/0.1/<span class="token punctuation">></span></span>
+<span class="token keyword">PREFIX</span>  <span class="token function"><span class="token prefix">rdfs<span class="token punctuation">:</span></span></span>  <span class="token url"><span class="token punctuation">&lt;</span>http://www.w3.org/2000/01/rdf-schema#<span class="token punctuation">></span></span>
+
+<span class="token keyword">SELECT</span> <span class="token variable">?mbox</span> <span class="token variable">?nick</span> <span class="token variable">?ppd</span>
+<span class="token keyword">WHERE</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">GRAPH</span> <span class="token function"><span class="token prefix">data<span class="token punctuation">:</span></span><span class="token local-name">aliceFoaf</span></span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">?alice</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">mbox</span></span> <span class="token url"><span class="token punctuation">&lt;</span>mailto:alice@work.example<span class="token punctuation">></span></span> <span class="token punctuation">;</span>
+					 <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">knows</span></span> <span class="token variable">?whom</span> <span class="token punctuation">.</span>
+		<span class="token variable">?whom</span>  <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">mbox</span></span> <span class="token variable">?mbox</span> <span class="token punctuation">;</span>
+					 <span class="token function"><span class="token prefix">rdfs<span class="token punctuation">:</span></span><span class="token local-name">seeAlso</span></span> <span class="token variable">?ppd</span> <span class="token punctuation">.</span>
+		<span class="token variable">?ppd</span>  <span class="token keyword">a</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">PersonalProfileDocument</span></span> <span class="token punctuation">.</span>
+	<span class="token punctuation">}</span> <span class="token punctuation">.</span>
+	<span class="token keyword">GRAPH</span> <span class="token variable">?ppd</span>
+	<span class="token punctuation">{</span>
+			<span class="token variable">?w</span> <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">mbox</span></span> <span class="token variable">?mbox</span> <span class="token punctuation">;</span>
+				 <span class="token function"><span class="token prefix">foaf<span class="token punctuation">:</span></span><span class="token local-name">nick</span></span> <span class="token variable">?nick</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+----------------------------------------------------

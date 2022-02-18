@@ -1,0 +1,73 @@
+<?php
+
+/** @var \DateTime[] An array of DateTime objects. */
+/** @var string[] An array of string objects. */
+/** @var callable[] An array of with callable functions or methods. */
+
+/** @var \ArrayObject|\DateTime[] */
+$dates = array()
+
+/**
+ * @param bool|\DateTime $foo the first argument
+ * @return string|null
+ */
+function bar($foo) { ... }
+----------------------------------------------------
+[
+	"<?php\n\n/** ",
+	["keyword", "@var"],
+	["class-name", [
+		["punctuation", "\\"],
+		"DateTime",
+		["punctuation", "["],
+		["punctuation", "]"]
+	]],
+	" An array of DateTime objects. */\n/** ",
+	["keyword", "@var"],
+	["class-name", [
+		["keyword", "string"],
+		["punctuation", "["],
+		["punctuation", "]"]
+	]],
+	" An array of string objects. */\n/** ",
+	["keyword", "@var"],
+	["class-name", [
+		"callable",
+		["punctuation", "["],
+		["punctuation", "]"]
+	]],
+	" An array of with callable functions or methods. */\n\n/** ",
+	["keyword", "@var"],
+	["class-name", [
+		["punctuation", "\\"],
+		"ArrayObject",
+		["punctuation", "|"],
+		["punctuation", "\\"],
+		"DateTime",
+		["punctuation", "["],
+		["punctuation", "]"]
+	]],
+	" */\n$dates = array()\n\n/**\n * ",
+	["keyword", "@param"],
+	["class-name", [
+		["keyword", "bool"],
+		["punctuation", "|"],
+		["punctuation", "\\"],
+		"DateTime"
+	]],
+	["parameter", "$foo"],
+	" the first argument\n * ",
+	["keyword", "@return"],
+	["class-name", [
+		["keyword", "string"],
+		["punctuation", "|"],
+		["keyword", "null"]
+	]],
+
+	"\n */\nfunction bar($foo) ",
+	["punctuation", "{"],
+	" ... ",
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

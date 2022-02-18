@@ -1,0 +1,23 @@
+db.users.updateOne(
+	{
+		_id: ObjectId('5ec72ffe00316be87cab3927')
+	},
+	{
+		$set: { age: 30 },
+		$inc: { updateCount: 1 }, 
+		$push: { updateDates: new Date() } 
+	}
+)
+----------------------------------------------------
+db<span class="token punctuation">.</span>users<span class="token punctuation">.</span><span class="token function">updateOne</span><span class="token punctuation">(</span>
+	<span class="token punctuation">{</span>
+		<span class="token property">_id</span><span class="token operator">:</span> <span class="token builtin keyword">ObjectId</span><span class="token punctuation">(</span><span class="token string">'5ec72ffe00316be87cab3927'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+		<span class="token property"><span class="token keyword">$set</span></span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">age</span><span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token property"><span class="token keyword">$inc</span></span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">updateCount</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+		<span class="token property"><span class="token keyword">$push</span></span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">updateDates</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> 
+	<span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+----------------------------------------------------

@@ -1,0 +1,10 @@
+&lt;div class="&lt;?php echo $a ? 'foo' : 'bar'; ?>">
+&lt;?php if($var &lt; 42) {
+    echo "Something";
+} else {
+    echo "Something else";
+} ?>
+&lt;/div>
+
+--------------------------------------------------
+

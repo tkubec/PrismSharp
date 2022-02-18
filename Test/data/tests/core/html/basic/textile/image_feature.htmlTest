@@ -1,0 +1,17 @@
+!foo.png!
+!bar.jpg(Foo bar)!
+!foo.png!:http://prismjs.com
+!bar.jpg(Foo bar)!:http://www.example.com
+
+!<foo.png! !>bar.jpg!
+!(foo)[en]{border:1px solid #ccc}foo.png!
+----------------------------------------------------
+<span class="token phrase"><span class="token image"><span class="token punctuation">!</span><span class="token source url">foo.png</span><span class="token punctuation">!</span></span>
+<span class="token image"><span class="token punctuation">!</span><span class="token source url">bar.jpg(Foo bar)</span><span class="token punctuation">!</span></span>
+<span class="token image"><span class="token punctuation">!</span><span class="token source url">foo.png</span><span class="token punctuation">!</span><span class="token punctuation">:</span><span class="token url">http://prismjs.com</span></span>
+<span class="token image"><span class="token punctuation">!</span><span class="token source url">bar.jpg(Foo bar)</span><span class="token punctuation">!</span><span class="token punctuation">:</span><span class="token url">http://www.example.com</span></span></span>
+
+<span class="token phrase"><span class="token image"><span class="token punctuation">!</span><span class="token modifier"><span class="token punctuation">&lt;</span></span><span class="token source url">foo.png</span><span class="token punctuation">!</span></span> <span class="token image"><span class="token punctuation">!</span><span class="token modifier"><span class="token punctuation">></span></span><span class="token source url">bar.jpg</span><span class="token punctuation">!</span></span>
+<span class="token image"><span class="token punctuation">!</span><span class="token modifier"><span class="token punctuation">(</span><span class="token class-id attr-value">foo</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token lang attr-value">en</span><span class="token punctuation">]</span><span class="token css"><span class="token punctuation">{</span><span class="token property">border</span><span class="token punctuation">:</span>1px solid #ccc<span class="token punctuation">}</span></span></span><span class="token source url">foo.png</span><span class="token punctuation">!</span></span></span>
+
+----------------------------------------------------

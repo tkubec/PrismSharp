@@ -1,0 +1,91 @@
+/**
+ * {@code this.foo} is never {@code null}.
+ *
+ * <code>Foo.bar(null)</code>
+ * <tt>Foo</tt>
+ *
+ * <pre><code>
+ * for (int i = 0; i < array.length; i++) {
+ *     array[i] += 1;
+ * }
+ * return array;
+ * </code></pre>
+ *
+ * <pre>{@code
+ *     String message = String.join("-", "Java", "is", "cool");
+ *     // message returned is: "Java-is-cool"
+ * }</pre>
+ *
+ * <pre>
+ *     dstBegin + (srcEnd-srcBegin) - 1
+ * </pre>
+ *
+ * <pre>
+ *     <b><i>c</i></b> == (char)(((hibyte &amp; 0xff) &lt;&lt; 8)
+ *                         | (<b><i>b</i></b> &amp; 0xff))
+ * </pre>
+ *
+ * <pre> {@code
+ * interface ArchiveSearcher { String search(String target); }
+ * class App {
+ *   void showSearch(final String target)
+ *       throws InterruptedException {
+ *     Future<String> future
+ *       = executor.submit(new Callable<String>() {
+ *         public String call() {
+ *             return searcher.search(target);
+ *         }});
+ *     displayOtherThings(); // do other things while searching
+ *     try {
+ *       displayText(future.get()); // use future
+ *     } catch (ExecutionException ex) { cleanup(); return; }
+ *   }
+ * }}</pre>
+ */
+----------------------------------------------------
+/**
+ * <span class="token punctuation">{</span><span class="token keyword">@code</span> <span class="token code-section"><span class="token code language-java"><span class="token keyword">this</span><span class="token punctuation">.</span>foo</span></span><span class="token punctuation">}</span> is never <span class="token punctuation">{</span><span class="token keyword">@code</span> <span class="token code-section"><span class="token code language-java"><span class="token keyword">null</span></span></span><span class="token punctuation">}</span>.
+ *
+ * <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>code</span><span class="token punctuation">></span></span><span class="token code-section"><span class="token line"><span class="token code language-java"><span class="token class-name">Foo</span><span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span></span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>code</span><span class="token punctuation">></span></span>
+ * <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tt</span><span class="token punctuation">></span></span><span class="token code-section"><span class="token line"><span class="token code language-java"><span class="token class-name">Foo</span></span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tt</span><span class="token punctuation">></span></span>
+ *
+ * <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>code</span><span class="token punctuation">></span></span>
+ <span class="token code-section">* <span class="token line"><span class="token code language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span></span>
+ *     <span class="token line"><span class="token code language-java">array<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span></span></span>
+ * <span class="token line"><span class="token code language-java"><span class="token punctuation">}</span></span></span>
+ * <span class="token line"><span class="token code language-java"><span class="token keyword">return</span> array<span class="token punctuation">;</span></span></span>
+ *</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>code</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span>
+ *
+ * <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token keyword">@code</span>
+ <span class="token code-section">*     <span class="token code language-java"><span class="token class-name">String</span> message <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">,</span> <span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token string">"cool"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+ *     <span class="token code language-java"><span class="token comment">// message returned is: "Java-is-cool"</span></span>
+ *</span> <span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span>
+ *
+ * <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">></span></span>
+ <span class="token code-section">*     <span class="token line"><span class="token code language-java">dstBegin <span class="token operator">+</span> <span class="token punctuation">(</span>srcEnd<span class="token operator">-</span>srcBegin<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span></span></span>
+ *</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span>
+ *
+ * <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">></span></span>
+ <span class="token code-section">*     <span class="token line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">></span></span><span class="token code language-java">c</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">></span></span><span class="token code language-java"> <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>hibyte </span><span class="token entity named-entity">&amp;amp;</span><span class="token code language-java"> <span class="token number">0xff</span><span class="token punctuation">)</span> </span><span class="token entity named-entity">&amp;lt;</span><span class="token entity named-entity">&amp;lt;</span><span class="token code language-java"> <span class="token number">8</span><span class="token punctuation">)</span></span></span>
+ *                         <span class="token line"><span class="token code language-java"><span class="token operator">|</span> <span class="token punctuation">(</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">></span></span><span class="token code language-java">b</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">></span></span><span class="token code language-java"> </span><span class="token entity named-entity">&amp;amp;</span><span class="token code language-java"> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span></span>
+ *</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span>
+ *
+ * <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span><span class="token keyword">@code</span>
+ <span class="token code-section">* <span class="token code language-java"><span class="token keyword">interface</span> <span class="token class-name">ArchiveSearcher</span> <span class="token punctuation">{</span> <span class="token class-name">String</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token class-name">String</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></span>
+ * <span class="token code language-java"><span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token punctuation">{</span></span>
+ *   <span class="token code language-java"><span class="token keyword">void</span> <span class="token function">showSearch</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">String</span> target<span class="token punctuation">)</span></span>
+ *       <span class="token code language-java"><span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span></span>
+ *     <span class="token code language-java"><span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> future</span>
+ *       <span class="token code language-java"><span class="token operator">=</span> executor<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Callable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+ *         <span class="token code language-java"><span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+ *             <span class="token code language-java"><span class="token keyword">return</span> searcher<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+ *         <span class="token code language-java"><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+ *     <span class="token code language-java"><span class="token function">displayOtherThings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// do other things while searching</span></span>
+ *     <span class="token code language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span></span>
+ *       <span class="token code language-java"><span class="token function">displayText</span><span class="token punctuation">(</span>future<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// use future</span></span>
+ *     <span class="token code language-java"><span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ExecutionException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">cleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></span>
+ *   <span class="token code language-java"><span class="token punctuation">}</span></span>
+ * <span class="token code language-java"><span class="token punctuation">}</span></span></span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span>
+ */
+
+----------------------------------------------------

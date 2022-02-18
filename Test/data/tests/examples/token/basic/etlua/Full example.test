@@ -1,0 +1,97 @@
+<div class="foo">
+	<% if true then %>
+		Hello <%= name %>,
+		Here are your items:
+		<% for i, item in pairs(items) do %>
+			 * <%= item -%>
+			<% --[[ comment block ]] %>
+		<% end %>
+		<%- "<b>this is not escaped</b>" %>
+	<% end %>
+</div>
+----------------------------------------------------
+[
+	["language-lua", [
+		["operator", "<"],
+		"div class",
+		["operator", "="],
+		["string", "\"foo\""],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["keyword", "if"],
+		["keyword", "true"],
+		["keyword", "then"],
+		["operator", "%"],
+		["operator", ">"],
+
+		"\n\t\tHello ",
+		["operator", "<"],
+		["operator", "%"],
+		["operator", "="],
+		" name ",
+		["operator", "%"],
+		["operator", ">"],
+		["punctuation", ","],
+
+		"\n\t\tHere are your items",
+		["punctuation", ":"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["keyword", "for"],
+		" i",
+		["punctuation", ","],
+		" item ",
+		["keyword", "in"],
+		["function", "pairs"],
+		["punctuation", "("],
+		"items",
+		["punctuation", ")"],
+		["keyword", "do"],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "*"],
+		["operator", "<"],
+		["operator", "%"],
+		["operator", "="],
+		" item ",
+		["operator", "-"],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["comment", "--[[ comment block ]]"],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["keyword", "end"],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["operator", "-"],
+		["string", "\"<b>this is not escaped</b>\""],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "%"],
+		["keyword", "end"],
+		["operator", "%"],
+		["operator", ">"],
+
+		["operator", "<"],
+		["operator", "/"],
+		"div",
+		["operator", ">"]
+	]]
+]
+
+----------------------------------------------------

@@ -1,0 +1,27 @@
+{{ page.title }}
+
+{% if user %}
+  Hello {{ user.name }}!
+{% endif %}
+
+{{ "/my/fancy/url" | append: ".html" }}
+{{ "adam!" | capitalize | prepend: "Hello " }}
+
+{% assign my_variable = "tomato" -%}
+
+{%- if username and username.size > 10 -%}
+----------------------------------------------------
+<span class="token delimiter punctuation">{{</span> <span class="token object">page</span><span class="token punctuation">.</span>title }}
+
+{% <span class="token keyword">if</span> user %}
+  Hello {{ user<span class="token punctuation">.</span>name }}!
+{% <span class="token keyword">endif</span> %}
+
+{{ <span class="token string">"/my/fancy/url"</span> <span class="token operator">|</span> <span class="token function filter">append</span><span class="token operator">:</span> <span class="token string">".html"</span> }}
+{{ <span class="token string">"adam!"</span> <span class="token operator">|</span> <span class="token function filter">capitalize</span> <span class="token operator">|</span> <span class="token function filter">prepend</span><span class="token operator">:</span> <span class="token string">"Hello "</span> }}
+
+{% <span class="token keyword">assign</span> my_variable <span class="token operator">=</span> <span class="token string">"tomato"</span> <span class="token operator">-</span>%}
+
+{%<span class="token operator">-</span> <span class="token keyword">if</span> username <span class="token operator">and</span> username<span class="token punctuation">.</span><span class="token function">size</span> <span class="token operator">></span> <span class="token number">10</span> <span class="token delimiter punctuation">-%}</span>
+
+----------------------------------------------------

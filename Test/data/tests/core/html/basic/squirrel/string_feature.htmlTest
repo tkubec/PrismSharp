@@ -1,0 +1,33 @@
+""
+"I'm a string"
+"I'm a wonderful string\n"
+
+@""
+@"I'm a verbatim string"
+@" I'm a
+multiline verbatim string
+"
+
+@"
+    this is a multiline string
+    it will ""embed"" all the new line
+    characters
+"
+----------------------------------------------------
+<span class="token string">""</span>
+<span class="token string">"I'm a string"</span>
+<span class="token string">"I'm a wonderful string\n"</span>
+
+<span class="token string">@""</span>
+<span class="token string">@"I'm a verbatim string"</span>
+<span class="token string">@" I'm a
+multiline verbatim string
+"</span>
+
+<span class="token string">@"
+    this is a multiline string
+    it will ""embed"" all the new line
+    characters
+"</span>
+
+----------------------------------------------------

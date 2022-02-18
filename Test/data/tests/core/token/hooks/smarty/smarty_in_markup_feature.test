@@ -1,0 +1,40 @@
+<div>{$foo}</div>
+<div class="{$foo}">
+___SMARTY1___{$foo}
+----------------------------------------------------
+[
+	["operator", "<"],
+	"div",
+	["operator", ">"],
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["punctuation", "}"],
+	["operator", "<"],
+	["operator", "/"],
+	"div",
+	["operator", ">"],
+
+	["operator", "<"],
+	"div ",
+	["attr-name", "class"],
+	["operator", "="],
+	["string", [
+		"\"",
+		["interpolation", [
+			["interpolation-punctuation", "{"],
+			["expression", [
+				["variable", "$foo"]
+			]],
+			["interpolation-punctuation", "}"]
+		]],
+		"\""
+	]],
+	["operator", ">"],
+
+	"\n___SMARTY1___",
+	["punctuation", "{"],
+	["variable", "$foo"],
+	["delimiter", "}"]
+]
+
+----------------------------------------------------

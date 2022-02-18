@@ -1,0 +1,101 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT ?who ?g ?mbox
+FROM <http://example.org/dft.ttl>
+FROM NAMED <http://example.org/alice>
+FROM NAMED <http://example.org/bob>
+WHERE
+{
+	 ?g dc:publisher ?who .
+	 GRAPH ?g { ?x foaf:mbox ?mbox }
+}
+----------------------------------------------------
+[
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://xmlns.com/foaf/0.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "PREFIX"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]]
+	]],
+	["url", [
+		["punctuation", "<"],
+		"http://purl.org/dc/elements/1.1/",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "SELECT"],
+	["variable", "?who"],
+	["variable", "?g"],
+	["variable", "?mbox"],
+
+	["keyword", "FROM"],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/dft.ttl",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "FROM"],
+	["keyword", "NAMED"],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/alice",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "FROM"],
+	["keyword", "NAMED"],
+	["url", [
+		["punctuation", "<"],
+		"http://example.org/bob",
+		["punctuation", ">"]
+	]],
+
+	["keyword", "WHERE"],
+
+	["punctuation", "{"],
+
+	["variable", "?g"],
+	["function", [
+		["prefix", [
+			"dc",
+			["punctuation", ":"]
+		]],
+		["local-name", "publisher"]
+	]],
+	["variable", "?who"],
+	["punctuation", "."],
+
+	["keyword", "GRAPH"],
+	["variable", "?g"],
+	["punctuation", "{"],
+	["variable", "?x"],
+	["function", [
+		["prefix", [
+			"foaf",
+			["punctuation", ":"]
+		]],
+		["local-name", "mbox"]
+	]],
+	["variable", "?mbox"],
+	["punctuation", "}"],
+
+	["punctuation", "}"]
+]
+
+----------------------------------------------------

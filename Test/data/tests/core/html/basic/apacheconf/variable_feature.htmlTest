@@ -1,0 +1,9 @@
+$port
+${docroot}
+%{REMOTE_HOST}
+----------------------------------------------------
+<span class="token variable">$port</span>
+<span class="token variable">${docroot}</span>
+<span class="token variable">%{REMOTE_HOST}</span>
+
+----------------------------------------------------

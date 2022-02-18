@@ -1,0 +1,33 @@
+// Source: https://wren.io/
+
+System.print("Hello, world!")
+
+class Wren {
+  flyTo(city) {
+    System.print("Flying to %(city)")
+  }
+}
+
+var adjectives = Fiber.new {
+  ["small", "clean", "fast"].each {|word| Fiber.yield(word) }
+}
+
+while (!adjectives.isDone) System.print(adjectives.call())
+----------------------------------------------------
+<span class="token comment">// Source: https://wren.io/</span>
+
+<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Hello, world!"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Wren</span> <span class="token punctuation">{</span>
+  <span class="token function">flyTo</span><span class="token punctuation">(</span>city<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Flying to </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">%(</span><span class="token expression">city</span><span class="token interpolation-punctuation punctuation">)</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> adjectives <span class="token operator">=</span> <span class="token class-name">Fiber</span><span class="token punctuation">.</span><span class="token function">new</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span><span class="token string-literal"><span class="token string">"small"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"clean"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"fast"</span></span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">each</span> <span class="token punctuation">{</span><span class="token operator">|</span>word<span class="token operator">|</span> <span class="token class-name">Fiber</span><span class="token punctuation">.</span><span class="token function">yield</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>adjectives<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>adjectives<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+----------------------------------------------------

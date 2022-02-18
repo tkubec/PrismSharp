@@ -1,0 +1,9 @@
+require apache
+template('apache/vhost-default.conf.erb')
+[1,20,3].filter |$value| { $value < 10 }
+----------------------------------------------------
+<span class="token function">require</span> apache
+<span class="token function">template</span><span class="token punctuation">(</span><span class="token string">'apache/vhost-default.conf.erb'</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span> <span class="token operator">|</span><span class="token variable">$value</span><span class="token operator">|</span> <span class="token punctuation">{</span> <span class="token variable">$value</span> <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">}</span>
+
+----------------------------------------------------

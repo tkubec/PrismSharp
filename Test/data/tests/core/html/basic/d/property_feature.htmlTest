@@ -1,0 +1,7 @@
+@property int data()
+@disable this();
+----------------------------------------------------
+<span class="token property">@property</span> <span class="token keyword">int</span> <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token property">@disable</span> <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+----------------------------------------------------

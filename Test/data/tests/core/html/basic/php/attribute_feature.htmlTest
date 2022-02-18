@@ -1,0 +1,113 @@
+// #[Foo]
+
+#[]
+
+#[
+	// something ]
+	Foo,
+	/* something
+	else #[] */
+	Bar
+	# shell comments aren't confusing at all in here
+]
+
+#[Foo([0, 1])]
+
+#[
+	Foo(
+		[
+			1 => [0, 1],
+			2 => [2, 3],
+			3 => [
+				[0, 1],
+				[2, 3]
+			]
+		]
+	)
+]
+
+#[Foo]
+#[Foo\Bar\Baz]
+#[Route(Http::POST, '/products/create', 1)]
+#[
+	Http\Route(Http::POST, '/products/create', 1),
+	Foo\Bar\Baz,
+	AttributeFoo('value')
+]
+
+#[A1(1), A1(2), A2(3)]
+class Foo {
+	public function foo(#[A1(5)] $a, #[A1(6)] $b) { }
+}
+
+$object = new #[A1(7)] class () {};
+
+function foo(
+    #[Attribute] $param1,
+    $param2
+) {}
+
+$f1 = #[ExampleAttribute] function () {};
+
+$ref = new \ReflectionFunction(#[A1] #[A2] function () { });
+
+#[DeprecationReason('reason: <https://some-website/reason?>')]
+function main() {}
+----------------------------------------------------
+<span class="token comment">// #[Foo]</span>
+
+#<span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content">
+	<span class="token comment">// something ]</span>
+	<span class="token attribute-class-name class-name">Foo</span><span class="token punctuation">,</span>
+	<span class="token comment">/* something
+	else #[] */</span>
+	<span class="token attribute-class-name class-name">Bar</span>
+	<span class="token comment"># shell comments aren't confusing at all in here</span>
+</span><span class="token delimiter punctuation">]</span></span>
+
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span>
+
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content">
+	<span class="token attribute-class-name class-name">Foo</span><span class="token punctuation">(</span>
+		<span class="token punctuation">[</span>
+			<span class="token number">1</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token number">2</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token number">3</span> <span class="token operator">=></span> <span class="token punctuation">[</span>
+				<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">]</span>
+	<span class="token punctuation">)</span>
+</span><span class="token delimiter punctuation">]</span></span>
+
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">Foo</span></span><span class="token delimiter punctuation">]</span></span>
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name class-name-fully-qualified">Foo<span class="token punctuation">\</span>Bar<span class="token punctuation">\</span>Baz</span></span><span class="token delimiter punctuation">]</span></span>
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">Route</span><span class="token punctuation">(</span><span class="token attribute-class-name class-name">Http</span><span class="token operator">::</span><span class="token constant">POST</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'/products/create'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span>
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content">
+	<span class="token attribute-class-name class-name class-name-fully-qualified">Http<span class="token punctuation">\</span>Route</span><span class="token punctuation">(</span><span class="token attribute-class-name class-name">Http</span><span class="token operator">::</span><span class="token constant">POST</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'/products/create'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token attribute-class-name class-name class-name-fully-qualified">Foo<span class="token punctuation">\</span>Bar<span class="token punctuation">\</span>Baz</span><span class="token punctuation">,</span>
+	<span class="token attribute-class-name class-name">AttributeFoo</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'value'</span><span class="token punctuation">)</span>
+</span><span class="token delimiter punctuation">]</span></span>
+
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">A1</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token attribute-class-name class-name">A1</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token attribute-class-name class-name">A2</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Foo</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">foo</span><span class="token punctuation">(</span><span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">A1</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span> <span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">A1</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span> <span class="token variable">$b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$object</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">A1</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span> <span class="token keyword">class</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">foo</span><span class="token punctuation">(</span>
+    <span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">Attribute</span></span><span class="token delimiter punctuation">]</span></span> <span class="token variable">$param1</span><span class="token punctuation">,</span>
+    <span class="token variable">$param2</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token variable">$f1</span> <span class="token operator">=</span> <span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">ExampleAttribute</span></span><span class="token delimiter punctuation">]</span></span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token variable">$ref</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>ReflectionFunction</span><span class="token punctuation">(</span><span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">A1</span></span><span class="token delimiter punctuation">]</span></span> <span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">A2</span></span><span class="token delimiter punctuation">]</span></span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token attribute"><span class="token delimiter punctuation">#[</span><span class="token attribute-content"><span class="token attribute-class-name class-name">DeprecationReason</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'reason: &lt;https://some-website/reason?>'</span><span class="token punctuation">)</span></span><span class="token delimiter punctuation">]</span></span>
+<span class="token keyword">function</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+----------------------------------------------------

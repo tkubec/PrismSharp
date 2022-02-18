@@ -1,0 +1,365 @@
+\foo
+\foo_bar_42
+
+abs
+acos
+aj
+aj0
+all
+and
+any
+asc
+asin
+asof
+atan
+attr
+avg
+avgs
+bin
+binr
+by
+ceiling
+cols
+cor
+cos
+count
+cov
+cross
+csv
+cut
+delete
+deltas
+desc
+dev
+differ
+distinct
+div
+do
+dsave
+ej
+enlist
+eval
+except
+exec
+exit
+exp
+fby
+fills
+first
+fkeys
+flip
+floor
+from
+get
+getenv
+group
+gtime
+hclose
+hcount
+hdel
+hopen
+hsym
+iasc
+identity
+idesc
+if
+ij
+in
+insert
+inter
+inv
+key
+keys
+last
+like
+list
+lj
+ljf
+load
+log
+lower
+lsq
+ltime
+ltrim
+mavg
+max
+maxs
+mcount
+md5
+mdev
+med
+meta
+min
+mins
+mmax
+mmin
+mmu
+mod
+msum
+neg
+next
+not
+null
+or
+over
+parse
+peach
+pj
+plist
+prd
+prds
+prev
+prior
+rand
+rank
+ratios
+raze
+read0
+read1
+reciprocal
+reval
+reverse
+rload
+rotate
+rsave
+rtrim
+save
+scan
+scov
+sdev
+select
+set
+setenv
+show
+signum
+sin
+sqrt
+ss
+ssr
+string
+sublist
+sum
+sums
+sv
+svar
+system
+tables
+tan
+til
+trim
+txf
+type
+uj
+ungroup
+union
+update
+upper
+upsert
+value
+var
+view
+views
+vs
+wavg
+where
+while
+within
+wj
+wj1
+wsum
+ww
+xasc
+xbar
+xcol
+xcols
+xdesc
+xexp
+xgroup
+xkey
+xlog
+xprev
+xrank
+----------------------------------------------------
+<span class="token keyword">\foo</span>
+<span class="token keyword">\foo_bar_42</span>
+
+<span class="token keyword">abs</span>
+<span class="token keyword">acos</span>
+<span class="token keyword">aj</span>
+<span class="token keyword">aj0</span>
+<span class="token keyword">all</span>
+<span class="token keyword">and</span>
+<span class="token keyword">any</span>
+<span class="token keyword">asc</span>
+<span class="token keyword">asin</span>
+<span class="token keyword">asof</span>
+<span class="token keyword">atan</span>
+<span class="token keyword">attr</span>
+<span class="token keyword">avg</span>
+<span class="token keyword">avgs</span>
+<span class="token keyword">bin</span>
+<span class="token keyword">binr</span>
+<span class="token keyword">by</span>
+<span class="token keyword">ceiling</span>
+<span class="token keyword">cols</span>
+<span class="token keyword">cor</span>
+<span class="token keyword">cos</span>
+<span class="token keyword">count</span>
+<span class="token keyword">cov</span>
+<span class="token keyword">cross</span>
+<span class="token keyword">csv</span>
+<span class="token keyword">cut</span>
+<span class="token keyword">delete</span>
+<span class="token keyword">deltas</span>
+<span class="token keyword">desc</span>
+<span class="token keyword">dev</span>
+<span class="token keyword">differ</span>
+<span class="token keyword">distinct</span>
+<span class="token keyword">div</span>
+<span class="token keyword">do</span>
+<span class="token keyword">dsave</span>
+<span class="token keyword">ej</span>
+<span class="token keyword">enlist</span>
+<span class="token keyword">eval</span>
+<span class="token keyword">except</span>
+<span class="token keyword">exec</span>
+<span class="token keyword">exit</span>
+<span class="token keyword">exp</span>
+<span class="token keyword">fby</span>
+<span class="token keyword">fills</span>
+<span class="token keyword">first</span>
+<span class="token keyword">fkeys</span>
+<span class="token keyword">flip</span>
+<span class="token keyword">floor</span>
+<span class="token keyword">from</span>
+<span class="token keyword">get</span>
+<span class="token keyword">getenv</span>
+<span class="token keyword">group</span>
+<span class="token keyword">gtime</span>
+<span class="token keyword">hclose</span>
+<span class="token keyword">hcount</span>
+<span class="token keyword">hdel</span>
+<span class="token keyword">hopen</span>
+<span class="token keyword">hsym</span>
+<span class="token keyword">iasc</span>
+<span class="token keyword">identity</span>
+<span class="token keyword">idesc</span>
+<span class="token keyword">if</span>
+<span class="token keyword">ij</span>
+<span class="token keyword">in</span>
+<span class="token keyword">insert</span>
+<span class="token keyword">inter</span>
+<span class="token keyword">inv</span>
+<span class="token keyword">key</span>
+<span class="token keyword">keys</span>
+<span class="token keyword">last</span>
+<span class="token keyword">like</span>
+<span class="token keyword">list</span>
+<span class="token keyword">lj</span>
+<span class="token keyword">ljf</span>
+<span class="token keyword">load</span>
+<span class="token keyword">log</span>
+<span class="token keyword">lower</span>
+<span class="token keyword">lsq</span>
+<span class="token keyword">ltime</span>
+<span class="token keyword">ltrim</span>
+<span class="token keyword">mavg</span>
+<span class="token keyword">max</span>
+<span class="token keyword">maxs</span>
+<span class="token keyword">mcount</span>
+<span class="token keyword">md5</span>
+<span class="token keyword">mdev</span>
+<span class="token keyword">med</span>
+<span class="token keyword">meta</span>
+<span class="token keyword">min</span>
+<span class="token keyword">mins</span>
+<span class="token keyword">mmax</span>
+<span class="token keyword">mmin</span>
+<span class="token keyword">mmu</span>
+<span class="token keyword">mod</span>
+<span class="token keyword">msum</span>
+<span class="token keyword">neg</span>
+<span class="token keyword">next</span>
+<span class="token keyword">not</span>
+<span class="token keyword">null</span>
+<span class="token keyword">or</span>
+<span class="token keyword">over</span>
+<span class="token keyword">parse</span>
+<span class="token keyword">peach</span>
+<span class="token keyword">pj</span>
+<span class="token keyword">plist</span>
+<span class="token keyword">prd</span>
+<span class="token keyword">prds</span>
+<span class="token keyword">prev</span>
+<span class="token keyword">prior</span>
+<span class="token keyword">rand</span>
+<span class="token keyword">rank</span>
+<span class="token keyword">ratios</span>
+<span class="token keyword">raze</span>
+<span class="token keyword">read0</span>
+<span class="token keyword">read1</span>
+<span class="token keyword">reciprocal</span>
+<span class="token keyword">reval</span>
+<span class="token keyword">reverse</span>
+<span class="token keyword">rload</span>
+<span class="token keyword">rotate</span>
+<span class="token keyword">rsave</span>
+<span class="token keyword">rtrim</span>
+<span class="token keyword">save</span>
+<span class="token keyword">scan</span>
+<span class="token keyword">scov</span>
+<span class="token keyword">sdev</span>
+<span class="token keyword">select</span>
+<span class="token keyword">set</span>
+<span class="token keyword">setenv</span>
+<span class="token keyword">show</span>
+<span class="token keyword">signum</span>
+<span class="token keyword">sin</span>
+<span class="token keyword">sqrt</span>
+<span class="token keyword">ss</span>
+<span class="token keyword">ssr</span>
+<span class="token keyword">string</span>
+<span class="token keyword">sublist</span>
+<span class="token keyword">sum</span>
+<span class="token keyword">sums</span>
+<span class="token keyword">sv</span>
+<span class="token keyword">svar</span>
+<span class="token keyword">system</span>
+<span class="token keyword">tables</span>
+<span class="token keyword">tan</span>
+<span class="token keyword">til</span>
+<span class="token keyword">trim</span>
+<span class="token keyword">txf</span>
+<span class="token keyword">type</span>
+<span class="token keyword">uj</span>
+<span class="token keyword">ungroup</span>
+<span class="token keyword">union</span>
+<span class="token keyword">update</span>
+<span class="token keyword">upper</span>
+<span class="token keyword">upsert</span>
+<span class="token keyword">value</span>
+<span class="token keyword">var</span>
+<span class="token keyword">view</span>
+<span class="token keyword">views</span>
+<span class="token keyword">vs</span>
+<span class="token keyword">wavg</span>
+<span class="token keyword">where</span>
+<span class="token keyword">while</span>
+<span class="token keyword">within</span>
+<span class="token keyword">wj</span>
+<span class="token keyword">wj1</span>
+<span class="token keyword">wsum</span>
+<span class="token keyword">ww</span>
+<span class="token keyword">xasc</span>
+<span class="token keyword">xbar</span>
+<span class="token keyword">xcol</span>
+<span class="token keyword">xcols</span>
+<span class="token keyword">xdesc</span>
+<span class="token keyword">xexp</span>
+<span class="token keyword">xgroup</span>
+<span class="token keyword">xkey</span>
+<span class="token keyword">xlog</span>
+<span class="token keyword">xprev</span>
+<span class="token keyword">xrank</span>
+
+----------------------------------------------------

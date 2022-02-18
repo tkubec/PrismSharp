@@ -1,0 +1,157 @@
+{|
+|Orange
+|Apple
+|-
+|Bread
+|Pie
+|-
+|Butter
+|Ice cream
+|}
+
+{|
+|Lorem ipsum dolor sit amet,
+consetetur sadipscing elitr,
+sed diam nonumy eirmod tempor invidunt
+ut labore et dolore magna aliquyam erat,
+sed diam voluptua.
+
+At vero eos et accusam et justo duo dolores
+et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum
+dolor sit amet.
+|
+* Lorem ipsum dolor sit amet
+* consetetur sadipscing elitr
+* sed diam nonumy eirmod tempor invidunt
+|}
+
+{|
+|  Orange    ||   Apple   ||   more
+|-
+|   Bread    ||   Pie     ||   more
+|-
+|   Butter   || Ice cream ||  and more
+|}
+
+{|
+! style="text-align:left;"| Item
+! Amount
+! Cost
+|-
+|Orange
+|10
+|7.00
+|-
+|Bread
+|4
+|3.00
+|-
+|Butter
+|1
+|5.00
+|-
+!Total
+|
+|15.00
+|}
+
+{|
+! style="text-align:left;"| Item !! style="color:red;"| Amount !! Cost
+|-
+|Orange
+|10
+|7.00
+|-
+| style="text-align:right;"| Bread
+|4
+|3.00
+|-
+|Butter
+|1
+|5.00
+|-
+!Total
+|
+|15.00
+|}
+----------------------------------------------------
+<span class="token punctuation">{|</span>
+<span class="token punctuation">|</span>Orange
+<span class="token punctuation">|</span>Apple
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>Bread
+<span class="token punctuation">|</span>Pie
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>Butter
+<span class="token punctuation">|</span>Ice cream
+<span class="token punctuation">|}</span>
+
+<span class="token punctuation">{|</span>
+<span class="token punctuation">|</span>Lorem ipsum dolor sit amet,
+consetetur sadipscing elitr,
+sed diam nonumy eirmod tempor invidunt
+ut labore et dolore magna aliquyam erat,
+sed diam voluptua.
+
+At vero eos et accusam et justo duo dolores
+et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum
+dolor sit amet.
+<span class="token punctuation">|</span>
+<span class="token punctuation">*</span> Lorem ipsum dolor sit amet
+<span class="token punctuation">*</span> consetetur sadipscing elitr
+<span class="token punctuation">*</span> sed diam nonumy eirmod tempor invidunt
+<span class="token punctuation">|}</span>
+
+<span class="token punctuation">{|</span>
+<span class="token punctuation">|</span>  Orange    <span class="token punctuation">||</span>   Apple   <span class="token punctuation">||</span>   more
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>   Bread    <span class="token punctuation">||</span>   Pie     <span class="token punctuation">||</span>   more
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>   Butter   <span class="token punctuation">||</span> Ice cream <span class="token punctuation">||</span>  and more
+<span class="token punctuation">|}</span>
+
+<span class="token punctuation">{|</span>
+<span class="token punctuation">!</span><span class="token table-tag"> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token table-bar punctuation">|</span></span> Item
+<span class="token punctuation">!</span> Amount
+<span class="token punctuation">!</span> Cost
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>Orange
+<span class="token punctuation">|</span>10
+<span class="token punctuation">|</span>7.00
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>Bread
+<span class="token punctuation">|</span>4
+<span class="token punctuation">|</span>3.00
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>Butter
+<span class="token punctuation">|</span>1
+<span class="token punctuation">|</span>5.00
+<span class="token punctuation">|-</span>
+<span class="token punctuation">!</span>Total
+<span class="token punctuation">|</span>
+<span class="token punctuation">|</span>15.00
+<span class="token punctuation">|}</span>
+
+<span class="token punctuation">{|</span>
+<span class="token punctuation">!</span><span class="token table-tag"> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token table-bar punctuation">|</span></span> Item <span class="token punctuation">!!</span><span class="token table-tag"> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">color</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token table-bar punctuation">|</span></span> Amount <span class="token punctuation">!!</span> Cost
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>Orange
+<span class="token punctuation">|</span>10
+<span class="token punctuation">|</span>7.00
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span><span class="token table-tag"> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span>right<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token table-bar punctuation">|</span></span> Bread
+<span class="token punctuation">|</span>4
+<span class="token punctuation">|</span>3.00
+<span class="token punctuation">|-</span>
+<span class="token punctuation">|</span>Butter
+<span class="token punctuation">|</span>1
+<span class="token punctuation">|</span>5.00
+<span class="token punctuation">|-</span>
+<span class="token punctuation">!</span>Total
+<span class="token punctuation">|</span>
+<span class="token punctuation">|</span>15.00
+<span class="token punctuation">|}</span>
+
+----------------------------------------------------

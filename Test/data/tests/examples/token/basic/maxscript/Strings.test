@@ -1,0 +1,187 @@
+-- Source: https://help.autodesk.com/view/MAXDEV/2022/ENU/?guid=GUID-5E5E1A71-24E2-4605-9720-2178B941DECC
+
+plugin RenderEffect MonoChrome
+name:"MonoChrome"
+classID:#(0x9e6e9e77, 0xbe815df4)
+(
+rollout about_rollout "About..."
+(
+  label about_label "MonoChrome Filter"
+)
+on apply r_image progressCB: do
+(
+  progressCB.setTitle "MonoChrome Effect"
+  local oldEscapeEnable = escapeEnable
+  escapeEnable = false
+  bmp_w = r_image.width
+  bmp_h = r_image.height
+  for y = 0 to bmp_h-1 do
+  (
+    if progressCB.progress y (bmp_h-1) then exit
+    pixel_line = getPixels r_image [0,y] bmp_w
+    for x = 1 to bmp_w do
+    (
+      p_v = pixel_line[x].value
+      pixel_line[x] = color p_v p_v p_v pixel_line[x].alpha
+    )--end x loop
+    setPixels r_image [0,y] pixel_line
+  )--end y loop
+  escapeEnable = oldEscapeEnable
+)--end on apply
+)--end plugin
+----------------------------------------------------
+[
+	["comment", "-- Source: https://help.autodesk.com/view/MAXDEV/2022/ENU/?guid=GUID-5E5E1A71-24E2-4605-9720-2178B941DECC"],
+
+	["keyword", "plugin"],
+	" RenderEffect MonoChrome\n",
+
+	["argument", "name"],
+	["punctuation", ":"],
+	["string", "\"MonoChrome\""],
+
+	["argument", "classID"],
+	["punctuation", ":"],
+	["punctuation", "#"],
+	["punctuation", "("],
+	["number", "0x9e6e9e77"],
+	["punctuation", ","],
+	["number", "0xbe815df4"],
+	["punctuation", ")"],
+
+	["punctuation", "("],
+
+	["keyword", "rollout"],
+	" about_rollout ",
+	["string", "\"About...\""],
+
+	["punctuation", "("],
+
+	["function-call", "label"],
+	" about_label ",
+	["string", "\"MonoChrome Filter\""],
+
+	["punctuation", ")"],
+
+	["keyword", "on"],
+	" apply r_image ",
+	["argument", "progressCB"],
+	["punctuation", ":"],
+	["keyword", "do"],
+
+	["punctuation", "("],
+
+	"\n  progressCB",
+	["punctuation", "."],
+	"setTitle ",
+	["string", "\"MonoChrome Effect\""],
+
+	["keyword", "local"],
+	" oldEscapeEnable ",
+	["operator", "="],
+	" escapeEnable\n  escapeEnable ",
+	["operator", "="],
+	["boolean", "false"],
+
+	"\n  bmp_w ",
+	["operator", "="],
+	" r_image",
+	["punctuation", "."],
+	"width\n  bmp_h ",
+	["operator", "="],
+	" r_image",
+	["punctuation", "."],
+	"height\n  ",
+
+	["keyword", "for"],
+	" y ",
+	["operator", "="],
+	["number", "0"],
+	["keyword", "to"],
+	["function-call", "bmp_h"],
+	["operator", "-"],
+	["number", "1"],
+	["keyword", "do"],
+
+	["punctuation", "("],
+
+	["keyword", "if"],
+	" progressCB",
+	["punctuation", "."],
+	"progress y ",
+	["punctuation", "("],
+	["function-call", "bmp_h"],
+	["operator", "-"],
+	["number", "1"],
+	["punctuation", ")"],
+	["keyword", "then"],
+	["keyword", "exit"],
+
+	"\n    pixel_line ",
+	["operator", "="],
+	["function-call", "getPixels"],
+	" r_image ",
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", ","],
+	"y",
+	["punctuation", "]"],
+	" bmp_w\n    ",
+
+	["keyword", "for"],
+	" x ",
+	["operator", "="],
+	["number", "1"],
+	["keyword", "to"],
+	" bmp_w ",
+	["keyword", "do"],
+
+	["punctuation", "("],
+
+	"\n      p_v ",
+	["operator", "="],
+	" pixel_line",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "."],
+	"value\n      pixel_line",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["operator", "="],
+	["function-call", "color"],
+	" p_v p_v p_v pixel_line",
+	["punctuation", "["],
+	"x",
+	["punctuation", "]"],
+	["punctuation", "."],
+	"alpha\n    ",
+
+	["punctuation", ")"],
+	["comment", "--end x loop"],
+
+	["function-call", "setPixels"],
+	" r_image ",
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", ","],
+	"y",
+	["punctuation", "]"],
+	" pixel_line\n  ",
+
+	["punctuation", ")"],
+	["comment", "--end y loop"],
+
+	"\n  escapeEnable ",
+	["operator", "="],
+	" oldEscapeEnable\n",
+
+	["punctuation", ")"],
+	["comment", "--end on apply"],
+
+	["punctuation", ")"],
+	["comment", "--end plugin"]
+]
+
+----------------------------------------------------

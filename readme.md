@@ -11,7 +11,7 @@ PrismSharp is a syntax highlighting library based on an excellent javascript lib
 
 - **HTML Highlighter** - a highlighter creating output in html format (HTML `span`s or a single `pre` block). A PrismJS CSS theme must be included in the html document to render the output correctly
 
-- **RTF Highlighter** - a highlighter creating output in RTF format. Can be used in GUI components like RichBox. See [Implementing code editor](ahttps://github.com/tkubec/PrismSharp/wiki/Implementing-code-editor)
+- **RTF Highlighter** - a highlighter creating output in RTF format. Can be used in GUI components like RichBox. See [Implementing code editor](https://github.com/tkubec/PrismSharp/wiki/Implementing-code-editor)
 
 The tokenizer and the highlighters support tokenizing (highlighting) of the entire code or just a range of it, when high performance is needed.
 

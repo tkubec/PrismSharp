@@ -20,11 +20,15 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>PrismSharp is a syntax highlighting library based on an excellent javascript library PrismJS, fully written in C#. It currently supports over 270 programming languages and has 44 built-in visual themes, also supporting custom themes.
 
-Out of the box, it supports HTML and RTF output, but any output format can be easily implemented.
+Out of the box, it supports HTML and RTF output, but any output format can be easily implemented with the AbstractHighlighter base class
 </Description>
-    <Copyright>© 2022 Tomas Kubec</Copyright>
-    <PackageTags>syntax highlighting; syntax highlighter; tokenizer</PackageTags>
-    <PackageReleaseNotes>prerelease</PackageReleaseNotes>
+    <Copyright>Copyright © 2022 Tomas Kubec</Copyright>
+    <PackageTags>syntax highlighting highlighter tokenizer</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <Version>1.0.0-beta</Version>
+    <PackageProjectUrl>https://github.com/tkubec/PrismSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tkubec/PrismSharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -50,7 +54,7 @@ Out of the box, it supports HTML and RTF output, but any output format can be ea
 </ItemGroup>
 
   <ItemGroup>
-    <None Update="data\languages\abap.json" >
+    <None Update="data\languages\abap.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="data\languages\abnf.json">

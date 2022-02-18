@@ -46,4 +46,4 @@ The tokenizer and the highlighters support tokenizing (highlighting) of the enti
 ```
 # Installation
 
-The library is available via Nuget
+The library is available via Nuget: https://www.nuget.org/packages/PrismSharp

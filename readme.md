@@ -7,7 +7,7 @@ PrismSharp is a syntax highlighting library based on an excellent javascript lib
 
 - **Tokenizer** - engine converting a source code to a tree of tokens - pairs of code fragments and their meanings, e.g. `foreach - keyword`
 
-- **Abstract Highlighter** - an abstract base class making it easy to [implement a custom highlighter](/tkubec/PrismSharp/wiki/Implementing-custom-highlighter#implementing-custom-highlighter) creating virtually any output format
+- **Abstract Highlighter** - an abstract base class making it easy to [implement a custom highlighter](https://github.com/tkubec/PrismSharp/wiki/Implementing-custom-highlighter#implementing-custom-highlighter) creating virtually any output format
 
 - **HTML Highlighter** - a highlighter creating output in html format (HTML `span`s or a single `pre` block). A PrismJS CSS theme must be included in the html document to render the output correctly
 
